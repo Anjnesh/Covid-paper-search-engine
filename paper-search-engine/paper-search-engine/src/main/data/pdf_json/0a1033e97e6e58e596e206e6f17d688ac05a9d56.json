@@ -1,0 +1,2062 @@
+{
+    "paper_id": "0a1033e97e6e58e596e206e6f17d688ac05a9d56",
+    "metadata": {
+        "title": "Modelling potentially suitable lac cultivation zones of Butea monosperma to promote livelihood security in rural India",
+        "authors": [
+            {
+                "first": "Sharad",
+                "middle": [],
+                "last": "Tiwari",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "\u00b7",
+                "middle": [],
+                "last": "Brojo",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Gopal",
+                "middle": [],
+                "last": "Ghosh",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "\u00b7",
+                "middle": [
+                    "S N"
+                ],
+                "last": "Vaidya",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "\u00b7",
+                "middle": [],
+                "last": "Sk",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Mujibar",
+                "middle": [],
+                "last": "Rahaman",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Masjuda",
+                "middle": [],
+                "last": "Khatun",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Sanjoy",
+                "middle": [],
+                "last": "Garai",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "\u00b7",
+                "middle": [
+                    "Purabi"
+                ],
+                "last": "Saikia",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "\u00b7",
+                "middle": [
+                    "Amit"
+                ],
+                "last": "Kumar",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "The present paper highlights the importance of lac cultivation through Butea monosperma. We have modelled the suitable habitat of major lac host B. monosperma using MAXENT for the current and future climatic scenarios (RCPs 2.6, 4.5, 6.0 and 8.5). The study suggested the dominance of suitable habitats of B. monosperma in central-eastern to eastern and southern parts of the country. Temperature seasonality (Bio_4) was the most significant bioclimatic variable in regulating the distribution of B. monosperma followed by elevation and annual precipitation (Bio_13). The projection for the year 2050 suggested the habitat shift towards the eastern and southern parts. The study indicated the major habitat of B. monosperma continued to exist in the Chotanagpur plateau in eastern India. The model predicted approximately a 9-13% decrease in the overall potential habitat of B. monosperma by 2050, and the distribution of species would be nearly extinct from the northern and western parts. Presently, only the 5% lac host trees are being utilised for lac cultivation, and the study suggested that conservation and promotion of B. monosperma on projected suitable habitats and even by utilising 25% of resources, the lac production may jump manifold catering to global demand, rural economy and employment and shall contribute towards 'Self Reliant India'.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Forests provide a wide range of ecosystem goods and services to the inhabitants (Gosain et al. 2015) . The changing climatic conditions have adversely impacted the forest ecosystems through altered habitat distribution of plant species (Walther et al. 2002) , reduced productivity, changes in species composition, and plant diversity (Morin et al. 2018) . Forest ecosystems occupy a substantial part (31%) of the Earth's land surface (FAO and UNEP 2020) , while tropical forests cover merely 7% of the Earth's land surface and harbour more than half of the world's species (Wilson 1988) . These tropical forests are highly threatened by human activities (Htun et al. 2011 ) and forest clearing would remove 85% of the species inhabited in it (Baboo et al. 2017; Jhariya et al. 2012; Kittur et al. 2014) . Tropical forest observed continuous loss of more than one higher plant species per day (Myers 1990 ) through the disappearance of 20 ha forests and destruction of more than 1800 populations per hour (Hughes et al. 1997 ). The rate of species loss is 3-8 times higher than the rate of species extinction due to natural and biotic disturbances as well as habitat alterations (Bargali et al. 1992 (Bargali et al. , 1993 Costanza et al. 1997; Karki et al. 2017) . Besides, poverty, population pressure, agricultural expansion and intensification, and the development of infrastructure are the major threats to biodiversity in the tropics (Davidar et al. 2010 ; Bargali et al. 2019) .",
+            "cite_spans": [
+                {
+                    "start": 80,
+                    "end": 100,
+                    "text": "(Gosain et al. 2015)",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 236,
+                    "end": 257,
+                    "text": "(Walther et al. 2002)",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 334,
+                    "end": 353,
+                    "text": "(Morin et al. 2018)",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 434,
+                    "end": 453,
+                    "text": "(FAO and UNEP 2020)",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 573,
+                    "end": 586,
+                    "text": "(Wilson 1988)",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 654,
+                    "end": 671,
+                    "text": "(Htun et al. 2011",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 742,
+                    "end": 761,
+                    "text": "(Baboo et al. 2017;",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 762,
+                    "end": 782,
+                    "text": "Jhariya et al. 2012;",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 783,
+                    "end": 802,
+                    "text": "Kittur et al. 2014)",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 892,
+                    "end": 903,
+                    "text": "(Myers 1990",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 1004,
+                    "end": 1023,
+                    "text": "(Hughes et al. 1997",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 1178,
+                    "end": 1198,
+                    "text": "(Bargali et al. 1992",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 1199,
+                    "end": 1221,
+                    "text": "(Bargali et al. , 1993",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 1222,
+                    "end": 1243,
+                    "text": "Costanza et al. 1997;",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 1244,
+                    "end": 1262,
+                    "text": "Karki et al. 2017)",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 1439,
+                    "end": 1459,
+                    "text": "(Davidar et al. 2010",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 1462,
+                    "end": 1482,
+                    "text": "Bargali et al. 2019)",
+                    "ref_id": "BIBREF3"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Butea. monosperma (Lam.) Taub. belonging to the family Fabaceae is one of the important dry deciduous indigenous tree species (Patel et al. 2017) facing stress due to climate change and anthropogenic disturbances. The dramatic loss of major native tree species including B. monosperma from Aravallis in the last two-three decades was also reported by the earlier researchers (Shahabuddin 2020) . On the contrary, the species having an excellent coppicing potential, rich foliage, and resistance to several insect pests made it an ideal lac host (yield ~ 40 kg lac per tree) thereby, helps in promoting the rural economy (Lalji et al. 2008) . It mostly occurs in the wasteland and on agriculture bunds particularly in paddy fields (Jaiswal and Singh 2015) . The species has also been widely used in Ayurveda for a variety of ailments (Deogade 2016) . The tree is known for multipurpose uses including dye, fodder, leaves for platter but most importantly as one of the major hosts for producing lac resins (WOI 1988) . Lac is a natural resin of great economic significance used in paints and polishes, printing, fruit coating, pharmaceuticals, cosmetics, and many similar applications (Sharma 2013) . (Ghosal 2013) , secreted mostly by the lac insect, Kerria lacca (Kerr), which flourishes on the soft branches of lac host trees. Lac cultivation also strengthens the plant-insect interactions (Shah 2016) and presently, hardly 5% of lac hosts are being deployed for lac cultivation (IINRG 2018). B. monosperma is one of the potential lac hosts, but lac production using this host is not optimized due to the lack of awareness, fund, and scientific approach (Das and Kumar 2013) . On the other hand, the species is being highly exploited for fuelwood and other household uses. These factors combined with urbanisation have led to a decline in the existing population of B. monosperma.",
+            "cite_spans": [
+                {
+                    "start": 18,
+                    "end": 24,
+                    "text": "(Lam.)",
+                    "ref_id": null
+                },
+                {
+                    "start": 126,
+                    "end": 145,
+                    "text": "(Patel et al. 2017)",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 375,
+                    "end": 393,
+                    "text": "(Shahabuddin 2020)",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 620,
+                    "end": 639,
+                    "text": "(Lalji et al. 2008)",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 730,
+                    "end": 754,
+                    "text": "(Jaiswal and Singh 2015)",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 833,
+                    "end": 847,
+                    "text": "(Deogade 2016)",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 1004,
+                    "end": 1014,
+                    "text": "(WOI 1988)",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 1183,
+                    "end": 1196,
+                    "text": "(Sharma 2013)",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 1199,
+                    "end": 1212,
+                    "text": "(Ghosal 2013)",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 1391,
+                    "end": 1402,
+                    "text": "(Shah 2016)",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 1655,
+                    "end": 1675,
+                    "text": "(Das and Kumar 2013)",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The identification of the best suitable habitat for the B. monosperma is a very important parameter because the species thrives well in suitable habitat and provides the optimum yield (Ghosal 2013) . Therefore, it is important to identify the most probable suitable distribution zones of B. monosperma under the present as well as future climate change scenarios for its conservation in order to commercially explore this commodity to derive benefits in a sustained manner. The habitat suitability model or species distribution model provides an excellent approach to identify the most suitable habitats of species under climate change scenarios. In the present study, the most probable suitable distribution zone of B. monosperma was modelled under the changing climatic scenarios using species distribution model tool viz., Maximum Entropy (Maxent). The model uses species occurrence data and various bioclimatic and environmental variables including temperature, precipitation, soil, hillshade, aspect, elevation, etc., to identify the most probable distribution of the species. Over the years, Maxent software has emerged as one of the most promising and authentic tools to study the habitat suitability of various categories of tree species globally including dry deciduous species (Chitale and Behera 2012; Deb et al. 2017; Kumar et al. 2020; Torlap and Lamthai 2019) . Therefore, the present study was persuaded with the objective to identify the most suitable habitat of B. monosperma for chalking out strategies for its conservation and promotion of lac cultivation and socio-economic amelioration.",
+            "cite_spans": [
+                {
+                    "start": 184,
+                    "end": 197,
+                    "text": "(Ghosal 2013)",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 1287,
+                    "end": 1312,
+                    "text": "(Chitale and Behera 2012;",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 1313,
+                    "end": 1329,
+                    "text": "Deb et al. 2017;",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 1330,
+                    "end": 1348,
+                    "text": "Kumar et al. 2020;",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 1349,
+                    "end": 1373,
+                    "text": "Torlap and Lamthai 2019)",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "In the present study, 216 occurrence points of B. monosperma, including 184 points downloaded from the Global Biodiversity Information Facility (GBIF; https:// www. gbif. org/ occur rence) and 32 geographical coordinates collected through field survey were used for modelling the most probable habitat suitability. The field data were collected through a field survey in the state of Jharkhand in order to get a better representation of the geographical distribution of B. monosperma.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Occurrence data"
+        },
+        {
+            "text": "Bioclimatic variable layers, including Bio 1 to Bio 19 at a spatial resolution of 30 arc seconds (~ 1 \u00d7 1 km) resolution (Fick and Hijmans 2017) were acquired from the Worldclim site (www. world clim. org), and converted to ASCII format. Aspect and slope layers were derived from the Shuttle Radar Topography Mission (SRTM) digital elevation model (DEM) with a spatial resolution of 90 m, which was downloaded from USGS (https:// earth explo rer. usgs. gov). The soil layer for the study area was prepared using the Food and Agriculture Organisation (FAO) soil maps, acquired from the FAO site (http:// www. fao. org/ geone twork/ srv). All the data layers were resampled to a uniform extent and were converted into ASCII file format for modelling. Different climate layers for the year 2050, representing different Representative Concentration Pathways (RCP) scenarios i.e. RCP 2.6, RCP 4.5, RCP 6.0, and RCP 8.5 in ASCII grid format at 30-s resolution (Navarro-Racines et al. 2020) were acquired from Climate Change, Agriculture and Food Security data portal (www. ccafs-clima te. org). We used the IPSL-CM5A-LR model, to assess the impact of climatic on the distribution of B. monosperma in the present study.",
+            "cite_spans": [
+                {
+                    "start": 121,
+                    "end": 144,
+                    "text": "(Fick and Hijmans 2017)",
+                    "ref_id": "BIBREF11"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Environmental variables"
+        },
+        {
+            "text": "The potential habitat area of B. monosperma was modelled using Maxent 3.4.1 (Philips et al. 2020) . The occurrence file representing 216 occurrence points in.csv format, along with environmental data layers in ASCII format was used. The background point parameter was set at 10,000 with 10 replicates, the Jackknife test option was selected to deduce predictor variable significance, the random test percentage was set to 30 per cent and the output option was set as 'cumulative'. Maxent assesses model performance through Area under the Receiver Operating Characteristic (ROC) Curve (AUC) calculated using test data.",
+            "cite_spans": [
+                {
+                    "start": 76,
+                    "end": 97,
+                    "text": "(Philips et al. 2020)",
+                    "ref_id": "BIBREF33"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Model training and evaluation"
+        },
+        {
+            "text": "The Maxent has a limitation in that it does not provide classified information rather it simply provides suitable or unsuitable zones. The model estimates the values falling in the range < 0.5 as not significant and the values above 0.5-1 as a significant reflection of the most probable area for occurrence or suitability of the species. In the present work, we categorized the area suitability based on AUC value that provides a suitability zone for the values ranging from 0 to 1 viz., low suitable area (AUC < 0.4), moderate suitable area (AUC 0.41 to 0.6), and highly suitable area (AUC > 0.6).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Defining suitable zone class"
+        },
+        {
+            "text": "The data related to production and export of lac was col- ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data on production and export of lac"
+        },
+        {
+            "text": "The species distribution of B. monosperma was modelled for the present (2020) as well as for the future climatic conditions (2050) (Fig. 1) . The model considers AUC values above 0.5 and above as suitable conditions. The AUC values achieved in the present study under different conditions show AUC value > 0.799, predicting good model accuracy.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 131,
+                    "end": 139,
+                    "text": "(Fig. 1)",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Model performance and evaluation"
+        },
+        {
+            "text": "Jackknife test analyses the significant predictor variable contribution in model fitting and enables the evaluation of each and every variable contribution based on the gain in the model with their inclusion (Fig. 2a-e) . The results show Bio_3 and elevation contributing consistently for the present as well as the projected climatic conditions for the year 2050 across all RCPs.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 208,
+                    "end": 219,
+                    "text": "(Fig. 2a-e)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Model performance and evaluation"
+        },
+        {
+            "text": "The most probable distribution of B. monosperma for the year 2020 and 2050 under different RCP scenarios exhibited the dominance of the probable presence of B. monosperma in central-eastern, south-western, and southern parts of India with sparse distribution in the western and north-western parts ( Fig. 3a-e) . The projection for future distribution exhibited a 9-13% decrease in potential distribution under RCP 2.6 and RCP 8.5 in 2050. In contrast, the results exhibited a projected increase of ~ 9% in potential distribution under RCP 6.0 by 2050 and under RCP 4.5, the potential distribution shall remain approximately the same as per the current status. The distribution pattern exhibited an eastwards shift of habitat confined to Jharkhand and its adjoining areas and towards far southward. The present study projected an increase in potential distribution areas in eastern parts (primarily in Jharkhand) under all RCPs and in western parts (primarily in Maharashtra) under all RCPs barring RCP 8.5. The remaining parts of India exhibited variable patterns of distribution with episodicity under different RCPs (Fig. 4) . The study predicted that currently, about 144,822.98 km 2 area (4.40% of India) falls under the suitable habitat of B. monosperma which may reduce to 125,500.2 km 2 (3.81%) by 2050.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 300,
+                    "end": 310,
+                    "text": "Fig. 3a-e)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1119,
+                    "end": 1127,
+                    "text": "(Fig. 4)",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Present and future distribution of B. monosperma"
+        },
+        {
+            "text": "Lac is a highly profitable crop with excellent economic returns that provides an opportunity for rural employment. The extent of benefit from lac cultivation depends upon holdings of host trees including B. monosperma, S. oleosa, and Z. mauritiana close to the agricultural land and in the vicinity of villages. The employment and income generation from lac cultivation on different lac hosts is based on the investment made for the first year only that includes the cost of broodlac (bought by the cultivators for the inoculation). Second-year onwards cultivator gets it from its own crop that minimises the investment cost and thus the ratio of return increases second year onwards. Based on the first-year as well as second-year return, the maximum return earned by lac hosts S. oleosa (year 1: 376%; year 2 and onwards: 524% with 157 man-days annually job opportunity), followed by B. monospemra (year 1: 172%; year 2 and onwards: 400%, with 80 man-days annually job opportunity), and Z. mauritiana (year 1: 163%; year 2 and onwards: 302%, with 192 man-days annually job opportunity) (Kumar 2002) .",
+            "cite_spans": [
+                {
+                    "start": 1088,
+                    "end": 1100,
+                    "text": "(Kumar 2002)",
+                    "ref_id": "BIBREF23"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Economics of Lac cultivation, employment generation, and production of Lac and its export"
+        },
+        {
+            "text": "In India, lac cultivation provides an important alternate source of income generation for livelihood support to the rural tribal population of the eastern region including the states of Jharkhand, Chhattisgarh, Odisha, Bihar, and West Bengal; Maharashtra and Gujarat in the western region; Andhra Pradesh in the south, parts of Uttar Pradesh and north-east Himalayan region.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Economics of Lac cultivation, employment generation, and production of Lac and its export"
+        },
+        {
+            "text": "The production and export statistics of lac indicate an increased price of lac in the international market, earning from export has increased over the years through the production of lac is on the decline, which is a matter of major concern (Fig. 5b, c) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 241,
+                    "end": 253,
+                    "text": "(Fig. 5b, c)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Economics of Lac cultivation, employment generation, and production of Lac and its export"
+        },
+        {
+            "text": "The study revealed that the distribution of B. monosperma is most prominent in the eastern, and south-western parts primarily along the western ghats under the current climatic scenario (2020). In the western region, few distribution areas are projected across, north-west and south-west parts, whereas, in the north, distribution is projected in the parts of Punjab. The projection of B. monosperma in the northwestern parts of India is in consonance with the reported distribution of B. monosperma as community plants along with other forestry tree species (Mahajan and Kale 2006) . The projected distribution by 2050 under different RCPs indicated a shrinkage in the habitat range of B. monosperma primarily confined to the Chotanagpur plateau and its adjoining parts in the eastern region. The broader picture of 2050 under different RCPs suggested a reduction in the overall habitat range with eastward and southward shifts of habitat. Our results are in conformity with the predicted decline in the habitat range of two major deciduous tree species Shorea robusta and Dipterocarpus turbinatus by 2070 (Deb et al. 2017) . Further, the predicted eastward shifting of the habitat of B. monosperma by 2050, is in sync with the predicted shifting pattern of S. robusta towards eastern and northeast regions by 2050 (Chitale and Behera 2012) . The future projection of distribution, in the eastern region indicates an overall increase in the distribution area in Jharkhand, Bihar, and West Bengal (WB) with Chhattisgarh (CG) and Odisha being the exception, where the model predicted a decrease 2018 -19. (*Data source: 2010 -11 to 2015 -17 to 2018 in the suitable area. The decline in suitable areas in CG is concerning, as currently, it is one of the major lac producing states in the country. The future distribution projections in western ghats exhibited a downward shifting of habitat towards the extreme southern parts. The results for the western and northern parts of India revealed a sharp decline in the distribution area. The country-wide distribution scenario indicated a significant decrease in the distribution of B. monosperma by 2050, from the northern and western parts of the country, and in contrast, it is projected to be increasing in some parts of southern and eastern India, particularly in the Chotanagpur plateau. B. monosperma is the largest source of subsidiary income for tribals accounting for 46.9% followed by S. oleosa 32.3%, and Z. mauritiana 20.8% (Jaiswal et al. 2006 ). In addition to promoting the traditional lac hosts including B. monosperma, the other alternate host Flemingia semialata may be used for lac production as it is a short rotation, bushy plant suitable for lac cultivation in combination with agriculture crops. It has become popular among farmers of Jharkhand, CG, and some parts of Madhya Pradesh (MP) due to ease of cultivation (Thomas 2013) .",
+            "cite_spans": [
+                {
+                    "start": 559,
+                    "end": 582,
+                    "text": "(Mahajan and Kale 2006)",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 1107,
+                    "end": 1124,
+                    "text": "(Deb et al. 2017)",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 1316,
+                    "end": 1341,
+                    "text": "(Chitale and Behera 2012)",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 1594,
+                    "end": 1598,
+                    "text": "2018",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 1599,
+                    "end": 1623,
+                    "text": "-19. (*Data source: 2010",
+                    "ref_id": null
+                },
+                {
+                    "start": 1624,
+                    "end": 1635,
+                    "text": "-11 to 2015",
+                    "ref_id": null
+                },
+                {
+                    "start": 1636,
+                    "end": 1647,
+                    "text": "-17 to 2018",
+                    "ref_id": null
+                },
+                {
+                    "start": 2481,
+                    "end": 2501,
+                    "text": "(Jaiswal et al. 2006",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 2883,
+                    "end": 2896,
+                    "text": "(Thomas 2013)",
+                    "ref_id": "BIBREF38"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Distribution of B. monosperma"
+        },
+        {
+            "text": "Bio_4 (temperature seasonality) is the most significant contributor followed by elevation and Bio_13 (annual precipitation). The Jackknife test results for variable significance on model fitting for the year 2050 exhibited that Bio_4 along with elevation was the major factor in determining the distribution of B. monosperma, across all RCPs. Bio_3 (isothermality) was the next major factor determining the distribution of B. monosperma under RCP 4.5, RCP 6.0, and RCP 8.5. The analysis revealed that elevation ranges up to 1000 m in combination with above mentioned bioclimatic variables provide suitable habitat for B. monosperma growth, which is in agreement with the outcome that B. monosperma is widely distributed in India up to 1200 m in altitude (Vashishtha et al. 2013) .",
+            "cite_spans": [
+                {
+                    "start": 754,
+                    "end": 778,
+                    "text": "(Vashishtha et al. 2013)",
+                    "ref_id": "BIBREF40"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Distribution of B. monosperma"
+        },
+        {
+            "text": "The present study was an attempt to model the most suitable habitat of B. monosperma using Maxent. The caveat of the study lies with the use of moderate resolution satellite datasets i.e., MODIS (moderate resolution imaging spectroradiometer) based bioclimatic layers, and thus the projected suitable areas may be overestimated. The ensemble modelling approach, where habitats are modelled using different habitat models and the average outcome of these tools are considered for deriving suitable habitats may be a better approach.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Distribution of B. monosperma"
+        },
+        {
+            "text": "Lac cultivation is one of the major livelihood options of millions of tribals especially in the eastern region of the country. But due to climate change, overexploitation of forest resources, lack of scientific approach for cultivation, absence of an organised and sustained marketing mechanism, the production of this important commodity is on the decline. Varying climatic conditions and seasonality, particularly the post-winter season adversely affect lac production (Mohanasundaram et al. 2014) . The major lac host plants including B. monosperma, S. Oleosa, and Z. mauritiana are distributed across natural forests, roadside, close to agricultural land, and around villages in the Chotanagpur plateau comprising Jharkhand and its adjoining states. But most of these resources are lying underutilised due to lack of awareness and only 5% of host plants of S. Oleosa and Z. mauritiana are being utilised for producing Kusmi strain of lac. While only 1% of plants of B. monosperma are being utilised for lac cultivation (Das and Kumar 2013) . Another study revealed that ~ 144,800 trees of B. monosperma, 691 trees of S. oleosa, and about 2720 trees of Z. mauritiana were distributed in the vicinity of 10 villages in Ranchi district but only 1.5-2% trees of these available resources were utilised for lac inoculation (Das and Kumar 2013) . The lac cultivation on 50 individuals of B. monosperma provides about 34.2 man-days of employment (Pal 2009 ). While an integrated approach of lac cultivation over 100 hosts of B. monosperma and Z. mauritiana each and 40 hosts of S. oleosa provides 429 man-days of job opportunity (Kumar 2002) . The involvement of villagers in lac cultivation in addition to agriculture shall provide a year-long job opportunity as well as ensure livelihood security. A majority of the marginal population primarily from CG, Jharkhand, Bihar, Odisha, and eastern Uttar Pradesh migrates to metro cities to fulfil their sustenance needs during the lean period and in 2020, COVID-19 induced scenario has severely affected the livelihood security of most of these labourers. A wellestablished lac cultivation network may provide a yearlong job involvement that can cater to the needs of livelihood requirements of the marginal population in the vicinity of their home and shall also restrict large-scale migration of the marginal population.",
+            "cite_spans": [
+                {
+                    "start": 471,
+                    "end": 499,
+                    "text": "(Mohanasundaram et al. 2014)",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 1023,
+                    "end": 1043,
+                    "text": "(Das and Kumar 2013)",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 1322,
+                    "end": 1342,
+                    "text": "(Das and Kumar 2013)",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 1443,
+                    "end": 1452,
+                    "text": "(Pal 2009",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 1626,
+                    "end": 1638,
+                    "text": "(Kumar 2002)",
+                    "ref_id": "BIBREF23"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Promotion of Lac cultivation: issues and challenges"
+        },
+        {
+            "text": "Presently, the total lac production is very less as compared to its global demand (Ghosal 2013) . The lac export value statistics suggested that with the present limited utilisation of resources (about 5%) the country is exporting about 6000 tons of lac annually amounting to 30-35 million US$. The huge availability of countrywide lac host resources and even a conservative approach suggest that the utilisation of 25% of resources would increase ~ 80,000 tons of the total lac production as well as increase 4-5 times export (~ 100-125 million US$). This will be a big leap to the rural economy and shall open avenues for rural employment. Lac cultivation is considered as one of the largest sources of income for the tribal communities ranging from INR 4 to 5 Lakh ha \u22121 of cultivation (Shah 2016) . Climate change, underutilisation of hosts, shortage of broodlac, scarcity of funds with small lac scale growers, fluctuating lac prices, lack of awareness, and skill are some of the major bottlenecks in lac production and cultivation. Efforts in terms of policy amendments, research, and development need to be initiated at the grass-root level to improve the productivity of lac. The identification and promotion of the best lac producing belts and most suitable hosts with optimum utilisation of resources are other important strategies. The conservation of existing lac hosts and future promotion shall be taken up to intensify the lac cultivation practices. B. monosperma is a deciduous, drought-tolerant, leguminous tree that can survive well in waste and degraded lands. Thus, plantation of this species in the wasteland, village community land, and promotion of community-based farming approach under various social forestry schemes may be adopted to maximize the lac cultivation. A well-organised awareness drive on the importance of lac cultivation along with outreach programs to extend scientific lac cultivation methods among rural farmers is required to promote lac cultivation. Further, the crops insurance policy may be introduced to protect the poor farmers' financial investment to in still much-needed confidence among poor farmers, to take up lac cultivation. The sector needs to adopt a well-planned approach to understand demand and supply mechanisms and proper networking of lac producers, processors, traders, and exporters to generate better rural employment, supporting livelihood security, and strengthening the rural economy.",
+            "cite_spans": [
+                {
+                    "start": 82,
+                    "end": 95,
+                    "text": "(Ghosal 2013)",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 789,
+                    "end": 800,
+                    "text": "(Shah 2016)",
+                    "ref_id": "BIBREF35"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Promotion of Lac cultivation: issues and challenges"
+        },
+        {
+            "text": "The present study exhibited that B. monosperma, has the most suitable habitats in the central-eastern, eastern and southern parts of India under the present climatic scenario. The future projection for the year 2050 exhibited a confined shift of suitable habitat in eastern and southern regions but a significant decrease in the western and northern parts of the country. The study exhibited high reduction (13.34%) in the suitable habitat of B. monosperma from 4.40% area under the present scenario to 3.81% in 2050. Presently, ~ 5% of the total existing lac hosts including B. monosperma are being utilised for lac cultivation. The lac production can be increased manifold that may significantly contribute to export revenue and strengthen the rural economy by utilising 25% of existing lac host resources. The study indicated that a well-established network of lac cultivation and related industries will enable a year-long job opportunity and provide an additional source of income for the villagers. The study provides a scientific basis to promote lac cultivation in projected suitable areas for achieving optimum production and quality of lac. A well-planned strategy, amicable changes in policy, economic protection to farmers, and an effective marketing mechanism can revive this sector that will contribute significantly to fulfill global demand of lac.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusions"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Tree species composition, regeneration and diversity of an Indian dry tropical forest protected area",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Baboo",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Sagar",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Bargali",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Verma",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Trop Ecol",
+            "volume": "58",
+            "issn": "2",
+            "pages": "409--423",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Seasonal pattern of total soil respiration in age series of eucalypt plantation and mixed broadleaved forest in tarai belt of Kumaun Himalaya",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Bargali",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Joshi",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Bargali",
+                    "suffix": ""
+                }
+            ],
+            "year": 1992,
+            "venue": "Oecologia Montana",
+            "volume": "2",
+            "issn": "",
+            "pages": "7--11",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Changes in soil characteristics in eucalypt plantations replacing natural broad leaved forests",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Bargali",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Singh",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Joshi",
+                    "suffix": ""
+                }
+            ],
+            "year": 1993,
+            "venue": "J Veg Sci",
+            "volume": "4",
+            "issn": "",
+            "pages": "25--28",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Effects of tree fostering on soil health and microbial biomass under different land use systems in central Himalaya",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Bargali",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Padalia",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Bargali",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Land Degrad Dev",
+            "volume": "30",
+            "issn": "16",
+            "pages": "1984--1998",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/ldr.3394"
+                ]
+            }
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Can the distribution of sal (Shorea robusta Gaertn. f.) shift in the northeastern direction in India due to changing climate?",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Chitale",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Behera",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Curr Sci",
+            "volume": "102",
+            "issn": "8",
+            "pages": "1126--1135",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "The value of the world's ecosystem services and natural capital",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Costanza",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Groot",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Farber",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Grasso",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Hannon",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Limburg",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Naeem",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Rv",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Paruelo",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Raskin",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Sutton",
+                    "suffix": ""
+                },
+                {
+                    "first": "Mvd",
+                    "middle": [],
+                    "last": "Belt",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "Nature",
+            "volume": "387",
+            "issn": "",
+            "pages": "253--260",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Lac cultivation and rural livelihood",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Das",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kumar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Prospects of scientific lac cultivation in India. IFP",
+            "volume": "",
+            "issn": "",
+            "pages": "217--231",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Assessing the extent and causes of forest degradation in India: Where do we stand?",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Davidar",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sahoo",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Mammen",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Acharya",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Puyravaud",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Arjunan",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Garrigues",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Roessingh",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Biol Cons",
+            "volume": "143",
+            "issn": "",
+            "pages": "2937--2944",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "The impact of climate change on the distribution of two threatened Dipterocarp trees",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Deb",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Phinn",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Butt",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Mcalpine",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Ecol Evol",
+            "volume": "7",
+            "issn": "7",
+            "pages": "2238--2248",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Literature review of Palash (Butea monosperma Lamk. Taub)",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Deogade",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Int Ayurvedic Med J",
+            "volume": "1",
+            "issn": "",
+            "pages": "101--106",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "The State of the World's forests 2020. Forests, biodiversity and people",
+            "authors": [
+                {
+                    "first": "Unep",
+                    "middle": [
+                        ";"
+                    ],
+                    "last": "Fao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Unep",
+                    "middle": [],
+                    "last": "Fao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Rome",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.4060/ca8642en"
+                ]
+            }
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "WorldClim 2: new 1km spatial resolution climate surfaces for global land areas",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Fick",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Hijmans",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Int J Climatol",
+            "volume": "37",
+            "issn": "12",
+            "pages": "4302--4315",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "GBIF occurrence download",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Gbif",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Org",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.15468/dl.raf479"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Management of host pants for lac cultivation",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ghosal",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Prospects of scientific lac cultivation in India. IFP",
+            "volume": "",
+            "issn": "",
+            "pages": "48--58",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Ecosystem services of forests: carbon stock in vegetation and soil components in a watershed of Kumaun Himalaya, India",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Gosain",
+                    "suffix": ""
+                },
+                {
+                    "first": "Gcs",
+                    "middle": [],
+                    "last": "Negi",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Dhyani",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Bargali",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Saxena",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Int J Ecol Environ Sci",
+            "volume": "41",
+            "issn": "",
+            "pages": "177--188",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Tree species composition and diversity at different levels of disturbance in Popa Mountain Park",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [
+                        "Z"
+                    ],
+                    "last": "Htun",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Mizoue",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Yoshida",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Biotropica",
+            "volume": "43",
+            "issn": "",
+            "pages": "597--603",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Population diversity: its extent and extinction",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Hughes",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Daily",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Ehrlich",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "Science",
+            "volume": "278",
+            "issn": "",
+            "pages": "689--692",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Lac, Plant Resins and Gums statistics: at a Glance",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Icar-Indian",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Natural Resins and Gums",
+            "volume": "",
+            "issn": "19",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Lac, plant resins and gums statistics: at a glance",
+            "authors": [],
+            "year": 2018,
+            "venue": "Ranchi IINRG",
+            "volume": "",
+            "issn": "19",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Importance of lac in the socio-economic life of tribals in Ranchi district (Jharkhand)",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Jaiswal",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Singh",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "New Agric",
+            "volume": "17",
+            "issn": "2",
+            "pages": "133--137",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Vegetational structure, diversity and fuel load in fire affected areas of tropical dry deciduous forests in Chhattisgarh",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Jhariya",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Bargali",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Swamy",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Kittur",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Vegetos",
+            "volume": "25",
+            "issn": "",
+            "pages": "210--224",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Rising precipitation extremes across Nepal",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Karki",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Hasson",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Schickhoff",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Scholten",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "B\u00f6hner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Climate",
+            "volume": "5",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/cli5010004"
+                ]
+            }
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Wildland fires and moist deciduous forests of Chhattisgarh, India: divergent component assessment",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Kittur",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Swamy",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Bargali",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Jhariya",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "J Forest Res",
+            "volume": "25",
+            "issn": "4",
+            "pages": "857--866",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "scope of lac cultivation in employment and income generation",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Kumar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Recent advances in lac culture. ILRI",
+            "volume": "",
+            "issn": "",
+            "pages": "254--262",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Ecological Niche modelling for assessing potential distribution of Pterocarpus marsupium Roxb",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kumar",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kumar",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Saikia",
+                    "suffix": ""
+                },
+                {
+                    "first": "Adhikari",
+                    "middle": [],
+                    "last": "Ravikant",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Khan",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Ecol Res",
+            "volume": "35",
+            "issn": "",
+            "pages": "1095--1105",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Response of paddy planted under Butea monosperma trees in Chhattisgarh",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Lalji",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Ghosh",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Bargali",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Saxena",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Int J Ecol Environ Sci",
+            "volume": "34",
+            "issn": "1",
+            "pages": "63--66",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Spatial characteristics of vegetation cover based on remote sensing and geographical information system (GIS)",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Mahajan",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Kale",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Trop Ecol",
+            "volume": "47",
+            "issn": "1",
+            "pages": "71--79",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Climate change: effect of weather parameters on production of summer season crop of rangeeni strain of Indian lac insect, Kerria lacca (Kerr) at Ranchi",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Mohanasundaram",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Monobrullah",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Sharma",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kaprakkaden",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Singh",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Meena",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Jharkhand. J Agrometeorol",
+            "volume": "16",
+            "issn": "",
+            "pages": "108--113",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Long-term response of forest productivity to climate change is mostly driven by change in tree species composition",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Morin",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Fahse",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Jactel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Sci Rep",
+            "volume": "8",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41598-018-23763-y"
+                ]
+            }
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Mass extinctions: what can the past tell us about the present and the future?",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Myers",
+                    "suffix": ""
+                }
+            ],
+            "year": 1990,
+            "venue": "Palaeogeogr Palaeoclimatol Palaeoecol (global and Planetary Change Section)",
+            "volume": "82",
+            "issn": "",
+            "pages": "175--185",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "High-resolution and bias-corrected CMIP5 projections for climate change impact assessments",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Navarro-Racines",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Tarapues",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Thornton",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Jarvis",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ramirez-Villegas",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Sci Data",
+            "volume": "7",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41597-019-0343-8"
+                ]
+            }
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Impact of scientific lac cultivation training on lac economy: a study in Jharkhand",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Pal",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Agric Econ Res Rev",
+            "volume": "22",
+            "issn": "",
+            "pages": "139--143",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Biochemical studies of B. monosperma (Palash)",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Patel",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Dwivedi",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Tripathi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Int J Curr Res",
+            "volume": "9",
+            "issn": "02",
+            "pages": "45965--45968",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Maxent software for modeling species niches and distributions",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Philips",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Dudik",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Schepire",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "10",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Effect of Stone Crusher dust on Butea monosperma (Lam.) (Bastard Teak)",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Rahul",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Int J Environ Sci Eng Res",
+            "volume": "4",
+            "issn": "",
+            "pages": "976--37081",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Importance of Lac culture on socio-economic and biodiversity conservation fronts",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Shah",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Int J Adv Res",
+            "volume": "4",
+            "issn": "9",
+            "pages": "1708--1711",
+            "other_ids": {}
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "An existential crisis in Indian forests",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Shahabuddin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Lac production and industrial economics in India",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Sharma",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Prospects of scientific lac cultivation in India. IFP",
+            "volume": "",
+            "issn": "",
+            "pages": "271--275",
+            "other_ids": {}
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Strategy on promotion of lac production in Madhyapradesh; past failures and present approaches for future",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Thomas",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Prospects of scientific lac cultivation in India. IFP",
+            "volume": "",
+            "issn": "",
+            "pages": "233--241",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Modeling habitat suitability of Dipterocarpus alatus (Dipterocarpaceae) using MaxEnt along the Chao Phraya River in Central Thailand",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Torlap",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Lamthai",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "For Sci Technol",
+            "volume": "16",
+            "issn": "1",
+            "pages": "1--7",
+            "other_ids": {}
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Genetic diversity and population structure of Butea monosperma (Lam.) Taub.-a potential medicinal legume tree",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Vashishtha",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Jehan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Lakhanpaul",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Physiol Mol Biol Plants",
+            "volume": "19",
+            "issn": "3",
+            "pages": "389--397",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s12298-013-0170-x"
+                ]
+            }
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Ecological responses to recent climate change",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Walther",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Post",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Convey",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Menzel",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Parmesank",
+                    "suffix": ""
+                },
+                {
+                    "first": "Tjc",
+                    "middle": [],
+                    "last": "Beebee",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Fromentin",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Hoeghguldberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Bairlein",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Nature",
+            "volume": "416",
+            "issn": "",
+            "pages": "389--395",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "The current state of biological diversity",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Wilson",
+                    "suffix": ""
+                }
+            ],
+            "year": 1988,
+            "venue": "Biodiversity. National Academy Press",
+            "volume": "",
+            "issn": "",
+            "pages": "3--18",
+            "other_ids": {}
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "Butea monosperma (Lam.) Taub. The wealth of India \u00b1 raw materials revised",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Woi",
+                    "suffix": ""
+                }
+            ],
+            "year": 1988,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "lected for the year 2010-2011 to 2015-2016 from the Indian Institute of Natural Resins and Gum (IINRG), Ranchi, and for the period of 2016-2017 to 2018-2019, from the annual lac bulletin published by Institute of Forest Productivity (IFP), Ranchi.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "AUC graph under a current scenario, and b-e for the year 2050, b RCP 2.6, c RCP 4.5, d RCP 6.0, and e RCP 8.5",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Jackknife test gain result on AUC a the year 2020, and b-e for the year 2050, b RCP 2.6, c RCP 4.5, d RCP 6.0, and e RCP 8.Probable distribution map of B. monosperma for the a current year (2020), and for the year 2050 under various RCP scenarios b RCP 2.6, c RCP 4.5, d RCP 6.0, and e RCP 8.5",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Projection of potentially suitable habitat of B. monosperma in lac producing states for the year current year (2020) and for the year 2050 under different RCPs Fig. 5 Diagram Showing of a year-wise Lac Production in India during 2010-11 to 2016-17, b year-wise Production and Exported Quantity of Lac from India during 2010-11 to 2017-18 and c year-wise annual export value of Lac for India during 2010-11 to",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "under different RCP scenarios, i.e., 2.6, 4.5, 6.0, and 8.5. The average test AUC under the present climatic scenario, for the replicate runs, was 0.805. For future scenarios under different RCPs the average test AUC value for the replicate runs was calculated 0.804 under RCP 2.6, test AUC value 0.799 under RCP 4.5, test AUC value 0.802 under RCP 6.0, and test AUC value 0.815 under RCP 8.5",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "The authors are thankful to Dr. N. Kulkarni,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Acknowledgements"
+        }
+    ]
+}

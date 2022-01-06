@@ -1,0 +1,3784 @@
+{
+    "paper_id": "0a28bb36a8cfa7200588cd1472518a5a3712c636",
+    "metadata": {
+        "title": "Taxonomic and functional analyses reveal existence of virulence and antibiotic resistance genes in beach sand bacterial populations",
+        "authors": [
+            {
+                "first": "Timothy",
+                "middle": [],
+                "last": "Sibanda",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Selvarajan",
+                "middle": [],
+                "last": "Ramganesh",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Coastal sands are important natural recreational facilities that have become hotspots for tourism and economic development. However, these sands harbour diverse microbial assemblages that play a critical role in the balance between public health and ecology. In this study, targeted high-throughput sequencing analysis was used to identify sand-borne bacterial populations at four public beaches in Durban. The effect of heavy metal in shaping the distribution of bacterial metacommunities was determined using canonical correspondence analysis (CCA), while the functional gene profiles were predicted using PICRUSt2 analysis. Sequences matching those of the bacterial phylum Proteobacteria were the most abundant in all samples, followed by those of the phyla Firmicutes, Actinobacteria, Bacteroidetes, and Gemmatimonadetes. Genus-level taxonomic analysis showed the presence of 1163 bacterial genera in all samples combined. The distribution of bacterial communities was shaped by heavy metal concentrations, with the distribution of Flavobacteria, Bacteroidia, and Deltaproteobacteria influenced by Pb and Zn, while B and Cr influenced the distribution of Clostridia and Gammaproteobacteria, respectively. Identified antibiotic resistance genes included the peptidoglycan biosynthesis gene II, III, IV, and V, as well as the polymyxin resistance gene, while the virulence genes included the sitA, fimB, aerobactin synthase, and pilL gene. Our findings demonstrate that beach sand-borne bacteria are reservoirs of virulence and antibiotic resistance genes. Contamination of beach sands with heavy metals selects for both heavy metal resistance and antibiotic resistance in beach sand bacterial communities. Children and immunocompromised people engaging in recreational activities on beaches may be exposed to higher risk of infection.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Publisher's Note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Sandy beaches are of prime importance for human recreation, tourism, and the development of coastal economic zones (Jonah et al. 2015) . Worldwide, coastlines with long stretches of clean, and sandy beaches have become major economic zones, with tourist expenditures on accommodation, food and drink, entertainment, and other services and goods topping US$1260 billion each year (UNWTO 2016) . Pre-COVID-19 predictions had placed global coastal tourism associated expenditures at above US$5 billion a day by the year 2020 (Orams 2003) , underpinning the importance of sandy beaches to world economies. More people use sandy beaches than any other type of seashore as they provide the most productive fishing grounds, and offer perfect opportunities for sand bathing, a practice most common among the young and old beachgoers alike. However, sandy beaches are not just piles of sand; they harbour their own micro-ecosystems. They receive large inputs of organic matter supplied by the seawater, consisting of phytobenthos assimilates, and products washed and leached out from seaweeds, animal faeces, and remains of plants and animals (Mudryk et al. 2013 ). This creates optimal conditions for the growth of a high population of organisms such as small invertebrates, bacteria, actinomycetes, fungi, yeast, virus, algae, and diatoms (Zakaria et al. 2011; Whitman et al. 2014; Di Piazza et al. 2017) , making beach sand a potential reservoir for aetiological agents of disease (Solo-Gabriele et al. 2015) . Since sandy beaches are dynamic and sensitive Communicated by Erko Stackebrandt. places where life is under pressure, these sandy beach dwelling microorganisms exhibit remarkable physiological and behavioural adaptation to changing environmental conditions (Defeo et al. 2009 ). Microbiological assemblages in sandy shorelines play crucial roles in the decomposition of organic matter and pollutants, and nutrient mineralization and recycling, ecosystem services which render sandy beaches safe for beachgoers (Amaral et al. 2016) . At the same time, coastal sediments are the ultimate sink of heavy metals discharged into aquatic environments, and their analysis is thought to offer a more convenient and more accurate means of determining the degree of pollution (Al-edresy et al. 2019) . This is because heavy metal toxicity has a double effect on environmental microbial assemblages. First, heavy metal toxicity selects for heavy metal tolerance/resistance (Dickinson et al. 2019) . Second, it selects for antibiotic resistance in microbial pathogens (Sabry et al. 1997 ) by two main mechanisms, namely co-resistance and cross-resistance (Nguyen et al. 2019) . The microbial risk posed to sand bathers is therefore heightened if such microbes harbour antibiotic resistance genes.",
+            "cite_spans": [
+                {
+                    "start": 115,
+                    "end": 134,
+                    "text": "(Jonah et al. 2015)",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 379,
+                    "end": 391,
+                    "text": "(UNWTO 2016)",
+                    "ref_id": null
+                },
+                {
+                    "start": 522,
+                    "end": 534,
+                    "text": "(Orams 2003)",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 1134,
+                    "end": 1153,
+                    "text": "(Mudryk et al. 2013",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 1332,
+                    "end": 1353,
+                    "text": "(Zakaria et al. 2011;",
+                    "ref_id": "BIBREF86"
+                },
+                {
+                    "start": 1354,
+                    "end": 1374,
+                    "text": "Whitman et al. 2014;",
+                    "ref_id": "BIBREF80"
+                },
+                {
+                    "start": 1375,
+                    "end": 1397,
+                    "text": "Di Piazza et al. 2017)",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 1475,
+                    "end": 1502,
+                    "text": "(Solo-Gabriele et al. 2015)",
+                    "ref_id": "BIBREF71"
+                },
+                {
+                    "start": 1551,
+                    "end": 1585,
+                    "text": "Communicated by Erko Stackebrandt.",
+                    "ref_id": null
+                },
+                {
+                    "start": 1762,
+                    "end": 1780,
+                    "text": "(Defeo et al. 2009",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 2015,
+                    "end": 2035,
+                    "text": "(Amaral et al. 2016)",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 2270,
+                    "end": 2293,
+                    "text": "(Al-edresy et al. 2019)",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 2466,
+                    "end": 2489,
+                    "text": "(Dickinson et al. 2019)",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 2560,
+                    "end": 2578,
+                    "text": "(Sabry et al. 1997",
+                    "ref_id": "BIBREF62"
+                },
+                {
+                    "start": 2647,
+                    "end": 2667,
+                    "text": "(Nguyen et al. 2019)",
+                    "ref_id": "BIBREF50"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The establishment of major urban centers in close proximity to the majority of sandy beaches has translated into increased anthropogenic pressure upon these natural resources, either as a result of discharge of sewage effluents and storm runoff, or as a direct consequence of recreation associated pollutions such as bather faecal shedding (Orams 2003) . Also, due to tidal wave action, the microbiological quality of beach sand is positively correlated to the microbiological quality of the beach water (Weiskerger et al. 2019) . Where a beach is located close to a sewage treatment plant outfall, contact with beach sand increases the risk of gastrointestinal illness by a factor almost similar to that of coming into direct contact with sewage polluted water (Devine 2014) . Beachgoers are impacted by contaminated beach sands either indirectly by degrading beach water quality through cycles of deposition and resuspension of pathogens between sand and water, or more directly through physical contact with/or ingestion of sands (Halliday et al. 2014) . Sensitive populations such as children, the elderly, or those with a weakened immune system are particularly at risk for long-term effects. From a public health perspective, knowledge of the microbial assemblages inhabiting recreational sand beaches could lead to the evaluation of the levels and trends of contaminants, as well as following human contact with sand; to an assessment of the effects on public health. Currently, beach advisories and closures are issued depending on faecal indicator bacterial densities in the beach water column (Zhang et al. 2015) , with relatively less attention paid to their densities in beach sands. However, at times bacterial counts in beach waters can fall to levels considered safe for swimming while higher densities remain in adjacent beach sands, exposing sand bathers to heightened risk compared to swimmers (Whitman and Nevers 2003) . Therefore, this study was aimed at assessing the bacterial communities in the sands of four popular recreational beaches which form the interface between the shoreline of the city of Durban and the Indian Ocean. A 16S rDNA-targeted high-throughput sequencing approach was used to determine the bacterial community structure and composition across the four beaches. Furthermore, the study determined the possible correlations between heavy metal concentrations at the various study sites and the distribution of bacterial metacommunities. Finally, the study predicted the possible functional gene profiles of the bacterial metacommunities using the Phylogenetic Investigation of Communities by Reconstruction of Unobserved States (PICRUSt2) analysis. Though such microbial communities are highly dynamic in nature, such that a study carried a year ago may not necessarily be used to predict the microbial quality of recreational beach sand today, no study has ever been carried out to determine the bacterial and fungal communities of Durban's sand beaches. This is a significant knowledge gap given the popularity of Durban's beaches; a city that attracts the 6 th most number of tourists into the African continent due to its year-round friendly climate and long expanses of sandy beaches. To the best of our knowledge, this study stands to be the first ever to characterise the bacterial communities inhabiting the sandy beaches of Durban using high-throughput sequencing analysis.",
+            "cite_spans": [
+                {
+                    "start": 340,
+                    "end": 352,
+                    "text": "(Orams 2003)",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 504,
+                    "end": 528,
+                    "text": "(Weiskerger et al. 2019)",
+                    "ref_id": "BIBREF78"
+                },
+                {
+                    "start": 762,
+                    "end": 775,
+                    "text": "(Devine 2014)",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 1033,
+                    "end": 1055,
+                    "text": "(Halliday et al. 2014)",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 1603,
+                    "end": 1622,
+                    "text": "(Zhang et al. 2015)",
+                    "ref_id": "BIBREF87"
+                },
+                {
+                    "start": 1912,
+                    "end": 1937,
+                    "text": "(Whitman and Nevers 2003)",
+                    "ref_id": "BIBREF79"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Seventy-nine percent of the South African coastline is composed of sandy beaches. The city of Durban boasts a wealth of coastal resources along its 97 km of coastline with the Indian Ocean. These include rocky shores, mangrove forests, coral reefs, coastal forests, wetlands, and sandy beaches. Of these, the least studied and most underappreciated are sandy beaches. Durban beaches are tourism hotspots owing to good weather that the City experiences all year-round, with average winter temperatures ranging from 11 \u00b0C to 24 \u00b0C, while summer temperatures average between 20 \u00b0C and 29 \u00b0C. Durban's beaches are characterised by vast expanses of white sands, and gentle slopping coastlines, making them convenient for sand bathing, surfing, and swimming. Tourism is very important to the local economy. Samples were collected from the South Beach, Harbour Beach, Central Beach, and North Beach (Fig. 1) . The later three beaches are in the range of approximately 3 km from each other, while South Beach is furthest from the rest, approximately 15 km. Approximately 100 g of sand sample were collected at each beach from five points about 5 m apart. A core sampler was used to collect sand samples in a vertical fashion from the surface down to about 10 cm deep at the foreshore zone. Sand samples from each beach were put in specimen bottles, labelled according to the collection sites, and transported to the laboratory at the University of South Africa in cooler boxes containing ice at 4 \u00baC for further processing.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 892,
+                    "end": 900,
+                    "text": "(Fig. 1)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Description of study site and sample collection"
+        },
+        {
+            "text": "Sand heavy metal concentrations were analysed following a previously described method (Sibanda et al. 2019) . Briefly, the sand samples were dried at 105 \u00b0C for 2 h and then placed in a desiccator for 18 h after which \u2248 0.5 g of dried samples were each weighed and transferred into separate Mars6 microwave digestion vessels. To each, 9 mL analytic grade concentrated HNO 3 and 3 mL concentrated HCl were added, after which the samples were heated to 175 \u00b0C for 20 min, and holding at that temperature for another 10 min. The samples cooled, filtered, and transferred into 50 mL volumetric flasks. Sample volumes were topped up with double-distilled water. Following this, 20 mL of the liquid samples were filtered and further acidified by adding 200 uL of concentrated HNO 3 . A multi-elemental SRM was used to prepare calibration standards, which ranged from 0.1 to 10 ug/L, and included a calibration blank. Analysis was performed on a PerkinElmer NexION 300X Q-ICP-MS. After start-up and warm-up, the instrument was auto-tuned to maximise sensitivity and minimise double charge and oxide interference. Calibration standards and samples were measured under KED (Kinetic Energy Discrimination) mode. The software generates a calibration curve after measuring solutions of known concentrations (standards), against which the unknown samples are measured.",
+            "cite_spans": [
+                {
+                    "start": 86,
+                    "end": 107,
+                    "text": "(Sibanda et al. 2019)",
+                    "ref_id": "BIBREF69"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Analysis of sand heavy metal concentration"
+        },
+        {
+            "text": "For DNA extraction, about 10 g of each beach sand sample was initially mixed with 10 ml phosphate-buffered saline (PBS, pH 7.4). The mixtures were agitated by vortexing and allowed to stand for an hour at room temperature to dislodge bacterial cells adhering to sand particles. Following this, 400 \u00b5l supernatant aliquots were then used as samples in the extraction of total genomic DNA using Faecal/Soil Total DNA\u2122 extraction kit (Zymo Research Corporation, CA, USA) according to the manufacturer's instructions. The extracted DNA was first amplified using the universal bacterial 16S rDNA primers (27F and 1492R) to cover the whole variable region under the following PCR conditions: initial denaturation at 95 \u00b0C for 5 min, followed by 32 cycles of melting at 95 \u00b0C for 1 min, annealing at 55 \u00b0C for 1 min, and elongation at 72 \u00b0C for 1 min. The last step was final product elongation at 72 \u00b0C for 10 min, followed by cooling at 4 \u00b0C. Subsequently, a second PCR run was carried out using the 27F and 518R primer sets, with overhanging adapter sequences that are compatible with Illumina index as described by Selvarajan et al. (2018) .",
+            "cite_spans": [
+                {
+                    "start": 1112,
+                    "end": 1136,
+                    "text": "Selvarajan et al. (2018)",
+                    "ref_id": "BIBREF68"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DNA extraction and polymerase chain reaction amplification"
+        },
+        {
+            "text": "The resultant PCR products were cleaned and concentrated using AMPure XP beads (Beckman Coulter, Agencourt Bioscience Corporation, Massachusetts, USA) according to the manufacturer's instructions. Following the purification step, Illumina sequencing adapters and dual-index barcodes were added to the amplicon targets using a full complement of Nextera XT indices (Illumina, Inc. San Diego, CA, USA) through 8 cycle PCR as follows: 95 \u00b0C for 3 min, 8 cycles of {95 \u00b0C for 30 s, 55 \u00b0C for 30 s, and 72 \u00b0C for 30 s}, final extension at 72 \u00b0C for 5 min, and cooling at 4 \u00b0C. The resulting PCR product was cleaned again as already described. Fragments with an approximate size of 630 bp were validated using a Bioanalyzer DNA 1000 chip (Agilent, Santa Clara, CA, USA) and quantified using a fluorometric quantification method (Qubit, USA) that uses dsDNA-binding dyes. Dilutions were done based on the quantified DNA using 10 mM Tris Buffer (pH 8.5). Five microliter (5 \u00b5l) aliquots of diluted DNA from each library were mixed for pooling libraries with unique indices. The pooled final DNA Fig. 1 Map showing the location of the four beaches from which samples were collected, along the Durban Indian Ocean coastline, South Africa library (4 nM) was denatured and sequenced on an Illumina MiSeq System using paired 300-bp reads to generate high-quality reads of the V1-V3 region. Finally, raw fastq files were obtained after trimming the adapters and primer sequences for further bioinformatics analysis.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 1087,
+                    "end": 1093,
+                    "text": "Fig. 1",
+                    "ref_id": null
+                }
+            ],
+            "section": "Library preparation and sequencing"
+        },
+        {
+            "text": "The obtained raw sequence (Fastq) datasets were initially scrutinized for PCR artefacts and low-quality reads (reads with > 50% bases having a quality score < 2) using ngsS-hoRT (next-generation sequencing short reads) trimmer as described by Chen et al. (2014) . Following the screening process, all the sequence data sets were analysed using the Mothur Pipeline v.1.40.0 as described by Schloss et al. (2009) . During the analysis, sequence reads containing low nucleotides (< 50 nts), ambiguities (> 2%), and homopolymers (7%) were excluded, along with sequences of mitochondrial and chloroplast origins. Chimeric sequences were removed using UCHIME algorithm as described by Edgar et al. (2011) , while non-chimeric reads were classified using the Na\u00efve Bayesian classifier algorithm as described by Wang et al. (2007) against the SILVA database version 132 (Quast et al. 2013 ) with a confidence threshold of 80% to assign taxonomic identity of bacteria. A pairwise distance matrix (Euclidean distance matrix) was created from the curated aligned datasets to group sequences into Operational Taxonomic Units (OTUs) at a sequence similarity of 97% for identification. The diversity indices (Shannon-Weaver and Simpson indices) and microbial community richness index (Chao 1) were calculated at the genetic distance of 0.03 to measure the diversity of bacterial species among the data sets. The identified dominant OTUs at phylum and class level were used to generate stacked bar chart using GraphPad prism v 8.01 Software. The raw high-throughput sequencing data were deposited into the NCBI Sequence Read Archive database (SRA accession: PRJNA604090).",
+            "cite_spans": [
+                {
+                    "start": 243,
+                    "end": 261,
+                    "text": "Chen et al. (2014)",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 389,
+                    "end": 410,
+                    "text": "Schloss et al. (2009)",
+                    "ref_id": "BIBREF65"
+                },
+                {
+                    "start": 679,
+                    "end": 698,
+                    "text": "Edgar et al. (2011)",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 804,
+                    "end": 822,
+                    "text": "Wang et al. (2007)",
+                    "ref_id": "BIBREF77"
+                },
+                {
+                    "start": 862,
+                    "end": 880,
+                    "text": "(Quast et al. 2013",
+                    "ref_id": "BIBREF54"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Data analyses"
+        },
+        {
+            "text": "Phylogenetic Investigation of Communities by Reconstruction of Unobserved States (PICRUSt2) software package (Douglas et al. 2019 ) was used to predict and understand the potential functional capabilities of the bacterial communities at the different sampling sites. Towards this, the Nearest-Sequenced Taxon Index (NSTI) value was used to validate the reliability of predicted gene families and metabolic pathways as NSTI values \u2265 2 are considered noisy and unreliable. PICRUSt2 predicts gene families based on their nearest known taxonomic neighbour as interpolated from available fully sequenced genomes. In this case, the sequences were first aligned to HMMER (Eddy 2011) . The aligned sequences were subsequently placed into a reference tree using EPA-NG ) and gappa . Normalisation of multiple 16S rRNA gene copies and prediction of gene families were achieved using Castor-a hidden state prediction tool (Louca and Doebeli 2018) . The predicted gene families were subsequently collapsed into MetaCyc pathways using MinPath (Ye and Doak 2009) to have a simple overview of the beach sand bacterial community metagenome. Detected pathways were subjected to differential abundance analysis using Aldex2 package (Fernandes et al. 2014 ) in R statistical software. Pathways with significant p values (\u2265 0.05), Benjamini-Hochberg's FDR score \u2264 0.05, and effect size \u2265 0.6 were considered differentially abundant. The heatmap of the predicted relative abundances of genes related to different functions was generated using heatmap.2 package in R (v3.5.2) (R Core Team 2019).",
+            "cite_spans": [
+                {
+                    "start": 109,
+                    "end": 129,
+                    "text": "(Douglas et al. 2019",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 664,
+                    "end": 675,
+                    "text": "(Eddy 2011)",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 911,
+                    "end": 935,
+                    "text": "(Louca and Doebeli 2018)",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 1030,
+                    "end": 1048,
+                    "text": "(Ye and Doak 2009)",
+                    "ref_id": "BIBREF84"
+                },
+                {
+                    "start": 1214,
+                    "end": 1236,
+                    "text": "(Fernandes et al. 2014",
+                    "ref_id": "BIBREF24"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Functional prediction analysis"
+        },
+        {
+            "text": "Aluminum (Al) was the most abundant metalloid in all sampling sites, with concentrations ranging from 508 \u00b1 54.8 to 2634 \u00b1 187 \u00b5g/L (Table 1) . Of the heavy metals, Cd was the least abundant metal in all sampling sites (0.1 \u00b1 0 to 0.5 \u00b1 0 \u00b5g/L), while Mn was the most abundant (20.9 \u00b1 1.3 to 92.0 \u00b1 4.6 \u00b5g/L).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 132,
+                    "end": 141,
+                    "text": "(Table 1)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Heavy metal analysis"
+        },
+        {
+            "text": "A total of 100 424 raw sequence reads were recovered from all beach sand samples. After cleaning of the sequences, 58 568 sequences were obtained, representing about 58% of the raw sequences. The lowest number of reads (2 215) was obtained in Central Beach sand sample, while the highest number of reads (30 894) were obtained in the North Beach sand sample. A total of 3 204 operational taxonomic units (OTUs) were obtained in all sand samples combined, with 246 OTUs from Central Beach sample and 1 314 OTUs from Harbour Beach sample. The sample-to-sample abundancebased coverage estimator (ACE) and Chao1 indices, which are both used to estimate bacterial species richness, closely matched each other, indicating high levels of accuracy in the analysis. Both Chao1 and ACE indices revealed that the Harbour Beach sample had the highest bacterial species richness followed by the North Beach sample, while the Central Beach sample had the lowest observed species richness. The bacterial species diversity of the sand samples was higher when estimated by the Shannon-Weaver index (H) than when it was estimated using the Simpson's index (D). The highest bacterial diversity (Shannon index 5.93) was observed in the Harbour Beach sand sample, in which was also recorded the highest number of bacterial phyla and classes (Figs. 2 and 3) . Table 2 provides a summary of the bacterial species richness and diversity statistics.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 1320,
+                    "end": 1335,
+                    "text": "(Figs. 2 and 3)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1338,
+                    "end": 1345,
+                    "text": "Table 2",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "16S rRNA targeted sequencing analysis"
+        },
+        {
+            "text": "Analysis of bacterial community distribution at phylum level resulted in the recovery of 11 major bacterial phyla. Sequences belonging to the phylum Proteobacteria were the most dominant in all samples combined, followed by those of the phyla Firmicutes, Actinobacteria, Bacteroidetes, and Gemmatimonadetes. At the Central Beach, 40% of the bacterial sequences obtained belonged to the phylum Firmicutes, 38% belonged to the phylum Actinobacteria, and 20% to the phylum Proteobacteria. The remainder of the recovered sequences belonged to some minor phyla, as represented in Fig. 2 . At the Harbour Beach, Proteobacteria was the most dominant phylum with 45% of the recovered sequences. This was followed by the phyla Firmicutes and Actinobacteria each with 14% of the recovered sequences, Bacteroidetes with 10% of the sequences, and Planctomycetes and Verrucomicrobia, each of which was represented by 4% of the recovered sequences. The remainder of the sequences represented some minor phyla represented by less than 1% of the recovered sequences. Samples from the North Beach were dominated by three major phyla, namely, Firmicutes (44% of the recovered sequences), Actinomycetes (14%), and Proteobacteria (39%), while the rest of the sequences represented some minor phyla. Similarly, South Beach sand samples were dominated by sequences representing three major phyla, namely, Proteobacteria (86%), Firmicutes (12%), and Actinobacteria (10%).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 575,
+                    "end": 581,
+                    "text": "Fig. 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "16S rRNA targeted sequencing analysis"
+        },
+        {
+            "text": "At class-level distribution, 16 bacterial classes were identified, the most dominant of which were, in order of overall sequence abundance, Alphaproteobacteria, Bacilli, Actinobacteria, Gammaproteobacteria, Betaproteobacteria, and Clostridia. Bacterial class sequence abundance closely mirrored the phylum-level distribution where most of the dominant classes (\u2265 1% sequence representation) belonged to dominant phyla identified in Fig. 2 . The Harbour Beach sand samples had the highest bacterial diversity at class level with 14 bacterial classes being represented by sequences with an abundance of \u2265 1% of the total sequences recovered. The most dominant of the classes were in order of magnitude, Gammaproteobacteria, Deltaproteobacteria, Alphaproteobacteria, Clostridia, Acidimicrobiia, Actinobacteria, Flavobacteria, Bacteroidia, Bacilli, Kiritimatiellae, Oligoflexia, Planctomycetia, Phycisphaerae, and Betaproteobacteria (Fig. 3) . The Central Beach sand sample harboured the second most diverse bacterial community with 10 bacterial families each having \u2265 1% sequence representation. In order of representative sequence abundance, the identified classes were Actinobacteria, Bacilli, Clostridia, Alphaproteobacteria, Gammaproteobacteria, Betaproteobacteria, Deltaproteobacteria, Gemmatimonadetes (phylum Gemmatimonadetes, Fig. 2) , Bacteroidia, and Coriobacteriia. The North Beach sample was dominated by bacteria belonging to the following classes; Bacilli, Alphaproteobacteria, Actinobacteria, Betaproteobacteria, Gammaproteobacteria, Clostridia, Bacteroidia, Physcisphaerae, and Acidimicrobia. The least diverse bacterial community was observed in the South Beach sample, with 5 dominant bacterial classes identified as follows: Alphaproteobacteria, Betaproteobacteria, Bacilli, Gammaproteobacteria, and Actinobacteria.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 432,
+                    "end": 438,
+                    "text": "Fig. 2",
+                    "ref_id": null
+                },
+                {
+                    "start": 929,
+                    "end": 937,
+                    "text": "(Fig. 3)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1331,
+                    "end": 1338,
+                    "text": "Fig. 2)",
+                    "ref_id": null
+                }
+            ],
+            "section": "16S rRNA targeted sequencing analysis"
+        },
+        {
+            "text": "Genus-level taxonomic analysis showed the presence of 1 163 bacterial genera in all samples. Of these, 32 bacterial genera had a sequence representation of \u2265 1% in at least one sample, while the rest had under 1% sequence representation and were therefore classified as trace members. In terms of ubiquity, bacterial genera belonging to the phylum Proteobacteria dominated, making more than 50% of the recovered genera. However, in terms of percentage sequence abundance per sample, sequences representing the genus Bacillus (phylum Firmicutes) were the most abundant at 37.06% in the North Beach sample, followed by the genus Bifidobacterium (Actinobacteria) at 35.76% and 11.05% in Central Beach and North Beach samples, respectively. The genus Lactobacillus (Firmicutes) was the third most abundant with a sequence coverage of 28.80% in Central Beach sample followed by the genus Methylobacterium (Proteobacteria) at 14.02% sequence coverage in the South Beach sample. The phylum Bacteroidetes was also represented among the top 32 bacterial genera, while sequences representing bacterial genera belonging to other phyla including Planctomycetes, Gemmatimonadetes, Verrucomicrobia, Lentisphaerae, Acidobacteria, Chloroflexi, and Cyanobacteria were present in trace numbers. A summary of the bacterial phyla, class, order, and genera recovered from the beach sand samples is given in Table 3 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 1386,
+                    "end": 1393,
+                    "text": "Table 3",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "16S rRNA targeted sequencing analysis"
+        },
+        {
+            "text": "Determination of the effects of heavy metal concentration on distribution and prevalence of bacterial metacommunities by CCA has showed that bacteria were differentially distributed with respect to heavy metal concentrations (Fig. 4) . At the harbour sampling site, for instance, the metals Pb and Zn influenced the distribution of Flavobacteria, Bacteroidia, and Deltaproteobacteria, while the distributions of Clostridia and Gammaproteobacteria were correlated to the concentrations of barium (B) and Cr, respectively. Bacterial distribution at the South and North beach sampling sites, largely Alphaproteobacteria and Betaproteobacteria, was correlated to the metals Ni, Mn, As, and Al. However, bacterial distribution at Central sampling site was not statistically linked to the concentration of any metal species.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 225,
+                    "end": 233,
+                    "text": "(Fig. 4)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Canonical correspondence analysis (CCA)"
+        },
+        {
+            "text": "PICRUSt2 prediction of functional genes among the sandborne bacterial metacommunities revealed the presence of both pathogenic and antibiotic resistance pathways. Identified antibiotic resistance genes included the peptidoglycan biosynthesis II (staphylococci) exhibited in the Harbour, North, and South samples (Fig. 5) . Others included the peptidoglycan biosynthesis III (mycobacteria), IV (Enterococcus faecium), and V (beta-lactam resistance), as well as the polymyxin resistance gene, which was identified in all samples. The identified virulence genes included the sitA gene, the fimB gene, the aerobactin synthase gene, and pilL gene, all of which were detected in bacterial metacommunities from all sampling sites. Table 2 show that there were slight differences between the ACE and Chao1 species richness estimators. Hughes et al. (2001) point out that the ACE and Chao1 estimators are similar in that they are nonparametric. They are different in that the Chao1 estimator gives greater weight to low abundance species (species with less than 10 individuals in a sample), while the ACE estimator gives greater weight to species sample coverage (species with more than 10 individuals in a sample) (Kim et al. 2017) . In this study, however, both estimators still showed high bacterial species richness in all beach sand samples, as also observed in other beach sand samples (Mudryk et al. 2013; Rom\u00e3o et al. 2017 ). This confirms earlier findings that beach sands are microhabitats teaming with microbial life (Sabino et al. 2014; Whitman et al. 2014; Solo-Gabriele et al. 2015) . The disparities observed between the Shannon-Weaver diversity and the Simpson's diversity indices imply that, while beach sand samples had high species richness, they had low species evenness. This trend has also been observed in other studies of a similar nature, including that of Gobet et al. (2012) . While most microbes found in beach sand are harmless, some are linked with human disease (Rettner 2018 ). Therefore, understanding the microbial community structure and biodiversity of beach sand is useful for assessing the ecological health of the beach sand, as higher biodiversity usually confers better resistance and resilience against environmental perturbation and contamination (Cui et al. 2013) . The dominance of bacteria belonging to the phyla Proteobacteria, Bacteroidetes, Planctomycetes, Actinobacteria, and Gemmatimonadetes in beach sands has earlier been documented in coastal beach samples (Zheng et al. 2014; Rom\u00e3o et al. 2017) . This may indicate that these phyla have evolved to be the main indigenous bacterial communities in coastal intertidal zones. Bacteria belonging to the phylum Proteobacteria are known for their metabolic plasticity (Esposti 2014) , causing them to be able to colonise the most diverse environments compared to other bacterial phyla. This could be the reason why, at genus level, greater than 50% of recovered OTUs belonged to the phylum Proteobacteria. As well as being metabolically diverse, this phylum is known for containing the most number of bacterial pathogens in its ranks (Rizzatti et al. 2017) .",
+            "cite_spans": [
+                {
+                    "start": 827,
+                    "end": 847,
+                    "text": "Hughes et al. (2001)",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 1206,
+                    "end": 1223,
+                    "text": "(Kim et al. 2017)",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 1383,
+                    "end": 1403,
+                    "text": "(Mudryk et al. 2013;",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 1404,
+                    "end": 1421,
+                    "text": "Rom\u00e3o et al. 2017",
+                    "ref_id": "BIBREF59"
+                },
+                {
+                    "start": 1519,
+                    "end": 1539,
+                    "text": "(Sabino et al. 2014;",
+                    "ref_id": "BIBREF61"
+                },
+                {
+                    "start": 1540,
+                    "end": 1560,
+                    "text": "Whitman et al. 2014;",
+                    "ref_id": "BIBREF80"
+                },
+                {
+                    "start": 1561,
+                    "end": 1587,
+                    "text": "Solo-Gabriele et al. 2015)",
+                    "ref_id": "BIBREF71"
+                },
+                {
+                    "start": 1873,
+                    "end": 1892,
+                    "text": "Gobet et al. (2012)",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 1984,
+                    "end": 1997,
+                    "text": "(Rettner 2018",
+                    "ref_id": "BIBREF57"
+                },
+                {
+                    "start": 2281,
+                    "end": 2298,
+                    "text": "(Cui et al. 2013)",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 2502,
+                    "end": 2521,
+                    "text": "(Zheng et al. 2014;",
+                    "ref_id": "BIBREF89"
+                },
+                {
+                    "start": 2522,
+                    "end": 2540,
+                    "text": "Rom\u00e3o et al. 2017)",
+                    "ref_id": "BIBREF59"
+                },
+                {
+                    "start": 2757,
+                    "end": 2771,
+                    "text": "(Esposti 2014)",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 3123,
+                    "end": 3145,
+                    "text": "(Rizzatti et al. 2017)",
+                    "ref_id": "BIBREF58"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 312,
+                    "end": 320,
+                    "text": "(Fig. 5)",
+                    "ref_id": null
+                },
+                {
+                    "start": 724,
+                    "end": 731,
+                    "text": "Table 2",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "Functional prediction analysis"
+        },
+        {
+            "text": "However, many other bacterial phyla identified in our study house essentially non-pathogenic bacteria. Most such bacteria have fundamental roles in the biogeochemical cycles of nutrients/mineral in the sediments (Zheng et al. (Zheng et al. 2014) , while bacteria of the genus Ochrobactrum are known for hydrocarbon degradation (Octaviany et al. 2019) . Sequences representing harmless bacterial populations were the most abundant in this study. These included sequences for Bifidobacterium longum, Lactobacillus paracasei, Lactobacillus helveticus, Bifidobacterium animalis, Bifidobacterium pseudolongum, Bifidobacterium bifidum, and Lactobacillus buchneri, which are largely used in the food industry as probiotics (Margolles and S\u00e1nchez 2012; Smokvina et al. 2013; Sugahara et al. 2015; Wong et al. 2019) . Nonetheless, because these probiotic bacteria are natural flora of the gastrointestinal tracts of humans, and that of other animals (Mikkelsen et al. 2003) , the abundance of sequences representing these bacterial species in beach sand samples serves as an important indicator of faecal pollution. Such faecal pollution could emanate either from faecal shedding by sand bathers, direct faecal deposition by animals and birds, or from faecally contaminated sea water washing onto the beach sands (Whitman et al. 2014 ). However, the presence of other Bifidobacterium sp. like Bifidobacterium dentium can be used to determine faecal contamination of exclusively human origin (Nebra et al. 2003; Furet et al. 2009 ), and can be useful in determining the public health safety of recreational beaches. Although such allochthonous microorganisms get subjected to various biotic and abiotic pressures that affect their fate in the new environment (Feng et al. 2010; Gobet et al. 2012) , microorganisms of enteric origin in beach sands may be incidentally ingested, leading to carriage, colonization, or even infection. Sequences belonging to the genera Achromobacter xylosoxidans and Methylobacterium were both detected in the South and North beach sand samples. Achromobacter xylosoxidans is an emerging, multidrug-resistant opportunistic pathogen which invades cystic fibrosis (CF) patients' airways, as well as cause a wide variety of infections in immunocompromised patients (Marion-sanchez et al. 2019) . Its presence in recreational beaches presents a potential health risk to beach goers, more so to immunocompromised persons. Amoureux et al. (2013) earlier reported that this bacterium is innately resistant to cephalothin, cefoxitin, cefotaxime, aztreonam, and aminoglycosides, and frequently shows acquired resistance to carbapenems, ceftazidime, and ciprofloxacin, drastically limiting therapeutic choices for infected individuals. However, that largely depends on the environment from which it is isolated, with clinical strains having proven pathogenesis. Apart from this study, there are no previous reports linking A. xylosoxidans to beach sands. Previous reports show that it has been found in some plants, polluted soils, well water, domestic and hospital drains, as well as freshwater bodies frequently used for recreational purposes (Amoureux et al. 2013) . Being an emerging pathogen, the natural habitat for A. xylosoxidans, as well as its medium of spread are not yet known. Therefore, the identification of potential environmental reservoirs of this bacterium might aid in the prevention of infection among CF patients as well as immunocompromised individuals. Transmission of infectious diseases in beach environments can occur via direct exposure to microbes found in the sand through such routes as dermal contact, contact with eyes and ears, inhalation, and ingestion (Solo-Gabriele et al. 2015) . The varied, though inevitable interactions between different beach sand zones and beach water make beach sand a potential source of such pathogens in beach water also (Feng et al. 2010; Cui et al. 2013) , which increases the risk of exposure to not only the sand bathers but the surfers and swimmers too. Methylobacterium sp., meanwhile, is an opportunistic bacterial pathogen in immunocompromised persons. It is reported to form biofilms, and to be tolerant to disinfecting agents, high temperatures, and drying (Kovaleva et al. 2014 ), a befitting reason as to why their sequences were found in relatively high percentage abundances in beach sand samples in this study.",
+            "cite_spans": [
+                {
+                    "start": 226,
+                    "end": 245,
+                    "text": "(Zheng et al. 2014)",
+                    "ref_id": "BIBREF89"
+                },
+                {
+                    "start": 327,
+                    "end": 350,
+                    "text": "(Octaviany et al. 2019)",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 716,
+                    "end": 744,
+                    "text": "(Margolles and S\u00e1nchez 2012;",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 745,
+                    "end": 766,
+                    "text": "Smokvina et al. 2013;",
+                    "ref_id": "BIBREF70"
+                },
+                {
+                    "start": 767,
+                    "end": 788,
+                    "text": "Sugahara et al. 2015;",
+                    "ref_id": "BIBREF74"
+                },
+                {
+                    "start": 789,
+                    "end": 806,
+                    "text": "Wong et al. 2019)",
+                    "ref_id": "BIBREF81"
+                },
+                {
+                    "start": 941,
+                    "end": 964,
+                    "text": "(Mikkelsen et al. 2003)",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 1304,
+                    "end": 1324,
+                    "text": "(Whitman et al. 2014",
+                    "ref_id": "BIBREF80"
+                },
+                {
+                    "start": 1482,
+                    "end": 1501,
+                    "text": "(Nebra et al. 2003;",
+                    "ref_id": "BIBREF48"
+                },
+                {
+                    "start": 1502,
+                    "end": 1519,
+                    "text": "Furet et al. 2009",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 1749,
+                    "end": 1767,
+                    "text": "(Feng et al. 2010;",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 1768,
+                    "end": 1786,
+                    "text": "Gobet et al. 2012)",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 2281,
+                    "end": 2309,
+                    "text": "(Marion-sanchez et al. 2019)",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 2436,
+                    "end": 2458,
+                    "text": "Amoureux et al. (2013)",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 3154,
+                    "end": 3176,
+                    "text": "(Amoureux et al. 2013)",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 3697,
+                    "end": 3724,
+                    "text": "(Solo-Gabriele et al. 2015)",
+                    "ref_id": "BIBREF71"
+                },
+                {
+                    "start": 3894,
+                    "end": 3912,
+                    "text": "(Feng et al. 2010;",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 3913,
+                    "end": 3929,
+                    "text": "Cui et al. 2013)",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 4240,
+                    "end": 4261,
+                    "text": "(Kovaleva et al. 2014",
+                    "ref_id": "BIBREF35"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Data in"
+        },
+        {
+            "text": "We also recovered sequences belonging to the species Aeromicrobium erythreum from all sampling sites though in low relative abundances ranging from 0.06% of the total sequences recovered from the Harbour Beach sample to 0.41% of those recovered from the Central Beach sample. Bacteria belonging to the genus Aeromicrobium have previously been isolated from sea water by Bruns et al (2003) who described it as an obligately salt-dependent Gram-positive bacterium affiliated to the family Nocardioidaceae, within the order Actinomycetales. While there are currently no reports of its recovery from other environments except sea water, the recovery of sequences representing a species in this genus from beach sand provides further proof of tide-assisted microbial interactions between the beach sand and the sea water. Alternatively, this finding could suggest that this bacterium could be found in more diverse environments, and not just in the seawater. However, both the health significance and the influence of anthropogenic pressure on the distribution of this bacterium is currently unknown. Further studies are needed to, at the least, establish its ecological significance.",
+            "cite_spans": [
+                {
+                    "start": 370,
+                    "end": 388,
+                    "text": "Bruns et al (2003)",
+                    "ref_id": "BIBREF7"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Data in"
+        },
+        {
+            "text": "PICRUSt2 determination of functional genes also showed that beach sand bacterial metacommunities are important reservoirs of antibiotic and virulence genes. And, just like in other studies (Sandaa et al. 1999; Yao et al. 2016) , canonical correspondence analysis (CCA) in this study revealed differential but positive correlations between heavy metal concentrations and certain bacterial metacommunities. The relationship between antimicrobial resistance and potentially toxic metal resistance in bacteria has been a subject of study for a long time (Chen et al. 2019; Quero et al. 2015) . Findings suggest that environmental heavy metal concentrations both shape the microbial community compositions as well as induce antimicrobial resistance by either cross-or coresistance phenomena (Chen et al. 2015; Nguyen et al. 2019; Yazdankhah et al. 2018) . Environmental reservoirs of antibiotic resistance genes such as those observed in this study are of particular public health concern, considering that polymyxin is an antibiotic of last resort in the treatment of Gramnegative bacterial infections (Srinivas and Rivard 2017; Li et al. 2019) . By almost the same measure, \u03b2-lactams are the first and most frequently used class of antibacterial agents used to treat severe infections due to Gram-positive bacteria (Bugg and Walsh 1992; Mainardi et al. 2005) . However, peptidoglycan biosynthesis II in staphylococci and peptidoglycan biosynthesis IV in enterococci usually give rise to \u03b2-lactams resistance due to production of low-affinity penicillin-binding proteins (PBPs), like the PBP2a D,Dtranspeptidase protein which results in methicillin resistance in staphylococci, and the PBP5 D,D-transpeptidase protein which results in ampicillin resistance in enterococci (Mainardi et al. 2000 (Mainardi et al. , 2008 . Furthermore, some enterococci strains have been found to acquire antibiotic resistance by completely bypassing the D,D-transpeptidase by an L,D-transpeptidase which confers resistance towards most \u03b2-lactam antibiotics on the organism (Mainardi et al. 2008) .",
+            "cite_spans": [
+                {
+                    "start": 189,
+                    "end": 209,
+                    "text": "(Sandaa et al. 1999;",
+                    "ref_id": "BIBREF63"
+                },
+                {
+                    "start": 210,
+                    "end": 226,
+                    "text": "Yao et al. 2016)",
+                    "ref_id": "BIBREF82"
+                },
+                {
+                    "start": 550,
+                    "end": 568,
+                    "text": "(Chen et al. 2019;",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 569,
+                    "end": 587,
+                    "text": "Quero et al. 2015)",
+                    "ref_id": "BIBREF55"
+                },
+                {
+                    "start": 786,
+                    "end": 804,
+                    "text": "(Chen et al. 2015;",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 805,
+                    "end": 824,
+                    "text": "Nguyen et al. 2019;",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 825,
+                    "end": 848,
+                    "text": "Yazdankhah et al. 2018)",
+                    "ref_id": "BIBREF83"
+                },
+                {
+                    "start": 1098,
+                    "end": 1124,
+                    "text": "(Srinivas and Rivard 2017;",
+                    "ref_id": "BIBREF73"
+                },
+                {
+                    "start": 1125,
+                    "end": 1140,
+                    "text": "Li et al. 2019)",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 1312,
+                    "end": 1333,
+                    "text": "(Bugg and Walsh 1992;",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 1334,
+                    "end": 1355,
+                    "text": "Mainardi et al. 2005)",
+                    "ref_id": "BIBREF39"
+                },
+                {
+                    "start": 1768,
+                    "end": 1789,
+                    "text": "(Mainardi et al. 2000",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 1790,
+                    "end": 1813,
+                    "text": "(Mainardi et al. , 2008",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 2050,
+                    "end": 2072,
+                    "text": "(Mainardi et al. 2008)",
+                    "ref_id": "BIBREF40"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Data in"
+        },
+        {
+            "text": "Type IV Pili, that were possessed by the bacterial metacommunities from all sampling sites, are important virulence factors used by many pathogens including Pseudomonas aeruginosa for attachment to surfaces and host tissues and twitching motility (Kilmury and Burrows 2016) . Transcriptional activation of the fimB gene in uropathogenic Escherichia coli (UPEC) leads to increased expression of type 1 pili, a chief virulence factor responsible for UPEC pathogenicity . Urinary tract infections afflict mostly women, with UPEC emerging as the primarily agents of infections in humans (Schwan et al. 2018) . Inside their hosts, pathogenic bacteria are often have to contend with extremely low bioavailability of iron, which thus becomes a limiting factor for survival (Bailey et al. 2018) . Bacterial pathogens circumvent this limitation using unique strategies to scavenge iron, including the synthesis, secretion, and reuptake of iron chelators (siderophores) such as aerobactin, which has since been demonstrated to be critical for virulence in pathogens like Klebsiella pneumoniae (Bailey et al. 2016) and Vibrio mimicus (Moon et al. 2004) . The sitA gene is most prominent among bacterial pathogens which utilize it to mobilize iron and manganese inside eukaryotic cells and is therefore associated with bacterial virulence (Runyen-Janecky et al. 2003; Tivendale et al. 2009 ). Environmental bacteria harbouring reservoirs of both virulence and antibiotic resistance genes, therefore, pose increased risks of human infections, particularly in settings like beaches, since beach visitors tend to spend more time in contact with beach sand than with water (Whitman and Nevers 2003) . Chances of infection are significantly increased if higher pathogen densities are found in the sand than in the water column, as previously observed (Sato et al. 2005) . In particular, children are exposed to greater risk, because they spend more time playing and digging in the sand, where potentially pathogenic bacteria are likely to persist longer due to adsorption to sand particles, unlike free bacteria in the water. In what is a limitation of our study, PCR confirmation of the presence of virulence and antibiotic resistance genes as predicted by PICRUSt2 results could have made our findings very concrete.",
+            "cite_spans": [
+                {
+                    "start": 247,
+                    "end": 273,
+                    "text": "(Kilmury and Burrows 2016)",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 583,
+                    "end": 603,
+                    "text": "(Schwan et al. 2018)",
+                    "ref_id": "BIBREF67"
+                },
+                {
+                    "start": 766,
+                    "end": 786,
+                    "text": "(Bailey et al. 2018)",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 1083,
+                    "end": 1103,
+                    "text": "(Bailey et al. 2016)",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 1123,
+                    "end": 1141,
+                    "text": "(Moon et al. 2004)",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 1327,
+                    "end": 1355,
+                    "text": "(Runyen-Janecky et al. 2003;",
+                    "ref_id": "BIBREF60"
+                },
+                {
+                    "start": 1356,
+                    "end": 1377,
+                    "text": "Tivendale et al. 2009",
+                    "ref_id": "BIBREF75"
+                },
+                {
+                    "start": 1657,
+                    "end": 1682,
+                    "text": "(Whitman and Nevers 2003)",
+                    "ref_id": "BIBREF79"
+                },
+                {
+                    "start": 1834,
+                    "end": 1852,
+                    "text": "(Sato et al. 2005)",
+                    "ref_id": "BIBREF64"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Data in"
+        },
+        {
+            "text": "The identification of bacterial sequences belonging to the family Enterobacteriaceae in all but the Harbour Beach sample could indicate the likely contamination of beach sands with enteric microorganisms, which might translate to increased health risks to beach goers as most of these microbes are potential pathogens. Moreover, most environmental pathogenic strains of this family are known to be multi-drug-resistant (Gon\u00e7alves et al. 2019) .",
+            "cite_spans": [
+                {
+                    "start": 419,
+                    "end": 442,
+                    "text": "(Gon\u00e7alves et al. 2019)",
+                    "ref_id": "BIBREF27"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Data in"
+        },
+        {
+            "text": "Sequences belonging to some unique bacterial genera were also found, some of them with no previous history of being isolated from beach sands or marine environments. These included sequences belonging to the genera Nakamurella, Robinginitalea and Teresakiella (Harbour Beach sample), Phaeobacter, Ralstonia, Sporobacter, and Wigglesworthia (Central Beach sample). Bacteria of the genus Wigglesworthia are otherwise known to reside within the cytoplasm of differentiated epithelial cells (bacteriocytes) of tsetse flies (Pais et al. 2008; Soumana et al. 2014) . Bacteria belonging to the genus Ochrobactrum and the family Rhodobacteraceae have been identified as etiological agents of the black band disease in corals (Miller and Richardson 2010) , while Teresakiella sp. (either pusilla or brassicae) is thought to colonise marine shellfish (Han et al. 2016) , and could have been deposited onto the beach sand by ocean tides.",
+            "cite_spans": [
+                {
+                    "start": 519,
+                    "end": 537,
+                    "text": "(Pais et al. 2008;",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 538,
+                    "end": 558,
+                    "text": "Soumana et al. 2014)",
+                    "ref_id": "BIBREF72"
+                },
+                {
+                    "start": 717,
+                    "end": 745,
+                    "text": "(Miller and Richardson 2010)",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 841,
+                    "end": 858,
+                    "text": "(Han et al. 2016)",
+                    "ref_id": "BIBREF29"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Data in"
+        },
+        {
+            "text": "In conclusion, the results of this study demonstrate that beach sand-borne bacteria are potential reservoirs of virulence and antibiotic resistance genes. Contamination of beach sands with heavy metals selects for both heavy metal resistance and antibiotic resistance in beach sand microbial communities. The abundance of pathogenic bacterial OTUs in beach sand shows the likelihood of health risks to people engaging in recreational activities in beach sands. In particular, immunocompromised persons are at an increased risk of contracting bacterial infections after beach visits, especially taking into consideration the likelihood of incidental ingestion of beach sand and water. To validate this possibility, future studies may need to quantitatively assess the microbial risk that beach goers are exposed to. However, not all microorganisms in beach sand are pathogenic as others play significant ecological roles including suppression of bacterial pathogens, nutrient recycling, and also as bio-filters.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data in"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Ecological risk assessment of heavy metals in coastal sediments between Al-Haymah and Al-Mokha, south red sea, Yemen",
+            "authors": [
+                {
+                    "first": "Al-Edresy",
+                    "middle": [],
+                    "last": "Mam",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Wasel",
+                    "suffix": ""
+                },
+                {
+                    "first": "Al-Hagibi",
+                    "middle": [],
+                    "last": "Ha",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Int J Hydrol",
+            "volume": "3",
+            "issn": "",
+            "pages": "159--173",
+            "other_ids": {
+                "DOI": [
+                    "10.15406/ijh.2019.03.00177"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Brazilian sandy beaches: characteristics, ecosystem services, impacts, knowledge and priorities",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Amaral",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Corte",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Filho",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Brazilian J Oceanogr",
+            "volume": "64",
+            "issn": "",
+            "pages": "5--16",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Detection of achromobacter xylosoxidans in hospital, domestic, and outdoor environmental samples and comparison with human clinical isolates",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Amoureux",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bador",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Fardeheb",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/AEM.02293-13"
+                ]
+            }
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Structural and functional characterization of aerobactin synthetase IucA from a hypervirulent pathotype of klebsiella pneumoniae",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Bailey",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Drake",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Grant",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Gulick",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Biochemistry",
+            "volume": "55",
+            "issn": "",
+            "pages": "3559--3570",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.biochem.6b00409"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Development of a high-throughput biochemical assay to screen for inhibitors of aerobactin synthetase iucA",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Bailey",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Buckley",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Chernov",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Gulick",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "SLAS Discov",
+            "volume": "23",
+            "issn": "",
+            "pages": "1070--1082",
+            "other_ids": {
+                "DOI": [
+                    "10.1177/2472555218787140"
+                ]
+            }
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "EPA-ng: massively parallel evolutionary placement of genetic sequences",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Barbera",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Kozlov",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Czech",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Syst Biol",
+            "volume": "68",
+            "issn": "",
+            "pages": "365--369",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/sysbio/syy054"
+                ]
+            }
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Aeromicrobium marinum sp. nov., an abundant pelagic bacterium isolated from the German Wadden Sea",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Bruns",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Philipp",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Cypionka",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Brinkhoff",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Int J Syst Evol Microbiol",
+            "volume": "53",
+            "issn": "",
+            "pages": "1917--1923",
+            "other_ids": {
+                "DOI": [
+                    "10.1099/ijs.0.02735-0"
+                ]
+            }
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "lntracellular steps of bacterial cell wall peptidoglycan biosynthesis : enzymology, antibiotics, and antibiotic resistance",
+            "authors": [
+                {
+                    "first": "Tdh",
+                    "middle": [],
+                    "last": "Bugg",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Walsh",
+                    "suffix": ""
+                }
+            ],
+            "year": 1992,
+            "venue": "Nat Prod Rep",
+            "volume": "",
+            "issn": "",
+            "pages": "199--215",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Institute for biodiversity and ecosystem dynamics (IBED)",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Cardenas",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Software for preprocessing Illumina next-generation sequencing short read sequences",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Khaleel",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Wu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Source Code Biol Med",
+            "volume": "9",
+            "issn": "",
+            "pages": "1--11",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/nbt1486"
+                ]
+            }
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Heavy metal induced antibiotic resistance in bacterium LSJC7",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Int J Mol Sci",
+            "volume": "16",
+            "issn": "",
+            "pages": "23390--23404",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/ijms161023390"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Bacterial heavy-metal and antibiotic resistance genes in a copper tailing dam area in northern China",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Front Microbiol",
+            "volume": "10",
+            "issn": "",
+            "pages": "1--12",
+            "other_ids": {
+                "DOI": [
+                    "10.3389/fmicb.2019.01916"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Spatial and temporal variation in enterococcal abundance and its relationship to the microbial community in Hawaii beach sand and water",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Cui",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Pagaling",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Yan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Appl Environ Microbiol",
+            "volume": "79",
+            "issn": "",
+            "pages": "3601--3609",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/AEM.00135-13"
+                ]
+            }
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Genesis and gappa: library and toolkit for working with phylogenetic (Placement) data. bioRxiv",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Czech",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Barbera",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Stamatakis",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/647958"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Estuarine, coastal and shelf science threats to sandy beach ecosystems : a review",
+            "authors": [
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Defeo",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Mclachlan",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Schoeman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Estuar Coast Shelf Sci",
+            "volume": "81",
+            "issn": "",
+            "pages": "1--12",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.ecss.2008.09.022"
+                ]
+            }
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Testing the watersm",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Devine",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "The Impacts of Beach Pollution. Natural Resources Defense Council",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Microfungal diversity in the swash zone interstitial water (SZIW ) of three Ligurian urban beaches",
+            "authors": [
+                {
+                    "first": "Di",
+                    "middle": [],
+                    "last": "Piazza",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Baiardo",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Cecchi",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Ital J Mycol",
+            "volume": "46",
+            "issn": "",
+            "pages": "8--20",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Heavy metal pollution and co-selection for antibiotic resistance: a microbial palaeontology approach",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Dickinson",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Power",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Hansen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Environ Int",
+            "volume": "132",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.envint.2019.105117"
+                ]
+            }
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "PICRUSt2: An improved and extensible approach for metagenome inference",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Douglas",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Maffei",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zaneveld",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/672295"
+                ]
+            }
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Accelerated profile HMM searches",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Eddy",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "PLoS Comput Biol",
+            "volume": "7",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/journal.pcbi.1002195"
+                ]
+            }
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "UCHIME improves sensitivity and speed of chimera detection",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Edgar",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Haas",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Clemente",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Bioinformatics",
+            "volume": "27",
+            "issn": "",
+            "pages": "2194--2200",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/bioinformatics/btr381"
+                ]
+            }
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Bioenergetic evolution in proteobacteria and mitochondria",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Esposti",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Genome Biol Evol",
+            "volume": "6",
+            "issn": "",
+            "pages": "3238--3251",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/gbe/evu257"
+                ]
+            }
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Effects of autochthonous microbial community on the die-off of fecal indicators in tropical beach sand",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Feng",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Goto",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Yan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "FEMS Microbiol Ecol",
+            "volume": "74",
+            "issn": "",
+            "pages": "214--225",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/j.1574-6941.2010.00921.x"
+                ]
+            }
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Unifying the analysis of high-throughput sequencing datasets: characterizing RNA-seq, 16S rRNA gene sequencing and selective growth experiments by compositional data analysis",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Fernandes",
+                    "suffix": ""
+                },
+                {
+                    "first": "Jns",
+                    "middle": [],
+                    "last": "Reid",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Macklaim",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "",
+            "volume": "2",
+            "issn": "",
+            "pages": "1--13",
+            "other_ids": {
+                "DOI": [
+                    "10.1186/2049-2618-2-15"
+                ]
+            }
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Comparative assessment of human and farm animal faecal microbiota using real-time quantitative PCR",
+            "authors": [
+                {
+                    "first": "J-P",
+                    "middle": [],
+                    "last": "Furet",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Firmesse",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Gourmelon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "FEMS Microbiol Ecol",
+            "volume": "68",
+            "issn": "",
+            "pages": "351--362",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/j.1574-6941.2009.00671.x"
+                ]
+            }
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Diversity and dynamics of rare and of resident bacterial populations in coastal sands",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Gobet",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Boeer",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Huse",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "ISME Journal",
+            "volume": "6",
+            "issn": "",
+            "pages": "542--553",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/ismej.2011.132"
+                ]
+            }
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Detection of multidrug-resistant Enterobacteriaceae isolated from river waters flowing to the Guanabara Bay and from clinical samples of hospitals in Rio Janeiro",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Gon\u00e7alves",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Meirelles-Pereira",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Cataldo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Brazil. Biom\u00e9dica",
+            "volume": "39",
+            "issn": "",
+            "pages": "135--149",
+            "other_ids": {
+                "DOI": [
+                    "10.7705/biomedica.v39i0.4391"
+                ]
+            }
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Comparison of bacterial communities in sands and water at beaches with bacterial water quality violations",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Halliday",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Mclellan",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Amaral-Zettler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "PLoS ONE",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/journal.pone.0090815"
+                ]
+            }
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Terasakiella brassicae sp. nov., isolated from the wastewater of a pickle-processing factory, and emended descriptions of Terasakiella pusilla and the genus Terasakiella",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Han",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Su",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1099/ijsem.0.000946"
+                ]
+            }
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Counting the uncountable: statistical approaches to estimating microbial diversity",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Hughes",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Hellmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Ricketts",
+                    "suffix": ""
+                },
+                {
+                    "first": "Bjm",
+                    "middle": [],
+                    "last": "Bohannan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Appl Environ Microbiol",
+            "volume": "67",
+            "issn": "",
+            "pages": "4399--4406",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/AEM.67.10.4399"
+                ]
+            }
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Annals of GIS assessment of sand and stone mining along the coastline of Cape Coast",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Jonah",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Adjei-Boateng",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Agbo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Ghana. Ann GIS",
+            "volume": "21",
+            "issn": "",
+            "pages": "223--231",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/19475683.2015.1007894"
+                ]
+            }
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Type IV pilins regulate their own expression via direct intramembrane interactions with the sensor kinase PilS",
+            "authors": [
+                {
+                    "first": "Sln",
+                    "middle": [],
+                    "last": "Kilmury",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Burrows",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "PNAS",
+            "volume": "113",
+            "issn": "",
+            "pages": "6017--6022",
+            "other_ids": {
+                "DOI": [
+                    "10.1073/pnas.1512947113"
+                ]
+            }
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Deciphering diversity indices for a better understanding of microbial communities",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Shin",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Guevarra",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "J Microb Biotechnol",
+            "volume": "27",
+            "issn": "",
+            "pages": "2089--2093",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Methylobacterium and its role in health care-associated",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Kovaleva",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Degener",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Van Der",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Infection",
+            "volume": "52",
+            "issn": "",
+            "pages": "1317--1321",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/JCM.03561-13"
+                ]
+            }
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Emergent polymyxin resistance: end of an era?",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Cao",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Yi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Open Forum Infect Dis",
+            "volume": "6",
+            "issn": "",
+            "pages": "1--10",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/ofid/ofz368"
+                ]
+            }
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Efficient comparative phylogenetics on large trees",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Louca",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Doebeli",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Bioinformatics",
+            "volume": "34",
+            "issn": "",
+            "pages": "1053--1055",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/bioinformatics/btx701"
+                ]
+            }
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Novel mechanism of B-lactam resistance due to bypass of DD-transpeptidation in Enterococcus faecium",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Mainardi",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Legrand",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Arthur",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "J Biol Chem",
+            "volume": "275",
+            "issn": "",
+            "pages": "16490--16496",
+            "other_ids": {
+                "DOI": [
+                    "10.1074/jbc.M909877199"
+                ]
+            }
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "A novel peptidoglycan cross-linking enzyme for a B-lactam-resistant transpeptidation pathway",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Mainardi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Fourgeaud",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Hugonnet",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "J Biol Chem",
+            "volume": "280",
+            "issn": "",
+            "pages": "38146--38152",
+            "other_ids": {
+                "DOI": [
+                    "10.1074/jbc.M507384200"
+                ]
+            }
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Evolution of peptidoglycan biosynthesis under the selective pressure of antibiotics in Grampositive bacteria",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Mainardi",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Villet",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Bugg",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "FEMS Microbiol Rev",
+            "volume": "32",
+            "issn": "",
+            "pages": "386--408",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/j.1574-6976.2007.00097.x"
+                ]
+            }
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Selection of a Bifidobacterium animalis subsp. lactis strain with a decreased ability to produce acetic acid",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Margolles",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "S\u00e1nchez",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Appl Environ Microbiol",
+            "volume": "78",
+            "issn": "",
+            "pages": "3338--3342",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/AEM.00129-12"
+                ]
+            }
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Achromobacter spp. healthcare associated infections in the French West Indies: a longitudinal study from",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Marion-Sanchez",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Pailla",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Olive",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "BMC Infect Dis",
+            "volume": "19",
+            "issn": "",
+            "pages": "1--10",
+            "other_ids": {
+                "DOI": [
+                    "10.1186/s12879-019-4431-3"
+                ]
+            }
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "Enumeration of bifidobacteria in gastrointestinal samples from piglets",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Mikkelsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Bendixen",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Jakobsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Jensen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Ameta-analysis of 16S rRNA gene clone libraries from the polymicrobial black band disease of corals",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Miller",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Richardson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "FEMS Microbiol Ecol",
+            "volume": "75",
+            "issn": "",
+            "pages": "231--241",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/j.1574-6941.2010.00991.x"
+                ]
+            }
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "Identification and characterization of two contiguous operons required for aerobactin transport and biosynthesis in vibrio mimicus",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Moon",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Tanabe",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Funahashi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "Microbiol Immunol",
+            "volume": "48",
+            "issn": "",
+            "pages": "389--398",
+            "other_ids": {}
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Distribution and abundance of microflora in sandy beaches on the southern coast of the Baltic Sea",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Mudryk",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Perli\u0144ski",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Wielgat",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Zdanowicz",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Oceanol Hydrobiol Stud",
+            "volume": "42",
+            "issn": "",
+            "pages": "324--331",
+            "other_ids": {
+                "DOI": [
+                    "10.2478/s13545-013-0089-4"
+                ]
+            }
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "Use of bifidobacterium dentium as an indicator of the origin of fecal water use of bifidobacterium dentium as an indicator of the origin of fecal water pollution",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Nebra",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Bonjoch",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Blanch",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/AEM.69.5.2651"
+                ]
+            }
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "Association between heavy metals and antibiotic-resistant human pathogens in environmental reservoirs : a review",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Nguyen",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Hugie",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Kile",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Navab-Daneshmand",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Front Environ Sci Eng",
+            "volume": "13",
+            "issn": "",
+            "pages": "1--17",
+            "other_ids": {}
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "Isolation and identification of hydrocarbon-degrading bacteria that tolerant to saponin of Sapindus rarak plant",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Octaviany",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Suharjono",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "J Biodjati",
+            "volume": "4",
+            "issn": "",
+            "pages": "79--88",
+            "other_ids": {
+                "DOI": [
+                    "10.15575/biodjati.v4i1.4392"
+                ]
+            }
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "Sandy beaches as a tourism attraction: a management challenge for the 21st century",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Orams",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "J Coast Res",
+            "volume": "35",
+            "issn": "",
+            "pages": "74--84",
+            "other_ids": {}
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "The obligate mutualist wigglesworthia glossinidia influences reproduction, digestion, and immunity processes of its host, the tsetse fly",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Pais",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Lohs",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Appl Environ Microbiol",
+            "volume": "74",
+            "issn": "",
+            "pages": "5965--5974",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/AEM.00741-08"
+                ]
+            }
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "The SILVA ribosomal RNA gene database project: Improved data processing and web-based tools",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Quast",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Pruesse",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Yilmaz",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Nucleic Acids Res",
+            "volume": "41",
+            "issn": "",
+            "pages": "590--596",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/nar/gks1219"
+                ]
+            }
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "Bacterial heavy-metal and antibiotic resistance genes in a copper tailing dam area in northern China",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Quero",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Cassin",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Botter",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Front Microbiol",
+            "volume": "6",
+            "issn": "",
+            "pages": "1--15",
+            "other_ids": {
+                "DOI": [
+                    "10.3389/fmicb.2015.01053"
+                ]
+            }
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "R: A language and environment for statistical computing (Version 3.5. 2). R Foundation for Statistical Computing",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "R Core Team",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF57": {
+            "ref_id": "b57",
+            "title": "Beachgoers Beware ? 5 Pathogens That Lurk In Sand. In: Live Sci",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Rettner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "29",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF58": {
+            "ref_id": "b58",
+            "title": "Proteobacteria: a common factor in human diseases",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Rizzatti",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Lopetuso",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Gibiino",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Biomed Res Int",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1155/2017/9351507"
+                ]
+            }
+        },
+        "BIBREF59": {
+            "ref_id": "b59",
+            "title": "Next-generation sequencing and culture-based techniques offer complementary insights into fungi and prokaryotes in beach sands",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Rom\u00e3o",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Staley",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Ferreira",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Mar Pollut Bull",
+            "volume": "119",
+            "issn": "",
+            "pages": "351--358",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.marpolbul.2017.04.036"
+                ]
+            }
+        },
+        "BIBREF60": {
+            "ref_id": "b60",
+            "title": "Contribution of the Shigella flexneri sit, iuc, and feo iron acquisition systems to iron acquisition in vitro and in cultured cells",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Runyen-Janecky",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Reeves",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Gonzales",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Payne",
+                    "suffix": ""
+                }
+            ],
+            "year": 1919,
+            "venue": "Infect Immun",
+            "volume": "71",
+            "issn": "",
+            "pages": "1919--1928",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/IAI.71.4.1919-1928.2003"
+                ]
+            }
+        },
+        "BIBREF61": {
+            "ref_id": "b61",
+            "title": "Routine screening of harmful microorganisms in beach sands: Implications to public health",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Sabino",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Rodrigues",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Costa",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Sci Total Environ",
+            "volume": "472",
+            "issn": "",
+            "pages": "1062--1069",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.scitotenv.2013.11.091"
+                ]
+            }
+        },
+        "BIBREF62": {
+            "ref_id": "b62",
+            "title": "Metal tolerance and antibiotic resistance patterns of a bacterial population isolated from sea water",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Sabry",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Ghozlan",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Abou-Zeid",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "J Appl Microbiol",
+            "volume": "82",
+            "issn": "",
+            "pages": "245--252",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/j.1365-2672.1997.tb02858.x"
+                ]
+            }
+        },
+        "BIBREF63": {
+            "ref_id": "b63",
+            "title": "Analysis of bacterial communities in heavy metal-contaminated soils at different levels of resolution",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Sandaa",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Torsvik",
+                    "suffix": ""
+                },
+                {
+                    "first": "\u00d8",
+                    "middle": [],
+                    "last": "Enger",
+                    "suffix": ""
+                }
+            ],
+            "year": 1999,
+            "venue": "FEMS Microbiol Ecol",
+            "volume": "30",
+            "issn": "99",
+            "pages": "62--70",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/S0168-6496(99)00062-8"
+                ]
+            }
+        },
+        "BIBREF64": {
+            "ref_id": "b64",
+            "title": "Sanitary quality of sands from marine recreational beaches of Sao Paulo, Brazil. Brazilian",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Sato",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Di Bari",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Lamparelli",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "J Microbiol",
+            "volume": "36",
+            "issn": "",
+            "pages": "321--326",
+            "other_ids": {}
+        },
+        "BIBREF65": {
+            "ref_id": "b65",
+            "title": "Introducing mothur: open-source, platform-independent, community-supported software for describing and comparing microbial communities",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Schloss",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Westcott",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Ryabin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/AEM.01541-09"
+                ]
+            }
+        },
+        "BIBREF67": {
+            "ref_id": "b67",
+            "title": "Differential regulation of Escherichia coli fim genes following binding to mannose receptors",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Schwan",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Beck",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Hung",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Hultgren",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "J ofPathogens",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1155/2018/2897581"
+                ]
+            }
+        },
+        "BIBREF68": {
+            "ref_id": "b68",
+            "title": "Industrial wastewaters harbor a unique diversity of bacterial communities revealed by high-throughput amplicon analysis",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Selvarajan",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Sibanda",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Venkatachalam",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Ann Microbiol",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s13213-018-1349-8"
+                ]
+            }
+        },
+        "BIBREF69": {
+            "ref_id": "b69",
+            "title": "Defunct gold mine tailings are natural reservoir for unique bacterial communities revealed by high-throughput sequencing analysis",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Sibanda",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Selvarajan",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Msagati",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Sci Total Environ",
+            "volume": "650",
+            "issn": "",
+            "pages": "2199--2209",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.scitotenv.2018.09.380"
+                ]
+            }
+        },
+        "BIBREF70": {
+            "ref_id": "b70",
+            "title": "Lactobacillus paracasei comparative genomics : towards species pan-genome definition and exploitation of diversity",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Smokvina",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Wels",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Polka",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "PLoS ONE",
+            "volume": "8",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/journal.pone.0068731"
+                ]
+            }
+        },
+        "BIBREF71": {
+            "ref_id": "b71",
+            "title": "Beach sand and the potential for infectious disease transmission : observations and recommendations",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Solo-Gabriele",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Harwood",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Kay",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "J Mar Biol Assoc UK",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1017/S0025315415000843"
+                ]
+            }
+        },
+        "BIBREF72": {
+            "ref_id": "b72",
+            "title": "Comparative gene expression of Wigglesworthia inhabiting non-infected and Trypanosoma brucei gambiense-infected Glossina palpalis gambiensis flies",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Soumana",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Tchicaya",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Simo",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Geiger",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Front Microbiol",
+            "volume": "5",
+            "issn": "",
+            "pages": "1--16",
+            "other_ids": {
+                "DOI": [
+                    "10.3389/fmicb.2014.00620"
+                ]
+            }
+        },
+        "BIBREF73": {
+            "ref_id": "b73",
+            "title": "Polymyxin resistance in gram-negative pathogens",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Srinivas",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Rivard",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Curr Infect Dis Rep",
+            "volume": "19",
+            "issn": "",
+            "pages": "7--9",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s11908-017-0596-3"
+                ]
+            }
+        },
+        "BIBREF74": {
+            "ref_id": "b74",
+            "title": "Probiotic Bifidobacterium longum alters gut luminal metabolism through modification of the gut microbial community",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Sugahara",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Odamaki",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Fukuda",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Sci Rep",
+            "volume": "5",
+            "issn": "",
+            "pages": "1--11",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/srep13548"
+                ]
+            }
+        },
+        "BIBREF75": {
+            "ref_id": "b75",
+            "title": "Plasmid-borne virulence-associated genes have a conserved organization in virulent strains of avian pathogenic Escherichia coli",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Tivendale",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Allen",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Browning",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "J Clin Microbiol",
+            "volume": "47",
+            "issn": "",
+            "pages": "2513--2519",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/JCM.00391-09"
+                ]
+            }
+        },
+        "BIBREF76": {
+            "ref_id": "b76",
+            "title": "United Nations World Tourism Organisation",
+            "authors": [],
+            "year": 2016,
+            "venue": "UNWTO",
+            "volume": "84418",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "https:/www.e-unwto.org/doi/book/10.18111/9789284418145"
+                ]
+            }
+        },
+        "BIBREF77": {
+            "ref_id": "b77",
+            "title": "Native Bayesian classifier for rapid assignment of rRNA sequences into the new bacterial taxonomy",
+            "authors": [
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Garrity",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Tiedje",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Cole",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Appl Environ Microbiol",
+            "volume": "73",
+            "issn": "",
+            "pages": "5261--5267",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/AEM.00062-07"
+                ]
+            }
+        },
+        "BIBREF78": {
+            "ref_id": "b78",
+            "title": "Impacts of a changing earth on microbial dynamics and human health risks in the continuum between beach water and sand",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Weiskerger",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Brand\u00e3o",
+                    "suffix": ""
+                },
+                {
+                    "first": "Ahmed",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Water Res",
+            "volume": "162",
+            "issn": "",
+            "pages": "456--470",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.watres.2019.07.006"
+                ]
+            }
+        },
+        "BIBREF79": {
+            "ref_id": "b79",
+            "title": "Foreshore sand as a source of Escherichia coli in nearshore water of a lake michigan beach",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Whitman",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Nevers",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Appl Environ Microbiol",
+            "volume": "69",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/AEM.69.9.5555"
+                ]
+            }
+        },
+        "BIBREF80": {
+            "ref_id": "b80",
+            "title": "Microbes in beach sands: integrating environment, ecology and public health",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Whitman",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Harwood",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Edge",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "PMC",
+            "volume": "13",
+            "issn": "",
+            "pages": "329--368",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s11157-014-9340-8"
+                ]
+            }
+        },
+        "BIBREF81": {
+            "ref_id": "b81",
+            "title": "Beneficial effects of Bifidobacterium longum subsp. longum BB536 on human health: Modulation of gut microbiome as the principal action",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Wong",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Odamaki",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xiao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "J Funct Foods",
+            "volume": "54",
+            "issn": "",
+            "pages": "506--519",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.jff.2019.02.002"
+                ]
+            }
+        },
+        "BIBREF82": {
+            "ref_id": "b82",
+            "title": "The effect of heavy metal contamination on the bacterial community structure at Jiaozhou Bay, China",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Yao",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Tian",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Guo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Brazilian J Microbiol",
+            "volume": "48",
+            "issn": "",
+            "pages": "4--11",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.bjm.2016.09.007"
+                ]
+            }
+        },
+        "BIBREF83": {
+            "ref_id": "b83",
+            "title": "Microbial ecology in health and disease antimicrobial resistance due to the content of potentially toxic metals in soil and fertilizing products",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Yazdankhah",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Skjerve",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wasteson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Microb Ecol Health Dis",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/16512235.2018.1548248"
+                ]
+            }
+        },
+        "BIBREF84": {
+            "ref_id": "b84",
+            "title": "A parsimony approach to biological pathway reconstruction/inference for genomes and metagenomes",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Ye",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Doak",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/journal.pcbi.1000465"
+                ]
+            }
+        },
+        "BIBREF86": {
+            "ref_id": "b86",
+            "title": "Diversity of microfungi in sandy beach soil of teluk aling, pulau pinang",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zakaria",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Yee",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Zakaria",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Salleh",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Trop Life Sci Res",
+            "volume": "22",
+            "issn": "",
+            "pages": "71--80",
+            "other_ids": {}
+        },
+        "BIBREF87": {
+            "ref_id": "b87",
+            "title": "Impact of indigenous microbiota of subtidal sand on fecal indicator bacteria decay in beach systems: a microcosm study",
+            "authors": [
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "He",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Yan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Environ Sci Water Res Technol",
+            "volume": "1",
+            "issn": "",
+            "pages": "306--315",
+            "other_ids": {
+                "DOI": [
+                    "10.1039/c5ew00004a"
+                ]
+            }
+        },
+        "BIBREF88": {
+            "ref_id": "b88",
+            "title": "Comprehensive mutagenesis of the fimS promoter regulatory switch reveals novel regulation of type 1 pili in uropathogenic Escherichia coli",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Susanto",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Chen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "PNAS",
+            "volume": "113",
+            "issn": "",
+            "pages": "4182--4187",
+            "other_ids": {
+                "DOI": [
+                    "10.1073/pnas.1522958113"
+                ]
+            }
+        },
+        "BIBREF89": {
+            "ref_id": "b89",
+            "title": "Bacterial community structure and its regulating factors in the intertidal sediment along the Liaodong Bay of Bohai Sea",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Zheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "China. Microbiol Res",
+            "volume": "169",
+            "issn": "",
+            "pages": "585--592",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.micres.2013.09.019"
+                ]
+            }
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Heavy metal concentrations in sand samples from four beach sites along the Indian Ocean coastline Class-level bacterial community structure in sand samples from four recreational beaches in Durban",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Canonical Virulence enzymes and pathways detected in the beach samples (differences in the overall abundance of virulence and resistance genes in the various sample were significant; p = 0.028)LowHigh",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "Summary of the sequence reads, OTUs, and bacterial diversity and richness indices in four beach sand samples",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "Bacterial communities (%) at the genus level in recreation sand beach samples *Tr trace, representing sequence coverage of less than 1%",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": []
+}

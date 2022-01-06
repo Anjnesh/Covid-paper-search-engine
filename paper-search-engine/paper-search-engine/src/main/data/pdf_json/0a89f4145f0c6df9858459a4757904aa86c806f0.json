@@ -1,0 +1,1144 @@
+{
+    "paper_id": "0a89f4145f0c6df9858459a4757904aa86c806f0",
+    "metadata": {
+        "title": "Automatic classification of medical image modality and anatomical location using convolutional neural network",
+        "authors": [
+            {
+                "first": "Chen-Hua",
+                "middle": [],
+                "last": "Chiang",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Taipei Medical University",
+                    "location": {
+                        "settlement": "New Taipei City",
+                        "country": "Taiwan"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "I",
+                "middle": [
+                    "D"
+                ],
+                "last": "",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Chi-Lun",
+                "middle": [],
+                "last": "Weng",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Tainan Municipal Hospital",
+                    "location": {
+                        "settlement": "Tainan",
+                        "country": "Taiwan"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Hung-Wen",
+                "middle": [],
+                "last": "Chiu",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Taipei Medical University",
+                    "location": {
+                        "settlement": "Taipei",
+                        "country": "Taiwan"
+                    }
+                },
+                "email": "*hwchiu@tmu.edu.tw"
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Modern radiologic images comply with DICOM (digital imaging and communications in medicine) standard, which, upon conversion to other image format, would lose its image detail and information such as patient demographics or type of image modality that DICOM format carries. As there is a growing interest in using large amount of image data for research purpose and acquisition of large amount of medical image is now a standard practice in the clinical setting, efficient handling and storage of large amount of image data is important in both the clinical and research setting. In this study, four classes of images were created, namely, CT (computed tomography) of abdomen, CT of brain, MRI (magnetic resonance imaging) of brain and MRI of spine. After converting these images into JPEG (Joint Photographic Experts Group) format, our proposed CNN architecture could automatically classify these 4 groups of medical images by both their image modality and anatomic location. We achieved excellent overall classification accuracy in both validation and test sets (> 99.5%), specificity and F1 score (> 99%) in each category of this dataset which contained both diseased and normal images. Our study has shown that using CNN for medical image classification is a promising methodology and could work on non-DICOM images, which could potentially save image processing time and storage space.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Modern radiologic medical images, comply with DICOM (digital imaging and communications in medicine) standard, which is a worldwide standard for the storage and transmission of medical imaging. The reason for using the DICOM standard is to ensure that all the medical images made by different machines, hospitals or companies can speak the same language and therefore operate within the same environment. Each DICOM file has a header containing data such as patient demographic information, acquisition parameters and image dimensions. The remaining portion of the DICOM file contains the image data [1] . The header information is encoded within the DICOM file so that it cannot be accidentally separated from the image data. If the header is separated from the image data, the image will not be displayed properly [2] . However, there are times that these DICOM images would be converted into different format such as JPEG (Joint Photographic Experts Group) or PNG (Portable Networks Graphics) for reasons such as they are of smaller file size or supporting website display. In such scenario, the information that the DICOM image carries would be lost and unable to retrieve. Among these other file format, JPEG is the most popular format as it can be read by all computer platforms. However, as JPEG format uses lossy compression, it may suffer from compression artifacts or loss of details which may affect image interpretation, and is therefore generally avoided for diagnostic purpose.",
+            "cite_spans": [
+                {
+                    "start": 600,
+                    "end": 603,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 816,
+                    "end": 819,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "With the advancement of medical imaging technique, acquisition of large, high-resolution images has now become a standard expectation and requirement in diagnostic setting by both clinician and radiologist. As there is a continuous interest on medical images research using machine learning methods, a need to pre-process and classify large volume of image data is growing since assigning human to recognize, sort and organize every medical image is laborious and error-prone [3] . What is more, efficient handling of large amount of image data is also important in the setting of teleradiology [4] . Although we could use text-based retrieval method to categorize medical images since DICOM header contains information on body part and image modality, previous research have shown that about 15% of images contained false tag entries which can result in wrong categorization [5] . Therefore, a reliable pure imagebased classification algorithm would be applicable in both clinical and research setting.",
+            "cite_spans": [
+                {
+                    "start": 476,
+                    "end": 479,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 595,
+                    "end": 598,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 876,
+                    "end": 879,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Deep learning (DL) is a breakthrough technique that can extract discriminative image features. Convolutional Neural Network (CNN) is the most commonly used DL architecture in many image analyses and computer vision-related tasks [6] . DL can automatically learn visual features from the input image pixels [7] through mechanisms of combining multiple (deep) layers of receptive fields, and pooling [8] . It has been shown to have a superior performance compared to other conventional machine learning methods such as SVM and ANN [9, 10] . The goal of this study is to see if CNN can accurately discriminate medical images from their imaging modalities and anatomic location after they have been converted into other image format, namely JPEG format. JPEG format was chosen as it is the most portable image format with small file size and can substantially reduce storage requirements and expedite image transfer and training for machine learning purpose but is known for its inadequate image quality for diagnosis.",
+            "cite_spans": [
+                {
+                    "start": 229,
+                    "end": 232,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 306,
+                    "end": 309,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 398,
+                    "end": 401,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 529,
+                    "end": 532,
+                    "text": "[9,",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 533,
+                    "end": 536,
+                    "text": "10]",
+                    "ref_id": "BIBREF9"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The institutional review board approved this retrospective study (Taipei Medical University-Joint Institutional Review Board No: N201912079), with a waiver of informed consent. We focused on CT and MRI images as these two image modalities are the main workhorse in diagnostic imaging. For each image modality, two anatomical locations were selected and thus a total of four medical image sub-groups were collected and they were CT of abdomen, CT of brain, MRI of brain and MRI of lumbar spine. Examples of these four categories of images are shown (Fig 1) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 548,
+                    "end": 555,
+                    "text": "(Fig 1)",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Dataset"
+        },
+        {
+            "text": "We first searched in the PACS system of Shuang-Ho Hospital for these four types of medical images and then randomly select the images from different patients and saved them into JPEG files (Fig 2) . JPEG format was chosen for the reason stated previously and also, many of the publicly accessible medical image dataset are of JPEG format. We saved all image slices as separate JPEG images. As our database contains both normal and pathological images, it should therefore be generalized enough to represent what radiologists or researchers face in daily practice. MRI was performed with various machines, including 1.5T (Signa HDX 1.5T, GE Healthcare, Milwaukee, WI, USA) and 3T scanners (Discovery MR750 3T, GE Healthcare, Milwaukee, WI, USA). The CT was performed with two machines in our hospital, Bright Speed 16 CT scanner (GE Healthcare, Milwaukee, WI, USA) and Discovery CT 750 HD scanner (GE Healthcare, Milwaukee, WI, USA).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 189,
+                    "end": 196,
+                    "text": "(Fig 2)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Dataset"
+        },
+        {
+            "text": "For the MRI of the lumbar spine group, T1, T2 sequences with both sagittal and axial views were collected. For the MRI of the brain group, images of T1, T2 axial views, T2 coronal view and DWI images were collected. For the abdominal CT group, only axial views were selected but both the images of with and without contrast enhancement were collected. For the brain CT group, only the non-enhanced brain CT images and axial view were collected. All images were in grayscale. After converting these medical images from DICOM format into JPEG images, we resized them into 512x512 in pixels. Default window level of the images was downloaded from our PACS and no pre-processing or normalization of these images was performed.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Dataset"
+        },
+        {
+            "text": "A dataset containing abovementioned four images folders were created with folder names as CT of abdomen, CT of brain, MRI of brain and MRI of lumbar spine for the CNN to read. The amount of images of each folder was as below: total of 742 images for CT of abdomen folder, 739 images for the CT of brain folder, 707 images for the MRI of brain folder and 690 images for the MRI of spine folder (Table 1) . ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 393,
+                    "end": 402,
+                    "text": "(Table 1)",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Dataset"
+        },
+        {
+            "text": "Our proposed model was modified from a CNN architecture provided by Matlab 2020a (The MathWorks, Inc., Natick, MA) for hand-written digit data classification. The original CNN architecture was modified to read image size of 512-by-512-by-1, with 512 being the pixel size of images and 1 indicating grayscale image. The data was randomly divided into training and validation sets using 70% of the images for training and 30% for validation. The training set was used to train the algorithm, and the validation set was for tuning of hyperparameters. After multiple attempts, further modification was made for the CNN to contain five sets of convolutional layers followed by batch normalization layer, ReLu layer and then Max Pooling layer. The filter size for the all five convolutional layers were 3-by-3 but we gradually increased the number of filters so that there were 8 filters in the first convolutional layer, 16 filters in the second, 24 filter in the third, 32 filters in the fourth and 48 filters in the fifth convolutional layers. Default padding of one and stride of one in the convolutional layer were used. The fully connected layer was set to four as there were four classes to be classified (Fig 3) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 1206,
+                    "end": 1213,
+                    "text": "(Fig 3)",
+                    "ref_id": null
+                }
+            ],
+            "section": "CNN architecture"
+        },
+        {
+            "text": "The trained network then predicted the labels of the validation data and calculated accuracy, which is the fraction of labels that the network predicts correctly. The network used stochastic gradient descent with momentum (SGDM) with an initial learning rate of 0.01. The maximum number of epochs was adjusted to 8 after several attempts to gain best result.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "CNN architecture"
+        },
+        {
+            "text": "To further test the accuracy of our trained network, we created a test set containing these four classes of images, with each class containing 50 new and unseen images (Fig 2) to our algorithm. We calculated the prediction accuracy of these unseen data using the same method as we did with the validation data. The above experiments were conducted with a standard MacBook Pro computer incorporated with Intel Core i7 2.7 GHz CPU, 16G main memory and Intel HD Graphics 530 1536 MB.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 168,
+                    "end": 175,
+                    "text": "(Fig 2)",
+                    "ref_id": null
+                }
+            ],
+            "section": "CNN architecture"
+        },
+        {
+            "text": "A confusion matrix was created from our predicted result and compared with actual results to calculate the following evaluation metrics:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Statistical analysis"
+        },
+        {
+            "text": "where TP is the true positive count, FP is the false positive count, FN is the false negative count and FP is the false positive count. Accuracy is the ratio of the correctly labeled images to the whole pool of images. Precision measures how precise or accurate our model is, that is, how many images of our model's prediction matched with actual ground truth label. Recall is also named as sensitivity which is the ratio between how many images that were correctly identified as one class of image to how many images that were actually that class of image. Specificity is the ratio between how many images that were correctly classified as not belonging to a class of image to the amount of total images that were actually not that class of images. F1 score considers both precision and recall and is the harmonic mean (average) of the precision and recall. F1 score suits best if there is some sort of unbalance between precision and recall in the system and is considered a better indicator of the classifier's performance than the measure of accuracy.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Statistical analysis"
+        },
+        {
+            "text": "We trained our model and repeated this task for 5 times, for each run, the time elapsed for the training and validation took about 21 to 24 minutes. The average validation accuracy of these 5 attempts was 99.91%. We then used our trained network for prediction on the testing set of unseen images, after 5 runs, the model achieved an average accuracy rate of 99.6% (Table 2) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 365,
+                    "end": 374,
+                    "text": "(Table 2)",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "During validation, among the four groups of medical images, there were cases of CT of brain image being misclassified as MRI of brain image, cases of MRI of brain image misclassified as MRI of spine image and cases of MRI of spine image misclassified as CT of brain image (Table 3) . On the testing set, only the images of spine MRI were misclassified as MRI of brain images ( Table 4 ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 272,
+                    "end": 281,
+                    "text": "(Table 3)",
+                    "ref_id": null
+                },
+                {
+                    "start": 377,
+                    "end": 384,
+                    "text": "Table 4",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "The results of accuracy, precision, sensitivity, specificity and F1 score for these four classes in both the validation and testing sets were presented and showed that the accuracy, precision, recall, specificity and F1 score were all near 100% in the validation set ( Table 5 ). The result dropped slightly in the testing set which showed a precision of 98.4% in the MRI brain group and recall of 98.4% in the MRI of spine group ( Table 6 ). The F1 score of both sets therefore were 99% and 99.2% respectively. All the other performance measurements were well above 99%. Examples of misclassified images by the validation and testing sets are shown in Fig 4. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 269,
+                    "end": 276,
+                    "text": "Table 5",
+                    "ref_id": null
+                },
+                {
+                    "start": 432,
+                    "end": 439,
+                    "text": "Table 6",
+                    "ref_id": "TABREF4"
+                },
+                {
+                    "start": 653,
+                    "end": 659,
+                    "text": "Fig 4.",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "In this digital age, many medical images may be converted into different file format to be carried around and for various purposes such as education or consultation. Converting DICOM images into other file format also has its necessity in both clinical and research setting as it allows for faster image transmission and reduces file storage space. However, after conversion, they would lose their DICOM header information and one can no longer identify the image location and modality without expert's help, which is the first step in using these images for various purposes. Using human expert's visual inspection for image classification can be laborious and error-prone. Our result showed that using our simple convolutional neural network, we could achieve very high performance in classifying both image modality and anatomical location on JPEG images. This can be useful in the clinical setting such as teleradiology as one could use JPEG for its advantage on faster image transmission and restore them to remove the compression artifact associated with JPEG images as proposed by Chung et al [4] . Also, earlier work done by Szot et al have shown that using both JPEG-and JPEG2000-compressed images from the digital camera and a view-box allow readings of sufficient quality for the diagnosis of tuberculosis on chest X-ray, this means that using JPEG image for diagnostic purpose could suffice under specific condition and appropriate setting. A reliable, automatic, pure image-based classification algorithm also has its demand in the research setting. Pizarro et al developed a deep learning algorithm using CNN architecture to automatically infer the contrast of MRI scans based on the image intensity of multiple slices for database management purpose in their research center. The MRI contrast dataset at their second part of study included fluid-attenuated inversion recovery (FLAIR), proton-density weighted, T1-weighted, post-contrast agent, T1-weighted pre-contrast agent, T2-weighted, high resolution T1-weighted, magnetic transfer ON, and magnetic transfer OFF. The CNN algorithm they developed could automatically identify the MRI contrast of previously described dataset with a less than 0.2% error rate, which was markedly lower than the random forest algorithm that had 1.74% error rate for the same MRI dataset [11] . A similar idea was investigated upon by Remedios et al for a similar purpose, in which they developed a novel 3D deep CNN-based method for MR image contrast classification. Specifically, they investigated on three classification tasks. Firstly, to identify T1-weighted, T2-weighted, and FLAIR contrasts. The second task was to identify pre versus post-contrast T1-weighted images. The third task was to identify pre versus post-contrast FLAIR images. They achieved a mean accuracy of 97.57% across the 3 tasks [3] . Compared with our work, their work focused on classifying different image contrast or sequences of the same image modality, namely MRI, and the same anatomical location, namely brain. Remedios et al showed some examples of the misclassified images by their proposed algorithm, and they were due to either severe artifact or pathologies. This is similar in our study in which one of our misclassified images had intracerebral hemorrhage.",
+            "cite_spans": [
+                {
+                    "start": 1100,
+                    "end": 1103,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 2336,
+                    "end": 2340,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 2853,
+                    "end": 2856,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "For the task of image classification, CNN has been reported to outperform other conventional machine learning methods by Maruyama et al. They reported using CNN, namely Alex-Net, Support Vector Machine (SVM) and Artificial Neural Network (ANN) to classify 3 different image modalities, namely, X-ray, CT and MRI images and amongst two image formats, namely, DICOM and JPEG format. They showed that CNN had 100% classification accuracy using the JPEG dataset and the accuracy rate was 94.4% for SVM, and 88.9% for ANN. The classification accuracy, using the DICOM dataset, was 100% for CNN, SVM, and ANN. Moreover, they reported a shorter processing time for one JPEG image (7 seconds) compared with DICOM image (10 seconds) for CNN [10] . This study could further justify the advantage of choosing CNN as the algorithm for pure image-based classification and JPEG as the image format.",
+            "cite_spans": [
+                {
+                    "start": 732,
+                    "end": 736,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "There are several other studies that focused on classifying medical images according to the anatomic location or organ-specific anatomy. For example, Ning-ning Ren et al used image processing method to automatically recognize radiographic position of brain, cervical spine, chest, lumbar spine, pelvis, and limbs. The radiographic position was determined from frequency similarity and amplitude classification. The body region recognition was performed by image matching in the whole-body phantom image which they built a series of templates to compare with. Using these methods, they achieved an average organ recognition accuracy of 93.78% and the average judgment time was 0.29 s [12] .",
+            "cite_spans": [
+                {
+                    "start": 683,
+                    "end": 687,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "Hiroyuki Sugimori focused on classifying CT images according to their anatomic location by using various numbers of images slices ranging from 100 to 10000. They used AlexNet and GoogLeNet to classify 10 classes, namely, brain, neck, chest, abdomen, and pelvis with contrast-enhanced and plain images and found that the best overall accuracy was 0.721 for the classification of 10 classes by using GoogLeNet and 10000 image slices. Also, the best overall accuracy for the classification of the slice position without contrast media was 0.862 by using 2000 image slices dataset with AlexNet [13] . Sameer Khan et al tried to identify the same organs (lung, liver, heart, kidney and lumbar spine) from five different imaging modalities (CT, MRI, Positron emission tomography, ultrasound and X-ray images) by using a modified CNN architecture based on AlexNet. They achieved a validation and test accuracy of 76.6% and 81% respectively. This result outperformed three milestone CNN architectures namely, AlexNet, LeNet and GoogleLeNet which had test accuracy of 74%, 59% and 45% respectively [14] . Their result showed that the architectures used for natural image classification cannot be generalized on medical images and modification of the basic CNN architecture could yield better results for the task of medical image anatomy classification. This result is similar to our findings that modification of hyperparameters was required for medical image classification after we adopted the CNN architecture that was originally designed for hand-written digit data. Holger R. Roth et al developed a convolutional network with five layers of convolution filters to identify 5 classes of anatomy in CT images namely, neck, lungs, liver, pelvis and legs. Their testing set error rate improved from 9.6% prior to data augmentation to 5.9% after data augmentation [15, 16] Compared to their work, our study had a much higher accuracy rate (> 99.5%) but we focused on identifying anatomic location rather than specific anatomic organs.",
+            "cite_spans": [
+                {
+                    "start": 590,
+                    "end": 594,
+                    "text": "[13]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 1089,
+                    "end": 1093,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 1856,
+                    "end": 1860,
+                    "text": "[15,",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 1861,
+                    "end": 1864,
+                    "text": "16]",
+                    "ref_id": "BIBREF16"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "Despite all previous works, to our knowledge, there were no previous studies that used CNN to classify medical images by both image modality and anatomic location, which is most practical in both clinical and research setting. The higher than 99.5% accuracy rate and the higher than 99% F1 score and specificity for each category of our validation and testing set demonstrated that using CNN for medical image classification is a promising application in real life scenario. A comprehensive table of previous works regarding medical image classification on either anatomy and/or image modality is summarized in Table 7 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 611,
+                    "end": 618,
+                    "text": "Table 7",
+                    "ref_id": "TABREF5"
+                }
+            ],
+            "section": "Discussion"
+        },
+        {
+            "text": "There were several limitations in our study. Firstly, we only used JPEG images for our CNN architecture. It would have been interesting to compare the accuracy rate between JPEG and DICOM images using the same algorithm as the conversion of DICOM to JPEG format resulted in information loss which may impact the classification accuracy rate. However, Maruyama et al have already shown that there was no difference in classification accuracy between JPEG and DICOM images using CNN and that using JPEG image benefited from a shorter processing time. Therefore, we would assume that the difference in accuracy would have been small if this comparison was made. Secondly, we did not perform any image pre-processing for this study and only used the preset window level for our model. However, our excellent classification accuracy result could justify for the lack of image pre-processing and proved that using the preset window level was enough to perform this task well which also saved image processing time. Thirdly, we did not choose all the sequences in the two MRI classes, only those we thought was representative on that certain image modality and anatomic location, which might hinder its accuracy rate if applying this CNN architecture to other sequences in real life scenario. Fourthly, a limited number of test set examples were included in this study. Fifthly, only 4 categories out of two image modalities and three anatomical locations were selected in this study, this could hinder the ability of generalization in the real life.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "In this study, we proposed a deep CNN architecture for the classification of medical image by both their anatomic location and image modality using JPEG images and achieved excellent overall classification accuracy in both validation and test sets (> 99.5%). We also achieved very high specificity and F1 score (> 99%) in each category of our dataset which contained both diseased and normal images. Our study confirmed that using CNN for medical image classification is a promising methodology and could work on non-DICOM images. This could potentially save image processing time and storage space in real life scenario. Future work on other anatomic locations and imaging modalities should be investigated upon in the hope that a fully automated medical image classification algorithm can be used in both clinical and research setting.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "DICOM demystified: a review of digital file formats and their use in radiological practice",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Graham",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Perriss",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Scarsbrook",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "Clin Radiol",
+            "volume": "60",
+            "issn": "11",
+            "pages": "1133--1173",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.crad.2005.07.003"
+                ],
+                "PMID": [
+                    "16223609"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Managing DICOM images: Tips and tricks for the radiologist",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Varma",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Indian J Radiol Imaging",
+            "volume": "22",
+            "issn": "1",
+            "pages": "4--13",
+            "other_ids": {
+                "DOI": [
+                    "10.4103/0971-3026.95396"
+                ],
+                "PMID": [
+                    "22623808"
+                ]
+            }
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Classifying magnetic resonance image modalities with convolutional neural networks",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Remedios",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Pham",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Butman",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Roy",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Restoration of Lossy JPEG-Compressed Brain MR Images Using Cross-Domain Neural Networks",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Chung",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Souza",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Frayne",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "IEEE Signal Processing Letters",
+            "volume": "27",
+            "issn": "",
+            "pages": "141--146",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Quality of DICOM header information for image categorization",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "G\u00fcld",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kohnen",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Keysers",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Schubert",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Wein",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Lehmann",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Proceedings of SPIE-The International Society for Optical Engineering",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Visual Interpretation of Convolutional Neural Network Predictions in Classifying Medical Image Modalities",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "Sa-O",
+                    "middle": [],
+                    "last": "Rajaraman",
+                    "suffix": ""
+                },
+                {
+                    "first": "Antani",
+                    "middle": [],
+                    "last": "Sa-O",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/diagnostics9020038"
+                ],
+                "PMID": [
+                    "30987172"
+                ]
+            }
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Image based fruit category classification by 13-layer deep convolutional neural network and data augmentation. Multimedia Tools and Applications",
+            "authors": [
+                {
+                    "first": "Y-D",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Dong",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Jia",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Du",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Muhammad",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "78",
+            "issn": "",
+            "pages": "3613--3645",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "ImageNet classification with deep convolutional neural networks",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Krizhevsky",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Sutskever",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Hinton",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Proceedings of the 25th International Conference on Neural Information Processing Systems",
+            "volume": "1",
+            "issn": "",
+            "pages": "1097--105",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Alcoholism identification via convolutional neural network based on parametric ReLU, dropout, and batch normalization. Neural Computing and Applications",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Muhammad",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Hong",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kumar",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y-D",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Comparison of medical image classification accuracy among three machine learning methods",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Maruyama",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Hayashi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Sato",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Hyuga",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wakayama",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Watanabe",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "J Xray Sci Technol",
+            "volume": "26",
+            "issn": "6",
+            "pages": "885--93",
+            "other_ids": {
+                "DOI": [
+                    "10.3233/XST-18386"
+                ],
+                "PMID": [
+                    "30223423"
+                ]
+            }
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Using Deep Learning Algorithms to Automatically Identify the Brain MRI Contrast: Implications for Managing Large Databases",
+            "authors": [
+                {
+                    "first": "Ra-O",
+                    "middle": [],
+                    "last": "Pizarro",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Assemlal",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "De Nigris",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Elliott",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Antel",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Arnold",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "1559--0089",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Automatic Radiographic Position Recognition from Image Frequency and Intensity",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Ren N-N",
+                    "suffix": ""
+                },
+                {
+                    "first": "A-R",
+                    "middle": [],
+                    "last": "Ma",
+                    "suffix": ""
+                },
+                {
+                    "first": "L-B",
+                    "middle": [],
+                    "last": "Han",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Shao",
+                    "suffix": ""
+                },
+                {
+                    "first": "J-F",
+                    "middle": [],
+                    "last": "Qiu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Journal of Healthcare Engineering",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1155/2017/2727686"
+                ],
+                "PMID": [
+                    "29104743"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Classification of Computed Tomography Images in Different Slice Positions Using Deep Learning",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Sugimori",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Journal of Healthcare Engineering",
+            "volume": "2018",
+            "issn": "",
+            "pages": "1--9",
+            "other_ids": {
+                "DOI": [
+                    "10.1155/2018/1753480"
+                ],
+                "PMID": [
+                    "30123439"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "A deep learning architecture for classifying medical images of anatomy object",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Khan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Yong",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Deep learning and medical image processing for coronavirus (COVID-19) pandemic: A survey",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bhattacharya",
+                    "suffix": ""
+                },
+                {
+                    "first": "Reddy",
+                    "middle": [],
+                    "last": "Maddikunta",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Pham",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Gadekallu",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Krishnan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Chowdhary",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Sustain Cities Soc",
+            "volume": "65",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.scs.2020.102589"
+                ],
+                "PMID": [
+                    "33169099"
+                ]
+            }
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Anatomy-specific classification of medical images using deep convolutional",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Roth",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "H-C",
+                    "middle": [],
+                    "last": "Shin",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Seff",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Yao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:1504.04003"
+                ]
+            }
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Example image of each modality and anatomical location. (a) abdomen CT, (b) brain CT, (C) brain MRI, (d) MRI lumbar spine. https://doi.org/10.1371/journal.pone.0253205.g001 Fig 2. Workflow chart. https://doi.org/10.1371/journal.pone.0253205.g002",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Example of incorrect prediction by our proposed CNN architecture is shown. (a) CT of brain image misclassified as MRI of brain image in the validation set. (b) MRI of spine image misclassified to CT of brain in the validation set. (c) MRI of spine image misclassified to MRI of brain in testing set. Notice the image in (a) contains intracerebral hemorrhage (arrow).",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "PLOS ONE | https://doi.org/10.1371/journal.pone.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "Data distribution across the image modalities.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Performance of our CNN architecture on image modality and anatomical location classification.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "Multi-class confusion table for testing set of the five attempts.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF4": {
+            "text": "Overall performance measures of our CNN architecture on testing set (In percentage).",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF5": {
+            "text": "Summary of medical image classification on image modality and/or anatomy by various authors.",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "Conceptualization: Chen-Hua Chiang, Hung-Wen Chiu.Data curation: Chen-Hua Chiang, Chi-Lun Weng. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Author Contributions"
+        }
+    ]
+}

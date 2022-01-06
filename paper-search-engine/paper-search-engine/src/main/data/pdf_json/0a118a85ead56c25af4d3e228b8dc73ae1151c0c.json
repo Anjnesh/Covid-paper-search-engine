@@ -1,0 +1,1500 @@
+{
+    "paper_id": "0a118a85ead56c25af4d3e228b8dc73ae1151c0c",
+    "metadata": {
+        "title": "Refined Detection of SSH Brute-Force Attackers Using Machine Learning",
+        "authors": [
+            {
+                "first": "Karel",
+                "middle": [],
+                "last": "Hynek",
+                "suffix": "",
+                "affiliation": {},
+                "email": "hynekkar@fit.cvut.cz"
+            },
+            {
+                "first": "Tom\u00e1\u0161",
+                "middle": [],
+                "last": "Bene\u0161",
+                "suffix": "",
+                "affiliation": {},
+                "email": "tomas.benes@cesnet.cz"
+            },
+            {
+                "first": "Tom\u00e1\u0161\u010dejka",
+                "middle": [],
+                "last": "",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Hana",
+                "middle": [],
+                "last": "Kub\u00e1tov\u00e1",
+                "suffix": "",
+                "affiliation": {},
+                "email": "kubatova@fit.cvut.cz"
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "This paper presents a novel approach to detect SSH bruteforce (BF) attacks in high-speed networks. Contrary to host-based approaches, we focus on network traffic analysis to identify attackers. Recent papers describe how to detect BF attacks using pure Net-Flow data. However, our evaluation shows significant false-positive (FP) results of the current solution. To overcome the issue of high FP rate, we propose a machine learning (ML) approach to detection using specially extended IP Flows. The contributions of this paper are a new dataset from real environment, experimentally selected ML method, which performs with high accuracy and low FP rate, and an architecture of the detection system. The dataset for training was created using extensive evaluation of captured real traffic, manually prepared legitimate SSH traffic with characteristics similar to BF attacks, and, finally, using a packet trace with SSH logs from real production servers.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "A brute-force (BF) is a common type of attack that may lead to intrusion and taking control by an attacker. A study [20] published by Ponemon Institute in 2014 claims that 51% of interviewed companies experienced SSH related adverse events. Unfortunately, the situation has not changed dramatically to this day based on recent annual security reports by Cisco [8] mentioning BF attacks.",
+            "cite_spans": [
+                {
+                    "start": 116,
+                    "end": 120,
+                    "text": "[20]",
+                    "ref_id": null
+                },
+                {
+                    "start": 360,
+                    "end": 363,
+                    "text": "[8]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Detection of incoming BF attacks against own server can be easily performed using server logs. However, our scope of interest is rather a detection of sources of attacks at the network level. Accurately detected attacks against a remote server originating in the operated network infrastructure are usually an indicator of compromise, i.e., valuable information about suspicious behavior.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "More sophisticated attacks are performed according to \"low and slow\" tactic [14] to be hidden from detection systems. It usually includes a large coordinated botnet attacking multiple various targets, so the number of repeated attempts from a single IP address against a single server can be very low. The attacking IPs therefore surpass the host-based solutions because their individual contribution does not reach thresholds for blocking. Contrary, it is possible to detect such attacks on the ISP (Internet Service Provider) level, which is our goal, because the attackers' traffic targeting multiple victims is observable.",
+            "cite_spans": [
+                {
+                    "start": 76,
+                    "end": 80,
+                    "text": "[14]",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "At the ISP level (in high-speed networks), the packet-based monitoring and traffic analysis is very resource-intensive. Therefore in practice, a flow-based monitoring is used. That means aggregated information about communicating parties is represented by IP flow records, usually in the NetFlow or IPFIX format [9, 21] . Even though SSH traffic is encrypted, some published papers show that it is possible to detect BF attacks that use this encrypted protocol (e.g., [16] ). Based on our experience, the accuracy of the detection system, which uses traditional IP flows, is limited due to false-positive alerts. For example, our instance of the NEMEA SSH brute-force detector [6, 19] (based on the SSHCure [12] algorithm), reported several hosts from the monitored infrastructure as attackers. However, these hosts did not show any other signs of infection or misbehavior.",
+            "cite_spans": [
+                {
+                    "start": 312,
+                    "end": 315,
+                    "text": "[9,",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 316,
+                    "end": 319,
+                    "text": "21]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 468,
+                    "end": 472,
+                    "text": "[16]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 677,
+                    "end": 680,
+                    "text": "[6,",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 681,
+                    "end": 684,
+                    "text": "19]",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "During the analysis of the relevant traffic, we discovered that it comes from automated tools (e.g., monitoring) and causes false-positive alerts. The tools produce multiple SSH connections periodically with a few seconds/minutes interval, each containing a single command. Despite successful authentication (usually by a public key), the observed IP flows can be easily misinterpreted as BF attacks.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Existing IP Flow-based detection algorithms suffer from the same issues with misinterpreted legitimate traffic, since the traditional IP flow data indeed do not contain information that would distinguish such automated traffic from BF attacks. A typical workaround solution can be a change of threshold values to filter out these connections or to use some whitelisting. Unfortunately, both solutions have disadvantages: a higher value of thresholds decreases detector's sensitivity, and the whitelisting is complicated to maintain. Therefore, we designed a better detector based on machine-learning (ML) and extended IP flow-like data.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Recent papers describe extended IP Flow records (e.g., [5, 13, 27] ) with additional information extracted from unencrypted protocol headers up to application layer (L7). Encryption decreases visibility into the traffic and prevents the extraction of the L7 information. However, the behavior of applications discloses information even in the encrypted traffic, as Anderson et al. described in [3] .",
+            "cite_spans": [
+                {
+                    "start": 55,
+                    "end": 58,
+                    "text": "[5,",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 59,
+                    "end": 62,
+                    "text": "13,",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 63,
+                    "end": 66,
+                    "text": "27]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 394,
+                    "end": 397,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Compared to the traditional IP Flow data representing one-directional \"connections\", modern monitoring systems are able to pair both directions into so called biflow records. Additionally, Joy exporter [4] adds various additional traffic features at the packet level (such as length and inter-packet gaps of individual packets). The whole feature vectors can be afterward used as an input for ML models-Anderson et al. focus on the detection of malware traffic.",
+            "cite_spans": [
+                {
+                    "start": 202,
+                    "end": 205,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Our paper focuses on addressing false-positives issues in prior works. We have decided to design a detection mechanism using extended IP flows with a minimal subset of the packet-level features created by Joy exporter. The additional information in IP flows should make the resulting model resilient against false-positive detection and more accurate. In contrast to the model, that uses traditional IP flows only, our approach can distinguish between automated traffic from BF attacks, because it takes advantage of additional information such as individual packets length.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "To reach our goal, we have worked on the following contributions:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "-We have created an annotated training and testing dataset using manually created traffic and automatically captured real traffic of SSH protocol. It contains legitimate flows and BF attacks. The dataset consists of over 30,000 extended biflow records of SSH, about half of them are BF attacks, -We have experimentally evaluated over 70 traffic features and several ML models to select a suitable subset of (11) features, and a feasible model that achieves the best results. This demonstrates that a small number of extracted traffic features can provide very good accuracy of BF attacks detection. -We have described an architecture of a detection system consisting of data preprocessing, ML-based detector, and a knowledge base storage for postprocessing and filtering detected raw events. According to our experiments, the system performs better than the detection based on pure IP flow data.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "This paper is divided as follows. Section 2 describes the related work of SSH BF attacks detection. Section 3 describes the ML method we used. Section 4 describes the obtaining and labeling our dataset. Section 5 contains results of our experiments. Section 6 concludes this work.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "There are many published approaches to the detection of SSH BF attacks. We can classify them as host-based and network-level. A host-based detection and prevention can be performed either by an application natively, or by external software that does an automatic analysis of the system logs and mitigation of the suspicious traffic using, e.g., host's firewall. A well-known example of this approach is Fail2Ban [11] . This solution usually is not capable of detecting coordinated attacks from many hosts (botnet).",
+            "cite_spans": [
+                {
+                    "start": 412,
+                    "end": 416,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related Work"
+        },
+        {
+            "text": "Analysis of SSH brute-force traffic in [1] describes that attacks from botnets are well-coordinated, and dictionaries are efficiently distributed among bots. This main disadvantage of the host-based approach can be solved by a special architecture described in [25] . The proposed architecture shares information between involved hosts to detect or prevent SSH brute-force attacks. However, the proposed solution has only been simulated with a handful of servers and does not provide any comparison with the real-world environment. It also does not provide any consideration for drawbacks associated with communication between large amounts of hosts.",
+            "cite_spans": [
+                {
+                    "start": 39,
+                    "end": 42,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 261,
+                    "end": 265,
+                    "text": "[25]",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related Work"
+        },
+        {
+            "text": "The network-level approach depends on observation points. However, it is not affected by any of these disadvantages. On the other hand, it has to deal with a massive amount of data. Therefore, Jonker et al. published a study where they described a specific characteristic of an SSH brute-force attack [15] . They analyzed flat traffic showing that the BF attack has a specific number of packets and duration. Based on these observations, the BF attacks can be detected on network-level only from aggregated data.",
+            "cite_spans": [
+                {
+                    "start": 301,
+                    "end": 305,
+                    "text": "[15]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related Work"
+        },
+        {
+            "text": "The paper [12] proposed an IP Flow-based intrusion detection system for SSH attack called SSHCure. It uses packet per flow (PPF) metric and a minimal number of flows within a 1 or 5-min window. The authors build the algorithm on the assumption published in [24] regarding 3 phases of BF attacks:",
+            "cite_spans": [
+                {
+                    "start": 10,
+                    "end": 14,
+                    "text": "[12]",
+                    "ref_id": null
+                },
+                {
+                    "start": 257,
+                    "end": 261,
+                    "text": "[24]",
+                    "ref_id": "BIBREF21"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related Work"
+        },
+        {
+            "text": "1. Scan Phase -The attacker scans an IP address block to find out a host with running SSH server. 2. Brute-force Phase -The attacker is trying to login to a smaller subset of IP addresses using the brute-force attack. 3. Die-off Phase -After the successful break-in, there is still traffic from the attacker, but it is much smaller. This residual traffic represents commands executed on the victim machine.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Related Work"
+        },
+        {
+            "text": "Nowadays, the first Scan Phase can be skipped by attackers, since targets can be found using scanner services like Shodan [23] or Censys [7] . This kind of specialized search engine is designed to scan and gather information about devices and systems accessible from the Internet. With a simple query, we can obtain thousands of IP addresses with the open SSH port. The SSHCure solves the scenario by allowing attackers to enter the Bruteforce Phase without passing through the Scan Phase. The paper [12] presented 98.4% accuracy of the detector without false-positives. It is worth noting that the algorithm was validated on a dataset with only 130 attacks, where all of the attackers performed the Scan Phase.",
+            "cite_spans": [
+                {
+                    "start": 122,
+                    "end": 126,
+                    "text": "[23]",
+                    "ref_id": null
+                },
+                {
+                    "start": 137,
+                    "end": 140,
+                    "text": "[7]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related Work"
+        },
+        {
+            "text": "A different solution, proposed in [22] , combines extended flow with ML techniques. The authors defined a new structure called sub-flow, which is an ordered sequence of packet sizes of one IP flow. The sub-flow is than used in the clustering algorithm for the detection of the SSH authentication protocol and specific authentication packets. This information is then processed along with the inter-arrival time of authentication packets and compared with the predefined threshold. They achieved very high precision with 99% of successfully detected attacks.",
+            "cite_spans": [
+                {
+                    "start": 34,
+                    "end": 38,
+                    "text": "[22]",
+                    "ref_id": "BIBREF19"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related Work"
+        },
+        {
+            "text": "The advanced ML detection methods were studied in [17] . The authors extracted 18 features from an aggregated extended flow. The aggregated flow is a set of flows with the same source IP, destination IP, and destination port observed within a 5-min time window. Using the aggregated flows, they avoided the problem of similarity between failed login produced by legitimate users and brute-force attacks. They separated those classes by the number of BF suspicious flows within the time window.",
+            "cite_spans": [
+                {
+                    "start": 50,
+                    "end": 54,
+                    "text": "[17]",
+                    "ref_id": "BIBREF15"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related Work"
+        },
+        {
+            "text": "Features extracted from aggregated flows are then used as input for Naive Bayes, K-NN (exactly 5-NN), and C4.5 decision tree algorithm. All algorithms classified with similar precision with AUC metric around 0.995 on a dataset with around 1,000 aggregated flows. This study proved that the ML detector works sufficiently even with a straightforward algorithm such as a decision tree.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Related Work"
+        },
+        {
+            "text": "Automated tools that use SSH as a transport protocol (e.g., Zabbix, git, rsync, ansible) can create many independent connections having very similar flow features as BF attacks. Based on our experience, detection presented in [22] and [17] would very likely suffer from the high amount of false-positive detection results. The detection models presented in prior works depend on thresholding suspicious connections identified by standard side-channel features (average inter-packet time, average packet size and so on), and they do not take advantage of the knowledge of SSH protocol auth phase. Therefore, the short and periodic SSH connections are nearly indistinguishable from unsuccessful logins. Although, in the case of [17] , extension of the feature set with the information that we present in the following sections will help to separate successful logins from unsuccessful ones. However, even with this modification, we doubt that the same ML-based threshold model would be transferable to other networks since it is data-dependent, and the thresholds are tuned for one particular network traffic.",
+            "cite_spans": [
+                {
+                    "start": 226,
+                    "end": 230,
+                    "text": "[22]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 235,
+                    "end": 239,
+                    "text": "[17]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 726,
+                    "end": 730,
+                    "text": "[17]",
+                    "ref_id": "BIBREF15"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related Work"
+        },
+        {
+            "text": "This paper proposes a network-level detection architecture to decrease the number of false-positives with the same or higher level of sensitivity, i.e., more accurate. It uses extended IP Flow features provided by the Joy exporter and ML algorithm to distinguish successful and unsuccessful logins. The extended IP flows are obtained from backbone network traffic. The main advantage here is the detection of attackers using the \"low and slow\" tactic.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Our Approach"
+        },
+        {
+            "text": "The results (identified login failures) are afterward processed by a threshold filter, like in host-based solutions. This allows tuning for the policies of the target network. Contrary to [17] , our ML-based algorithm uses protocol-dependent features only, therefore, it is easily transferable to different networks.",
+            "cite_spans": [
+                {
+                    "start": 188,
+                    "end": 192,
+                    "text": "[17]",
+                    "ref_id": "BIBREF15"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Our Approach"
+        },
+        {
+            "text": "The architecture consists of four parts shown in Fig. 1 (inside a dashed border), which will be explained in more detail in the following sections. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 49,
+                    "end": 55,
+                    "text": "Fig. 1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Our Approach"
+        },
+        {
+            "text": "The Feature extractor processes extended IP Flows and converts them into a table of features to be usable by ML. The main idea is that the used exporter (Cisco Joy in our case) provides information about every length of packet, but does not provide aggregated statistical features like mean values that we need for the ML method. The Feature extractor takes extended flow as input and calculates the required features for the Failed login detector.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Feature Extractor"
+        },
+        {
+            "text": "The feature selection is one of the most important parts because the feature set affects the accuracy of the ML classifier. During our analysis, we started with a set of over 70 features. Our deployment target is a high-speed network, where a high number of extracted characteristics is impractical because every single feature extraction consumes many resources. We needed to balance the accuracy and computational complexity of obtaining features.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Feature Extractor"
+        },
+        {
+            "text": "We successfully reduced the set by removing features with low information gain ratio. Then we continued with a reduction based on performance, and we ended up with 11 selected features that achieved excellent results among multiple ML algorithms while being easily extracted. The final set of features with a description is shown in Table 1 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 333,
+                    "end": 340,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Feature Extractor"
+        },
+        {
+            "text": "The feature set includes the length of four specific packets from 9 th to 12 th positions (only SSH protocol packets are counted, TCP control packets or possible re-transmissions are filtered out by the flow exporter). These packets have been chosen based on our knowledge of the SSH protocol and experimental evaluation of the feature set during its selection. These packets (usually with the same size) carry a response of an SSH server to unsuccessful login attempts. The first packets belong to the SSH handshake (which is not relevant for the detection), and the authentication process starts from the 9 th packet (shown in Fig. 2) . Repeated attempts to log into a target server can be observed within one flow by significant similarity of the sizes of the server response packets included in the feature set. To best of our knowledge, there is none prior work that uses these features to distinguish between BF attack and benign traffic.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 629,
+                    "end": 636,
+                    "text": "Fig. 2)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Feature Extractor"
+        },
+        {
+            "text": "Our original feature set included also used version of SSH protocol, client name, supported cipher-suites, and other clients related information. According to our results, these features do not improve brute-force attack detection. We found out that the attackers are using clients like OpenSSH, PUTTY, libssh that are also present in the benign traffic. Therefore, the information gain ratio value of client-related features is lower than 0.3.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Feature Extractor"
+        },
+        {
+            "text": "The detector is an ML-based model that performs binary classification on extracted features. The goal is to classify each flow as a successful or a failed login attempt. The classification results of individual flows are then stored in the Knowledge base. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Failed Login Detector"
+        },
+        {
+            "text": "The knowledge base is the long term memory of the detector. It covers all information about authentication attempts observed during at least 24 h in the past. The source IP, destination IP, timestamp, and type of login are stored and used for attack detection in Threat decision and reaction service.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Knowledge Base"
+        },
+        {
+            "text": "The Threat Decision and Reaction service processes stored login reports and decides whether to send an alert. Unlike the traditional host-based solutions, the flows obtained from backbone traffic gives us information about multiple victims of a single IP address. This fact gives us a higher probability of detecting \"low and slow\" attacks of botnets. The overall and complex information about failed login gives us also other possibilities. For example, when one IP address is constantly failing to log in to multiple servers and suddenly succeeds, it might be an indicator of a possible break-in. This part can also mitigate potential imprecision of ML-based Failed login detector. The probability of misclassification multiple times in a row is very low. Therefore the false classifications are not going to reach the threshold value. The possible false negatives will only cause increased latency of the attack detection by a negligible number of attempts.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Threat Decision and Reaction Service"
+        },
+        {
+            "text": "The most important premise to create a good ML model is a proper dataset. The quality of the model is directly linked with the quality of information contained in the dataset. Due to the lack of useful public datasets available online, we have decided to create our own, which should contain malicious and benign SSH traffic. There are two methods on how to create a dataset of SSH traffic with correct labeling. The first method is to generate malicious traffic ourselves, which can be easily labeled afterward. There are several popular tools to perform a bruteforce attack on an SSH server such as THC HYDRA [26] or NCrack [18] . Every tool has a wide variety of options on how to change the characteristics of the attack. Generating malicious traffic from these tools with multiple settings is an extremely time-consuming process. Additionally, resulted dataset would contain only specific kind of brute-force traffic that may not correspond to a real network.",
+            "cite_spans": [
+                {
+                    "start": 611,
+                    "end": 615,
+                    "text": "[26]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 626,
+                    "end": 630,
+                    "text": "[18]",
+                    "ref_id": "BIBREF16"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Dataset Creation"
+        },
+        {
+            "text": "The second method is to use existing traffic from a public server, which is very likely already enduring some form of SSH brute-force attacks. The main downside is that we expose our production server to a potential risk of a successful attack. We did not want to use a custom honeypot or testing server because the resulting dataset would not have the same variety of incoming traffic. Therefore we used Fail2Ban. Contrary to the default behavior that blocks the traffic from an attacker completely, we have prepared an action script to redirect it into an isolated SSH service acting like a honeypot 1 .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Dataset Creation"
+        },
+        {
+            "text": "Our aim was to simulate the same service like the original server (e.g., use of the same certificates), so the attacker should not be able to recognize a change. However, the honeypot has disallowed all user accounts, so it is ensured that every login fails, and we can capture traffic of attacks without interruption. The architecture of the described data capture is depicted in Fig. 3 . The captured traffic in PCAP was converted by Joy exporter into extended IP flows. We use the ML approach to detect unsuccessful login so that we could annotate each flow record from the server access log.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 381,
+                    "end": 387,
+                    "text": "Fig. 3",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Dataset Creation"
+        },
+        {
+            "text": "Using this method, we created a dataset (dataset1 ) of 35,000 labeled SSH flows, from which 22,000 were malicious, and 13,000 were benign. This dataset represents a realistic traffic that has a slightly higher number of malicious login attempts, which is a similar characteristic as in the real environment. We could not use the exact ratio as it is observed in backbone network because the number of malicious attempts would be very high compared to the number of successful logins.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Dataset Creation"
+        },
+        {
+            "text": "The dataset is composed of Brute-Force attacks, SSH interactive sessions (authentication by password or public key), file transfer, monitoring by Zabbix, etc. The main advantage of this method is the richness of real attack traffic, which is not restricted to a set of given tools, and easy setup of the traffic capture, which can be deployed on many machines.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Dataset Creation"
+        },
+        {
+            "text": "Our dataset also covers the main variability in the ssh authentication phase by containing connections encrypted by multiple block and also stream ciphers. Unexpectedly, according to our experiments, the behavior of the server in the authentication phase does not differ between various implementations.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Dataset Creation"
+        },
+        {
+            "text": "This section describes the results of our measurements of the ML-based Failed Login detector and the overall accuracy of proposed detection architecture.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Validation and Experimental Results"
+        },
+        {
+            "text": "We have considered five ML methods for the flow classification, which are fast and lightweight. They were Ada-Boosted Random tree, Naive Bayes, 5-NN, C4.5",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Accuracy of Failed Login Detector"
+        },
+        {
+            "text": "Decision tree, and Random Forest. We evaluated all the models on the dataset1 (described in Sect. 4) using 5-fold cross-validation. The overall accuracy is very similar across all evaluated algorithms (except Naive Bayes). The detailed results are shown in Table 2 . For further evaluations, we selected the one with the highest accuracy, the Ada-Boosted Random tree. The Ada-boost used ten iterations of creating decision trees with a maximal depth of 10, applied pruning, and minimal leaf size of 2. These parameters provide a good balance between accuracy and possible over-fitting.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 257,
+                    "end": 264,
+                    "text": "Table 2",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "Accuracy of Failed Login Detector"
+        },
+        {
+            "text": "The trained model achieved an accuracy of 99.47% with a pessimistic AUC value of 0.998. Detailed classification results are displayed in form of confusion matrix in Table 3 . ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 165,
+                    "end": 172,
+                    "text": "Table 3",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "Accuracy of Failed Login Detector"
+        },
+        {
+            "text": "The results of the ML method are further filtered by the Threat Decision and Reaction service (as it was mentioned in Sect. 3.4). It triggers an alert only when a several consecutive failed login attempts from a single IP address exceeds a threshold, which was set to 3 in our experiments because it is the default threshold value in Fail2Ban [11] . Therefore, occasional false-positive results of the ML detection usually do not result in an alert. When the detector is evaluated as a whole, including the thresholding, the overall precision on the primary dataset is 100% with no false positives.",
+            "cite_spans": [
+                {
+                    "start": 343,
+                    "end": 347,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Accuracy of the Whole Architecture"
+        },
+        {
+            "text": "For that reason, we decided to make an additional dataset (dataset2 ) to evaluate the system on real data further. For this dataset, we captured 86,000 bidirectional SSH flows (from 564 clients) from the backbone traffic (peering link between CESNET2 and G\u00c9ANT). Table 4 shows overall number of flow classification. We can see that the vast majority of login is marked as unsuccessful and originate from a relatively small number of IP addresses.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 263,
+                    "end": 270,
+                    "text": "Table 4",
+                    "ref_id": "TABREF4"
+                }
+            ],
+            "section": "Accuracy of the Whole Architecture"
+        },
+        {
+            "text": "Creating dataset2 is equivalent to deployment on the real network, but the offline evaluation has the advantage of the possibility of a detailed examination of detected anomalies and misclassifications. Table 5 shows the number of detected brute-force attackers (IP addresses) in the dataset2 compared to the NEMEA SSH brute-force detector [6, 19] , which is based on the SSHCure algorithm [12] . We can see, that ML detector is much more sensitive and detected around 40% more attackers than the NEMEA detector. Table 6 shows several statistics of our evaluation of the results of the detection. Since the higher sensitivity can increase the number of false-positives, we checked the traffic from the dataset2 and the results of ML-based and traditional detection. To evaluate the false-positive rate, we used AbuseIPDB [2] , which provides a list of IP addresses associated with malicious activity. It can be observed that most of the IP addresses detected by the evaluated detectors are listed on AbuseIPDB as malicious. We considered these as true-positives. The remaining ones are possibly false-positives. Since there are only 8 of them, we can investigate them manually.",
+            "cite_spans": [
+                {
+                    "start": 340,
+                    "end": 343,
+                    "text": "[6,",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 344,
+                    "end": 347,
+                    "text": "19]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 390,
+                    "end": 394,
+                    "text": "[12]",
+                    "ref_id": null
+                },
+                {
+                    "start": 821,
+                    "end": 824,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 203,
+                    "end": 210,
+                    "text": "Table 5",
+                    "ref_id": "TABREF5"
+                },
+                {
+                    "start": 513,
+                    "end": 520,
+                    "text": "Table 6",
+                    "ref_id": "TABREF6"
+                }
+            ],
+            "section": "Accuracy of the Whole Architecture"
+        },
+        {
+            "text": "All three attackers that were detected by NEMEA and not detected by our ML-based method are false-positives. In this case, a simple investigation based on reverse DNS query revealed that these hosts use SSH legitimately for periodic remote access to other servers (e.g., because of monitoring). The classification of four IP addresses that were not reported on AbuseIPDB but were detected by our method was much more difficult. We marked 2 of them as attackers because they performed a lot of short connections to multiple destinations within one second. The classification of the other two IP addresses was much more difficult. One of them performed short connections with a 5 min interval from different SSH clients (PUTTY, openSSH1.2 and so on) to multiple IP addresses. The other IP address irregularly shortly connected to one host. Even though we found the behavior highly suspicious, we marked those cases as false-positives.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Accuracy of the Whole Architecture"
+        },
+        {
+            "text": "The last candidate for false-positive IP address detected by both detectors was, according to the SSH-client field, a Raspberry Pi. It was connecting to multiple IP addresses every 10 min (default ban time for Fail2Ban). Based on our experience and similarity to other attacks, we marked it as a brute-force attack. The summary of the results per detector is shown in Table 7 . We can observe that the new ML-based approach allows detecting significantly more attackers, while also slightly reducing the false positive rate.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 368,
+                    "end": 375,
+                    "text": "Table 7",
+                    "ref_id": "TABREF7"
+                }
+            ],
+            "section": "Accuracy of the Whole Architecture"
+        },
+        {
+            "text": "Besides dataset1 and dataset2, we evaluated both detection algorithms using specific traffic samples of a legitimate communication. The samples were generated as a traffic from a robot accessing a server via SSH every second performing a single command. The NEMEA detector, i.e., detection based on pure IP flows misclassified this type of traffic as brute-force attacks, meanwhile, our ML-based detection results were correct.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Accuracy of the Whole Architecture"
+        },
+        {
+            "text": "Although our detector achieved excellent results, the amount of reduction of false positives is smaller than we have expected. However, the overall results show that the ML-based algorithm performs much better than the traditional one with almost a third more detected attackers. The active protective systems that use our detector are going to detect more attackers and lower the risk of a successful attack.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Accuracy of the Whole Architecture"
+        },
+        {
+            "text": "Brute-force (BF) attacks are a prevalent type of malicious traffic that can be observed by monitoring systems. Successful attacks belong to high severity adverse events. Additionally, it is a typical activity of malware. Therefore, it is essential to focus on their accurate detection.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        },
+        {
+            "text": "Modern monitoring systems for high-speed networks use IP flows to represent the observed traffic, and there are published works that describe how to detect BF attacks based on this aggregated information. Some relevant related works and their benefits/drawbacks were described in Sect. 2. However, after using a flow-based detection algorithm on a real network, we have discovered a significant number of cases where some types of legitimate traffic were misclassified as attacks, which caused false alerts.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        },
+        {
+            "text": "Our motivation was to find an improved approach to BF attacks detection at the network level. The aim was to preserve or improve accuracy and decrease the number of false-positive results (without any need for whitelisting or other exceptions that must be maintained). Specifically, our presented detection method focuses on better recognition of legitimate SSH traffic with successful authentication. Contrary to the existing IP flow-based systems, we have designed and evaluated a detection architecture based on machine learning.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        },
+        {
+            "text": "To achieve our goal, we have created a large annotated dataset1 for training and evaluation that contains legitimate communication over SSH (including traffic of automated tools that can cause false-positive alerts due to its flow characteristics) and various BF attacks. Additionally, dataset2 was prepared using a packet capture of real network traffic to compare the results of the existing non-ML detection and our new ML-based detection. The process of the datasets creation was also described in detail in this paper.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        },
+        {
+            "text": "Using the prepared training dataset, which we made publicly available 2 , we were able to select 11 traffic features, and train&evaluate several different ML models. Most of them achieved over 99% accuracy of classifying individual flows as successful or failed login attempts. The best model, AdaBoosted tree, which we selected for further experiments, achieved 99.47% accuracy.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        },
+        {
+            "text": "When the classified flows are fed into the threshold based detector, the whole system achieves perfect accuracy of detection on dataset1, i.e., all BF attackers are successfully reported while there is no false alert.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        },
+        {
+            "text": "The method is also successful in real-life comparison. On dataset2, which represents real SSH traffic on a large network, it detected about 40% more attackers than an older method implemented in NEMEA, while it also generated less false alerts.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        },
+        {
+            "text": "As our future work, we want to continue in our investigation of encrypted network traffic and its analysis. Using the IP flows extended by feature vectors that represent packet-level information, we believe it is possible to classify the encrypted traffic and detect a malicious activity of the network hosts.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "What lies beneath? Analyzing automated SSH Bruteforce attacks",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Abdou",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Barrera",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Van Oorschot",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "PASSWORDS 2015",
+            "volume": "9551",
+            "issn": "",
+            "pages": "72--91",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/978-3-319-29938-9_6"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "AbuseIPDB making the internet safer, one IP at a time",
+            "authors": [],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Identifying encrypted malware traffic with contextual flow data",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Anderson",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Mcgrew",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "ACM Workshop on Artificial Intelligence and Security",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Joy -a package for capturing and analyzing network flow data and intraflow data",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Anderson",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Mcgrew",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Perricone",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Hudson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Using application-aware flow monitoring for SIP fraud detection",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Cejka",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Bartos",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Truxa",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Kubatova",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Latr\u00e9",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Charalambides",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Fran\u00e7ois",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Schmitt",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "AIMS 2015",
+            "volume": "9122",
+            "issn": "",
+            "pages": "87--99",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/978-3-319-20034-7_10"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "NEMEA: a framework for network traffic analysis",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Cejka",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "12th International Conference on Network and Service Management (CNSM)",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Cisco Systems NetFlow Services Export Version 9",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Claise",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "",
+            "volume": "3954",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.17487/RFC3954"
+                ]
+            }
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Generic message exchange authentication for the secure shell protocol (SSH)",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Cusack",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Forssen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.17487/rfc4256"
+                ]
+            }
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "SSHCure: a flow-based SSH intrusion detection system",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Hellemons",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Hendriks",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Hofstede",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sperotto",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Sadre",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Pras",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Sadre",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Novotn\u00fd",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "\u010celeda",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Waldburger",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "AIMS 2012",
+            "volume": "7279",
+            "issn": "",
+            "pages": "86--97",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/978-3-642-30633-4_11"
+                ]
+            }
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Threats and surprises behind IPv6 extension headers",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Hendriks",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Network Traffic Measurement and Analysis Conference (TMA",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Honeynet data analysis and distributed SSH Brute-force attacks",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Sadasivam",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Hota",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Anand",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Towards Extensible and Adaptable Methods in Computing",
+            "volume": "",
+            "issn": "",
+            "pages": "107--118",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/978-981-13-2348-5_9"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Unveiling flat traffic on the internet: an SSH attack case study",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Jonker",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Hofstede",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sperotto",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Pras",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "International Symposium on Integrated Network Management (IM)",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Machine learning for detecting brute force attacks at the network level",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Najafabadi",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Khoshgoftaar",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Kemp",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Seliya",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Zuech",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "IEEE International Conference on Bioinformatics and Bioengineering",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Detection of SSH Brute force attacks using aggregated netflow data",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Najafabadi",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Khoshgoftaar",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Calvert",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Kemp",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "14th International Conference on Machine Learning and Applications (ICMLA)",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Ncrack -Network authentication cracking tool",
+            "authors": [],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "SSH security vulnerability report",
+            "authors": [],
+            "year": 2014,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Architecture for IP flow information export",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Sadasivan",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Brownlee",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Claise",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Quittek",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "RFC",
+            "volume": "5470",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.17487/RFC5470"
+                ]
+            }
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "SSH dictionary attack detection based on flow analysis",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Satoh",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Nakamura",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Ikenaga",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "12th International Symposium on Applications and the Internet IPSJ",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Hidden Markov model modeling of SSH Brute-force attacks",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sperotto",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Sadre",
+                    "suffix": ""
+                },
+                {
+                    "first": "P.-T",
+                    "middle": [],
+                    "last": "De Boer",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Pras",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "DSOM 2009",
+            "volume": "5841",
+            "issn": "",
+            "pages": "164--176",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/978-3-642-04989-7_13"
+                ]
+            }
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "A distributed active response architecture for preventing SSH dictionary attacks",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Thames",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Abler",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Keeling",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "84--89",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "The Hacker Choice (THC) -Hydra",
+            "authors": [
+                {
+                    "first": "Hydra",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Thc",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Hauser",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Next generation application-aware flow monitoring",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Velan",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "\u010celeda",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sperotto",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Doyen",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Latr\u00e9",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Charalambides",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "AIMS 2014",
+            "volume": "8508",
+            "issn": "",
+            "pages": "173--178",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/978-3-662-43862-6_20"
+                ]
+            }
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "The Secure Shell (SSH) Transport Layer Protocol",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Ylonen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.17487/rfc4253"
+                ]
+            }
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Overview of the SSH brute-force attack detector",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "length of 12 th packet in flow",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Architecture of our data collection machine",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF1": {
+            "text": "Description of features used for detection of unsuccessful login.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Measured accuracy across all considered ML algorithms.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "Failed login detector confusion matrix.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF4": {
+            "text": "The overall number of login classification in dataset2. The IP address is counted as unsuccessful, when we detected at least one unsuccessful login.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF5": {
+            "text": "Number of detected brute-force attackers from our evaluation datasets",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF6": {
+            "text": "The number of IP addresses detected as attackers which are also listed on AbuseIPDB. The last column shows results of our investigation of those not listed.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF7": {
+            "text": "The number of reported attackers and false positives for both detectors Total reported attackers False positives",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": []
+}

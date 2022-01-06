@@ -1,0 +1,1901 @@
+{
+    "paper_id": "0a64cadfc30a5ec1ad96181f2a23ca6ccc10356c",
+    "metadata": {
+        "title": "Implementation and Evolution of a Primary Care-Based Program for Adolescents and Young Adults on the Autism Spectrum",
+        "authors": [
+            {
+                "first": "Laura",
+                "middle": [
+                    "C"
+                ],
+                "last": "Hart",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Nationwide Children's Hospital",
+                    "location": {
+                        "addrLine": "700 Children's Drive",
+                        "postCode": "43205",
+                        "settlement": "Columbus",
+                        "region": "OH",
+                        "country": "USA"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Heather",
+                "middle": [],
+                "last": "Saha",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "The Ohio State University College of Medicine",
+                    "location": {
+                        "settlement": "Columbus",
+                        "region": "OH",
+                        "country": "USA"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Stephanie",
+                "middle": [],
+                "last": "Lawrence",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "The Ohio State University College of Medicine",
+                    "location": {
+                        "settlement": "Columbus",
+                        "region": "OH",
+                        "country": "USA"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Susan",
+                "middle": [],
+                "last": "Friedman",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "The Ohio State University College of Medicine",
+                    "location": {
+                        "settlement": "Columbus",
+                        "region": "OH",
+                        "country": "USA"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Polly",
+                "middle": [],
+                "last": "Irwin",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "The Ohio State University College of Medicine",
+                    "location": {
+                        "settlement": "Columbus",
+                        "region": "OH",
+                        "country": "USA"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "\u00b7",
+                "middle": [
+                    "Christopher"
+                ],
+                "last": "Hanks",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "The Ohio State University College of Medicine",
+                    "location": {
+                        "settlement": "Columbus",
+                        "region": "OH",
+                        "country": "USA"
+                    }
+                },
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Current primary care models are inadequate for adults on the autism spectrum. The Center for Autism Services and Transition (CAST) clinic was developed in 2014 using feedback from parents of adults on the autism spectrum and patient-centered medical home principles. We evaluated the reach of CAST's services. As of January 2021, 858 patients were seen in CAST. Many continue to receive primary care from the CAST clinic. The program has undergone staffing changes but continues to accept new patients. We have added services such as \"happy visits,\" pre-procedure videos, and telehealth visits. CAST provides one example of how to improve primary care for adults on the autism spectrum. More research is needed to assess the effectiveness of the CAST model.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Around the world, approximately 1% of adults are on the autism spectrum (Baxter et al., 2015; Brugha et al., 2011; Dietz et al., 2020) , and a large number of people on the autism spectrum will be reaching adulthood over the next 5 to 10 years (Van Naarden Braun et al., 2015) . The transition to adulthood in general and from pediatric to adult health care specifically are challenging for many young adults (Bonnie et al., 2015) . The legal changes that begin at age 18 such as only sharing medical information with the patient, which are meant to protect a patient's privacy, can also create communication barriers for young people whose parents are regularly involved in conversations about medical care, and this is especially problematic for young people on the autism spectrum (Cheak-Zamora & Teti, 2015) . Additionally, young adults on the autism spectrum have to navigate disruption of support services upon exiting the school system and changes in insurance eligibility that occur between the ages of 19 and 26, depending upon the health insurance they have (Okumura et al., 2015) .",
+            "cite_spans": [
+                {
+                    "start": 72,
+                    "end": 93,
+                    "text": "(Baxter et al., 2015;",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 94,
+                    "end": 114,
+                    "text": "Brugha et al., 2011;",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 115,
+                    "end": 134,
+                    "text": "Dietz et al., 2020)",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 244,
+                    "end": 276,
+                    "text": "(Van Naarden Braun et al., 2015)",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 409,
+                    "end": 430,
+                    "text": "(Bonnie et al., 2015)",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 784,
+                    "end": 811,
+                    "text": "(Cheak-Zamora & Teti, 2015)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1068,
+                    "end": 1090,
+                    "text": "(Okumura et al., 2015)",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "Adults on the autism spectrum are less likely to receive recommended preventive health care services and more likely to report unmet medical needs or dissatisfaction with their care than the general population (Nicolaidis et al., 2013) . They are also more likely to visit the emergency room than the general population (Vohra et al., 2016) , even if they have regular visits with a PCP (Lunsky et al., 2012; Weiss et al., 2018) . This suggests that current primary care models are not adequate for this population, which is concerning because studies also suggest that adults on the autism spectrum also have higher rates of chronic medical conditions than the general population (Brondino et al., 2019) .",
+            "cite_spans": [
+                {
+                    "start": 210,
+                    "end": 235,
+                    "text": "(Nicolaidis et al., 2013)",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 320,
+                    "end": 340,
+                    "text": "(Vohra et al., 2016)",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 387,
+                    "end": 408,
+                    "text": "(Lunsky et al., 2012;",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 409,
+                    "end": 428,
+                    "text": "Weiss et al., 2018)",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 681,
+                    "end": 704,
+                    "text": "(Brondino et al., 2019)",
+                    "ref_id": "BIBREF4"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "Little is known about what steps can be taken to address this disparity in care. The barriers to care have been identified, with patient level barriers such as communication skills, sensory sensitivity, information processing difficulties and lack of healthcare self-management skills; provider level barriers such as lack of knowledge about autism; and system level barriers including availability of support and accessibility of facilities (Nicolaidis et al., 2013; Raymaker et al., 2017; Saqr et al., 2018) . However, very little has been published that directly addresses how to improve primary care for adults on the autism spectrum or their transition to adult health care. Models for providing care for children with developmental disabilities, including autism, emphasize the importance of multidisciplinary specialist teams (Bolger et al., 2017; Singh et al., 2019; Thibadeau et al., 2020) , which have not been consistently replicated in adult care (Bolger et al., 2017; Thibadeau et al., 2020) . In some cases, generalists based in adult care settings have found strategies to address the needs of adults with developmental disabilities during their transition to adult care (Hart et al., 2019) . Detailed descriptions of how they are able to achieve this are lacking in the literature.",
+            "cite_spans": [
+                {
+                    "start": 442,
+                    "end": 467,
+                    "text": "(Nicolaidis et al., 2013;",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 468,
+                    "end": 490,
+                    "text": "Raymaker et al., 2017;",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 491,
+                    "end": 509,
+                    "text": "Saqr et al., 2018)",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 833,
+                    "end": 854,
+                    "text": "(Bolger et al., 2017;",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 855,
+                    "end": 874,
+                    "text": "Singh et al., 2019;",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 875,
+                    "end": 898,
+                    "text": "Thibadeau et al., 2020)",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 959,
+                    "end": 980,
+                    "text": "(Bolger et al., 2017;",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 981,
+                    "end": 1004,
+                    "text": "Thibadeau et al., 2020)",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 1186,
+                    "end": 1205,
+                    "text": "(Hart et al., 2019)",
+                    "ref_id": "BIBREF9"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "Here we describe the development, implementation, and evolution of the Center for Autism Services and Transition (CAST), a primary care-based program for adults on the autism spectrum with particular focus on the transition from pediatric to adult care.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "The Center for Autism Services and Transition (CAST) was proposed as a primary-care based program focused on providing individualized, high-quality care for adolescents and young adults on the autism spectrum. A private donor, the Bill and Marci Ingram and the White Castle Foundation, provided the initial funding which supported additional staff, such as dedicated nursing and social work support and offset any decreased revenue for physicians from extending patient visit times. Development began with a focus group of parents of adults on the autism spectrum to better understand potential patient needs. The findings from this focus group were integrated with the principles of the patient-centered medical home to craft a program that could effectively address the needs of the population within a primary care office.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Development and Implementation"
+        },
+        {
+            "text": "Patient-centered medical homes are characterized by: (1) comprehensive care, including a multi-disciplinary team of providers to meet the majority of patients' healthcare needs; (2) patient-centered care, which recognizes patients and families as crucial members of the care team; (3) coordination of care across the broader healthcare system; (4) accessible services, which includes ready access to care for urgent needs, extended in-person hours, and the use alternative methods of communication, (ex. email, patient portals or telephone); and (5) an emphasis on quality and safety (Agency for Healthcare Research & Quality [AHRQ]). The larger clinic in which CAST is located already supported the use of patient-centered medical home principles through the use of a multi-disciplinary team, easy access to urgent care, and use of multiple modes of communication.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Development and Implementation"
+        },
+        {
+            "text": "Based on the focus group feedback, we made a series of modifications to the clinic's usual routine aimed at ensuring increased patient-centered care for patients on the autism spectrum and their families. At its start, the program contained the following components:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Development and Implementation"
+        },
+        {
+            "text": "1. Pre-visit assessment -a semi-structured phone call with a CAST staff member (either medical assistant, social worker, or RN) with the parent or patient to confirm diagnosis of autism and determine goals and needs for the first visit in advance, which are more fully described elsewhere (Saqr et al., 2018) 2. Use of the results of the pre-visit assessment to modify patient visits as necessary (e.g., limiting wait times in the waiting room, allowing patients to wait in the car, delaying non-preferred procedures like taking blood pressure) 3. An extended new patient visit with the MD lasting 60 min (most new patient visits are 40 min long) 4. Extended follow-up visits lasting 40 min (follow-up visits are normally 20 min long) 5. A full-time RN specifically to support the CAST patients 6. Ongoing support from staff of the primary care office where CAST was housed to assist with registration, checking patients in, etc., which was funded by the larger clinic, rather than the CAST donor funding",
+            "cite_spans": [
+                {
+                    "start": 289,
+                    "end": 308,
+                    "text": "(Saqr et al., 2018)",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Development and Implementation"
+        },
+        {
+            "text": "Our expected patients were any patient with a diagnosis of autism spectrum disorder approaching adulthood or who was already of adult age. Patients were referred to the CAST program by pediatric providers or by self-referral. If patients were not referred by a medical provider that could confirm the autism diagnosis, we attempted to confirm diagnosis by asking details of how it was diagnosed. Diagnosis was not independently confirmed by the CAST clinic, but for self-referrals that had never undergone a formal diagnostic evaluation, we asked them to pursue an evaluation to confirm diagnosis prior to scheduling their initial visit with CAST.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Development and Implementation"
+        },
+        {
+            "text": "We planned to provide CAST patients with primary care services similar to the other patients seen in the clinic, including annual physicals, chronic condition management within the primary care scope of practice, and urgent visits as needed. Since CAST was housed in a patient-centered medical home, CAST patients also had access to care coordination and care navigation support to assist with addressing needs beyond the scope of primary care, such as ongoing therapy and equipment needs and communicating with specialists. Patients who were able to communicate independently and had decision making capacity were seen alone, unless they chose to have a parent or other support person present. Patients who needed support in communicating with the health care team or had guardians were routinely seen with their support person or guardian present, with one-onone time with the patient during the visit as deemed appropriate by the provider.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Development and Implementation"
+        },
+        {
+            "text": "The CAST program was integrated into a primary care office staffed by physicians with combined training and board certifications in internal medicine and pediatrics. Because these providers were trained in the care of adults and children, there were no age limits set for when patients could be seen in CAST. We chose to integrate the program into a larger clinic rather than create a separate one. This choice allowed us to utilize existing processes and infrastructure, while positioning CAST to be more equitable. By using the same scheduling process as other patients, CAST patients are given the same opportunity for access to primary care that any other patient would have. This decision to have CAST clinic be a part of a larger clinic also enabled CAST patient to access a larger scope of services, including urgent visits for more acute issues. Patients could come to the primary care office where CAST was housed for these concerns, and be seen in a more familiar location, rather than a separate urgent care facility or the emergency department.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Development and Implementation"
+        },
+        {
+            "text": "We also felt that the choice to have CAST patients seen in a general primary care office would foster independence and reduce stigma. CAST is structured such that CAST patients are seen in a clinic where others who are neurotypical are also seen, instead of in a time or space specifically restricted to those on the autism spectrum. The intentional integration of CAST patients into usual clinic procedures helps them learn how to navigate a medical visit in a supportive environment, thus fostering independence. The lack of a dedicated time or space sends the important message that people on the autism spectrum can and should be integrated in all environments.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Development and Implementation"
+        },
+        {
+            "text": "The decision to house CAST in a primary care office provided additional benefits. By having patients from CAST intermingled with other patients seen in the office, all members of the healthcare team became comfortable assisting CAST patients within their roles in the office. The primary care office where CAST was housed also served as a teaching site for medical students and residents. At least 30 residents and another 30-40 medical students have spent time with CAST physicians seeing CAST patients. As a result, these learners obtained an opportunity to actively engage with adults on the autism spectrum and to gain practical experience providing care to this population, which is a known need in medical education (Patel & O'Hare, 2010; Sharma et al., 2014) .",
+            "cite_spans": [
+                {
+                    "start": 722,
+                    "end": 744,
+                    "text": "(Patel & O'Hare, 2010;",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 745,
+                    "end": 765,
+                    "text": "Sharma et al., 2014)",
+                    "ref_id": "BIBREF18"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Development and Implementation"
+        },
+        {
+            "text": "CAST formally opened in April 2014. Physicians in the CAST clinic did not have any formal training in caring for individuals on the autism spectrum.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Development and Implementation"
+        },
+        {
+            "text": "Since its opening, CAST has gone through a number of changes. Most notably, staffing has changed (Fig. 1) . These staffing changes are due to a number of factors, including increasing demand for CAST services over time, availability of funds from our donor and other grants, and provider availability, as some members of the CAST team have moved on to other professional or personal opportunities. At its largest, the CAST team consisted of 4 physicians, 1 full-time registered nurse, 1 full-time social worker, a program director who helped with program development and grant funding opportunities, and a psychiatrist for one day a week working within 2 different primary care offices in which CAST has been housed. As of April 2021, there are 3 physicians at one primary care site accepting CAST patients as new patients, with a full-time registered nurse also supporting the program. An additional 17 primary care physicians and 2 certified nurse practitioners who provide primary care services at both sites have seen patients for acute visits when the patient's identified primary care provider was not available. As of April 2021, CAST hired a full time social worker as dedicated support staff.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 97,
+                    "end": 105,
+                    "text": "(Fig. 1)",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Evolution"
+        },
+        {
+            "text": "Social work support has been valuable to CAST patients. In the United States, many of the services provided to children with developmental disabilities are provided through the school system and thus end when school ends, which is age 22 for those with disabilities. In addition, insurance requirements change at 19 for those on Medicaid and at 26 for those on private insurance. Lastly, patients who are not able to work a full-time job have to navigate the application process for Social Security Disability Income, or SSDI, to ensure that they have income. As a result of these changes and processes, a social worker has been very helpful in our program. Social work support is also helpful when there are questions regarding guardianship or other supported decision making and for providing mental health support and crisis management. In addition, social work connects CAST patients with county boards of developmental disabilities and offices of vocational rehabilitation, which provide support services to adults on the autism spectrum as well as to adults with other disabilities regarding such areas as housing, recreational activities, and work opportunities.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Evolution"
+        },
+        {
+            "text": "The services offered within the CAST program have evolved as well. When the program began, follow-up visits were 40 min in length. Over time, as the physicians in the CAST program developed more comfort with this unique population, the extended time was not necessary for followup visits. The follow-up time has thus been shortened to 20 min, the standard follow-up duration for the primary care office where CAST is operating. New visits have remained extended at 60 min to allow time for the provider to get to know the patient and family a bit better and to allow for any time the patient might need to adapt to the new environment of the clinic. Our initial concerns about decreased physician reimbursement were alleviated both by shortening follow-up visits and by using time-based billing for longer visits. With these strategies, we did not experience problems with reaching expected physician revenue targets at our institution.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Evolution"
+        },
+        {
+            "text": "The pre-visit assessment has evolved over time. While most pre-visit assessments have been done over the phone, there was a trial of doing them in person with the social worker, which ended due to staff (social work) departure. As physicians and staff became more comfortable with the patient population, the questions in the pre-visit assessment were modified to better target challenges and supports that we found patients most often utilized during the initial office visit in order to accommodate the individual needs of our patients. An example modification is the increased focus on social supports, ensuring that the CAST team was aware of who (if anyone) the patient relied on to meet day-to-day needs. This helped us make informed recommendations for the patients' healthcare needs based on the supports they had available to them. While much of the information gathered has remained the same, the format in which it is captured and presented in the electronic medical record has been streamlined, so as to highlight what is most pertinent for the provider who will be seeing the patient.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Evolution"
+        },
+        {
+            "text": "As the CAST patient panel grew, we found it more difficult to remember specific needs for patients, both new and returning. To address this, we instituted weekly huddle meetings to review upcoming patients, ensure their charts were properly labeled for any needed accommodations, and discuss more complicated needs as a group.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Evolution"
+        },
+        {
+            "text": "A number of additional supports for patients have been added. These include videos demonstrating the steps of important office procedures (such as getting a blood draw or having an electrocardiogram done) that are available online for patients and providers to view independently, as well as \"happy visits (visits done by medical assistants or nurses to help patients develop comfort with clinic procedures),\" evening educational sessions, and telemedicine visits.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Evolution"
+        },
+        {
+            "text": "Office procedures like blood pressure measurement and blood draws can be difficult for patients on the autism spectrum. Many patients on the autism spectrum benefit from being able to see the steps of a process ahead of time so they know what to expect (Qi et al., 2018) . With this in mind, four videos were produced between 2017 and 2019 using small grants from Autism Speaks to demonstrate the steps of common procedures done in the office: taking a blood pressure, having an EKG done, getting blood drawn, and receiving a vaccination. Two versions of each of these videos were developed, one directed at patients and caregivers and one directed at health care providers. These videos are posted online for free access (under the Patient Resources and Provider Resources tabs at https:// wexne rmedi cal. osu. edu/ prima ry-care/ adult-autismcenter). Patients and their families can watch these videos in advance and thus can be more prepared for the office visit. Health care providers can watch them to gain tips on how to approach a patient on the autism spectrum who is struggling with one of these procedures.",
+            "cite_spans": [
+                {
+                    "start": 253,
+                    "end": 270,
+                    "text": "(Qi et al., 2018)",
+                    "ref_id": "BIBREF15"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Procedure Videos"
+        },
+        {
+            "text": "Desensitization strategies involving visual supports, time to examine equipment, and opportunities to ask questions, have been shown to help individuals on the autism spectrum more easily complete procedures like sleep studies and dental visits (Cagetti et al., 2015; Primeau et al., 2016) . Using similar principles, CAST started offering \"happy visits\" in 2015. Happy visits are brief visits done by medical assistants or a registered nurse and are focused on developing comfort with the medical office or a portion of medical care that was difficult for the patient to tolerate. They are offered on a case-by-case basis by any member of the medical team who feels they may be beneficial to the patient. We have utilized happy visits for blood draws, for vaccines, and prior to patients' first appointment for those that felt they would benefit from exposure to the clinic before their first full appointment.",
+            "cite_spans": [
+                {
+                    "start": 245,
+                    "end": 267,
+                    "text": "(Cagetti et al., 2015;",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 268,
+                    "end": 289,
+                    "text": "Primeau et al., 2016)",
+                    "ref_id": "BIBREF14"
+                }
+            ],
+            "ref_spans": [],
+            "section": "\"Happy Visits\""
+        },
+        {
+            "text": "Prior to and in between happy visits, patients and caregivers were encouraged to view videos developed by CAST (once videos were developed and if applicable). They were also provided with supplies such as alcohol wipes, tourniquets, and gloves to take home so that they patient could become more comfortable with these items. These services are not billable services, so our ability to offer them is limited by availability of the healthcare team in between their other regular duties.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "\"Happy Visits\""
+        },
+        {
+            "text": "These sessions were developed to support patients and families as they address common challenges and to address these challenges in more depth than a medical visit can typically afford. Topics covered include guardianship and financial planning. The first sessions were held in 2014 and have occurred intermittently since then, averaging about one per year. We are limited in our ability to offer these sessions due to limitations on staff and physician time. These sessions are not covered by insurance and are done by the CAST physicians and staff for free for families, which also limits how often we can offer them.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Evening Educational Sessions"
+        },
+        {
+            "text": "CAST physicians started telemedicine visits in 2018, which were initially only for the follow-up of mental health or behavioral conditions that were amenable to the limited examination allowed by telemedicine. With the onset of the COVID-19 pandemic in March 2020, our health system encouraged greater use of telemedicine visits than it had in the past, including for new patient visits.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Telemedicine Visits"
+        },
+        {
+            "text": "We wanted to assess the reach of the CAST program since its inception. We determined the number of patients seen, their available demographic characteristics, and cumulative trend in patients seen in CAST over time. We tracked the number of CAST patient visits per month over the history of the program. We also evaluated the impact of the additional offerings of CAST (procedure videos, \"happy visits,\" educational sessions, and telemedicine visits) by collecting available data on the reach and response from patients and families about these programs. For procedure videos, we were able to obtain counts of view of the videos. For the \"happy visits,\" we collected data on those patients who used \"happy visits\" for blood draws to provide a qualitative case series describing how we have used this service in the CAST clinic. For educational sessions, we documented the number completed and reviewed available feedback about the programs. For telemedicine visits, we documented the number of visits completed via telemedicine, both before and after March 2020 (the onset of the COVID-19 pandemic restrictions in our area).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Evaluation"
+        },
+        {
+            "text": "A total of 858 patients have been seen in CAST as of October 1, 2020, and we continue to accept new patients into the program. The average age of CAST patients is 24 years old. Most (78%) are male, and this predominance of males is consistent with gender differences in autism prevalence in the United States (Dietz et al., 2020) . Patients have been seen from 45 different counties in Ohio, as well as from Indiana and West Virginia. The majority of patients come from the counties surrounding Columbus, Ohio, where CAST is located. Most (63%) have private insurance, and a large percentage (82%) are considered active patients in the program, meaning that they have had a visit at CAST in the last 2 years. See Table 1 for details. Figure 2 shows the growth in patients seen in CAST over time. In general, there has been a steady increase in the number of patients seen in CAST over time. We noted a period around April 2020 where few new patients were added to the program. This coincides with the onset of COVID restrictions in our area.",
+            "cite_spans": [
+                {
+                    "start": 309,
+                    "end": 329,
+                    "text": "(Dietz et al., 2020)",
+                    "ref_id": "BIBREF7"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 713,
+                    "end": 720,
+                    "text": "Table 1",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 734,
+                    "end": 742,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "The number of visits per month with CAST patients grew steadily for the first few years of the program. For 40 of the 43 months (93%) since April 2017, there have been greater than 80 visits per month with CAST patients. Most of these visits have been primary care physician visits, with the remaining being with psychiatry, pharmacy, nursing, a dietitian, or social work. Psychiatry services were used regularly by CAST patients when available. See Fig. 3 for details. Please note that there has not been a psychiatrist to see CAST patients since the third quarter of 2018. The dietitian is shared by multiple primary care clinics within the same healthcare system as CAST. They started working 1 day per week at the clinic where CAST is located in the summer of 2020 and are available by referral for consultation for all primary care patients. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 450,
+                    "end": 456,
+                    "text": "Fig. 3",
+                    "ref_id": null
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "The four patient-focused videos covering office procedures have been viewed 7756 times as of September 30, 2020 with the blood draw video being viewed the most (7223 views). The four health care provider-focused videos covering office procedures have been viewed 18,488 times as of September 30, 2020, with the blood draw video being viewed the most (16,718 views). Table 2 shows a summary of eight patients who completed happy visits focused on blood draws. Some of these efforts have resulted in patients completing blood work in the office, while others have not. In several cases, the blood work obtained found previously unknown health issues, highlighting the importance of ensuring that patients on the autism spectrum receive appropriate monitoring and screening blood work. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 366,
+                    "end": 373,
+                    "text": "Table 2",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Procedure Videos"
+        },
+        {
+            "text": "Educational sessions have been held approximately once per year since 2014. These sessions are informal, so we do not have specific feedback regarding them. Our clinical experience suggests that providing information on these topics is valuable to patients and families. Additionally, patients and families continue to attend when they are offered.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Educational Sessions"
+        },
+        {
+            "text": "As of 9/30/20, 339 separate patients have participated in telemedicine visits. Only 20 of these patients had participated in telemedicine visits prior to the onset of COVID-19 restrictions in our area. The remaining 319 had their first telemedicine appointment during the COVID-19 era. We believe that even after COVID-19 restrictions are lifted that telemedicine visits will continue to be an integral part of how CAST patients get at least some of their care. With that in mind, we are performing surveys of CAST patients' experience with telemedicine visits to assess their impact on care and to determine how to best utilize this service in the future.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Telemedicine Visits"
+        },
+        {
+            "text": "Here we describe the development, implementation, and evolution of CAST. Since it began in April 2014, the goal for the CAST program has been to provide high-quality care for adolescents and young adults on the autism spectrum as they move from pediatric to adult care. The program was intentionally based in a primary care setting so that CAST patients and their families would have a first contact point for autism-specific as well as general health needs and be able to have not only regularly scheduled visits but also sick visits in a familiar setting. CAST includes dedicated staff and extended initial appointment times to help ensure that CAST patients are as comfortable as possible when being seen there. Donor support and grant funding has allowed for CAST to offer an array of supports beyond those typically included in primary care, such as longer initial appointments, a full-time nurse, social work at times, procedure videos for patients to view in advance of visits, and educational sessions for patients and families. This evaluation of the CAST program shows that CAST has continued to be utilized by adolescents and young adults on the autism spectrum and their families. The program has seen 858 unique patients since it started in April 2014 and its three current providers continue to accept new patients. Monthly visit numbers show that patients continue to be seen regularly in the program.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "It is notable that the provider-focused procedure videos have been viewed more than the patient-focused procedure videos. We do not track who is choosing to watch the videos, which are freely available on the CAST clinic web site and YouTube\u00ae. That being said, we have a few thoughts as to why the provider-focused videos may have been viewed more. We did note that when some searches are done on YouTube\u00ae, the provider-focused video is listed first, and so this may prompt more views of those videos. We also thought it might be possible that patients and families are watching both videos while providers are only watching the provider-focused video. Finally, we have shared the videos at various lectures and national meetings, which may be prompting others to use the provider-focused videos in their own care settings or with their own trainees.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "The program has undergone a number of staffing changes over the years. In particular, both psychiatric and social work support have been only intermittently available. As Fig. 2 shows, psychiatric visits were held regularly when a psychiatrist was available and often provided care focused on management of anti-psychotics and other psychotropic medications. While dedicated social work visits were not as common, social work support has allowed CAST patients and their families to address a number of needs, particularly for those related to navigating applications for support services after school services have ended. We recently hired a dedicated social worker to address these needs more systematically for CAST patients. This hiring was delayed due to a hiring freeze at our institution related to the COVID-19 pandemic.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 171,
+                    "end": 177,
+                    "text": "Fig. 2",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Discussion"
+        },
+        {
+            "text": "The loss of CAST staff has been a challenge when it has occurred. CAST patients had to build new connections with providers that they hadn't met before, which is a challenge for patients, families, and providers alike. Additionally, the departure of team members resulted in the need to consolidate CAST back to a single office setting. The smaller team had less capacity to think about the program's growth and strategies for improving it. This highlights how small teams are at risk of being disrupted by staffing changes. Despite the changes in staffing, the program continues to accept new patients, highlighting the need for primary care access for adults on the autism spectrum.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "Billing and reimbursement for services is a challenge faced by all primary care providers. When implementing a program like CAST, the financial impacts of decisions must be considered. In our experience, utilizing time-based billing for longer visits can help augment reimbursement. Money from a private donor has supported salaries for support staff (RN, social work) and initial losses in physician revenue. If this funding were not available, other options would include increasing billable visits by the social worker, although this would limit social work contribution to primarily mental health counseling. Early in CAST's evolution, we utilized a clinic registration staff for some of our pre-visit assessment phone calls. If well trained, this can be an effective and less expensive option, but it did limit the ability to triage that comes with a registered nurse. Unfortunately, happy visits are not a billable encounter, which has limited our ability to employ them more broadly.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "The CAST program offers one model for delivery of primary care to adults on the autism spectrum, a group that is large (Brugha et al., 2011 ), growing (Van Naarden Braun et al., 2015 , and in need of better access to more effective health care services (Nicolaidis et al., 2013) , including primary care (Weiss et al., 2018) . It differs from a model often used in pediatric care, where multiple specialists focused specifically on a particular developmental disorder provide care for just that patient population in a specialized setting (Bolger et al., 2017; Singh et al., 2019; Thibadeau et al., 2020) . This was an intentional design choice made during program development, as discussed previously, and we feel that it has been a strength of the program.",
+            "cite_spans": [
+                {
+                    "start": 119,
+                    "end": 139,
+                    "text": "(Brugha et al., 2011",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 140,
+                    "end": 182,
+                    "text": "), growing (Van Naarden Braun et al., 2015",
+                    "ref_id": null
+                },
+                {
+                    "start": 253,
+                    "end": 278,
+                    "text": "(Nicolaidis et al., 2013)",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 304,
+                    "end": 324,
+                    "text": "(Weiss et al., 2018)",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 539,
+                    "end": 560,
+                    "text": "(Bolger et al., 2017;",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 561,
+                    "end": 580,
+                    "text": "Singh et al., 2019;",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 581,
+                    "end": 604,
+                    "text": "Thibadeau et al., 2020)",
+                    "ref_id": "BIBREF20"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "Strategies such as longer initial appointments and reaching out to patients and families in advance of the first appointment have proven to be very effective at integrating CAST patients into the primary care office where it is housed. We acknowledge that CAST may not directly translate into a general primary care office due to the fact that the program has relied at least in part on grant and donor funding. We still feel that the strategies used within the CAST program provide tools that can be considered for use by other providers who are caring for a similar patient population. In particular, the modifications to the visit routine like patients waiting in the car rather than the waiting room and delaying blood pressure measurement are relatively simple to implement. In addition, while extending visits routinely can be problematic, having patients on the autism spectrum schedule either as the first or last patient of the day can give a provider more flexibility in their time with the patient and family without requiring major system changes. We would like to reiterate that, while the physicians in the CAST program are board certified in Internal Medicine and Pediatrics, the tools and strategies described here are applicable to all providers across multiple specialties seeing adults on the autism spectrum as patients. This likely includes every provider, since about 1 in 100 adults are on the autism spectrum (Baxter et al., 2015; Brugha et al., 2011; Dietz et al., 2020) .",
+            "cite_spans": [
+                {
+                    "start": 1433,
+                    "end": 1454,
+                    "text": "(Baxter et al., 2015;",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 1455,
+                    "end": 1475,
+                    "text": "Brugha et al., 2011;",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 1476,
+                    "end": 1495,
+                    "text": "Dietz et al., 2020)",
+                    "ref_id": "BIBREF7"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "At the systems level, we feel that certain features of CAST allowed us to gain and maintain the support of leaders in the division and the hospital for this program. In particular, because CAST was built into a larger primary care practice and patients from CAST were added to the primary care panels of the participating physicians, CAST did not require extensive resources from the hospital the way that a dedicated clinic with its own physical space and physicians would have. Since the resource output from the hospital for the program was smaller, it was easier to gain support from hospital leaders and administrators. This evaluation is limited by the use of retrospective data collection. We have presented the data we have available regarding the reach of CAST. Some data, such as the number of families who have attended educational sessions and the identity of those viewing our procedure videos, were not collected and are not available. The lack of available data also limits the types of analyses that we can do. This program is running at one academic medical center, which may limit generalizability. The development of CAST was limited by the fact that we did not include patients on the autism spectrum in the initial focus group. We have since elicited feedback from patients about the program (Hand et al., 2020) . However, more proactive outreach to patients earlier on may have improved our initial implementation and evaluation.",
+            "cite_spans": [
+                {
+                    "start": 1313,
+                    "end": 1332,
+                    "text": "(Hand et al., 2020)",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "Next steps for growing and developing the CAST program include integrating the full-time social worker recently hired to work with CAST patients. We also are considering more formalized structure for the educational sessions. We are seeking feedback about CAST from the CAST patients and families so we can continue to refine the way in which care is provided.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Next Steps"
+        },
+        {
+            "text": "We also plan to further evaluate the quality of care for CAST patients. This will include describing when and how CAST patients utilize specialty, emergency, and hospital care and understanding the health trajectories of CAST patients over time. We also intend to compare the concerns and medical problems primarily addressed by CAST physicians and those addressed by specialists.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Next Steps"
+        },
+        {
+            "text": "As we consider these new plans, we will also have to consider the many health and life changes that have confronted our patients and families and continue to challenge them during the COVID pandemic. We will also have to consider the many moments-both joyful and stressful-that will inevitably result as our patients and their families move into a post-COVID world.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Next Steps"
+        },
+        {
+            "text": "to conceptualizing and designing the study and revised the manuscript critically for key content. SF contributed to conceptualizing and designing the study and revised the manuscript critically for key content. PI contributed to conceptualizing and designing the study and revised the manuscript critically for key content. CH contributed to conceptualizing and designing the study and interpretation of data and revised the manuscript critically for key content.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Next Steps"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Defining the PCMH. Retrieved",
+            "authors": [],
+            "year": 2021,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "The epidemiology and global burden of autism spectrum disorders",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Baxter",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Brugha",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Erskine",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Scheurer",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Vos",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Scott",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Psychological Medicine",
+            "volume": "45",
+            "issn": "3",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Transition of care in adolescents with cerebral palsy: A survey of current practices",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Bolger",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Vargus-Adams",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mcmahon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "9",
+            "issn": "",
+            "pages": "258--264",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.pmrj.2016.08.001"
+                ]
+            }
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Investing in the health and well-being of young adults",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Bonnie",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Stroud",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Breiner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "prevalence of medical comorbidities in adults with autism spectrum disorder",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Brondino",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Fusar-Poli",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Miceli",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Di Stefano",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Damiani",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Rocchetti",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Politi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Journal of General Internal Medicine",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s11606-019-05071-x"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Epidemiology of autism spectrum disorders in adults in the community in England",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Brugha",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mcmanus",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bankart",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Scott",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Purdon",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Smith",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Bebbington",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Jenkins",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Meltzer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Archives of General Psychiatry",
+            "volume": "68",
+            "issn": "5",
+            "pages": "459--465",
+            "other_ids": {
+                "DOI": [
+                    "10.1001/archgenpsychiatry.2011.38"
+                ]
+            }
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "You think it's hard now \u2026 It gets much harder for our children\": Youth with autism and their caregiver's perspectives of health care transition services",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Cagetti",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mastroberardino",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Campus",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Olivari",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Faggioli",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Lenti",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Strohmenger",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Patologia Oral y Cirugia Bucal",
+            "volume": "20",
+            "issn": "5",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1177/1362361314558279"
+                ]
+            }
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "National and state estimates of adults with autism spectrum disorder",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Dietz",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Rose",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Mcarthur",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Maenner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Journal of Autism and Developmental Disorders",
+            "volume": "50",
+            "issn": "12",
+            "pages": "4258--4266",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s10803-020-04494-4"
+                ]
+            }
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Patient and caregiver experiences at a specialized primary care center for autistic adults",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Hand",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Coury",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Darragh",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "White",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Moffatt-Bruce",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Harris",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Longo",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Gilmore",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Garvin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Journal of Comparative Effectiveness Research",
+            "volume": "9",
+            "issn": "16",
+            "pages": "1131--1140",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "What Care Models Have Generalists Implemented To Address Transition From Pediatric To Adult Care?: A qualitative study",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Hart",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Mouw",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Teal",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Jonas",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Journal of General Internal Medicine",
+            "volume": "34",
+            "issn": "10",
+            "pages": "2083--2090",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s11606-019-05226-w"
+                ]
+            }
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Emergency department visits and use of outpatient physician services by adults with developmental disability and psychiatric disorder",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Lunsky",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Lin",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Balogh",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Klein-Geltink",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Wilton",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Kurdyak",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "The Canadian Journal of Psychiatry",
+            "volume": "57",
+            "issn": "10",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1177/070674371205701004"
+                ]
+            }
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Comparison of healthcare experiences in autistic and non-autistic adults: A cross-sectional online survey facilitated by an academic-community partnership",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Nicolaidis",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Raymaker",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Mcdonald",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Dern",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Boisclair",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Ashkenazy",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Baggs",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Journal of General Internal Medicine",
+            "volume": "28",
+            "issn": "6",
+            "pages": "761--769",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s11606-012-2262-7"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "The role of health advocacy in transitions from pediatric to adult care for children with special health care needs: Bridging families, provider and community services",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Okumura",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saunders",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Rehm",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Journal of Pediatric Nursing",
+            "volume": "30",
+            "issn": "5",
+            "pages": "714--723",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.pedn.2015.05.015"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Residency training in transition of youth with childhood-onset chronic disease",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Patel",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Hare",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Pediatrics",
+            "volume": "126",
+            "issn": "3",
+            "pages": "190--193",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Individuals with autism spectrum disorders have equal success rate but require longer periods of systematic desensitization than control patients to complete ambulatory polysomnography",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Primeau",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Gershon",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Talbot",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Cotto",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Lotspeich",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Hardan",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Hallmayer",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Hara",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Journal of Clinical Sleep Medicine",
+            "volume": "12",
+            "issn": "3",
+            "pages": "357--362",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "A systematic review of effects of social stories interventions for individuals with autism spectrum disorder",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Qi",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Barton",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Collier",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y.-L",
+                    "middle": [],
+                    "last": "Lin",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Montoya",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Focus on Autism and Other Developmental Disabilities",
+            "volume": "33",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1177/1088357615613516"
+                ]
+            }
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Barriers to healthcare: Instrument development and comparison between autistic adults and adults with and without other disabilities",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Raymaker",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Mcdonald",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Ashkenazy",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Gerrity",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Baggs",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Kripke",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Hourston",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Nicolaidis",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Autism",
+            "volume": "21",
+            "issn": "8",
+            "pages": "972--984",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Addressing medical needs of adolescents and adults with autism spectrum disorders in a primary care setting",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Saqr",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Braun",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Porter",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Barnette",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Hanks",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Autism",
+            "volume": "22",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1177/1362361317709970"
+                ]
+            }
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Transition care: Future directions in education, health policy, and outcomes research",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Sharma",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "O&apos;hare",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Antonelli",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Sawicki",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Academic Pediatric",
+            "volume": "14",
+            "issn": "2",
+            "pages": "120--127",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "A preliminary study of care coordination services within a specialized outpatient setting for youth with autism spectrum disorder",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Singh",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Pinkett-Davis",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Kalb",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Azad",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Neely",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Landa",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "International Journal of Care Coordination",
+            "volume": "22",
+            "issn": "3-4",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1177/2053434519893659"
+                ]
+            }
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Philosophy of care delivery for spina bifida",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Thibadeau",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Walker",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Castillo",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Dicianno",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Routh",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Smith",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Ouyang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Disability and Health Journal",
+            "volume": "13",
+            "issn": "2",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.dhjo.2019.100883"
+                ]
+            }
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Trends in the prevalence of autism spectrum disorder, cerebral palsy, hearing loss, intellectual disability, and vision impairment, metropolitan Atlanta",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Van Naarden Braun",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Christensen",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Doernberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Schieve",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Rice",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Wiggins",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Schendel",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Yeargin-Allsopp",
+                    "suffix": ""
+                }
+            ],
+            "year": 1991,
+            "venue": "PLoS ONE",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/journal.pone.0124120"
+                ]
+            }
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Emergency department use among adults with autism spectrum disorders (ASD)",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Vohra",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Madhavan",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Sambamoorthi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Journal of Autism and Developmental Disorders",
+            "volume": "46",
+            "issn": "4",
+            "pages": "1441--1454",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Health concerns and health service utilization in a population cohort of young adults with autism spectrum disorder",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Weiss",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Isaacs",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Diepstra",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Wilton",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Brown",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Mcgarry",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Lunsky",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Journal of Autism and Developmental Disorders",
+            "volume": "48",
+            "issn": "1",
+            "pages": "36--44",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s10803-017-3292-0"
+                ]
+            }
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Staffing Changes in CAST over Time",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Cumulative Number of Patients seen in CAST over Time Fig. 3 Number of Visits to the CAST clinic by Month",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "Demographic information for CAST Patients a 85% of CAST patients range in age from 18 to 30 b Defined as having a visit with a CAST provider in the last 2 years",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "CAST Clinic Happy Visit Summary",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "The project described was supported by Autism Speaks (Grant No. 11761). The content is solely the responsibility of the authors and does not necessarily represent the official views of Autism Speaks. The authors would also like to thank Bill and Marci Ingram and the White Castle Foundation for their support of the CAST program.Author Contributions LCH contributed to interpretation of data, wrote the first draft, and revised the manuscript critically for key content. HS contributed to conceptualizing and designing the study and interpretation of data and revised the manuscript critically for key content. SL contributed",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Acknowledgments"
+        }
+    ]
+}

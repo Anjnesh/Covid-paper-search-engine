@@ -1,0 +1,1454 @@
+{
+    "paper_id": "0a4dc79a4c907c17fc7d3889f280ecff0e4a57de",
+    "metadata": {
+        "title": "Use of Multiple Low Cost Carbon Dioxide Sensors to Measure Exhaled Breath Distribution with Face Mask Type and Wearing Behaviour",
+        "authors": [
+            {
+                "first": "N",
+                "middle": [],
+                "last": "Salman",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "M",
+                "middle": [
+                    "W"
+                ],
+                "last": "Khan",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "The use of cloth face coverings and face masks has become widespread in light of the COVID-19 pandemic. This paper presents a method of using low cost wirelessly connected carbon dioxide (CO 2 ) sensors to measure the effects of properly and improperly worn face masks on the concentration distribution of exhaled breath around the face. Four types of face masks are used in two indoor environment scenarios. CO 2 as a proxy for exhaled breath is being measured with the Sensirion SCD30 CO 2 sensor, and data are being transferred wirelessly to a base station. The exhaled CO 2 is measured in four directions at various distances from the head of the subject, and interpolated to create spatial heat maps of CO 2 concentration. Statistical analysis using the Friedman's analysis of variance (ANOVA) test is carried out to determine the validity of the null hypotheses (i.e., distribution of the CO 2 is same) between different experiment conditions. Results suggest CO 2 concentrations vary little with the type of mask used; however, improper use of the face mask results in statistically different CO 2 spatial distribution of concentration. The use of low cost sensors with a visual interpolation tool could provide an effective method of demonstrating the importance of proper mask wearing to the public.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "The use of cloth face coverings and other types of face masks has become widely adopted in 2020-21 to reduce the emission of pathogens in exhaled breath, and mitigate the spread of infectious diseases such as influenza and more recently COVID-19. Wearing face coverings in public settings has also been the centre of political debate and discussions about human freedom. Since the beginning of the 2020 pandemic, there has been discussion on the efficacy of face coverings and masks. However, recent studies show clear benefits in reducing transmission [1] [2] [3] [4] , and the use of face coverings has been accepted by the wider scientific community. In one study, [5] , two hairdressers both tested positive for COVID-19 and wore a double layer face mask while working. They did not pass the disease to their clients, while their family members did contract it. In [6] , the authors compared 200 countries and concluded that in the countries where face masks were not recommended, the per-capita mortality increased each week by a factor of 1.619, or 61.9%. On the other hand, in countries recommending masks, the per-capita mortality tended to increase each week by just 16.2%. This, however, was based on the assumption that wearing face masks properly was adhered to or enforced. Another study [7] examined the infection rate in 15 states plus Washington D.C. after the government mandated the use of face masks in public and concluded that the COVID-19 growth rate declined by a maximum of 2 percentage points per day in these states. Evidence is also provided in a laboratory study [8] , where animal experiments were conducted to show a barrier made from typical mask material reduced transmission of the SARS-CoV-2 virus.",
+            "cite_spans": [
+                {
+                    "start": 553,
+                    "end": 556,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 557,
+                    "end": 560,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 561,
+                    "end": 564,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 565,
+                    "end": 568,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 668,
+                    "end": 671,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 869,
+                    "end": 872,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 1301,
+                    "end": 1304,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 1591,
+                    "end": 1594,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Face coverings and face masks are predominantly a source control. During normal breathing, speech, coughing or sneezing, respiratory particles are exhaled over a wide range of sizes from under 1 \u00b5m to over 100 \u00b5m in diameter. Some of the larger droplets are visible and deposit rapidly due to gravity, while the much finer aerosols are carried in the exhaled breath and room ventilation, and remain in the air for long periods of time. Respiratory viruses such as SARS-CoV-2 can be transmitted through deposition of larger droplets onto mucous membranes, or when aerosols are breathed in by another person. In a recent work, the plume of exhaled air is visualised using imaging techniques [9] , demonstrating the influence of a face covering on the direction and extent of the plume.",
+            "cite_spans": [
+                {
+                    "start": 689,
+                    "end": 692,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "In the present work, CO 2 sensors are used to create a quantitative spatial distribution of exhaled breath concentrations. CO 2 is metabolically produced by humans during respiration, and hence can be used as a proxy for the exhaled breath plume. The concentration levels of CO 2 in indoor environments depend on the building occupancy and ventilation system. With poor ventilation, high CO 2 concentration can remain in the air [10] with a steady increase in concentration over time. We explore the use of CO 2 sensor measurements as a simple approach to characterise the distribution of exhaled breath and the influence of a face mask. While CO 2 is not representative of risk associated with large respiratory particles, it is a good proxy for the smallest aerosol particles, which could potentially lead to airborne virus transportation. CO 2 concentration has been used as a proxy for airborne infection transmission modelling in a number of studies [11, 12] . Moreover, the effects of high level CO 2 on human health and cognition are reported in [13] [14] [15] .",
+            "cite_spans": [
+                {
+                    "start": 429,
+                    "end": 433,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 955,
+                    "end": 959,
+                    "text": "[11,",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 960,
+                    "end": 963,
+                    "text": "12]",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 1053,
+                    "end": 1057,
+                    "text": "[13]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 1058,
+                    "end": 1062,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 1063,
+                    "end": 1067,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "In this paper, four NonDispersive InfraRed (NDIR) based CO 2 sensors are used in four directions and at different distances from a person's face to measure CO 2 during normal speech under different conditions. One condition of particular interest is the improper use of the face mask, which is when the mask covers the mouth, but the nose remains uncovered. Although the mouth is covered, it is of interest to demonstrate the reduction of face mask efficacy as a source control with improper use. The parameters considered through the tests are:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "\u2022 CO 2 concentration with proper and improper wearing of face masks. \u2022 CO 2 concentration at different distances from the face. \u2022 CO 2 concentration in different directions of the face. \u2022 CO 2 concentration in an unventilated and naturally ventilated room.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "We present a methodology for using data from CO 2 sensors to create an interpolated concentration map and obtain a smooth graphical representation. We use statistical approaches to determine whether spatial variation in concentrations within and between test cases is significant.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The rest of the paper is organized as follows: Section 2 presents the experimental methodology including the hardware and test conditions. Section 3 presents the interpolation approach and graphical representations of the data followed by the statistical analysis. Section 4 presents the discussion and conclusions.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "In this study, we use our in-house custom made hardware solution to perform the measurements. This system is preferred over the off the shelf units such as [16, 17] , as synchronized data from multiple sensors were required for the analysis. The hardware consists of three main modules and a rechargeable battery combined to create a custom sensor unit on a printed circuit board (PCB). The sensor units were coupled together wirelessly to a laptop that provided us with synchronized live multi-point data, which were stored for analysis. The modules are described in the following subsections:",
+            "cite_spans": [
+                {
+                    "start": 156,
+                    "end": 160,
+                    "text": "[16,",
+                    "ref_id": null
+                },
+                {
+                    "start": 161,
+                    "end": 164,
+                    "text": "17]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Hardware"
+        },
+        {
+            "text": "For CO 2 sensing, the Sensirion SCD30 [18] was used, its NDIR detection enables highly accurate carbon dioxide measurement. The CO 2 measurement range is between 0 and 40,000 parts per million (ppm), with an accuracy of \u00b1(30 ppm + 3%). The sensor is capable of taking one measurement every two seconds while the response time is 20 s.",
+            "cite_spans": [
+                {
+                    "start": 38,
+                    "end": 42,
+                    "text": "[18]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Sensing"
+        },
+        {
+            "text": "XBee modules, based on the IEEE 802.15.4/Zigbee protocol [19] were used for wireless communication. This operates on the 2.4 Giga Hertz (GHz) industrial scientific medical (ISM) band with a range of 40 m indoors and are programmed to work in the Application Programming Interface (API) mode. The data from the sensor were collected by the microcontroller and transmitted to a coordinator that was connected to a laptop.",
+            "cite_spans": [
+                {
+                    "start": 57,
+                    "end": 61,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Communication"
+        },
+        {
+            "text": "The 32-bit ARM cortex M3 STM32F103x microcontroller was used to collect and process data from the sensor, settings for the sensor, e.g., sensing frequency, pressure/temperature compensation, calibration factor were all coded into the microcontroller before implementation, full details of the microcontroller specification are available in [20] . The developed unit is shown in Figure 1 . ",
+            "cite_spans": [
+                {
+                    "start": 340,
+                    "end": 344,
+                    "text": "[20]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 378,
+                    "end": 386,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Data Processing"
+        },
+        {
+            "text": "The sensor unit is equipped with a 3.7 volt '18650' rechargeable battery and a battery management chip embedded on the PCB. We use a 2.5 Ampere hour (Ah) capacity battery, which enables the unit to operate for several days before a recharge is required.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Power"
+        },
+        {
+            "text": "The sensor unit were calibrated against high end units in a controlled environment in our in house chamber with controlled CO 2 exposure. It was observed that deviation of the sensor readings was within \u00b1(30 ppm). Furthermore, after every test, the sensors were allowed to return to baseline values before the next test. This occasionally required the ventilation of the indoor environment between measurements.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Calibration"
+        },
+        {
+            "text": "The tests were conducted in a residential 4 m \u00d7 3 m room with one window and two doors. The male subject was sitting in the middle of the room with sensors mounted on tripods in four directions; (i) in front of the face, (ii) on the right and left of the face, and (iii) a sensor hanging from the ceiling above the head. These tests were conducted with all sensors at 30, 60 cm and 90 cm distance from the face. The experimental setup is illustrated in Figure 2 . For all sensor distances, tests were carried out with proper use of the face mask, i.e., the mouth and nose covered and improper use, i.e., with the mouth covered and nose uncovered. Four different types of masks were used in the experiments; these are (i) a single layer fabric face covering, (ii) a double layer fabric face covering, (iii) a surgical type mask, and (iv) a KN95 rated mask. Finally, all tests were performed in the unventilated room with the window and doors closed and with the window and one door open to provide ventilation. The sensors were programmed to take a measurement every two seconds for a period of 90 s. The subject was required to speak normally (counting from 1 to 90). ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 453,
+                    "end": 461,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Test Conditions"
+        },
+        {
+            "text": "This section presents the measured data, and the graphical representation of the spatially distributed data, followed by the statistical analysis of the measurements.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "The graphs shown in Figures 3-6 present the average CO 2 with error bars that indicate the maximum and minimum sensed gas concentration. The figures show the measurements for all mask types and all distances/directions. Average CO 2 for both naturally ventilated and unventilated indoor environments are also displayed. In general, all masks follow a similar pattern. For reference, Figure 7 presents the sensor measurement when no mask is used.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 383,
+                    "end": 391,
+                    "text": "Figure 7",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Summary of CO 2 Measurements"
+        },
+        {
+            "text": "Measurements obtained for the single layer fabric mask at 30 cm are given in Figure 3a . It is observed that speaking with the nose out registered notably higher CO 2 concentrations at the sensor placed in the front of the face while lower values (close to baseline) are observed when the mask is properly worn. There are observable differences between the average readings obtained from the sensor at the front, in a ventilated and unventilated environment, for both the nose out and nose in case. The range of CO 2 concentration at the sensor in front of the face is wide for the nose out case as shown by the error bars. The minimum values are low because the sensor is at baseline (700-800 ppm) just before the experiment starts (which is in fact the case for all experiments) and it reaches a maximum value during normal speech (2000-2200 ppm). The extremely high CO 2 observed at a short distance is independent of the ventilation in the room. This is observed repeatedly with the different types of masks. The left and right sensor show little to no increase in average CO 2 concentration compared to baseline concentration. The error bars are also very close to the average values in all four cases for the left and right sensors. Interestingly, the sensor placed at the top of the head shows high CO 2 concentration when the mask is properly worn with the nose in; this is due to the exhaled breath while being obstructed by the mask in the forward direction escapes in the cracks between the face and the mask and rises upwards due to it being warmer. As will be seen in the subsequent figures, this phenomenon is observed with every mask. At a distance of 60 cm the maximum CO 2 concentration drops significantly by about \u223c1000 ppm at the front sensors, this is due to the rapid dilution of the exhaled air plume. There is still some difference between the proper and improper use of the mask; however, the difference is not as pronounced as at 30 cm. Similar to the 30 cm case, the left and right sensors do not register any high CO 2 values. The sensors above the head also show decreased CO 2 concentration for all four cases. At 90 cm the obtained results are similar to the 60 cm case with only slight increase in the readings from the sensor above the head. Figure 5a -c show the test results for the surgical type mask. Results are similar to the single and double layer mask. Interestingly, evident from the narrow error bars, when these masks are properly worn, the measured CO 2 displays negligible change from the baseline value. This is the same for all the mask types, an indication that all these masks have a comparable effect on the exhaled breath plume when worn correctly. Figure 6a -c presents the results for the KN95 rated mask, here again the same pattern as for the other masks is followed and the results are consistent. For comparison, the average CO 2 concentration when no mask is worn is shown in Figure 7 . As expected, at 30 cm, high CO 2 concentration is observed by the sensor located at the front and above the head. While there is little impact on the left and right sensors. Relatively lower CO 2 values are observed at 60 cm and 90 cm.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 77,
+                    "end": 86,
+                    "text": "Figure 3a",
+                    "ref_id": null
+                },
+                {
+                    "start": 2275,
+                    "end": 2284,
+                    "text": "Figure 5a",
+                    "ref_id": null
+                },
+                {
+                    "start": 2702,
+                    "end": 2711,
+                    "text": "Figure 6a",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 2936,
+                    "end": 2944,
+                    "text": "Figure 7",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Summary of CO 2 Measurements"
+        },
+        {
+            "text": "To compare the best and worst case scenarios; the average CO 2 measured with no mask on in the non-ventilated case at 30 cm at the front of the head is 1621 ppm, while this value for the properly worn KN95 mask under the same conditions is 645 ppm.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Summary of CO 2 Measurements"
+        },
+        {
+            "text": "In order to visualize the CO 2 concentration distribution from a limited number of sensors, spatial interpolation between the sensor readings is used. In this study, the natural neighbour interpolation (NNI) [21] is used to interpolate and generate a smooth continuous surface from the distributed sensor readings. NNI is a local interpolation technique, which is based on the Voronoi tessellation of the data points or sensor readings. The Voronoi tessellation is a set of tiles (or polygons) where each tile surrounds one data point. Every point in a tile is closer to its corresponding data point than it is to any other data point. After the Voronoi tessellation is constructed, the NNI works on introduction of query points (non-measured points) which generate their own tiles, thus establishing a link between the non-measured and sensed points. The area of the new tile captures a segment of the old tiles and the interpolated value of the new tile is a weighted average of the neighbouring points, see [21] for detailed description. Let point x be the query point with N neighbours for which we wish to predict the CO 2 concentration\u0108 x , then by denoting A(x i ) as the captured area from the neighbouring tile i and A(x) as the total area of the tile corresponding to query point x, the interpolated CO 2 is given b\u0177",
+            "cite_spans": [
+                {
+                    "start": 208,
+                    "end": 212,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 1010,
+                    "end": 1014,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Spatially Interpolated CO 2 Concentrations"
+        },
+        {
+            "text": "where C i is the CO 2 concentration of the neighbouring sensor i and its weights w i is given by",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Spatially Interpolated CO 2 Concentrations"
+        },
+        {
+            "text": "In this study, the scatteredInterpolant function [22] in MATLAB is used to to generate the NNI CO 2 heat maps. Furthermore, to provide a complete picture, the estimates at locations outside the convex hull of the sensors are extrapolated using linear extrapolation. Figures 8-11 present a top down view of the interpolated heat maps of the CO 2 concentration. This 2D interpolation does not contain the measurement at the sensor above the head. The head is at location (0, 90) cm, while readings are taken from sensor located at (0, 0), (0, 30), (0, 60), (0, 120), (0, 150), (0, 180), (30, 90), (30, 60), (30, 90). It is noted that to avoid sensor error and offset between sensors, the same three sensors are used at the nine locations sequentially to obtain the results. The source CO 2 is taken by placing the CO 2 sensor in close proximity to the face (almost touching) and data recorded when the mask is worn properly and also when the nose is out. Figures 8-11 show the heat map of CO 2 distribution with proper and improper use of a single layer fabric, double layer fabric, surgical type and KN95 rated masks, respectively, in the unventilated setting. Snapshots at 10, 40 and 80 s are shown. When the mask is properly worn, the CO 2 concentration is far less than when the mask is worn improperly. Moreover, the distance travelled by the plume is longer with improper mask use. It is interesting to note that when measuring for the source CO 2 concentration close to the face with the mask properly worn, the sensor did register higher CO 2 , as can be seen in the first rows of Figures 8-11 . Whether this is a result of some CO 2 escaping the mask material or through the cracks between the mask and face is unclear. ",
+            "cite_spans": [
+                {
+                    "start": 49,
+                    "end": 53,
+                    "text": "[22]",
+                    "ref_id": "BIBREF21"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 266,
+                    "end": 278,
+                    "text": "Figures 8-11",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 953,
+                    "end": 965,
+                    "text": "Figures 8-11",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 1587,
+                    "end": 1599,
+                    "text": "Figures 8-11",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Spatially Interpolated CO 2 Concentrations"
+        },
+        {
+            "text": "In this section, the observed data are statistically analysed to determine if the means of the different experiment scenarios are statistically different. It is our understanding that the observed data do not follow a normal distribution; therefore, the non-parametric Friedman's analysis of variance (ANOVA) test [23] is used.",
+            "cite_spans": [
+                {
+                    "start": 314,
+                    "end": 318,
+                    "text": "[23]",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Statistical Analysis"
+        },
+        {
+            "text": "The Friedman's test is similar to the balanced two-way ANOVA test, but it is carried out on the ranks instead of the raw data. The approach tests values of ranks by columns (Treatment) while adjusting for the ranked rows (Blocks). The procedure checks for the null hypothesis in different treatment groups, which is valid if H 0 :m 1 = . . . =m k and is rejected when",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Friedman's ANOVA Test"
+        },
+        {
+            "text": "wherem k is the mean of the treatment group. For k treatment groups and b block groups, the Friedman's statistic is given by",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Friedman's ANOVA Test"
+        },
+        {
+            "text": "where S 2 j is the squared sum of ranks for sample treatment (column) j and F r follows as chi-square distribution. The null hypothesis is rejected when",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Friedman's ANOVA Test"
+        },
+        {
+            "text": "where the significance level a = 0.05 is used in this paper. The p-value is obtained by Table 1 shows the Friedman's test results for two treatment scenarios, i.e., when the mask is properly worn and when it is improperly worn. In order to account for any mask bias, each mask forms a block resulting in four blocks. The test is carried out for naturally ventilated and unventilated environments. Furthermore, tests for all distances and directions are conducted for the null hypothesis.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 88,
+                    "end": 95,
+                    "text": "Table 1",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "Friedman's ANOVA Test"
+        },
+        {
+            "text": "For the unventilated environment, the null hypothesis for the front and above sensors are rejected for 30, 60, and 90 cm, signifying that the exhaled CO 2 is statistically different between proper and improper mask use in the front and above the head regardless of the type of mask used. This is indeed expected and is evident from the bar charts in Figures 3-6 . On the other hand, for the same environment, the null hypothesis is not rejected for the left and right sensors at all distances, except for the left sensor at 30 cm. Again evident from the average bar charts presented earlier, significant difference in the average values is not observed on the left and right sides. Thus, exercising improper use of a mask does not have an impact on CO 2 concentration on either side of the face. As pointed out, Friedman's test on the left sensor at 30 cm did reject the null hypothesis however this is attributed to the negligible variation in the left (and also the right) sensor, which in fact does not register any increase in CO 2 values above the baseline. This is evident from the narrow error bars over the left and right sensors in Figures 3-6 . This results in the statistical test misinterpreting the small inherent bias in the individual sensors as the basis for rejecting the null hypothesis. For the ventilated case, only the left sensor at 30 cm is not rejected while the null hypothesis for the rest of the cases is rejected. For the left and right sensors, statistical test results should not be accepted on face value and should be analysed in conjunction with Figures 3-6 , where it is seen that the left and right sensors register slightly different gas concentrations due to sensor bias and the same explanation as for the left and right sensors in the non-ventilated case applies for the ventilated case. The two smallest p-values are obtained when comparing proper and improper mask use at 30 cm in front of the face in both ventilated and non-ventilated environments. This signifies a substantial difference in observed CO 2 measurements in these cases. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 350,
+                    "end": 361,
+                    "text": "Figures 3-6",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 1141,
+                    "end": 1152,
+                    "text": "Figures 3-6",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 1579,
+                    "end": 1590,
+                    "text": "Figures 3-6",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Friedman's ANOVA Test"
+        },
+        {
+            "text": "In this paper, we have demonstrated the use of NDIR, CO 2 sensors to quantitatively determine CO 2 concentration distribution and highlight the importance of proper face mask use.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "The Sensrion SCD30 sensor shows fairly accurate CO 2 concentration, and we noticed fast response times. It was observed that when the human subject moved away after the experiment ended, the sensor took (15-20 s) to return back to baseline values. It is noted that although this study shows the concentration of exhaled breath relative to the mask fit on a persons face, it does not directly tell us about the virus concentration in the exhaled plume. The presented study has limitations in the sense that natural ventilation conditions are notoriously difficult to measure and control. Finally, due to the stringent lockdown rules in the UK in 2020, the study could not be extended on multiple subjects, and the experiments were performed on a single subject.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "This study shows that CO 2 measurement is a simple but effective way of looking at mask fit and such data could be used with sensor systems (such as the one we have developed) to guide mask fit in non-critical settings for the public. Indeed, similar results can be obtained with a thermal imaging cameras that have CO 2 sensing built in; however, these are very expensive.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "The key conclusions from this study are:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "\u2022 There is a significant difference in the CO 2 concentration when the face mask is used properly compared to when the nose is out during normal speech in the front and above the face. \u2022",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "The type of mask used in this study had little to no affect on the CO 2 concentration distribution. \u2022",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "The CO 2 concentration to the left and right of the face does not noticeably change from baseline values. \u2022 CO 2 rises above the face during normal speech, this is more pronounced when the mask is properly worn; however, CO 2 at the front of the face is considerably reduced. \u2022 At shorter distances to the speaker, the ventilation of the indoor environment does not impact CO 2 concentrations.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "The immediate practical implications of the study relate to the importance of proper mask wearing, demonstrating that a mask that does not cover the nose does not effectively contain the exhaled plume. While the study does not consider the impact on respiratory particles, it is reasonable to assume that wearing a mask in this way will compromise the effectiveness of source control both in terms of the viral particles that may be exhaled and the distance that they can travel in a highly concentrated plume. The findings also have potential implications for low cost approaches to demonstrate the importance of mask fit for public use. The use of spatially distributed CO 2 sensors with a graphical interpolation interface may be an effective approach for training and education in the importance of correct mask wearing. Sensors similar to the one used in this study also have the potential to become vital tools in future studies such as smart ventilation, behavioural science and infection risk modelling.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Face masks and COVID-19: Don't let perfect be the enemy of good",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Cowling",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Leung",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Euro Surveill. Eur. Commun. Dis. Bull",
+            "volume": "25",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Face masks against COVID-19: An evidence review",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Howard",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Tufekci",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Zdimal",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Westhuizen",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Delft",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Price",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Fridman",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Tang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Proc. Natl. Acad. Sci. USA 2021",
+            "volume": "118",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1073/pnas.2014564118"
+                ]
+            }
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Mask or no mask for COVID-19: A public health and market study",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Qian",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Dai",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "PLoS",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/journal.pone.0237691"
+                ]
+            }
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "COVID-19 and Public Interest in Face Mask Use",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Wong",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "Y C"
+                    ],
+                    "last": "Teoh",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.-H",
+                    "middle": [],
+                    "last": "Leung",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "K K"
+                    ],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "H K"
+                    ],
+                    "last": "Yip",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "C S"
+                    ],
+                    "last": "Wong",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "S C"
+                    ],
+                    "last": "Hui",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Am. J. Respir. Crit. Care Med",
+            "volume": "202",
+            "issn": "",
+            "pages": "453--455",
+            "other_ids": {
+                "DOI": [
+                    "10.1164/rccm.202004-1188LE"
+                ]
+            }
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Absence of Apparent Transmission of SARS-CoV-2 from Two Stylists After Exposure at a Hair Salon with a Universal Face Covering Policy",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Hendrix",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Walde",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Findley",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Trotman",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "MMWR Morb. Mortal. Wkly. Rep",
+            "volume": "2020",
+            "issn": "",
+            "pages": "930--932",
+            "other_ids": {
+                "DOI": [
+                    "10.15585/mmwr.mm6928e2"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Association of Country-wide Coronavirus Mortality with Demographics, Testing, Lockdowns, and Public Wearing of Masks Am",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Leffler",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Ing",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Lykins",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Hogan",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Mckeown",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Grzybowski",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J. Trop. Med. Hyg",
+            "volume": "103",
+            "issn": "",
+            "pages": "2400--2411",
+            "other_ids": {
+                "DOI": [
+                    "10.4269/ajtmh.20-1015"
+                ]
+            }
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Community Use of Face Masks and COVID-19: Evidence from a Natural Experiment of State Mandates the US. Health Aff",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Lyu",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Wehby",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "39",
+            "issn": "",
+            "pages": "1419--1425",
+            "other_ids": {
+                "DOI": [
+                    "10.1377/hlthaff.2020.00818"
+                ]
+            }
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Surgical Mask Partition Reduces the Risk of Noncontact Transmission in a Golden Syrian Hamster Model for Coronavirus Disease 2019 (COVID-19)",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Chan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Yuan",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Poon",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Chan",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Fan",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Liang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Cao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Clin. Infect. Dis. Off. Publ. Infect. Dis. Soc. Am",
+            "volume": "71",
+            "issn": "",
+            "pages": "2139--2149",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/cid/ciaa644"
+                ]
+            }
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Visualizing droplet dispersal for face shields and masks with exhalation valves",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Verma",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Dhanak",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Frankenfield",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Phys. Fluids",
+            "volume": "32",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1063/5.0022968"
+                ]
+            }
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "CO 2 tracer gas concentration decay method for 526 measuring air change rate",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Cui",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Cohen",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Stabat",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Marchio",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Build. Environ",
+            "volume": "84",
+            "issn": "",
+            "pages": "162--169",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.buildenv.2014.11.007"
+                ]
+            }
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Risk of indoor airborne infection transmission estimated from carbon dioxide concentration",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Rudnick",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Milton",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Indoor Air",
+            "volume": "13",
+            "issn": "",
+            "pages": "237--245",
+            "other_ids": {
+                "DOI": [
+                    "10.1034/j.1600-0668.2003.00189.x"
+                ]
+            }
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Shared Air: A Renewed Focus on Ventilation for the Prevention of Tuberculosis Transmission",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Richardson",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Morrow",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Kalil",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Bekker",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Wood",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "PLoS ONE",
+            "volume": "9",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/journal.pone.0096334"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Effects of low-level inhalation exposure to carbon dioxide in indoor environments: A short review on human health and psychomotor performance",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Azuma",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Kagi",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Yanagi",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Osawa",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Environ. Int",
+            "volume": "121",
+            "issn": "1",
+            "pages": "51--56",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.envint.2018.08.059"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "High indoor CO 2 concentrations in an office environment increases the transcutaneous CO 2 level and sleepiness during cognitive work",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Vehvilainen",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Lindholm",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Rintamaki",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Paaakkonen",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Hirvonen",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Niemi",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Vinha",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "J. Occup. Environ. Hyg",
+            "volume": "13",
+            "issn": "",
+            "pages": "19--29",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/15459624.2015.1076160"
+                ]
+            }
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Using EEG to characterise drowsiness during short duration exposure to elevated indoor Carbon Dioxide concentrations",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Snow",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Boyson",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Felipe-King",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Malik",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Coutts",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Noakes",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Gough",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Barlow",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Schraefel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/483750.PPR:PPR63356"
+                ]
+            }
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Overview of the IEEE 802.15.4 standards family for Low Rate Wireless Personal Area Networks",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Salman",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Rasool",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Kemp",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Proceedings of the 7th International Symposium on Wireless Communication Systems (ISWCS)",
+            "volume": "",
+            "issn": "",
+            "pages": "701--705",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Scattered data interpolation methods for electronic imaging systems: A survey",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Amidror",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "J. Electron. Imaging",
+            "volume": "11",
+            "issn": "",
+            "pages": "57--176",
+            "other_ids": {
+                "DOI": [
+                    "10.1117/1.1455013"
+                ]
+            }
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "MATLAB Scatteredinterpolant Function",
+            "authors": [],
+            "year": 2021,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Nonparametric Statistical Methods",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Hollander",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Wolfe",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Sensor unit.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Experimental setup.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Average CO 2 measurements using a single layer mask. Average CO 2 measurements using a double layer mask. Average",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Average CO 2 measurements using a KN95 mask.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "Average CO 2 measurements without a mask.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "c show the distribution of mean CO 2 using a double layer mask. The results obtained are similar to the single layer mask. There is, however, marked difference at the front sensor in the nose out case for the ventilated and unventilated case. The unventilated case is showing lower mean values compared to the ventilated case. This phenomenon is not repeated by the other masks or this mask at other distances, and so potentially reflects experimental error. On the other hand, the sensor above the head again showed higher CO 2 concentration, this is pronounced in the nose in (proper mask use) case, in which the exhaled air is blocked by the mask in the front and escapes to the top.Figure 4b,c show similar results to the 30 cm case.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "Interpolated CO 2 with properly and improperly worn single layer mask.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": "Interpolated CO 2 with properly and improperly worn double layer mask.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF8": {
+            "text": "Interpolated CO 2 with properly and improperly worn surgical mask.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF9": {
+            "text": "Interpolated CO 2 with properly and improperly worn KN95 mask.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "Friedman's test.",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "Author Contributions: N.S. wrote the original draft and developed the hardware used in this study. He also acted as the test subject for the measurements in the paper. M.W.K. developed the software tools and programmed the hardware for data collection. A.K. and A.H.K. revised the paper and provided valuable input. M.L. supervises M.W.K. and helped in the software development for the hardware. He also provided help in the review and editing of the paper. C.J.N. is the principle investigator on the HECOIRA project. She manages the HECOIRA research activities and proposed the central idea of this paper and also revised the manuscript. All authors have read and agreed to the published version of the manuscript.Funding: This work is funded by the UK, EPSRC HECOIRA Project EP/P023312/1.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "annex"
+        },
+        {
+            "text": "The underlying data is available at https://github.com/Nav-101/ Multi_sensors_mask_study.git (13 September 2021).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data Availability Statement:"
+        },
+        {
+            "text": "The authors declare no conflict of interest.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conflicts of Interest:"
+        },
+        {
+            "text": "The following abbreviations are used in this manuscript:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abbreviations"
+        },
+        {
+            "text": "NonDispersive InfraRed ANOVA analysis of variance PCB printed circuit board API Application Programming Interface NNI natural neighbor interpolation ISM Industrial Scientific Medical AhAmpere hour CO 2 Carbon dioxide GHz Giga Hertz ppm parts per million cm centimeter",
+            "cite_spans": [
+                {
+                    "start": 200,
+                    "end": 201,
+                    "text": "2",
+                    "ref_id": "BIBREF1"
+                }
+            ],
+            "ref_spans": [],
+            "section": "NDIR"
+        }
+    ]
+}

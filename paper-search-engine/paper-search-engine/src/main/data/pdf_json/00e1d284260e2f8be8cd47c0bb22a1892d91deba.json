@@ -1,0 +1,2383 @@
+{
+    "paper_id": "00e1d284260e2f8be8cd47c0bb22a1892d91deba",
+    "metadata": {
+        "title": "Combat COVID-19 Infodemic Using Explainable Natural Language Processing Models",
+        "authors": [
+            {
+                "first": "Jackie",
+                "middle": [],
+                "last": "Ayoub",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "X",
+                "middle": [
+                    "Jessie"
+                ],
+                "last": "Yang",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Feng",
+                "middle": [],
+                "last": "Zhou",
+                "suffix": "",
+                "affiliation": {},
+                "email": "fezhou@umich.edu"
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Misinformation of COVID-19 is prevalent on social media as the pandemic unfolds, and the associated risks are extremely high. Thus, it is critical to detect and combat such misinformation. Recently, deep learning models using natural language processing techniques, such as BERT (Bidirectional Encoder Representations from Transformers), have achieved great successes in detecting misinformation. In this paper, we proposed an explainable natural language processing model based on DistilBERT and SHAP (Shapley Additive exPlanations) to combat misinformation about COVID-19 due to their efficiency and effectiveness.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "First, we collected a dataset of 984 claims about COVID-19 with fact checking.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "By augmenting the data using back-translation, we doubled the sample size of the dataset and the DistilBERT model was able to obtain good performance (accuracy: 0.972; areas under the curve: 0.993) in detecting misinformation (accuracy: 0.938; areas under the curve: 0.985). The performance on both datasets was better than traditional machine learning models. Second, in order to boost public trust in model prediction, we employed SHAP to improve model explainability, which was further evaluated using a between-subjects experiment with three conditions, i.e., text (T), text+SHAP explanation (TSE), and text+SHAP explanation+source and evidence (TSESE). The participants were significantly more likely to trust and share information related to COVID-19 in the TSE and TSESE conditions than in the T condition. Our results provided good implications in detecting misinformation about COVID-19 and improving public trust.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "\"The best way to prevent COVID-19 is actually traditional Chinese medicine\"; \"COVID-19 came from Chinese people eating bat soup\"; \"Coronavirus is an engineered bioweapon\"; \"Coronavirus is just like the flu\" [1] . Such false and misleading information about COVID-19 has been widely disseminated in digital spaces and is even promoted by famous public figures, including celebrities and politicians. The focus has been going beyond prevention and treatment to include its origin and conspiracy theories. The World Health Organization announced a massive \"infodemic\" that made it difficult for us to find trustworthy sources and reliable advice amid this horrific pandemic [2] . What is lacking is how to distinguish true information from false claims timely with rapid changes of the COVID-19 pandemic and provide explanations in order to mitigate the risks associated with COVID-19 to improve public trust through digital spaces [3] . Hence, there is an urgent need to develop prediction models to debunk false claims and to provide timely and trustworthy information to the general public. 2 The failure to meet this need represents an important issue amid the COVID- 19 pandemic, as without it both misuse and disuse of such misinformation will continue to exist.",
+            "cite_spans": [
+                {
+                    "start": 207,
+                    "end": 210,
+                    "text": "[1]",
+                    "ref_id": null
+                },
+                {
+                    "start": 671,
+                    "end": 674,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 929,
+                    "end": 932,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 1091,
+                    "end": 1092,
+                    "text": "2",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 1169,
+                    "end": 1171,
+                    "text": "19",
+                    "ref_id": "BIBREF18"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "In order to avoid the spread of misinformation, researchers have been focusing on machine learning-based NLP (Natural Language Processing) techniques.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "For example, Ozbay and Alatas [4] used twenty-three supervised machine learning models to identify misinformation. Recently, more successful models based on deep learning techniques have been used to detect misinformation. For example, Aggarwal et al. [5] detected misinformation using BERT with very minimal text pre-processing, but obtained very good performance. It was also reported that by April 2020 Facebook removed more than fifty million posts related to COVID-19 since they were classified as misinformation using machine learning-based NLP techniques [6] . Other big social media companies, including Google and Twitter also removed scammers of ads related to face masks, hand sanitizers, and manipulative posts related to COVID-19 using these deep learning-based models [6] . Hence, in this study, we proposed an NLP machine learning model based on BERT [7] to detect misinformation about COVID-19.",
+            "cite_spans": [
+                {
+                    "start": 30,
+                    "end": 33,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 252,
+                    "end": 255,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 562,
+                    "end": 565,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 782,
+                    "end": 785,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 866,
+                    "end": 869,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "BERT is a deeply bidirectional, unsupervised language model, and was pretrained using a huge amount of text corpus. One of the disadvantages of BERT is that it is computationally intensive, which might be difficult to be deployed without advanced computational resources. Thus, we made use of DistilBERT which was able to maintain almost similar performance of BERT with fewer parameters [7] .",
+            "cite_spans": [
+                {
+                    "start": 388,
+                    "end": 391,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Despite the efforts using deep learning models in debunking misinformation about COVID-19, there is a lack of research on how to help the general public detect misinformation and improve their trust at the same time. In addition, NLP techniques based on machine learning are usually black-box models. The trust in and acceptance of such models are often compromised without revealing the domain knowledge, i.e., explainability, contained in the data [8] . Compared to other domains, the importance of explainability in decision making with high risks is even greater, such as COVID-19 in the medical area [9] and fatigue detection in driving . On the contrary, if the insights captured by such models are revealed, it can help improve trust and acceptance and potentially attain the intended purposes. For example, Gilpin et al. [10] showed that explainable machine learning models achieved a higher level of acceptance and trust. Thus, it is crucial for the black-box machine learning models to provide explanations about their decisions.",
+            "cite_spans": [
+                {
+                    "start": 450,
+                    "end": 453,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 605,
+                    "end": 608,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 829,
+                    "end": 833,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "In order to improve the trustworthiness of the model, we proposed to explain the reasoning process of distilBERT using SHAP (SHapley Additive ex-Planations). SHAP capitalizes on the Shapley value from cooperative game theory [11] to calculate individual contributions of the features in the prediction model. It has many desirable properties in explaining machine learning models, including local accuracy, missingness, and consistency [12] . Furthermore, we designed a between-subjects experiment to evaluate the proposed explainable NLP models in three conditions (i.e., text (T), text+SHAP explanation (TSE), and text+SHAP explanation+source and evidence (TSESE)) in terms of trust and willingness to share the information. As a summary, the contributions of this paper includes 1) building a prediction model based on state-of-the-art NLP techniques, i.e., DistilBERT, 2) explaining model predictions using SHAP in order to improve public trust, and 3) conducting a human-subject experiment to evaluate trust in model prediction and willingness to share information.",
+            "cite_spans": [
+                {
+                    "start": 225,
+                    "end": 229,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 436,
+                    "end": 440,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "In order to reduce the negative effects of misinformation, researchers developed different prediction models to automatically detect misinformation. Machine learning models using various features are dominant, such as linguistic features (e.g., styles of writing, subjectivity, and authenticity) and social contextual features (e.g., user characteristics and credibility, content, and social networks) [13] . These machine learning-based methods can be further categorized into supervised and semi-supervised methods. Gilda [14] evaluated different supervised models on misinformation classification and the best performance was 4 obtained with stochastic gradient descent. Ozbay and Alatas [4] assessed the performance of twenty-three supervised machine learning models (e.g., logistic model tree, stochastic gradient descent, classification via clustering, bagging, decision tree). The decision tree model achieved the best performance. With the existing computational capabilities and a large amount of data, supervised deep learning models provide better performance compared to traditional machine learning models. Recurrent neural networks (RNNs) and convolutional neural networks (CNNs) were explored by multiple researchers to handle misinformation detection [15] . Ma et al. [16] proposed a RNN model with well-designed recurrent units and extra hidden layers to learn the latent features of the contextual information of microblogs over time and their model performed better than online rumor debunking services. Ruchansky et al. [17] proposed a hybrid deep RNN model that incorporated three modules, including capture, score, and integrate, which obtained better results in fake news detection. Yang et al. [18] proposed a CNN-based model by including text and images as features for the model. Bahad et al. [19] proposed a bi-directional long short-term memory (LSTM) model to detect misinformation. The model was capable of detecting complex patterns in text data by examining a sentence bi-directionally and thus performed better than unidirectional LSTM models. Ma et al. [20] proposed a model based on generative adversarial learning to detect misinformation on Twitter, in which a generator was used to produce conflicting information in order for the discriminator to learn better representations to detect rumors. For a more detailed review on fake news detection, please refer to [21, 22] .",
+            "cite_spans": [
+                {
+                    "start": 402,
+                    "end": 406,
+                    "text": "[13]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 524,
+                    "end": 528,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 691,
+                    "end": 694,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 1267,
+                    "end": 1271,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 1284,
+                    "end": 1288,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 1540,
+                    "end": 1544,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 1718,
+                    "end": 1722,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 1819,
+                    "end": 1823,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 2087,
+                    "end": 2091,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 2400,
+                    "end": 2404,
+                    "text": "[21,",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 2405,
+                    "end": 2408,
+                    "text": "22]",
+                    "ref_id": "BIBREF21"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "The main limitation of the supervised method is to label a huge amount of data to train the model, which is laborious and time-consuming. Therefore, in search for an alternative to the supervised method, semi-supervised methods learn domain knowledge from a small set of labeled data on top of a pre-trained unsupervised model. Gaucho et al. [23] proposed a semi-supervised contentbased approach to detect misinformation, using tensor embedding and label propagation. Benamira et al. [24] introduced a content-based semi-supervised approach by capturing contextual similarities using a graph learning task. Shu et al. [25] focused not only on news content features but also on publisher bias and user engagement to detect misinformation using a semi-supervised linear classifier to guide the misinformation detection process. Dong et al. [26] implemented a two-paths semi-supervised deep learning approach based on three CNNs, where both the labeled and unlabeled data were used to train the model.",
+            "cite_spans": [
+                {
+                    "start": 342,
+                    "end": 346,
+                    "text": "[23]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 484,
+                    "end": 488,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 618,
+                    "end": 622,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 838,
+                    "end": 842,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "One of the powerful deep learning semi-supervised methods in detecting misinformation is BERT [7] . BERT is composed of two stages, i.e., unsupervised pre-training and supervised fine-tuning. Aggarwal et al. [5] showed that BERT outperformed LSTM and gradient boosted tree models even with minimal text pre-processing. To improve the performance of BERT, Jwa et al. [27] proposed a model that classified the data using weighted cross-entropy. They pre-trained BERT on additional news data and obtained better results than BERT.",
+            "cite_spans": [
+                {
+                    "start": 94,
+                    "end": 97,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 208,
+                    "end": 211,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 366,
+                    "end": 370,
+                    "text": "[27]",
+                    "ref_id": "BIBREF26"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "However, the BERT model is computationally expensive and contains millions of parameters (i.e., 110 million parameters for BERT base and 340 million parameters for BERT large) [7] , which makes it difficult to apply in real time without accelerated hardware, such as GPUs and TPUs. In contrast, in this paper, we attempted to address this problem by distilling the knowledge from BERT to detect misinformation [28] . DistilBERT was shown to be 60% faster than BERT while retaining over 95% of BERT's performance [28] . Another difficulty is the lack of labeled data in fine-tuning the model for a domain specific task. Therefore, we proposed a data augmentation method using backtranslation, which helped to double the size of the training data collected by ourselves and to improve the model performance. For example, Xie et al. [29] showed that sentences generated by back-translation reached a significant improvement in text classification.",
+            "cite_spans": [
+                {
+                    "start": 176,
+                    "end": 179,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 410,
+                    "end": 414,
+                    "text": "[28]",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 512,
+                    "end": 516,
+                    "text": "[28]",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 830,
+                    "end": 834,
+                    "text": "[29]",
+                    "ref_id": "BIBREF28"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "Furthermore, in the case of fact checking related to COVID-19 claims, both understanding and trust are necessary for the adoption of the predictions. Very few studies focused on improving trust in model prediction by incorporating model explanation [30] . However, according to Rudin et al. [31] , an inaccurate explanation limits the trust in the model. Therefore, it was suggested that we should not only show the model performance but also include explanations about 6 the predictions [30] . There are two approaches to explain a machine learning model including example-and feature-based methods [30] . The example-based approach is based on criticisms and prototypes [32] . This method was proved to improve human understanding and reasoning. For example, Shu et al. [33] proposed a sentence-comment co-attention sub-network to detect fake news and used the top-k user comments as contextual information to explain why they were fake. However, example-based methods are often limited to improve the interpretability when the claims do not have contextual information [34] , where claims about COVID-19 lack specific contexts to tell if they are true or fake.",
+            "cite_spans": [
+                {
+                    "start": 249,
+                    "end": 253,
+                    "text": "[30]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 291,
+                    "end": 295,
+                    "text": "[31]",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 488,
+                    "end": 492,
+                    "text": "[30]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 600,
+                    "end": 604,
+                    "text": "[30]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 672,
+                    "end": 676,
+                    "text": "[32]",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 772,
+                    "end": 776,
+                    "text": "[33]",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 1072,
+                    "end": 1076,
+                    "text": "[34]",
+                    "ref_id": "BIBREF33"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "In the feature-based approach (e.g., SHAP), each feature is characterized by an importance value for a particular prediction [12] . For example, Reis et al. [35] examined a large and diverse set of features of fake news and found some features were very effective to detect certain types of fake news, which were used to explain model decisions to help detect fake news. The feature-based approach can provide two major advantages, including global and local interpretability.",
+            "cite_spans": [
+                {
+                    "start": 125,
+                    "end": 129,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 157,
+                    "end": 161,
+                    "text": "[35]",
+                    "ref_id": "BIBREF34"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "The global interpretation aims to show how much each feature contributed to the overall prediction and the local interpretation explains individual predictions, which tends to be more helpful to improve user understanding and trust.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "Therefore, we proposed to use SHAP to explain the prediction of DistilBERT locally to improve trust and acceptance as a feature-based explanation method.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "To further evaluate the explanations provided by SHAP, a between-subjects experiment was designed with three conditions i.e., T, TSE, and TSESE. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "The summary of the proposed method is illustrated in Figure 1 with the following steps:",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 53,
+                    "end": 61,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "7"
+        },
+        {
+            "text": "(1) Data Preprocessing: We collected a dataset and manually labeled the data with fact checking from different trustworthy sources. Then, we doubled the size of the dataset using back-translation. In addition, we included another large dataset for AAAI2021 -COVID-19 Fake News Detection Shared Task [36] to further test our proposed method.",
+            "cite_spans": [
+                {
+                    "start": 299,
+                    "end": 303,
+                    "text": "[36]",
+                    "ref_id": "BIBREF35"
+                }
+            ],
+            "ref_spans": [],
+            "section": "7"
+        },
+        {
+            "text": "(2) Model Building: We transformed (i.e., tokenization, padding, masking) the dataset into the shape needed to fine-tune the BERT model. After that, the",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "7"
+        },
+        {
+            "text": "PyTorch-Pretrained-BERT library was used to build the BERT model. Then the BERT model was fine-tuned with our labeled data or the COVID-19 Fake",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "7"
+        },
+        {
+            "text": "News dataset [36] . Then, we distilled the knowledge from the BERT model by training a logistic regression model. ",
+            "cite_spans": [
+                {
+                    "start": 13,
+                    "end": 17,
+                    "text": "[36]",
+                    "ref_id": "BIBREF35"
+                }
+            ],
+            "ref_spans": [],
+            "section": "7"
+        },
+        {
+            "text": "We collected and labeled our own misinformation of COVID-19 dataset with lateral reading and verification [37] and fact checking from different trustworthy websites. We collected our claims (in sentences rather than in long news articles, see were available and used in this paper. They were directly used in the BERT and DistilBERT models. However, for traditional machine learning models (see Table 2 ), we prepared both this dataset and our own labeled dataset using tokenization, lemmatization, removing stop words and punctuation, and converting the textual representation into a vector space model using the term frequencyinverse document frequency.",
+            "cite_spans": [
+                {
+                    "start": 106,
+                    "end": 110,
+                    "text": "[37]",
+                    "ref_id": "BIBREF36"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 395,
+                    "end": 402,
+                    "text": "Table 2",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "Data Preprocessing"
+        },
+        {
+            "text": "Fine-tuning with BERT: BERT produced state-of-the-art results in a wide variety of NLP tasks (e.g., question answering, translation, and text classification). It was first pre-trained on a huge amount of text data (800M words [7] . The basic transformer relied on an encoder to read the text and a decoder to produce a prediction. To prepare the needed input to the BERT encoder, the data was passed into three embedding layers including a token, segment, and position embedding layers. In the first step of the processing, sentences were tokenized and after that each input token was passed through a token embedding layer to transform it into a vector representation of fixed dimension (i.e.,",
+            "cite_spans": [
+                {
+                    "start": 226,
+                    "end": 229,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Model Building"
+        },
+        {
+            "text": "[SEP] tokens were added to the start and end of the tokenized sentence to serve as an input representation and a sentence separator for the classification task.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "768-dimensional vector). Additionally, extra classification [CLS] and separator"
+        },
+        {
+            "text": "The segment embedding layer helps in classifying a text given a pair of input the distillation loss of the training process is as follows:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "768-dimensional vector). Additionally, extra classification [CLS] and separator"
+        },
+        {
+            "text": "where t i and s i are the probabilities estimated by the teacher and the student, respectively. We ran a distillation for three epochs with a learning rate 3 \u00d7 10 \u22126 and a batch size of 12 using the Adam optimizer on Google Colaboratory.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "768-dimensional vector). Additionally, extra classification [CLS] and separator"
+        },
+        {
+            "text": "Logistic regression: It is a supervised classification technique that is characterized by a logistic function to model a probability (i.e., sigmoid function) of a prediction given a set of features. In this paper, we distill the knowledge from the BERT model by training a logistic regression model, which might result in a slight loss of accuracy in order to improve the explainability of the model predictions using SHAP.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "768-dimensional vector). Additionally, extra classification [CLS] and separator"
+        },
+        {
+            "text": "SHAP was used in this paper to explain the output of the DistilBERT model by assigning each feature with an importance value related to a particular prediction [38] . SHAP is built on Shapley value derived from coalitional game theory [11] , in which each player is assigned with payouts depending on their contribution to the total payout when all of them cooperate in a coalition. It combines optimal allocation with local explanations using the classic Shapley values. Studies have shown that it is often easier for the users to trust prediction models not only by providing what the prediction is, but by also providing why and how the prediction is made [39, 40] . In this paper, SHAP is used to explain",
+            "cite_spans": [
+                {
+                    "start": 160,
+                    "end": 164,
+                    "text": "[38]",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 235,
+                    "end": 239,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 659,
+                    "end": 663,
+                    "text": "[39,",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 664,
+                    "end": 667,
+                    "text": "40]",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Model Explanation"
+        },
+        {
+            "text": "DistilBERT (logistic regression) model. The units of the SHAP values are in the log-odds space, which was then transformed into predicted truth probabilities (see Figure 2 ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 163,
+                    "end": 171,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Model Explanation"
+        },
+        {
+            "text": "The SHAP value for the i-th feature-value set is calculated as follows:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Model Explanation"
+        },
+        {
+            "text": "where \u03b2 i is the weight corresponding to feature i, x i is a feature value, E[x i ] is the mean effect estimate for feature i. For example, if we want to predict if a given claim represents a misinformation or not, each feature (i.e., word) will have its contribution to push the final prediction away from the base value (see Figure 2 ). By aggregating all the features for one instance marginalized over all other features that are not included in the set S, we can calculate the overall SHAP value [38] ,",
+            "cite_spans": [
+                {
+                    "start": 501,
+                    "end": 505,
+                    "text": "[38]",
+                    "ref_id": "BIBREF37"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 327,
+                    "end": 335,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Model Explanation"
+        },
+        {
+            "text": "where P is the number of the words in the instance, and S is the set of non-zero ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Model Explanation"
+        },
+        {
+            "text": "where N is the set of all the input words and N \\{i} indicates the set that does not include i-th word. In order to estimate both E[f (x)|x S ] and \u03c6 i (f ) efficiently, we adopted the TreeSHAP algorithm proposed in [38] .",
+            "cite_spans": [
+                {
+                    "start": 216,
+                    "end": 220,
+                    "text": "[38]",
+                    "ref_id": "BIBREF37"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Model Explanation"
+        },
+        {
+            "text": "To evaluate the provided SHAP explanations, we conducted a betweensubjects experiment on AMT. AMT is a web-based survey company, operated by Amazon Web Services. The survey was created with Qualtrics (Provo, UT, www.qualtrics.com), web-based survey software, and was integrated with AMT.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Model Evaluation"
+        },
+        {
+            "text": "We investigated participants' trust in model predictions and their willingness to share the provided information in three conditions, i.e., T, TSE, and TSESE, as shown in Figure 2 We designed a between-subjects experiment where each participant was randomly assigned to one of the conditions. In condition T, participants were given ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 171,
+                    "end": 179,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Model Evaluation"
+        },
+        {
+            "text": "The performance of the different tested models, including precision, recall, F1 score, accuracy, and area under the receiver operating characteristic curve (short for AUC) using a 10-fold cross-validation process is shown in Table 2 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 225,
+                    "end": 232,
+                    "text": "Table 2",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "Model Performance"
+        },
+        {
+            "text": "The BERT model had a slightly better performance (see Table 2 ) than the DistilBERT model while the DistilBERT model is more efficient and has better explainability to improve its trustworthiness using SHAP (see Figure 3 ). Since our model distilled BERT with a much simpler model, i.e., logistic regression, which was much more efficient and without losing much performance compared to BERT, we compared the performance of the augmented DistilBERT with other traditional machine learning models that were also more efficient than BERT. We used Python in Google Colaboratory. The augmented DistilBERT method performed the best among all the selected traditional machine learning models, including classification tree, logistic regression, and random forest (see Table 2 ). Note \"Aug-\" denotes the model was augmented by extra data using back-translation tested with our own labeled dataset. Models with \"*\" indicate the performance on the COVID-19 Fake News Detection dataset [36] ",
+            "cite_spans": [
+                {
+                    "start": 976,
+                    "end": 980,
+                    "text": "[36]",
+                    "ref_id": "BIBREF35"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 54,
+                    "end": 61,
+                    "text": "Table 2",
+                    "ref_id": "TABREF3"
+                },
+                {
+                    "start": 212,
+                    "end": 220,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 762,
+                    "end": 769,
+                    "text": "Table 2",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "Model Performance"
+        },
+        {
+            "text": "To show how SHAP explained individual predictions, we randomly selected two observations as shown in Figure 3 . The figure shows the different features contributing to pushing the predicted truth probability from the base value.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 101,
+                    "end": 109,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "SHAP Explanation"
+        },
+        {
+            "text": "Factors pushing the prediction to be true are shown in red (i.e., words in red increase the predicted truth probability) while those pushing the prediction to be false are shown in blue (i.e., words in blue decrease the predicted truth probability). The first example (see Figure 3 (a)) represents a true claim with a predicted truth probability of 0.99. Words that contributed to producing the given prediction are \"help\", \"angiotensin\", \"converting\", \"enzyme\", \"women\", \"ace2\", and \"higher\". The second example (see Figure 3 (b)) represents a false claim with a predicted truth probability of 0.02. The words that contributed to producing the given prediction are \"novel\", \"coronavirus\", \"alcoholic\", \"help\", and \"reduce\". These words help explain why the model predicted such results in order to improve its trustworthiness.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 273,
+                    "end": 281,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 518,
+                    "end": 526,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "SHAP Explanation"
+        },
+        {
+            "text": "A one-way ANOVA model was used to analyze the survey data with a significance level of \u03b1 = 0.05. A post-hoc analysis was used with a Tukey HSD correction. Figure 4 summarizes the mean and standard error of trust and willingness to share the information under the three conditions. The main effects of the three conditions on trust (F (2, 241) = 5.628, p = .004) and willingness to share the information (F(2, 241) = 10.730, p = .000) were significant. Trust in the model decision was shown to be significantly higher in the TSE condition (p = .031) and the TSESE condition (p = .005) than the control condition.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 155,
+                    "end": 163,
+                    "text": "Figure 4",
+                    "ref_id": "FIGREF6"
+                }
+            ],
+            "section": "Survey Results"
+        },
+        {
+            "text": "Willingness to share was shown to be significantly higher in the TSE condition (p = .001) and the TSESE condition (p = .000) than the control condition.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Survey Results"
+        },
+        {
+            "text": "However, there were no significant differences between the TSE and TSESE conditions both for trust and willingness to share.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Survey Results"
+        },
+        {
+            "text": "We showed previously in the results (see Table 2 ) that the performance of DistilBERT was reasonably well compared with BERT while having 40% fewer parameters. In addition to the good performance, DistilBERT was 60% faster than BERT. We also showed that distilling the knowledge from BERT by training a logistic regression model outperformed other traditional machine learning models (e.g., classification tree, logistic regression, and Random Forest). One of the reasons for this performance was that DistilBERT was built on BERT, which learned deep representation of the words by pre-training on contextual representation using a large corpus with bidirectionality, whereas the traditional models used the term frequency-inverse document frequency. A model Note \"T\", \"TSE\", and \"TSESE\" denote \"text\", \"text+SHAP explanation\", and \"text+SHAP explanation+source and evidence\", respectively; \"*\", \"**\", and \"***\" indicate p < .05, p < .01, and p < .001, respectively.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 41,
+                    "end": 48,
+                    "text": "Table 2",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "DistilBERT-based NLP Models"
+        },
+        {
+            "text": "with good performance is important, especially in the situation of the COVID-19 pandemic, since participant's trust in model prediction can be improved with higher predicted accuracy [30] .",
+            "cite_spans": [
+                {
+                    "start": 183,
+                    "end": 187,
+                    "text": "[30]",
+                    "ref_id": "BIBREF29"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DistilBERT-based NLP Models"
+        },
+        {
+            "text": "Compared to the control condition (i.e., the T condition), we showed that participants' trust and willingness to share was significantly enhanced by adding SHAP explanations in the TSE condition. This result proved the effectiveness of SHAP explanation to help improve trust in COVID-19 related claims. This was also supported by participants' qualitative responses, such as \"The predictions confirm my beliefs\". Furthermore, by adding the source and evidence of the information in the TSESE condition, participants' trust and willingness to share information were also significantly higher than those in the control condition (one participant stated in the TSESE condition, \"I trusted the predictions if the claims were backed up by reliable resources and evidence\"). Such results were consistent with previous research that providing more explanations (e.g., feature importance, predicted probabilities, sources, and evidence) improved participant's trust in the model [29] . The increase in willingness to share information is also related to the increase in trust in the information as Mosleh et al. [41] showed that self-reported willingness to share information on social media reflected the actual intentions of trust, which further supported the effectiveness of our proposed model.",
+            "cite_spans": [
+                {
+                    "start": 971,
+                    "end": 975,
+                    "text": "[29]",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 1104,
+                    "end": 1108,
+                    "text": "[41]",
+                    "ref_id": "BIBREF40"
+                }
+            ],
+            "ref_spans": [],
+            "section": "SHAP-Explanations and User Trust"
+        },
+        {
+            "text": "However, there was no significant difference between the TSE and TSESE conditions in terms of trust and willingness to share. In order to investigate the reasons, we further examined the answers to the qualitative questions at the end of the survey. We did find that 31% of the participants in the TSESE condition confirmed that they built their trust in the model predictions based on the source of information and evidence. This showed the effectiveness of the source of information and evidence in helping build trust, which was supported by previous research that a primary evaluation of verifiable claims was by checking the source of the information and evidence [37] . However, this percentage was not big enough and it was unclear whether the addition of source and evidence could influence their trust and willingness to share information significantly on top of the model explanation augmented by SHAP. On the other hand, 16% of the participants stated that they trusted the model predictions when they had prior knowledge about the claims (e.g, \"I trust/distrust the prediction if I have previous knowledge/read about it before\"), which indicated that the pre-exposure to COVID-19 claims in the experiment could potentially mitigate the influence of extra source and evidence of the information. In order to understand the insignificance between the TSE and TSESE conditions, we further ran a one-way ANOVA (Note we first ran a 3 (explanation, i.e., T, TSE, TSESE) by 2 (claim nature, i.e., true and false) two-way ANOVA and found no main effects for claim nature or interaction effects. Then we ran a two one-way ANOVA models) to compare the three conditions for the false claims and the true claims separately.",
+            "cite_spans": [
+                {
+                    "start": 669,
+                    "end": 673,
+                    "text": "[37]",
+                    "ref_id": "BIBREF36"
+                }
+            ],
+            "ref_spans": [],
+            "section": "SHAP-Explanations and User Trust"
+        },
+        {
+            "text": "For the false claims, the main effects of the three conditions on trust (F(2, 241) = 7.984, p = .000) and willingness to share (F(2, 241) = 11.918, p = .000) were significant. As for the true claims, the main effect of the three conditions on trust (F(2, 241) = 2.158, p = .118) was not significant, but it was significant on 20 the willingness to share (F(2, 241) = 6.208, p = .002). This indicated that model explanation help improve trust for the false claims more than the true claims, which might be explained by the fact that 11% of the participants trusted the claims based on what was true or untrue (e.g, \"I trust/distrust it based on what I know to be true or untrue\"). In this situation, there was no need for them to further check the source or evidence for true claims. Furthermore, since we only tested 10 randomly selected claims in our dataset, one should be cautious to interpret the insignificant results between the TSE and TSESE conditions. As a summary, the fact that we did not find significant differences between the TSE and TSESE conditions for trust did not necessarily indicate that sources and evidence information is not useful in helping build trust in claims associated with COVID-19. More studies are needed to further understand when sources and evidence are not needed and when they are needed in building trust in specific claims about COVID-19.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "SHAP-Explanations and User Trust"
+        },
+        {
+            "text": "As for willingness, the majority of the participants (40%) were willing to share only true information (e.g, \"If the information is almost guaranteed to be true, I would probably post\"). We had half of false claims in the experiment and this could potentially reduce the effects of extra sources and evidence on their willingness to share information. In addition, there were no significant differences between the TSE and TSESE conditions on willingness to share for either false claims or true claims, separately, despite the significant main effects among the three conditions. This was probably explained by the fact that 21% of the participants in the TSESE condition were not willing to share any kind of information on social media (e.g, \"I do not share any sort of information like this with my friends or family\"). Therefore, a calibration process about their tendency to share information on social media might be included in future studies to better examine the effects of extra sources and evidence on participants' willingness to share. Another possible reason could be associated with the specific content of claims about COVID-19 in the experiment and we should include more claims in future studies to further examine whether there is any difference between the TSE and TSESE conditions.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "SHAP-Explanations and User Trust"
+        },
+        {
+            "text": "The risks associated with false and misleading information about COVID-19 are especially high with the rapid changing situation of the pandemic. Examples include 1) misinformation and false claims about different methods of prevention, treatment, testing, diagnosis, and miracle cures of the disease, and 2) false claims of conspiracy theories about its origins, bioweapons, and population control schemes. Thus, it is extremely important to provide a trustworthy model for the general public to verify whether such claims are true or not. We made use of the state-of-the-art NLP machine learning models with explanations to improve both accuracy and trustworthiness of the application. As machine learning models are impacting our everyday lives, it is crucial not only to improve their performance but also to develop a better understanding of how they work. In addition, we investigated participants' trust in the model predictions and their willingness to share the model predictions under three conditions. As our study showed, improvement in trust can be achieved through explanations offered by SHAP. To convince the public that the given information is trustworthy, we need to provide explanations of how the model made the prediction and potentially the source and evidence of the information as well. Although no significant difference was found between the TSE and TSESE conditions, further studies should be investigated to see if sources and extra evidence actually help improve trust and willingness to share information.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Implications"
+        },
+        {
+            "text": "We built a trustworthy prediction model to debunk false claims of COVID-19 by capitalizing DistilBERT and SHAP. Our results have demonstrated the effectiveness of the proposed method and provided good implications in detecting misinformation about COVID-19 and improving public trust. Among the three conditions, participants were significantly more likely to trust and share information related to COVID-19 in the TSE and TSESE conditions than in the T condition.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion and Future Work"
+        },
+        {
+            "text": "One of the limitations in building such a machine learning model is to potentially verify a large number of claims about COVID-19. Our model is built on a small dataset collected by April 2020 and the COVID-19 Fake News Detection dataset [36] . Thus, it might be limited to detect new misinformation related to COVID-19. In order to maintain and help improve the trustworthiness of the proposed model, it is imperative to include more data as the pandemic unfolds over time, such as the COVID-19 Healthcare Misinformation Dataset [42] . In addition, although BERT aims to learn contextualized representation across a wide range of NLP tasks, it is still challenging to leverage BERT (i.e., it has almost no understanding of COVID-19) without domain knowledge about COVID-19. This is mainly due to the fact that there is a limited labeled number of claims about COVID-19 to fine-tune BERT to ensure full task-awareness of the system. Thus, in the future we plan to increase the domain task awareness with an unsupervised training method by making use of the COVID-19 Open",
+            "cite_spans": [
+                {
+                    "start": 238,
+                    "end": 242,
+                    "text": "[36]",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 530,
+                    "end": 534,
+                    "text": "[42]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusion and Future Work"
+        },
+        {
+            "text": "Research Dataset (CORD-19) and strengthen the end task awareness using supervised fine-tuning by labeling and augmenting the claims. In this research, we recruited participants using AMT. Therefore, the selected sample may not be well-representative of the population. In addition, we were not able to calibrate participants' political and ideological biases related to COVID-19 claims, which could potentially have a significant effect on their belief and/or disbelief in such claims, although we tried to minimize such an effect through randomly assigning participants into three conditions. Future studies should include extra survey questions in order to calibrate such biases. Managing the quality of the survey data from AMT was also challenging. We removed the invalid participants by examining their responses on the three designed attention questions.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion and Future Work"
+        },
+        {
+            "text": "However, the quality could also be affected by the compensation rate. Another limitation of this study was the limited knowledge about the participants' demographic information, which can also influence the results in this study. Further investigation should include demographic factors. In addition, interpreting the explanations provided by SHAP can be challenging for the first time. Even though we provided a training section at the beginning of the survey, some par-23 ticipants found it confusing to make predictions based on individual words. In the future, more intuitive explanations should be explored to better improve trust.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion and Future Work"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Disinformation and coronavirus: The dilution of information on the internet is currently posing a risk to global health and safety",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Kassam",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "2020--2025",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Covid-19 and digital inequalities: Reciprocal impacts and mitigation strategies",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Beaunoyer",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Dup\u00e9r\u00e9",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Guitton",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Computers in Human Behavior",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Fake news detection within online social media using supervised artificial intelligence algorithms",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Ozbay",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Alatas",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Physica A: Statistical Mechanics and its Applications",
+            "volume": "540",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Classification of fake news by fine-tuning deep bidirectional transformers based language model, EAI Endorsed Transactions on Scalable Information Systems Online First",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Aggarwal",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Chauhan",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Kumar",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mittal",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Verma",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Using AI to detect COVID-19 misinformation and exploitative content",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Sumbaly",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mahalia",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Shah",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Khatkevich",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Luo",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Strauss",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Szilvasy",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Puri",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Manadhata",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Graham",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Douze",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Yalniz",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Jehou",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Bert: Pre-training of deep bidirectional transformers for language understanding",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Devlin",
+                    "suffix": ""
+                },
+                {
+                    "first": "M.-W",
+                    "middle": [],
+                    "last": "Chang",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Toutanova",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies",
+            "volume": "1",
+            "issn": "",
+            "pages": "4171--4186",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Towards a rigorous science of interpretable machine learning",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Doshi-Velez",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:1702.08608"
+                ]
+            }
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Do not forget interaction: Predicting fatality of covid-19 patients using logistic regression",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Lei",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2006.16942"
+                ]
+            }
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Explaining explanations: An overview of interpretability of machine learning",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Gilpin",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Bau",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "Z"
+                    ],
+                    "last": "Yuan",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Bajwa",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Specter",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "2018 IEEE 5th International Conference on data science and advanced analytics (DSAA)",
+            "volume": "",
+            "issn": "",
+            "pages": "80--89",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "A value for n-person games",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Shapley",
+                    "suffix": ""
+                }
+            ],
+            "year": 1953,
+            "venue": "Contributions to the Theory of Games",
+            "volume": "2",
+            "issn": "",
+            "pages": "307--317",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "A unified approach to interpreting model predictions",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Lundberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.-I",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Advances in neural information processing systems",
+            "volume": "",
+            "issn": "",
+            "pages": "4765--4774",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Fake news detection on social media: A data mining perspective",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Shu",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sliva",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Tang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "ACM SIGKDD explorations newsletter",
+            "volume": "19",
+            "issn": "",
+            "pages": "22--36",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Evaluating machine learning algorithms for fake news detection",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Gilda",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "2017 IEEE 15th Student Conference on Research and Development (SCOReD)",
+            "volume": "",
+            "issn": "",
+            "pages": "110--115",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "2",
+            "issn": "",
+            "pages": "422--426",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Detecting rumors from microblogs with recurrent neural networks",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ma",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Mitra",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kwon",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Jansen",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Wong",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Cha",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "IJ-CAI International Joint Conference on Artificial Intelligence",
+            "volume": "2016",
+            "issn": "",
+            "pages": "3818--3824",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Csi: A hybrid deep model for fake news detection",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Ruchansky",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Seo",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Proceedings of the 2017 ACM on Conference on Information and Knowledge Management",
+            "volume": "",
+            "issn": "",
+            "pages": "797--806",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "TI-CNN: convolutional neural networks for fake news detection",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Cui",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Yu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Fake news detection using bi-directional lstm-recurrent neural network",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Bahad",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Saxena",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kamal",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Procedia Computer Science",
+            "volume": "165",
+            "issn": "",
+            "pages": "74--82",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Detect rumors on twitter by promoting information campaigns with generative adversarial learning",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ma",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                },
+                {
+                    "first": "K.-F",
+                    "middle": [],
+                    "last": "Wong",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "The World Wide Web Conference",
+            "volume": "",
+            "issn": "",
+            "pages": "3049--3055",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Automatic detection of fake news",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "P\u00e9rez-Rosas",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Kleinberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Lefevre",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Mihalcea",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Proceedings of the 27th International Conference on Computational Linguistics",
+            "volume": "",
+            "issn": "",
+            "pages": "3391--3401",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "A survey of fake news: Fundamental theories, detection methods, and opportunities",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Zafarani",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "ACM Computing Surveys (CSUR)",
+            "volume": "53",
+            "issn": "",
+            "pages": "1--40",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Semi-supervised contentbased fake news detection using tensor embeddings and label propagation",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Guacho",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Abdali",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Papalexakis",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Proc. SoCal NLP Symposium",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Semi-supervised learning and graph neural networks for fake news detection",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Benamira",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Devillers",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Lesot",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Ray",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saadi",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Malliaros",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "2019 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (ASONAM)",
+            "volume": "",
+            "issn": "",
+            "pages": "568--569",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Beyond news contents: The role of social context for fake news detection",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Shu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Proceedings of the twelfth ACM international conference on web search and data mining",
+            "volume": "",
+            "issn": "",
+            "pages": "312--320",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Two-path deep semi-supervised learning for timely fake news detection",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Dong",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Victor",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Qian",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2002.00763"
+                ]
+            }
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "exbake: Automatic fake news detection model based on bidirectional encoder representations from transformers (bert)",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Jwa",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Oh",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Park",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Kang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Lim",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "9",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Distilbert, a distilled version of bert: smaller, faster, cheaper and lighter",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Sanh",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Debut",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Chaumond",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Wolf",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:1910.01108"
+                ]
+            }
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Unsupervised data augmentation for consistency training",
+            "authors": [
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Xie",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Dai",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Hovy",
+                    "suffix": ""
+                },
+                {
+                    "first": "M.-T",
+                    "middle": [],
+                    "last": "Luong",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Le",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:1904.12848"
+                ]
+            }
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "On human predictions with explanations and predictions of machine learning models: A case study on deception detection",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Lai",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Tan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Proceedings of the Conference on Fairness, Accountability, and Transparency",
+            "volume": "",
+            "issn": "",
+            "pages": "29--38",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Rudin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Nature Machine Intelligence",
+            "volume": "1",
+            "issn": "",
+            "pages": "206--215",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Examples are not enough, learn to criticize! criticism for interpretability",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Khanna",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Koyejo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Advances in neural information processing systems",
+            "volume": "",
+            "issn": "",
+            "pages": "2280--2288",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Proceedings of the 28th ACM International Conference on Information and Knowledge Management",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Shu",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Cui",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "2961--2964",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Interpretable Machine Learning A Guide for Making Black Box Models Explainable",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Molnar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Explainable machine learning for fake news detection",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Reis",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Correia",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Murai",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Veloso",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Benevenuto",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Proceedings of the 10th ACM conference on web science",
+            "volume": "",
+            "issn": "",
+            "pages": "17--26",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Fighting an infodemic: Covid-19 fake news dataset",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Patwa",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sharma",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Pykl",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Guptha",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Kumari",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Akhtar",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ekbal",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Das",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Chakraborty",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2011.03327"
+                ]
+            }
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Lateral reading and the nature of expertise: Reading less and learning more when evaluating digital information",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wineburg",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mcgrew",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Teachers College Record",
+            "volume": "121",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Consistent individualized feature attribution for tree ensembles",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Lundberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Erion",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.-I",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:1802.03888"
+                ]
+            }
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Toward efficient automation of interpretable machine learning",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Kovalerchuk",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Neuhaus",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "2018 IEEE International Conference on Big Data (Big Data)",
+            "volume": "",
+            "issn": "",
+            "pages": "4940--4947",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Modeling dispositional and initial learned trust in automated vehicles with predictability and explainability",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ayoub",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Transportation Research Part F: Traffic Psychology and Behaviour",
+            "volume": "77",
+            "issn": "",
+            "pages": "102--116",
+            "other_ids": {}
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Self-reported willingness to share political news articles in online surveys correlates with actual sharing on twitter",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mosleh",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Pennycook",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Rand",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Plos one",
+            "volume": "15",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Covid-19 healthcare misinformation dataset",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Cui",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "Coaid",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2006.00885"
+                ]
+            }
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Summary of the proposed misinformation detection process.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Model Explanation: To improve user trust in the distilled BERT model, SHAP was used to explain the predictions locally.(4) Model Evaluation: To evaluate user trust in the model predictions and the provided SHAP explanations, we conducted a between-subjects experiment with three conditions on Amazon Mechanical Turk (AMT, Seattle, WA, www.mturk.com).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "texts. The positional embedding layer learns the relative position of tokens in a sentence using a sinusoidal function. The final input embedding is a summation of the three embeddings. The summed input was passed to the transformer. In this study, we used the PyTorch-Pretrained-BERT library to build the BERT model. Then, we fine-tuned its linear layer and the sigmoid activation to obtain the predictions with the labeled COVID-19 dataset. During the fine-tuning process, Adam optimizer was used with a learning rate of 3 \u00d7 10 \u22126 and a batch size of 12. We fine-tuned the model on the collected COVID-19 dataset for three epochs.DistilBERT: It is an approximation method of BERT that uses only 60% of the number of BERT model parameters (i.e., 66 million parameters instead of 110 million). The main benefit of DistilBERT is its capability of almost reproducing the behavior of BERT by compressing the big BERT model. In this study, we made use of the knowledge distillation process in DistilBERT, defined as a compression technique in which the student (i.e., DistilBERT) is trained to mimic the teacher's behavior (i.e., BERT)[28]. The BERT predictions were first used to train a smaller model, DistilBERT, by learning the inner representation with raw predictions (i.e., predictions before the final activation function) rather than the hard target probabilities. Then, the knowledge was transferred to the student with a cross-entropy on the raw target probabilities of the teacher and 11",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "indexes of words in the dataset and x = [x 1 , ..., x P ]. E[f (x)|x S ] indicates the expected value of the function conditioned on the subset S of the input words in the model. Then, according to the coalitional game theory [11], the Shapley value of the i-th feature-value set is defined as its contribution to the payout, weighted and summed over all possible feature-value combinations as follows:",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "using a 7-point Likert scale. The source and evidence information was manually collected during our own the data collection process and we included the source and evidence and information as a third condition, i.e., TSESE, to further test if such information was needed, Three conditions involved in the between-subjects experiment: (a) Condition T (Text); (b) Condition TSE (Text+SHAP Explanation ); (c) Condition TSESE (Text+SHAP Explanation+Source and Evidence.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "Examples of a (a) true claim: (\"Men have higher concentrations of angiotensinconverting enzyme 2 (ACE2) in their blood than women, which may help to explain why men are more vulnerable to COVID-19 than women\") and (b) false claim: \"Consuming alcoholic beverages may help reduce the risk of infection by the novel coronavirus\" explained by SHAP. a classifier prediction (i.e, true, false) about a claim related to COVID-19 (seeFigure 2(a)). In condition TSE, in addition to the claim and the model prediction, SHAP explanation was provided to increase the model transparency in making predictions (seeFigure 2(b)). In addition to the information provided in condition TSE, evidence and source of the claims were presented to the participants in condition TSESE (seeFigure 2(c)). In the three conditions, participants reported their degree of trust in model predictions by answering \"Based on the given explanation, what is your degree of trust in the model prediction\") and their willingness to share by answering \"Based on the given explanation, how much are you willing to share this claim with your friends and/or families\") using a 7-point Likert scale. In the given SHAP explanations, participants were explained with three main points, including 1) the output value which represents the predicted truth probability (i.e., if it is close to 0 the claim is more likely to be false, whereas if it is close to 1 it is more likely to be true), 2) a base value which represents the mean predicted truth probability, and 3) words represented in red (i.e., pushing the prediction to be true) and blue (i.e., pushing the predic-tion to be false). In each condition, there were 10 claims, including 5 true and 5 false, about COVID-19 randomly selected from our own labeled dataset. After going through a training session and correctly answering two attention-check questions, the participant was eligible to take part in the survey. One qualitative question was also designed at the end of each condition in the survey, which asked the participants to state the reasons behind trusting/distrusting the model predictions and willingness/unwillingness to share the information.A total number of 300 participants in the USA filled in the survey with 100 in each condition. In order to complete the survey, participants needed to be 18 years old and above. We further removed participants who did not answer the third attention question correctly at the end of the survey. We ended up with 84 participants in condition T and 80 participants each in conditions TSE and TSESE. Participants were compensated with $1 upon completion of the survey.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "The effects of three conditions on trust and willingness to share the information.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF1": {
+            "text": "worthy and 2) individual tweets, posts, or reports without verification are less reliable, especially at the early stage of the COVID-19 pandemic when knowledge about the virus was not well-established.Then, we developed a back-translation augmented method to increase the sample size of our own collected data by using a high-quality translation app (www.deepl.com/en/translator). Back-translation is simply translating a text back to the original language (i.e., English) after translating it into another language (i.e., German)[29]. This resulted in new sentences differed from what we started with. For example, using the back-translation technique, two original claims, i.e., \"Consuming boiled ginger with an empty stomach can kill the coronavirus\" and \"Several viral tweets purporting that snorting cocaine would sterilize one's nostrils of the coronavirus spread around Europe and Africa\" became \"Eating cooked ginger on an empty stomach can kill coronavirus\" and \"In Europe and Africa, several viral tweets spread claiming that snorting cocaine would rid one's nostrils of coronavirus\", respectively. Although the new claims had nearly the same meaning as the original ones, the key words and some of the word orders were different. We collected 984 claims (575 true and 409 fake) about COVID-19, and doubled the sample size with back-translation.The COVID-19 Fake News dataset[36] had 10,700 claims. However, only the training and validation dataset with 8,560 claims (4,480 true and 4,080 fake)",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Examples of collected COVID-19 claims from the BooksCorpus and 2,500M words from the English Wikipedia)",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "Summary of model performance on our own collected dataset",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": []
+}

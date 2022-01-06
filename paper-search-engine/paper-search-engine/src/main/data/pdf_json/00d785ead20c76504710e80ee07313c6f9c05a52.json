@@ -1,0 +1,2188 @@
+{
+    "paper_id": "00d785ead20c76504710e80ee07313c6f9c05a52",
+    "metadata": {
+        "title": "A cross-sectional population-based study on the influence of the COVID-19 pandemic on incomes in Greece",
+        "authors": [
+            {
+                "first": "Dimitris",
+                "middle": [],
+                "last": "Zavras",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University of West Attica",
+                    "location": {
+                        "settlement": "Athens",
+                        "country": "Greece"
+                    }
+                },
+                "email": "dzavras@uniwa.gr"
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "The Coronavirus Disease 2019 (COVID-19) pandemic induced economic shock in Greece, which translated into a decrease in household income. Thus, the objective of this study is to measure social inequality with regard to income loss due to the COVID-19 pandemic in Greece. In addition, we aim to identify the characteristics of those experiencing income loss due to the pandemic. The study uses data from the \"Public Opinion in the European Union (EU) in Time of Coronavirus Crisis. Third Round\" survey. The sample consists of 1036 individuals aged between 16 and 54 years. To measure inequality, the Erreygers' Concentration Index (CI) is calculated, using social class as the ranking variable. To identify the characteristics of those experiencing income loss, a logistic regression model is fitted using the region of residence and several demographic and socioeconomic variables as potential predictors. According to the results, social inequality does not exist with regard to income loss due to the COVID-19 pandemic. Thus, our findings indicate the negative influence of the pandemic on the incomes of individuals from all social classes in Greece. According to the results of the logistic regression model, the odds of experiencing income loss are higher for residents of the Aegean Islands and Crete but also for self-employed, part-time employed, and unemployed individuals. These findings indicate the negative influence of the pandemic on Greek tourism and on sectors employing a large proportion of non-standard workers. Although inequality does not exist, a substantial proportion of those losing income due to the pandemic is in line with the global picture.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "In December 2019, an outbreak of pneumonia of unknown cause in Wuhan, Hubei province, China, raised attention not only within China but also internationally. By January 7, 2020, a novel coronavirus (CoV) had been isolated from patients in Wuhan [1] . On January 30, 2020, the World Health Organization (WHO) declared the Chinese outbreak of Coronavirus Disease 2019 to be a public health emergency of international concern. Due to the rapid spread of COVID-19 from its origin to the rest of the world, on March 11, 2020 , the WHO declared the COVID-19 outbreak to be a global pandemic. As of April 20, 2021, 141,754 ,944 confirmed cases and 3,025,835 deaths had been reported globally [2] .",
+            "cite_spans": [
+                {
+                    "start": 245,
+                    "end": 248,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 505,
+                    "end": 519,
+                    "text": "March 11, 2020",
+                    "ref_id": null
+                },
+                {
+                    "start": 592,
+                    "end": 615,
+                    "text": "April 20, 2021, 141,754",
+                    "ref_id": null
+                },
+                {
+                    "start": 685,
+                    "end": 688,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The COVID-19 pandemic has not only caused a medical crisis, but also resulted in an economic crisis [3] , combining the characteristics of both supply shock and demand shock [4] . According to Kose and Sugawara, the global economy is facing a deep recession, the first of fourteen global recessions since 1870 to be triggered solely by a pandemic [5] . As generally is the case with economic crises, in which the security and stability of individuals' personal finances deteriorate [6] , the COVID-19 pandemic is having tremendous socioeconomic impacts that include loss of household income through job loss or death of earning members, either temporary or permanent closure of small businesses, and a loss of businesses productivity [7] . Due to these negative effects, a large portion of society, mostly the more socioeconomically vulnerable, struggle to cope financially, physically, and mentally with the crisis [8] . Thus, socioeconomic vulnerability is of special importance due to its link with the risks of economic deprivation, as well as health risks [9] . Since the extent of a household's exposure to job and income losses during a recession is contingent on social class [10] , the epidemic-induced economic shock affects individuals in different ways [11] . Specifically, lower socioeconomic groups are more likely to be more severely affected by the socioeconomic consequences of the COVID-19 pandemic [12] .",
+            "cite_spans": [
+                {
+                    "start": 100,
+                    "end": 103,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 174,
+                    "end": 177,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 347,
+                    "end": 350,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 482,
+                    "end": 485,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 734,
+                    "end": 737,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 916,
+                    "end": 919,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 1061,
+                    "end": 1064,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 1184,
+                    "end": 1188,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 1265,
+                    "end": 1269,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 1417,
+                    "end": 1421,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "In Greece, the first COVID-19 case was diagnosed on February 26, 2020, and the first death was reported on March 12, 2020. As of April 20, 2021, 316,879 confirmed cases and 9,540 deaths had been reported in Greece [2] .",
+            "cite_spans": [
+                {
+                    "start": 214,
+                    "end": 217,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Some of the business and workplace suspensions implemented in Greece between March 10, 2020 and March 22, 2020, include a) the closure of schools and universities; b) a two-week closure of theatres, courthouses, cinemas, gyms, playgrounds, and clubs; c) the nationwide closure of shopping centers, cafes, restaurants, bars, museums, archaeological sites, and food outlets, excluding supermarkets and food outlets offering take-away and delivery only; d) the closure of all organized beaches and ski resorts; e) the closure of all hotels from March 22, 2020 midnight until the end of April; and f) the closure of all parks, recreation areas, and marinas. Further restrictions entered into force in April with regard to travel by land, sea, and air. Business restrictions were gradually relaxed by the end of May, but seasonal hotels only resumed operations on June 15. Until June 15, Athens' airport was the only one at which international flights were allowed; from June 15, international flights to Thessaloniki's airport resumed. On July 1, the ban on international flights from all countries except the United Kingdom and Sweden was lifted for all airports [13] . Entry to the country was allowed for travelers from the Schengen and associated countries, and from fifteen other countries. However, the USA, Russia and Turkey were not included among these countries, regardless of their significant contributions to Greece's gains from international tourism in previous years [14] . Further restrictions entered into force during the summer, including, among others, the closure of restaurants, bars, and clubs at midnight.",
+            "cite_spans": [
+                {
+                    "start": 1160,
+                    "end": 1164,
+                    "text": "[13]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 1478,
+                    "end": 1482,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "As a consequence of the measures implemented to reduce the spread of the coronavirus in Greece and most other countries, employment and disposable income were adversely affected [15] . However, data from the \"Public Opinion in the European Union (EU) in Time of Coronavirus Crisis. Third Round\" survey [16] indicate that not all counties were similarly affected by the pandemic. Indeed, regarding income loss due to the pandemic, Greece is ranked in the fourth highest place (38.32%) among the 27 EU member states; Luxemburg is ranked lowest (10.75%) and Hungary is the highest (41.65%). It is worth noting that approximately one-quarter (24.63%) of European citizens have experienced income loss due to the pandemic. It is to be expected that this percentage in Greece is higher than the average for Europe as a whole.",
+            "cite_spans": [
+                {
+                    "start": 178,
+                    "end": 182,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 302,
+                    "end": 306,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Nevertheless, the negative effects of the restrictions and flexible employment structures in Greece on income [17] do not automatically translate to socioeconomic inequality. That is, the vulnerability of lower socioeconomic status individuals regarding income loss as compared with higher socioeconomic status individuals should not be taken as a given [18] . As such, the objective of this study was to measure social inequality in terms of income loss due to the COVID-19 pandemic in Greece, but also to identify the characteristics of those experiencing this income loss.",
+            "cite_spans": [
+                {
+                    "start": 110,
+                    "end": 114,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 354,
+                    "end": 358,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "For the purpose of this study, data from the \"Public Opinion in the European Union (EU) in Time of Coronavirus Crisis. Third Round\" [16] survey was used. A survey was conducted using Kantar's online access panel between September 25 and October 7, 2020 among 24,812 respondents in 27 EU Member States. The survey was limited to respondents aged between 16 and 64 years. In some countries, including Greece, the sample was limited to respondents aged between 16 and 54 years. Representativeness at the national level was ensured by quotas on gender, age, and region. The sample size was n = 1036 in Greece. Data collection took place between September 24 and September 27, 2020.",
+            "cite_spans": [
+                {
+                    "start": 132,
+                    "end": 136,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Material and methods"
+        },
+        {
+            "text": "The respondents were asked the question, \"Have you experienced any of the following, since the start of the coronavirus pandemic in your country?\" \"Loss of income\" was among the financial issues under study. The potential answers were a) no (0) and b) yes (1). In addition, the respondents were asked the question, \"Thinking about your personal income, which one of these statements comes closest to your current situation?\" The potential answers were a) Coronavirus has already impacted on my personal impact; b) Coronavirus has not yet impacted on my personal income, but I expect it to in the future; and c) Coronavirus will have no impact on my personal income. The dichotomous variable \"income loss due to the COVID-19 pandemic\" was then derived from the combination of the abovementioned variables: a) no income loss (0) and b) income loss due to the COVID-19 pandemic (1).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Material and methods"
+        },
+        {
+            "text": "To measure socioeconomic inequality as regards income loss due to the pandemic, a concentration index (CI), namely, Erreygers' CI, was calculated. CIs are used to measure inequality in one variable over the distribution of another [19] . The CI is defined with reference to the concentration curve, as twice the area between the curve and the 45\u00b0 line of equality. The concentration curve plots the cumulative percentage of the variable under study (y-axis) against the cumulative percentage of the population, ranked by the socioeconomic variable, beginning with the least well-off, and ending with the most well-off (x-axis) [20] . The CI is given by:",
+            "cite_spans": [
+                {
+                    "start": 231,
+                    "end": 235,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 627,
+                    "end": 631,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Material and methods"
+        },
+        {
+            "text": "where is the number of individuals, the variable under study, the mean of the variable under study, and the fractional rank. The minimum and maximum values of are \u22121 and 1, respectively [21] .",
+            "cite_spans": [
+                {
+                    "start": 186,
+                    "end": 190,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Material and methods"
+        },
+        {
+            "text": "In the case of bounded variables, such as the variable \"income loss due to the COVID-19 pandemic\", the bounds of the CI depend upon the mean of the variable. In addition, the CI is not scaleinvariant and does not satisfy the mirror property, on the basis of which the inequality indices of and (1 \u2212 ) have equal absolute values but opposite signs. In these cases, the use of Erreygers' CI is recommended. Errreygers CI is given by:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Material and methods"
+        },
+        {
+            "text": "and as the bounds of the variable under study. Erreygers' CI lies in the interval [\u22121, 1]. Negative values indicate that the variable under study is concentrated among the least well-off respondents, whereas positive values indicate that the variable is concentrated among the most well-off [22, 23] .",
+            "cite_spans": [
+                {
+                    "start": 291,
+                    "end": 295,
+                    "text": "[22,",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 296,
+                    "end": 299,
+                    "text": "23]",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Material and methods"
+        },
+        {
+            "text": "Social class was used as a ranking variable, as follows: a) low (1) semi-skilled or unskilled manual workers, students, retired and living on state pension only, unemployed (for over six months), or those not working due to long-term sickness; b) middle (2) skilled manual workers, supervisory or clerical/junior managerial/professional/administrator; and c) high (3) intermediate managerial/professional/administrative, higher managerial/professional/administrative. This variable was based on the occupation of the main earner of the household.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Material and methods"
+        },
+        {
+            "text": "Because the response was binary, to identify the characteristics of those experiencing income loss due to the COVID-19 pandemic, a logistic regression model was fitted. As potential predictors in the analysis, the following variables were considered: a) region: Helmert coding was applied to the ordinal variables: a) social class; and b) household size. The Helmert contrast compares each category of an ordinal variable (except the last) with the differences from the balanced mean of the subsequent levels. Indicator coding was applied to the nominal variables: a) region; b) marital status; and c) current employment status. Indicator contrast was used to compare the reference category of a nominal variable with the remaining categories. The binary variable \"gender\", was treated as such.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Material and methods"
+        },
+        {
+            "text": "The model's goodness of fit was tested through the Hosmer and Lemeshow test. The calibration of the model was tested through the calibration belt test. In addition, the model was tested for specification error through the link test.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Material and methods"
+        },
+        {
+            "text": "The STATA 14 statistical software package was used for the analysis. Specifically, the commands conindex [19] desmat [24] , logistic, linktest, and calibrationbelt [25] , and were used.",
+            "cite_spans": [
+                {
+                    "start": 105,
+                    "end": 109,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 117,
+                    "end": 121,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 164,
+                    "end": 168,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Material and methods"
+        },
+        {
+            "text": "As mentioned in the material and methods section, data collection took place online between September 24 and September 27, 2020.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "Regarding gender, 50.68% of the respondents were female and 49.32% were male. The mean age of the respondents was 37.34 years (\u00b110.28), while 16.22% of the respondents were aged between 16 and 24 years, 22.39% were between 25 and 34 years, 30.21% were between 35 and 44 years, and 31.18% were between 45 and 54 years. The characteristics of the respondents are presented in Table 1 . (17) 1.16 (12) According to the descriptive analysis, 38.32% of the respondents experienced income loss due to the COVID-19 pandemic.",
+            "cite_spans": [
+                {
+                    "start": 394,
+                    "end": 398,
+                    "text": "(12)",
+                    "ref_id": "BIBREF11"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 374,
+                    "end": 381,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "Erreygers' CI for experiencing income loss due to the COVID-19 pandemic was found to be equal to \u22120.039 (p = 0.251). According to this finding, the Erreygers' CI value was not significantly different from zero, indicating a lack of social inequality.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "According to the logistic regression model, the odds of experiencing income loss due to the COVID-19 pandemic are higher for residents of Aegean Islands and Crete and for part-time employed, self-employed, and unemployed individuals who are seeking work (Table 2) . According to the link test (Table 3) , the model does not suffer from specification error. The Hosmer and Lemeshow test indicated a good fit (p = 0.869). In addition, the calibration belt test indicated good calibration (p = 0.817).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 254,
+                    "end": 263,
+                    "text": "(Table 2)",
+                    "ref_id": "TABREF2"
+                },
+                {
+                    "start": 293,
+                    "end": 302,
+                    "text": "(Table 3)",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "The world economy and financial markets have been severely impacted by the COVID-19 pandemic [26] . The pandemic and the mitigation policies implemented have had immediate labor market consequences, such as an exponential increase in unemployment [27] . Thus, the epidemicinduced economic shock has been translated into an immediate fall in household incomes [28] .",
+            "cite_spans": [
+                {
+                    "start": 93,
+                    "end": 97,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 247,
+                    "end": 251,
+                    "text": "[27]",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 359,
+                    "end": 363,
+                    "text": "[28]",
+                    "ref_id": "BIBREF27"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "In general, the economic consequences of the pandemic have disproportionally impacted individuals or households of different socioeconomic statuses [29] . Specifically, the economic impact of the pandemic has been higher for those in the lowest socioeconomic strata [30] ; that is, financial pressure has been higher for vulnerable socioeconomic groups [31] . In other terms, the COVID-19 pandemic through a) its unequal health burden and b) its disparity of economic losses has set marginalized groups of the society up to be more vulnerable [32] . However, evidence from Brazil indicates that all social classes have suffered from income reduction due to the lockdown [33] . In addition, evidence from the USA indicates that approximately one-third of households have experienced an income reduction, regardless of whether their household income before the COVID-19 crisis was less than $25,000 per year, $25,000 to $124,999 per year, or $125,000 and more per year [34] . That is, the COVID-19 pandemic has induced economic chaos which has affected all social classes [35] .",
+            "cite_spans": [
+                {
+                    "start": 148,
+                    "end": 152,
+                    "text": "[29]",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 266,
+                    "end": 270,
+                    "text": "[30]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 353,
+                    "end": 357,
+                    "text": "[31]",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 543,
+                    "end": 547,
+                    "text": "[32]",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 670,
+                    "end": 674,
+                    "text": "[33]",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 967,
+                    "end": 971,
+                    "text": "[34]",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 1070,
+                    "end": 1074,
+                    "text": "[35]",
+                    "ref_id": "BIBREF34"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "Thus, although the results of our study regarding the non-existence of inequality are consistent with a limited strand of literature, they confirm concerns that the COVID-19 pandemic is expected to have severe negative effects on almost all sectors of economic activity in Greece [36] . Fears of income loss were confirmed as a result of the implemented restrictions and the demand shock that affected most sectors of the economy, causing a major economic slowdown that significantly impacted businesses and workers [37] . In this sense, the well-documented association between the economic sector in which one works and the risk of income loss [38] justifies our results.",
+            "cite_spans": [
+                {
+                    "start": 280,
+                    "end": 284,
+                    "text": "[36]",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 516,
+                    "end": 520,
+                    "text": "[37]",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 645,
+                    "end": 649,
+                    "text": "[38]",
+                    "ref_id": "BIBREF37"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "According to the logistic regression model, the odds of experiencing income loss are higher for residents of Aegean Islands and Crete as compared with residents of Attica. The most probable reason for this is the supply and demand disruptions due to the high degree of dependence of these regions on tourism. Indeed, Greek tourism has been severely hit by the COVID-19 pandemic [39] .",
+            "cite_spans": [
+                {
+                    "start": 378,
+                    "end": 382,
+                    "text": "[39]",
+                    "ref_id": "BIBREF38"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "The findings with regard to current employment status reflect the fact that the economic sectors most directly affected by the COVID-19 containment measures in Greece a) employ a large proportion of nonstandard workers (i.e., part-time workers, self-employed workers, and workers hired on fixed-term contracts) and b) these sectors account for more than 50% of total employment [40] . These findings confirm data from the literature showing that the most workers who are most vulnerable to income loss are the selfemployed and individual entrepreneurs, the workers of the industries most affected by the coronavirus, and the workers whose employment status was precarious before the pandemic [41] .",
+            "cite_spans": [
+                {
+                    "start": 378,
+                    "end": 382,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                },
+                {
+                    "start": 692,
+                    "end": 696,
+                    "text": "[41]",
+                    "ref_id": "BIBREF40"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "It is evident that hundreds of millions of individuals globally have been exposed to severe financial uncertainty by the COVID-19 pandemic [42] through job and income losses [43] that have increased both job insecurity [44] and financial insecurity [45] .",
+            "cite_spans": [
+                {
+                    "start": 139,
+                    "end": 143,
+                    "text": "[42]",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 174,
+                    "end": 178,
+                    "text": "[43]",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 219,
+                    "end": 223,
+                    "text": "[44]",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 249,
+                    "end": 253,
+                    "text": "[45]",
+                    "ref_id": "BIBREF44"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "The importance of studying the influence of the pandemic on incomes relates to the well-documented relationship between income, health and well-being; in the case of the COVID-19 pandemic, its two interlinked aspects, i.e., the health crisis and the economic crisis, put people at the double risk of health deterioration and loss of income [36] . The reasons for why individual income matters for health includes its link with material deprivation as well as its link with restrictions on social participation and opportunity to exercise control over one's life [46] . In other terms, \"economic and social circumstances affect health through the physiological effects of their emotional and social meanings and the direct effects of material circumstances\" [47] . That is, income provides the means to acquire necessities for life, gain access to health-enhancing resources, avoid harmful exposures, and participate in normal social activities, while a low income is linked with psychosocial stress [48] . Thus, losing income is not only linked with the inability to cope with daily survival costs [49] , but it is also linked with exposure to health and safety risks, such as homelessness or food insecurity [50] . Therefore, because individuals and households are facing most of the challenges mentioned above due to the COVID-19 pandemic [51] , income support measures have been implemented in many countries including Greece.",
+            "cite_spans": [
+                {
+                    "start": 340,
+                    "end": 344,
+                    "text": "[36]",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 562,
+                    "end": 566,
+                    "text": "[46]",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 757,
+                    "end": 761,
+                    "text": "[47]",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 999,
+                    "end": 1003,
+                    "text": "[48]",
+                    "ref_id": "BIBREF48"
+                },
+                {
+                    "start": 1098,
+                    "end": 1102,
+                    "text": "[49]",
+                    "ref_id": "BIBREF49"
+                },
+                {
+                    "start": 1209,
+                    "end": 1213,
+                    "text": "[50]",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 1341,
+                    "end": 1345,
+                    "text": "[51]",
+                    "ref_id": "BIBREF51"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "Research findings focusing on the economic crisis of 2008 in Greece provide evidence of its negative effect on factors including living and welfare standards [52] , financial access to healthcare [53] , and health [54] , through the considerable income cuts that have occurred. Considering that the economic impact of the COVID-19 pandemic will be more severe than that of the 2008 crisis [39] , we may argue that income loss in Greece during the current pandemic constitutes a threat for the health and well-being of the Greek people.",
+            "cite_spans": [
+                {
+                    "start": 158,
+                    "end": 162,
+                    "text": "[52]",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 196,
+                    "end": 200,
+                    "text": "[53]",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 214,
+                    "end": 218,
+                    "text": "[54]",
+                    "ref_id": "BIBREF54"
+                },
+                {
+                    "start": 389,
+                    "end": 393,
+                    "text": "[39]",
+                    "ref_id": "BIBREF38"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "Greece has experienced a massive and prolonged economic recession, and the COVID-19 pandemic is slowing down its recovery efforts. Although the country's economy faces a high level of uncertainty, the Greek government has implemented a broad range of measures to support households, businesses, and the economy overall in this difficult time [55] . Income support measures (i.e., state income benefits to support freelancers, self-employed people, and sole proprietors), financial support for suspended and dismissed employees, support for seasonal employees, and financial support for seasonal employees not re-hired in 2020 were applied nationwide [56] . Those employed in the tourism industry, which has been severely affected by the pandemic, were eligible to receive support in the amount of 534 \u20ac monthly if their employment contracts were suspended. To also receive the extraordinary monthly support (equal to the last unemployment allowance) from June to August 2020, seasonal tourism employees were required to: a) be employed either full-or part-time in 2019 and b) receive unemployment allowances for three months and five days from September 2019 to February 2020. To be eligible for unemployment allowances in 2020, seasonal workers in the tourism and restaurant industries were required to collect 50 social security stamps instead of 100, the previous requirement [57] . On 20 October 2020, the European Commission also approved a 450 million \u20ac Greek scheme to support tourism and transport companies, among others [58] . Furthermore, because firm size and geographic location were among the primary drivers of exposure to the COVID-19 shock [59] , on 28 September 2020, the European Commission approved 1.5 billion \u20ac for 12 impacted Greek regions to support micro and small enterprises as well as those based on islands. Crete and the Aegean Islands were included. Enterprises facing sudden liquidity shortages will receive direct grants for working capital; the amount will equal a percentage of the expenses that the beneficiaries incurred in 2019, up to 50% [58] .",
+            "cite_spans": [
+                {
+                    "start": 342,
+                    "end": 346,
+                    "text": "[55]",
+                    "ref_id": "BIBREF55"
+                },
+                {
+                    "start": 650,
+                    "end": 654,
+                    "text": "[56]",
+                    "ref_id": "BIBREF56"
+                },
+                {
+                    "start": 1379,
+                    "end": 1383,
+                    "text": "[57]",
+                    "ref_id": "BIBREF57"
+                },
+                {
+                    "start": 1530,
+                    "end": 1534,
+                    "text": "[58]",
+                    "ref_id": "BIBREF58"
+                },
+                {
+                    "start": 1657,
+                    "end": 1661,
+                    "text": "[59]",
+                    "ref_id": null
+                },
+                {
+                    "start": 2077,
+                    "end": 2081,
+                    "text": "[58]",
+                    "ref_id": "BIBREF58"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "However, to minimize job losses and business closures in the short and medium terms, the Greek government must take coordinated action through policy at the local, regional and national levels [60] . Nevertheless, since the economic impact of the COVID-19 pandemic differs across regions, as the results of this study confirm, tailored governance and policy responses are required [61] . Of course, such responses should take into consideration socioeconomic vulnerability, demographic vulnerability, vulnerability due to housing and hygiene conditions, vulnerability due to nonavailability of healthcare and epidemiological vulnerability [62] .",
+            "cite_spans": [
+                {
+                    "start": 193,
+                    "end": 197,
+                    "text": "[60]",
+                    "ref_id": "BIBREF60"
+                },
+                {
+                    "start": 381,
+                    "end": 385,
+                    "text": "[61]",
+                    "ref_id": null
+                },
+                {
+                    "start": 639,
+                    "end": 643,
+                    "text": "[62]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "A novel coronavirus outbreak of global health concern",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Horby",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Hayden",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Lancet",
+            "volume": "395",
+            "issn": "",
+            "pages": "470--473",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "WHO coronavirus disease (COVID-19) dashboard",
+            "authors": [],
+            "year": 2021,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "The economics of the COVID-19 pandemic: an assessment",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Susskind",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Vines",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Oxf Rev Econ Policy",
+            "volume": "36",
+            "issn": "",
+            "pages": "1--13",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Mitigating the COVID economic crisis act fast and do whatever it takes",
+            "authors": [
+                {
+                    "first": "J ;",
+                    "middle": [],
+                    "last": "Furman",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Baldwin",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Weder",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "191--196",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "World Bank (2020) Global economic prospects",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Psychometric evaluation of the Financial Threat Scale (FTS) in the context of the great recession",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Marjanovic",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Greenglass",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Fiksenbaum",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "J Econ Psychol",
+            "volume": "36",
+            "issn": "",
+            "pages": "1--10",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Potential impact of the COVID-19 pandemic on financial toxicity in cancer survivors",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Baddour",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Kudrick",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Neopaney",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Head Neck",
+            "volume": "42",
+            "issn": "",
+            "pages": "1332--1338",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "The Lancet (2020) Redefining vulnerability in the era of COVID-19",
+            "authors": [],
+            "year": null,
+            "venue": "Lancet",
+            "volume": "395",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "The path ahead: From global pandemic to health promotion",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Finch",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Tribble",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Prev Med Rep",
+            "volume": "21",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Sociodemographic inequality in exposure to COVID-19-Induced economic hardship in the United Kingdom",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Witteveen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Res Soc Stratification Mob",
+            "volume": "69",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "COVID-19 and inequalities",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Blundell",
+                    "suffix": ""
+                },
+                {
+                    "first": "Costa",
+                    "middle": [],
+                    "last": "Dias",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Joyce",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Fisc Stud",
+            "volume": "41",
+            "issn": "",
+            "pages": "291--319",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Social determinants of health and inequalities in COVID-19",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Burstr\u00f6m",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Tao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Eur J Public Health",
+            "volume": "30",
+            "issn": "",
+            "pages": "617--618",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Preventing transmission, In: Policy responses: Greece",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Economou",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Kaitelidou",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Konstantakopoulou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Foundation for Economic & Industrial Research (2020) The Greek economy",
+            "authors": [],
+            "year": null,
+            "venue": "Quarterly Bulletin",
+            "volume": "2",
+            "issn": "20",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Consumer price index fell during COVID-19 lockdown, In: Liargovas PG, Greek economic outlook, Centre of Planning and Economic Research",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Marsellou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "16--18",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Public opinion in the EU in time of coronavirus crisis. Third round",
+            "authors": [
+                {
+                    "first": "European",
+                    "middle": [],
+                    "last": "Parliament",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Is there a way out of the crisis? Macroeconomic challenges for Greece after the Covid-19 pandemic",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Hazakis",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Eur Polit Soc",
+            "volume": "",
+            "issn": "",
+            "pages": "1--15",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Household responses to adverse income shocks in Latin America",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Gaviria",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Revista Dessarolo y Sociedad",
+            "volume": "",
+            "issn": "",
+            "pages": "99--127",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Conindex: estimation of concentration indices",
+            "authors": [
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "O&apos;donnell",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Neill",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "Van",
+                    "middle": [],
+                    "last": "Ourti",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Stata J",
+            "volume": "16",
+            "issn": "",
+            "pages": "112--138",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Analyzing health equity using household survey data: A guide to techniques and their implementation",
+            "authors": [
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "O&apos;donnell",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Van Doorslaer",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Wagstaff",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Socioeconomic inqualities in health: Measurement, computation, and statistical inference",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Kakwani",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Wagstaff",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Van Doorslaer",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "J Econom",
+            "volume": "77",
+            "issn": "",
+            "pages": "87--103",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Correcting the concentration index",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Erreygers",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "J Health Econ",
+            "volume": "28",
+            "issn": "",
+            "pages": "504--515",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Measuring inequality and inequity in health and health care",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Van Doorslaer",
+                    "suffix": ""
+                },
+                {
+                    "first": "Van",
+                    "middle": [],
+                    "last": "Ourti T ; Glied",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Smith",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "837--869",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Stata technical Bulletin-52, using categorical variables in Stata. College Station, TX: Stata LP",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Hendrickx",
+                    "suffix": ""
+                }
+            ],
+            "year": 1999,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "2--8",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Assessing the calibration of dichotomous outcome models with the calibration belt",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Nattino",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Lemeshow",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Phillips",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Stata J",
+            "volume": "17",
+            "issn": "",
+            "pages": "1003--1014",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Americans' COVID-19 Stress, Coping, and Adherence to CDC Guidelines",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Park",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Russell",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Fendrich",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Gen Intern Med",
+            "volume": "35",
+            "issn": "",
+            "pages": "2296--2303",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Understanding the effects of Covid-19 through a life course lens",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Settersten",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Bernardi",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "H\u00e4 Rk\u00f6nen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Adv Life Course Res",
+            "volume": "45",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Coupled human-environment system amid COVID-19 crisis: A conceptual model to understand the nexus",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Sarkar",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Debnath",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Reang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Sci Total Environ",
+            "volume": "753",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "COVID-19 implications on household income and food security in Kenya and Uganda: findings from a rapid assessment",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Kansiime",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Tambo",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Mugambi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "World Dev",
+            "volume": "137",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "COVID-19: implications for people with Chagas disease",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Zaidel",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Forsyth",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Novick",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Glob Heart",
+            "volume": "15",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Child safety, protection, and safeguarding in the time of COVID-19 in Great Britain: proposing a conceptual framework",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Levine",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Morton",
+                    "suffix": ""
+                },
+                {
+                    "first": "O&apos;",
+                    "middle": [],
+                    "last": "Reilly",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Child Abuse Negl",
+            "volume": "110",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "COVID-19 and inequality: are we all in this together?",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ali",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Asaria",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Stranges",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Can J Public Health",
+            "volume": "111",
+            "issn": "",
+            "pages": "415--416",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "COVID-19 Sends the Bill: Socially disadvantaged workers suffer the severest losses in earnings. Latin American and the Caribbean economic association working papers Seres",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Leone",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "How are Americans paying their bills during the COVID-19 pandemic? Rand Corporation",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Carman",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Nataraj",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Reflections on the COVID-19 pandemic",
+            "authors": [
+                {
+                    "first": "Fjb",
+                    "middle": [],
+                    "last": "Sampaio",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Int Braz J Urol",
+            "volume": "46",
+            "issn": "",
+            "pages": "499--500",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "The Evolution of the Greek Economy: Past Challenges and Future Approaches. 1 Eds",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Petrakis",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Kostis",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "156--157",
+            "other_ids": {}
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Reacting quickly and protecting jobs. The short-term impacts of the COVID-19 lockdown on the Greek labor market",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Betcherman",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Giannakopoulos",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Laliotis",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Economic globalization, personal risks and the demand for a comprehensive welfare state",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Finseraas",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Ringdal",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Ervasti",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Andersen",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Fridberg",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "68--87",
+            "other_ids": {}
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "The impact of the Covid-19 pandemic on Greek tourism",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Papanikos",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Athens J Tourism",
+            "volume": "7",
+            "issn": "",
+            "pages": "87--100",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Distributional risks associated with non-standard work: Stylised facts and policy considerations",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "The economic consequences of the coronavirus pandemic: which groups will suffer more in terms of loss of employment and income",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Kartseva",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Kuznetsova",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Popul Econ",
+            "volume": "4",
+            "issn": "",
+            "pages": "26--33",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Behavioral health and response for COVID-19",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Hansel",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Saltzman",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Bordnick",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Disaster Med Public Health Prep",
+            "volume": "14",
+            "issn": "",
+            "pages": "670--676",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Early estimates of the impact of COVID-19 disruptions on jobs, wages, and lifetime earnings of schoolchildren in Australia",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Foster",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Aust J Lab Econ",
+            "volume": "23",
+            "issn": "",
+            "pages": "129--151",
+            "other_ids": {}
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "COVID-19: compounding the health-related harms of human trafficking",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Armitage",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Nellums",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Clin Med",
+            "volume": "24",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Lessons Learned from the Continuous Glucose Monitoring Metrics in Pediatric Patients with Type 1 Diabetes under COVID-19",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Brener",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Mazor-Aronovitch",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Rachmiel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "The influence of income on health: views of an epidemiologist",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Marmot",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Health Aff",
+            "volume": "21",
+            "issn": "",
+            "pages": "31--46",
+            "other_ids": {}
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Psychosocial and material pathways in the relation between income and health: A response to Lynch et al",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Marmot",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Wilkinson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "BMJ",
+            "volume": "322",
+            "issn": "",
+            "pages": "1233--1236",
+            "other_ids": {}
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "Mitigating the wider health effects of Covid-19 pandemic response",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Douglas",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Katikireddi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Taulbut",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "BMJ",
+            "volume": "369",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "Risk factors for anxiety and depression among pregnant women during the COVID-19 pandemic: A web-based cross-sectional survey",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kajdy",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Feduniw",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Ajdacka",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Medicine",
+            "volume": "99",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "Neighbourhood income and physical distancing during the COVID-19 pandemic in the United States",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Jay",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bor",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Nsoesie",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat Hum Behav",
+            "volume": "4",
+            "issn": "",
+            "pages": "1294--302",
+            "other_ids": {}
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "A framework for identifying and mitigating the equity harms of COVID-19 policy interventions",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Glover",
+                    "suffix": ""
+                },
+                {
+                    "first": "Mci",
+                    "middle": [],
+                    "last": "Van Schalkwyk",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Akl",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Clin Epidemiol",
+            "volume": "128",
+            "issn": "",
+            "pages": "35--48",
+            "other_ids": {}
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "The Greek depression: poverty outcomes and welfare responses",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Papanastasiou",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Papatheodorou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "East West J Econ Bus",
+            "volume": "XXI",
+            "issn": "",
+            "pages": "205--222",
+            "other_ids": {}
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "Studying healthcare affordability during an economic recession: the case of Greece",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Zavras",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Int J Environ Res Public Health",
+            "volume": "17",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "The effects of the economic crisis on health status and health inequalities in Greece",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Chantzaras",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Yfantopoulos",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Value Health",
+            "volume": "20",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "Greece COVID-19",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Adrikopoulou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Eur State Aid Law Q",
+            "volume": "19",
+            "issn": "",
+            "pages": "89--92",
+            "other_ids": {}
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "European Foundation for the Improvement of Living and Working Conditions (2020) COVID-19 EU policywatch. Database of national-level responses",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF57": {
+            "ref_id": "b57",
+            "title": "European Systemic Risk Board (2021) Greece. Measures taken in response to coronavirus (COVID-19) pandemic",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF58": {
+            "ref_id": "b58",
+            "title": "European Commission (2021) Greece. Details of Greece's support measures to help citizens and companies during the significant economic impact of the coronavirus pandemic",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF60": {
+            "ref_id": "b60",
+            "title": "Regional policy for Greece post-2020",
+            "authors": [],
+            "year": 2020,
+            "venue": "OECD Territorial Reviews",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "TABREF0": {
+            "text": "1. Attica; 2. Macedonia and Thrace; 3. Epirus and Western Macedonia; 4. Thessaly and Central Greece; 5. Peloponnese, Western Greece and Ionian Islands; and 6. Aegean Islands and Crete. retired/unable to work/disabled; 5. still at school; 6. in full time higher education; 7. unemployed and seeking work; and 8. not working and not seeking work.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "Characteristics of the respondents. Dates of interviews: 9/24-9/27, 2020.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Logistic regression model. Dates of interviews: 9/24-9/27, 2020; Gender: Male-Female; Age:16-54.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "Link test. Dates of interviews: 9/24-9/27, 2020; Gender: Male-Female; Age:16-54.",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "The author declares no conflicts of interest. 61. Organisation for Economic Co-operation and Development (2020) The territorial impact of COVID-19: Managing the crisis across levels of government. Available from: http://www.oecd.org/coronavirus/policy-responses/the-territorial-impact-of-covid-19-managingthe-crisis-across-levels-of-government-d3e314e1/. 62. Acharya R, Porwal A (2020) A vulnerability index for the management of and response to the COVID-19 epidemic in India: An ecological study. Lancet Glob Health 8: e1142-e1151.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conflict of interest"
+        }
+    ]
+}

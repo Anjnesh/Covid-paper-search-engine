@@ -1,0 +1,4580 @@
+{
+    "paper_id": "00f9194404c8f07b6d4c2f4178b84174626a2104",
+    "metadata": {
+        "title": "Quantitative In-Vitro Diagnostic NMR Spectroscopy for Lipoprotein and Metabolite Measurements in Plasma and Serum: Recommendations for Analytical Artifact Minimization with Special Reference to COVID-19/SARS-CoV-2 Samples",
+        "authors": [
+            {
+                "first": "Ruey",
+                "middle": [],
+                "last": "Leng",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Samantha",
+                "middle": [],
+                "last": "Lodge",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Torben",
+                "middle": [],
+                "last": "Kimhofer",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Sze-How",
+                "middle": [],
+                "last": "Bong",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Sofina",
+                "middle": [],
+                "last": "Begum",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Luke",
+                "middle": [],
+                "last": "Whiley",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Nicola",
+                "middle": [],
+                "last": "Gray",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "John",
+                "middle": [
+                    "C"
+                ],
+                "last": "Lindon",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Philipp",
+                "middle": [],
+                "last": "Nitschke",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Nathan",
+                "middle": [
+                    "G"
+                ],
+                "last": "Lawler",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Hartmut",
+                "middle": [],
+                "last": "Schafer",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Manfred",
+                "middle": [],
+                "last": "Spraul",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Toby",
+                "middle": [],
+                "last": "Richards",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Jeremy",
+                "middle": [
+                    "K"
+                ],
+                "last": "Nicholson",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Elaine",
+                "middle": [],
+                "last": "Holmes",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Quantitative nuclear magnetic resonance (NMR) spectroscopy of blood plasma is widely used to investigate perturbed metabolic processes in human diseases. The reliability of biochemical data derived from these measurements is dependent on the quality of the sample collection and exact preparation and analysis protocols. Here, we describe systematically, the impact of variations in sample collection and preparation on information recovery from quantitative proton ( 1 H) NMR spectroscopy of human blood plasma and serum. The effects of variation of blood collection tube sizes and preservatives, successive freeze\u2212thaw cycles, sample storage at \u221280\u00b0C, and short-term storage at 4 and 20\u00b0C on the quantitative lipoprotein and metabolite patterns were investigated. Storage of plasma samples at 4\u00b0C for up to 48 h, freezing at \u221280\u00b0C and blood sample collection tube choice have few and minor effects on quantitative lipoprotein profiles, and even storage at 4\u00b0C for up to 168 h caused little information loss. In contrast, the impact of heat-treatment (56\u00b0C for 30 min), which has been used for inactivation of SARS-CoV-2 and other viruses, that may be required prior to analytical measurements in low level biosecurity facilities induced marked changes in both lipoprotein and low molecular weight metabolite profiles. It was conclusively demonstrated that this heat inactivation procedure degrades lipoproteins and changes metabolic information in complex ways. Plasma from control individuals and SARS-CoV-2 infected patients are differentially altered resulting in the creation of artifactual pseudo-biomarkers and destruction of real biomarkers to the extent that data from heat-treated samples are largely uninterpretable. We also present several simple blood sample handling recommendations for optimal NMR-based biomarker discovery investigations in SARS CoV-2 studies and general clinical biomarker research. for the coordination, sampling and biobanking of patient samples, and clinical metadata.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Advances in clinical diagnosis, prognosis and possible treatment selection are increasingly driven by the use of molecular phenotyping and bioinformatic tools to aid classification of diseases subtypes and to define underlying individual variations in patient biology. Nuclear magnetic resonance (NMR)-based metabolic profiling of biofluids and tissues and linked data modeling offer possibilities for deep patient phenotyping by generation of detailed chemical fingerprints that can be related to clinical end points and response to therapeutic interventions. 1\u22123 1 H NMR-spectroscopy of biofluids including blood plasma and serum have been widely used to investigate systemic biochemistry in health and disease for decades. 1,4\u22126 Plasma NMR studies, in particular, have proved useful in diabetes, 5, 7 obesity, 8, 9 rheumatoid arthritis, 10 cancers 11 infectious diseases 12 rare diseases, 13, 14 and neurological conditions. 15, 16 Despite previous attempts at method and data harmonization, metabolic phenotyping still does not have uniformly applied standards as the analytical platforms and methods used are often locally optimized for each laboratory or research group. Although frameworks for standardizing measurement reporting have been proposed, 17,18 they do not result in directly statistically comparable data across the community, except perhaps for quantitative NMR spectroscopy. 19 Standardisation of basic sample handling is imperative at the start of the analytical pipeline if data from different laboratories are to be meaningfully compared. There are three mainstream high information content metabolic profiling platforms (gas chromatography (GC)-or liquid chromatography (LC) coupled to mass spectrometry (MS), and NMR spectroscopy) and there are many ways to collect, store, prepare and analyze biological samples for such analytical procedures. The impact of method choice on biological interpretation of spectral data sets is further complicated by the selection of statistical analysis methods from a multitude of preprocessing algorithms and statistical pipelines. 20 \u221222 In clinical environments, healthcare workers must, of necessity, prioritise patient safety over research sample collection and availability and handling of research samples are subject to the local clinical capabilities. Moreover, countryspecific regulations can introduce deviations in sample collection and handling procedures. Biosafety sample handling protocols are often required when working with human biofluids in order to contain potentially infectious pathogens that may be present in the sample such as when performing research on the SARS-CoV-2 viral infections. A common practice for viral inactivation in biofluids designated for bioanalysis is to heat samples to 56\u00b0C for 30 min. 23\u221225 Diagnostic metabolic phenotyping signatures of acute and chronic diseases typically incorporate both the lipoprotein and small molecule components observed in the standard one-dimensional (1D) 1 H NMR spectrum. However, utilization of multiple pulse sequences and mathematical fitting methods have evolved to exploit molecular properties to improve the capture of latent biochemical information. More recently, NMR-based lipoproteomics has been used to characterize the unique metabolic signatures of SARS-CoV-2 infection. 26 The NMR based in vitro diagnostic research (IVDr) system was developed to quantify 112 lipoproteins and lipoprotein subfractions and ratios based on regression analysis of the broad terminal CH 3 group peaks centered around \u03b4 = 0.86, the long chain aliphatic (CH 2 ) n signals of the fatty acyl groups centered around \u03b4 = 1.27 and the underlying cholesterol signals. 27 The method follows on from original research by Bell et al., 28 and subsequently Otvos et al. 29 and Ala-Korpela et al. 30 who developed peak shape fitting algorithms to deconvolve contributions from high-density lipoprotein (HDL), low-density lipoprotein (LDL) and very low-density lipoprotein (VLDL) including their subfractions. The lipoproteomic approach utilized and illustrated here involves the analysis of the same NMR signals but relies on a multiple regression model (validated against conventional ultracentrifugation measurements) to create a highly reproducible quantitation tool for lipoproteins. 10 The ability to infer biological significance from metabolic studies is reliant on understanding the limitations of sample collection and handling as well as the biochemical consequences of normal physiological variation from sex, age, ethnicity and lifestyle differences within the population groups. 31,32 This further emphasizes the importance of rigorous study design, sample collection and storage protocols with a set of documented acceptance criteria to ensure sample quality prior to measurement and minimize analytical variation. In a recent study, the comparative multilaboratory performance of 11 separate 600 MHz NMR platforms was evaluated in a ring-trial, which showed high reproducibility and low relative standard deviations well within the acceptance criteria defined by the National Cholesterol Education Program (NCEP) criteria for lipid testing. 33 Storage time, 34 storage temperature, 34 centrifugation, freeze\u2212thaw cycles, 35 serum clotting time, 36 type of collection tube, 36 lyophilization, 37 and sample preservatives 34 have all been shown to impact on the serum or plasma metabolome 38 (Table S1 ). To date, few studies have extensively investigated the impact of sample storage and handling on the quantified lipoprotein panel. However, Wang et al. 35 recently conducted a comprehensive investigation of the variation in lipoprotein fragments after multiple freeze\u2212thaw cycles and found the profile to be generally stable, with the exception of free cholesterol components of the VLDL subclass 1 (V1FC), and free and total cholesterol fraction in intermediate density lipoprotein (IDL), IDFC and IDCH, respectively with minor but significant changes in 32 lipoprotein parameters between the first to fifth freeze\u2212thaw (FT) cycle together with an increase in acetate.",
+            "cite_spans": [
+                {
+                    "start": 726,
+                    "end": 731,
+                    "text": "1,4\u22126",
+                    "ref_id": null
+                },
+                {
+                    "start": 799,
+                    "end": 801,
+                    "text": "5,",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 802,
+                    "end": 803,
+                    "text": "7",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 813,
+                    "end": 815,
+                    "text": "8,",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 816,
+                    "end": 817,
+                    "text": "9",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 892,
+                    "end": 895,
+                    "text": "13,",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 896,
+                    "end": 898,
+                    "text": "14",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 928,
+                    "end": 931,
+                    "text": "15,",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 932,
+                    "end": 934,
+                    "text": "16",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 1396,
+                    "end": 1398,
+                    "text": "19",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 2094,
+                    "end": 2096,
+                    "text": "20",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 2097,
+                    "end": 2100,
+                    "text": "\u221222",
+                    "ref_id": null
+                },
+                {
+                    "start": 2796,
+                    "end": 2801,
+                    "text": "23\u221225",
+                    "ref_id": null
+                },
+                {
+                    "start": 3325,
+                    "end": 3327,
+                    "text": "26",
+                    "ref_id": null
+                },
+                {
+                    "start": 3695,
+                    "end": 3697,
+                    "text": "27",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 3759,
+                    "end": 3761,
+                    "text": "28",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 3792,
+                    "end": 3794,
+                    "text": "29",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 3818,
+                    "end": 3820,
+                    "text": "30",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 4309,
+                    "end": 4311,
+                    "text": "10",
+                    "ref_id": null
+                },
+                {
+                    "start": 5177,
+                    "end": 5179,
+                    "text": "33",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 5194,
+                    "end": 5196,
+                    "text": "34",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 5218,
+                    "end": 5220,
+                    "text": "34",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 5257,
+                    "end": 5259,
+                    "text": "35",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 5281,
+                    "end": 5283,
+                    "text": "36",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 5309,
+                    "end": 5311,
+                    "text": "36",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 5328,
+                    "end": 5330,
+                    "text": "37",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 5356,
+                    "end": 5358,
+                    "text": "34",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 5590,
+                    "end": 5592,
+                    "text": "35",
+                    "ref_id": "BIBREF35"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 5426,
+                    "end": 5435,
+                    "text": "(Table S1",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "\u25a0 INTRODUCTION"
+        },
+        {
+            "text": "The aim of the current study was to characterize the impact of blood sample collection tubes and sample handling factors on the reproducibility of the lipoprotein and small molecule profiles and quantitation procedures in blood products for real world clinical diagnostics. Specifically, the impact of the following parameters on the high-resolution 1D proton NMR, Carr\u2212 Purcell\u2212Meiboom\u2212Gill (CPMG) spin\u2212echo and the quantified lipoprotein experiments was evaluated: (i) heat treatment (based on the viral inactivation protocol that has been used for both SARS and SARS-CoV-2 virus); (ii) up to three successive freeze\u2212thaw cycles; (iii) temporal biochemical stability at 20\u00b0C, 4\u00b0C, \u221280\u00b0C; and (iv) blood collection tube type ( Figure 1 ). The criteria for assessing the impact of experimental parameters on the viability of lipoprotein quantification and spectral quality are exemplified for the identification of SARS-CoV-2 biomarkers but represent a generic approach to achieving maximum potential for biomarker discovery in both acute and chronic diseases.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 728,
+                    "end": 736,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "\u25a0 INTRODUCTION"
+        },
+        {
+            "text": "Five healthy volunteers participated in each of the assessment of blood collection tube and storage condition experiments. However, for experiments evaluating the effect of heat-treatment on plasma samples, eight healthy volunteers and seven SARS-CoV-2 positive patients were recruited. The current cohort comprised of a total of 15 healthy volunteers (whereby blood samples from each individual was used to evaluate one or more conditions) and seven SARS-CoV-2 patients (Figure 1. ). SARS-CoV-2 positive patients presented with typical COVID-19 disease symptoms and were subsequently tested positive for SARS-CoV-2 infection from upper and/or lower respiratory tract swabs by real time reverse transcriptase polymerase chain reaction (rRT-PCR). This study follows the International Severe Acute Respiratory and Emerging Infection Consortium (ISARIC)/ World Health Organisation (WHO) pandemic trail framework. Participants were enrolled as volunteers and provided study details. Written informed consent was obtained from participants prior to sample collection. The study was approved by local ethical governance bodies (Murdoch University Ethics no. 2020/052 and Perth South Metropolitan Health Services Research Governance Office PRN:3976).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 471,
+                    "end": 481,
+                    "text": "(Figure 1.",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Cohort Recruitment"
+        },
+        {
+            "text": "Nonfasting, antecubital venous blood samples were collected into 4.5 mL Lithium Heparin PST II tubes (BD 367375, pale green top) and processed following standard operating procedures of the manufacturer; except for the comparison of blood collection tube type (see below point 6). To ensure consistency in our approach, blood samples were allowed to clot for 30 min with the exception of serum silica sprayed tubes, which were left to clot for 60 min at 20\u00b0C. Serum samples were freshly prepared and additional aliquots were stored under different conditions at 20\u00b0C, 4\u00b0C and at \u221280\u00b0C. Samples were removed from storage for processing and analyzed by NMR within 1 h of preparation. Prior to NMR analysis, frozen samples were thawed at 20\u00b0C for 30 min and centrifuged at 13,000 g for 10 min at 4\u00b0C. A sample volume of 350 \u03bcL of plasma/serum was mixed with 350 \u03bcL phosphate buffer (75 mM Na 2 HPO 4 , 2 mM NaN 3 , 4.6 mM sodium trimethylsilyl propionate-[2,2,3,3\u22122H 4 ] (TSP) in D 2 0, pH 7.4 \u00b1 0.1) 39 and 600 \u03bcL of the mixture was transferred to a SampleJet NMR tube (5 mm outer diameter).",
+            "cite_spans": [
+                {
+                    "start": 998,
+                    "end": 1000,
+                    "text": "39",
+                    "ref_id": "BIBREF38"
+                }
+            ],
+            "ref_spans": [],
+            "section": "\u25a0 EXPERIMENTAL DESIGN"
+        },
+        {
+            "text": "The following experiments were designed as part of this study to investigate the effects of sampling handling/treatment.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "\u25a0 EXPERIMENTAL DESIGN"
+        },
+        {
+            "text": "(1) Effect of heat treatment on measured molecular composition of plasma. To investigate the effects of virus inactivation procedures, 15 plasma samples (seven SARS-CoV-2 patients and eight healthy controls) were analyzed following the standard NMR analysis pipeline adapted from Dona et al. 39 composition. Blood from each of the five participants was collected into seven different types of blood collection tubes. Serum samples were obtained using 10 mL silica sprayed collection tubes (BD 367895, red top) and 5 mL SST II Advance gel tubes (BD 367954, yellow top). Plasma samples were obtained using Lithium Heparin and EDTA collection tubes. For Lithium Heparin tubes, this included 6 mL spray coated (BD 367885, green top) and 4.5 mL PST II tubes (BD 367375, pale green top) whereas for EDTA collection tubes, 2 mL liquid K 3 EDTA (BD 367836, lavender top), and two different sizes of spray coated K 2 EDTA tubes (BD 367525 for 10 mL and BD 367839 for 4 mL, purple top) were used. The blood collection procedures, order of draw and specimen handling including recommended number of inversions, clotting time and centrifugation conditions were carried out according to standard manufacturer protocols. All samples were prepared freshly for NMR analysis. (7) Effects of medium-term storage at \u221280\u00b0C on sample stability. In order to assess biochemical stability and analytical performance over multiple studies, it is necessary to incorporate quality control samples within each analytical run. Therefore, the stability of a commercially sourced EDTA plasma sample (purchased from PM separation, reference SP2000), stored at \u221280\u00b0C , was assessed by analyzing replicate aliquots over a period of 3 months.",
+            "cite_spans": [
+                {
+                    "start": 292,
+                    "end": 294,
+                    "text": "39",
+                    "ref_id": "BIBREF38"
+                }
+            ],
+            "ref_spans": [],
+            "section": "\u25a0 EXPERIMENTAL DESIGN"
+        },
+        {
+            "text": "NMR analyses were performed on a 600 MHz Bruker Avance III HD spectrometer equipped with a 5 mm BBI probe and fitted with the Bruker SampleJet robot cooling system set to 5\u00b0C. A full calibration was completed prior to the analysis using a previously described protocol. 39 All experiments were conducted using the Bruker In Vitro Diagnostics research (IVDr) methods. 27 For each sample, three experiments were completed in automation mode, amounting to a total of 12.5 min acquisition time per sample viz: standard 1D experiment with solvent presaturation 40 (32 scans using a mixing time of 0.01 s and relaxation delay of 4s, 96K data points, spectral width of 30 ppm, line broadening of 0.3 Hz, zero-filled to 128K), a 1D\u2212 Carr\u2212Purcell\u2212Meiboom\u2212Gill (CPMG) spin\u2212echo experiment (32 scans, 72K data points, spectral width of 20 ppm, line broadening of 0.3 Hz, zero-filled to 128K) and a 2D \u2212 J-resolved experiment (2 scans, 40 t 1 increments with 2 scans each, spectral width 16 ppm, line broadening of 0.3 Hz in F2, Qsine weighting in F1 and F2, zero-filled to 256K in F1 and 16K in F2). Data were processed in automation using Bruker Topspin 3.6.2 and ICON NMR to achieve phasing and baseline correction. A total of 112 lipoprotein parameters for each sample were generated using the Bruker IVDr Lipoprotein Subclass Analysis (B.I.LISA) method. 27 This was obtained by mathematically interrogating and quantifying the -(CH 2 ) n (\u03b4 = 1.25) and \u2212CH 3 (\u03b4 = 0.80) peaks of the 1D spectrum after normalization to the Bruker QuantRef manager within Topspin using a PLS-2 regression model. 27 The lipoprotein data describe chemical components of cholesterol, free cholesterol, phospholipids, triglycerides, Apolipoproteins A1/A2/B100 and the B100/A1 ratio in different density classes: High-density lipoprotein ( Table S2 .",
+            "cite_spans": [
+                {
+                    "start": 270,
+                    "end": 272,
+                    "text": "39",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 367,
+                    "end": 369,
+                    "text": "27",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 1347,
+                    "end": 1349,
+                    "text": "27",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 1586,
+                    "end": 1588,
+                    "text": "27",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 1807,
+                    "end": 1808,
+                    "text": "(",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1809,
+                    "end": 1817,
+                    "text": "Table S2",
+                    "ref_id": null
+                }
+            ],
+            "section": "H NMR Acquisition and Data Processing Parameters"
+        },
+        {
+            "text": "A total of three different spectral data sets were obtained for each sample comprising standard 1D and CPMG spectra and a 2D-Jresolved spectrum. Additionally, quantitative lipoprotein data were derived from the 1D spectra. The 1D and CPMG spectral data sets underwent baseline correction and reference to glucose at \u03b4 = 5.25 using open source MetaboMate software packages 41 operating in the R environment. The regions at \u03b4 = 4.5\u22124.9 containing the residual water resonances and the regions at \u03b4 < 0.5 and > 9.4 containing predominantly noise were excluded from analyses. The resulting 27,818 spectral data points for the standard 1D and CPMG were normalized using a probabilistic quotient method 42 to account for subtle variations between samples due to analytical variability during the analysis, meancentered and unit-variance scaling applied prior to multivariate modeling. An unsupervised multivariate data analysis approach, principal components analysis (PCA), 43 was initially used to describe the underlying systematic variation in quantitative lipoprotein, 1D and CMPG spectral data sets for spectral data under investigation. To interrogate further the effects of different sample storage/handling, additional analyses were performed separately for each experimental condition. For each condition, a separate PCA model was constructed. Orthogonal partial least-squares discriminant analysis (OPLS-DA) 44 was used to identify metabolites differentiating between sample conditions. The OPLS-DA model validity was assessed using leave-one-out cross validation procedure and the Q 2 Y statistic was used to describe the proportion of variance explained by the predictive component for the experimental condition. In addition, univariate statistics were used to assess group differences in the quantitative lipoprotein data. This included the use of Cliff's Delta statistic, a nonparametric effect size measure that quantifies differences between two conditions. A Cliff's Delta of +1 or \u22121 denotes the absence of overlap while 0 denotes complete overlap between the two groups. To test for statistical significance, a two-tailed paired Wilcoxon Rank Sum or Kruskal\u2212Wallis Rank Sum statistic, as appropriate, was applied and no correction for multiple hypothesis testing was performed due to the interdependence of the measured lipoprotein parameters. Here, a statistical significance level was fixed at \u03b1 = 0.05. Specifically, for the heating experiment, a hierarchical cluster analysis using the Ward criterion 45 Figure S1a ) and 46.0% for the lipoproteins ( Figure S1b ). The data structure of all of these data sets was clearly different; the 1D spectrum contains information on all molecular components, but was dominated by proteins and lipoproteins; the CPMG spin\u2212echo amplifies the detection of molecular species with long T 2 relaxation times including small molecules and flexible moieties from macromolecules such as the N-acetyl Variation introduced by either sample storage or handling was apparent in lower PCs with some influence from interindividual variation still contributing to the variance in the PC2, accounting for 16% of the total variance (1D), 8.0% (CPMG) and 17.2% (lipoprotein panel). Since information on both experimental and biological effects was embedded in the PCA model, it was necessary to minimize the extraneous variation introduced into the data set by experimental conditions in order to extract clear metabolic differences arising from the biological condition under investigation. Given the scale of the interindividual biochemical differences in all three data sets (1D, CPMG and lipoprotein), systematic analytical effects can easily be obscured and may impair extraction of biomarker information. Therefore, the variance introduced by altering each experimental parameter (heating, freezing, time to acquisition at room and refrigerated temperatures, blood collection tubes) was compared by characterizing the difference between the standard sample handling condition or acquisition protocol 27, 39 and procedures under assessment. In order to visualize the relative influence of each sample storage or handling condition, the difference in the spectra or lipoproteins were compared to the standard experimental conditions (see Methods) and calculated (see Supporting Information). The mean group effect for each treatment (heating, freeze\u2212thawing, time stored at 4 and 20\u00b0C prior to spectral acquisition) is expressed as a vector (see Section S1 Data Analysis for information) in Figure 3 . Each vector has a magnitude, representing the mean scale of effect, and a direction that reflects the mean change in spectral profile or lipoprotein panel. The effect of heating on the plasma sample, as expected, exerted the greatest effect as illustrated by the vector plots for the 1D and CPMG data sets. Storage of the sample at 4\u00b0C for 168 h prior to sample preparation caused a lesser shift in the same direction as heating, whereas the freeze\u2212thawing vector oriented in the opposite direction to the heating vector in the 1D spectral data set scores plot and was orthogonal to the heating vector for the CPMG data set. The difference between fresh versus frozen, or between one and three freeze\u2212thaw cycles was, as expected, much lower than that the compositional differences attributed to heating. Similarly, with the lipoprotein data, changes introduced by repeated freeze\u2212thaw cycles were minor in comparison to heating or refrigerated storage for extended periods of time. These changes were partially mitigated when plasma samples were prepared in buffer and were stored in the refrigerated NMR automatic sample changer, indicating that the buffer helped stabilize the samples.",
+            "cite_spans": [
+                {
+                    "start": 372,
+                    "end": 374,
+                    "text": "41",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 697,
+                    "end": 699,
+                    "text": "42",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 969,
+                    "end": 971,
+                    "text": "43",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 1413,
+                    "end": 1415,
+                    "text": "44",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 2520,
+                    "end": 2522,
+                    "text": "45",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 4045,
+                    "end": 4048,
+                    "text": "27,",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 4049,
+                    "end": 4051,
+                    "text": "39",
+                    "ref_id": "BIBREF38"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 2523,
+                    "end": 2533,
+                    "text": "Figure S1a",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 2569,
+                    "end": 2579,
+                    "text": "Figure S1b",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 4534,
+                    "end": 4542,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Data Analysis"
+        },
+        {
+            "text": "In order to explore the effects further, pairwise comparisons were conducted for each sample preparation or measurement factor.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data Analysis"
+        },
+        {
+            "text": "Since the first SARS infectious disease in 2002/2003 in China, thermal inactivation of virus at 56\u00b0C for 20\u221230 min was found to be effective in reducing the virus titer to the detection limit. 46 Incubating samples at 56\u00b0C for 10 min, has been shown to completely denature the nucleocapsid protein of SARS-CoV 46 and similarly heating plasma at 56\u00b0C for 25 min reduced >4 log 10 TCID 50 /mL of MERS virus, 47 where TCID 50 represents the median tissue culture infectious dose. Since heat treatment has been recommended for viral inactivation, and there is a reported study 48 which demonstrated the generation of false negative results, we therefore compared the effect of heating on the 1 H NMR-derived lipoprotein profile, CPMG and 1D spectral data sets. Heating samples at 56\u00b0C for 30 min caused major changes across all three spectral data sets. The difference in composition pre-and postheating was calculated for each sample and is illustrated in Figure 4a for the lipoprotein data, where each pre-and postheating pair mapped closely in the PCA scores but showed a definite shift in the PC space postheating. The comparable PCA and scatter plots for the 1D and CPMG spectra demonstrated a similar trend (Figures S2 and S3a,b) . Notably, the net vector direction postheating was different in the control and SARS-CoV-2 positive individuals, so the degradation effects are nonequivalent rendering any differential diagnostic information invalid postheating (Figure 4b) . A degree of dispersion was evident in the SARS-CoV-2 positive patients and healthy volunteer classes for both the lipoproteins and the CPMG spectra indicating a nonuniform alteration in the chemical composition of the serum samples after heat-treatment (Figures 4b and S3 ). The OPLS-DA model calculated using the pre-to postheating difference in lipoprotein panel concentrations as input variables yielded a strong model with a Q 2 Y of 0.71 and with clear differentiation of SARS-CoV-2 positive and healthy samples, supporting the observation in the adjusted PCA model that the effect of heating differentially affected the samples obtained from infected and noninfected individuals (Figure 4c ). The predictive component loadings showed that LDL subfractions (particularly L2, L3 and L4), H2A1 and TPA1 were artifactually increased in the SARS-CoV-2 infected samples postheating, whereas the HDL-L4 and HDL-L6 subfractions measurements were increased in the healthy individuals postheat treatment. These findings highlight differences in heat generated artifacts in controls and patients (Figure 4d ).",
+            "cite_spans": [
+                {
+                    "start": 193,
+                    "end": 195,
+                    "text": "46",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 310,
+                    "end": 312,
+                    "text": "46",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 406,
+                    "end": 408,
+                    "text": "47",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 573,
+                    "end": 575,
+                    "text": "48",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 953,
+                    "end": 962,
+                    "text": "Figure 4a",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 1209,
+                    "end": 1231,
+                    "text": "(Figures S2 and S3a,b)",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 1461,
+                    "end": 1472,
+                    "text": "(Figure 4b)",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 1728,
+                    "end": 1746,
+                    "text": "(Figures 4b and S3",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 2160,
+                    "end": 2170,
+                    "text": "(Figure 4c",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 2566,
+                    "end": 2576,
+                    "text": "(Figure 4d",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "Impact of Heating on Sample Composition and the Stability of Candidate Markers for SARS CoV-2 Infection"
+        },
+        {
+            "text": "Paired Wilcoxon Rank Sum tests on the lipoprotein measurements for the control samples yielded 65 significant differences in lipoprotein parameters postheating (p < 0.05), while the SARS-CoV-2 positive samples yielded 57 significantly different parameters that were changed on heating, only 30 of which matched the control data set (Table S3 ). The lipoprotein parameters that consistently differed on heating included multiple apolipoprotein subfractions and a total of six HDL subfractions, eight LDL subfractions and eight VLDL subfractions that consisted of free cholesterols, phospholipids, and triglycerides. Using the unheated sample set, a comparison of healthy controls and SARS-CoV-2 positives generated 37 significant lipoprotein variables that differentiated infected participants from healthy controls, whereas the same comparison in the heated samples caused significant (p < 0.05) changes in 41 lipoprotein variables. The nonheated and heated data sets shared 27 common lipoprotein parameters, of which 10 lipoprotein particles deemed as discriminatory in the comparison of SARS-CoV-2 positives (L1TG; L1FC; L2TG; L4TG; VLPN; VLAB; V2FC; V3FC; H1PL; and H1CH Table S4 ) and controls did not significantly differentiate between samples from healthy and infected individuals when modeled using the heated data set. were not affected by heating with the remaining 25 (67.6%) being artifacts of heating. A correlation matrix was constructed for the lipoprotein parameters based on the healthy controls and showed four main clusters of positive correlations corresponding to cluster 1 (largely between HDL subfractions and apolipoprotein A2 fractions), cluster 2 (between triglyceride and cholesterol particles); cluster 3 (mainly between LDL subfractions); and cluster 4 (intercorrelations between LDL subparticles), Figure  S4a . Conversely several lipoprotein triglycerides and VLDL subfractions demonstrated anticorrelations with HDL subfractions. Following heat-treatment, the correlation map was altered ( Figure S4b ) demonstrating a heat-induced disruption to the correlation structure between the lipoprotein subfractions. Several subfractions showed a markedly altered correlation pattern, mostly increasing the level of correlation between lipoprotein parameters. For example, L1TG showed stronger correlations with the rest of the LDL1 subfractions postheating whereas TPAB and TPPN were more correlated with VLDL subfractions postheating. An exemplar correlation plot pair for just the LDL and VLDL lipoprotein parameters is illustrated in Figure 5a and b.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 332,
+                    "end": 341,
+                    "text": "(Table S3",
+                    "ref_id": null
+                },
+                {
+                    "start": 1174,
+                    "end": 1182,
+                    "text": "Table S4",
+                    "ref_id": null
+                },
+                {
+                    "start": 1828,
+                    "end": 1839,
+                    "text": "Figure  S4a",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 2022,
+                    "end": 2032,
+                    "text": "Figure S4b",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 2563,
+                    "end": 2572,
+                    "text": "Figure 5a",
+                    "ref_id": "FIGREF7"
+                }
+            ],
+            "section": "Impact of Heating on Sample Composition and the Stability of Candidate Markers for SARS CoV-2 Infection"
+        },
+        {
+            "text": "Additional heat-related changes were observed in the models for CPMG spin\u2212echo spectra (Q 2 Y 0.9, Figure S5 ) and standard 1D spectra (Q 2 Y 0.89) and included a small systematic NMR chemical shift in the citrate resonances postheating, indicating a change in the pH of the samples postheating due to loss of CO 2 and HCO 3 \u2212 . Other changes included higher relative levels of triglycerides, lactate, alanine and glycerol postheating and decreased relative concentrations of \u03b1-1-acidglycoprotein due to precipitation and borderline significant changes in aromatic amino acids. The impact of heating on the amino acids suggests these changes are likely to be a result of small molecule released from binding sites on proteins due to conformational changes on heating, wherein occult noncovalent binding sites are opened freeing aromatic amino acids from macromolecular compartments such as albumin and glycoproteins. A similar effect is observed when plasma pH is lowered leading to release of tyrosine, phenylalanine and histidine from hydrophobic albumin binding sites. 49 ",
+            "cite_spans": [
+                {
+                    "start": 1072,
+                    "end": 1074,
+                    "text": "49",
+                    "ref_id": "BIBREF48"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 99,
+                    "end": 108,
+                    "text": "Figure S5",
+                    "ref_id": "FIGREF7"
+                }
+            ],
+            "section": "Impact of Heating on Sample Composition and the Stability of Candidate Markers for SARS CoV-2 Infection"
+        },
+        {
+            "text": "Samples were analyzed fresh and then after one, two or three freeze\u2212thaw cycles. The standard lipoprotein quantification protocol 27 stipulates that samples should be frozen and thawed once only prior to NMR measurement. The impact of zero or up to three freeze\u2212thaw cycles was compared to the standard single freeze\u2212thaw cycle. The PCA scores plot for the quantified lipoprotein profile was dominated by interindividual variation and the effects of freeze\u2212thawing were minimal ( Figure S6 ). A small shift in mapping positions of the samples after the third freeze\u2212thaw cycle was observed for three of the five individuals. After three freeze\u2212thaw cycles, none of the 112 lipoprotein parameters were significantly altered although several triglycerides subfractions (e.g., VLTG, IDTG, V1TG, L3TG) and cholesterol subfractions (e.g., LDCH, L4CH, L5CH, L4FC) showed an insignificant trend of reduction (p = 0.06). In contrast, Wang et al. 35 who investigated the effect of up to five successive freeze\u2212thaw cycles on the quantified lipoprotein composition of samples from 20 individuals and found the above-mentioned lipoprotein subfractions, together with a further 11 of the 112 lipoprotein parameters, were significantly altered after three freeze\u2212thaw cycles. The coefficient of variation plot calculated for each donor across all three freeze\u2212thaw cycles ( Figure S7 ) showed high dispersion for multiple lipoprotein parameters including V1\u22125 free cholesterol, which mirrored the results of Wang et al. Both the full CPMG spin echo and standard 1-D data sets yielded similar results to the quantitative lipoprotein data set. ",
+            "cite_spans": [
+                {
+                    "start": 130,
+                    "end": 132,
+                    "text": "27",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 938,
+                    "end": 940,
+                    "text": "35",
+                    "ref_id": "BIBREF35"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 480,
+                    "end": 489,
+                    "text": "Figure S6",
+                    "ref_id": "FIGREF8"
+                },
+                {
+                    "start": 1361,
+                    "end": 1370,
+                    "text": "Figure S7",
+                    "ref_id": null
+                }
+            ],
+            "section": "Impact of Freeze\u2212Thaw Cycles on Lipoprotein and Spectral Stability"
+        },
+        {
+            "text": "For each individual, the main lipoprotein parameters: triglycerides, total cholesterol, LDL-cholesterol, HDL-cholesterol, Apolipoprotein-A1, Apolipoprotein-A2, Apolipoprotein-B100 and the LDL to HDL cholesterol and Apolipoprotein-A1 to Apolipoprotein-B100 ratios were remarkably stable up to 48 h storage at 4\u00b0C (Figure 6 ). A small change amounting to approximately 8% reduction in observed total triglyceride and HDL-cholesterol concentrations was apparent at 168 h compared to baseline, while the Apolipoprotein parameters increased by approximately 5%. The largest change was a 30% increase of Apolipoprotein-B100. None of the 112 lipoprotein parameters were significantly changed. Although not significant, several triglycerides subfractions (LDTG, HDTG, L4TG, L5FC, H2TG and H3TG, p = 0.06) showed a trend toward increasing over 7 days storage in refrigerated temperature while L1CH and L1PL showed a trend toward decreasing over time. Similar results were observed for samples that were maintained refrigerated in the autosampler. However, for the 1D and CPMG spectral data sets, minor changes due to precipitation of particles, resulting in a slight chemical shift of citrate, lactate and some amino acids were noted at 48 h. A decrease in relative glucose concentrations over time and an increase in lactate was also observed in both the 1D and CPMG spectral data sets regardless of whether they were stored as plasma in the fridge prior to preparation for NMR analysis or whether they were prepared for sample analysis by addition of buffer and stored in the spectrometer autosampler prior to acquisition. These results are consistent with observations from Bernini et al. 50 Subtle changes in the shape of the lipoprotein envelopes were also noted in both the 1D and CPMG spectra, which is consistent with previous studies as described in Table S1 .",
+            "cite_spans": [
+                {
+                    "start": 1683,
+                    "end": 1685,
+                    "text": "50",
+                    "ref_id": "BIBREF49"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 312,
+                    "end": 321,
+                    "text": "(Figure 6",
+                    "ref_id": "FIGREF8"
+                },
+                {
+                    "start": 1850,
+                    "end": 1858,
+                    "text": "Table S1",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "Stability of Serum Samples at 4\u00b0C Prior to Spectral Measurement"
+        },
+        {
+            "text": "Since it is not always practical to collect and freeze plasma samples immediately in busy clinical centers, it is necessary to understand the impact of storage time for those samples held at room temperature. Similar to the pattern observed for maintaining samples at 4\u00b0C, the main lipoprotein parameters in samples stored at room temperature were relatively stable over 48 h (Figure S8 ) but demonstrated a time-related decrease in triglycerides and LDL-cholesterol of around 20% and 10% respectively with a <5% increase in the Apolipoprotein A1 parameter. Larger differences were observed for a few of the subfractions, for example IDTG and L6CH, which represent the extremes of the observed variability and are illustrated in Figure  S9 . Thus, lipoprotein data for samples maintained at room temperature and measured up to 48 h post collection were deemed robust in terms of overall interpretation. However, small differences were observed in both the 1D and CPMG spectral data sets, which included a reduction in the triglycerides CH 3 terminal at \u03b4 = 0.88, triglycerides (CH 2 ) n chain at \u03b4 = 1.27, and triglyceride CH\ue0c8CH\u2212CH 2 signal at around \u03b4 = 2.0 at 48 h.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 376,
+                    "end": 386,
+                    "text": "(Figure S8",
+                    "ref_id": null
+                },
+                {
+                    "start": 729,
+                    "end": 739,
+                    "text": "Figure  S9",
+                    "ref_id": null
+                }
+            ],
+            "section": "Impact of Storage Time at Room Temperature (20\u00b0C)"
+        },
+        {
+            "text": "The impact of seven different clinically relevant collection tubes: serum plain clot; serum SST gel; heparin coated; heparin gel; K 2 EDTA large; K 2 EDTA small and K 3 EDTA were assessed. Free EDTA itself has 2 extra major proton resonances from the ethylenic (\u2212CH 2 CH 2 ) singlet and the \"acetic\" 4 \u00d7 \u2212CH 2 COO \u2212 proton singlet (intensity ratio 1:2), plus the shifted singlet resonances from CaEDTA 2\u2212 and the MgEDTA 2\u2212 complexes formed from the total chelation of bound and free metal ions from the plasma, there are additional multiplets from the nonequivalent CH 2 COO protons in the metal complexes the signal intensities being directly proportion to total plasma calcium and magnesium respectively (details described by Nicholson et al. 6 ). The EDTA signals themselves do not interfere with the lipoprotein quantification ( Figure S10a ) as they are significantly shifted from the region of interest. As expected, the greatest source of variance in the quantitative lipoprotein data was attributed to interindividual differences. For both the 1D and the CPMG. Clear differences in plasma EDTA, plasma heparin and serum samples can be seen in the PCA scores plot (Figures S10b and c) spectral data sets, with signals from EDTA driving much of the variance in the second principal component. Within the subtypes of collection tube for serum (plain clot versus gel coated), plasma heparin (heparin coated versus heparin gel) and K 2 EDTA comparison between the 4 and 10 mL collection tubes, no significant spectral differences were identified in either the 1D or CPMG spectral data sets. A small chemical shift offset was apparent in the comparison of K 2 EDTA versus K 3 EDTA in the 1D and CPMG spectral data sets with a small relative increase in acetate for samples collected in K 3 EDTA blood collection tubes. Plasma obtained from heparin tubes contained higher lactate than EDTA tubes, whereas K 3 EDTA tube samples appeared to have higher pyruvate levels than heparin and K 2 EDTA gave higher acetate readings. Comparing heparin to the serum spectra, serum showed proportionally stronger lactate and weaker albumin lysyl-groups signal intensities.",
+            "cite_spans": [
+                {
+                    "start": 728,
+                    "end": 746,
+                    "text": "Nicholson et al. 6",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 833,
+                    "end": 844,
+                    "text": "Figure S10a",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 1171,
+                    "end": 1191,
+                    "text": "(Figures S10b and c)",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Impact of Collection Tubes on Plasma and Serum Profiles"
+        },
+        {
+            "text": "In metabolite phenotyping analyses it has become common practice to create a quality control (QC) sample, which is typically a pooled collection of plasma or serum for a reference population, that is subsequently aliquoted and stored frozen. A QC sample is then incorporated in the analytical run for study samples, typically being included at the beginning, middle and end of a sample rack in order to assess any deviation in analytical quality. The QC sample can be used to assess both intra-and interstudy variability. We found that at 3 months, and all prior and intermediate time-points, the QC samples were completely overlaid in the PC space, indicating that there was no effect of freezing at -80\u00b0C on the biochemical composition of the sample ( Figure S11 ). Pinto et al. report stability of the NMR profiles of QC samples maintained at -80\u00b0C for 30 months 51",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 754,
+                    "end": 764,
+                    "text": "Figure S11",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Storage of Samples and Quality Control References at \u221280\u00b0C"
+        },
+        {
+            "text": "Employing large scale metabolic profiling methodologies to investigate metabolome-wide association studies 52,53 in population cohorts, with potential to combine data measured across multiple sites requires a high level of analytical standardization. We examined the systematic effects of various experimental conditions on the stability of 1 H NMR profiles with respect to standard 1D spectra, CPMG spin\u2212echo spectra, in which the lipoproteins and macromolecular components are attenuated, and in a panel of 112 quantified lipoprotein concentrations. Strong interindividual signatures dominated the variation in all three data types, affecting the CPMG (small and mobile molecular components) more than the lipoprotein signals. This inherent interindividual variation can make detection of disease or disease risk-related molecular signatures challenging. This underscores the need to rigorously control and/or understand the influence of variation introduced by experimental procedures such as sample storage, temperature, freeze\u2212thaw and storage time. We characterized the lipoproteins and small molecular weight metabolites that were most impacted by each experimental condition examined in order to develop a comprehensive index of known experimental effects when assessing potential biomarkers of disease. In ideal situations, the carefully developed and validated protocols and standard operating procedures for sample collection and treatment 54 would be sufficient to ensure high quality results. However, in a busy clinical care setting, patient safety and comfort are necessarily prioritized over adherence to research protocols. Thus, samples can be collected into different tubes, stand on the bench or in a laboratory fridge for different times, or may undergo multiple freeze\u2212thaw cycles in order to maximize sample use for different assays. Each of these deviations to protocol results in a systematic alteration in the low molecular weight and macromolecular composition of blood samples.",
+            "cite_spans": [
+                {
+                    "start": 1451,
+                    "end": 1453,
+                    "text": "54",
+                    "ref_id": "BIBREF54"
+                }
+            ],
+            "ref_spans": [],
+            "section": "\u25a0 SUMMARY"
+        },
+        {
+            "text": "Of all the experimental conditions assessed, we found heating for virus inactivation to exert the strongest effect on the NMR spectral profiles and quantitative lipoprotein data. We note that in reports on the nonpeer reviewed literature on COVID-19, multiple differential lipoprotein and small molecule biomarkers for SARS-CoV-2 positivity may have been missed or misattributed. We attribute this to the heat inactivation artifacts described previously with the emergence of artifactual pseudobiomarkers and the loss of real biomarker information and hence the biological interpretation of such data is compromised. However, our studies show that variation introduced by other treatment and storage conditions is small and gives strong indication that the NMR based methods for lipoprotein and metabolite determinations are reliable and robust. Temporal effects of sample degradation at different storage temperatures were characterized and optimal analysis time windows established. In line with earlier reports, we showed that storage at \u221280\u00b0C has negligible effect on the chemical composition of plasma samples. We also detailed minor compositional effects introduced by different sample collection tubes and by increasing number of freeze\u2212thaw cycles. It should be noted that quantitative lipoprotein measurements are dependent on a model of the relationship between the molecular physical properties of the supramolecular clusters since it is the differences in the magnetic susceptibilities in the lipoprotein particles that give rise to their diagnostic shifts. In any system that has been perturbed outside its physical limits or the conditions of the quantitative model no credence can be given to the metrics generated for the individual parameters. The software will still generate quantitative data for the parameters, but there is no guarantee that these are reliable outside the limits of the model or handling procedure as set down in the original protocol.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "\u25a0 SUMMARY"
+        },
+        {
+            "text": "Considering the effects of sample treatment, we can recommend the following sample handling procedures for COVID-19 and other potentially infectious clinical plasma samples: (1) Heat treatment at 56\u00b0C for virus or microbial neutralization is not fit-Journal of Proteome Research pubs.acs.org/jpr Article for-purpose for studying lipoprotein or metabolic components in plasma under any circumstances, as the data generated are largely uninterpretable because of extensive degradation and supramolecular lipoprotein randomization; (2) Wherever possible, plasma samples from a given study should be collected into the same type of blood collection tubes as the quantitative lipoprotein differences between these and between serum and plasma are small but detectable; (3) After sample collection from clinic or hospital ward, tubes should be handled as per the manufacturer's instructions and be frozen within 24 h of blood centrifugation, and preferably within 5 h to minimize quantitative lipoprotein errors; (4) Samples should ideally undergo only one freeze\u2212thaw cycle prior to analysis, but additional freeze\u2212thaw cycles (up to 3) are acceptable as they only introduce negligible changes in the quantitative lipoprotein data and small changes in the 1D NMR and spin echo small molecular profiles thus giving some flexibility in complex realworld environments. Adherence to these simple recommendations should lead to the recovery of high quality plasma lipoprotein and metabolic NMR data under most circumstances irrespective of disease state under study.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusions and Recommendations for Metabolic Analysis for Plasma Samples from COVID-19 Patients and Those with Other Infectious Diseases"
+        },
+        {
+            "text": "\u25a0 ASSOCIATED CONTENT",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusions and Recommendations for Metabolic Analysis for Plasma Samples from COVID-19 Patients and Those with Other Infectious Diseases"
+        },
+        {
+            "text": "The Supporting Information is available free of charge at https://pubs.acs.org/doi/10.1021/acs.jproteome.0c00537.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "* s\u0131 Supporting Information"
+        },
+        {
+            "text": "Section S1: Data analysis. Figure S1 : PCA scores plot for CPMG and quantified lipoprotein particle. Figure S2 : PCA scores plot for 1D plasma spectra and CPMG spectra showing the effect of heating on samples. Figure  S3 : Scatter plot mapping the difference between heated and nonheated samples. Figure S4 : Correlation maps showing the effect of heating on 112 quantified lipoprotein parameters obtained from healthy participants. Figure S5 : O-PLSDA loadings plot constructed from plasma CPMG spectra obtained pre-and postheating for plasma samples obtained from healthy participants. Figure S6 : PCA scores plot constructed from 112 quantified lipoprotein parameters and up to three freeze\u2212thaw cycles. Figure S7 : Coefficient of variance (CV) plot comparing the variance for up to three freeze\u2212 thaw cycles. Figure Figure S10 : PCA scores plot constructed from blood samples collected into seven different clinically relevant collection tubes. Figure S11 : PCA scores plot showing plasma sample stable for over a 3 month time period (PDF) ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 27,
+                    "end": 36,
+                    "text": "Figure S1",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 101,
+                    "end": 110,
+                    "text": "Figure S2",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 210,
+                    "end": 220,
+                    "text": "Figure  S3",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 297,
+                    "end": 306,
+                    "text": "Figure S4",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 433,
+                    "end": 442,
+                    "text": "Figure S5",
+                    "ref_id": "FIGREF7"
+                },
+                {
+                    "start": 588,
+                    "end": 597,
+                    "text": "Figure S6",
+                    "ref_id": "FIGREF8"
+                },
+                {
+                    "start": 707,
+                    "end": 716,
+                    "text": "Figure S7",
+                    "ref_id": null
+                },
+                {
+                    "start": 813,
+                    "end": 819,
+                    "text": "Figure",
+                    "ref_id": null
+                },
+                {
+                    "start": 820,
+                    "end": 830,
+                    "text": "Figure S10",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 949,
+                    "end": 959,
+                    "text": "Figure S11",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "* s\u0131 Supporting Information"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "High Resolution Proton Magnetic Resonance Spectroscopy of Biological Fluids",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Wilson",
+                    "suffix": ""
+                }
+            ],
+            "year": 1989,
+            "venue": "Prog. Nucl. Magn. Reson. Spectrosc",
+            "volume": "21",
+            "issn": "",
+            "pages": "449--501",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/0079-6565(89)80008-1"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Metabonomics: A Platform for Studying Drug Toxicity and Gene Function",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Connelly",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Lindon",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Holmes",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Nat. Rev. Drug Discovery",
+            "volume": "1",
+            "issn": "",
+            "pages": "153--161",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/nrd728"
+                ]
+            }
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Metabolic Phenotyping in Clinical and Surgical Environments",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Holmes",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Kinross",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Darzi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Takats",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Lindon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Nature",
+            "volume": "491",
+            "issn": "",
+            "pages": "384--392",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/nature11708"
+                ]
+            }
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Use of High-Resolution Proton Nuclear Magnetic Resonance Spectroscopy for Rapid Multi-Component Analysis of Urine",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Bales",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Higham",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Howe",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Sadler",
+                    "suffix": ""
+                }
+            ],
+            "year": 1984,
+            "venue": "Clin. Chem",
+            "volume": "30",
+            "issn": "3",
+            "pages": "426--432",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/clinchem/30.3.426"
+                ]
+            }
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Proton-Nuclear-Magnetic-Resonance Studies of Serum, Plasma and Urine from Fasting Normal and Diabetic Subjects",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "O&apos;flynn",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Sadler",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Macleod",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Juul",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Sonksen",
+                    "suffix": ""
+                }
+            ],
+            "year": 1984,
+            "venue": "Biochem. J",
+            "volume": "217",
+            "issn": "2",
+            "pages": "365--375",
+            "other_ids": {
+                "DOI": [
+                    "10.1042/bj2170365"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "High Resolution 1H NMR Studies of Vertebrate Blood and Plasma",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Buckingham",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Sadler",
+                    "suffix": ""
+                }
+            ],
+            "year": 1983,
+            "venue": "Biochem. J",
+            "volume": "211",
+            "issn": "3",
+            "pages": "605--615",
+            "other_ids": {
+                "DOI": [
+                    "10.1042/bj2110605"
+                ]
+            }
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Optimization of Human Plasma 1H NMR Spectroscopic Data Processing for High-Throughput Metabolic Phenotyping Studies and Detection of Insulin Resistance Related to Type 2 Diabetes",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Maher",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Crockford",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Toft",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Malmodin",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Faber",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Mccarthy",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Barrett",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Allen",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Walker",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Holmes",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Lindon",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Anal. Chem",
+            "volume": "",
+            "issn": "19",
+            "pages": "7354--7362",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/ac801053g"
+                ]
+            }
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Metabolic Phenotype of Obesity in a Saudi Population",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Ahmad",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Alsaleh",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Kimhofer",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ahmad",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Jamal",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Wali",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Damanhouri",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Holmes",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "J. Proteome Res",
+            "volume": "16",
+            "issn": "2",
+            "pages": "635--644",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.jproteome.6b00710"
+                ]
+            }
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Molecular Phenomics and Metagenomics of Hepatic Steatosis in Non-Diabetic Obese Women",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Hoyles",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Ferna\u0144dez-Real",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Federici",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Serino",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Abbott",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Charpentier",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Heymes",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Luque",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Anthony",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Barton",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Chilloux",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Myridakis",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Martinez-Gili",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Moreno-Navarrete",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Benhamed",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Azalbert",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Blasco-Baque",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Puig",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Xifra",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Ricart",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Tomlinson",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Woodbridge",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Cardellini",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Davato",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Cardolini",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Porzio",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Gentileschi",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Lopez",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Foufelle",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Butcher",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Holmes",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Postic",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Burcelin",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Dumas",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Nat. Med",
+            "volume": "24",
+            "issn": "7",
+            "pages": "1070--1080",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41591-018-0061-3"
+                ]
+            }
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "1H NMR Spectroscopy-Based Interventional Metabolic Phenotyping: A Cohort Study of Rheumatoid Arthritis Patients",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Sams\u00f8e",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Bennett",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Keun",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Lindon",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Dorff",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Jaroszewski",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Hansen",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Cornett",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J. Proteome Res",
+            "volume": "2010",
+            "issn": "9",
+            "pages": "4545--4553",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/pr1002774"
+                ]
+            }
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "1H HR-MAS NMR Spectroscopy of Tumor-Induced Local Metabolic \"Field-Effects\" Enables Colorectal Cancer Staging and Prognostication",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Jime\u0144ez",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Mirnezami",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Kinross",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Cloarec",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Keun",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Holmes",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Goldin",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Ziprin",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Darzi",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Nicholson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "J. Proteome Res",
+            "volume": "12",
+            "issn": "2",
+            "pages": "959--968",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/pr3010106"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "1H NMR-Based Metabolic Profiling of Urinary Tract Infection: Combining Multiple Statistical Models and Clinical Data",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Nevedomskaya",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Pacchiarotta",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Artemov",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Meissner",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Van Nieuwkoop",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Van Dissel",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Mayboroda",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Deelder",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Metabolomics",
+            "volume": "2012",
+            "issn": "6",
+            "pages": "1227--1235",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s11306-012-0411-y"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Reduced Plasma Levels of Small HDL Particles Transporting Fibrinolytic Proteins in Pulmonary Arterial Hypertension",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Harbaum",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Ghataorhe",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wharton",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Jime\u0144ez",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "S G"
+                    ],
+                    "last": "Howard",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "S R"
+                    ],
+                    "last": "Gibbs",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Rhodes",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Wilkins",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Thorax",
+            "volume": "2019",
+            "issn": "4",
+            "pages": "380--389",
+            "other_ids": {
+                "DOI": [
+                    "10.1136/thoraxjnl-2018-212144"
+                ]
+            }
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Mistargeting of Peroxisomal EHHADH and Inherited Renal Fanconi's Syndrome",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Klootwijk",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Reichold",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Helip-Wooley",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Tolaymat",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Broeker",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Robinette",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Reinders",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Peindl",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Renner",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Eberhart",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Assmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Oefner",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Dettmer",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Sterner",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Schroeder",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Zorger",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Witzgall",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Reinhold",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Stanescu",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Bockenhauer",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Jaureguiberry",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Courtneidge",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Hall",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Wijeyesekera",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Holmes",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "O&apos;brien",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Bernardini",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Krasnewich",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Arcos-Burgos",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Izumi",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Nonoguchi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Jia",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Reddy",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ilyas",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Unwin",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Gahl",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Warth",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kleta",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "N. Engl. J. Med",
+            "volume": "370",
+            "issn": "2",
+            "pages": "129--138",
+            "other_ids": {
+                "DOI": [
+                    "10.1056/NEJMoa1307581"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Urinary Metabolic Phenotyping Differentiates Children with Autism from Their Unaffected Siblings and Age-Matched Controls",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [
+                        "K S"
+                    ],
+                    "last": "Yap",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Angley",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Veselkov",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Holmes",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Lindon",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J. Proteome Res",
+            "volume": "2010",
+            "issn": "6",
+            "pages": "2996--3004",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/pr901188e"
+                ]
+            }
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Evidence of Altered Phosphatidylcholine Metabolism in Alzheimer's Disease",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Whiley",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Heaton",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Proitsi",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Garc\u00eda-Go\u1e3fez",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Leung",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Smith",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Thambisetty",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Kloszewska",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Mecocci",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Soininen",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Tsolaki",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Vellas",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Lovestone",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Legido-Quigley",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Neurobiol. Aging",
+            "volume": "35",
+            "issn": "2",
+            "pages": "271--278",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.neurobiolaging.2013.08.001"
+                ]
+            }
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Proposed Minimum Reporting Standards for Data Analysis in Metabolomics",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Kell",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Manetti",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Newton",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Paternostro",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Somorjai",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Sjostrom",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Trygg",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wulfert",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Metabolomics",
+            "volume": "3",
+            "issn": "3",
+            "pages": "231--241",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s11306-007-0081-3"
+                ]
+            }
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Quantitative 1H NMR: Development and Potential of a Method for Natural Products Analysis",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Pauli",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "U"
+                    ],
+                    "last": "Jaki",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Lankin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "J. Nat. Prod",
+            "volume": "68",
+            "issn": "",
+            "pages": "133--149",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/np0497301"
+                ]
+            }
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Workflow for Integrated Processing of Multicohort Untargeted 1H NMR Metabolomics Data in Large-Scale Metabolic Epidemiology",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Karaman",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "L S"
+                    ],
+                    "last": "Ferreira",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Boulange",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Kaluarachchi",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Herrington",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Dona",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Castagne",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Moayyeri",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Lehne",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Loh",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "De Vries",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Dehghan",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Franco",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Hofman",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Evangelou",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Tzoulaki",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Elliott",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Lindon",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Ebbels",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "J. Proteome Res",
+            "volume": "15",
+            "issn": "12",
+            "pages": "4188--4194",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.jproteome.6b00125"
+                ]
+            }
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Scaling and Normalization Effects in NMR Spectroscopic Metabonomic Data Sets",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Craig",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Cloarec",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Holmes",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Lindon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Anal. Chem",
+            "volume": "",
+            "issn": "7",
+            "pages": "2262--2267",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/ac0519312"
+                ]
+            }
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Network-Based Strategies in Metabolomics Data Analysis and Interpretation: From Molecular Networking to Biological Interpretation",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Perez De Souza",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Alseekh",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Brotman",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Fernie",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Expert Rev. Proteomics",
+            "volume": "2020",
+            "issn": "4",
+            "pages": "243--255",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/14789450.2020.1766975"
+                ]
+            }
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Inactivation of the Coronavirus That Induces Severe Acute Respiratory Syndrome, SARS-CoV",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "E R"
+                    ],
+                    "last": "Darnell",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Subbarao",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Feinstone",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Taylor",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "J. Virol. Methods",
+            "volume": "121",
+            "issn": "1",
+            "pages": "85--91",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.jviromet.2004.06.006"
+                ]
+            }
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Effects of Heating Plasma at 56\u00b0C for 30 min and at 60\u00b0C for 60 min on Routine Biochemistry Analytes",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Bhagat",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Lewer",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Prins",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Beilby",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "Ann. Clin. Biochem",
+            "volume": "37",
+            "issn": "6",
+            "pages": "802--804",
+            "other_ids": {
+                "DOI": [
+                    "10.1258/0004563001899997"
+                ]
+            }
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Integrative Modelling of Quantitative Plasma Lipoprotein, Metabolic and Amino Acid Data Reveals a Multi-Organ Pathological Signature of SARS-CoV-2 Infection",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "An",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Situ",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Ou",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "He",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Tian",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Rui",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Ding",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Kimhofer",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Lodge",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Whiley",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Gray",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Loo",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Lawler",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Nitschke",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.-H",
+                    "middle": [],
+                    "last": "Bong",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Morrison",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Begum",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Richards",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Yeap",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Smith",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "C G"
+                    ],
+                    "last": "Smith",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Holmes",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J. Clin. Lab. Anal",
+            "volume": "2020",
+            "issn": "26",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.jproteome.0c00519?ref=pdf"
+                ]
+            }
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Quantitative Lipoprotein Subclass and Low Molecular Weight Metabolite Analysis in Human Serum and Plasma by 1H NMR Spectroscopy in a Multilaboratory Trial",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Jime\u0144ez",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Holmes",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Heude",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Tolson",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Harvey",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Lodge",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Chetwynd",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Cannet",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Fang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "T M"
+                    ],
+                    "last": "Pearce",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Lewis",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Viant",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Lindon",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Spraul",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Schafer",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Anal. Chem",
+            "volume": "",
+            "issn": "20",
+            "pages": "11962--11971",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.analchem.8b02412"
+                ]
+            }
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Assignment of Resonances for \"acute-Phase",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Bell",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C C"
+                    ],
+                    "last": "Brown",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Sadler",
+                    "suffix": ""
+                }
+            ],
+            "year": 1987,
+            "venue": "Glycoproteins in High Resolution Proton NMR Spectra of Human Blood Plasma",
+            "volume": "215",
+            "issn": "",
+            "pages": "311--315",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/0014-5793(87)80168-0"
+                ]
+            }
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Quantification of Plasma Lipoproteins by Proton Nuclear Magnetic Resonance Spectroscopy",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Otvos",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Jeyarajah",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Bennett",
+                    "suffix": ""
+                }
+            ],
+            "year": 1991,
+            "venue": "Clin. Chem",
+            "volume": "37",
+            "issn": "3",
+            "pages": "377--386",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/clinchem/37.3.377"
+                ]
+            }
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "The Inherent Accuracy of 1H NMR Spectroscopy to Quantify Plasma Lipoproteins Is Subclass Dependent",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ala-Korpela",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Lankinen",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Salminen",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Suna",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Soininen",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Laatikainen",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Ingman",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Jauhiainen",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Taskinen",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Heberger",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Kaski",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Atherosclerosis",
+            "volume": "190",
+            "issn": "2",
+            "pages": "352--358",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.atherosclerosis.2006.04.020"
+                ]
+            }
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Susceptibility of Human Metabolic Phenotypes to Dietary Modulation",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Stella",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Beckwith-Hall",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Cloarec",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Holmes",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Lindon",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Powell",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Van Der Ouderaa",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bingham",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Cross",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "J. Proteome Res",
+            "volume": "5",
+            "issn": "10",
+            "pages": "2780--2788",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/pr060265y"
+                ]
+            }
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Human Serum Metabolic Profiles Are Age Dependent",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Zhai",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Singmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "He",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Prehn",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Romisch-Margl",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Lattka",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Gieger",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Soranzo",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Heinrich",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Standl",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Thiering",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Mittelstra\u00df",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Wichmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Peters",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Suhre",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Adamski",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Spector",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Illig",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Wang-Sattler",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Aging Cell",
+            "volume": "2012",
+            "issn": "6",
+            "pages": "960--967",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/j.1474-9726.2012.00865.x"
+                ]
+            }
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Executive Summary of the Third Report of the National Cholesterol Education Program (NCEP) Expert Panel on Detection, Evaluation, and Treatment of High Blood Cholesterol in Adults (Adult Treatment Panel III)",
+            "authors": [],
+            "year": 2001,
+            "venue": "Expert Panel on Detection",
+            "volume": "285",
+            "issn": "19",
+            "pages": "2486--2497",
+            "other_ids": {
+                "DOI": [
+                    "10.1001/jama.285.19.2486"
+                ]
+            }
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Influence of Storage Conditions and Preservatives on Metabolite Fingerprints in Urine",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Gu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Palma-Duran",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Fierro",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Jasbi",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Bresette",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Tasevska",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Metabolites",
+            "volume": "2019",
+            "issn": "10",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/metabo9100203"
+                ]
+            }
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Effect of Repeated Freeze-Thaw Cycles on NMR-Measured Lipoproteins and Metabolites in Biofluids",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Debik",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Andreassen",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Euceda",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Haukaas",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Cannet",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Schafer",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Bathen",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Giske\u00f8degard",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "J. Proteome Res",
+            "volume": "18",
+            "issn": "10",
+            "pages": "3681--3688",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.jproteome.9b00343"
+                ]
+            }
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Impact of Blood Collection Tubes and Sample Handling Time on Serum and Plasma Metabolome and Lipidome. Metabolites",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Cruickshank-Quinn",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Zheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Quinn",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Bowler",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Reisdorph",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Reisdorph",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "8",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/metabo8040088"
+                ]
+            }
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Ferna\u0144dez-Recamales, A\u0301. Recommendations and Best Practices for Standardizing the Pre-Analytical Processing of Blood and Urine Samples in Metabolomics. Metabolites 2020",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Stevens",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Hoover",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Zanetti",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Gonza\u013aez-Dom\u00ednguez",
+                    "suffix": ""
+                },
+                {
+                    "first": "A\u0301",
+                    "middle": [],
+                    "last": "Gonza\u013aez-Dom\u00ednguez",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sayago",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "9",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/metabo10060229"
+                ]
+            }
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Precision High-Throughput Proton NMR Spectroscopy of Human Urine, Serum, and Plasma for Large-Scale Metabolic Phenotyping",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Dona",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Jime\u0144ez",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Schafer",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Humpfer",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Spraul",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Lewis",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "T M"
+                    ],
+                    "last": "Pearce",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Holmes",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Lindon",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Anal. Chem",
+            "volume": "86",
+            "issn": "19",
+            "pages": "9887--9894",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/ac5025039"
+                ]
+            }
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "750 MHz 1H and 1H-13C NMR Spectroscopy of Human Blood Plasma",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "J D"
+                    ],
+                    "last": "Foxall",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Spraul",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Farrant",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Lindon",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "",
+            "volume": "67",
+            "issn": "",
+            "pages": "793--811",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/ac00101a004"
+                ]
+            }
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "MetaboMate software packages",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Kimhofer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Probabilistic Quotient Normalization as Robust Method to Account for Dilution of Complex Biological Mixtures. Application In1H NMR Metabonomics",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Dieterle",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ross",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Schlotterbeck",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Senn",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Anal. Chem",
+            "volume": "",
+            "issn": "13",
+            "pages": "4281--4290",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/ac051632c"
+                ]
+            }
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Principal Component Analysis",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wold",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Esbensen",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Geladi",
+                    "suffix": ""
+                }
+            ],
+            "year": 1987,
+            "venue": "Chemom. Intell. Lab. Syst",
+            "volume": "2",
+            "issn": "1\u22123",
+            "pages": "37--52",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/0169-7439(87)80084-9"
+                ]
+            }
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "Analysis: Combining the Strengths of PLS-DA and SIMCA Classification",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Bylesjo",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Rantalainen",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Cloarec",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Holmes",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Trygg",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Discriminant",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "J. Chemom",
+            "volume": "20",
+            "issn": "8",
+            "pages": "341--351",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/cem.1006"
+                ]
+            }
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Ward's Hierarchical Agglomerative Clustering Method: Which Algorithms Implement Ward's Criterion?",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Murtagh",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Legendre",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "J. Classif",
+            "volume": "31",
+            "issn": "3",
+            "pages": "274--295",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s00357-014-9161-z"
+                ]
+            }
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Stability and Inactivation of SARS Coronavirus",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Rabenau",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Cinatl",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Morgenstern",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Bauer",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Preiser",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Doerr",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "Med. Microbiol. Immunol",
+            "volume": "194",
+            "issn": "1\u22122",
+            "pages": "1--6",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s00430-004-0219-0"
+                ]
+            }
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "Heat Inactivation of the Middle East Respiratory Syndrome Coronavirus. Influenza Other Respir",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Leclercq",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Batejat",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Burguiere",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Manuguerra",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Viruses",
+            "volume": "8",
+            "issn": "5",
+            "pages": "585--586",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/irv.12261"
+                ]
+            }
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Influence of Different Inactivation Methods on Severe Acute Respiratory Syndrome Coronavirus 2 RNA Copy Number",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Xing",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J. Clin. Microbiol",
+            "volume": "2020",
+            "issn": "8",
+            "pages": "958--978",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/JCM.00958-20"
+                ]
+            }
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "1H NMR Studies on Protein Binding of Histidine, Tyrosine and Phenylalanine in Blood Plasma",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Gartland",
+                    "suffix": ""
+                }
+            ],
+            "year": 1989,
+            "venue": "NMR Biomed",
+            "volume": "2",
+            "issn": "2",
+            "pages": "77--82",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/nbm.1940020207"
+                ]
+            }
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "Standard Operating Procedures for Pre-Analytical Handling of Blood and Urine for Metabolomic Studies and Biobanks",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Bernini",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Bertini",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Luchinat",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Nincheri",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Staderini",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Turano",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "J. Biomol. NMR",
+            "volume": "49",
+            "issn": "3\u22124",
+            "pages": "231--243",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s10858-011-9489-1"
+                ]
+            }
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "Human plasma stability during handling and storage: impact on NMR metabolomics",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Pinto",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Domingues",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Galhano",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Pita",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Almeida",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Carreira",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Gil",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Analyst",
+            "volume": "139",
+            "issn": "5",
+            "pages": "1168--1177",
+            "other_ids": {
+                "DOI": [
+                    "10.1039/C3AN02188B"
+                ]
+            }
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "Human Metabolic Phenotype Diversity and Its Association with Diet and Blood Pressure",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Daviglus",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Kesteloot",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Ueshima",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nicholson",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Elliott",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Nature",
+            "volume": "453",
+            "issn": "7193",
+            "pages": "396--400",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/nature06882"
+                ]
+            }
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "Standard Operating Procedures for Serum and Plasma Collection: Early Detection Research Network Consensus Statement Standard Operating Procedure Integration Working Group",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Tuck",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Chan",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Chia",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Godwin",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Grizzle",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Krueger",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Rom",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Sanda",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Sorbara",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Stass",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Brenner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Journal of Proteome Research",
+            "volume": "8",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.jproteome.0c00537?ref=pdf"
+                ]
+            }
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Experimental design for evaluating the storage and treatment methods on blood plasma with fully quantitative lipoprotein analysis and comparative pattern recognition analysis for metabolites.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "kg/L) and VLDL subfractions into 5 density classes. A full list of the 112 lipoprotein annotation subfractions and parameters is produced in",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "was applied to the computed Pearson's correlation matrix of all 112 lipoproteins and subfractions. This was performed separately for the healthy control group and SARS-CoV-2 patients. For further information on statistical testing, see Supporting Information. \u25a0 RESULTS AND DISCUSSION The effects of storage and treatment on the biochemical profile of the plasma and serum were assessed for the standard solvent and the CPMG spin\u2212echo spectral data sets and for the quantified lipoprotein panel. From the PCA scores plot incorporating all the samples (Figure 2A) the biological interindividual variation exceeded all types of analytical variation. Interindividual variation mostly dominated the first principal component (PC) and accounted for 35.9% (Figure 2a and b) in the 1D spectral data set, 21.3% for the CPMG data set(",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "PCA scores plot constructed from 1D spectra obtained from modeling all experimental conditions together. The coordinates are colored according to (A) the type of collection tube with symbols representing the sample storage/treatment and; (B) four selected individuals to illustrate the influence of interindividual variation on the variance explained in PC1. The samples to the right of the arbitrary red dashed line in panel A were mostly obtained from samples pre-and postheating to 56\u00b0C for SARS-CoV-2 infected individuals.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "Scatter plots for the (A) 1D; (B) CPMG; and (C) lipoprotein data sets. Vectors indicate mean group trends after PCA score normalization to remove the effect of interindividual variation for any given experimental condition. Thus, the heated data are expressed as the difference from the reference comparator; nonheated samples; storage time at all temperatures are referenced to time 0, and freeze\u2212thaw cycles are expressed as the difference from a single freeze\u2212thaw cycle (FT1",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "(A) PCA scores plot constructed from quantified lipoprotein parameters pre-and postheating for plasma samples obtained from healthy (blue) and SARS-CoV-2 infected (red) participants showing heat-related shift in composition and differentiation of infected and healthy individuals; (B) Adjusted PCA scores plot mapping the difference between heated and nonheated samples; showing a differential effect of heat treatment on the infected and healthy groups; (C) OPLS-DA scores and (D) loadings plot of the difference between heated and nonheated samples. A full list of the lipoprotein subclasses is produced inTable S2. external to the Hotelling's T ellipse in the bottom right quadrant ofFigure 2mostly related to samples obtained from individuals infected with the COVID-19 virus, which exerted a strong impact on the scores structure and clustering.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "In contrast 14 lipoproteins (LDFC; LDPL; L2PN; L2AB; L3AB; L3PL; L3PN; L4AB; L4FC; L4CH; L4PL; L4PN; H3PL; and V5CH) became statistically significant in the comparison between the control and SARS-CoV-2 groups after heating, representing false positive discriminators or artifactual pseudobiomarkers. Of the 37 significant SARS-2 \"biomarkers\", only 12 (HDA2; HDFC; H1A1; H1PL; H3A1; H4A2; H4PL; TPA2; ABA1; L1FC; L2CH; and L2PL)",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": "Correlation map of a subset of the 112 quantified lipoprotein parameters in (A) nonheated plasma and (B) heated plasma obtained from healthy participants clustered according to LDL and VLDL particles. In comparison of the nonheated and heated correlation maps, it shows the disruptive effect of heating on the intercorrelations of lipoprotein particles. The full correlation matrices are provided in the Supporting Information (Figure S4).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF8": {
+            "text": "Temporal stability of quantified values for the seven main lipoprotein parameters and two derived ratios for plasma samples obtained from five individuals analyzed within 1 h collection (t = 0), and stored over 4\u00b0C for 5, 24, 48, 72, and 168 h.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF9": {
+            "text": "S8. Temporal stability of quantified values for the seven main lipoprotein parameters and two derived ratios for plasma samples obtained from five individuals and stored for 48 h at 20\u00b0C. Figures S9: Temporal stability of (A) IDTG; and (B) L6CH showing instability at room temperature at 48 h post collection.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF2": {
+            "text": "Exemplar studies investigating the effects of sample collection and handling on the plasma/serum metabolic profiles. Tables S2: Annotation of the keys used by the Bruker IVDr lipoprotein subclass analysis (B.I.-LISA) method. Tables S3: Comparison of the median concentration of 112 quantified plasma lipoprotein particles obtained pre-and postheating at 56\u00b0C for 30 min in healthy and SARS-CoV-2 infected individuals. Table S4: Comparison of 112 quantified plasma lipoprotein particles obtained from nonheated samples of healthy (N = 8) and SARS-CoV-2 infected (N = 7) together with the corresponding heated samples (XLSX)",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": []
+}

@@ -1,0 +1,3742 @@
+{
+    "paper_id": "0a6c4b2a1d4453a99f93791ae6d6c5208753f7bc",
+    "metadata": {
+        "title": "Synthetic repurposing of drugs against hypertension: a datamining method based on association rules and a novel discrete algorithm",
+        "authors": [
+            {
+                "first": "Yosef",
+                "middle": [],
+                "last": "Masoudi-Sobhanzadeh",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "Laboratory of Systems Biology and Bioinformatics (LBB)",
+                    "institution": "University of Tehran",
+                    "location": {
+                        "settlement": "Tehran",
+                        "country": "Iran"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Ali",
+                "middle": [],
+                "last": "Masoudi-Nejad",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "Laboratory of Systems Biology and Bioinformatics (LBB)",
+                    "institution": "University of Tehran",
+                    "location": {
+                        "settlement": "Tehran",
+                        "country": "Iran"
+                    }
+                },
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Background: Drug repurposing aims to detect the new therapeutic benefits of the existing drugs and reduce the spent time and cost of the drug development projects. The synthetic repurposing of drugs may prove to be more useful than the single repurposing in terms of reducing toxicity and enhancing efficacy. However, the researchers have not given it serious consideration. To address the issue, a novel datamining method is introduced and applied to repositioning of drugs for hypertension (HT) which is a serious medical condition and needs some improved treatment plans to help treat it. Results: A novel two-step data mining method, which is based on the If-Then association rules as well as a novel discrete optimization algorithm, was introduced and applied to the synthetic repurposing of drugs for HT. The required data were also extracted from DrugBank, KEGG, and DrugR+ databases. The findings indicated that based on the different statistical criteria, the proposed method outperformed the other state-of-the-art approaches. In contrast to the previously proposed methods which had failed to discover a list on some datasets, our method could find a combination list for all of them. Conclusion: Since the proposed synthetic method uses medications in small dosages, it might revive some failed drug development projects and put forward a suitable plan for treating different diseases such as COVID-19 and HT. It is also worth noting that applying efficient computational methods helps to produce better results.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Hypertension (HT) is a long-term medical condition, in which blood circulates anomalously through the vessels. In terms of the nature of HT, the patients are divided into two groups, which are as follows [1] :",
+            "cite_spans": [
+                {
+                    "start": 204,
+                    "end": 207,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Background"
+        },
+        {
+            "text": "i) The Primary HT: some genetic factors as well as unhealthy lifestyles such as having a salty diet, smoking, drinking alcohol, stresses and strains, overweight etc. [2] all have an important role in inducing HT. More than 90% of the hypertensive patients who are mostly adults, are placed in this category. ii) The Secondary HT: some medical conditions such as the chronic kidney illnesses might also give rise to HT [3] . Less than 10% of the patients, whose HT may be reduced through treating the main condition [4] , are placed in this group.",
+            "cite_spans": [
+                {
+                    "start": 166,
+                    "end": 169,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 418,
+                    "end": 421,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 515,
+                    "end": 518,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Background"
+        },
+        {
+            "text": "According to the world health organization, about 1.3 billion people around the world, which is a remarkable number, suffer from HT [5] . Most of these patients who are from the low and middle-paid countries [6] , need some proper therapeutic plans such as drug repurposing methods which could yield the desired effect [7] . Drug repurposing or drug repositioning process, which may be the best option to treat diseases, brings about some big advantages as follows: First, it may make the finding treatment plan against HT a cost-effective and time-saving process. Second, it might be useful in treating both the orphan and rare HT diseases such as COVID-19, considering the fact that drug companies cannot afford to develop new molecular entities or cannot develop a suitable medication in a reasonable time order. Third, it might prove that the existing drugs have many hidden medical benefits in treating HT, in view of the fact that such advantages have not been detected before.",
+            "cite_spans": [
+                {
+                    "start": 132,
+                    "end": 135,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 208,
+                    "end": 211,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 319,
+                    "end": 322,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Background"
+        },
+        {
+            "text": "Beside taking advantage of drug repurposing, The synthetic repurposing of Drugs, in which instead of recommending a specific drug, a combination of two or more medicines is prescribed, might yield various advantages as follows:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Background"
+        },
+        {
+            "text": "i) It might lessen the medicines' toxicity through applying them in small doses [8] , which in turn can lead to reviving the previous drug development projects which have failed due to facing some biological problems such as bioavailability or large amounts of toxicity. ii) It may increase the effectualness of drugs and yield some better treatment methods. In contrast to a single therapy, a proper combination of drugs can produce much better synergic effect and have more control over the disease. However, the drug-drug adverse reactions are considered to be the main challenge in front of the researchers [9] . iii) It may pave the way for developing a new research branch of drug repurposing and expanding the drug usages in a wide range of diseases [10] , which in turn can help pharmaceutical companies or pharmacologists determine the doses of drugs and address their technical issues. iv) The results obtained from the synthetic repurposing of drugs may also be applied to a combination therapy, in which a drug can increase the effectualness of one particular drug when combined with it [11] . There is a marked difference between the synthetic treatment and combination therapy concepts. The first one is based on a synthesis of different drugs instead of a given medication, whereas the second one combines one or more medications with a given drug [12] . In other words, in the synthetic repurposing method, a combination of two drugs (A and B) is used instead of a given drug (C), whereas in the combination therapy, a combination of a given drug (C) and another drug (E) is being used.",
+            "cite_spans": [
+                {
+                    "start": 80,
+                    "end": 83,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 611,
+                    "end": 614,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 757,
+                    "end": 761,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 1099,
+                    "end": 1103,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 1363,
+                    "end": 1367,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Background"
+        },
+        {
+            "text": "The present study aims to introduce the synthetic repurposing of drugs as a useful approach to treat various diseases such as HT. For this purpose, a novel datamining method, which is based on our proposed algorithm and the association rules, is presented. The approach employed to conducting the research, consists of two main parts as follows: First, the If-Then association rules are applied to a large volume of data to extract information about the drug-target interactions, the drug-drug adverse reactions, and the drug-diseases data. Second, the discrete version of the proposed discrete algorithm (Trader) [13] is introduced and used to discover the synthetic lists which might be useful in controlling HT.",
+            "cite_spans": [
+                {
+                    "start": 614,
+                    "end": 618,
+                    "text": "[13]",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Background"
+        },
+        {
+            "text": "In the present study, the related works on the repurposing of drugs are examined and categorized from a computational perspective, which are listed as follows:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Background"
+        },
+        {
+            "text": "i) The machine learning-based researches: in these researches, the existing data are examined to discover the relationship between inputs and outputs [14] . Overall, until recently, three types of machine learning methods, including supervised, semi-supervised, and unsupervised have been applied to the scope of drug discovery processes [15] . It has been also shown that some modified and improved versions of the present approaches such as deep neural networks could yield better predictive models [16] , and overfitting and insufficient amounts of data have been the main challenges in front of the researchers who have been engaged in generating an appropriate predictive model [17] [18] [19] . ii) The theory-based researches: normally, researchers formulate the relationship among the biological entities based on the numerical and experimental experiences [20, 21] . For this purpose, they have proposed many mathematical equations to calculate the drugs' structural similarities [22, 23] and based on the similarity score, they have examined the role of the analogous drugs in treating diseases [24] . The fact that the drugs with similar structures (scores) might be replaced with one another, is of the utmost importance. However, it has been reported that the theorybased methods are not applicable to the most projects and to qualify, they need to meet some other criteria [25] . iii) The graph and network theory-based researches: these studies employ a graph or a network to show the communication among the biological components [26] . For this purpose, first the graph algorithms are applied to the generated network [27, 28] , and then the hidden relations are detected [29] . Although these techniques are confronted with minimal validity challenges and can produce significant results, they are not applicable to the most drug repurposing cases because the biological elements act according to the hypergraph concepts [30, 31] . iv) The text mining-based researches: in these studies, different algorithms are applied to delve into a massive volume of raw data and gather the desired ones [32] . The prevalent drug repositioning strategies which are employed to apply this approach, are as follows: K-means, KNN, the association rules, and optimization algorithms [33, 34] . For best results, it is essential to organize the data effectively and apply the state-of-the-art algorithms. Our proposed method, which employs both the association rules (If-Then) [35] and the novel discrete algorithm (Trader), fits into this category of the related works. v) The ensemble method-based researches: in such research projects, various techniques are combined in several different ways [36] to generate an efficient tool for predicting and discovering the hidden benefits of the drugs [37] . For example, some researchers have mixed different aspects of the computational methods to obtain a suitable predictive model [38] [39] [40] . However, from the biological perspective, it has been shown that the simple techniques are sometimes better than the complex ones [41] , and the ensemble methods' overfitting possibilities might be more than the other approaches'.",
+            "cite_spans": [
+                {
+                    "start": 150,
+                    "end": 154,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 338,
+                    "end": 342,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 501,
+                    "end": 505,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 683,
+                    "end": 687,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 688,
+                    "end": 692,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 693,
+                    "end": 697,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 864,
+                    "end": 868,
+                    "text": "[20,",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 869,
+                    "end": 872,
+                    "text": "21]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 988,
+                    "end": 992,
+                    "text": "[22,",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 993,
+                    "end": 996,
+                    "text": "23]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 1104,
+                    "end": 1108,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 1386,
+                    "end": 1390,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 1545,
+                    "end": 1549,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 1634,
+                    "end": 1638,
+                    "text": "[27,",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 1639,
+                    "end": 1642,
+                    "text": "28]",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 1688,
+                    "end": 1692,
+                    "text": "[29]",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 1938,
+                    "end": 1942,
+                    "text": "[30,",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 1943,
+                    "end": 1946,
+                    "text": "31]",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 2109,
+                    "end": 2113,
+                    "text": "[32]",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 2284,
+                    "end": 2288,
+                    "text": "[33,",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 2289,
+                    "end": 2292,
+                    "text": "34]",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 2477,
+                    "end": 2481,
+                    "text": "[35]",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 2697,
+                    "end": 2701,
+                    "text": "[36]",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 2796,
+                    "end": 2800,
+                    "text": "[37]",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 2929,
+                    "end": 2933,
+                    "text": "[38]",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 2934,
+                    "end": 2938,
+                    "text": "[39]",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 2939,
+                    "end": 2943,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                },
+                {
+                    "start": 3076,
+                    "end": 3080,
+                    "text": "[41]",
+                    "ref_id": "BIBREF40"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Background"
+        },
+        {
+            "text": "The newly proposed method for the synthetic repurposing of drugs was implemented in the MATLAB programming language and then compared with the four state-of-theart algorithms, including the discrete symbiotic optimization search (DSOS) [42] , the forest optimization algorithm (FOA) [43] , the world competitive contests algorithm (WCC) [44] , and the cuckoo optimization (CUK) algorithm [45] . Afterwards, the above-mentioned state-of-the-art algorithms were applied to the generated datasets which have been presented in Table 1 . Next, some candidate medicines were selected from medications which have been suggested for use in controlling HT by the different proposed treatment methods. In the datasets, there exist three pieces of information about every drug, which are as follows: i) the total number of a drug's targets, including the main targets and the side effects, ii) the total number of a drug's targets which are effective in controlling hypertension, and (iii) the total number of the drugs which have a target in common with one of the main targets of the specified drug. For instance, in the case of Nicardipine which interacts with 15 targets, only 4 targets play a key role in treating hypertension, and the remaining 11 targets are regarded as just some side effects. There are also 40 drugs which have at least an interaction with the main targets of Nicardipine. The present study aims to substitute a specified drug such as Nicardipine with an optimal subset of drugs which help control hypertension. The results obtained from applying the algorithms to the datasets have been divided into two categories, which are as follows:",
+            "cite_spans": [
+                {
+                    "start": 236,
+                    "end": 240,
+                    "text": "[42]",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 283,
+                    "end": 287,
+                    "text": "[43]",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 337,
+                    "end": 341,
+                    "text": "[44]",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 388,
+                    "end": 392,
+                    "text": "[45]",
+                    "ref_id": "BIBREF44"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 523,
+                    "end": 530,
+                    "text": "Table 1",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "i) In the first class of evaluations, the performance of the algorithms was examined in terms of convergence, stability, and some statistical criteria such as the P-value, the standard deviation (STD). The stochastic operations of the optimization algorithms generate various results in their different runs. For this reason, each algorithm was individually executed 50 times, and then the generated data were analyzed. Each algorithm was executed under similar circumstances and invoked the same number of the score functions. Figure 1 represents the convergence of the algorithms on the generated datasets. The horizontal and vertical axes show the iteration number and the best-obtained score, respectively. When the size of the problem or the candidate drugs is small, most of the algorithms can choose the TNT The total number of targets, TNMT The total number of main targets, TNC The total number of candidates Fig. 2 The stability behavior of the algorithms on the generated dataset. The stability of the algorithms on the a Trandolapril, b Atenolol, c Carteolol, d Nicardipine, e Felodipine, f Nifedipine, g Nisoldipine, h Doxazosin, and i Prazosin datasets. Trader is remarkably more stable than the others and delivers better results on the datasets except for Trandolapril and Nicardipine. Moreover, Trader's performance is better than the others' because the performance of the other algorithms lowers through increasing the total number of candidate drugs best possible subset of medicines to cure HT. However, both their performance and their convergence are reduced when the total number of the candidate drugs rises, which in turn can lead to their failure to acquire the best answer to the synthetic repurposing of drugs. For instance, Although the FOA algorithm has acquired the best solution to the Trandolapril dataset, it does not produce the best synthetic medicines on the remaining datasets and therefore falls into the local optima solutions.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 528,
+                    "end": 536,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 918,
+                    "end": 924,
+                    "text": "Fig. 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "The principles of the meta-heuristic algorithms are approximately the same. For instance, these algorithms generate some random potential answers to a problem and, then, try to improve them based on some random operations [46] . Therefore, they must be executed at least 30 times, and their performance should be evaluated based on the produced data [47] . An algorithm which can yield very similar results in disparate runs, is more stable than the others and consequently, its generated outcomes should be better than the others'. Figure 2 demonstrates the algorithms' stability on the created datasets in 50 distinct executions.",
+            "cite_spans": [
+                {
+                    "start": 222,
+                    "end": 226,
+                    "text": "[46]",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 350,
+                    "end": 354,
+                    "text": "[47]",
+                    "ref_id": "BIBREF46"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 533,
+                    "end": 541,
+                    "text": "Figure 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "In Fig. 2 , the horizontal and vertical axes present the number of runs and the bestobtained score values, respectively. Since all of the algorithms produce the best possible results on Trandolapril in all of their executions, the generated results overlap. The stability of each algorithm will differ from that of the other ones as the number of the candidate drugs increases. Overall, Trader, WCC, DSOS, FOA, and CUK, respectively are the best algorithms in terms of the stability power. Table 2 , which shows the algorithms' performance on the generated datasets in 50 distinct executions, has been provided to examine the functionality of the algorithms accurately. For different executions, this table presents the following information: (i) the worst results of the algorithms, (ii) the best results of the algorithms, (iii) the average value of the results, (iv) The p-value which indicates how much the algorithms' results is produced by chance, (v) the standard deviation (STD) of the results, and (vi) the confidence interval (CI) which indicates a range in which the outcomes of the algorithms are expected to be obtained. Due to falling into the local optima solutions, the value of STD is higher than the other algorithms' value on some datasets. For instance, the DSOS algorithm does not show stable behavior in finding a potential answer to the problem as the size of the problem increases.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 3,
+                    "end": 9,
+                    "text": "Fig. 2",
+                    "ref_id": null
+                },
+                {
+                    "start": 490,
+                    "end": 497,
+                    "text": "Table 2",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "Every algorithm's performance on the Trandolapril dataset is the same as the other algorithms'. Also, The best results obtained from applying both Trader and the WCC algorithm on the Atenolol and Nicardipine datasets are alike. The WCC algorithm's best-obtained score on the Felodipine dataset is better than the other algorithms'. In the case of the newly introduced algorithm (Trader), its best-acquired outcomes are very similar to the WCC algorithm's on the Felodipine dataset. Compared to the other algorithms, Trader has better performance on the remaining datasets. Table 3 summarizes the data presented in Table 2 and makes a comprehensive comparison among the algorithms. This Table shows that compared to the other methods, the newly proposed method is the most suitable option for the synthetic repositioning of drugs.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 573,
+                    "end": 580,
+                    "text": "Table 3",
+                    "ref_id": "TABREF4"
+                },
+                {
+                    "start": 614,
+                    "end": 621,
+                    "text": "Table 2",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "To make a comparison among the algorithms, their performance was examined based on the Wilcoxon statistical test [48] . For the purpose of this comparison, the results of the proposed algorithm (Trader) which were regarded as the test base, were compared with the other algorithms' outcomes ( Table 4) . As mentioned earlier, the p-value in Table 2 shows what amount of the results of the algorithms is produced randomly, but the p-value in Table 4 demonstrates whether the proposed algorithm's performance is the same as or more efficient than the others' performance. For the purpose of comparing the proposed algorithm with an algorithm, named A, we considered the following hypotheses:",
+            "cite_spans": [
+                {
+                    "start": 113,
+                    "end": 117,
+                    "text": "[48]",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 293,
+                    "end": 301,
+                    "text": "Table 4)",
+                    "ref_id": "TABREF3"
+                },
+                {
+                    "start": 341,
+                    "end": 348,
+                    "text": "Table 2",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 441,
+                    "end": 448,
+                    "text": "Table 4",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "H 0 : The performance of the proposed algorithm is the same as the performance of A. H 1 : The performance of the proposed algorithm is more efficient than the performance of A.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "If the p-value is less than 0.05, H 0 will be rejected and H 1 will be accepted. Otherwise, H 0 will be accepted, and H 1 will be rejected.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "ii) In the second part of the results, the outcomes of the algorithm are discussed from the drug synthetic repurposing aspect. For the selected drugs against HT, Table 5 demonstrates a list of drugs which may be replaced with a given drug.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 162,
+                    "end": 169,
+                    "text": "Table 5",
+                    "ref_id": null
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "Trandolapril which is used for treating the minor HT, is a molecule which blocks the angiotensin-converting enzyme's activity (ACE) [49] . This medication can interact with Table 5 The synthetic repurposing of drugs for the HT ACE whose involvement in regulating the rate of fluids in the body makes it capable of controlling HT. As shown in Table 5 , all of the algorithms have proposed a drug with a few side effects, which may be replaced with Trandolapril. Atenolol, which is used to cure the abnormal rhythm of heartbeats, is a beta-blocker. Like Trandolapril, it interacts with ACE [50]. Once again, all of the algorithms have suggested a drug which can be replaced with Atenolol, as in Trandolapril's case. However, the proposed drugs have a number of side effects and may produce some undesired effects on the body. Trader, WCC, and DSOS managed to find some substitutes without side effects and therefore are better than FOA and CUK. Since Carteolol acts against the beta-2 adrenergic receptor and agonists the beta-1 adrenergic receptor [51] it can reduce the blood pressure; for this reason, it is regarded as a candidate for treating HT. All of the algorithms propose a list of drugs, but both their lists and their costs differ. Compared to the other algorithms, both Trader and WCC algorithm have produced a proper result based on the score function.",
+            "cite_spans": [
+                {
+                    "start": 132,
+                    "end": 136,
+                    "text": "[49]",
+                    "ref_id": "BIBREF48"
+                },
+                {
+                    "start": 1047,
+                    "end": 1051,
+                    "text": "[51]",
+                    "ref_id": "BIBREF49"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 173,
+                    "end": 180,
+                    "text": "Table 5",
+                    "ref_id": null
+                },
+                {
+                    "start": 342,
+                    "end": 349,
+                    "text": "Table 5",
+                    "ref_id": null
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "Nicardipine, which is a calcium channel blocker, controls the blood pressure [52] . CUK and FOA could not propose some candidate drugs which can be replaced with Nicardipine. While Trader yielded two lists which can be replaced with Nicardipine, WCC and DSOS proposed just a synthetic list instead of Nicardipine. Based on the score function, all of the lists have an identical value and may be a suitable option for treating HT.",
+            "cite_spans": [
+                {
+                    "start": 77,
+                    "end": 81,
+                    "text": "[52]",
+                    "ref_id": "BIBREF50"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "Felodipine is capable of controlling the blood pressure by blocking the calcium channels, so it can be a proper option for curing both the mild and minor HT [53] . To treat HT, instead of proposing Felodipine, algorithms have acquired a list of medications which include Pinaverium. Trader's suggested list has the best score value compared to the lists proposed by the other ones.",
+            "cite_spans": [
+                {
+                    "start": 157,
+                    "end": 161,
+                    "text": "[53]",
+                    "ref_id": "BIBREF51"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "Nifedipine and Nisoldipine slow down the penetration of calcium into the heart cells and vessel walls [54] . As a result, heart can pump blood around the body and widen the blood vessels efficiently. All of the algorithms except Trader have failed to discover candidates which can be used instead of Nifedipine and Nisoldipine. In this case, Trader puts forward one or two possible lists.",
+            "cite_spans": [
+                {
+                    "start": 102,
+                    "end": 106,
+                    "text": "[54]",
+                    "ref_id": "BIBREF52"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "Doxazosin blocks the Alpha-1A, Alpha-1B, and Alpha-1D adrenergic receptors and smooths the growth of muscle cells [55] . In contrast to CUK and FOA which did not manage to detect any drug substitutes for Doxazosin, Trader, WCC, and DSOS succeeded in discovering a single-member list. Based on the score value, Trader, WCC, and DSOS, respectively can be ranked among the most functional algorithms.",
+            "cite_spans": [
+                {
+                    "start": 114,
+                    "end": 118,
+                    "text": "[55]",
+                    "ref_id": "BIBREF53"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "Prazosin works against the Alpha-1A, Alpha-1B, and Alpha-1D adrenergic receptors. In a comparison made among the results obtained from different algorithms, it is shown that to control HT, Trader has substituted three different lists for Prazosin, whereas the other algorithms have replaced Prazosin with just a two-member list. Moreover, from the score value viewpoint, Trader's proposed lists are more suitable than those suggested by the other algorithms.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "Based on the obtained results, it can be concluded that Trader (the newly introduced algorithm) is more efficient than the other state-of-the-art algorithms and proposes some better synthetic drug lists to treat HT. In addition, the results of the newly proposed drug lists by Trader have been presented in detail in Table 6 and demonstrate how similar the suggested drugs are.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 317,
+                    "end": 324,
+                    "text": "Table 6",
+                    "ref_id": "TABREF5"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "To discover the hidden applications of the existing drugs, a drug repositioning method, which is based on the newly introduced discrete optimization algorithm (Trader) and If-Then association rules, was proposed. The proposed method may reduce the toxicity of drugs and enhance their effectualness in curing diseases. To investigate the applicability of the suggested method, it was applied to the nine hypertension-related datasets, and the results were analyzed and examined from two perspectives. From the first viewpoint, it was shown that the state-of-the-art algorithms yield better outcomes than the others. The average score value and the confidence interval of the proposed algorithm (Trader) were \u2212 7.79 and [\u2212 9.05-6.52], respectively, which were remarkably better than those obtained from the other algorithms. Besides, while the proposed algorithm could detect some candidate lists for all of the datasets, the others failed to do so. For example, the other algorithms except for Trader failed to explore for the potential drugs which can be replaced with Nifedipine and Nisoldipine. From the second viewpoint, the application of the suggested drugs was examined in treating hypertension. A detailed examination of the data yielded some important results as follows: First, the proposed method succeeded in suggesting some proper substitutes for the selected drugs, which may be more useful than the current therapeutic methods in treating HT. For example, the proposed approach managed to replace Atenolol with Esmolol which belongs to a family of beta-blocker drugs and does not have any side effects [56] . As mentioned before, Atenolol can interact with two targets [57] , one of which is responsible for HT, and the next one is a side effect. The small doses of the above-mentioned drugs may combine with their substitutes and produce the desired effect. For instance, in databases, it has been reported that a combination of Trandolapril and Cilazapril might prove more useful in controlling HT [58] . Second, the proposed approach can introduce the novel applications of some drugs. For example, Pinaverium which is a first-line option for curing bowl dysfunctionality, operates as an inhibitor and antagonist of the voltage-dependent calcium channel protein [59] . Moreover, more than 60 countries are exploiting Pinaverium to treat gastrointestinal disorders. However, it still has not won approval from FDA. Pinaverium's application in controlling HT may be based on the kind of method employed in this research. Therefore, the introduced approach might especially revitalize the projects which have already failed due to the various undesired biological effects of drugs [60] . Besides, this method might be a suitable therapeutic plan for treating orphans or diseases because developing an efficient drug is both costly and time-consuming and therefore not affordable for drug companies [61] . Another introduced medication for managing HT is Dapiprazole which is an alpha-blocker agent. Dapiprazol helps to reduce the size of the pupils of the eyes in patients who suffer from mydriasis [62] . Although different studies have reported many undesired side effects of Dapiprazole and some other drugs such as Pinaverium [63] , the proposed approach aims to employ these drugs in an appropriate manner. To this end, such medications are used in small doses to decrease their undesired effects, [64] . Furthermore, a proper combination of drugs might produce a synergistic effect on treating HT [65] . A few studies have investigated the synergic effects of drugs and for this purpose, have examined some drug-drug adverse reactions. However, most of them have not been specified, yet. The machine learning approaches can help predict the drug-drug adverse reactions and introduce the most reliable synthetic candidates.",
+            "cite_spans": [
+                {
+                    "start": 1616,
+                    "end": 1620,
+                    "text": "[56]",
+                    "ref_id": "BIBREF54"
+                },
+                {
+                    "start": 1683,
+                    "end": 1687,
+                    "text": "[57]",
+                    "ref_id": "BIBREF55"
+                },
+                {
+                    "start": 2014,
+                    "end": 2018,
+                    "text": "[58]",
+                    "ref_id": "BIBREF56"
+                },
+                {
+                    "start": 2279,
+                    "end": 2283,
+                    "text": "[59]",
+                    "ref_id": "BIBREF57"
+                },
+                {
+                    "start": 2695,
+                    "end": 2699,
+                    "text": "[60]",
+                    "ref_id": "BIBREF58"
+                },
+                {
+                    "start": 2912,
+                    "end": 2916,
+                    "text": "[61]",
+                    "ref_id": "BIBREF59"
+                },
+                {
+                    "start": 3113,
+                    "end": 3117,
+                    "text": "[62]",
+                    "ref_id": "BIBREF60"
+                },
+                {
+                    "start": 3244,
+                    "end": 3248,
+                    "text": "[63]",
+                    "ref_id": "BIBREF61"
+                },
+                {
+                    "start": 3417,
+                    "end": 3421,
+                    "text": "[64]",
+                    "ref_id": "BIBREF62"
+                },
+                {
+                    "start": 3517,
+                    "end": 3521,
+                    "text": "[65]",
+                    "ref_id": "BIBREF63"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "A novel discrete algorithm, named Trader, was introduced for the synthetic repurposing of drugs. This method can resume most of the failed drug discovery projects and might be the most suitable option for treating the orphan and rare diseases. The proposed approach takes account of the various aspects of the synthetic repositioning of medications, including the drugs' mechanism of action on targets, the drug-drug adverse reactions, and the total number of side effects. Based on the obtained results, it can be concluded that the-state-of-the-art algorithms yield better results and show more suitable performance in comparison to the others. Furthermore, the literature findings validate the functionality of the proposed method and suggest several synthetic repurposing lists to reduce hypertension.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        },
+        {
+            "text": "A two-step datamining method was proposed to discover drugs that might be useful in treating HT. In the first step, based on the If-Then rules, it was determined which drugs may inhibit or prevent the targets inducing HT. In the second step, an optimal subset of the candidate drugs whose combinations may be helpful to treat HT, was selected by the proposed discrete optimization algorithm (Trader). Figure 3 presents the framework of the proposed method. The first part of the proposed approach includes a number of steps which are as follows:",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 401,
+                    "end": 409,
+                    "text": "Figure 3",
+                    "ref_id": null
+                }
+            ],
+            "section": "Methods"
+        },
+        {
+            "text": "i) Obtaining the data: data on the drugs and their different targets were extracted from DrugR+ (version 2019.11) [66] , which is a relational database and integrates DrugBank (version 5.0) [67] and KEGG (version September 1, 2019) [68] databases. DrugR+ database provides an online tool that takes a drug and suggests some potential drugs which can be substituted for the first one [69] . Meanwhile, DrugR+ has an advanced search section in which users can state their SQL queries and download the results immediately. In selecting the datasets, the size of the data and the various treatment properties of drugs have been considered. ii) Constituting the drug-disease (D-DI) matrix: based on the downloaded data, a binary matrix, named DDI, and incorporated drugs-diseases relationships, was formed using Eq. (1).",
+            "cite_spans": [
+                {
+                    "start": 114,
+                    "end": 118,
+                    "text": "[66]",
+                    "ref_id": "BIBREF64"
+                },
+                {
+                    "start": 190,
+                    "end": 194,
+                    "text": "[67]",
+                    "ref_id": "BIBREF65"
+                },
+                {
+                    "start": 232,
+                    "end": 236,
+                    "text": "[68]",
+                    "ref_id": "BIBREF66"
+                },
+                {
+                    "start": 383,
+                    "end": 387,
+                    "text": "[69]",
+                    "ref_id": "BIBREF67"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "Where i and j indicate a drug and a disease, respectively. The total number of drugs and diseases are 13,251 and 3318, respectively. Fig. 3 The framework of the proposed method. In the first step, the desired data are obtained from DrugR+ database. Next, drug-disease (D-DI), drug-target (D-T), and drug-drug-adverse reaction (D-D AR) matrices are formed. Drugs which can affect the HT inducing targets, are acquired based on the If-then rules. In the second step, the proposed optimization algorithm (Trader) is used to select a combination of drugs for the repurposing of medications for HT iii) Constituting the drug-target (D-T) matrix: this matrix shows whether a drug affects a target or not. The extracted data show that there are four classes of drugtarget effects, including (a) agonizing, (b) antagonizing, (c) inhibiting, and (d) inducing. The targets whose total numbers were 4893, consisted of both proteins and enzymes. The DT matrix was formed using Eq. (2) . ",
+            "cite_spans": [
+                {
+                    "start": 969,
+                    "end": 972,
+                    "text": "(2)",
+                    "ref_id": "BIBREF1"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 133,
+                    "end": 139,
+                    "text": "Fig. 3",
+                    "ref_id": null
+                }
+            ],
+            "section": "Methods"
+        },
+        {
+            "text": "v) Mining: during every stage of the process, we employed the DT and DDI matrices to extract some information which were used as the input of the discrete optimization algorithm (Trader). In the first part of the proposed method, different targets of blood pressure along with their effects (inhibiting, inducing, agonizing, and antagonizing) are determined and placed in a set named HT_TARGETS. Equation (4) presents the mentioned set as follow:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "Where n, T i , and R i are the total number of the obtained targets, the i th target, and the effect which leads to high blood pressure, respectively.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "Furthermore, another set, named DRUGS, was created for drugs that directly interact with the HT_TARGETS collection and exert exactly the same impact on the targets. For instance, both the Angiotensin II and Candesartan drugs interact with the Type-1 angiotensin II receptor. However, Angiotensin II affects the mentioned target as an agonist whereas Candesartan affects it as an antagonist. Therefore, Angiotensin II is ignored because its function is not exactly the same as Candesartan's.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "In this study, the interaction between a drug such as D and a target such as T (protein (P) and an enzyme (E)) is presented by \"\u2794\". The effect of D on T and the cause of hypertension due to T are shown by F(D,T) and F(HT,T), respectively. Next, the following rules are applied to all of the existing drugs, and the candidate drugs are added to the DRUGS set. a) IF D T && F(D,T) = F(HT,T) THEN D may be useful for controlling HT b) IF E P && F(E,P) = F(HT,P) THEN The drug, which interacts with E, may be useful for controlling HT c) IF P E && F(E,P) = F(HT,E) THEN The drug, which interacts with P, may be useful for controlling HT d) IF P 1 P 2 && F(P 1 ,P 2 ) = F(HT,P 2 ) THEN The drug, which interacts with P 1 , may be useful for controlling HT e) IF E 1 E 2 && F(E 1 ,E 2 ) = F(HT,E 2 ) THEN The drug, which interacts with E 1 , may be useful for controlling HT.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "In the second part of the proposed method, the discrete optimization algorithm (Trader) was applied to select the optimal subsets of the obtained drugs which may reduce the pressure of blood. For this purpose, a number of steps were followed:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "i) Creating the first population of the candidate solutions (CSs): Trader begins with randomly created potential answers, which are presented by an array shown in Eq. (5).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "CS \u00bc V 1 ; V 2 ; \u2026; V m ; G; Score \u00bd \u00f0 5\u00de",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "Where V i , m, G, and Score are the i th variable, the total number of variables, the group, and the score or fitness of the CS. Every variable shows a drug whose value is set 1 or 0 for the selected and unselected drugs, respectively.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "ii) Calculating the score of the CSs: The CSs which are answers to the mentioned problem, differ widely in terms of how much they are worthy of consideration. In this study, the score is calculated using Eq. (6).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "Where m, v i , SE, and AT represent the length of a CS, the value of the i th variable (0 or 1), the total number of side effects related to the i th drug, and the total number of the covered targets which are correspondent with HT, respectively.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "iii) Grouping CSs: The total number of the groups and the total number of the traders are the same concepts, and they show a group. At the beginning of the algorithm, the total number of the members in the groups is the same, and In the next iterations, they are updated using Eq. (7).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "Where TM i , C, and T present the total number of the members in the i th group, the total number of CSs, and the total number of the traders or groups, respectively. M is a constant value (2) and guarantees that none of the groups will be eliminated during the iterations of the algorithm in each stage. The property of the i th trader is calculated using Eq. (8) .",
+            "cite_spans": [
+                {
+                    "start": 361,
+                    "end": 364,
+                    "text": "(8)",
+                    "ref_id": "BIBREF7"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "Where M and score show the total number of CSs in the i th group and the score of the related CS, respectively. In other words, the property of a group is equivalent to the sum of its CSs' scores. iv) Changing the CSs: there are three operators who change both the master and the slave CSs. As shown in Eqs. (9, 10, and 11), these operators, named retailing, distributing, and importing-exporting, try to improve the CSs. when the retailing operator is employed, the minimum number of changes will be applied to a slave-CS. The distributing operator obtains some values from the best CS of the group (the master-CS) and then, assigns them to the other CSs of the group (slave_CS). While both the distributing and retailing operators change the slave-CSs, the importing-exporting operator brings about changes in the master-CSs. The changes can be accepted in all of the operators, provided that they improve the value of a CS's score. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "Where j and m are the importer and exporter CSs, respectively. Also, the values of K and R can be measured using Eq. (9) .",
+            "cite_spans": [
+                {
+                    "start": 117,
+                    "end": 120,
+                    "text": "(9)",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "An instance of the mentioned operators has been illustrated in Fig. 4 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 63,
+                    "end": 69,
+                    "text": "Fig. 4",
+                    "ref_id": null
+                }
+            ],
+            "section": "Methods"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "P2629T cell subset imbalance in hypertension is not associated with angiotensin II levels in patients with primary and secondary hypertension",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Kaszuba",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Konior",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Mikolajczyk",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Prejbisz",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kabat",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Januszewicz",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Eur Heart J",
+            "volume": "38",
+            "issn": "suppl_1",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Hypertension in high school students: genetic and environmental factors: the HYGEF study",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Bigazzi",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zagato",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Lanzani",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Fontana",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Messaggio",
+                    "suffix": ""
+                },
+                {
+                    "first": "Delli",
+                    "middle": [],
+                    "last": "Carpini",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Hypertension",
+            "volume": "75",
+            "issn": "",
+            "pages": "71--79",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "acute and chronic kidney disease, hypertension, and cardiovascular disease: report of a scientific workshop organized by the National Kidney Foundation",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Johnson",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Bakris",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Borghi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Chonchol",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Feldman",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Lanaspa",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Am J Kidney Dis",
+            "volume": "71",
+            "issn": "",
+            "pages": "851--65",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Can treatments for hypertension be repurposed for the treatment of dementia?",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Walker",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Davies",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Kehoe",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Martin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Rev Epidemiol Sante Publique",
+            "volume": "66",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Comparative safety of drugs targeting the nitric oxide pathway in pulmonary hypertension: a mixed approach combining a meta-analysis of clinical trials and a disproportionality analysis from the world health organization pharmacovigilance database",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Khouri",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Lepelley",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Roustit",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Montastruc",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Humbert",
+                    "suffix": ""
+                },
+                {
+                    "first": "J-L",
+                    "middle": [],
+                    "last": "Cracowski",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Chest",
+            "volume": "154",
+            "issn": "",
+            "pages": "136--183",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Improving hypertension outcome measurement in low-and middle-income countries",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Zack",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Okunade",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Olson",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Salt",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Amodeo",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Anchala",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Hypertension",
+            "volume": "73",
+            "issn": "",
+            "pages": "990--997",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "New drug repurposing opportunities for hypertension uncovered by the convergence of genomics with kidney transcriptomics and epigenomics",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Saluja",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Jiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Finan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Chopade",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Eales",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Circulation",
+            "volume": "140",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Drug combination therapy increases successful drug repositioning",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Sanderson",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Zheng",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Drug Discov Today",
+            "volume": "21",
+            "issn": "",
+            "pages": "1189--95",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Therapeutic drug monitoring in IBD: the new standard-of-care for anti-TNF therapy",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Papamichael",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Cheifetz",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Am J Gastroenterol",
+            "volume": "112",
+            "issn": "",
+            "pages": "673--679",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Off-target based drug repurposing opportunities for tivantinib in acute myeloid leukemia",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Kuenzi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Llr",
+                    "middle": [],
+                    "last": "Rix",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Kunigal",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Kinose",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Knezevic",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Wright",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "MEK inhibitors and their potential in the treatment of advanced melanoma: the advantages of combination therapy",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Kloxin",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Mitra",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Cheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Maverakis",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Ogawa",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Synthesis of polyphosphazene and preparation of microspheres from polyphosphazene blends with PMMA for drug combination therapy",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Ullah",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Haroon",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Elshaarani",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Fahad",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "J Mater Sci",
+            "volume": "54",
+            "issn": "",
+            "pages": "745--64",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Trader as a new optimization algorithm predicts drug-target interactions efficiently",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Masoudi-Sobhanzadeh",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Omidi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Amanlou",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Masoudi-Nejad",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Sci Rep",
+            "volume": "9",
+            "issn": "",
+            "pages": "1--14",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Exploiting machine learning for end-to-end drug discovery and development",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ekins",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Puhl",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Zorn",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Lane",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Russo",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Klein",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Nat Mater",
+            "volume": "18",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Applications of machine learning in drug discovery and development",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Vamathevan",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Clark",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Czodrowski",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Dunham",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Ferran",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Nat Rev Drug Discov",
+            "volume": "18",
+            "issn": "",
+            "pages": "463--77",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Deep transferable compound representation across domains and tasks for low data drug discovery",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Abbasi",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Poso",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ghasemi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Amanlou",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Masoudi-Nejad",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "J Chem Inf Model",
+            "volume": "59",
+            "issn": "",
+            "pages": "4528--4567",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "The advances and challenges of deep learning application in biological big data processing",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Peng",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Peng",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Liao",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Xie",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Curr Bioinforma",
+            "volume": "13",
+            "issn": "",
+            "pages": "352--361",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "ProteinNet: a standardized data set for machine learning of protein structure",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Alquraishi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "BMC Bioinformatics",
+            "volume": "20",
+            "issn": "",
+            "pages": "1--10",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "DeepCDA: deep cross-domain compoundprotein affinity prediction through LSTM and convolutional neural networks",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Abbasi",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Razzaghi",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Poso",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Amanlou",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Ghasemi",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Masoudi-Nejad",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Bioinformatics",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Current mathematical models for cancer drug discovery",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Carrara",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Lavezzi",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Borella",
+                    "suffix": ""
+                },
+                {
+                    "first": "De",
+                    "middle": [],
+                    "last": "Nicolao",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Magni",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Poggesi",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Expert Opin Drug Discov",
+            "volume": "12",
+            "issn": "",
+            "pages": "785--99",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "RPINBASE: an online toolbox to extract features for predicting RNA-protein interactions",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Torkamanian-Afshar",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Lanjanian",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Nematzadeh",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Tabarzad",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Najafi",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Kiani",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Genomics",
+            "volume": "112",
+            "issn": "",
+            "pages": "2623--2655",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "TCM-ADMEpred: a novel strategy for poly-pharmacokinetics prediction of traditional Chinese medicine based on single constituent pharmacokinetics, structural similarity, and mathematical modeling",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Tao",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "J Ethnopharmacol",
+            "volume": "236",
+            "issn": "",
+            "pages": "277--87",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "A probabilistic approach for collective similarity-based drug--drug interaction prediction",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Sridhar",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Fakhraei",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Getoor",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Bioinformatics",
+            "volume": "32",
+            "issn": "",
+            "pages": "3175--82",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Design of efficient computational workflows for in silico drug repurposing",
+            "authors": [
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Vanhaelen",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Mamoshina",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Aliper",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Artemov",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Lezhnina",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Ozerov",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Drug Discov Today",
+            "volume": "22",
+            "issn": "",
+            "pages": "210--232",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Systematic drug repositioning for a wide range of diseases with integrative analyses of phenotypic and molecular data",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Iwata",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Sawada",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mizutani",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Yamanishi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "J Chem Inf Model",
+            "volume": "55",
+            "issn": "",
+            "pages": "446--59",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Network-based approach to prediction and population-based validation of in silico drug repurposing",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Cheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Desai",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Handy",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Schneeweiss",
+                    "suffix": ""
+                },
+                {
+                    "first": "A-L",
+                    "middle": [],
+                    "last": "Barab\u00e1si",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Nat Commun",
+            "volume": "9",
+            "issn": "",
+            "pages": "1--12",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Drug repurposing: progress, challenges and recommendations",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Pushpakom",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Iorio",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Eyers",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Escott",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Hopper",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Wells",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Nat Rev Drug Discov",
+            "volume": "18",
+            "issn": "",
+            "pages": "41--58",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Masoudi-Nejad A. mRNA--miRNA bipartite network reconstruction to predict prognostic module biomarkers in colorectal cancer stage differentiation",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Motieghader",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kouhsar",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Najafi",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Sadeghi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Mol BioSyst",
+            "volume": "13",
+            "issn": "",
+            "pages": "2168--80",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Measuring phenotype-phenotype similarity through the interactome",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Peng",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Hui",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Shang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "BMC Bioinformatics",
+            "volume": "19",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Hypergraph-based connectivity measures for signaling pathway topologies",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Franzese",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Groce",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Murali",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ritz",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "PLoS Comput Biol",
+            "volume": "15",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "3-way networks: application of hypergraphs for modelling increased complexity in comparative genomics",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Weighill",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Jacobson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "PLoS Comput Biol",
+            "volume": "11",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Literature-based discovery of new candidates for drug repurposing",
+            "authors": [
+                {
+                    "first": "H-T",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J-H",
+                    "middle": [],
+                    "last": "Ju",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y-T",
+                    "middle": [],
+                    "last": "Wong",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Shmulevich",
+                    "suffix": ""
+                },
+                {
+                    "first": "J-H",
+                    "middle": [],
+                    "last": "Chiang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Brief Bioinform",
+            "volume": "18",
+            "issn": "",
+            "pages": "488--97",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "A review on Naive Baye's (NB), J48 and K-means based mining algorithms for medical data mining",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kaur",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Gangwar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Int Res J Eng Technol",
+            "volume": "4",
+            "issn": "",
+            "pages": "1664--1672",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Recent advances and emerging applications in text and data mining for biomedical discovery",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Gonzalez",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Tahsin",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Goodale",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Greene",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Greene",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Brief Bioinform",
+            "volume": "17",
+            "issn": "",
+            "pages": "33--42",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Early anomaly detection in smart home: a causal association rule-based approach",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Hela",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Amel",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Badran",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Artif Intell Med",
+            "volume": "91",
+            "issn": "",
+            "pages": "57--71",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Computational prediction of drug-target interactions via ensemble learning",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ezzat",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "C-K",
+                    "middle": [],
+                    "last": "Kwoh",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Computational methods for drug repurposing",
+            "volume": "",
+            "issn": "",
+            "pages": "239--54",
+            "other_ids": {}
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Computational model development of drug-target interaction prediction: a review",
+            "authors": [
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Ji",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Curr Protein Pept Sci",
+            "volume": "20",
+            "issn": "",
+            "pages": "492--496",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Prediction of drug-disease associations based on ensemble meta paths and singular value decomposition",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Yue",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "BMC Bioinformatics",
+            "volume": "20",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Laying in silico pipelines for drug repositioning: a paradigm in ensemble analysis for neurodegenerative diseases",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Dovrolis",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Kolios",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Spyrou",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Maroulakou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Drug Discov Today",
+            "volume": "22",
+            "issn": "",
+            "pages": "805--818",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "FeatureSelect: a software for feature selection based on machine learning approaches",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Masoudi-Sobhanzadeh",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Motieghader",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Masoudi-Nejad",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "BMC Bioinformatics",
+            "volume": "20",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Detection of novel biomarkers for early detection of nonmuscle-invasive bladder cancer using competing endogenous RNA network analysis",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kouhsar",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Jamalkandi",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Moeini",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Masoudi-Nejad",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Sci Rep",
+            "volume": "9",
+            "issn": "",
+            "pages": "1--15",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Discrete symbiotic organisms search algorithm for travelling salesman problem",
+            "authors": [
+                {
+                    "first": "Ae-S",
+                    "middle": [],
+                    "last": "Ezugwu",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Adewumi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Expert Syst Appl",
+            "volume": "87",
+            "issn": "",
+            "pages": "70--78",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Forest optimization algorithm",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ghaemi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M-R",
+                    "middle": [],
+                    "last": "Feizi-Derakhshi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Expert Syst Appl",
+            "volume": "41",
+            "issn": "",
+            "pages": "6676--87",
+            "other_ids": {}
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "World Competitive Contests (WCC) algorithm: a novel intelligent optimization algorithm for biological and non-biological problems",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Masoudi-Sobhanzadeh",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Motieghader",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Informatics Med Unlocked",
+            "volume": "3",
+            "issn": "",
+            "pages": "15--28",
+            "other_ids": {}
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Cuckoo optimization algorithm",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Rajabioun",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Appl Soft Comput",
+            "volume": "11",
+            "issn": "",
+            "pages": "5508--5526",
+            "other_ids": {}
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Hybrid multi-objective evolutionary algorithm based on search manager framework for big data optimization problems",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Abdi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M-R",
+                    "middle": [],
+                    "last": "Feizi-Derakhshi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Appl Soft Comput",
+            "volume": "87",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "Tuning multi-objective evolutionary algorithms on different sized problem sets",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "\u010crepin\u0161ek",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ravber",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mernik",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Kosar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Mathematics",
+            "volume": "7",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Prognostic value of CT radiomic features in resectable pancreatic ductal adenocarcinoma",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Khalvati",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Baig",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Lobo-Mueller",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Karanicolas",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Gallinger",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Sci Rep",
+            "volume": "9",
+            "issn": "",
+            "pages": "1--9",
+            "other_ids": {}
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "Pharmacological management of stable angina pectoris aims to relieve symptoms and maximize survival",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Davis",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Oparil",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Drugs Ther Perspect",
+            "volume": "20",
+            "issn": "",
+            "pages": "375--81",
+            "other_ids": {}
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "Beta-adrenergic receptor blockers in hypertension: alive and well",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Frishman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Prog Cardiovasc Dis",
+            "volume": "59",
+            "issn": "",
+            "pages": "247--52",
+            "other_ids": {}
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "Hypertensive crisis in children and adolescents",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Seeman",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Hamdani",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mitsnefes",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Pediatr Nephrol",
+            "volume": "34",
+            "issn": "",
+            "pages": "2523--2560",
+            "other_ids": {}
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "Potential protective role of blood pressure-lowering drugs on the balance between hemostasis and fibrinolysis in hypertensive patients at rest and during exercise",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Braschi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Am J Cardiovasc Drugs",
+            "volume": "19",
+            "issn": "",
+            "pages": "133--71",
+            "other_ids": {}
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "Therapeutic effect of nifedipine combined with enalapril on elderly patients with coronary heart disease complicated with hypertension",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "J Clin Nurs Res",
+            "volume": "2",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "Drugs for systemic hypertension and angina",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Waller",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Waller",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Medicine (Baltimore)",
+            "volume": "46",
+            "issn": "",
+            "pages": "566--72",
+            "other_ids": {}
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "Early reversal cardiac with esmolol in hypertensive rats: the role of subcellular organelle phenotype",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Quintana-Villamandos",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Delgado-Martos",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Delgado-Baeza",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Pharmacol Rep",
+            "volume": "71",
+            "issn": "",
+            "pages": "1125--1157",
+            "other_ids": {}
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "Intolerable side effects during propranolol therapy for infantile hemangioma: frequency, risk factors and management",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Ji",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Xiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zhong",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Sci Rep",
+            "volume": "8",
+            "issn": "",
+            "pages": "1--7",
+            "other_ids": {}
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "DrugBank 5.0: a major update to the DrugBank database",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Wishart",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Feunang",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Guo",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Lo",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Marcu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Grant",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Nucleic Acids Res",
+            "volume": "46",
+            "issn": "",
+            "pages": "1074--82",
+            "other_ids": {}
+        },
+        "BIBREF57": {
+            "ref_id": "b57",
+            "title": "Otilonium and pinaverium trigger mitochondrial-mediated apoptosis in rat embryo cortical neurons in vitro",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Garc\u00eda-Alvarado",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Govoni",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "De Pascual",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Ruiz-Ruiz",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Mu\u00f1oz-Montero",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Gand\u00eda",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Neurotoxicology",
+            "volume": "70",
+            "issn": "",
+            "pages": "99--111",
+            "other_ids": {}
+        },
+        "BIBREF58": {
+            "ref_id": "b58",
+            "title": "High-dose rifampicin, moxifloxacin, and SQ109 for treating tuberculosis: a multi-arm, multi-stage randomised controlled trial",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Boeree",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Heinrich",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Aarnoutse",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Diacon",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Dawson",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Rehal",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Lancet Infect Dis",
+            "volume": "17",
+            "issn": "",
+            "pages": "39--49",
+            "other_ids": {}
+        },
+        "BIBREF59": {
+            "ref_id": "b59",
+            "title": "Rare genetic diseases: update on diagnosis, treatment and online resources",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Pogue",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Cavalcanti",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Shanker",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Andrade",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Aguiar",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "De Carvalho",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Drug Discov Today",
+            "volume": "23",
+            "issn": "",
+            "pages": "187--95",
+            "other_ids": {}
+        },
+        "BIBREF60": {
+            "ref_id": "b60",
+            "title": "Recovery dynamics of multifocal pupillographic objective perimetry from tropicamide dilation",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Rai",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Sabeti",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Carle",
+                    "suffix": ""
+                },
+                {
+                    "first": "Emf",
+                    "middle": [],
+                    "last": "Rohan",
+                    "suffix": ""
+                },
+                {
+                    "first": "\u00d6",
+                    "middle": [],
+                    "last": "Sara\u00e7",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Van Kleef",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Graefes Arch Clin Exp Ophthalmol",
+            "volume": "258",
+            "issn": "",
+            "pages": "191--200",
+            "other_ids": {}
+        },
+        "BIBREF61": {
+            "ref_id": "b61",
+            "title": "Effect of topical 1\\% Pilocarpine on the ocular tear film pH",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Azuamah",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Esenwah",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Ikoro",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Megwas",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Ugwuoke",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Ogbonna",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Int J Res",
+            "volume": "6",
+            "issn": "",
+            "pages": "120--128",
+            "other_ids": {}
+        },
+        "BIBREF62": {
+            "ref_id": "b62",
+            "title": "Attenuation of hypertensive response with esmolol and labetalol in low doses in orotracheal intubation: a comparative study",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ambasta",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mahapatra",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Indian J Clin Anaesth",
+            "volume": "5",
+            "issn": "",
+            "pages": "272--278",
+            "other_ids": {}
+        },
+        "BIBREF63": {
+            "ref_id": "b63",
+            "title": "Synergistic interaction between a PDE5 inhibitor (sildenafil) and a new adenosine A2A receptor agonist (LASSBio-1359) improves pulmonary hypertension in rats",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Alencar",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Carvalho",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Silva",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Martinez",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Calasans-Maia",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Fraga",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "PLoS One",
+            "volume": "13",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF64": {
+            "ref_id": "b64",
+            "title": "DrugR+: a comprehensive relational database for drug repurposing, combination therapy, and replacement therapy",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Masoudi-Sobhanzadeh",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Omidi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Amanlou",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Masoudi-Nejad",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Comput Biol Med",
+            "volume": "109",
+            "issn": "",
+            "pages": "254--62",
+            "other_ids": {}
+        },
+        "BIBREF65": {
+            "ref_id": "b65",
+            "title": "DrugBank: a knowledgebase for drugs, drug actions and drug targets",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Wishart",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Knox",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Guo",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Cheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Shrivastava",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Tzur",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Nucleic Acids Res",
+            "volume": "36",
+            "issn": "suppl_1",
+            "pages": "901--907",
+            "other_ids": {}
+        },
+        "BIBREF66": {
+            "ref_id": "b66",
+            "title": "Kyoto encyclopedia of genes and genomes",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kanehisa",
+                    "suffix": ""
+                },
+                {
+                    "first": "Goto",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Kegg",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "Nucleic Acids Res",
+            "volume": "28",
+            "issn": "",
+            "pages": "27--30",
+            "other_ids": {}
+        },
+        "BIBREF67": {
+            "ref_id": "b67",
+            "title": "Drug databases and their contributions to drug repurposing",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Masoudi-Sobhanzadeh",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Omidi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Amanlou",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Masoudi-Nejad",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Genomics",
+            "volume": "112",
+            "issn": "",
+            "pages": "1087--95",
+            "other_ids": {}
+        },
+        "BIBREF68": {
+            "ref_id": "b68",
+            "title": "Predicting inhibitory and activatory drug targets by chemically and genetically perturbed transcriptome signatures",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Sawada",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Iwata",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Tabei",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Yamato",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Yamanishi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Sci Rep",
+            "volume": "8",
+            "issn": "",
+            "pages": "1--9",
+            "other_ids": {}
+        },
+        "BIBREF69": {
+            "ref_id": "b69",
+            "title": "Publisher's Note",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF70": {
+            "ref_id": "b70",
+            "title": "Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "The convergence behavior of the algorithms on the generated datasets. The convergence of the algorithms on the a Trandolapril, b Atenolol, c Carteolol, d Nicardipine, e Felodipine, f Nifedipine, g Nisoldipine, h Doxazosin, and i Prazosin datasets. For the datasets with small sizes, the performance of the algorithms is almost the same. However, through increasing the total number of candidate drugs (the size of the problem), algorithms display different functionality. Trader, WCC, DSOS, FOA, and CUK, respectively are among the algorithms which are considered to have the proper convergence behavior",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "World competitive contest algorithm, CUK Cuckoo, FOA Forest optimization algorithm, DSOS Discrete symbiotic optimization search",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "The properties of the generated datasets",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "comparison of the algorithms' performance on the generated datasets",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "comparison of the algorithms' performance on the generated datasets (Continued) STD Standard deviation, CI Confidence interval, TRA Trandolapril, ATE Atenolol, CAR Carteolol, NIC Nicardipine, FEL Felodipine, NIF Nifedipine, NIS Nisoldipine, DOX Doxazosin, PAR Prazosin, WCC World competitive contest algorithm, CUK Cuckoo, FOA Forest optimization algorithm, DSOS Discrete symbiotic optimization search",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "The p-value of the algorithms on the generated datasets based on the results of the Trader algorithm (proposed algorithm) as a test base TRA Trandolapril, ATE Atenolol, CAR Carteolol, NIC Nicardipine, FEL Felodipine, NIF Nifedipine, NIS Nisoldipine, DOX Doxazosin, PAR Prazosin, WCC World competitive contest algorithm, CUK Cuckoo, FOA Forest optimization algorithm, DSOS Discrete symbiotic optimization search",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF4": {
+            "text": "A comprehensive comparison of the algorithms' performance on the generated datasets STD Standard deviation, CI Confidence interval, WCC World competitive contest algorithm, CUK Cuckoo, FOA Forest optimization algorithm, DSOS Discrete symbiotic optimization search",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF5": {
+            "text": "The outcomes of the proposed algorithm on the selected drugs",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF6": {
+            "text": "\u00de \u00bc INH if the i th drug inhibits the j th target IND if the i th drug induces the j th target AGO if the i th drug agonists the j th target ANT if the i th drug antagonists the j th target iv) Constituting the drug-drug adverse reaction (DDAR) matrix: Some drugs may interact, neutralize their effects, and trigger a serious problem in a body. A matrix, named DDAR, was formed to investigate the problem (Eq. (3). DDAR i; j \u00f0 \u00de \u00bc 1 if the i th drug has adverse reaction with the j th drug 0 else",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF7": {
+            "text": "Where K and R are two random integer values in [1, length(CS)] and [1, length(CS)/ 10], respectively. Where K and R are two random integer values in [1, length(CS)].",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "The authors would like to appreciate Iranian National Science Founding (INSF) for their supports.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Acknowledgments"
+        },
+        {
+            "text": "Calculating drug-drug similarity score Equation (12) was employed to calculate the similarity score between drugs [70] :Where D i , D j , n, C i,r , and C j,r are the i th drug, the j th drug, the total number of the chemical components, the total number of the r th chemical component in i th , and the total number of the r th chemical component in the j th chemical component, respectively. W r , which is calculated by Eq. (13) , is the weight of the r th chemical component.Where d r shows the data frequency of the r th chemical component. The changes can be accepted, provided that the new score is better than the previous one. In contrast, the changes will be ignored, if the previous values are retrieved from the memory Authors' contributions YMS: Conceptualization, implementation, formal analysis, investigation, writing, editing, and revising the manuscript. AM: Conceptualization, Supervision, Project administration, writing, editing, and revising the manuscript. All authors have read and approved the manuscript.",
+            "cite_spans": [
+                {
+                    "start": 48,
+                    "end": 52,
+                    "text": "(12)",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 114,
+                    "end": 118,
+                    "text": "[70]",
+                    "ref_id": "BIBREF68"
+                },
+                {
+                    "start": 427,
+                    "end": 431,
+                    "text": "(13)",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "ref_spans": [],
+            "section": "annex"
+        },
+        {
+            "text": "Not applicable.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Funding"
+        },
+        {
+            "text": "All the source codes are available in the following link: https://github.com/LBBSoft/Trader. In addition, data are accessible using our developed database DrugR+ (http://drugr.ir/).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Availability of data and materials"
+        },
+        {
+            "text": "Not applicable.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Ethics approval and consent to participate"
+        },
+        {
+            "text": "Not applicable.Competing interests Not applicable.Received: 21 April 2020 Accepted: 6 July 2020",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Consent for publication"
+        }
+    ]
+}

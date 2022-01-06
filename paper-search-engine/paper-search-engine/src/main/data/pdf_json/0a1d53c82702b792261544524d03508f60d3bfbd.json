@@ -1,0 +1,1233 @@
+{
+    "paper_id": "0a1d53c82702b792261544524d03508f60d3bfbd",
+    "metadata": {
+        "title": "CoverTheFace: face covering monitoring and demonstrating using deep learning and statistical shape analysis",
+        "authors": [
+            {
+                "first": "Yixin",
+                "middle": [],
+                "last": "Hu",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University of Alberta",
+                    "location": {}
+                },
+                "email": ""
+            },
+            {
+                "first": "Xingyu",
+                "middle": [],
+                "last": "Li",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University of Alberta",
+                    "location": {}
+                },
+                "email": "xingyu@ualberta.ca"
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Wearing a mask is a strong protection against the COVID-19 pandemic, even though the vaccine has been successfully developed and is widely available. However, many people wear them incorrectly. This observation prompts us to devise an automated approach to monitor the condition of people wearing masks. Unlike previous studies, our work goes beyond mask detection; it focuses on generating a personalized demonstration on proper mask-wearing, which helps people use masks better through visual demonstration rather than text explanation. The pipeline starts from the detection of face covering. For images where faces are improperly covered, our mask overlay module incorporates statistical shape analysis (SSA) and dense landmark alignment to approximate the geometry of a face and generates corresponding facecovering examples. Our results show that the proposed system successfully identifies images with faces covered properly. Our ablation study on mask overlay suggests that the SSA model helps to address variations in face shapes, orientations, and scales. The final face-covering examples, especially half profile face images, surpass previous arts by a noticeable margin.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Masking face correctly reduces the spray of respiratory droplets. Particularly, it has been proven to be an effective measure of protection against the COVID-19 epidemic. According to the World Health Organization (WHO) guidelines, correctly masking is defined as all nose, mouth, and chin are covered. However, many people refuse to wear masks or wear them incorrectly, for example, wearing masks without covering their noses. According to an infection control epidemiologist with the University of Toronto, it is the same as not wearing masks if wearing them incorrectly. Therefore, checking people if they are wearing masks correctly in public, densely populated spaces has become a significant problem.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Prior efforts in literature usually focus on tasks related to face mask detection and recognition. There are many studies and algorithms developed to detect if people are wearing masks. A few investigate algorithms for mask removal and face inpainting. However, no further instructions are suggested for people who are wearing masks properly. This motivates us to design an automated system for facecovering monitoring and demonstration. We argue that directly demonstrating correct face-covering through visual displays, rather than text explanations, facilitates guiding the habits of wearing masks to prevent the spread of the virus, eventually beneficial to the public. For example, the proposed system could be set up at the doors of densely populated places such as airports, subway stations, or large shopping centers. If an individual is wearing a mask improperly, the person can take action using the visual demo as a reference.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The proposed system consists of two modules: face mask detection and mask overlay. Specifically, an input facial image is first classified into one of the three categories: \"correctly wearing\", \"not wearing,\" and \"incorrectly wearing\". For \"correctly wearing\", the mask overlay module is bypassed, and the original image is displayed as the demonstration. Otherwise, the mask overlay module edits the input image by adding a mask to the face. To this end, two challenges need to be addressed. First, the face is not a rigid object that always stays in the same shape; Second, faces in images are usually positioned differently due to camera positions and angles. To tackle these challenges, we incorporate SSA and dense landmark alignment in our mask overlay module so that variations in face shapes, orientations, and scales are considered in mask put-on. Column (d) of Figure 1 presents several examples of the proposed mask overlay module. Compared to the prior study, MaskThe-Face [1] , our method significantly improves the results on half profile faces. We summarize the contributions in this paper:",
+            "cite_spans": [
+                {
+                    "start": 985,
+                    "end": 988,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 871,
+                    "end": 879,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Introduction"
+        },
+        {
+            "text": "\u2022 An automated pipeline is proposed to monitor facecovering conditions and render a face-covering demo. The generated images are very realistic on both front and profile face images.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "\u2022 As an essential component in our pipeline, a novel and effective mask overlay procedure is developed by fusing statistical shape analysis and dense face landmark alignment.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "More visually appealing results of the proposed method are presented in the experimentation section.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The problem in this study involves several research topics: face mask detection, mask removal, and mask overlay/inpainting. In this section, we present a brief review of the most relevant works in literature.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "Face mask detection has been widely studied [2, 9, [13] [14] [15] [16] [17] . Given an input image or real-time videos, the detectors can tell if the person is wearing a mask properly or not. Applications of mask detection usually run on edge devices such as mobile phones and embedded systems. A typical example is a mobile application called \"CheckYour-Mask\" [7] . It allows people to take selfies to check if they are wearing their masks correctly. Since deep models in the MobileNet family demonstrate a good balance between accuracy and resource consumption, they are usually taken as the backbone in prior arts. Specifically, Venkateswarlu et al. [15] proposed an algorithm using MobileNet with a global pooling block for face mask detection. Vinh and Anh [16] proposed an algorithm using a Haar cascade classifier to detect the face and YOLOv3 to detect the mask, achieving a 90% detection rate. Xue et al. [17] and Jiang et al. [9] improved the RetinaFace algorithm [4] by inferring the positions of the mask. Oumina et al. [2] proposed a system using ensemble learning to detect if a person is wearing a mask. They extracted face features using different deep learning models (VGG19, Xception, and Mo-bileNetV2) and achieved the detection by fusing the classification results of SVM and KNN.",
+            "cite_spans": [
+                {
+                    "start": 44,
+                    "end": 47,
+                    "text": "[2,",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 48,
+                    "end": 50,
+                    "text": "9,",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 51,
+                    "end": 55,
+                    "text": "[13]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 56,
+                    "end": 60,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 61,
+                    "end": 65,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 66,
+                    "end": 70,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 71,
+                    "end": 75,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 361,
+                    "end": 364,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 653,
+                    "end": 657,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 762,
+                    "end": 766,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 914,
+                    "end": 918,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 936,
+                    "end": 939,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 974,
+                    "end": 977,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 1032,
+                    "end": 1035,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "Mask removal is essential for images that are classified as \"incorrectly wearing\" in the proposed method. It removes the wrong worn masks from faces meanwhile attempts to edit the images such that complete, non-occluded faces are reconstructed and displayed. Though there are many successful segmentation and image inpainting algorithms, Din et al. [5] argued that most prior approaches did not fit the problem of unmasking covered face well due to the large size of masks (e.g., face masks usually cover the front beyond the face boundary below the chin). To tackle this problem, they investigated a two-stage method where the first stage detects and segmented masks with a modified version of the U-Net and the second stage deployed a GAN-based network with global and local discriminators for mask-area inpainting.",
+            "cite_spans": [
+                {
+                    "start": 349,
+                    "end": 352,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "Mask put-on is a process to overlay a mask in a face image. There are many ways to add masks to faces, such as manually photoshop an image in [5] . Among various methods, to the best of our knowledge, MaskTheFace [1] is the only study to achieve this goal automatically. It uses six facial landmarks, one on the nose bridge, two on the cheeks, and three along the chin line. Then a mask template is matched to the six landmarks to overlay the mask onto faces. Since only six facial landmarks are used in this method, we call the method proposed in MaskTheFace sparse landmark alignment (SLA) in this paper. Column (b) of Figure 1 shows examples of SLA on face images. We observe that SLA fails to follow the face boundary in halfprofile images. This observation motivates us to introduce dense landmark alignment (DLA) and statistic shape analysis in our mask overlay algorithm.",
+            "cite_spans": [
+                {
+                    "start": 142,
+                    "end": 145,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 213,
+                    "end": 216,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 621,
+                    "end": 629,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Related work"
+        },
+        {
+            "text": "An overview of our pipeline is provided in Figure 2 . When an image is classified as \"Correctly Masked\", no further action is required. When an input is classified as \"Not Masked\", a mask is overlaid on the image. Otherwise, the wrong-worn mask is removed, and a new mask is inpainted to cover the proper face region for visual demo. We will elaborate on the technical details of the two composing The final face-covering example is generated using statistical shape analysis and dense landmark alignment (Sec.3.2.2). In the diagram, we use dash-edge boxes to mark deep learning models; by contrast, the solid-edge box represents a non-deep learning algorithm. modules: mask detection module and mask overlay module in this section.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 43,
+                    "end": 51,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Methodology"
+        },
+        {
+            "text": "In our pipeline, the mask detection module classifies an input facial image into one of the three categories, \"correctly wearing\", \"incorrectly wearing\" , and \"not wearing\", which are passed to the downstream mask overlay module. Following previous efforts in literature, we take Mo-bileNetV2 as the backbone of the detector. Specifically, the MobileNetV2 model is pre-trained on ImageNet. We replace the fully connected layer at the top with a 7-by-7 average pooling layer and two dense layers with a ReLU activation function. Before the output layer, a dropout layer with a rate of 0.25 is applied in training.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Mask detection module"
+        },
+        {
+            "text": "This module comprises two algorithms: mask removal using a GAN-based model and mask put-on using statistic shape analysis and landmark alignment.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Mask overlay module"
+        },
+        {
+            "text": "The purpose of the mask removal algorithm is to remove wrong-worn masks and synthesize a non-occluded face. In this regard, we adopt the MCGAN structure proposed by Khan et al. [11] . Note that in MCGAN, a binary mask is required as input to recover the occluded region on the face. In this regard, we design a mask segmentation network for a binary mask.",
+            "cite_spans": [
+                {
+                    "start": 177,
+                    "end": 181,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Mask removal"
+        },
+        {
+            "text": "The specific structure of our mask removal net is depicted in figure 3 . In the segmentation network G seg , the squeeze-and-Excitation (SE) Block [8] that performs recalibration of channel characteristics is incorporated in the UNet structure. The segmentation loss combines a Dice loss, L Dice , and a binary cross-entropy loss, L BCE , to evaluate the similarity between the obtained binary map I mask and the ground-truth I gt :",
+            "cite_spans": [
+                {
+                    "start": 147,
+                    "end": 150,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 62,
+                    "end": 70,
+                    "text": "figure 3",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Mask removal"
+        },
+        {
+            "text": "where L Dice measures the region-based similarity between I mask and I gt and L BCE measures the global distribution differences between the two masks. The MCGAN model [11] cascades two generative nets for face inpainting: one for maintaining face global semantics and achieving coarse face recovery, and the other for face refinement. To obtain a realistic synthesis face image, MCGAN exploits adversarial discriminators for both generative nets. The complex structure of MSGAN makes its training hard and unstable. We notice that previously covered regions in facial images will eventually be covered again in our problem. This relaxes the level of face recovery and prompts us to simplify the MCGAN structure for easy training. Specifically, we remove the adversarial discriminator paired with the coarse inpainting net. To compensate for the performance loss, we replace all convolutional layers with gated convolution blocks [18] . With a soft mask mechanism, gated convolution enables the model to learn the masked regions in a separate path, thus generating more realistic inpainting results. In addition, we deploy a pretrained VGG-16 to quantify the perceptual loss between the inpainting face I inp and its ground-truth I gt . In sum, our target function to train the modified MCGAN model is",
+            "cite_spans": [
+                {
+                    "start": 168,
+                    "end": 172,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 930,
+                    "end": 934,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Mask removal"
+        },
+        {
+            "text": "where L GAN , L rc , and L p are the adversarial loss, image reconstruction loss, and perceptual loss between I inp and I gt . \u03bb rc and \u03bb p are the weights of reconstruction loss and perceptual loss, respectively. Our image construction loss combines L 1 loss and image structural similarity metric (SSIM) loss:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Mask removal"
+        },
+        {
+            "text": "Assuming \u03c6 i is the activation map of the i-th layer in the pre-trained VGG-16, the perceptual loss is computed by:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Mask removal"
+        },
+        {
+            "text": "Mask put-on is an essential component in our pipeline. Instead of leveraging deep learning, we design a non-deep learning algorithm for mask overlay for two reasons. On the one hand, the lack of suitable training samples hinders the use of deep learning. Though both MaskedFace-Net [7] and MaskTheFace [1] provide paired non-occluded facial images and face-covering images, those face-covering images are not realistic; the noticeable distortions and artifacts in images may bias the training. On the other hand, a clear definition of proper face-covering with a mask has been elaborated in WHO guidelines: all nose, mouth, and chin should be covered. Since masks are usually in similar shape, we argue that put-on masks can be efficiently achievable by aligning face landmarks and mask templates.",
+            "cite_spans": [
+                {
+                    "start": 282,
+                    "end": 285,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 302,
+                    "end": 305,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Mask put-on"
+        },
+        {
+            "text": "To synthesize realistic face-covering images, accurate localizing landmarks in both face images and mask templates is crucial. We follow the 68 facial landmark convention in face landmark estimation and use the pre-trained facial landmark detector inside the dlib library on face images. However, we notice that landmark estimation of faces in profile is poor. Though increasing facial landmark numbers in landmark alignment improve the performance (please refer to column (c) of Figure 1 for examples of DLA), it still fails to follow the chin line in images closely. Therefore, we propose to build a face shape model using SSA, specifically active shape model (ASM) [3] , so that variations in face shapes, orientation, and scales due to different camera positions can be accommodated. To this end, we start by estimating landmarks on the contours of face image samples. Then we organize these face landmark coordinates in a matrix called point distribution matrix (PDM), where each row corresponds to one face. After Procrustes analysis to align the coordinates and PCA to reduce the dimension of PDM, the face ASM is formulated as:",
+            "cite_spans": [
+                {
+                    "start": 668,
+                    "end": 671,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 480,
+                    "end": 488,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Mask put-on"
+        },
+        {
+            "text": "where f i andf represent the latent landmark representations of a specific face sample and the mean face cross all training images, P = [p 1 , p 2 , ..., p t ] is the matrix consisting of the first t eigenvectors in PCA, and b = [b 1 , b 2 , ..., b t ] is a vector of weights acting like \"knobs\" to fit a specific f i . The procedure to build the shape model is briefly demonstrated in Figure 4 . Without directly using facial landmarks in a new image f new , we use the ASM in (5) to approximate the geometry of the input and estimate the corresponding landmarks by searching the best set of transition/rotation/scale parameters (\u03c4, \u03b8, s):",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 386,
+                    "end": 394,
+                    "text": "Figure 4",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Mask put-on"
+        },
+        {
+            "text": "where M = s cos(\u03b8) sin(\u03b8) \u2212 sin(\u03b8) cos(\u03b8) + \u03c4",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Mask put-on"
+        },
+        {
+            "text": "As demonstrated in Figure 4 , after obtaining the landmarks of a face in a query image, we align landmarks of the face with a mask template. In this study, we consider three mask templates, one for front view and another two for profiles. In contrast to MaskTheFace [1] that adopts sparse landmark alignment, we propose the use of dense landmark alignment for realistic face masking images. Because the mask should cover the bottom of the chin and the top of the nose above the nose tip, instead of using six landmarks, we manually annotate 17 landmarks on mask templates that correspond to face landmarks ranging from index 2 to 16 and 30 and 34 in the conventional 68-landmark patterns. We illustrate the traditional 68 face landmarks and our annotated mask templates in Figure 5 ",
+            "cite_spans": [
+                {
+                    "start": 266,
+                    "end": 269,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 19,
+                    "end": 27,
+                    "text": "Figure 4",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 773,
+                    "end": 781,
+                    "text": "Figure 5",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Mask put-on"
+        },
+        {
+            "text": "Our whole pipeline consists of two modules: face mask detection and mask overlay. Since the two modules are relatively independent, we evaluate their performance separately.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Experiments and Discussions"
+        },
+        {
+            "text": "Data set: We collect 5829 images from two public datasets, MaskedFace-Net [7] and Flickr-Faces-HQ Dataset (FFHQ) [10] . MaskedFace-Net is a large synthetic dataset consisting of paired correctly and incorrectly face-covering photos. Images in MaskedFace-Net contain considerable variation in age, ethnicity, and image background. We randomly pick 1903 images with correct mask-wearing and 1926 images of wrong mask-wearing from the dataset; paired images are avoided. In addition, 2000 non-occluded images are randomly selected from the FFHQ image set.",
+            "cite_spans": [
+                {
+                    "start": 74,
+                    "end": 77,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 113,
+                    "end": 117,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Face mask detection"
+        },
+        {
+            "text": "In our experiment, all 5829 images are resized to 224-by-224. Images in each category are randomly divided into a training and testing set with a ratio of 8:2, resulting in 4663 training samples and 1166 testing images.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Face mask detection"
+        },
+        {
+            "text": "Implementation details: Category cross-entropy is used to train our mask detector. We use Adam with a learning rate of 10 \u22124 and a decay rate of 5 \u00d7 10 \u22126 to optimize the model. The model is set to be trained maximum for 20 epochs with a batch size of 32. The early stop mechanism is deployed to prevent overfitting.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Face mask detection"
+        },
+        {
+            "text": "Results: Our face-covering monitoring model achieves a 98% detection rate. The specific results in each category are summarized in Table 1 . ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 131,
+                    "end": 138,
+                    "text": "Table 1",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "Face mask detection"
+        },
+        {
+            "text": "Data sets: Our mask overlay module is applied to images classified as either \"not wearing\" or \"incorrectly wearing\". To train the mask removal model, we randomly pick ten thousand images from the public CelebA dataset [12] . All of these images are resized to 512-by-512, with the faces centered in images. We manually add masks on images to obtain paired samples of non-occluded faces, masked faces and mask binary maps. The dataset is partitioned with an 8:2 ratio for training/validation.",
+            "cite_spans": [
+                {
+                    "start": 218,
+                    "end": 222,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Mask overlay"
+        },
+        {
+            "text": "To build our face shape model, we select a subset of 1950 data samples (130 examples each of 15 individuals) from the head pose estimation dataset Pointing'04 [6] . These photos are taken by changing the orientation of the head in the direction vertically and horizontally.",
+            "cite_spans": [
+                {
+                    "start": 159,
+                    "end": 162,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Mask overlay"
+        },
+        {
+            "text": "To evaluate the generalization of our mask overlay module, the test images of \"no mask\" and \"incorrectly mask wearing\" are drawn from celecA [12] and MaskedFace-Net [7] during test, respectively. Implementation details: To train our mask removal model, we set the batch size of 4 and 2 for mask segmentation and face inpainting, respectively. The optimizer for both models is Adam, with a learning rate of 0.001. The segmentation model is trained for 200,000 iterations, and the inpainting model is trained for 300,000 iterations. Since our mask-overlay algorithm is not based on deep learning, we directly feed our Pointing'04 subset into ASM. Then images with non-occluded faces are passed to the mask overlay algorithm for image editing.",
+            "cite_spans": [
+                {
+                    "start": 141,
+                    "end": 145,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 165,
+                    "end": 168,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Mask overlay"
+        },
+        {
+            "text": "Results: Figure 6 presents examples of our mask overlay results. In literature, MaskTheFace /citeMaskTheFace is the only study to achieve the goal of mask overlap on non-occluded images automatically. We compare the SLA algorithm in MaskTheFace and the proposed method and present the results in column (b) and column (d) in Figure  1 . Visually, our mask overlay algorithm that incorporates SSA and DLA obtain noticeable improvement on faces with different orientations. Figure 7 presents results of our mask overlay on images with incorrect mask-wearing.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 9,
+                    "end": 17,
+                    "text": "Figure 6",
+                    "ref_id": "FIGREF6"
+                },
+                {
+                    "start": 325,
+                    "end": 334,
+                    "text": "Figure  1",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 472,
+                    "end": 480,
+                    "text": "Figure 7",
+                    "ref_id": "FIGREF7"
+                }
+            ],
+            "section": "Mask overlay"
+        },
+        {
+            "text": "In this experiment, we take the SLA algorithm in Mask-TheFace [1] as the baseline and investigate the effect of DLA and SSM on the final mask overlay results. To this end, we take non-occluded facial images from the CelecA image set [?] and generate face-covering images using the SLA algorithm, DLA algorithm based on the 17 landmarks without the face shape model, and our DLA+SSA approach. Examples of mask overlay are displayed in Figure 1 . Comparing to sparse landmark alignment, dense landmark alignment helps to fit the mask to faces. The active shape model with dense landmark alignment generates more realistic face-covering images.",
+            "cite_spans": [
+                {
+                    "start": 62,
+                    "end": 65,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 434,
+                    "end": 442,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Ablation on mask overlay"
+        },
+        {
+            "text": "We considered an important problem of monitoring and demonstrating face-covering conditions from images. Our approach was capable of detecting face images with improperly mask-wearing and rendering plausible personalized face-covering demonstrations. Experimentation showed that the proposed mask overlay algorithm based on active shape model and dense landmark alignment outperformed prior arts. For future work, we plan to test our pipeline on diverse images taken under different illumination (i.e. shadows, reflections, etc.).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Masked face recognition for secure authentication",
+            "authors": [
+                {
+                    "first": "Aqeel",
+                    "middle": [],
+                    "last": "Anwar",
+                    "suffix": ""
+                },
+                {
+                    "first": "Arijit",
+                    "middle": [],
+                    "last": "Raychowdhury",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2008.11104"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Real time face mask detection system using transfer learning with machine learning method in the era of COVID-19 pandemic",
+            "authors": [
+                {
+                    "first": "Sohaib",
+                    "middle": [],
+                    "last": "Asif",
+                    "suffix": ""
+                },
+                {
+                    "first": "Yi",
+                    "middle": [],
+                    "last": "Wenhui",
+                    "suffix": ""
+                },
+                {
+                    "first": "Yi",
+                    "middle": [],
+                    "last": "Tao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Si",
+                    "middle": [],
+                    "last": "Jinhai",
+                    "suffix": ""
+                },
+                {
+                    "first": "Kamran",
+                    "middle": [],
+                    "last": "Amjad",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Proceedings of the International Conference on Artificial Intelligence and Big Data (ICAIBD)",
+            "volume": "",
+            "issn": "",
+            "pages": "1361--1367",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Active shape models-their training and application. Computer Vision and Image Understanding",
+            "authors": [
+                {
+                    "first": "Tim",
+                    "middle": [],
+                    "last": "Cootes",
+                    "suffix": ""
+                },
+                {
+                    "first": "Christopher",
+                    "middle": [],
+                    "last": "Taylor",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Cooper",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Graham",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "61",
+            "issn": "",
+            "pages": "38--59",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "RetinaFace: Single-shot multilevel face localisation in the wild",
+            "authors": [
+                {
+                    "first": "Jiankang",
+                    "middle": [],
+                    "last": "Deng",
+                    "suffix": ""
+                },
+                {
+                    "first": "Jia",
+                    "middle": [],
+                    "last": "Guo",
+                    "suffix": ""
+                },
+                {
+                    "first": "Evangelos",
+                    "middle": [],
+                    "last": "Ververas",
+                    "suffix": ""
+                },
+                {
+                    "first": "Irene",
+                    "middle": [],
+                    "last": "Kotsia",
+                    "suffix": ""
+                },
+                {
+                    "first": "Stefanos",
+                    "middle": [],
+                    "last": "Zafeiriou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+            "volume": "",
+            "issn": "",
+            "pages": "5203--5212",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "A novel gan-based network for unmasking of masked face",
+            "authors": [
+                {
+                    "first": "Kamran",
+                    "middle": [],
+                    "last": "Nizam Ud Din",
+                    "suffix": ""
+                },
+                {
+                    "first": "Seho",
+                    "middle": [],
+                    "last": "Javed",
+                    "suffix": ""
+                },
+                {
+                    "first": "Juneho",
+                    "middle": [],
+                    "last": "Bae",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Yi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "IEEE Access",
+            "volume": "8",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Estimating face orientation from robust detection of salient facial structures",
+            "authors": [
+                {
+                    "first": "Nicolas",
+                    "middle": [],
+                    "last": "Gourier",
+                    "suffix": ""
+                },
+                {
+                    "first": "James",
+                    "middle": [],
+                    "last": "Crowley",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "G Net Workshop on Visual Observation of Deictic Gestures",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Validating the correct wearing of protection mask by taking a selfie: Design of a mobile application \"checkyourmask\" to limit the spread of COVID-19",
+            "authors": [
+                {
+                    "first": "Karim",
+                    "middle": [],
+                    "last": "Hammoudi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Adnane",
+                    "middle": [],
+                    "last": "Cabani",
+                    "suffix": ""
+                },
+                {
+                    "first": "Halim",
+                    "middle": [],
+                    "last": "Benhabiles",
+                    "suffix": ""
+                },
+                {
+                    "first": "Mahmoud",
+                    "middle": [],
+                    "last": "Melkemi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Computer Modeling in Engineering & Sciences",
+            "volume": "124",
+            "issn": "3",
+            "pages": "1049--1059",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Squeeze-and-excitation networks",
+            "authors": [
+                {
+                    "first": "Jie",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Li",
+                    "middle": [],
+                    "last": "Shen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Gang",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+            "volume": "",
+            "issn": "",
+            "pages": "7132--7141",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "RetinaMask: A face mask detector",
+            "authors": [
+                {
+                    "first": "Mingjie",
+                    "middle": [],
+                    "last": "Jiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Xinqi",
+                    "middle": [],
+                    "last": "Fan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Hong",
+                    "middle": [],
+                    "last": "Yan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2005.03950"
+                ]
+            }
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "A style-based generator architecture for generative adversarial networks",
+            "authors": [
+                {
+                    "first": "Tero",
+                    "middle": [],
+                    "last": "Karras",
+                    "suffix": ""
+                },
+                {
+                    "first": "Samuli",
+                    "middle": [],
+                    "last": "Laine",
+                    "suffix": ""
+                },
+                {
+                    "first": "Timo",
+                    "middle": [],
+                    "last": "Aila",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Interactive removal of microphone object in facial images",
+            "authors": [
+                {
+                    "first": "Muhammad Kamran Javed",
+                    "middle": [],
+                    "last": "Khan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Nizam",
+                    "middle": [],
+                    "last": "Ud Din",
+                    "suffix": ""
+                },
+                {
+                    "first": "Seho",
+                    "middle": [],
+                    "last": "Bae",
+                    "suffix": ""
+                },
+                {
+                    "first": "Juneho",
+                    "middle": [],
+                    "last": "Yi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Electronics",
+            "volume": "8",
+            "issn": "10",
+            "pages": "11--15",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Deep learning face attributes in the wild",
+            "authors": [
+                {
+                    "first": "Ziwei",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Ping",
+                    "middle": [],
+                    "last": "Luo",
+                    "suffix": ""
+                },
+                {
+                    "first": "Xiaogang",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Xiaoou",
+                    "middle": [],
+                    "last": "Tang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Prototype for integration of face mask detection and person identification model -COVID-19",
+            "authors": [
+                {
+                    "first": "Anirudh",
+                    "middle": [],
+                    "last": "Lodh",
+                    "suffix": ""
+                },
+                {
+                    "first": "Utkarsh",
+                    "middle": [],
+                    "last": "Saxena",
+                    "suffix": ""
+                },
+                {
+                    "first": "Ajmal",
+                    "middle": [],
+                    "last": "Khan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Anand",
+                    "middle": [],
+                    "last": "Motwani",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Shakkeera",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Vali",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Sharmasth",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Proceedings of the International Conference on Electronics, Communication and Aerospace Technology (ICECA)",
+            "volume": "",
+            "issn": "",
+            "pages": "1361--1367",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Face mask detection using MobileNetV2 in the era of COVID-19 pandemic",
+            "authors": [
+                {
+                    "first": "Ady",
+                    "middle": [],
+                    "last": "Samuel",
+                    "suffix": ""
+                },
+                {
+                    "first": "Suryo",
+                    "middle": [],
+                    "last": "Sanjaya",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Adi Rakhmawan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Proceedings of the International Conference on Data Analytics for Business and Industry: Way Towards a Sustainable Economy (ICDABI)",
+            "volume": "",
+            "issn": "",
+            "pages": "1--5",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Face mask detection using MobileNet and global pooling block",
+            "authors": [
+                {
+                    "first": "Isunuri",
+                    "middle": [],
+                    "last": "Venkateswarlu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Jagadeesh",
+                    "middle": [],
+                    "last": "Kakarla",
+                    "suffix": ""
+                },
+                {
+                    "first": "Shree",
+                    "middle": [],
+                    "last": "Prakash",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Proceedings of the Conference on Information & Communication Technology (CICT)",
+            "volume": "",
+            "issn": "",
+            "pages": "1--5",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Real-time face mask detector using YOLOv3 algorithm and haar cascade classifier",
+            "authors": [
+                {
+                    "first": "Quang",
+                    "middle": [],
+                    "last": "Truong",
+                    "suffix": ""
+                },
+                {
+                    "first": "Nguyen Tran Ngoc",
+                    "middle": [],
+                    "last": "Vinh",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Anh",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Proceedings of the International Conference on Advanced Computing and Applications (ACOMP)",
+            "volume": "",
+            "issn": "",
+            "pages": "1--5",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Intelligent detection and recognition system for mask wearing based on improved RetinaFace algorithm",
+            "authors": [
+                {
+                    "first": "Jianpeng",
+                    "middle": [],
+                    "last": "Bin Xue",
+                    "suffix": ""
+                },
+                {
+                    "first": "Pengming",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Proceedings of the International Conference on Machine Learning, Big Data and Business Intelligence (MLBDBI)",
+            "volume": "",
+            "issn": "",
+            "pages": "1--5",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Free-form image inpainting with gated convolution",
+            "authors": [
+                {
+                    "first": "Jiahui",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Zhe",
+                    "middle": [],
+                    "last": "Lin",
+                    "suffix": ""
+                },
+                {
+                    "first": "Jimei",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Xiaohui",
+                    "middle": [],
+                    "last": "Shen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Xin",
+                    "middle": [],
+                    "last": "Lu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Thomas",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Huang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)",
+            "volume": "",
+            "issn": "",
+            "pages": "4471--4480",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "(a) Front and half profile face images randomly drawn from the CelebA dataset []. Column 2-4 show mask overlay examples using (b) sparse landmark alignment (SLA) [1], (c) dense landmark alignment (DLA), and (d) the proposed method incorporating DLA and statistical shape analysis.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Systematic diagram of the proposed pipeline. For an input image, the classifier takes MobileNetV2 as the backbone for mask detection (Sec.3.1). Based on the classification results, a mask removal model may be deployed (Sec.3.2.1).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Our mask removal model is composed of a mask segmentation net and a face inpainting net. We modify the MCGAN structure[11] for occluded face recovery.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Block diagram of the proposed mask overlay algorithm that incorporates SSA and DLA. In the figure, the training images are from the Pointing'04 dataset [23] and test image from the CelebA image set [].",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "(a) Conventional 68 facial landmarks where the red dots are the 17 landmarks used in our mask overlay algorithm. (b) Mask templates and corresponding 17 landmarks.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": ".",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "Examples of our mask overlay results on non-occluded face images in different head orientations. The face images are randomly picked from the Pointing'04 dataset[6].",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": "First row: images with \"incorrectly mask-wearing\" from the MaskedFace-Net[7]. Second row: mask overlay results generated by our method.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "Performance of our triple-category facial mask detection.",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": []
+}

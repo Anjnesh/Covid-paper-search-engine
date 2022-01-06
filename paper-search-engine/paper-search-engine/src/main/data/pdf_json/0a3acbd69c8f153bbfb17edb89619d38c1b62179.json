@@ -1,0 +1,1736 @@
+{
+    "paper_id": "0a3acbd69c8f153bbfb17edb89619d38c1b62179",
+    "metadata": {
+        "title": "DATA SHAPLEY VALUE FOR HANDLING NOISY LABELS: AN APPLICATION IN SCREENING COVID-19 PNEUMONIA FROM CHEST CT SCANS",
+        "authors": [
+            {
+                "first": "Nastaran",
+                "middle": [],
+                "last": "Enshaei",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Javad",
+                "middle": [],
+                "last": "Rafiee",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "McGill University",
+                    "location": {
+                        "settlement": "Montreal",
+                        "region": "QC",
+                        "country": "Canada"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Arash",
+                "middle": [],
+                "last": "Mohammadi",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Farnoosh",
+                "middle": [],
+                "last": "Naderkhani",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "A long-standing challenge of deep learning models involves how to handle noisy labels, especially in applications where human lives are at stake. Adoption of the data Shapley Value (SV), a cooperative game theoretical approach, is an intelligent valuation solution to tackle the issue of noisy labels. Data SV can be used together with a learning model and an evaluation metric to validate each training point's contribution to the model's performance. The SV of a data point, however, is not unique and depends on the learning model, the evaluation metric, and other data points collaborating in the training game. However, effects of utilizing different evaluation metrics for computation of the SV, detecting the noisy labels, and measuring the data points' importance has not yet been thoroughly investigated. In this context, we performed a series of comparative analyses to assess SV's capabilities to detect noisy input labels when measured by different evaluation metrics. Our experiments on COVID-19-infected of CT images illustrate that although the data SV can effectively identify noisy labels, adoption of different evaluation metric can significantly influence its ability to identify noisy labels from different data classes. Specifically, we demonstrate that the SV greatly depends on the associated evaluation metric.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Deep learning has proven remarkable success in several medical fields, including medical imaging, where advanced computer vision algorithms have delivered near human-level performance in specific tasks. Several factors may affect the success of a deep learning algorithm, including model structure, initialization of the model parameters, training methods, and computational hardware. However, the most influential factor is having access to large-scale data sets with reliable labels. Collecting large-scale data sets with reliable labels is, however, a significantly challenging task in several applications, particularly within the medical domain. On the one hand, patients' privacy preservation and data sharing protocols prohibit hospitals and clinical institutions from releasing their in-house data sets. On the other hand, labeling medical images requires knowledge and expertise from radiologists and physicians, making the labeling process resource-intensive. To overcome this challenge, extracting pathology labels of large-scale medical images from radiology reports with the help of text mining [1] , human-machine collaborative techniques [2, 3] , and the use of non-expert annotators are some of the proposed solutions in the literature [4] . However, the provided labels by such methods are noisy and inaccurate compared to manually labeled images [5] . Consequently, handling noisy labels in medical imaging data sets is crucial for developing high-performance processing/learning models.",
+            "cite_spans": [
+                {
+                    "start": 1108,
+                    "end": 1111,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 1153,
+                    "end": 1156,
+                    "text": "[2,",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 1157,
+                    "end": 1159,
+                    "text": "3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 1252,
+                    "end": 1255,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 1364,
+                    "end": 1367,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "Prior work: Learning from a training data set with noisy labels has been a challenging task within the deep learning domain for a long time. Research studies indicate that noisy labels may have a more significant adverse effect on the performance of deep learning models than the noises in data attributes/measurements [6] . Proposed techniques for handling noisy labels in medical imaging data sets include weakly supervised learning [7] [8] [9] , customized training methods [4] , and re-weighting training samples [10] . Another approach to tackle the noisy label problem is to adopt Shapley Value (SV), a cooperative game theoretical method, where each training point is considered a player in the training game, and its contribution to any subset of players is measured using a performance evaluation metric. Researchers have leveraged the SV for data valuation and measuring the quality of data points in different deep learning applications [11] [12] [13] [14] [15] [16] [17] [18] . In [19] and [20] , authors utilized the SV in a federated learning study to measure the quality of data from each participator. A recent study [17] has investigated the capability of the SV in quantifying the importance of training data points in the performance of the learning model in a large-scale X-ray data set. It should be noted that the SV of a data point is not a unique value and depends on the learning model, the evaluation metric, and other data points collaborating in the training game. So far, research studies have used only one specific evaluation metric in their SV computation process, such as accuracy metric in [17, 19] and Area under the ROC curve (AUC-ROC) metric in [20] to demonstrate the data SV capability in measuring the quality of data points. However, the effect of utilizing different evaluation metrics in computing the SV, detecting the noisy labels, and measuring the data points' importance in the training process has never been investigated.",
+            "cite_spans": [
+                {
+                    "start": 319,
+                    "end": 322,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 435,
+                    "end": 438,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 439,
+                    "end": 442,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 443,
+                    "end": 446,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 477,
+                    "end": 480,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 517,
+                    "end": 521,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 948,
+                    "end": 952,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 953,
+                    "end": 957,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 958,
+                    "end": 962,
+                    "text": "[13]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 963,
+                    "end": 967,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 968,
+                    "end": 972,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 973,
+                    "end": 977,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 978,
+                    "end": 982,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 983,
+                    "end": 987,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 993,
+                    "end": 997,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 1002,
+                    "end": 1006,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 1133,
+                    "end": 1137,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 1624,
+                    "end": 1628,
+                    "text": "[17,",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 1629,
+                    "end": 1632,
+                    "text": "19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 1682,
+                    "end": 1686,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "Contributions: This study investigates effects of incorporating different evaluation metrics in determining the data SV and quantifying the importance of each training point in the model's performance. To the best of our knowledge, this is the first study that explores adoption of various evaluation metrics in measuring the data SV and detecting noisy input labels. The data SV measures the contribution of each training point to all possible subsets of the training set, having an exponential complexity in the size of the training set. Therefore, we use a permutation sampling approach to approximate the data SV. We assess the capability of data SV obtained by commonly-used classification metrics, including accuracy, recall, and specificity in detecting the noisy labels through a set of experiments with different noise levels. The experiments are performed based on a COVID-19 screening task from chest CT scans by implementing a lightweight Capsule-network-based classifier [21] to extract discriminative fea-tures from chest CT scans and distinguish COVID-19-infected CT images from normal ones [22] . The Capsule-network-based classifier can represent each CT image via a small feature vector. Since calculating the SV requires retraining the learning model on multiples coalitions of training samples, we use a fast classifier to make our data valuation process time-efficient. Therefore, the extracted feature vector is fed into a logistic regression classifier for final decision making. The results indicate that the measured data SV is not unique and is highly dependent on the evaluation metric. We demonstrate that despite the great potential of the data SV in detecting noisy labels, its performance is extremely affected by the adopted evaluation metric.",
+            "cite_spans": [
+                {
+                    "start": 984,
+                    "end": 988,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 1106,
+                    "end": 1110,
+                    "text": "[22]",
+                    "ref_id": "BIBREF21"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "This study implements the data SV in its data valuation approach for identifying training samples with noisy labels. Data SV [23] is a well-known measure in cooperative game theory for assigning a fair payoff to each player of the game by taking into account its contribution to all possible coalitions of the players. The training process of an ML/DL model can be assumed as a game where training data points are players that collaborate to achieve the highest model performance. Therefore, the SV can measure the importance of training samples in the performance of the ML/DL model [11] [12] [13] [14] [15] [16] [17] [18] . Having a training set D, the SV of a data point i D is calculated as",
+            "cite_spans": [
+                {
+                    "start": 125,
+                    "end": 129,
+                    "text": "[23]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 584,
+                    "end": 588,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 589,
+                    "end": 593,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 594,
+                    "end": 598,
+                    "text": "[13]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 599,
+                    "end": 603,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 604,
+                    "end": 608,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 609,
+                    "end": 613,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 614,
+                    "end": 618,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 619,
+                    "end": 623,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DATA SHAPLEY VALUE"
+        },
+        {
+            "text": "where S is any possible subset of D not including i, N is the size of the training set D, and V is an evaluation metric for measuring the model performance. V {S} is the performance of the model trained on the subset S and measured by the evaluation metric V . In other words, the SV of a training data point i is its average marginal contribution to all subsets of S, which can be interpreted as a quality measure for data assessment. However, computing SV for a player requires computing its marginal contribution to all possible coalitions of game players, which has exponential complexity in the number of players. Moreover, in data SV computation, calculating each marginal contribution, V {S} requires training the model on S that makes the computation process more time-consuming. To overcome this challenge, we use a permutation sampling method [18] to approximate the data SV. For this purpose, we use an equivalent form of Eq. 1 as follows",
+            "cite_spans": [
+                {
+                    "start": 853,
+                    "end": 857,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DATA SHAPLEY VALUE"
+        },
+        {
+            "text": "where \u03a0 is all possible permutations of data points, \u03c0 \u03a0 is a sample permutation of data points, and S \u03c0 i is the set of training points coming before data point i in permutation \u03c0. Indeed, in each random permutation, we can assume that data points are joining the training game in random order. Then, each data point will receive the marginal contribution that his collaboration brings to the training points which have already played their role in the game. The data SV for each training point would be its average marginal contributions over all possible permutations. In practice, using a permutation sampling approach, the data SV will converge after 3N permutations [16] . It is worth mentioning that the SV of a data point is not a unique value and depends on the learning model, the evaluation metric, and other data points collaborating in the training game. So far, other studies have used a specific evaluation metric in their SV computation process and demonstrated the data SV capability in measur- ing the quality of data points. Here, we perform a set of experiments to investigate the effect of different evaluation metrics in measuring the SV, quantifying the quality of training points, and detecting noisy labels. We use the standard evaluation metrics in classification tasks, including accuracy, recall, and specificity, and discuss their effectiveness in detecting noisy labels in both classes of data. Our data valuation process, illustrated in Fig. 1 , includes: i) training a deep classifier on a training set, ii) extracting high-resolution features from training CT images using the trained deep classifier and feeding them into a fast classifier, which is logistic regression in this study, iii) calculating the SV of each training point based on different evaluation metric, iv) analyzing the obtained SVs and detecting noisy labels. The deep classifier used for discriminating COVID-19 infected CT images from the normal ones is a lightweight DL model containing two convolutional and two Capsule layers. A batchnormalization layer follows the first convolutional layer, and a max-pooling layer follows the second one. The ReLU activation function is applied after each convolutional layer to capture nonlinear patterns. The number of channels for each convolutional layer is 64. The output of the max-pooling layer is reshaped and fed to a Capsule layer to extract high-resolution features from CT images. Finally, the last Capsule layer predicts the probability that each CT image belongs to infected or non-infected classes. It is noteworthy that screening COVID-19-infected CT images on a slice-level basis can be a primary step in detecting COVID-19 patients from healthy cases. We use a weighted loss function to tackle the imbalance dataset, considering a higher penalty to the samples from minority class, which is COVID-19 infected slices in our case. By extracting high-resolution features from the last Capsule layer, each CT image with a matrix size of 512 \u00d7 512 is presented in a 1 \u00d7 16 vector. Next, extracted features from the training set and their corresponding labels are used in the SV computation process. For more information about Capsule network-based classifiers and the weighted loss function, please refer to Reference [24] .",
+            "cite_spans": [
+                {
+                    "start": 672,
+                    "end": 676,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 3275,
+                    "end": 3279,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1468,
+                    "end": 1474,
+                    "text": "Fig. 1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "DATA SHAPLEY VALUE"
+        },
+        {
+            "text": "The dataset used in our experiments is a combination of two different open-access datasets. For non-COVID-19 CT images, we used a subset of 50 normal cases from our recently released dataset referred to as the \"COVID-CT-MD\" [25] , which is available through Figshare 1 . For CT images with the evidence of COVID-19 lesions, we used a public dataset containing chest CT volumes of 10 COVID-19 patients [26] , where three expert radiologists have annotated COVID-19 manifestations. In both datasets, the matrix size of the CT images is 512 \u00d7 512 pixels. We randomly split the dataset into three independent groups, as presented in table 1, including 100, 50, and 241 COVID-19 infected CT scans, and 400, 200, and 759 normal CT scans for training, validation, and test sets. The extracted features from the training set are used to train the logistic regression model over multiple permutation sampling, and the test set is used for measuring the model performance during the SV computation process.",
+            "cite_spans": [
+                {
+                    "start": 224,
+                    "end": 228,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 401,
+                    "end": 405,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DATASET DESCRIPTION"
+        },
+        {
+            "text": "As the pre-processing step, each CT slice is normalized based on its pixel intensities' mean and standard deviation. Furthermore, we utilize the real-time data augmentation method to enhance the model's performance on unseen data. Each mini-batch of original images during the training process is transformed into synthetic images using conventional data augmentation strategies such as zooming, shifting, and shearing. Over the training' epochs, the model will observe each augmented image only once, resulting in an improvement in the model's generalization. In each mini-batch, 16 CT images are fed to the network. The Adam optimization algorithm with an initial learning rate of 0.001 minimizes the loss function over the training process. The number of passes through the training set is set to 100. However, to mitigate the model over-fitting, the training process will stop whenever the loss function on the validation set is not reduced over five epochs. Finally, the SV computation is performed using the training set as the players for training the logistic regression classifier and the test set for measuring the model performance trained on any possible subset of training points. As mentioned previously, we have 100 COVID-19 infected CT slices and 400 normal CT images as our training set. Since we aim to deal with noisy labels in the training set, we manually add some noises in the labels of our training set and investigate the capability of the SV obtained based on different evaluation metrics in detecting noisy labels. We run three experiments with three different noise levels, including 10%, 20%, and 30% in each class of data. Therefore, 10, 20, and 30 positive CT images and 40, 80, and 120 normal CT scans have incorrect labels in experiment I, II, and III, respectively.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "EXPERIMENTAL RESULTS"
+        },
+        {
+            "text": "In each experiment, first, we train the Capsule-network-based classifier using the training set with noisy labels. Next, the extracted features from the trained classifier are fed into a logistic regression classifier to compute the data SV. It is worth mentioning that computing the SV for each training point requires re-training the classifier on multiple subsets of training points, making the data evaluation process time-intensive. Hence, we use a fast classifier such as logistic regression to make the computation process affordable. We adopt different evaluation metrics, including accuracy, recall, and specificity, to calculate the data SV. We run the computation process for 2000 permutations to assure the convergence of the estimated data Table 2 . The efficiency of data SV obtained based on different evaluation metrics in detecting noisy labels of each class of data in Exp I, II, and III with the noise level of 10%, 20%, and 30%.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 753,
+                    "end": 760,
+                    "text": "Table 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "EXPERIMENTAL RESULTS"
+        },
+        {
+            "text": "SVs. Fig. 2 presents the convergence of the SV for two randomly selected training samples. As can be observed, the estimated SV converges after 3N = 1500 permutations, which is in agreement with previous works [16] .",
+            "cite_spans": [
+                {
+                    "start": 210,
+                    "end": 214,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 5,
+                    "end": 11,
+                    "text": "Fig. 2",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "EXPERIMENTAL RESULTS"
+        },
+        {
+            "text": "Next, we order the training points based on their estimated SV and mapped them with the corresponding label in our input labels that contains some noisy labels (green points in column left) and the ground-truth labels, which are correct labels (blue lines in right column), as visualized in Fig. 3 . As can be observed, when adopting accuracy or recall metrics, all training points with the highest data SV belong to the positive class. In contrast, the specificity metric ranks all training points with the negative input labels before the data points with positive input labels. The plots also indicate that although the specificity metric puts all images with the positive input label among the lowest data SVs, the least valuable data points are the ones mislabeled as positive classes (their ground-truth label is negative). This reveals the capability of the SV in identifying noisy labels with the negative ground-truth labels (mislabeled as the positive images in the input label) when adopting the specificity metric. On the contrary, the majority of the least valuable training points obtained by the accuracy and recall metrics belong to negative input labels. However, according to the plots, the accuracy metric assigns more value to the images with negative input labels than recall metric. In addition, by comparing the plots in left and right columns, we can conclude that the least valuable data points obtained by both accuracy and recall metrics are the images mislabeled as the negative ones (have positive ground-truth labels). This indicates the possibility of detecting noisy labels with the positive ground-truth labels when using the accuracy or recall metrics in computing the SV. Furthermore, we investigate the effect of utilizing different evaluation metrics in the SV computation process for identifying noisy labels. We determined the fraction of noisy labels ranked as the 10%, 20%, and 30% of the lowest data SVs for experiments I, II, and III, respectively. We also consider the fraction of noisy labels ranked as the lowest 30% data SVs in all experiments. As demonstrated in Table 2 , when adopting accuracy or recall metrics, all noisy labels with the positive ground-truth label (which had been incorrectly labeled as negative ones in input labels) have been correctly identified in experiments I and II. Conversely, when utilizing specificity metric in the SV computation process, no noisy label with the positive ground-truth label (mislabeled as negative images in the input labels) is ranked between the lowest 30% of data SVs. The results indicate that the adoption of the specificity metric has been more successful in detecting noisy labels with the negative ground-truth label (incorrectly labeled as positive ones in input labels). All noisy labels with the negative ground-truth labels (both correctly labeled and mislabeled ones) have been ranked in the lowest 30% data SVs. Although the accuracy and recall metrics show the same performance in detecting noisy labels with a negative ground-truth label, the performance of the accuracy metric succeeds the recall metric as the noise level increases.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 291,
+                    "end": 297,
+                    "text": "Fig. 3",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 2111,
+                    "end": 2118,
+                    "text": "Table 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "EXPERIMENTAL RESULTS"
+        },
+        {
+            "text": "It should be mentioned that, to the best of our knowledge, the adoption of different evaluation metrics in measuring the data SV has not been discussed in previous researches. However, Reference [17] , which has performed an SV-based data valuation study using the accuracy metric on an X-ray data set containing 2000 training points, illustrates that all the 100 training points with the highest SVs belong to the positive class. Besides, with the help of three radiologists, they figured out that out of the 100 lowest data SVs in their experiment, there were 65 mislabeled images where 80% of them were positive images that had been incorrectly labeled as negative ones. Indeed, their experiments are in accordance with our results, confirming that by utilizing the accuracy metric in computing the SV, the images with positive labels will receive the highest values. In addition, it would be more likely to detect mislabeled images with ground-truth positive labels (mislabeled as negative ones). Our findings show that, while the data SV has a lot of potential for detecting noisy labels in training sets, it is extremely dependent on the evaluation metric used.",
+            "cite_spans": [
+                {
+                    "start": 195,
+                    "end": 199,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                }
+            ],
+            "ref_spans": [],
+            "section": "EXPERIMENTAL RESULTS"
+        },
+        {
+            "text": "This research explores the effect of using different evaluation metrics in data SV computation and its capability and limitation in identifying noisy labels in a training set. We examine the standard evaluation metrics in classification tasks, including accuracy, recall, and specificity in calculating the data SV on a chest CT scan data set. Our findings show that, while the data SV has a lot of potential for detecting noisy labels in training sets, it depends highly on the evaluation metric used. We also demonstrate that the data SV is not a unique value and will differ by incorporating different evaluation metrics. This research study conducted experiments on a binary classification task and a limited data set. We leave the implementation of data SV based on various evaluation metrics and investigating its capabilities and limitations in detecting noisy labels in a multi-institutional data set and a multi-class classification problem to the future. Exploring the dependency of the data SV on different types of learning algorithms is another future direction of the present work.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "CONCLUSION"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Chestx-ray8: Hospital-scale chest x-ray database and benchmarks on weakly-supervised classification and localization of common thorax diseases",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Peng",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Lu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Lu",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Bagheri",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Summers",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Proceedings of the IEEE conference on computer vision and pattern recognition",
+            "volume": "",
+            "issn": "",
+            "pages": "2097--2106",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Clinically applicable ai system for accurate diagnosis, quantitative measurements, and prognosis of covid-19 pneumonia using computed tomography",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Shen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Sang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zha",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Liang",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "181",
+            "issn": "6",
+            "pages": "1423--1433",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Covid-19 infection map generation and detection from chest x-ray images",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Degerli",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ahishali",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Yamac",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kiranyaz",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Chowdhury",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Hameed",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Hamid",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Mazhar",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Gabbouj",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Health Information Science and Systems",
+            "volume": "9",
+            "issn": "1",
+            "pages": "1--16",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "A noise-robust framework for automatic segmentation of covid-19 pneumonia lesions from ct images",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ruan",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Meng",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "IEEE Transactions on Medical Imaging",
+            "volume": "39",
+            "issn": "8",
+            "pages": "2653--2663",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Exploring large-scale public medical image datasets",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Oakden-Rayner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Academic radiology",
+            "volume": "27",
+            "issn": "1",
+            "pages": "106--112",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Class noise vs. attribute noise: A quantitative study",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "Artificial intelligence review",
+            "volume": "22",
+            "issn": "3",
+            "pages": "177--210",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Weakly supervised deep learning for covid-19 infection detection and classification from ct images",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Niu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Jiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Xiao",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Fang",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Menpes-Smith",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xia",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "IEEE Access",
+            "volume": "8",
+            "issn": "",
+            "pages": "118869--118883",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "A weakly-supervised framework for covid-19 classification and lesion localization from chest ct",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Deng",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Fu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Feng",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Ma",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Zheng",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "IEEE transactions on medical imaging",
+            "volume": "39",
+            "issn": "8",
+            "pages": "2615--2625",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "A weakly supervised consistency-based learning method for covid-19 segmentation in ct images",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Laradji",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Rodriguez",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Manas",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Lensink",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Law",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Kurzman",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Parker",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Vazquez",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Nowrouzezahrai",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision",
+            "volume": "",
+            "issn": "",
+            "pages": "2453--2462",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Robust learning at noisy labeled medical images: Applied to skin lesion classification",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Xue",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Dou",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "P.-A",
+                    "middle": [],
+                    "last": "Heng",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "2019 IEEE 16th International Symposium on Biomedical Imaging (ISBI 2019)",
+            "volume": "",
+            "issn": "",
+            "pages": "1280--1283",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Bounding the estimation error of sampling-based shapley value approximation",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Maleki",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Tran-Thanh",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Hines",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Rahwan",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Rogers",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:1306.4265"
+                ]
+            }
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "A unified approach to interpreting model predictions",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Lundberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.-I",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Proceedings of the 31st international conference on neural information processing systems",
+            "volume": "",
+            "issn": "",
+            "pages": "4768--4777",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "The explanation game: Explaining machine learning models using shapley values",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Merrick",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Taly",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "International Cross-Domain Conference for Machine Learning and Knowledge Extraction",
+            "volume": "",
+            "issn": "",
+            "pages": "17--38",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Shapley effects for global sensitivity analysis: Theory and computation",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Nelson",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Staum",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "SIAM/ASA Journal on Uncertainty Quantification",
+            "volume": "4",
+            "issn": "1",
+            "pages": "1060--1083",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Explaining prediction models and individual predictions with feature contributions",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "\u0160trumbelj",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Kononenko",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "",
+            "volume": "41",
+            "issn": "",
+            "pages": "647--665",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Data shapley: Equitable valuation of data for machine learning",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ghorbani",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "International Conference on Machine Learning",
+            "volume": "",
+            "issn": "",
+            "pages": "2242--2251",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Data valuation for medical imaging using shapley value and application to a large-scale chest x-ray dataset",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Tang",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ghorbani",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Yamashita",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Rehman",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Dunnmon",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zou",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Rubin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Scientific reports",
+            "volume": "11",
+            "issn": "1",
+            "pages": "1--9",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Towards efficient data valuation based on the shapley value",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Jia",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Dao",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Hubis",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Hynes",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "G\u00fcrel",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Spanos",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "The 22nd International Conference on Artificial Intelligence and Statistics",
+            "volume": "",
+            "issn": "",
+            "pages": "1167--1176",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "A principled approach to data valuation for federated learning",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Rausch",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Jia",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Federated Learning",
+            "volume": "",
+            "issn": "",
+            "pages": "153--167",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "A value-based approach for training of classifiers with high-throughput small molecule screening data",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Khuri",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Parsons",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Proceedings of the 12th ACM Conference on Bioinformatics, Computational Biology, and Health Informatics",
+            "volume": "",
+            "issn": "",
+            "pages": "1--10",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Matrix capsules with EM routing",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Hinton",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sabour",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Frosst",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "6th International Conference on Learning Representations, ICLR 2018 -Conference Track Proceedings",
+            "volume": "",
+            "issn": "",
+            "pages": "1--29",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Diagnosis/Prognosis of COVID-19 Chest Images via Machine Learning and Hypersignal Processing: Challenges, opportunities, and applications",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Mohammadi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Enshaei",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Afshar",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Naderkhani",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Oikonomou",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Rafiee",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Rodrigues De Oliveira",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Yanushkevich",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Plataniotis",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "IEEE Signal Processing Magazine",
+            "volume": "38",
+            "issn": "",
+            "pages": "37--66",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "A value for n-person games",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Shapley",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "",
+            "volume": "17",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Covid-fact: A fully-automated capsule network-based framework for identification of covid-19 cases from chest ct scans",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Heidarian",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Afshar",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Enshaei",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Naderkhani",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Rafiee",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Fard",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Samimi",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Atashzar",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Oikonomou",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Plataniotis",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Frontiers in Artificial Intelligence",
+            "volume": "4",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "COVID-CT-MD: COVID-19 Computed Tomography (CT) Scan Dataset Applicable in Machine Learning and Deep Learning",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Afshar",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Heidarian",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Enshaei",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Naderkhani",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Rafiee",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Oikonomou",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Babaki Fard",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Samimi",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Plataniotis",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Mohammadi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Towards efficient covid-19 ct annotation: A benchmark for lung and infection segmentation",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ma",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "An",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Ge",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Dong",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "He",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "He",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "The proposed framework to quantify the quality of data and discriminate COVID-19 infected CT images from normal ones.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "The convergence of SV for randomly selected training samples. Thex-axis indicates the number of iteration in SV computation process and the y-axis indicates the estimate of SV.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Mapping between the data SV and the type of data class derived via different evaluation metrics (Plots are related to the Exp. III).",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "Training, validation and test sets used in our experiments. COVID-19 Normal Total",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": []
+}

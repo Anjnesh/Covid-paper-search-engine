@@ -1,0 +1,3572 @@
+{
+    "paper_id": "00e8630157eb02bff07653373f4a8fd42144fdb5",
+    "metadata": {
+        "title": "COVID-19 virtual patient cohort reveals immune mechanisms driving disease outcomes",
+        "authors": [
+            {
+                "first": "Adrianne",
+                "middle": [
+                    "L"
+                ],
+                "last": "Jenner",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "CHU Sainte-Justine Research Centre",
+                    "location": {
+                        "settlement": "Montr\u00e9al",
+                        "region": "Qu\u00e9bec",
+                        "country": "Canada"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Rosemary",
+                "middle": [
+                    "A"
+                ],
+                "last": "Aogo",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University of Tennessee Health Science Center",
+                    "location": {
+                        "settlement": "Memphis",
+                        "region": "Tennessee",
+                        "country": "USA"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Sofia",
+                "middle": [],
+                "last": "Alfonso",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "McGill University",
+                    "location": {
+                        "settlement": "Montr\u00e9al",
+                        "region": "Qu\u00e9bec",
+                        "country": "Canada"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Vivienne",
+                "middle": [],
+                "last": "Crowe",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Concordia University",
+                    "location": {
+                        "settlement": "Montr\u00e9al",
+                        "region": "Qu\u00e9bec",
+                        "country": "Canada"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Amanda",
+                "middle": [
+                    "P"
+                ],
+                "last": "Smith",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Universit\u00e9 de Montr\u00e9al",
+                    "location": {
+                        "settlement": "Montr\u00e9al",
+                        "region": "Qu\u00e9bec",
+                        "country": "Canada"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Penelope",
+                "middle": [
+                    "A"
+                ],
+                "last": "Morel",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University of Pittsburgh",
+                    "location": {
+                        "settlement": "Pittsburgh",
+                        "region": "Pennsylvania",
+                        "country": "USA"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Courtney",
+                "middle": [
+                    "L"
+                ],
+                "last": "Davis",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Pepperdine University",
+                    "location": {
+                        "settlement": "Malibu",
+                        "region": "California",
+                        "country": "USA"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Amber",
+                "middle": [
+                    "M"
+                ],
+                "last": "Smith",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University of Tennessee Health Science Center",
+                    "location": {
+                        "settlement": "Memphis",
+                        "region": "Tennessee",
+                        "country": "USA"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Morgan",
+                "middle": [],
+                "last": "Craig",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "CHU Sainte-Justine Research Centre",
+                    "location": {
+                        "settlement": "Montr\u00e9al",
+                        "region": "Qu\u00e9bec",
+                        "country": "Canada"
+                    }
+                },
+                "email": "morgan.craig@umontreal.ca"
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "To understand the diversity of immune responses to SARS-CoV-2 and distinguish features that 39 predispose individuals to severe COVID-19, we developed a mechanistic, within-host mathematical 40 model and virtual patient cohort. Our results indicate that virtual patients with low production rates of 41 infected cell derived IFN subsequently experienced highly inflammatory disease phenotypes, compared 42 to those with early and robust IFN responses. In these in silico patients, the maximum concentration of 43 IL-6 was also a major predictor of CD8 + T cell depletion. Our analyses predicted that individuals with 44 severe COVID-19 also have accelerated monocyte-to-macrophage differentiation that was mediated by 45 increased IL-6 and reduced type I IFN signalling. Together, these findings identify biomarkers driving 46 the development of severe COVID-19 and support early interventions aimed at reducing inflammation. 47 Author summary 48 Understanding of how the immune system responds to SARS-CoV-2 infections is critical for 49 improving diagnostic and treatment approaches. Identifying which immune mechanisms lead to 50 divergent outcomes can be clinically difficult, and experimental models and longitudinal data are only 51 beginning to emerge. In response, we developed a mechanistic, mathematical and computational model 52 of the immunopathology of COVID-19 calibrated to and validated against a broad set of experimental 53 and clinical immunological data. To study the drivers of severe COVID-19, we used our model to 54 expand a cohort of virtual patients, each with realistic disease dynamics. Our results identify key 55 processes that regulate the immune response to SARS-CoV-2 infection in virtual patients and suggest 56 viable therapeutic targets, underlining the importance of a rational approach to studying novel 57 pathogens using intra-host models. 58 65 immunopathology as specific presentations in severe COVID-19 [2-6]. An over-exuberant innate 66 immune response with larger numbers of infiltrating neutrophils [7,8] arrests the adaptive immune 67 response through the excessive release of reactive oxygen species that leads to extensive tissue damage 68 and depletion of epithelial cells [9]. In addition, lymphopenia, in particular, is one of the most 69 prominent markers of COVID-19 and has been observed in over 80% of patients [6, 10-12]. However, 70 the immune mechanisms that lead to disparate outcomes during SARS-CoV-2 infection remain to be 71 delineated. 72 Cytokines are critically important for controlling virus infections [13, 14] and are central to the 73 pathophysiology of COVID-19, sometimes playing a detrimental role in the context of a cytokine storm 74 . : bioRxiv preprint [10]. For example, interleukin-6 (IL-6) can stimulate CD8 + T cell expansion under inflammatory 75 conditions [15]; however, in hospitalized SARS-CoV-2 patients with lymphopenia, IL-6 has been 76 shown to be elevated [16] without an increase in CD8 + T cell counts [17]. Type I interferons (such as 77 IFNs-\u03b1, \u03b2 [18]) also play a major role in limiting viral replication by inducing a refractory state in 78 susceptible and infected cells [19-21]. Due to this, it has been suggested that a delay in mounting an 79 effective IFN response may be responsible for COVID-19 severity [22] as it is for other highly 80 pathogenic coronavirus (i.e. SARS-CoV and MERS) infections [13]. Overall, patients with severe 81 COVID-19 present with lymphopenia [14, 23], and are likely to have increased inflammatory cytokines 82 such as IL-6, granulocyte-macrophage colony-stimulating factor (GM-CSF), and granulocyte colony-83 stimulating factor (G-CSF) [7, 17, 24]. 84 Because identifying which immune mechanisms lead to divergent outcomes can be difficult 85 clinically, and experimental models and longitudinal data are only beginning to emerge, theoretical 86 explorations are ideal [25]. Quantitative approaches combining mechanistic disease modelling and 87 computational strategies are being increasingly leveraged to investigate inter-and intra-patient 88 variability by, for example, developing virtual clinical trials [26-28]. More recently, viral dynamics 89 models [29, 30] have been applied to understand SARS-CoV-2 within-host dynamics and their 90 implications for therapy [31-36]. However, there are few comprehensive models that integrate detailed 91 immune mechanisms and allow interrogation of the dynamics controlling divergent outcomes, and 92 none have attempted to quantify the high degree of variability in patient responses to SARS-CoV-2 93 through modelling.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "In this study, we developed a mechanistic mathematical model to describe the within host 95 immune response to SARS-CoV-2. We explicitly modelled the interactions between epithelial cells, 96 innate and adaptive immune cells and cytokines. The model was fit to various in vitro, in vivo, and 97 clinical data, analyzed to predict how early infection kinetics facilitate downstream disease dynamics, 98 and used to create a virtual patient cohort with realistic disease courses. Our results suggest that mild 99 and severe disease are distinguished by the rates of monocyte differentiation into macrophages and of 100 IFN production by infected cells. In our virtual cohort, we found that severe COVID-19 responses were 101 tightly correlated with a delay in the peak IFN concentration and that a large increase in IL-6 was the 102 dominate predicator of CD8 + T cell depletion in our virtual cohort. Importantly, these results provide 103 insight into differential presentations of COVID-19 by identifying key regulators of severe disease 104 manifestation particularly related to monocyte differentiation and IL-6 concentrations.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Clinical manifestations of SARS-CoV-2 infection are heterogeneous, with a significant 60 proportion of people experiencing asymptomatic or mild infections that do not require hospitalization. 61 In severe cases, patients develop coronavirus disease (COVID-19) that may progress to acute 62 respiratory distress syndrome (ARDS), which is frequently accompanied by a myriad of inflammatory 63 indicators [1]. Mounting evidence points to a hyper-reactive and dysregulated inflammatory response 64 characterized by overexpression of pro-inflammatory cytokines (cytokine storm) and severe Modelling the immune response to SARS-CoV-2 and the impact of delayed IFN on infection 107 dynamics 108 To study the dynamics of SARS-CoV-2 infection and the development of COVID-19, we 109 constructed a computational biology model of host-pathogen interactions (Eqs. S1-S22, with variables 110 and parameters summarized in Table S1 and schematic in Figure 1) . The model includes susceptible (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [
+                {
+                    "start": 192,
+                    "end": 194,
+                    "text": "61",
+                    "ref_id": null
+                },
+                {
+                    "start": 491,
+                    "end": 493,
+                    "text": "64",
+                    "ref_id": "BIBREF79"
+                },
+                {
+                    "start": 684,
+                    "end": 687,
+                    "text": "108",
+                    "ref_id": null
+                },
+                {
+                    "start": 770,
+                    "end": 773,
+                    "text": "109",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 908,
+                    "end": 916,
+                    "text": "Table S1",
+                    "ref_id": "TABREF3"
+                },
+                {
+                    "start": 934,
+                    "end": 943,
+                    "text": "Figure 1)",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "59"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. Tissue-resident macrophages ( !# ) also become inflammatory macrophages through interaction with dead and 136 infected cells. Dead cells are cleared up by inflammatory macrophages and also cause their death. B) Type I IFN 137",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "59"
+        },
+        {
+            "text": "is produced by infected cells, inflammatory macrophages and monocytes. G-CSF is produced solely by 138 monocytes and GM-CSF is produced by monocytes and macrophages. IL-6 is produced by monocytes, 139",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "59"
+        },
+        {
+            "text": "inflammatory macrophages and infected cells. C) Cytokine receptor binding, internalization and unbinding 140",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "59"
+        },
+        {
+            "text": "kinetics considered for each cell-cytokine interaction. 141",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "59"
+        },
+        {
+            "text": "Because the model has several parameters that are undetermined biologically and insufficient 142 data exists to confidently estimate their values, we used a stepwise approach to parameter estimation 143 (see Materials and Methods and Figures S1-S5) . We first confirmed that we could recapitulate early (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [
+                {
+                    "start": 199,
+                    "end": 202,
+                    "text": "143",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 234,
+                    "end": 248,
+                    "text": "Figures S1-S5)",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "59"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint immunological variables (i.e. only including Eqs. 6-9) and estimated parameters relating to viral 146 kinetics by fitting to viral load data from macaques (see Materials and Methods). The resulting model 147 dynamics were in good agreement to these early infection data (Figure 2) measuring the viral load in macaques after challenge with SARS-CoV-2 (Table S1) . 157",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 412,
+                    "end": 422,
+                    "text": "(Figure 2)",
+                    "ref_id": null
+                },
+                {
+                    "start": 492,
+                    "end": 502,
+                    "text": "(Table S1)",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "59"
+        },
+        {
+            "text": "We then isolated the IFN dynamics to assess clinical and experimental findings suggesting that 158 delaying IFN results in more severe presentations in highly pathogenic coronavirus infections including 159 SARS-CoV-2 [13, 14, 22]. Using the parameters obtained from the 'viral model' (Eqs. 6-9; Table S1), 160 we then simulated the impact of IFN with the 'IFN model' (Eqs. 10-16 and Figure 3A ). We examined 161 the predicted dynamics in response to delayed IFN by simulating with and without a fixed delay for 162 IFN production from infected cells. Our results suggest that delaying type I IFN production by 5 days 163 yields a 10-fold increase in tissue damage with only 20% of the lung tissue remaining on day 2 ( Figure   164 (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [
+                {
+                    "start": 307,
+                    "end": 310,
+                    "text": "160",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 384,
+                    "end": 393,
+                    "text": "Figure 3A",
+                    "ref_id": null
+                },
+                {
+                    "start": 719,
+                    "end": 731,
+                    "text": "Figure   164",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "59"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. Immunologic determinants of mild and severe disease 175 Next, to establish the mechanisms that differentiate mild versus severe disease, we simulated 176 the full model (Eqs. S1-S22) using two different parameter sets. Mild disease dynamics were recreated 177 using the estimated parameter values (Table S1) with the virus decay rate ( # ) and the infected cell 178 death rate ( $ ) recalculated to ensure that the maximum death rate of the virus and infected cells did not 179 exceed the value obtained from the reduced viral dynamics model fit (Figure 2) . Simulating mild 180 disease, we predicted that all cell populations and cytokines rapidly return to homeostasis, with the 181 immune response effectively clearing virus within 10 days (Figure 4 and Figure S7 ). 182 Because severe SARS-Cov-2 infection results in lower levels of IFN [42] and increased monocytes 183 [43], we recapitulated severe disease by modulating model parameters relating to these processes, i.e., 184 the rates of IFN production from infected cells and macrophages were decreased, and the rate of 185 monocyte recruitment from the bone marrow by infected cells was increased. With these changes, the 186 model predicted a dramatic shift in disease response that was characterized by a cytokine storm 187 (elevated IL-6, GM-CSF and G-CSF), high ratios of innate to adaptive immune cells, and a marked CC-BY-ND 4.0 International license available under a (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [
+                {
+                    "start": 128,
+                    "end": 131,
+                    "text": "175",
+                    "ref_id": null
+                },
+                {
+                    "start": 846,
+                    "end": 849,
+                    "text": "182",
+                    "ref_id": null
+                },
+                {
+                    "start": 946,
+                    "end": 949,
+                    "text": "183",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 622,
+                    "end": 632,
+                    "text": "(Figure 2)",
+                    "ref_id": null
+                },
+                {
+                    "start": 819,
+                    "end": 828,
+                    "text": "(Figure 4",
+                    "ref_id": "FIGREF7"
+                },
+                {
+                    "start": 833,
+                    "end": 842,
+                    "text": "Figure S7",
+                    "ref_id": "FIGREF39"
+                }
+            ],
+            "section": "59"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. Interestingly, inflammation remained high in the severe disease scenario despite the virus being 206 cleared slightly faster (~1 day) than in the case of mild disease ( Figure 4A) . Further, the peak of 207 inflammatory macrophages increased from ~10 % cells/ml to ~10 ) cells/ml in severe scenarios 208 compared to mild scenarios ( Figure 4B) . The model also accurately predicted that CD8 + T cell 209 dynamics were lower in severe cases, which is indicative of lymphopenia and similar to clinical (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 245,
+                    "end": 255,
+                    "text": "Figure 4A)",
+                    "ref_id": "FIGREF7"
+                },
+                {
+                    "start": 409,
+                    "end": 419,
+                    "text": "Figure 4B)",
+                    "ref_id": "FIGREF7"
+                }
+            ],
+            "section": "59"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. (Figure S6B-F) . 213 214 To further understand how the host immune system regulates the response to SARS-CoV-2 215 infection, we conducted a local sensitivity analysis by varying each parameter individually by \u00b120% (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [
+                {
+                    "start": 93,
+                    "end": 96,
+                    "text": "213",
+                    "ref_id": null
+                },
+                {
+                    "start": 97,
+                    "end": 100,
+                    "text": "214",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 76,
+                    "end": 90,
+                    "text": "(Figure S6B-F)",
+                    "ref_id": "FIGREF20"
+                }
+            ],
+            "section": "59"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint parameter \u00b120% from its originally estimated value and simulating the model. Predictions were then compared 231 to baseline considering: Maximum viral load (max( )), maximum concentration of dead cells (max( )), 232 minimum uninfected live cells (min(S+R)), maximum concentration of inflammatory macrophages (max( !\" )), 233 maximum number of CD8 + T cells (max( )), maximum concentration of IL-6 (max( ) )), maximum 234 concentration of type I IFN (max( ) )), the total exposure to type I IFN ( ) exposure), the number of days 235 damaged tissue was >80% (time ( + )/ *+, ), and the day type I IFN reached its maximum (day max( ) )).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Macrophages, CD8 + T cells, IFN and IL-6 regulates response to SARS-CoV-2 infection"
+        },
+        {
+            "text": "The heatmaps show the magnitude change of each metric, where blue signifies the minimum value observed and 237 red signifies the maximum value observed, or by the number of days, where light to dark pink signifying 238",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "236"
+        },
+        {
+            "text": "increasing number of days from zero. The most sensitive parameters are shown here (for complete parameter 239 sensitivity results, see Figure S8 ). (Table 1) . In doing this, we assumed intrinsic interindividual heterogeneity in monocyte (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 135,
+                    "end": 144,
+                    "text": "Figure S8",
+                    "ref_id": null
+                },
+                {
+                    "start": 148,
+                    "end": 157,
+                    "text": "(Table 1)",
+                    "ref_id": null
+                }
+            ],
+            "section": "236"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint to macrophage differentiation, production of IL-6 by macrophages, recruitment of macrophages by the 247 presence of infected cells, and production of IFN by infected cells, macrophages and monocytes, 248 respectively.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "236"
+        },
+        {
+            "text": "Parameters were chosen based on their impact on maximum IL-6 and IFN levels as well as 250 tissue damage observed in the sensitivity analysis ( ./ ! ,0 , 0,./ , ,,$ , .,$ , and ,,$ ; Figure 5) . In 251 addition, we designated patient-specific parameters accounting for alternate pathways through which (Figure 7) . 260 The resulting cohort dynamics were within ranges for IFN and IL-6 measurements in asymptomatic to Table 1 Virtual patient-specific parameter values. Seven parameters in the model were deemed patient-263 specific and were drawn from a normal distribution with mean the parameter value obtained either through 264 fitting or from the literature ( . CC-BY-ND 4.0 International license available under a (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [
+                {
+                    "start": 315,
+                    "end": 318,
+                    "text": "260",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 183,
+                    "end": 192,
+                    "text": "Figure 5)",
+                    "ref_id": "FIGREF14"
+                },
+                {
+                    "start": 302,
+                    "end": 312,
+                    "text": "(Figure 7)",
+                    "ref_id": "FIGREF39"
+                },
+                {
+                    "start": 417,
+                    "end": 424,
+                    "text": "Table 1",
+                    "ref_id": null
+                }
+            ],
+            "section": "249"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "249"
+        },
+        {
+            "text": "To quantify disease severity, we introduced an inflammation variable, \u03a8, that measured where patients with moderate inflammation (3 < \u03a8 < 3.5) had low counts (less than 7 \u00d7 10 ) cells/ml) 283 compared to patients with more severe inflammation (\u03a8 \u2265 3.5) who had higher levels (p = 284 1.46 \u00d7 10 6) ). Despite this, patients with moderate inflammation exhibited increased disease markers 285 including delayed IFN peaks and lower CD8 + T cells, compared to patients with mild inflammation 286 (\u03a8 \u2264 3).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "249"
+        },
+        {
+            "text": "A distinct jump in the timing of the IFN peak in the virtual cohort (p < 1 \u00d7 10 67 ) was 288 correlated with inflammation, as patients with low inflammation (\u03a8 \u2264 3) had peaks at day 2 compared 289 to day 6 in patients with higher inflammation (\u03a8>3). Grouping virtual individuals by their time to IFN 290 peak suggests that those with IFN peaks after day 3 of infection also had fewer macrophages (p< 291 1 \u00d7 10 67 ) and larger numbers of CD8 + T cells (p < 1 \u00d7 10 67 ). Overall, delays in IFN peak did not 292 cause significant changes to viral load but were sufficient to cause major tissue damage (100x 293 reduction in viable tissue remaining) and over-heightened immune responses (4x increase in maximum 294 IL-6 and GM-CSF concentrations). 295 We found a positive correlation (R= 0.67, p= 1.58 \u00d7 10 6' ) between the time to peak IFN 296 concentration for each patient against their IFN production rate from infected cells ( Figure 6B ). 297 Interestingly, the time to peak IFN for each patient was also strongly related to their rate of IL-6-298 stimulated monocyte differentiation into macrophages. Low IFN production rates were predominately 299 responsible for significantly delayed IFN peaks over 6 days after infection, whereas IFN peaks within 3 300 days of infection were largely caused by lower rates of monocyte to macrophage differentiation.",
+            "cite_spans": [
+                {
+                    "start": 745,
+                    "end": 748,
+                    "text": "295",
+                    "ref_id": null
+                },
+                {
+                    "start": 942,
+                    "end": 945,
+                    "text": "297",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 929,
+                    "end": 938,
+                    "text": "Figure 6B",
+                    "ref_id": "FIGREF20"
+                }
+            ],
+            "section": "287"
+        },
+        {
+            "text": ". CC-BY-ND 4.0 International license available under a (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "301"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint Further, examining the relationship between each virtual patient's maximum IL-6, IFN, and CD8 + T 302 cell concentrations ( Figure 6C ) identified a weaker correlation between the maximum concentration of 303 CD8 + T cells and IFN (R= 0.24, p = 0.0008) as opposed to with IL-6 (R= \u22120.86, p < 1 \u00d7 10 68 ). . CC-BY-ND 4.0 International license available under a (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 266,
+                    "end": 275,
+                    "text": "Figure 6C",
+                    "ref_id": "FIGREF20"
+                }
+            ],
+            "section": "301"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint remains limited. The data-driven mechanistic mathematical model and virtual patient cohort developed 322 here identified important immunological drivers of COVID-19. In particular, to recreate severe 323 dynamics, it was sufficient to vary only two processes in the model: the rates of type I IFN production 324 from infected cells and macrophages, and the rate of monocyte recruitment by infected cells. This 325 suggests that the distinction between severe and mild disease may be driven by a limited set of causal 326 regulators. The effect on IFN production may be further exacerbated by autoimmunity against type I 327 IFNs, which has been shown to correlate to life-threatening COVID-19 pneumonia in 2.6% of women 328 and 12.5% of men [18] . 329 Our results show that delaying type I IFN production is sufficient to cause major tissue damage (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [
+                {
+                    "start": 883,
+                    "end": 887,
+                    "text": "[18]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 890,
+                    "end": 893,
+                    "text": "329",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "301"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "301"
+        },
+        {
+            "text": "The ability of our model to recapitulate severe disease by, in part, regulating monocyte Together, our findings support the idea that early interventions aimed at reducing inflammation 367 are more likely to be beneficial for patients at risk of progressing to severe COVID-19 than attempts to 368 inhibit cytokine storm later in the disease course, given that early IFN responses were found to provoke 369 better controlled immune responses and outcomes in our virtual cohort. It will be essential to ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "301"
+        },
+        {
+            "text": ". CC-BY-ND 4.0 International license available under a (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "384"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "384"
+        },
+        {
+            "text": "We modelled virus ( ) being produced by infected cells at rate and cleared via exponential (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "384"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint Inflammatory macrophages are produced by three distinct pathways (acting individually or in 417 concert): 1) stimulated tissue-resident macrophages $,./ , (2) GM-CSF-dependent monocyte 418 differentiation, with maximal production .,C and half effect C,. , and (3) IL-6-dependent monocyte 419 differentiation, with maximal production rate . '!,\" and half-effect 0,. '! . We assumed that 420 inflammatory macrophages die naturally at rate . '! or from clearing dead cells at a rate ./,B .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "384"
+        },
+        {
+            "text": "We have previously shown that endogenous cytokine concentrations are far from quasi- ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "421"
+        },
+        {
+            "text": "where A and 1 are free and bound cytokines, DEFG is the rate of endogenous cytokine production, 1 427 and A are the respective binding and unbinding rates, 234 is the internalization rate of bound cytokine, 428 and 523 is the elimination rate. Here, is a stoichiometric constant, is a scaling factor and is where \u0302 is a constant relating the stoichiometry between cytokine molecules and their receptors, is 431 the number of receptors specific to each cytokine on a cell's surface and 10 3 is a factor correcting for 432 cellular units (see Eqs. S19-S22). The molecular weight was calculated in the standard way by dividing 433 the cytokine's molar mass ( ) by Avogadro's number ( .J = MM/6.02214 \u00d7 10 K( ). 434 We considered unbound IL-6 ( A ) to be produced from productively infected cells, 435 inflammatory macrophages, and monocytes, with bound IL-6 ( 1 ) resulting from binding to receptors 436 on the surface of neutrophils, CD8 + T cells and monocytes. Unbound GM-CSF ( A ) was assumed to be 437 produced from inflammatory macrophages and monocytes and bind to receptors on monocytes to 438 create bound GM-CSF ( 1 ). GM-CSF can be produced by CD8 + T cells [67] , but this was excluded (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [
+                {
+                    "start": 207,
+                    "end": 210,
+                    "text": "428",
+                    "ref_id": null
+                },
+                {
+                    "start": 708,
+                    "end": 711,
+                    "text": "434",
+                    "ref_id": null
+                },
+                {
+                    "start": 794,
+                    "end": 797,
+                    "text": "435",
+                    "ref_id": null
+                },
+                {
+                    "start": 1166,
+                    "end": 1170,
+                    "text": "[67]",
+                    "ref_id": "BIBREF83"
+                }
+            ],
+            "ref_spans": [],
+            "section": "421"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint unbound production from infected cells, infiltrating/inflammatory macrophages, and monocytes, and its 444 binding to receptors on both CD8 + T cells and infected cells (Figure 1B) . 445 The pharmacokinetics and pharmacodynamics of G-CSF on neutrophils ( ) were taken directly Table S1 .",
+            "cite_spans": [
+                {
+                    "start": 324,
+                    "end": 327,
+                    "text": "445",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 310,
+                    "end": 321,
+                    "text": "(Figure 1B)",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 418,
+                    "end": 426,
+                    "text": "Table S1",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "421"
+        },
+        {
+            "text": "To begin estimating parameter values from data, we set all immune populations and cytokine . CC-BY-ND 4.0 International license available under a (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "465"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "465"
+        },
+        {
+            "text": "We also assumed there were no resistant cells ( = 0) due to the absence of an IFN equation. This ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "465"
+        },
+        {
+            "text": "where cells become resistant ( ) through IFN ( A and 1 ). The parameter , DEFG was introduced to 476 account for the production of IFN by macrophages and monocytes not explicitly modelled in this 477 reduced system but included in the full system (i.e. ,,. and ,,./ in Eq. S17). Previously-fit 478 parameters were then fixed to their estimated values (Table S1 ) and the value of , DEFG was determined (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 351,
+                    "end": 360,
+                    "text": "(Table S1",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "465"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint the value that ensured that homeostasis was maintained (Eqs. S57-S70) in the absence of infection. All (Table S1 ). Viral loads below 1 copy/ml were 501 assumed to be negligible. Estimated parameters for viral decay and cell lysis ( # and $ ) were used as 502 an upper bound for parameter values in the full model.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 245,
+                    "end": 254,
+                    "text": "(Table S1",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "465"
+        },
+        {
+            "text": "A subset of parameters was obtained through fitting sigmoidal effect curves (Eqs. S24-S25) 504 curves to in vitro and in vivo experiments. These include the half-effect neutrophil concentration for 505 epithelial cell damage, the half-effect concentrations for monocyte production and differentiation 506 through GM-CSF signalling ( C,. and C,./ ! ; Figure S1 ). Other parameters obtained through effect 507 curves were the half-effects for IL-6 production by monocytes ( 0,. ), the effect of IL-6 on monocyte 508 differentiation ( 0,. ) and the half-effect of IFN on CD8 + T cell ( ,,-) and IL-6 on CD8 + T cell 509 expansion ( 0,-) ( Figure S2) . 510 These parameters were then fixed, and remaining parameters were estimated by fitting time-511 dependent sub-models of Eqs. S1-S22 to relevant data. The proliferation rate of epithelial cells ( @ ), the 512 internalization rate of IL-6 ( 234 \" ), and the rate of neutrophil induced damage were fit to corresponding 513 time-series measurements using exponential rate terms (Figure S2) . Clearance and phagocytosis of 514 infected cells and extracellular virus by inflammatory macrophages ( $,./ and #,./ ) were fit to in 515 . CC-BY-ND 4.0 International license available under a (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [
+                {
+                    "start": 91,
+                    "end": 94,
+                    "text": "504",
+                    "ref_id": null
+                },
+                {
+                    "start": 649,
+                    "end": 652,
+                    "text": "510",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 350,
+                    "end": 359,
+                    "text": "Figure S1",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 636,
+                    "end": 646,
+                    "text": "Figure S2)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1025,
+                    "end": 1036,
+                    "text": "(Figure S2)",
+                    "ref_id": null
+                }
+            ],
+            "section": "503"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint vitro experiments (Figure S2) . Production of IFN by macrophages ( ,,./ ) was obtained by fitting to 516 data measuring IFN-\u03b1 production ( Figure S3) . The parameters regulating the rate of the resident ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 160,
+                    "end": 171,
+                    "text": "(Figure S2)",
+                    "ref_id": null
+                },
+                {
+                    "start": 281,
+                    "end": 291,
+                    "text": "Figure S3)",
+                    "ref_id": null
+                }
+            ],
+            "section": "503"
+        },
+        {
+            "text": "For the 'IFN model' (Eqs. 10-16) , parameters related to virus ( , # , and $ ), epithelial cell 531 proliferation ( @ and =>? ), and IFN ( ,,$ , ,,$ , 523 $ , 1 $ , , , A $ and ,,$ ) were fixed to those in Table   532 S1.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 20,
+                    "end": 32,
+                    "text": "(Eqs. 10-16)",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 206,
+                    "end": 217,
+                    "text": "Table   532",
+                    "ref_id": null
+                }
+            ],
+            "section": "530"
+        },
+        {
+            "text": "Numerical simulations 534 All ODE models were solved using ode45 in MATLAB, and delay differentiation equations 535 (i.e. Eqs. S1-S22) were solved using ddesd in MATLAB.",
+            "cite_spans": [
+                {
+                    "start": 22,
+                    "end": 25,
+                    "text": "534",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "533"
+        },
+        {
+            "text": "Sensitivity analysis 537 We performed a local sensitivity analysis for the full model (Eqs. S1-S22) by individually (Figure 7) . 555 The upper 2 and lower 2 bounds for , A , A and A were based off these physiological where is the total number of patients in the cohort, and A P , P , P , and P are the unbound IL-6, 569 neutrophils, and susceptible and resistant epithelial cell count, respectively.",
+            "cite_spans": [
+                {
+                    "start": 21,
+                    "end": 24,
+                    "text": "537",
+                    "ref_id": null
+                },
+                {
+                    "start": 129,
+                    "end": 132,
+                    "text": "555",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 116,
+                    "end": 126,
+                    "text": "(Figure 7)",
+                    "ref_id": "FIGREF39"
+                }
+            ],
+            "section": "536"
+        },
+        {
+            "text": ". CC-BY-ND 4.0 International license available under a (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "570"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. The model evaluated is then evaluated on this parameter set to obtain ( , ).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "570"
+        },
+        {
+            "text": "algorithm is then used to determine a parameter set that optimises the objective function ( ) (Eq.16). 4) 577",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "3) A simulated annealing 576"
+        },
+        {
+            "text": "Optimizing the objective function provides a parameter set for which the patient response to SARS-CoV-2 will 578 be within the physiological ranges. This patient is then assigned to the cohort and this process is continued until 579",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "3) A simulated annealing 576"
+        },
+        {
+            "text": "200 The Pearson correlation coefficient (R) was used to measure the degree of interaction between two 583 variables, with a significance level of < 0.05 indicating rejection of the hypothesis that there is no 584 relationship between the observed variables. In addition, we used two-sample two-sided t-tests (number (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "3) A simulated annealing 576"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint of patients < 40) and z-tests (number of patients \u2265 40) at the \u03b1 < 0.05 significance level to test the 586 hypothesis that there were no differences between sample means. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "3) A simulated annealing 576"
+        },
+        {
+            "text": ". CC-BY-ND 4.0 International license available under a (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "606"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint . CC-BY-ND 4.0 International license available under a (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "606"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint . CC-BY-ND 4.0 International license available under a (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "606"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "606"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint of pre-culturing (1, 2, 4 or 7) 43 . C) Correlation between infectious virus titre and RT-PCR copy 825 number for influenza A and B measured by Laurie et al. 88 The relative TCID50 compared to the 826 RNA copies is plotted for each virus strain and the mean as a black dashed line. D-E) Fit of Eqs. 827 S40-S42 to viral loads 87 and alveolar macrophages from experimental influenza infections. F) 828 The production of GM-CSF from stimulated monocytes was recorded by Lee (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [
+                {
+                    "start": 300,
+                    "end": 302,
+                    "text": "88",
+                    "ref_id": null
+                },
+                {
+                    "start": 539,
+                    "end": 542,
+                    "text": "828",
+                    "ref_id": null
+                },
+                {
+                    "start": 610,
+                    "end": 613,
+                    "text": "Lee",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "606"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint G W (t) and bound G X (t), G-CSF unbound C W (t) and bound C X (t), type I IFN unbound F W (t) and (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "606"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted January 6, 2021. ; https://doi.org/10.1101/2021.01.05.425420 doi: bioRxiv preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "606"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "COVID-19: consider 608 cytokine storm syndromes and immunosuppression",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Mehta",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Mcauley",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Brown",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Sanchez",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Tattersall",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Manson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Lancet",
+            "volume": "395",
+            "issn": "",
+            "pages": "1033--1034",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/S0140-6736(20)30628"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "A pneumonia outbreak associated with a new coronavirus 611 of probable bat origin",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "X-L",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X-G",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature",
+            "volume": "579",
+            "issn": "7798",
+            "pages": "270--273",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41586-020-2012-7"
+                ]
+            }
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Dysregulation of immune response in patients with COVID-19 in 613",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Qin",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Prepr with Lancet",
+            "authors": [
+                {
+                    "first": "China",
+                    "middle": [],
+                    "last": "Wuhan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "1",
+            "issn": "",
+            "pages": "1--18",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "A new coronavirus associated with human respiratory disease in 615",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "COVID-19: combining antiviral and anti-inflammatory 617 treatments",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Stebbing",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Phelan",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Griffin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Lancet Infect Dis",
+            "volume": "20",
+            "issn": "4",
+            "pages": "400--402",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/S1473-618"
+                ]
+            }
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Longitudinal analyses reveal immunological misfiring in severe 620 COVID-19",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Lucas",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Wong",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Klein",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Nature",
+            "volume": "2020",
+            "issn": "",
+            "pages": "1--9",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Longitudinal characteristics of lymphocyte responses and cytokine 622 profiles in the peripheral blood of SARS-CoV-2 infected patients",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "EBioMedicine",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Clinico-biological features and clonal hematopoiesis 624 in patients with severe covid-19. Cancers (Basel)",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Duployez",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Demonchy",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Berthon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "12",
+            "issn": "",
+            "pages": "1--11",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/cancers12071992"
+                ]
+            }
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Neutrophils and COVID-19: Nots, NETs, and knots",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Nathan",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J Exp Med",
+            "volume": "627",
+            "issn": "2020",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "COVID-19? Cytokine and anti-cytokine interventions",
+            "authors": [],
+            "year": null,
+            "venue": "Autoimmun Rev",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.autrev.2020.102567"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Deep immune profiling of COVID-19 patients reveals 632 distinct immunotypes with therapeutic implications. Science (80-)",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Mathew",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Giles",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Baxter",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "633",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.abc8511"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Imbalanced host response to SARS-CoV-2 635 drives development of COVID-19",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Blanco-Melo",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Nilsson-Payant",
+                    "suffix": ""
+                },
+                {
+                    "first": "W-C",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "181",
+            "issn": "5",
+            "pages": "1036--1045",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "IFN-I response timing relative to virus replication 637 determines MERS coronavirus infection outcomes",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Channappanavar",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Fehr",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zheng",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "J Clin Invest",
+            "volume": "129",
+            "issn": "9",
+            "pages": "3625--3639",
+            "other_ids": {
+                "DOI": [
+                    "10.1172/JCI126363"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Dysregulated type I interferon and inflammatory 640 monocyte-macrophage responses cause lethal pneumonia in SARS-CoV-infected mice",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Channappanavar",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Fehr",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Vijay",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Cell 641 Host Microbe",
+            "volume": "19",
+            "issn": "2",
+            "pages": "181--193",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.chom.2016.01.007"
+                ]
+            }
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "IL-6 promotes T cell proliferation and expansion under 643 inflammatory conditions in association with low-level ROR\u03b3t expression",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Jones",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Geiger",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "J Immunol",
+            "volume": "644",
+            "issn": "10",
+            "pages": "2934--2946",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "The role of interleukin-6 in monitoring severe case of coronavirus 646 disease 2019",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "EMBO Mol Med",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "A dynamic COVID-19 immune signature 648 includes associations with poor prognosis",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Laing",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Lorenc",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Barrio",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat Med",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41591-020-1038-6"
+                ]
+            }
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Auto-antibodies against type I IFNs in patients with life-650 threatening COVID-19. Science (80-)",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Bastard",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Rosen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "4585",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.abd4585"
+                ]
+            }
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Type I interferon modulates the battle of host immune system against viruses",
+            "authors": [
+                {
+                    "first": "Y-J",
+                    "middle": [],
+                    "last": "Seo",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Hahm",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "The interferons: pharmacology, mechanism of action, tolerance and side effects",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Arnaud",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Rev Med interne",
+            "volume": "654",
+            "issn": "",
+            "pages": "449--458",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Smith AM, Perelson AS. Influenza A virus infection kinetics: quantitative data and models",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Should we stimulate or suppress immune responses in 658 COVID-19? Cytokine and anti-cytokine interventions",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Jamilloux",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Henry",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Belot",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Autoimmun Rev",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "MERS-coronavirus: From discovery to 660 intervention",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Widagdo",
+                    "suffix": ""
+                },
+                {
+                    "first": "Nma",
+                    "middle": [],
+                    "last": "Okba",
+                    "suffix": ""
+                },
+                {
+                    "first": "Stalin",
+                    "middle": [],
+                    "last": "Raj",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Haagmans",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "One Heal",
+            "volume": "3",
+            "issn": "",
+            "pages": "11--16",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.onehlt.2016.12.001"
+                ]
+            }
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Clinical and immunological assessment of asymptomatic 662 SARS-CoV-2 infections",
+            "authors": [
+                {
+                    "first": "Q-X",
+                    "middle": [],
+                    "last": "Long",
+                    "suffix": ""
+                },
+                {
+                    "first": "X-J",
+                    "middle": [],
+                    "last": "Tang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q-L",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Nat Med",
+            "volume": "2020",
+            "issn": "",
+            "pages": "1--5",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Leveraging Computational Modelling to 664",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Jenner",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Aogo",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Davis",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Smith",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Craig",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Understand Infectious Diseases",
+            "authors": [],
+            "year": 2020,
+            "venue": "Curr Pathobiol Rep",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Efficient Generation and Selection of Virtual Populations in 666",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Allen",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Rieger",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Musante",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Quantitative Systems Pharmacology Models",
+            "authors": [],
+            "year": 2016,
+            "venue": "CPT Pharmacometrics Syst Pharmacol",
+            "volume": "667",
+            "issn": "3",
+            "pages": "140--146",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/psp4.12063"
+                ]
+            }
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Characterizing chemotherapy-induced 669 neutropenia and monocytopenia through mathematical modelling",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Cassidy",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Humphries",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Craig",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Mackey",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.04.02.022046"
+                ]
+            }
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Translational approaches to treating dynamical diseases through 672 in silico clinical trials",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Alfonso",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Jenner",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Craig",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Chaos An Interdiscip J Nonlinear Sci",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Smith AM. Host-pathogen kinetics during influenza infection and coinfection: insights from 674 predictive modeling",
+            "authors": [],
+            "year": 2018,
+            "venue": "Immunol Rev",
+            "volume": "285",
+            "issn": "1",
+            "pages": "97--112",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Modelling combined virotherapy and 676 immunotherapy: strengthening the antitumour immune response mediated by",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Jenner",
+                    "suffix": ""
+                },
+                {
+                    "first": "C-O",
+                    "middle": [],
+                    "last": "Yun",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Yoon",
+                    "suffix": ""
+                },
+                {
+                    "first": "Acf",
+                    "middle": [],
+                    "last": "Coster",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Kim",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Potency and timing of antiviral therapy as 679 determinants of duration of SARS CoV-2 shedding and intensity of inflammatory response",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Goyal",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Cardozo-Ojeda",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Schiffer",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "680",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.04.10.20061325"
+                ]
+            }
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Reliability of self-sampling for accurate assessment of 682 respiratory virus viral and immunologic kinetics. medRxiv",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Waghmare",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Krantz",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Baral",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.04.03.20051706"
+                ]
+            }
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Modelling SARS-CoV-2 dynamics: implications for therapy. 685 medRxiv",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Ejima",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Ito",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.03.23.20040493"
+                ]
+            }
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Inferring timing of infection using within-host SARS-CoV-2 687 infection dynamics model: Are \"imported cases\" truly imported? medRxiv",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Ejima",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Ito",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.03.30.20040519"
+                ]
+            }
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Mechanistic modeling of the SARS-CoV-2 and 690 immune system interplay unravels design principles for diverse clinicopathological outcomes. 691 bioRxiv",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sahoo",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Hari",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Jhunjhunwala",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Jolly",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.05.16.097238"
+                ]
+            }
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "A modular framework for multiscale 693 multicellular spatial modeling of viral infection, immune response and drug therapy timing and 694 efficacy in epithelial tissues: A multiscale model of viral infection in epithelial tissues",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Sego",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Aponte-Serrano",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Gianlupi",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "BioRxiv",
+            "volume": "695",
+            "issn": "2020",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Interferon-inducible antiviral effectors",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Sadler",
+                    "suffix": ""
+                },
+                {
+                    "first": "Brg",
+                    "middle": [],
+                    "last": "Williams",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Nat Rev Immunol",
+            "volume": "697",
+            "issn": "7",
+            "pages": "559--568",
+            "other_ids": {}
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "IL-6 switches the differentiation of 699 monocytes from dendritic cells to macrophages",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Chomarat",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Banchereau",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Davoust",
+                    "suffix": ""
+                },
+                {
+                    "first": "Karolina",
+                    "middle": [],
+                    "last": "Palucka",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "Nat Immunol",
+            "volume": "1",
+            "issn": "6",
+            "pages": "510--514",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/82763"
+                ]
+            }
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Neutrophil in viral infections, friend or foe?",
+            "authors": [
+                {
+                    "first": "Brandon",
+                    "middle": [],
+                    "last": "Drescher",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Bai",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Virus Res",
+            "volume": "702",
+            "issn": "1",
+            "pages": "1--7",
+            "other_ids": {}
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Neutrophils in viral infections: current concepts and caveats",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Galani",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Andreakos",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J Leukoc",
+            "volume": "704",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Respiratory disease in rhesus macaques 706 inoculated with SARS-CoV-2",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Munster",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Feldmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Williamson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41586-020-2324-7"
+                ]
+            }
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "Type I IFN immunoprofiling in COVID-19 708 patients",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Trouillet-Assant",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Viel",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Gaymard",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J Allergy Clin Immunol",
+            "volume": "2020",
+            "issn": "",
+            "pages": "4--8",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.jaci.2020.04.029"
+                ]
+            }
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "Longitudinal COVID-19 profiling associates IL-1Ra and IL-10 710 with disease severity and RANTES with mild disease",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Qin",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "JCI Insight",
+            "volume": "5",
+            "issn": "13",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1172/jci.insight.139834"
+                ]
+            }
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "Elevated levels of interleukin-6 and CRP predict the 713 need for mechanical ventilation in COVID-19",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Herold",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Jurinovic",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Arnreich",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Allergy Clin Immunol",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "Comparative therapeutic efficacy of remdesivir and 715 combination lopinavir, ritonavir, and interferon beta against MERS-CoV",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Sheahan",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Sims",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Leist",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Nat Commun",
+            "volume": "716",
+            "issn": "2020",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41467-019-13940-6"
+                ]
+            }
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "Monocyte conversion during inflammation and injury",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Kratofil",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Kubes",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Deniset",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "Regulates Alveolar Macrophage Differentiation and Innate Immunity in the Lung through PU",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "1",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF57": {
+            "ref_id": "b57",
+            "title": "Toll-Like Receptor Expression and 723 Induction of Type I and Type III Interferons in Primary Airway Epithelial Cells",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Ioannidis",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Ye",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Mcnally",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Willette",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Fla\u00f1o",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "J Virol",
+            "volume": "724",
+            "issn": "6",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/JVI.01956-12"
+                ]
+            }
+        },
+        "BIBREF58": {
+            "ref_id": "b58",
+            "title": "Within-host models of high and low pathogenic 726 influenza virus infections: The role of macrophages",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Pawelek",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Dor",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Salmeron",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Handel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "PLoS One",
+            "volume": "11",
+            "issn": "2",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF59": {
+            "ref_id": "b59",
+            "title": "Tumour-associated macrophages and oncolytic virotherapies: a 728 mathematical investigation into a complex dynamics",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Eftimie",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Eftimie",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Lett Biomath",
+            "volume": "5",
+            "issn": "sup1",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/23737867.2018.1430518"
+                ]
+            }
+        },
+        "BIBREF60": {
+            "ref_id": "b60",
+            "title": "The fate and lifespan of human monocyte subsets in 731 steady state and systemic inflammation",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Patel",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Fullerton",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "J Exp Med",
+            "volume": "214",
+            "issn": "7",
+            "pages": "1913--1923",
+            "other_ids": {}
+        },
+        "BIBREF61": {
+            "ref_id": "b61",
+            "title": "Paracrine costimulation of IFN-$\\gamma$ signaling by 733 integrins modulates CD8 T cell differentiation",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Krummel",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Mahale",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Uhl",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Proc Natl Acad Sci",
+            "volume": "115",
+            "issn": "45",
+            "pages": "11585--11590",
+            "other_ids": {}
+        },
+        "BIBREF62": {
+            "ref_id": "b62",
+            "title": "25-Dihydroxy vitamin D 3 (calcitriol) 735 stimulates proliferation of human circulating monocytes in vitro",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ohta",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Okabe",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Ozawa",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Urabe",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Takaku",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "1\u03b1",
+                    "suffix": ""
+                }
+            ],
+            "year": 1985,
+            "venue": "FEBS Lett",
+            "volume": "185",
+            "issn": "1",
+            "pages": "9--13",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/0014-5793(85)80730-4"
+                ]
+            }
+        },
+        "BIBREF63": {
+            "ref_id": "b63",
+            "title": "Respiratory Virus Infection of Peripheral 738",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Krilov",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Hendry",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Godfrey",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Mcintosh",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF64": {
+            "ref_id": "b64",
+            "title": "Blood Monocytes: Correlation with Ageing of Cells and Interferon Production in vitro",
+            "authors": [],
+            "year": null,
+            "venue": "J Gen",
+            "volume": "739",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF66": {
+            "ref_id": "b66",
+            "title": "Aryl hydrocarbon receptor controls monocyte 741 differentiation into dendritic cells versus macrophages",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Goudot",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Coillard",
+                    "suffix": ""
+                },
+                {
+                    "first": "A-C",
+                    "middle": [],
+                    "last": "Villani",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Immunity",
+            "volume": "47",
+            "issn": "3",
+            "pages": "582--596",
+            "other_ids": {}
+        },
+        "BIBREF67": {
+            "ref_id": "b67",
+            "title": "Inflammation triggers immediate rather than progressive changes in 743 monocyte differentiation in the small intestine",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Desalegn",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Pabst",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Nat Commun",
+            "volume": "10",
+            "issn": "1",
+            "pages": "1--14",
+            "other_ids": {}
+        },
+        "BIBREF68": {
+            "ref_id": "b68",
+            "title": "COVID-19 cytokines and the hyperactive immune response",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Karki",
+                    "suffix": ""
+                },
+                {
+                    "first": "Raj",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Tuladher",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF69": {
+            "ref_id": "b69",
+            "title": "Synergism of TNF-\u03b1 and IFN-\u03b3 in triggering inflammation, tissue damage, and death",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF70": {
+            "ref_id": "b70",
+            "title": "Interleukin-6 blockade with sarilumab in severe 748",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Della-Torre",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Campochiaro",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Cavalli",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF71": {
+            "ref_id": "b71",
+            "title": "COVID-19 pneumonia with systemic hyperinflammation: an open-label cohort study",
+            "authors": [],
+            "year": null,
+            "venue": "Ann",
+            "volume": "749",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF73": {
+            "ref_id": "b73",
+            "title": "On the use of the Hill functions in mathematical models of gene regulatory 751 networks",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Santill\u00e1n",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Math Model Nat Phenom",
+            "volume": "3",
+            "issn": "2",
+            "pages": "85--97",
+            "other_ids": {}
+        },
+        "BIBREF74": {
+            "ref_id": "b74",
+            "title": "The Immune System in Health and Disease",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Janeway",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Immunobiology",
+            "volume": "5",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF75": {
+            "ref_id": "b75",
+            "title": "Virus Transmission and Epidemiology",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Louten",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Essential Human Virology",
+            "volume": "755",
+            "issn": "",
+            "pages": "71--92",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/b978-0-12-800947-5.00005-3"
+                ]
+            }
+        },
+        "BIBREF76": {
+            "ref_id": "b76",
+            "title": "Induction and function of IFN\u03b2 during viral and bacterial infection",
+            "authors": [
+                {
+                    "first": "U",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Nagarajan",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Crit Rev",
+            "volume": "757",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF78": {
+            "ref_id": "b78",
+            "title": "Different interferons: Pharmacology, pharmacokinetics, proposed mechanisms, safety 759 and side effects",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Arnaud",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Rev Med Interne",
+            "volume": "23",
+            "issn": "",
+            "pages": "449--458",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/S0248-760"
+                ]
+            }
+        },
+        "BIBREF79": {
+            "ref_id": "b79",
+            "title": "Apoptosis: a review of programmed cell death",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Elmore",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Toxicol Pathol",
+            "volume": "35",
+            "issn": "4",
+            "pages": "495--516",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/01926230701320337"
+                ]
+            }
+        },
+        "BIBREF80": {
+            "ref_id": "b80",
+            "title": "Three cell deaths and a funeral: macrophage clearance of cells undergoing 764 distinct modes of cell death",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Kl\u00f6ditz",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Fadeel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Cell death Discov",
+            "volume": "5",
+            "issn": "1",
+            "pages": "1--9",
+            "other_ids": {}
+        },
+        "BIBREF81": {
+            "ref_id": "b81",
+            "title": "A Mathematical Model of Granulopoiesis Incorporating 766 the Negative Feedback Dynamics and Kinetics of G-CSF/Neutrophil Binding",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Craig",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Humphries",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Mackey",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF83": {
+            "ref_id": "b83",
+            "title": "Granulocyte-macrophage colony-stimulating factor (GM-CSF) 769 and T-cell responses: what we do and don't know",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Roberts",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Cell Res",
+            "volume": "16",
+            "issn": "2",
+            "pages": "126--133",
+            "other_ids": {}
+        },
+        "BIBREF84": {
+            "ref_id": "b84",
+            "title": "Handbook of Hormones",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Takei",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Ando",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Tsutsui",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/B978-0-12-801028-0.00292-0"
+                ]
+            }
+        },
+        "BIBREF85": {
+            "ref_id": "b85",
+            "title": "The pro-and anti-inflammatory properties 773 of the cytokine interleukin-6",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Scheller",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Chalaris",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Schmidt-Arras",
+                    "suffix": ""
+                },
+                {
+                    "first": "Rose-John",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Biochim Biophys Acta (BBA)-Molecular Cell Res",
+            "volume": "774",
+            "issn": "5",
+            "pages": "878--888",
+            "other_ids": {}
+        },
+        "BIBREF86": {
+            "ref_id": "b86",
+            "title": "Lung epithelial GM-CSF improves host defense function and epithelial repair in influenza virus pneumonia-a new therapeutic strategy?",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "R\u00f6sler",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Herold",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Mol Cell Pediatr",
+            "volume": "777",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1186/s40348-016-0055-577871.Matlab"
+                ]
+            }
+        },
+        "BIBREF87": {
+            "ref_id": "b87",
+            "title": "Differential Expression of M-CSF, G-CSF, and 780 GM-CSF by Human Monocytes",
+            "authors": [
+                {
+                    "first": "M-T",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Kaushansky",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Ralph",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Ladner",
+                    "suffix": ""
+                }
+            ],
+            "year": 1990,
+            "venue": "",
+            "volume": "47",
+            "issn": "",
+            "pages": "275--282",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/jlb.47.3.275"
+                ]
+            }
+        },
+        "BIBREF88": {
+            "ref_id": "b88",
+            "title": "Inhibition of reactive oxygen species production ameliorates 782 inflammation induced by influenza A viruses via upregulation of SOCS1 and SOCS3",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ye",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Lowther",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Stambas",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "J Virol",
+            "volume": "783",
+            "issn": "5",
+            "pages": "2672--2683",
+            "other_ids": {}
+        },
+        "BIBREF89": {
+            "ref_id": "b89",
+            "title": "In silico trials predict 785 that combination strategies for enhancing vesicular stomatitis oncolytic virus are determined by 786 tumour aggressivity",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Jenner",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Cassidy",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Belaid",
+                    "suffix": ""
+                },
+                {
+                    "first": "M-C",
+                    "middle": [],
+                    "last": "Bourgeois-Daigneault",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Craig",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Immunother Cancer",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF90": {
+            "ref_id": "b90",
+            "title": "Determinants of combination GM-CSF immunotherapy and oncolytic 788 virotherapy success identified through in silico treatment personalization",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Cassidy",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Craig",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "111 lung epithelial cells ( ) that encounter virus ( ) and become infected ( ) before turning into damaged 112 or dead cells ( ) due to viral infection or immune involvement. The immune response is orchestrated 113 by a myriad of cytokines that act to stimulate the immune cell subsets present in the tissues and recruit 114 cells from the bone marrow and circulation (Figure 1A). Upon infection, cells begin secreting type I 115 IFNs ( ) that cause lung epithelial cells to become resistant to infection ( ) and decrease the 116 production of newly infected cells [37]. Through stimulation by infected and dead cells, alveolar (lung 117 tissue-resident) macrophages ( !\" ) become inflammatory macrophages, which also arise through 118 macrophage ( ) differentiation by stimulation by GM-CSF ( ) or IL-6 ( ) [38]. Neutrophils ( ) are 119 recruited to the infection site by G-CSF and release reactive oxygen species (ROS) causing bystander 120 damage to infected and susceptible cells [39, 40]. CD8 + T cells ( ) are subsequently recruited to the 121 infection site following a delay to account for antigen presentation, with expansion modulated by type I 122 IFN and IL-6 concentrations. See Materials and Methods for a complete description.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Immune response to SARS-CoV-2 infection model schematic. The model in Eqs. S1-S22 reduced 125 to A) cell dynamics B) cytokine production dynamics and C) cytokine binding kinetics. Unique lines represent 126 induced cell death (double line), recruitment (dashed line), cell type change or production (solid line), and 127 cytokine production (square arrow). Cell and/or cytokines along joining lines denote a causal interaction. A) 128 Virus ( ) infects susceptible lung epithelial cells and creates either infected ( ) or resistant ( ) cells depending 129 on the concentration of type I IFN. Infected cells then either die and produce new virus or are removed via 130 inflammatory macrophages ( !\" ) or CD8 + T cells ( ) that induce apoptosis to create dead cells ( ). Neutrophils 131 (N) cause bystander damage (death) in all epithelial cells and are recruited by individually G-CSF and IL-6 132 concentrations. CD8 + T cells are recruited by infected cells and their population expands from IFN signalling. T 133 cell recruitment is inhibited by IL-6 concentrations. Monocytes ( ) are recruited by infected cells and GM-CSF 134 and differentiate into inflammatory macrophages based on the individual concentrations of GM-CSF and IL-6. 135",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "144 infection viral kinetics with a reduced version of the full model ('viral model'). For this, we excluded",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "3B), caused by the increase in infected cells and subsequent lack of resistant cells. IFN dynamics were 165 matched to systemic IFN-\u03b1 concentrations from clinical cohorts by visual predictive check to confirm 166 that predictions fell within the observed ranges [42] (Figure S6A).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "188 reduction in healthy viable lung tissue (Figure 4A), whereas changes in viral load remained relatively 189 consistent with mild disease.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": "Predicting mild and severe COVID-19 dynamics. Mild disease (solid lines) dynamics obtained by 192 using baseline parameter estimates (Tables S1) while severe disease dynamics (dashed lines) were obtained by 193 decreasing the production rate of type I IFN ( &,\" ) and increasing the production of monocytes ( (,\" ) and their 194 differentiation to macrophages ( &,(! ). A) Viral load and lung cells concentrations (susceptible, resistant, 195 infected, and dead cells). Solid black line with error bars indicates macaque data [41] (see Figure 2). B) Immune 196 cell concentrations (inflammatory macrophages, monocytes, neutrophils, and CD8 + T cells. C) Unbound 197 cytokine concentrations (free IL-6, GM-CSF, G-CSF, and type I IFN). Time evolution of all model variables is 198 shown in Figure S7 (including bound cytokine and alveolar macrophages). 199 In addition, there was a significant increase in the number of inflammatory macrophages 200 (Figure 4B), IL-6, GM-CSF and, importantly, a delayed and reduced IFN peak (Figure 4C). In 201 comparison to the mild disease, inflammatory macrophages and neutrophils (Figure 4B) remained 202 elevated for at least 30 days after initial infection. Comparing mild and severe disease highlighted 203 significant differences in the area under the curve (AUC) of macrophages (6 \u00d7 10 % cells/ml versus 204 3 \u00d7 10 && cells/ml) and neutrophils (2 \u00d7 10 ' cells/ml versus 3 \u00d7 10 &( cells/ml) over 30 days.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF10": {
+            "text": "216 and comparing a set of metrics (see Materials and Methods) chosen to provide a comprehensive 217 understanding of each parameter's impact on the host-pathogen dynamics. This analysis identified 17 218 sensitive parameters (Figure 5) relating to virus productivity ( , #,+ , , ,,$ ), CD8 + T cell induced 219 epithelial cell apoptosis ( $,-), macrophages, monocyte and CD8 + T cell production ( ./ ! ,0 , .,$ , -,$ ), 220 IL-6 ( 0,./ , 1 \" , 234 \" ), G-CSF ( 1 # ), and IFN ( ,,$ , ,,./ , 523 $ , 1 $ , 234 $ ).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF11": {
+            "text": "The rate of viral infectivity ( ) had a particularly significant impact on all metrics where 222 increases resulted in higher viral loads and longer periods of tissue damage > 80%. The duration of 223 extensive tissue damage (>80% damaged) also increased with IFN potency ( ,,$ ). Decreasing the rate 224 of IL-6-induced monocyte differentiation into inflammatory macrophages ( .!,0 ) increased the peak of 225 both IL-6 and IFN. Notably, changes to parameters that increased the bound IFN concentration, i.e.226increasing the binding and production rates ( 1 $ and ,,$ ) and decreasing the internalization and 227 clearance rates ( 523 $ and 234 $ ) induced significant changes in most metrics(Figure 5). SeeFigure S8",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF14": {
+            "text": "Parameters driving COVID-19 severity. A local sensitivity analysis was performed by varying each 230",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF15": {
+            "text": "240 Virtual patient cohort identifies heterogeneity in immune dynamics and severity 241 To better understand the clinical variability in SARS-CoV-2 infection severity [1], we next 242 generated a cohort of 200 virtual patients (see Materials and Methods and Figure 7). To create each 243 in silico patient, seven patient-specific parameters were sampled from normal distributions with means 244 corresponding to their respective fixed values and standard deviations inferred from clinical 245 observations",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF17": {
+            "text": "252 IFN is affected by innate immune cells ( ,,./ and ,,. ). For the production of IL-6 by macrophages 253 and monocyte to macrophage differentiation via IL-6 stimulation, standard deviations were inferred 254 from IL-6 levels in non-mechanically ventilated patients (mild) and from mechanically ventilated 255 patients (severe) [44] (Figure S7D). Standard deviations for the production of IFN by infected cells 256 were determined from the 95% confidence interval for IFN-from Trouillet-Assant et al. [42] (Figure 257 S7A-B), and, lastly, the standard deviation for the production of IFN by macrophages was obtained 258 from the 95% confidence interval in Sheahan et al. [45]. The variation in virtual patient responses was 259 then constrained by experimental and clinical viral loads, IFN, neutrophil, IL-6, and G-CSF",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF18": {
+            "text": "261 severe COVID-19 patients in the literature [11, 17] (Figure S9).262",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF19": {
+            "text": "and tissue damage (Eq. 18) and then compared it to individual 271 characteristics of each virtual patient's disease. We evaluated each virtual patient's maximum IL-6, 272 CD8 + T cells, and neutrophils; minimum percentage of healthy lung tissue; the time to peak IFN; and 273 total IFN exposure (area under the curve or AUC) within 21 days of infection. Ordering patients by 274 their value of \u03a8 and plotting the corresponding values for different characteristics evaluated showed a 275 clear separation between those with mild disease and those with severe disease (Figure 6A). 276 Patients with higher inflammation had higher IL-6, neutrophil, and inflammatory macrophage 277 concentrations (Figure 6A). While the IFN exposure was not significantly stratified by \u03a8, the peak of 278 IFN and CD8 + T cell levels were strongly negatively correlated with the inflammation marker (R = 279 \u22120.85, p < 1 \u00d7 10 68 , see Materials and Methods). IL-6 was most noticeably correlated with \u03a8 (R = 280 0.91, p< 1 \u00d7 10 68 ), with a distinct upper bound in the concentration (~100 pg/ml) achieved in 50% of 281 the virtual cohort. There appeared to be a transition phase in inflammation driven by neutrophil levels 282",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF20": {
+            "text": "Virtual Cohort of SARS-CoV-2 infected patients. 200 virtual patients were generated by sampling 306 parameters related to macrophage, IL-6, and IFN production ( (! ! ,-, -,(! , &,\" , (,\" , &,(! , &,\" , and &,( ) from 307 normal distributions with mean equal to their original values and standard deviation inferred from clinical 308 observations (Figure 7). Each virtual patient had a distinct parameter set that was optimized to that patient's 309 dynamics in response to SARS-CoV-2 infection corresponded to physiological intervals reported in the literature 310 (see Materials and Methods). A) Infection and immune response metrics (blue) in individual patients were 311 compared to inflammatory variable \u03a8 (green). Each point represents an individual patient, ordered according to 312 \u03a8. The correlation coefficient (R) and p-value are indicated for each, with \u03b1<0.05 denoting significant 313 correlations. B) Parameters most correlated to the IFN peak time were the rates of macrophage production via 314 IL-6 ( (! ! ,-) and the IFN production by infected cells ( &,\" ). Individual patient values for these parameters are 315 plotted as circles coloured by the patient's corresponding day of IFN peak (see color bar). Patients are ordered 316 by their inflammation marker \u03a8. C) Correlations between maximal IFN, IL-6, and T cell concentrations for each 317 patient (circles). Circle colour corresponds to the maximal T cell concentration of each patient. 318 Discussion 319 Serial immunological measurements from COVID-19 patients are only beginning to be 320 collected, and the ability to assess initial infection kinetics and the drivers of the ensuing disease 321 Max T cells \u00d710 ! /mL A B C",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF21": {
+            "text": "330and heightened immune responses yet have little impact on peak viral loads. In the severe disease 331 simulation, viral load was cleared marginally faster (~1 day) in comparison to the mild disease 332 simulation. This finding is supported by recent clinical evidence showing that an increased rate of viral 333 decline rather than peak viral load may be more predictive of disease severity [6]. This therefore 334 suggests that viral load may not be a necessary attribute to obtain severe tissue damage. Instead, our 335 model predicts that increases in tissue damage occur through heightened innate immune responses.336 Evaluating SARS-CoV-2 infection in a cohort of 200 virtual patients revealed several immunological 337 responses responsible for differential disease presentation. Notably, a distinct, emergent switch in the 338 type I IFN response corresponded with late IFN peaks and more severe disease (i.e., higher 339 inflammation Y). This supports previous findings that connect a delay in type I IFN with more severe 340 presentations of highly pathogenic coronaviruses infections including SARS-CoV, MERS-CoV, and 341 SARS-CoV-2 [13, 14, 22]. Virtual patients with rates of monocyte differentiation close to the rate at 342 homeostasis tended to achieve peak IFN concentrations approximately 2 days after infection compared 343 to those with higher inflammation and later IFN responses, who had at least a 3-fold increase in this 344 rate. This switch in timing was caused by increased rates of monocyte-to-macrophage differentiation 345 and decreased production of IFN by infected cells, with the initial delay of IFN caused by increased 346 monocyte differentiation and the more extreme IFN delays caused by IFN production from infected 347 cells, indicating that the timing of the IFN peak in a patient may allow for improved stratification into 348 treatment arms designed to target one or both of these responses. The finding that IFN binding was 349 predictive of the duration of lung tissue damage, suggests that virus-intrinsic properties and their ability 350 to inhibit receptor mediated binding and endocytosis could delay IFN production and cause 351 downstream increases in IL-6 and GM-CSF resulting in severe disease. Our results further highlight 352 that lymphopenia is tightly correlated with maximum IL-6 concentration and less dependent on the 353 timing of IFN.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF23": {
+            "text": "better regulate monocyte differentiation. This is in line with recent studies identifying 357 distinct transcriptional factors as regulators of differentiated monocyte fates in inflammatory conditions 358 [55, 56]. It also raises the possibility that modulation by exogenous cytokines, including macrophage 359 colony-stimulating factor in combination with IL-4 and tumour necrosis factor-alpha (TNF-a), may be 360 able to direct monocyte differentiation in favour of monocyte-derived dendritic cells and reduce this 361 response [55]. Recently, the neutralization of both TNF-\u03b1 and IFN-\u03b3 has been found to benefit patients 362 with COVID-19 or other cytokine storm-drive syndromes by limiting inflammation and tissue damage 363 [57]. Given that TNF-\u03b1 also has a secondary benefit on monocyte differentiation, our results support 364 the viability of this avenue of treatment. Caution should be noted, however, given that previous 365 attempts to regulate host responses by IL-6 blockade have proven unsuccessful [58].",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF25": {
+            "text": "370 characterize both the timing and mechanisms of proposed therapeutic interventions to develop effective 371 treatments to mitigate severe disease.372 Materials and Methods 373 Mathematical model of the immune response to SARS-CoV-2 374 Our model was developed to examine SARS-CoV-2 infection dynamics and identify 375 immunological drivers of disease severity (Eqs. S1-S22). Throughout, cytokine and immune cell 376 interactions and effects were described by Hill functions the interacting compound, its half-effect value, and \u210e the Hill coefficient [59, 60]. Further, 378 for a given cytokine and cell population , the production (recruitment/differentiation) rate of by 379 was denoted by :,; and the rate of production of by by ;,: . The half-effect concentration (i.e. 380 in Eq. 1) of cytokine on cell population was represented by :,; and the half-effect concentration 381 of cell affecting cytokine was given by :,; . The natural death rate of cell was denoted by ; , 382 and the rate of induced death of cell by cell by ;,< . Lastly, the carrying capacity concentration of 383 cell was denoted by =>? , and regeneration or proliferation rates by ; .",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF26": {
+            "text": "385clearance at rate # , which accounts for all contributions to viral degradation except macrophage-and 386 neutrophil-mediated clearance. Immune-mediated viral clearance via phagocytosis by inflammatory387 macrophages [61] and neutrophil extracellular traps (NETs-extracellular chromatin fibres produced 388 by neutrophils to control infections) [39, 40] was considered to occur at rates #,. %! and #,+ , 389 respectively. Susceptible epithelial cells ( ) grow logistically with per capita proliferation rate @ and 390 carrying capacity =>? , and become infected ( ) at rate . The damage inflicted on epithelial cells by 391 neutrophils was modelled using a Hill function (Eq. 1) [60], where neutrophils kill/damage epithelial 392 cells at rate + through the release of NETs and other antimicrobials proteins [39, 40]. The constant 393 (0 < < 1) was included to modulate bystander damage of uninfected cells ( and ). 394 For the purposes of our investigation, we only considered type I IFN dynamics (primarily IFN-395 \u03b1, \u03b2). Type I IFN ( A and 1 ) reduces the infectivity and replication capability of viruses by stimulating 396 cells to become resistant to infection. These resistant cells ( ) proliferate at a rate equivalent to 397 susceptible cells ( @ ). The concentration of bound IFN ( 1 ) modulates the creation of infected and 398 resistant cells [19, 21, 62, 63], where increasing the concentration of IFN causes more cells to become 399 resistant to infection and less to become productively infected ( ). The potency of this effect is 400 controlled by the half-effect parameter ,,$ . Following the eclipse phase (which lasts $ hours), 401 productively infected cells ( ) produce virus before undergoing virus-mediated lysis at rate $ . 402 Although various immune cell subsets contribute to infected cell clearance, we limited our 403 investigation to macrophages and effector CD8 + T cells which induce apoptosis at rates $,./ and $,-, 404 respectively. 405 The accumulation of dead cells ( ) was assumed to occur through infected cell lysis $ , 406 neutrophil damage/killing of epithelial cells + , macrophage phagocytosis of infected cells $,./ , 407 macrophage exhaustion ./,B , and CD8 + T cell killing of infected cells $,-. These dead cells 408 disintegrate relatively quickly [64] at rate B , and are cleared through phagocytosis by macrophages 409 [65] at rate B,./ . 410 Resident alveolar macrophages ( /\" ) are replenished at a logistic rate inversely proportion to 411 viral load with maximal rate of ./ and half-effect #,./ (i.e. as the virus is cleared, the inflammatory 412 macrophage pool replenishes the alveolar macrophage population in the lung). We modelled the 413 transition of alveolar macrophages to inflammatory macrophages ( /$ ) as dependent on infected and 414 dead cells, with a maximal rate of $,./ . Resident macrophages die naturally at a rate ./ & or due to 415 the clearing of dead cells (exhaustion) [65] at rate ./,B .",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF28": {
+            "text": "422 equilibrium at homeostasis [66]. Therefore, to describe the pharmacokinetics and pharmacodynamics 423 of cytokine binding and unbinding, we leveraged the framework established in Craig et al. [66] (Figure 424 1C) for IFN ( 1 and A ), IL-6 ( 1 and A ), GM-CSF ( 1 and A ), and G-CSF ( 1 and A ). In its 425 general form, this pharmacokinetic relationship is expressed as",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF29": {
+            "text": "the sum of all cells modulated by the cytokine with 430 =\u0302. J 10 3 . 4",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF30": {
+            "text": "because it was insignificant to the full system's dynamics. Unbound G-CSF ( A ) is secreted by440 monocytes, with bound G-CSF ( 1 ) produced via binding to neutrophil receptors. Lastly, because 441 unbound type I IFNs ( A ) are known to be produced by multiple cell types in response to viral 442 infection, including lymphocytes, macrophages, endothelial cells and fibroblasts [62], we modelled its",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF31": {
+            "text": "Neutrophil recruitment of bone marrow reservoir neutrophils ( \" ) was modelled to occur via the bound 448 fraction of G-CSF [68] ( 1, = 1 ( )/( M ( ))) at rate DEFG * which increases towards its maximal 449 value + =>? as a function of increasing G-CSF. During the acute phase of inflammation, endothelial 450 cells produce IL-6 leading to the attraction of neutrophils [69]. This was modelled as recruitment with 451 maximal rate +,0 and half-effect parameter B,0 . Neutrophils die at rate + . 452 Monocytes ( ) are recruited by bound GM-CSF [70], similar to neutrophils (Eq. 5), with bone 453 marrow monocytes ( \" ) recruited at a homeostatic rate DEFG * . In the presence of GM-CSF, this rate 454 increases towards . =>? . Monocytes are also recruited by the presence of infected cells at a maximal 455 rate of .,$ with half-effect $,. , and subsequently disappear through differentiation into inflammatory 456 macrophages (as above) or death at rate . . 457 CD8 + T cells are recruited through antigen presentation on infected cells as a function of 458 infected cell numbers at rate -,$ The constant delay ( -) accounts for the time taken for dendritic cells 459 to activate, migrate to the lymph nodes, activate CD8 + T cells, and the arrival of effector CD8 + T cells 460 at the infection site. CD8 + T cell expansion occurs in response to bound IFN at a maximal rate -,, 461 with half-effect ,,-, and CD8 + T-cell exhaustion occurs with high concentrations of IL-6 [16, 17], with 462 half-effect 0,-, and apoptosis occurs at rate -. All variable and parameter descriptions are provided in 463",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF32": {
+            "text": "concentrations in the full model (Supplementary Information Eqs. S1-S22) to zero ( /\" = /$ = 467 = = = A = 1 = A = 1 = A = 1 = A = 1 = 0).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF33": {
+            "text": "resulted in a simplified 'viral model' that considers only virus ( ) infection of susceptible cells ( ) 470 which creates infected cells ( ) after $ days, which the die through lysis, creating dead cells ( ). 471 Type I interferon dynamics during early infection ('IFN model') 472 To study infection dynamics driven uniquely by IFN, we extended Eqs. 6-9 by introducing the 473 IFN mechanisms from Eqs. S1-S22, i.e. setting other cytokine and immune cell populations to zero 474 ( /\" = /$ = = = = A = 1 = A = 1 = A = 1",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF34": {
+            "text": "by solving A / = 0 at homeostasis (i.e. = = 0), giving , DEFG = 0.25.480Model calibration and parameter estimation481    Model parameters(Table S1) were obtained either directly from the literature, through fitting 482 effect curves (Eqs. S24-S25) or sub-models (Eqs. S26-S56) to in vitro or in vivo data, or by calculating",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF35": {
+            "text": "484 fitting procedures were performed using MATLAB 2019b functions fmincon or lsqnonlin [71]. 485 Initial concentrations of all unbound cytokines ( A,N , A,N , A,N and A,N ), susceptible cells, 486 resident macrophages, monocytes, neutrophils, and CD8 + T cells ( N , /\",N , N , N and N ) were 487 estimated from plasma and lung tissue concentrations in humans. Parameters for cytokine binding and 488 unbinding kinetics (Eqs. 2-4), such as the molecular weight ( ), binding sites per cell ( ), 489 binding/unbinding rates ( 1 and A ), internalization rates for GM-CSF, G-CSF and IFN ( 234 ), and 490 cytokine clearance rates ( 523 ), were estimated both from experimental measurements and previous 491 modelling work. The stoichiometric constants and \u0302 were both equal to 1 for all cytokines, 492 except for G-CSF for which = 1.4608 and \u0302= 2 as previously estimated by Craig et al. [66]. 493 Neutrophil and monocyte reservoir dynamics, monocyte differentiation, macrophage activation, and 494 CD8 + T cell recruitment and expansion parameters were primarily estimated from previous 495 mathematical modelling studies. Immune cell death rates were taken directly from the literature or 496 estimated from recorded half-lives using Eq. S23. 497 The rates of virus production, decay, infectivity, and infected cell lysis ( , # , and $ 498 respectively) were then estimated by fitting Eqs. 6-9 to viral load measurements from SARS-CoV-2 499 infection in macaques [41] where eight adult rhesus macaques inoculated with 4 \u00d7 10 7 TCID50/ml 500 (3 \u00d7 10 ' genome copies/ml) SARS-CoV-2 [41]",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF36": {
+            "text": "517 macrophage pool replenishment ( ./ and #,./ ) were estimated from in vivo observations of resident 518 macrophages during influenza virus infection (Figure S3). GM-CSF production by monocytes 519 ( C,. ; ), IFN production by infected cells ( ,,$ ), and IL-6 production by infected cells and 520 macrophages ( 0,$ and 0,./ ) were all obtained from fitting reduced versions of Eqs. S1-S22 to in vitro 521 experiments [47, 48, 72, 73] (Figure S4). 522 Lastly, any remaining parameters values were obtained by ensuring that homeostasis was 523 maintained in absence of infection (Figure S5). Parameters calculated from homeostasis include the 524 half-effect monocyte concentration for G-CSF production ( M,. ), the production rate of IL-6 and GM-525 CSF by inflammatory macrophages ( 0,./ and C,./ ), the production rate of monocytes by GM-CSF 526 ( .,C ), and the half-effect inflammatory macrophage concentration for IFN production ( ,,./ ). For 527 some parameters it was not possible to obtain an estimation from the literature, and for these we either 528 set their value equal to an already estimated parameter ( 0,+ , M,. , ,,./ ! , C,./ ,), or qualitatively 529 estimated it ( $,. , ).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF37": {
+            "text": "varying each parameter by \u00b120% from its estimated value and quantifying the effect on the model's539 output. This change was recorded and used to evaluate different metrics representing the inflammatory 540 response to SARS-CoV-2, namely maximum viral load, maximum number of dead cells, minimum 541 uninfected tissue, maximum number of inflammatory macrophages, maximum number of CD8 + T cells, 542 maximum unbound IL-6, maximum unbound IFN, the total exposure (AUC) to type I IFN, number of 543 days the percent of damaged tissue was >80%, and time of unbound type I IFN peak. We quantified the 544 fraction of undamaged tissue by ( + )/ =>? . from parameter distributions then simulating the model to verify that each individual's 549 trajectory was realistic. A subset of parameters ( ./ ! ,0 , 0,./ , ,,$ , .,$ , ,,./ , ,,$ , and ,,. ) was 550 designated as patient-specific after considering the results of the sensitivity analysis and standard 551 deviations inferred from clinical observations (Supplementary Information). To avoid the inclusion of 552 unrealistic dynamics, patient parameter sets were then optimized using simulated annealing to ensure 553 predictions fell within physiological ranges for viral load [41], IL-6 [6, 44], IFN-\u03b1 [42], and G-CSF 554 [24]",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF38": {
+            "text": "556 ranges from Munster et al. [41] (viral loads), Herold et al. [44] (IL-6 concentrations), Trouillet-Assant 557 et al. [42] (IFN dynamics), and Liu et al. [7] (G-CSF concentrations) as described in Supplementary 558 Information Section S.6.1. Intervals for each patient-specific parameter set were restricted to four 559 standard deviations from the mean or zero if the lower bound was negative. Given an initial patient 560 specific parameter set , we used simulated annealing to minimize ( ), i.e. 2 ( ) is the model output evaluated at parameter set corresponding to the upper and lower 562 bound 2 and 2(Figure 7).563    To quantify disease severity for each patient, we introduced an inflammation variable (\u03a8) to 564 account for the combined changes in IL-6 ( A ), neutrophils ( ), and damaged tissue ( + ), each 565 normalized by the virtual cohort's average. In this way, \u03a8 measures an individual's relative change 566 from the cohort's baseline, and quantifies the contributions of IL-6, neutrophils, and tissue damage on 567 comparable scales. For a given patient , the inflammation marker is given by",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF39": {
+            "text": "Algorithm for generating virtual patients. Parameters in the model were first obtained through 572 fitting to data (Table S1). 1) Parameters relating to macrophage, IL-6 and IFN production 573 ( (! ! ,-, -,(! , &,\" , (,\" , &,(! , &,\" , and &,( ) were generated from normal distributions with mean equal to 574 their original fitted values and standard deviation informed by experiment observations (see Section S6.1). 2) 575",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF40": {
+            "text": "simulated annealing to minimise objective function & ! : the distance between #(!) and Physiological ranges ' and (",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF41": {
+            "text": "supported by Fonds de recherche Sant\u00e9 Qu\u00e9bec Programme de bourse de formation 591 postdoctorale pour les citoyens d'autres pays and a Centre for Applied Mathematics in Bioscience and 592 Medicine (CAMBAM) Postdoctoral fellowship. RA and AMS were supported by NIH R01 AI139088. 593 ALJ and MC were supported by NSERC Discovery Grant RGPIN-2018-RA, AMS, CLD, and MC conceived the study. AMS and APS conducted the alveolar 597 macrophage and viral load in vivo experiments. PAM contributed significant immunological insight. 598 All authors contributed intellectual insight into the development of the study. ALJ and MC wrote the 599 code and manuscript with significant contributions from all authors.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF42": {
+            "text": "needed to evaluate the conclusions in the paper are present in the paper and/or the 604 Supplementary Materials.\"). Sample code is available upon reasonable request to the corresponding 605 author.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF43": {
+            "text": "Effects of neutrophils on lung epithelial cells, GM-CSF on monocyte production and 795 differentiation, the relationships between monocytes and CD4+ T cells with IL-6, and the 796 influence of IFN on T cell expansion. A) Using the measurements by Knaapen et al. 22 , the 797 inhibitory effect curve E (Eq. S25) was fit to the cell viability of RLE cells under various 798 concentrations of H2O2. B) The stimulatory effect curve E (Eq. S24) was fit to the dose response 799 measurements of blood monoculture cells (3 \u00d7 10 ( cells/dish) with various concentrations of 800 murine recombinant GM-CSF (IU/ml) 18 . C) The stimulatory effect curve E (Eq. S24) was fit to 801 measurements for the monocytic myeloid cell count as a function of GM-CSF. 17 D) Eq. S27 fit 802 to time course data of IL-6 production from monocytes 38 . E) IL-6 stimulation of monocyte 803 differentiation to macrophages modelled by the inhibitory effect curve E (Eq. S24) fit to the 804 percentage of CD14+ cells (macrophages) as a function of the number of fibroblasts measured 805 by Chomarat et al. 16 . F) Stimulatory effect curve E (Eq. S24) for IFN-\u03b3 stimulation on CD8+ T 806 cells fit to measurements of the signalling in CD8+T cells for varying doses of IFN-\u03b3 19 . Data 807 (black) is plotted as either circles (D & E) or mean and standard deviation error bars (A-C&F); 808 solid blue line: corresponding fit. Dynamics of IL-6 on T cell expansion, epithelial cell growth, IL-6 internalization, 810 neutrophil-induced damage, and macrophage phagocytosis. A) Effect curve (Eq. S24) for 811 the IL-6 effect on T cell expansion fit to measurements CD4 + T cells from dilutions of IL-6 by 812 Holsti and Raulet 21 . B) Exponential growth curve fit to the growth of A549 cells 2 C) The 813 internalization rate of IL-6 (Eq. S30) fit to the fraction of internalized IL-6 47 . D) Exponential 814 decay fit to cell viability after H2O2 administration 24 . E) The macrophage clearance of apoptotic 815 material (Eqs. S31-S33) was fit to the percentage of macrophages that had engulfed material 816 over 25 hours 27 . F) The phagocytosis rate of extracellular virus by macrophages was obtained by 817 fitting Eqs. S34-S35 to the uptake of virus by macrophages measured by Rigden et al. 23 . Data 818 (black) is plotted as either circles (A & F) or mean and standard deviation error bars (B-E); solid 819 blue line: corresponding fit.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF44": {
+            "text": "Monocyte expansion and type I IFN production by monocytes, alveolar macrophage 821 replenishment after viral infection, and GM-CSF production by monocytes. A) Eq. S37fit 822 to time course of proliferation of monocytes in culture 42 . B) Fit of Eqs. S38-S39 to the 823 production of IFN-\u03b1 by monocytes after 24 hours with RSV as a function of the number of days",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF45": {
+            "text": "et al. 40 Using a 829 simplified version of the full model (Eqs. S43-S46), we obtained the production rates for 830 monocytes and GM-CSF. Data (black) is plotted as either circles/stars (B&F) or mean and 831 standard deviation error bars (A,D-E); solid blue line: corresponding fit. Production of IFN and IL-6 by infected cells and macrophages. A) Concentration of 833 IFN-released by alveolar epithelial cells in response to stimulation with influenza virus 834 recorded at 8, 16 and 24 hours 41 . B-C) IL-6 production by infected cells in response to A) H5NA 835 and B) H7N9, measured by Ye et al. 36 Data (black) is plotted as mean and standard deviation 836 error bars with the corresponding fit (Eqs. S51-S54) in solid blue. D) IL-6 production by 837 macrophages (Eq. S56) in response to stimulation with LPS of varying dosage sizes. Shibata et 838 al. 37 measured the production of IL-6 for different dosages of LPS and fitting the production 839 rate to this data to obtain 0,.! , 0,.! . Homeostatic disease-free system regulation. A) To confirm that parameters in the model 841 represented realistic immunocompetent individuals in the disease-free scenario, Eqs. S1-S22 842 were simulated where V N = 0 and parameters were given by the homeostasis Eqs. S57-S70. The 843 initial concentration of G-CSF was perturbed and compared to simulations of the model at 844 homeostasis. Simulations at homeostasis are represented by solid lines (purple) and perturbed 845 simulations as dashed lines (pink). B) The maximum residual between variables and their initial 846 conditions at day 50 was measured to confirm that the system was stable for perturbations in all 847 immune cells and cytokines. Model validation against human cytokine measurements during SARS-CoV-2 849 infection. A) IFN dynamics of the reduced model (Figure 3 Main Text) overlaid with patient 850 IFN-2 plasma concentrations from Trouillet-Assant et al. 70 The solid line (purple) represents 851 the unbound IFN dynamics from the reduced model (Eqs. 27-33). Individual patient IFN-2 852 measurements are plotted as grey circles. Normal IFN-2 concentration in healthy volunteers 853 are indicated by a grey area. B-F) Mild and severe dynamics (Eqs. S1-S22) corresponding to 854 simulations in Figure 4 Main Text and Figure S7 overlaid with measurements from the 855 literature with solid lines: mild disease dynamics; dashed lines: severe disease dynamics. B-C) 856 Plasma IFN-and IL-6 in COVID-19 critically ill patients (n=26) obtained by Trouillet-Assant 857 et al. 70 overlaid with mild and severe unbound IFN ( A ( )) and mild and severe unbound IL-6 858 ( A ( )). D) IL-6 levels in patients requiring and not requiring mechanical ventilation obtained 859 by Herold et al. 91 overlaid with mild and severe unbound IL-6 dynamics. E-F) IL-6 and G-CSF",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF46": {
+            "text": "860plasma concentration obtained byLong et al. 92  in symptomatic \"S\" and asymptomatic \"AS\"861 COVID-19 patients overlaid with corresponding mild and severe model dynamics. Predicting mild and severe COVID-19 dynamics (all model variables). Extension of 863 results of mild and severe disease dynamics in Figure 4 Main Text. Mild disease (solid lines) 864 dynamics obtained by using baseline parameter estimates (Tables S1) while severe disease 865 dynamics (dashed lines) were obtained by decreasing the production rate of type I IFN, p S,T , and 866 increasing the production of monocytes, p U,T , and their differentiation to macrophages, \u03b7 S,U/ . 867 A) Lung cells concentrations (susceptible cells S(t), resistant cells R(t), infected cells I(t), dead 868 cells D(t) and virus V(t)). Solid black line with error bars indicates macaque data (see Fig. 2 869 Main Text). B) Immune cell concentrations (resident macrophages M /V (t), inflammatory 870 macrophages M /T (t), monocytes M(t), neutrophils N(t) and T cells T(t)). C) Bound and 871 unbound cytokine concentrations (IL-6 unbound L W (t) and bound L X (t), GM-CSF unbound",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF47": {
+            "text": "Full analysis of parameters driving COVID-19 severity. A local sensitivity analysis was 875 performed by varying each parameter \u00b120% from its originally estimated value and simulating 876 the model. Predictions were then compared to baseline considering: Maximum viral load 877 (max( )), maximum concentration of dead cells (max( )), minimum uninfected live cells 878 (min(S+R)), maximum concentration of inflammatory macrophages (max( !$ )), maximum 879 number of CD8 + T cells (max( )), maximum concentration of IL-6 (max( A )), maximum 880 concentration of type I IFN (max( A )), the total exposure to type I IFN ( A exposure), the 881 number of days damaged tissue was >80% (time ( + )/ =>? )<0.2), and the day type I IFN 882 reached its maximum (day max( A )). The heatmaps show the fold change of each metric, where 883 blue signifies the minimum value observed and red signifies the maximum value observed, or by 884 the number of days, where light to dark pink signifying increasing number of days from zero. 885 The most sensitive parameters are shown in Figure 5 in the Main Text. Cohort dynamics within physiological ranges. Virtual patients were generated so that 887 viral load, IFN and IL-6 concentration were within physiological ranges obtained in the 888 literature. The physiological ranges (denoted by open circles) were obtained from A) Munster et 889 al. 96 , B) Trouillet-Assant et al. 70 , and C) Herold et al. 91 . Patient dynamics at discrete time points 890 are plotted as joined green dots. 891 Table S1. Parameter values used in the Main Text. Parameters have been grouped into: (a-e) cell 892 related, (f-k) cytokine related parameters (l) and initial conditions. Relevant references are given 893 estimated parameters. Parameters obtained through fitting to data in the literature have the 894 appropriate figure noted in the Info column. Parameters estimated from homeostasis calculation 895 are denoted by H or qualitatively estimated by E. Parameters whose value was taken from 896 another parameters estimated has that parameter noted. Viral load is reported as virion copies 897 and cells have been noted in 10 8 cells. Time t is in days. The final sub-table (m) is a list of the 898 variables in the model.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "and demonstrate a rebound 148 in epithelial lung tissue as the viral load and infected cells decrease.Figure 2. Viral dynamics model fit to macaque viral data from Munster et al. [41] A reduced version of the right). We estimated , , \" , $ and % from the reduced model in A) fit to data from Munster et al. [41] 156",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "Figure 3. Delayed type I IFN response impacts heavily on tissue survival in reduced model. A) Submodel Munster et al. [41] is overlayed with predicted viral dynamics. 174",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "generate disparate dynamics, the immune cell and cytokine dynamics were qualitatively in line with",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": []
+}

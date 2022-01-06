@@ -1,0 +1,1524 @@
+{
+    "paper_id": "0a638a8f0d09238f3829f04bd69fe96693cded68",
+    "metadata": {
+        "title": "ADDRESSING MACHINE LEARNING CONCEPT DRIFT REVEALS DECLINING VACCINE SENTIMENT DURING THE COVID-19 PANDEMIC A PREPRINT",
+        "authors": [
+            {
+                "first": "Martin",
+                "middle": [],
+                "last": "M\u00fcller",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "Digital Epidemiology Lab Ecole polytechnique f\u00e9d\u00e9rale de Lausanne (EPFL)",
+                    "institution": "",
+                    "location": {
+                        "postCode": "1202",
+                        "settlement": "Geneva",
+                        "country": "Switzerland"
+                    }
+                },
+                "email": "martin.muller@epfl.ch"
+            },
+            {
+                "first": "Marcel",
+                "middle": [],
+                "last": "Salath\u00e9",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "Digital Epidemiology Lab Ecole polytechnique f\u00e9d\u00e9rale de Lausanne (EPFL)",
+                    "institution": "",
+                    "location": {
+                        "postCode": "1202",
+                        "settlement": "Geneva",
+                        "country": "Switzerland"
+                    }
+                },
+                "email": "marcel.salathe@epfl.ch"
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Social media analysis has become a common approach to assess public opinion on various topics, including those about health, in near real-time. The growing volume of social media posts has led to an increased usage of modern machine learning methods in natural language processing. While the rapid dynamics of social media can capture underlying trends quickly, it also poses a technical problem: algorithms trained on annotated data in the past may underperform when applied to contemporary data. This phenomenon, known as concept drift, can be particularly problematic when rapid shifts occur either in the topic of interest itself, or in the way the topic is discussed. Here, we explore the effect of machine learning concept drift by focussing on vaccine sentiments expressed on Twitter, a topic of central importance especially during the COVID-19 pandemic. We show that while vaccine sentiment has declined considerably during the COVID-19 pandemic in 2020, algorithms trained on pre-pandemic data would have largely missed this decline due to concept drift. Our results suggest that social media analysis systems must address concept drift in a continuous fashion in order to avoid the risk of systematic misclassification of data, which is particularly likely during a crisis when the underlying data can change suddenly and rapidly.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Supervised and semi-supervised Machine Learning algorithms are now ubiquitous in the analysis of social media data. At the core of these algorithms is their ability to make sense of a vast amount of semi-structured real-time data streams, allowing them to automatically categorize or filter new data examples into, usually pre-defined, classes. Multi-class text classification has been successfully used in public health surveillance, election monitoring, or vaccine stance prediction [1, 2, 3] . In recent years such algorithms have also been developed to mitigate the negative effects of social media, such as in the detection of cyber-bullying, hate speech, misinformation, and automated accounts (bots) [4, 5, 6, 7] .",
+            "cite_spans": [
+                {
+                    "start": 485,
+                    "end": 488,
+                    "text": "[1,",
+                    "ref_id": null
+                },
+                {
+                    "start": 489,
+                    "end": 491,
+                    "text": "2,",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 492,
+                    "end": 494,
+                    "text": "3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 707,
+                    "end": 710,
+                    "text": "[4,",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 711,
+                    "end": 713,
+                    "text": "5,",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 714,
+                    "end": 716,
+                    "text": "6,",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 717,
+                    "end": 719,
+                    "text": "7]",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The microblogging service Twitter has played a central role in these efforts, as it serves as a public medium and provides easy access to real-time data through its public APIs, making it the primary focus of this work. Twitter is well described as a classical example of a non-stationary system with frequently emerging and disappearing topical clusters [8] . This poses problems for the aforementioned applications, as the underlying data distribution is different between training time and the time of the algorithm's application in the real world. This phenomenon is known as arXiv:2012.02197v2 [cs.SI] 7 Dec 2020 concept drift [9] and can lead to a change in performance of the algorithm over time.",
+            "cite_spans": [
+                {
+                    "start": 355,
+                    "end": 358,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 632,
+                    "end": 635,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "It is important to distinguish concept drift from other reasons for performance differences between training and testing, such as random noise due to sampling biases or differences in data preprocessing [10, 11] . A classic example of concept drift is the change in the meaning of classes, which requires an update of the learned class decision boundaries in the classifier. This is sometimes also referred to as real concept drift. Often, however, an observed performance change is a consequence of a change in the underlying data distribution, leading to what is known as virtual drift [12, 13] . Virtual drift can be overcome by supplemental learning, i.e. collecting training data from the new environment. A good example are periodic seasonality effects, which may not be fully represented in the initial training data and only become fully visible over time. However, in practice it is usually very difficult (if not impossible) to disentangle virtual from real concept drift, and as a consequence they are treated as the same effect [10] .",
+            "cite_spans": [
+                {
+                    "start": 203,
+                    "end": 207,
+                    "text": "[10,",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 208,
+                    "end": 211,
+                    "text": "11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 588,
+                    "end": 592,
+                    "text": "[12,",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 593,
+                    "end": 596,
+                    "text": "13]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 1040,
+                    "end": 1044,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "On Twitter concept drift might appear on very different time scales and at different rates. Sudden shifts in a debate might be triggered by a quickly evolving news cycle or a catastrophic event. Concept drift may also be a slow process in which the way a topic is discussed gradually changes over time. A substantial amount of work has been dedicated to detecting and overcoming concept drift [12, 10, 14] . Three basic re-training procedures for overcoming concept drift have been proposed: (i) a time-window approach, (ii) an incremental model, and (iii) an ensemble model [8] . In the time-window approach, a sliding window of recent training examples is used to train an algorithm. In this approach, the algorithm ignores training data collected outside of that time window. The incremental model, in contrast, uses all previously collected training examples to re-train the model. Lastly, the ensemble model trains a model for each time window and uses the consensus of all previous models for future predictions. As found in [8] , in the case of hashtag prediction on Twitter data, the incremental method gave the best results.",
+            "cite_spans": [
+                {
+                    "start": 393,
+                    "end": 397,
+                    "text": "[12,",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 398,
+                    "end": 401,
+                    "text": "10,",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 402,
+                    "end": 405,
+                    "text": "14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 575,
+                    "end": 578,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 1031,
+                    "end": 1034,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Although sophisticated methods have been proposed to estimate concept drift in an unsupervised way [15, 16] , in practice, a certain amount of re-annotation for both the detection and re-training of models seems unavoidable. The decision about which of the newly collected data to annotate points to an exploration-exploitation dilemma, which is usually addressed in the context of an active learning framework [17] . The Crowdbreaks platform [18] is an example of such a framework and has been built with the goal of exploring optimal solutions to this problem in order to overcome concept drift.",
+            "cite_spans": [
+                {
+                    "start": 99,
+                    "end": 103,
+                    "text": "[15,",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 104,
+                    "end": 107,
+                    "text": "16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 411,
+                    "end": 415,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 443,
+                    "end": 447,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "A change in the underlying data distribution might not necessarily have a negative impact on classifier performance. It is conceivable, for example, that a polarisation in a debate on Twitter about a topic could even lead to an improvement in classifier performance. It is therefore important to ask how much we should be worried about concept drift: even if model performance were to decrease, the real impacts on our analysis or interpretation might be negligible.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The consequences of concept drift are task-, environment-, and model-dependent [19] . Here, we will address concept drift in the specific case of vaccine stance classification. Vaccine stance classification on Twitter data has been widely studied and has shown promising links to vaccination decision making and vaccine uptake rates in different countries [1, 20] . The COVID-19 pandemic further emphasizes its importance, as evolving concerns about vaccines may significantly influence their effect [21, 22] .",
+            "cite_spans": [
+                {
+                    "start": 79,
+                    "end": 83,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 356,
+                    "end": 359,
+                    "text": "[1,",
+                    "ref_id": null
+                },
+                {
+                    "start": 360,
+                    "end": 363,
+                    "text": "20]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 500,
+                    "end": 504,
+                    "text": "[21,",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 505,
+                    "end": 508,
+                    "text": "22]",
+                    "ref_id": "BIBREF21"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "To the best of our knowledge, only one study directly addressed concept drift in vaccine stance classification. In this study [23] on tweets posted between September 2016 and January 2017 in Italian language, the authors did not find a substantial improvement of their model from incremental re-training before specific events. Re-training was performed on 60 newly annotated tweets from seven manually selected events. The authors conclude that either their original algorithm was already quite robust towards concept change, or that the newly collected training data was too small to see an effect.",
+            "cite_spans": [
+                {
+                    "start": 126,
+                    "end": 130,
+                    "text": "[23]",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Here, we use FastText [24] and BERT (Bidirectional Encoder Representations from Transformers) [25] , two commonly used models in social media text classification. Most work on the topic of concept drift was conducted using classical machine learning models, to which also FastText belongs. These types of models are very reliant on high-quality annotation data. More recently, models of the transformer family, such as BERT [25] , have been proposed, which require significantly less annotation data. In what follows, we will examine whether these two models also share different concept drift characteristics.",
+            "cite_spans": [
+                {
+                    "start": 22,
+                    "end": 26,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 94,
+                    "end": 98,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 424,
+                    "end": 428,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The goal of this work is to emulate a typical social media analysis study, in which data is collected for a certain period of time, and a supervised machine learning model is trained on a subset of annotated data. The model is then published and used to predict newly collected data. First, we will try to answer whether or not concept drift can be observed, and if so, at what rate it occurs. Second, we will investigate the influence of the study duration and the amount of annotation data used. Lastly, we will examine to what extent concept drift influences the final analysis outcomes, in this case a sentiment index. (18%) labels (for further details see methods section 4.2). The dataset therefore bears clear label imbalance.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "In order to observe whether classifiers experience drift in our dataset, we analysed the performance change of a model when predicting newly collected labelled data. For this we used a sliding time window approach, as first proposed in [8] . We dissected the collected 11,893 annotations into 13 bins of 90 days each. From each bin we sampled 550 examples and split them into a train (n = 400, 72%) and evaluation (n = 150, 27%) set (see Figure 1 ). Each model was trained on a window of 4 bins of training data, which is equivalent to 1600 samples and a time span of 360 days. The models are subsequently evaluated on the evaluation set corresponding to the bin at the end of their training window as well as on all future evaluation sets. We repeat the process of binning, splitting, training and evaluating 50 times in order to yield a measure of confidence to our results. Figure 2 shows the classifier performance at training time (square symbol) and the performance at each future evaluation dataset (circle symbol) for classifiers trained on different training windows (color). The upper left panel shows the results of these experiments for the FastText models. We will first compare the initial performance in terms of F1-macro score (i.e. the arithmetic mean of the class-level F1 scores) of the classifiers on a test dataset which was sampled from the last bin of the corresponding training window (square symbols). The initial performance of the first model is at 0.42, the subsequent models plateau at around 0.50, followed by a peak in fall 2019 with an abrupt decline in January 2020. This variability in the initial performance of models points to considerable differences between training datasets over time. The performance of the FastText models is quite low in general, which may be a consequence of the relatively small training dataset of 1600 examples and the lack of hyperparameter tuning.",
+            "cite_spans": [
+                {
+                    "start": 236,
+                    "end": 239,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 438,
+                    "end": 446,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 877,
+                    "end": 885,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Observing concept drift"
+        },
+        {
+            "text": "Comparing the performance scores on future evaluation sets (circles) between models, we observe that the oldest models (black) generally perform worse than newer models (yellow) and that the ordering between models is preserved at all times. However, in order to disentangle this effect from the variability in initial performance, we compute the relative change in performance with respect to performance at training time (lower left panel). Starting from zero, the first model's performance drops quickly by around 5 %-10 %, followed by a rebound to initial performance in fall 2019, and ending in a sudden drop of approximately \u221220% in early 2020. The last drop indicates a very abrupt shift in concepts, twice as strong as during a comparable time window in 2019. In fall 2019, changes in the data distribution allowed all models to rebound to initial performance, with some even \"over-performing\" by 5% compared to training time. This is a sign that the data distribution was particularly easy to predict.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Observing concept drift"
+        },
+        {
+            "text": "Further investigation of the F1-scores by class reveals that concept drift is especially impactful on the negative class, whereas the positive and neutral classes do not experience a significant drift (see Figure S1 ). This could either indicate that anti-vaccine concepts are changing faster than pro-vaccine concepts or that the negative class is harder to learn due to label imbalance (cf. Figure S4) and might, as a consequence, be more affected by virtual drift. We will further investigate this difference in the next section.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 206,
+                    "end": 215,
+                    "text": "Figure S1",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 393,
+                    "end": 403,
+                    "text": "Figure S4)",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Observing concept drift"
+        },
+        {
+            "text": "Comparing these results to the BERT models (upper right panel), the models show higher absolute performance but they experience a similar level of relative performance loss and similar drift patterns. This confirms that the observations are not model-specific but are likely to be observed in state-of-the-art semi-supervised machine learning models.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Observing concept drift"
+        },
+        {
+            "text": "As ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Observing concept drift"
+        },
+        {
+            "text": "Next, we will try to explain both the variance in initial performance, as well as the different rates of drift observed. We will investigate the effects of label imbalance, annotator agreement, and corpus variability on initial performance of models (Figure 3a-c) . Additionally, we compare corpus similarity over time and discuss it in the context of concept drift (Figure 3d ). In particular, we consider the first sampling (repeat) of the combined training (n = 1600) and first evaluation set (n = 150) for each training window. The provided measures therefore correspond to what the model \"saw\" during training and in the first bin of evaluation. Figure S3 shows the equivalent metrics when limited to only the individual 90 day bins.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 250,
+                    "end": 263,
+                    "text": "(Figure 3a-c)",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 366,
+                    "end": 376,
+                    "text": "(Figure 3d",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 651,
+                    "end": 660,
+                    "text": "Figure S3",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Explaining concept drift"
+        },
+        {
+            "text": "Although the used training datasets are always of equal absolute size, they vary in the number of examples per class over time (see Figure 3a ). It is commonly known that label imbalance can negatively impact model performance, which is also observed here (see Figure S1 ). However, we note that label imbalance was highest in the very beginning of the observation period and continuously decreased towards a more balanced situation. Given the drop in initial performance in 2020, we conclude that label imbalance alone does not explain the observed variability in initial performance.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 132,
+                    "end": 141,
+                    "text": "Figure 3a",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 261,
+                    "end": 270,
+                    "text": "Figure S1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Label imbalance"
+        },
+        {
+            "text": "We measure annotator agreement by computing the Fleiss' Kappa [26] values for each dataset. Annotator agreement is initially low at 0.37, then increases to almost 0.45 and drops again to 0.36 in mid-2020. This overlaps very well with the initial performance trend observed in Figure 2 . Variation in inter-annotator agreement may be a consequence of differences in annotation quality or difficulty of the annotation task, possibly hinting at semantic ambiguity of the text, as discussed next.",
+            "cite_spans": [
+                {
+                    "start": 62,
+                    "end": 66,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 276,
+                    "end": 284,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Annotator agreement"
+        },
+        {
+            "text": "We use the BERT-large-uncased model to generate a 1024dimensional sentence embedding vector (i.e. the vector of the CLS token) for each tweet text in the datasets. Note that this BERT model has not been trained on any of our datasets, but it is able to generate rich sentence embeddings due to having been pre-trained on large amounts of English text. Figure 3c shows the variance in the generated sentence embeddings across time. We note that overall, corpus variability is highest in the beginning of our observation period, and then decreases towards the end. Also, when considering the corpus variability by label class, we observe that negative samples have consistently lower variability compared to text labelled as positive. The neutral class seems to undergo a shift from high to low variability. In general, we may hypothesize that a lower variability points to lower separability in embeddings space, and therefore lower model performance. This hypothesis aligns with the observations made in terms of initial performance.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 352,
+                    "end": 361,
+                    "text": "Figure 3c",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Corpus variability"
+        },
+        {
+            "text": "Similarity was measured by calculating the cosine similarity between the mean vectors for each corpus. Low cosine similarity points to large semantic differences between datasets, which in turn could be an indicator for concept drift. In the top left panel (\"all\"), the datasets are compared with each other. We observe that over time, corpus vectors are moving further away from each other. The biggest difference was observed between the two datasets furthest from each other in time (2018-08-11 and 2020-07-31). We also observe a bright area in the middle of the heatmap, which reveals that datasets between February 2019 and February 2020 are more similar to each other compared to datasets before (2018) or after (May & July 2020). This aligns well with the results in Figure 2 : Most of the concept drift was observed in 2018 and following 2020, whereas models in 2019 didn't drift by a lot. When considering the corpus similarity by class, we can attribute most of these effects to the neutral and negative class. We therefore show that anti-vaccine content \"drifts\" faster than pro-vaccine content.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 774,
+                    "end": 782,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Corpus similarity"
+        },
+        {
+            "text": "In conclusion, our observations point to the fact that the differences in initial performance of models are likely a consequence of low annotator agreement. The reason for this low agreement could be rooted in semantic ambiguity, as expressed by annotator agreement and corpus variability. The degree of concept drift on the other hand is best explained by our measure of corpus similarity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Corpus similarity"
+        },
+        {
+            "text": "Lastly, but perhaps most importantly, we highlight the impact of concept drift on the inference of the previously trained models when used for real-time monitoring of new data. We compare the predictions of a legacy model, which was trained in August 2018 and used for the two subsequent years, to a model we update (re-train) every 90 days. We compute the sentiment index s, which corresponds to the weekly mean of positive, neutral and negative predictions, when mapped to the numerical values of 1, 0 and \u22121, respectively. Figure 4 shows these sentiment trends for both the FastText and BERT model variants. We observe that, in the case of FastText, the sentiment predicted by the legacy model increased slightly until 2019 and then remained static. The updated models, however, show a downwards trend starting in mid-2019 and dropping further in 2020. By the end of our observation period the legacy model predicts a 0.3 points higher sentiment than the up-to-date models, while completely missing out on the downwards trend.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 526,
+                    "end": 534,
+                    "text": "Figure 4",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Consequences of concept drift on real-time monitoring"
+        },
+        {
+            "text": "BERT models show a similar but smaller error, which is in agreement with our previous analysis. The legacy BERT model was in agreement with the updated models at the time of the first drop in 2019, but then started to diverge. We can therefore conclude that due to their higher overall performance, BERT models will have less severe deviations, but are not immune to effects of concept drift in the long run. We also note a large difference in the extent of positive and negative spikes between the legacy and re-trained models. Drift may therefore not only affect the mean sentiment trend but also sensitivity on shorter time scales, which could be problematic for real-time event or anomaly detection.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Consequences of concept drift on real-time monitoring"
+        },
+        {
+            "text": "As previously stated, the sentiment trend of both the updated BERT and FastText models show a negative trend of the vaccine sentiment. Given the current debate surrounding novel vaccines for the Sars-CoV-2 virus, this finding is concerning from an epidemiological perspective. Note however, that the BERT models used for these predictions are of mediocre performance and future studies will be needed to confirm and interpret these trends.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Consequences of concept drift on real-time monitoring"
+        },
+        {
+            "text": "In this work, we investigated the effects of concept drift in vaccination-related Twitter data streams over a duration of three years. Using a sliding time window approach, we emulate a social media study in which (i) data is collected for one year, (ii) an algorithm is trained, and (iii) the algorithm is used in real-time monitoring of new data. While this may correspond to a common setup in social media analytics, we demonstrate here that without taking concept drift into account, the quality of the results will decay. Using a vaccine-related dataset from 2018-2020, we demonstrate how failing to take concept drift into account would have largely missed a rather dramatic decay in vaccine sentiment during the COVID-19 pandemic in 2020.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "We find that overall, concept drift indeed occurred, which led to a decline in model performance of over 20% in the course of three years. However, most of this decline happened in only ten months. Concept drift therefore affected model performance at different rates throughout the observation period. Furthermore, the relative performance loss was not consistently negative but reverted to initial levels, or even slightly above that. These findings are consistent with the various ways real and virtual concept drift can occur. Although BERT models yielded higher performance scores, they are not immune to issues related to concept drift. On a relative scale, BERT models show the same degree of drift as the much less sophisticated FastText models.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "In order to better understand the reasons for these phenomena, we investigate the properties of the used datasets.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "We can explain the large differences in initial performance of models with differences in semantic ambiguity of the text, as indicated by low inter-annotator agreement and low corpus variability. Occurrence of concept drift could be linked to differences in corpus similarity. In particular, we find that the negative class is responsible for most of the decay in performance over time and also shows the strongest signs of drift. Anti-vaccine content may therefore change topics at an increased rate compared to both positive or neutral content.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "A caveat of this study is that the results are based on classifiers of mediocre performance. Given the fact that the negative class was most affected by concept drift and is at the same time also the smallest class in our dataset, it is a fair question to ask whether concept drift would disappear given more annotation data and higher performance of models. It is conceivable that more annotation data would lead to a better representation of the training window. However, as results in a study on automated geo-location of tweets show [27] , concept drift will still occur also under vast amounts of annotated data and adaptive re-training on even a relatively small corpus can overcome this drift.",
+            "cite_spans": [
+                {
+                    "start": 537,
+                    "end": 541,
+                    "text": "[27]",
+                    "ref_id": "BIBREF26"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "Our results do not overlap with a previous study on vaccination-related Twitter data [23] , which did not find concept drift in an observation period between September 2016 and January 2017 in Italian language. The reason for this could be that the time scale analysed was too small to see an effect, or that concept drift was much smaller in that particular dataset.",
+            "cite_spans": [
+                {
+                    "start": 85,
+                    "end": 89,
+                    "text": "[23]",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "It is safe to assume that the COVID-19 pandemic led to severe topical shifts in the vaccine debate, which ultimately translated into strong concept drift and model performance loss. Based on these results, it can be expected that future crisis situations would lead to similarly strong concept drift, thereby severely undermining the utility of social media monitoring tools that do not take concept drift into account. This is especially true for applications which are intended to be used exactly in such circumstances.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "Although our work focused on the singular task of vaccine stance prediction, we believe that these results stress the general importance of addressing concept drift in any real-time social media monitoring project. Overcoming concept drift is a complex task, and many algorithmic solutions have been proposed. However, in order to succeed in practice, a tightly coordinated and fine-tuned framework for both the annotation and retraining of models is required. The Crowdbreaks platform [18] was built with the intention to address this issue and provide solutions for it.",
+            "cite_spans": [
+                {
+                    "start": 486,
+                    "end": 490,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "This study is based on Twitter data collected through the Crowdbreaks platform [18] . Between July 1st, 2017 and October 1st, 2020 a total of 57.5M tweets (including 39.7M retweets) in English language by 9.9M unique users were collected using the public filter stream endpoint of the Twitter API. The tweets matched one or more of the keywords \"vaccine\", \"vaccination\", \"vaxxer\", \"vaxxed\", \"vaccinated\", \"vaccinating\", \"vacine\", \"overvaccinate\", \"undervaccinate\", \"unvaccinated\". The data can be considered complete with respect to these keywords.",
+            "cite_spans": [
+                {
+                    "start": 79,
+                    "end": 83,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Data collection"
+        },
+        {
+            "text": "Human annotation of a subset of tweets was performed through the Crowdbreaks platform [18] . Tweets were anonymized by replacing user mentions and URLs with placeholders. Tweets between February 2nd 2018 and November 11th 2020 were sampled for annotation if they contained at least 3 words. Exact duplicates were removed. Annotators were asked the question \"What is the attitude of the author of the tweet regarding vaccines?\" and given the three options \"negative\", \"neutral\", and \"positive\". Annotation was performed both on Amazon Turk (mTurk) and, to a smaller extent (roughly 1% of all annotations) by public users on the Crowdbreaks website. We yield a dataset of 44,843 annotations (Fleiss' kappa of 0.30), which resulted in 11,893 three-fold annotated tweets. Tweets with less than two-third agreement were excluded and conflicts were decided through majority vote.",
+            "cite_spans": [
+                {
+                    "start": 86,
+                    "end": 90,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Annotation data"
+        },
+        {
+            "text": "In this work we leverage two different classifiers: Fast-Text [24] and BERT [25] . For both models, hyperparameters were first tuned on the full annotation data to yield optimal performance and then fixed for further experiments. For FastText we used 10 dimensions, 500 epochs, a learning rate of 0.01, and using 1-gram embeddings. Optimal results were yielded by lower casing texts, converting them to ASCII and using the tags \"user\" and \"url\" for anonymization. BERT models of the type bert-largeuncased (pretrained in English language) were trained for 20 epochs, training batch size of 32, and a learning rate 2 \u00d7 10 \u22125 (using 10% warmup with linear decay to zero), as recommended in recent literature [28, 29] . FastText models were trained on a university cluster using the Crowdbreaks TEXT-CLASSIFICATION library 1 and BERT models were trained using Google Cloud v3-8 TPUs and the COVID-TWITTER-BERT library 2 [30] . For the purpose of predictions, text was preprocessed using the respective preprocessing approach.",
+            "cite_spans": [
+                {
+                    "start": 62,
+                    "end": 66,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 76,
+                    "end": 80,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 706,
+                    "end": 710,
+                    "text": "[28,",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 711,
+                    "end": 714,
+                    "text": "29]",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 917,
+                    "end": 921,
+                    "text": "[30]",
+                    "ref_id": "BIBREF29"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Training of classifiers"
+        },
+        {
+            "text": "Data availability. All data and code can be found on our public GitHub repository https://github.com/ digitalepidemiologylab/concept_drift_paper. Figure 3 in the main text, except for the different datasets that were used. In Figure 3 , we show the used training and evaluation set in the full time window. This figure shows the newly added training and evaluation data for each 90 day bin. For a detailed description of this figure please refer to Figure 3 in the main text.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 146,
+                    "end": 154,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 226,
+                    "end": 234,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 449,
+                    "end": 457,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Training of classifiers"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Assessing vaccination sentiments with online social media: implications for infectious disease dynamics and control",
+            "authors": [
+                {
+                    "first": "Marcel",
+                    "middle": [],
+                    "last": "Salath\u00e9",
+                    "suffix": ""
+                },
+                {
+                    "first": "Shashank",
+                    "middle": [],
+                    "last": "Khandelwal",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "PLoS Comput Biol",
+            "volume": "7",
+            "issn": "10",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "On using Twitter to monitor political sentiment and predict election results",
+            "authors": [
+                {
+                    "first": "Adam",
+                    "middle": [],
+                    "last": "Bermingham",
+                    "suffix": ""
+                },
+                {
+                    "first": "Alan",
+                    "middle": [],
+                    "last": "Smeaton",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Proceedings of the Workshop on Sentiment Analysis where AI meets Psychology",
+            "volume": "",
+            "issn": "",
+            "pages": "2--10",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Digital disease detection-harnessing the Web for public health surveillance",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "John S Brownstein",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Clark",
+                    "suffix": ""
+                },
+                {
+                    "first": "Lawrence",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Freifeld",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Madoff",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "The New England journal of medicine",
+            "volume": "360",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Using machine learning to detect cyberbullying",
+            "authors": [
+                {
+                    "first": "Kelly",
+                    "middle": [],
+                    "last": "Reynolds",
+                    "suffix": ""
+                },
+                {
+                    "first": "April",
+                    "middle": [],
+                    "last": "Kontostathis",
+                    "suffix": ""
+                },
+                {
+                    "first": "Lynne",
+                    "middle": [],
+                    "last": "Edwards",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "2011 10th International Conference on Machine learning and applications and workshops",
+            "volume": "2",
+            "issn": "",
+            "pages": "241--244",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Automated hate speech detection and the problem of offensive language",
+            "authors": [
+                {
+                    "first": "Thomas",
+                    "middle": [],
+                    "last": "Davidson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:1703.04009"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Fake news detection on social media: A data mining perspective",
+            "authors": [
+                {
+                    "first": "Kai",
+                    "middle": [],
+                    "last": "Shu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "ACM SIGKDD explorations newsletter",
+            "volume": "19",
+            "issn": "",
+            "pages": "22--36",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Botornot: A system to evaluate social bots",
+            "authors": [
+                {
+                    "first": "Davis",
+                    "middle": [],
+                    "last": "Clayton Allen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Proceedings of the 25th international conference companion on world wide web",
+            "volume": "",
+            "issn": "",
+            "pages": "273--274",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Concept drift awareness in twitter streams",
+            "authors": [
+                {
+                    "first": "Joana",
+                    "middle": [],
+                    "last": "Costa",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "2014 13th International Conference on Machine Learning and Applications",
+            "volume": "",
+            "issn": "",
+            "pages": "294--299",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Incremental learning from noisy data",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Jeffrey",
+                    "suffix": ""
+                },
+                {
+                    "first": "Richard H",
+                    "middle": [],
+                    "last": "Schlimmer",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Granger",
+                    "suffix": ""
+                }
+            ],
+            "year": 1986,
+            "venue": "Machine learning",
+            "volume": "1",
+            "issn": "",
+            "pages": "317--354",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Learning under concept drift: an overview",
+            "authors": [
+                {
+                    "first": "Indr\u0117",
+                    "middle": [],
+                    "last": "\u017dliobait\u0117",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:1010.4784"
+                ]
+            }
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Characterizing concept drift",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Geoffrey",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Webb",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Data Mining and Knowledge Discovery",
+            "volume": "30",
+            "issn": "",
+            "pages": "964--994",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Learning in the presence of concept drift and hidden contexts",
+            "authors": [
+                {
+                    "first": "Gerhard",
+                    "middle": [],
+                    "last": "Widmer",
+                    "suffix": ""
+                },
+                {
+                    "first": "Miroslav",
+                    "middle": [],
+                    "last": "Kubat",
+                    "suffix": ""
+                }
+            ],
+            "year": 1996,
+            "venue": "Machine learning",
+            "volume": "23",
+            "issn": "",
+            "pages": "69--101",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "The problem of concept drift: definitions and related work",
+            "authors": [
+                {
+                    "first": "Alexey",
+                    "middle": [],
+                    "last": "Tsymbal",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "Computer Science Department",
+            "volume": "106",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Incremental learning of concept drift in nonstationary environments",
+            "authors": [
+                {
+                    "first": "Ryan",
+                    "middle": [],
+                    "last": "Elwell",
+                    "suffix": ""
+                },
+                {
+                    "first": "Robi",
+                    "middle": [],
+                    "last": "Polikar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "IEEE Transactions on Neural Networks",
+            "volume": "22",
+            "issn": "",
+            "pages": "1517--1531",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Tracking recurring contexts using ensemble classifiers: an application to email filtering",
+            "authors": [
+                {
+                    "first": "Ioannis",
+                    "middle": [],
+                    "last": "Katakis",
+                    "suffix": ""
+                },
+                {
+                    "first": "Grigorios",
+                    "middle": [],
+                    "last": "Tsoumakas",
+                    "suffix": ""
+                },
+                {
+                    "first": "Ioannis",
+                    "middle": [],
+                    "last": "Vlahavas",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Knowledge and Information Systems",
+            "volume": "22",
+            "issn": "",
+            "pages": "371--391",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Conceptual equivalence for contrast mining in classification learning",
+            "authors": [
+                {
+                    "first": "Ying",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Xindong",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Xingquan",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Data & Knowledge Engineering",
+            "volume": "67",
+            "issn": "",
+            "pages": "413--429",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Active learning literature survey",
+            "authors": [
+                {
+                    "first": "Burr",
+                    "middle": [],
+                    "last": "Settles",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Crowdbreaks: Tracking health trends using public social media data and crowdsourcing",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Martin",
+                    "suffix": ""
+                },
+                {
+                    "first": "Marcel",
+                    "middle": [],
+                    "last": "M\u00fcller",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Salath\u00e9",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Frontiers in public health",
+            "volume": "7",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "An overview of concept drift applications",
+            "authors": [
+                {
+                    "first": "Indr\u0117",
+                    "middle": [],
+                    "last": "\u017dliobait\u0117",
+                    "suffix": ""
+                },
+                {
+                    "first": "Mykola",
+                    "middle": [],
+                    "last": "Pechenizkiy",
+                    "suffix": ""
+                },
+                {
+                    "first": "Joao",
+                    "middle": [],
+                    "last": "Gama",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Big data analysis: new algorithms for a new society",
+            "volume": "",
+            "issn": "",
+            "pages": "91--114",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Detecting discussion communities on vaccination in twitter",
+            "authors": [
+                {
+                    "first": "Gema",
+                    "middle": [],
+                    "last": "Bello-Orgaz",
+                    "suffix": ""
+                },
+                {
+                    "first": "Julio",
+                    "middle": [],
+                    "last": "Hernandez-Castro",
+                    "suffix": ""
+                },
+                {
+                    "first": "David",
+                    "middle": [],
+                    "last": "Camacho",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Future Generation Computer Systems",
+            "volume": "66",
+            "issn": "",
+            "pages": "125--136",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "The online competition between pro-and anti-vaccination views",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Neil",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Johnson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature",
+            "volume": "",
+            "issn": "",
+            "pages": "1--4",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "The online anti-vaccine movement in the age of COVID-19",
+            "authors": [
+                {
+                    "first": "Talha",
+                    "middle": [],
+                    "last": "Burki",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "The Lancet Digital Health",
+            "volume": "2",
+            "issn": "",
+            "pages": "504--505",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Monitoring the public opinion about the vaccination topic from tweets analysis",
+            "authors": [
+                {
+                    "first": "D&apos;",
+                    "middle": [],
+                    "last": "Eleonora",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Andrea",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Expert Systems with Applications",
+            "volume": "116",
+            "issn": "",
+            "pages": "209--226",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Bag of tricks for efficient text classification",
+            "authors": [
+                {
+                    "first": "Armand",
+                    "middle": [],
+                    "last": "Joulin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:1607.01759"
+                ]
+            }
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Bert: Pre-training of deep bidirectional transformers for language understanding",
+            "authors": [
+                {
+                    "first": "Jacob",
+                    "middle": [],
+                    "last": "Devlin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:1810.04805"
+                ]
+            }
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Measuring nominal scale agreement among many raters",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Joseph",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Fleiss",
+                    "suffix": ""
+                }
+            ],
+            "year": 1971,
+            "venue": "In: Psychological bulletin",
+            "volume": "76",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Geolocation for twitter: Timing matters",
+            "authors": [
+                {
+                    "first": "Mark",
+                    "middle": [],
+                    "last": "Dredze",
+                    "suffix": ""
+                },
+                {
+                    "first": "Miles",
+                    "middle": [],
+                    "last": "Osborne",
+                    "suffix": ""
+                },
+                {
+                    "first": "Prabhanjan",
+                    "middle": [],
+                    "last": "Kambadur",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies",
+            "volume": "",
+            "issn": "",
+            "pages": "1064--1069",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "On the Stability of Fine-tuning BERT: Misconceptions, Explanations, and Strong Baselines",
+            "authors": [
+                {
+                    "first": "Marius",
+                    "middle": [],
+                    "last": "Mosbach",
+                    "suffix": ""
+                },
+                {
+                    "first": "Maksym",
+                    "middle": [],
+                    "last": "Andriushchenko",
+                    "suffix": ""
+                },
+                {
+                    "first": "Dietrich",
+                    "middle": [],
+                    "last": "Klakow",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2006.04884"
+                ]
+            }
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Fine-tuning pretrained language models: Weight initializations, data orders, and early stopping",
+            "authors": [
+                {
+                    "first": "Jesse",
+                    "middle": [],
+                    "last": "Dodge",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2002.06305"
+                ]
+            }
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "COVID-Twitter-BERT: A Natural Language Processing Model to Analyse COVID-19 Content on Twitter",
+            "authors": [
+                {
+                    "first": "Martin",
+                    "middle": [],
+                    "last": "M\u00fcller",
+                    "suffix": ""
+                },
+                {
+                    "first": "Marcel",
+                    "middle": [],
+                    "last": "Salath\u00e9",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Per",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Kummervold",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2005.07503"
+                ]
+            }
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "ADDRESSING MACHINE LEARNING CONCEPT DRIFT REVEALS DECLINING VACCINE SENTIMENT DURING THE COVID-19 PANDEMIC",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "1202 Geneva, Switzerland data up",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Unlike for the negative class, performance between FastText and BERT is comparable for the neutral and positive class",
+            "authors": [
+                {
+                    "first": "S1",
+                    "middle": [],
+                    "last": "Figure",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Drift of FastText models depending on size of training data. The plots of the first column are identical to the FastText plots in Figure 2. For all experiments a training window length of 360 days was used. Initial performance is decreasing with a decreasing number of training samples",
+            "authors": [
+                {
+                    "first": "S2",
+                    "middle": [],
+                    "last": "Figure",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Throughout the 1188 day observation period, starting on July 1st, 2017 and ending on October 1st, 2020, a total of 57.5M English vaccination-related tweets were collected. A random subset of 11,893 tweets were annotated with respect to stance towards vaccines, which resulted in 5482 (46%) positive, 4270 neutral (36%), and 2141 negative Training and evaluation datasets. Each 90 day bin consists of 400 samples of training data (blue) and 150 samples of evaluation data (red). Each trained model is using the most recent 1600 samples for training, which is an equivalent of 4 bins or 360 days. For illustration purposes, the training data for the second bin b 1 is indicated as blue with white stripes. The b 1 model is then evaluated on all future evaluation datasets, indicated as red with white stripes.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "previously stated, each model was trained on 1600 training examples over the previous 360 days. Experiments were conducted under fewer training examples (Figure S2) and smaller training windows (Figure S3) for FastText.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Model performance over time. The top row shows absolute performance (in terms of F1-macro), and the bottom row shows the relative performance change of models compared to training time. The columns show the result for the two different classifier types FastText and BERT. The square indicates the performance at training time, the circles correspond to performance of that same model on future evaluation sets (compare withFigure 1). Bands correspond to bootstrapped 95% confidence intervals resulting from 50 repeats.As expected, training on fewer training examples leads to lower model performance, but we find the same drift patterns irrespective of the training data size. Reducing the training window while keeping the number of training examples constant does seem to have an impact on performance or drift patterns.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Properties of the combined training data and first evaluation dataset for each trained model. A. Distribution in the number of labels per class. B. Annotator agreement, measured by Fleiss' Kappa. C. Corpus variability in terms of the variance of sentence embeddings within a corpus. Variability is shown for the full corpus as well by class. D. Normalized cosine similarity between the mean corpus vectors (i.e. the mean of all sentence vectors in each corpus) for all data as well as by class.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "Impact of concept drift on the predictions made by FastText and BERT models. Each panel shows the comparison of a model which was trained in August 2018 (black) to a model which was continuously updated every 90 days (colored).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "Author contributions. M.M. collected the data, designed the experiments and analysed the data. M.M. and M.S. conceptualized the work and wrote the manuscript.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "Drift of FastText models depending on the length of the training window. Each model was trained on an equal number of 800 training examples, but distributed over 180, 270 or 360 days. A shorter training window is occasionally associated with slightly higher initial performance and slightly faster relative performance decrease on average. This figure is equivalent to",
+            "latex": null,
+            "type": "figure"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "Acknowledgments. The authors would like to acknowledge Dr. Per Egil Kummervold and Dr. Burcu Tepekule for their valuable comments and discussions.Funding. This work received funding through the Versatile Emerging infectious disease Observatory (VEO) grant as a part of the European Commission's Horizon 2020 framework programme (grant agreement ID: 874735). Compute resources (Cloud TPUs) were provided through Google's TensorFlow Research Cloud and the work was supported through Google Cloud credits in the context of COVID-19-related research.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "acknowledgement"
+        },
+        {
+            "text": "Competing interests. The authors declare no competing interests.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "annex"
+        }
+    ]
+}

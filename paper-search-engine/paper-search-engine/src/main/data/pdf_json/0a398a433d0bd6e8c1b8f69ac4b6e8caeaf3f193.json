@@ -1,0 +1,1556 @@
+{
+    "paper_id": "0a398a433d0bd6e8c1b8f69ac4b6e8caeaf3f193",
+    "metadata": {
+        "title": "Are stock prices driven by expected growth rather than discount rates? Evidence based on the COVID-19 crisis",
+        "authors": [
+            {
+                "first": "Pascal",
+                "middle": [],
+                "last": "B\u00f6ni",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Tilburg University",
+                    "location": {
+                        "addrLine": "Warandelaan 2",
+                        "postCode": "5000 LE",
+                        "settlement": "Tilburg",
+                        "country": "The Netherlands"
+                    }
+                },
+                "email": "pascal.boeni@tilburguniversity.edu"
+            },
+            {
+                "first": "Heinz",
+                "middle": [],
+                "last": "Zimmermann",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University of Basel",
+                    "location": {
+                        "addrLine": "Peter Merian Weg 6",
+                        "postCode": "4002",
+                        "settlement": "Basel",
+                        "country": "Switzerland"
+                    }
+                },
+                "email": "heinz.zimmermann@unibas.ch"
+            },
+            {
+                "first": "",
+                "middle": [],
+                "last": "Remaco",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "We use the Gordon (Rev Econ Stat 41 (2): [99][100][101][102][103][104][105] 1959) constant growth model to gauge the effects from innovations in implied growth versus discount rates. During the COVID-19 downturn and the Global Financial Crisis (GFC), stock returns were largely affected by a change in the long-run implied growth rate and only to a lesser extent by a change in discount rate, the latter typically used to explain stock returns in the classical asset pricing literature. We reach this conclusion by using ordinary least-squares (OLS) regressions of stock returns on the unobservable Gordon factors, which we estimate from firm-level valuation ratios D/P, P/E, and P/B. The effects from a decrease in implied growth outweigh those from an increase in discount rate by a factor of approximately 1.6 to 1.7. Also, firms with a decrease in implied growth show a stock return that is approximately 6.6% more negative than that of firms with no decrease in implied growth. Investors can infer valuable information from the joint interpretation of underlying market fundamentals as derived from the Gordon model.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "During the past 11 years, the U.S. stock market has experienced an unprecedented long bull market. From the beginning of March 2009 through February 19, 2020, the S&P index rose approximately 400% in current dollars. In the following four weeks, it declined sharply by almost 34% by March 23, 2020, induced by the COVID-19 pandemic. In a subsequent V-shaped market recovery, the S&P500 gained back 59% of that loss in a few weeks until April 30, 2020. The COVID-19 pandemic has triggered a massive spike in uncertainty, challenging policymakers and investors likewise in finding accurate responses to a crisis that has unfolded with extreme speed. Given the high level of uncertainty, the question arises whether the stock market downturn can be explained by transitory shocks to discount rates as opposed to long-term or permanent shocks related to expected dividend growth.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "We address this question using implied expectations extracted from the Gordon (1959) model employing fundamental valuation multiples. Compared to other more demanding econometric models, our approach is considerably simpler. Instead of historical returns, we use forward-looking fundamentals to derive the Gordon factors as predictors of returns in the cross section of S&P500 constituents. Specifically, the Gordon valuation model provides two essential return predictors, namely innovations in discount and growth rates, in an economically meaningful and direct way without snooping around in a factor zoo. This is in line with the claim of Harvey (2017) that theoretical priors, here based on a simple valuation model, and economic plausibility must be part of the inference drawn from empirical tests in asset pricing. Moreover our approach is economically intuitive and helps practitioners to assess the valuation of stock markets, namely to answer the question whether the market downturn can be explained by transitory discount rate shocks as opposed to long-term or permanent growth rate shocks.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "There is clear evidence for a strong relationship between COVID-19 infections and stock market responses (Alfaro et al. 2020; Hassan et al. 2020) on the one side. On the other side, COVID-19 has also created an enormous increase in economic uncertainty. Baker et al. (2020) evidence this by the analysis of recent stock market volatility, newspaper-based economic uncertainty, and subjective uncertainty in business expectation surveys.",
+            "cite_spans": [
+                {
+                    "start": 254,
+                    "end": 273,
+                    "text": "Baker et al. (2020)",
+                    "ref_id": "BIBREF1"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "As Campbell et al. (2013) show, stock market downturns may have different proximate causes but are largely driven by two factors: the discount rate applied to profits by rational investors and the expected growth of future profits. In other words, these two factors may complement each other in the price discovery process. To the best of our knowledge, there is only one study that investigates the current crisis and its impact on stock prices addressing these joint determinants, discount rate and expected growth. Gormsen and Koijen (2020) use a dividend growth model and dividend futures (strips) to quantify how investors' expectations about economic growth evolve in response to the crisis and find a lower bound on the change in expected dividends of \u2212 45% at the two-year horizon. They use the term structure of dividend futures as a forward-looking measure of the expected path of the economy.",
+            "cite_spans": [
+                {
+                    "start": 3,
+                    "end": 25,
+                    "text": "Campbell et al. (2013)",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "We propose an alternative and relatively simple methodology here, based on the Gordon model, and use 12-months forward-looking price-earnings ratio (P/E), the price-to-book ratio (P/B) as well as the forward dividend-price ratio (D/P) to estimate the implied growth rate w and the discount rate k which are used as stock return",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "predictors. Compared to other more demanding econometric models, 1 our approach is considerably simpler and straightforward and, based on Gordon (1959) , provides a robust theoretical foundation for the prediction of stock returns. Our results are informative about the long-run expectations implicit in the current market prices, helping practitioners to assess the valuation of stock markets.",
+            "cite_spans": [
+                {
+                    "start": 138,
+                    "end": 151,
+                    "text": "Gordon (1959)",
+                    "ref_id": "BIBREF11"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "It is useful to recall that the value of a stock is simultaneously affected by two factors: the growth rate of dividends and the discount rate. The first may be affected by a decline in output as it was observed during the 1918 to 1929 \"Spanish Flu\" epidemic (see Barro et al. 2020) , in other words by the expected future state of the economy. The latter may change given a shift in risk aversion, sentiment, or economic uncertainty that may arise from, for example, anticipated debt crises and supply chain frictions (see Ramelli and Wagner 2020) . We separate the pricing effects of discount rate and cash flow growth \"news\" defined as innovations in conditional expectations over an infinite time horizon. Campbell et al. (2013) apply this model to analyze the relative impact of these innovations to explain the stock market declines after the dot-com bubble and in the financial crisis. They find that the dotcom bubble stock market decline was largely driven by innovations in discount rates, while the late 2000s saw a decrease in growth expectations.",
+            "cite_spans": [
+                {
+                    "start": 264,
+                    "end": 282,
+                    "text": "Barro et al. 2020)",
+                    "ref_id": null
+                },
+                {
+                    "start": 524,
+                    "end": 548,
+                    "text": "Ramelli and Wagner 2020)",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 710,
+                    "end": 732,
+                    "text": "Campbell et al. (2013)",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "We separate a shock implied change in the long-run implied growth rate w from a shock implied change in the discount rate k, using the Gordon model, methodologically as in Zimmermann (2018) , and as described below. Our model-based approach allows us to reach meaningful conclusions about the fundamental forces driving equity values during the COVID-19 crisis and help us to define whether the COVID-19 stock market decline is of permanent rather than transitory character. Moreover, we ask the question whether investors should infer information from firm-specific valuation ratios rather than their joint interpretation with respect to the underlying market fundamentals as derived from the Gordon model.",
+            "cite_spans": [
+                {
+                    "start": 172,
+                    "end": 189,
+                    "text": "Zimmermann (2018)",
+                    "ref_id": "BIBREF18"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "Our approach is in the spirit of Campbell (2008) who claims that \"steady state models are useful predictors of stock returns, given the persistence in valuation ratios.\" Our approach also caters to Campbell et al. (2013) , who analyze the 2000-2002 and the 2007-2009 market downturns based on innovations in discount rates and expectations of future profits. Relative to these earlier papers, our novel contribution is to estimate stock returns during the COVID-19 crisis using ordinary least-squares (OLS) regression employing the simple Gordon factors implied growth w and discount rate k.",
+            "cite_spans": [
+                {
+                    "start": 33,
+                    "end": 48,
+                    "text": "Campbell (2008)",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 198,
+                    "end": 220,
+                    "text": "Campbell et al. (2013)",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 239,
+                    "end": 266,
+                    "text": "2000-2002 and the 2007-2009",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "The central finding of this paper is that the COVID-19 market downturn can be explained by a decrease in implied growth rather than an increase in discount rates and should be interpreted as a permanent rather than transitory effect. The effect from a decrease in implied growth outweighs that from an increase in discount rate by a factor of approximately 1.7. Firms with a decrease in implied growth w show 1 Recent empirical asset pricing models employ historical returns and factors to predict stock prices. We omit a voluminous literature review related to asset pricing and, instead, refer to Harvey et al. (2016) , P\u00e4t\u00e4ri and Leivo (2017) and more recently Feng et al. (2020) for a thorough review of empirical asset pricing models, challenges and skepticism pertaining to them. a stock return that is approximately 6.6% more negative than that of firms with no decrease in implied growth. This is important to investment professionals aiming to assess the valuation of stock markets and gauge the severity and persistence of crisis-induced stock market losses.",
+            "cite_spans": [
+                {
+                    "start": 599,
+                    "end": 619,
+                    "text": "Harvey et al. (2016)",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 622,
+                    "end": 645,
+                    "text": "P\u00e4t\u00e4ri and Leivo (2017)",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 664,
+                    "end": 682,
+                    "text": "Feng et al. (2020)",
+                    "ref_id": "BIBREF10"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "The remainder of this paper is organized as follows. \"Data and methodology\" describes the sample and methodology. The subsequent section outlines descriptive statistics. \"Empirical findings\" explores the effects of innovations in implied growth and discount rate on stock returns. \"Comparison with the Global Financial Crisis (GFC)\" verifies our findings using data for the Global Financial Crisis (GFC) period. The last section concludes.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "This section describes the data used in this paper as well as the methodology for extracting the implied valuation parameters from the Gordon model.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data and methodology"
+        },
+        {
+            "text": "Our firm-level ratios and estimates are based on S&P500 constituents. Data are from S&P Capital IQ. Stock price losses (recoveries) are measured over time horizons between February 19, 2020 and March 23, 2020 (March 23 through April 30, 2020), these two periods representing a sharp decline and initial downmarket until the stock market low (March 23, 2020) and the extended downmarket including the V-shaped recovery or upmarket in stock prices in the US until April 30, 2020, as depicted in Fig. 1 .",
+            "cite_spans": [
+                {
+                    "start": 341,
+                    "end": 357,
+                    "text": "(March 23, 2020)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 493,
+                    "end": 499,
+                    "text": "Fig. 1",
+                    "ref_id": null
+                }
+            ],
+            "section": "Data"
+        },
+        {
+            "text": "We estimate the three unobservable parameters (discount rate k, implied growth w and payout 1 \u2212 b) using the Gordon constant growth valuation formula from three widely used valuation ratios (D/P, P/E, and P/B). To measure the change in valuation ratios, we use ex ante values as of December 31, 2019 and their difference to the ex post estimates dated April 30, 2020. As a matter of fact, reliable firm-level valuation data are available only at the end of the month. We eliminate 54 firms with missing values for the forward-looking valuation ratios (D/P, P/E, and P/B) and trim the data at the 1st and 99th decile with respect to these variables, eliminating another 33 firms from the sample. Furthermore, we exclude 7 firms with extreme values for changes in implied growth \u0394w and discount rate \u0394k, resulting in a sample including 405 S&P500 constituents. As we will show below, this sample remains representative of the S&P500.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data"
+        },
+        {
+            "text": "Our ex ante measures are largely independent from the COVID-19 crisis and potentially confounding events as the Wuhan outbreak in China was only reported from January 1 onwards. This outbreak did little to move the stock prices represented by the S&P500 index, which only started to collapse from February 19 onwards (see Fig. 1 ). Our ex post measures (April 30) approximately reflect the provisional end of the acute COVID-19 crisis, as proxied by the return of the VIX (Chicago Board Options Exchange Volatility Index) to a still high but less extreme value.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 322,
+                    "end": 328,
+                    "text": "Fig. 1",
+                    "ref_id": null
+                }
+            ],
+            "section": "Data"
+        },
+        {
+            "text": "The observation period includes a significant V-shaped rebound in stock prices from the turning point on March 23, 2020, until the end of April 2020, allowing us to estimate both, the approximate impact of k and w on stock price losses in the initial downmarket (February 19 till March 23) on the one hand and on losses in the extended downmarket (February 19 till April 30) on the other hand.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data"
+        },
+        {
+            "text": "We allow for an overall discount and growth rate consolidation period of four months (December 31, 2019 through April 30, 2020) as we aim to measure the long-run change in discount rate versus a change in implied growth and not shortterm temporary effects stemming from firm-specific default risk, short-term liquidity shocks, and short-term return reversals. Moreover, the ex post measurement date also allows to take into consideration regulatory Securities and Exchange Commission (SEC) filing deadlines. By April 29 (April 30), firms were obliged to deliver their definitive proxy statement Form 10-K7A (Form 20-F for foreign private issuers). Overall, we consider April 30 being an accurate point in time to measure the ex post valuation ratios.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data"
+        },
+        {
+            "text": "One may claim that measuring stock prices in these turbulent times is confounded by a lot of statistical noise associated to the unprecedented stock price variation observed. However, despite the COVID-19 crisis, by the end of April 2020, 346 of all S&P500 constituents, a majority of approximately 70%, have filed their results for the first quarter 2020 with the SEC, 2 providing investors with some information regarding the price setting process. We argue that a change in implied growth w and discount rates k manifests appropriately over the observation period, with equity investors seeking to anticipate earnings to exploit the public announcement. We find evidence for our conjecture in Gormsen and Koijen (2020) , who show that the lower bound long-term dividend growth expectations have efficiently been revised downwards. Using the term structure of dividend strips, they find a substantial revision from January 1 through April 3, 2020, by approximately 15%. Likewise, they show that the cumulative change in long-term GDP growth expectation over the same time horizon has decreased by approximately 10%. As we will show, the Gordon factors may provide statistically significant and rationally sound and helpful guidance to equity investors.",
+            "cite_spans": [
+                {
+                    "start": 696,
+                    "end": 721,
+                    "text": "Gormsen and Koijen (2020)",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Data"
+        },
+        {
+            "text": "The Gordon (1959) model assumes that earnings and dividends grow with a constant rate w = rb , where b is the fraction of earnings reinvested at the end of each year, and r is the profitability of the reinvested earnings (i.e. the return on equity ROE). Therefore, 1 \u2212 b is the dividend payout ratio. The stock price is determined by discounting the perpetual stream of constantly growing dividends using a constant discount rate k, which is strictly larger than the growth rate w,",
+            "cite_spans": [
+                {
+                    "start": 4,
+                    "end": 17,
+                    "text": "Gordon (1959)",
+                    "ref_id": "BIBREF11"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Methodology"
+        },
+        {
+            "text": "where D and E are the dividend and earnings levels at the end of the current period, which we proxy using 12 months forward-looking valuation ratios. The long-run parameters k, w, and b are unknown and must be estimated. From the Gordon formula, the implied D/P-and P/E-ratios can be easily derived, namely",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methodology"
+        },
+        {
+            "text": "Under the assumption that profitability is typically related to the book value by r = E/B, we can derive the price-to-book ratio implied by the Gordon formula, which is As in Zimmermann (2018) , the fundamental ratios D/P, P/E, and P/B can be used to recover the three unknowns k, w, and 1 \u2212 b using the Gordon (1959) formula. The discount rate k is",
+            "cite_spans": [
+                {
+                    "start": 175,
+                    "end": 192,
+                    "text": "Zimmermann (2018)",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 304,
+                    "end": 317,
+                    "text": "Gordon (1959)",
+                    "ref_id": "BIBREF11"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Methodology"
+        },
+        {
+            "text": "which also defines the implied growth rate w. We can derive the return on equity r and the payout ratio (1 \u2212 b) resulting in Summing up: We estimate the three unobservable parameters (discount rate k, implied growth w and payout 1 \u2212 b) using the Gordon constant growth valuation formula from three widely used valuation ratios (D/P, P/E, and P/B) as shown above, resulting in firm-level parameters k, w, and 1 \u2212 b as of December 31, 2019 and April 30, 2020.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methodology"
+        },
+        {
+            "text": "In this paper, we discriminate, very much in the vein of Campbell et al. (2013) , between transitory shocks of discount rates (associated with k) and long-term or permanent shocks to expected dividend growth (associated with w). As Cochrane (2011) clarifies, stocks exposed to shocks in dividend growth should jump to a new (lower) level and stay there. In contrast, a change in discount rate k is associated with a temporary shock to stock prices. This shock resulting from a possible positive shock to expected returns that is at some point compensated by higher realized returns-which outweighs the short run effect. Price changes following a discount rate shock are likely to mean revert. This distinction is important as it conveys information with respect to a mean-reversion pattern of stock prices (following a discount rate shock) versus a stock price-level adjustment (following a growth rate shock).",
+            "cite_spans": [
+                {
+                    "start": 57,
+                    "end": 79,
+                    "text": "Campbell et al. (2013)",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Methodology"
+        },
+        {
+            "text": "The variability of implied growth w is often ignored in the empirical asset pricing literature. For various markets (stocks, bonds, debt, and housing markets, for example), a valuation ratio (such as the dividend-price ratio for stocks, the bond yield, price/rent ratios for the housing markets, etc.) is used to estimate near-term expected excess returns. For example, the predictive regression equation R t+k = \u03b1 + \u03b2(D t /P t ) + \u03b5 t+k , where the dependent variable is some return less a risk-free rate and D t /P t is the observed dividend-price ratio, is typically used to forecast stock returns. This standard regression does, however, not account for any changes in implied long-term growth, which, as we will show, may affect stock prices considerably. For instance, in the Fama and French (2002) study on the equity premium in the second half of the twentieth century, the authors conclude that the high average returns over the observed period are mainly driven by declining expected returns, extracted, e.g., from the D/P-ratio, so that the average returns are largely interpreted as unexpected. In our view, this conclusion is only valid if the expected growth rate shows no variation. The empirical evidence and discussion in Zimmermann (2021) as well as the findings in this paper show that this assumption is not warranted by the data. We argue that a change in valuation",
+            "cite_spans": [
+                {
+                    "start": 782,
+                    "end": 804,
+                    "text": "Fama and French (2002)",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 1239,
+                    "end": 1256,
+                    "text": "Zimmermann (2021)",
+                    "ref_id": "BIBREF19"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Methodology"
+        },
+        {
+            "text": "ratios may be of transitory character as well as of long-term character, thereby having very different effects on stock prices. Table 1 displays the ex ante and ex post valuation and Gordon ratios, allowing us to calculate \u0394k, \u0394w, \u03941b, and \u0394r, indicating the cross-sectional change in discount rate k, implied growth w, and the payout ratio 1 \u2212 b as well as the change in the implied return on equity \u0394r i.e., the change of the implied profitability of the reinvested earnings. Panel A of Table 1 shows the frequency and relative/cumulative weight of firm observations per industry represented in the S&P500 index. As we can see, our sample eliminations left the distribution of firms across industries almost unchanged, leading us to the conclusion that our sample remains representative of the S&P500 index. The figures in panel B of Table 1 reveal that the mean loss across the stocks from February 19, 2020 to March 23, 2020 is 38.1%. The total return for the period February 19 through April 30, 2020, is \u2212 18.6%. The mean return for the recovery period (March 23 through April 30, 2020) is 21.9%. This corresponds to a percentage recovery of 43.3%. The average (median) ex ante P/E-ratio as of end-December 2019 is 20.45 (18.52), which compares to the same ex post figure as of end-April 2020 of 18.9 (16.6) which represents only a moderate decline given the sharp decrease of stock prices in this period. A sharper decrease can be observed for the ratio between the market and book value, the P/B ratio, which drops from an average (median) of 5.0 to 4.3 (3.2 to 2.5). The dividend-price ratio D/P increases from an average (median) of 1.9% to 2.3% (1.8% to 2.1%) in this period, simply suggesting that the downward revisions of stock prices were larger than those of the forward-looking dividend per share. While it is not surprising that the cross-sectional standard deviation of the valuation measures remains stable (P/E: 10.0 vs. 10.0) or increases, P/B: 5.9 to 6.8, D/P: 1.4 to 1.7) during the market turmoil, it is surprising how little the changes are, given that firm-level data are analyzed. Are the effects similar for the implied Gordon ratios?",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 128,
+                    "end": 135,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 489,
+                    "end": 496,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 836,
+                    "end": 843,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Methodology"
+        },
+        {
+            "text": "The results in panel C of Table 1 show that the mean (median) implied growth rate w declines from 16.5 to 14.5% (12.7% to 11.2%). Relatively speaking, the decline of the implied growth rate w equals a decline in the long-term growth expectation of approximately 12%. This number conforms to the decline in cumulative lower bound long-term dividend growth expectation found in Gormsen and Koijen (2020) . Using dividend futures, they find growth expectations have been revised from January 1 through April 3, 2020, by approximately 10% (for the 10-year time horizon). The same statistics for the return on equity r are 24.6% and 2.5% (16.9% and 15.5%) and for the payout ratio 1 \u2212 b 34.7% and 37.9% (30.3% and 31.7%).",
+            "cite_spans": [
+                {
+                    "start": 376,
+                    "end": 401,
+                    "text": "Gormsen and Koijen (2020)",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 26,
+                    "end": 33,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Descriptive statistics"
+        },
+        {
+            "text": "The mean (median) discount rate k declines during the market downturn from 18.4 to 16.8% (14.4% to 12.7%), or relatively speaking by \u2212 8.8%. Overall, the relative change in implied growth w (\u2212 12%) exceeds this value by a factor of approximately 1.4. To be able to interpret the decline in the discount rate, one has to separate the risk-free rate from the expected risk premium. Since the Gordon model assumes a very long (infinite) future time horizon, the interest rate implicit in longmaturity government bonds is used. The 10-year constant maturity US Treasury rate declined from 1.92 to 0.64% over the relevant measurement interval. This implies a decrease of the median expected risk premium from 12.48% (14.4%-1.92%) to 12.09% (12.7%-0.64%), i.e. by 0.39%. Thus, most of the decline in the discount rate can be attributed to the interest component. A positive association between parallel shifts in interest rates and expected risk premiums contradicts, however, several empirical findings. For example, Duarte and Rosa (2015) find the high-equity risk premium in the post-GFC period has been the result of the extremely low risk-free rate.",
+            "cite_spans": [
+                {
+                    "start": 1012,
+                    "end": 1034,
+                    "text": "Duarte and Rosa (2015)",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Descriptive statistics"
+        },
+        {
+            "text": "Our finding also seems to contradict standard conditional asset pricing models which predict that expected risk premiums increase in bad economic states (such as the GFC or the recent pandemic) because of the impaired risk appetite of investors. While this interpretation seems to be valid for short investment horizons measured over typical stock market cycles, the discount rate in the Gordon model refers, in principle, to an infinite time horizon and, therefore, requires a distinct interpretation which is related to the long-run risk (LRR) literature and focuses on growth risk. Bansal and Yaron (2004) and Bansal (2007) have developed classical models in which news about growth rates and economic uncertainty affect asset prices. An intuitive explanation can, however, be derived from the Gordon model itself and the assumption of dividend smoothing. Concerned with dividend stability, managers do not adjust dividends immediately in downturns, leading to an increase in D/P. In the Gordon formula, this type of dividend smoothing implies a pro-cyclical behavior of growth risk as can be seen from where the denominator, k \u2212 w, is equal to the D/P ratio. The expression displays the sensitivity of the relative changes of stock prices with respect to small changes in the implied growth rate. In a market downturn, the D/P ratio increases which lowers the sensitivity. Hence, growth risk decreases in market downturns. Does it also lead to a decline in the growth risk premium? A key insight of the LRR pricing models by Bansal and Yaron (2004) etc. is that a positive growth risk premium requires a representative investor having a preference for early-as opposed to late-resolution of uncertainty. The evidence presented in panel C of Table 1 suggests that, indeed, the implied expected risk premium declines in times when the expected growth rate declines as well. At first glance counterintuitive, the observed decrease in k appears to adhere to the Gordon model, dividend smoothing, and the pricing of growth risk in the LRR asset pricing literature.",
+            "cite_spans": [
+                {
+                    "start": 585,
+                    "end": 608,
+                    "text": "Bansal and Yaron (2004)",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 613,
+                    "end": 626,
+                    "text": "Bansal (2007)",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 1529,
+                    "end": 1552,
+                    "text": "Bansal and Yaron (2004)",
+                    "ref_id": "BIBREF4"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1745,
+                    "end": 1752,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Descriptive statistics"
+        },
+        {
+            "text": "Implied growth w equals rb that is the return on equity times the proportion of cash flows that is reinvested. It appears plausible to us that the crisis results in a reduced return on equity, hence, goes down from 24.6 to 22.5%. Also, if the economy as a whole is expected to shrink in a crisis, firms may want to efficiently deploy the existing assets in place rather than force new investments. In parallel, the investment opportunity set may shrink in times of an economic crisis, and it so appears",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Descriptive statistics"
+        },
+        {
+            "text": "also reasonable to us that the proportion of cash flows reinvested b shrinks from 65.3 to 62.1% (this number just follows from 1 \u2212 b from Table 1) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 138,
+                    "end": 146,
+                    "text": "Table 1)",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Descriptive statistics"
+        },
+        {
+            "text": "We can now provide a first illustration of the explanatory power of the Gordon model using the sample averages of k and w, as reported in panel C of Table 1 and Eq. (1). Assuming an initial dividend (D) of 1, we compute a hypothetical implied ex ante price level of D/(k ex ante \u2212 g ex ante ) = 1/(0.1837 \u2212 0.1650) = 53.58, while the estimated ex post price level is D/(k ex post \u2212 g ex post ) = 1/(0.1675 \u2212 0.1450) = 44.44. The absolute (relative) change is \u2212 9.14 (\u2212 19.49%). Comparing the relative return of \u2212 19.5% calculated from the Gordon model to the return in Table 1 of \u2212 18.6% implies that the estimates from the Gordon model provide an approximate estimate of the actual net valuation effect.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 149,
+                    "end": 156,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 569,
+                    "end": 576,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Descriptive statistics"
+        },
+        {
+            "text": "In our following analyses, we hypothesize that a change in implied growth w significantly affects stock returns in the COVID-19 crisis. Given the magnitude of changes in implied growth w and discount rate k observed (and evidenced in Table 1 ), we expect the effects from changes in implied growth w may outweigh those from changes in discount rate k. We use simple and multiple ordinary leastsquares (OLS) regressions and tests for equal means to test our hypotheses.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 234,
+                    "end": 241,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Descriptive statistics"
+        },
+        {
+            "text": "We estimate the effects of changes in the implied Gordon factors using simple and multiple ordinary least-squares (OLS) regressions. In a first step, we use k, w, and 1 \u2212 b as calculated from Eqs. (2) and (3) and estimate how well stock returns are explained by a change in the discount rate, \u0394k, the implied growth rate, \u0394w, or the payout ratio, \u03941 \u2212 b. We use simple OLS regressions in specifications (1) through (3) of Table 2 in the form of where R is the firm level i stock return measured from the S&P500 high on February 19, 2020 to its subsequent low on March 23, 2020, \u03b2 0 is the constant term, k i refers to the implied discount rate, calculated from firm level i forward-looking valuation ratios (P/E, P/B, D/P). \u0394k refers to the change in k between December 31, 2020 and April 30, 2020. The estimation of the effects pertaining to \u0394w is based on an identical specification, the latter not given here for brevity. In a second step, we augment the specifications and use \u0394k and \u0394w in a two-factor model in specification (4) of Table 2. In the specification (5), we add \u03941 \u2212 b to the model:",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 422,
+                    "end": 429,
+                    "text": "Table 2",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "Empirical findings"
+        },
+        {
+            "text": "We use beta weights in our OLS regressions (in parenthesis) to measure the effect size of our variables. Beta weights make it easier to compare the economic effects of the explanatory variables across models; they reveal how much of a standard deviation the stock return R changes for each standard deviation shift in an explanatory variable, here the Gordon factors. We conduct our analysis for both the market downturn scenario and the recovery scenario. (3) show the result of simple ordinary least-squares (OLS) regressions of stock returns on the change in discount rate, \u0394k, implied growth, \u0394w, and the payout ratio, \u03941-b over the period starting December 31, 2019 and ending April 30, 2020. Columns (4) and (5) show the results using multiple OLS. Robust normalized beta coefficients are shown in parenthesis. These indicate the effect size of the Gordon factors and tell how much of a standard deviation in stock returns change for each standard deviation change in the Gordon factors. We use industry categorical variables to account for industry fixed effects. The communication services industry is used as the base and the factor results and beta weights for industries are shown as differences to this base Significance is denoted by ***p < 0.01, **p < 0.05, *p < 0.1 (1) through (3), only a change in implied growth, \u0394w, appears to affect stock returns, statistically only marginally significant though. A change in discount rate k, \u0394k, and in payout ratio, \u03941 \u2212 b, do not affect stock returns in a significant way; k has moreover the wrong sign. It is only when we augment the specifications as in columns (4) and (5) to multiple OLS regressions that our Gordon factors become statistically significant at the 1% level. Second, the coefficients of \u0394k and \u0394w show an almost perfect mirror image in terms of effect size. As expected from the model predictions, an increase in the discount rate k is negatively related to stock returns R i , i.e., the coefficient exhibits a negative sign. Likewise, an increase in implied growth is positively related to stock returns, i.e., the coefficient exhibits a positive sign. Third, we note that the effect sizes of \u0394k and \u0394w are large. A one standard deviation change in these variables according to specification (4) impacts stock returns by an important approximate \u00b1 (1.85 \u00d7 13.7%) = 25.3%. For example, a 1% increase in k (decrease in w) has an impact on stock returns in the magnitude of \u2212 4.2% (+ 4.2%). 3 Fourth, the effect size of \u0394k and \u0394w is remarkably higher than industry affiliation. For example, as shown in column (5), the industry with the largest beta weight (\u2212 0.44) is consumer discretionary, significant at the 1% level, with a beta weight approximately one fifth the size of that of \u0394k or \u0394w. In other words, changes in the Gordon factors affect stock returns more than any industry affiliation by our sample. Finally, we find that the adjusted R 2 s in specifications (4) and (5) in the magnitude of 32% are surprisingly large for firm-level returns.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Empirical findings"
+        },
+        {
+            "text": "It is apparent from the specifications in columns (4) to (5) that the estimated Gordon parameters are very large when jointly included in the estimated equation compared to the specifications in (1) to (3). The explanation is in the high correlation between \u0394k and \u0394w which is close to one in the cross section of firms. However, this is the result of the Gordon model filtering out the joint explanatory effect of the implied fundamentals. The high multicollinearity has no technical reason but rather reflects that the change in the dividend yield of the stocks is highly cross sectionally correlated. This is displayed in Fig. 2 , which shows the ex ante and ex post D/P-ratio with a correlation of 0.94. If the Gordon model is valid, it follows from equation [2] that the difference \u0394k \u2212 \u0394w is equal to the change of the dividend yield, \u0394(D\u2215P) . Apparently, the Gordon model captures the actual change in the D/P ratio very well, which explains the high correlation between \u0394k and \u0394w. 4 In a next step, we evaluate whether the negative returns for firms with a decrease in implied growth w (increase in discount rate k) are in fact larger than for firms with no such decrease (increase). We verify our findings from Table 2 using a two tailed t test and the Wilcoxon's ranksum test. We apply a dummy variable taking the value of one if w (k) decreases (increases) by the Gordon formula, zero otherwise, to the two groups of firms. The results are shown in Table 3 , panel A. The t test (405) = 4.74, p < 0.001 reveals that 114 firms without a negative change in implied growth exhibit an average return of \u2212 33.3%, which is significantly different from the negative average return of \u2212 40.0% of those 291 firms that experience a decrease in implied growth. The statistical significance of this difference is also confirmed by the rank sum test with z = 4.76, p < 0.001. Therefore, firms with a decrease in implied growth w show a stock return that is 6.6% more negative than that of firms with no decrease in implied growth w.",
+            "cite_spans": [
+                {
+                    "start": 989,
+                    "end": 990,
+                    "text": "4",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 625,
+                    "end": 631,
+                    "text": "Fig. 2",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 1220,
+                    "end": 1227,
+                    "text": "Table 2",
+                    "ref_id": "TABREF2"
+                },
+                {
+                    "start": 1460,
+                    "end": 1467,
+                    "text": "Table 3",
+                    "ref_id": null
+                }
+            ],
+            "section": "Returns in the initial downmarket"
+        },
+        {
+            "text": "Next, we compare this result to firms with an increase in implied discount rate k. The result is shown in Table 3 , panel B. We find by the t test(405) = \u2212 3.83, p < 0.001 that the 268 firms without an increase in discount rate k show returns of \u2212 39.8% on average, compared to those 137 firms with an increase in discount rate showing a negative return of \u2212 34.7%. This significant difference in return in the amount of 5.1% is confirmed by the rank sum test with z = \u2212 3.51, p < 0.001. Albeit counterintuitive, we rationalize this result by the fact that the decrease in implied growth w outweighs the effects from an increase in discount rate k. Overall, our results from OLS regressions as well as our tests of the difference in means lend support to the predicted effects from the Gordon model. Looking at our cross-sectional changes in the implied Gordon parameters, primarily k and w, during the COVID-19 crisis (see Table 1 ), the relative cross-sectional decrease in implied growth (\u0394w = \u2212 8.3%) is larger than the relative change of the discount rate (\u0394k = \u2212 5.1%), by a factor of approximately 1.6. Moreover, the discount rate k decreases, in line with the predictions of LRR-models, while the traditional asset pricing literature would presume an increase of discount rates during a crisis.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 106,
+                    "end": 113,
+                    "text": "Table 3",
+                    "ref_id": null
+                },
+                {
+                    "start": 924,
+                    "end": 931,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Returns in the initial downmarket"
+        },
+        {
+            "text": "In a next step, we replicate our preceding analysis, this time considering an extended downmarket period that includes both the initial downmarket and the consecutive V-shaped recovery. Table 4 shows how the returns from February 19 (market high) to April 30, 2020 are affected by a change in the Gordon factors. Table 3 Stock returns in the downmarket a This panel shows the test for equal means of stock returns using a two-sided Student t test and a Wilcoxon ranksum test. A dummy variable taking the value of one is used for those firms with a decrease in implied growth w (\u0394w < 0) as computed by the Gordon (1959) formula, zero otherwise b This panel shows the test for equal means of stock returns using a two-sided Student's t test and a Wilcoxon ranksum test. A dummy variable taking the value of one is used for those firms with an increase in discount rate k (\u0394k > 0) as computed by the Gordon (1959) (4) and (5) show the results using multiple OLS. In column (6), we additionally use dummy variables to estimate the effects of a positive change in implied growth, + \u0394w, and discount rate, + \u0394k. The dummy variables take the value of one if the change is positive, zero otherwise. Robust normalized beta coefficients are shown in parenthesis. These indicate the effect size of the Gordon factors and tell how much of a standard deviation in stock returns change for each standard deviation change in the Gordon factors. We use industry categorical variables to account for industry fixed effects. The communication services industry is used as the base and the factor results and beta weights for industries are shown as differences to this base Signiicance is denoted by ***p<0.01, **p<0.05, *p<0.1 Table 4 (continued)",
+            "cite_spans": [
+                {
+                    "start": 605,
+                    "end": 618,
+                    "text": "Gordon (1959)",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 897,
+                    "end": 910,
+                    "text": "Gordon (1959)",
+                    "ref_id": "BIBREF11"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 186,
+                    "end": 193,
+                    "text": "Table 4",
+                    "ref_id": null
+                },
+                {
+                    "start": 313,
+                    "end": 320,
+                    "text": "Table 3",
+                    "ref_id": null
+                },
+                {
+                    "start": 1710,
+                    "end": 1717,
+                    "text": "Table 4",
+                    "ref_id": null
+                }
+            ],
+            "section": "Returns in the extended downmarket including V-shaped recovery"
+        },
+        {
+            "text": "(1)",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Returns in the extended downmarket including V-shaped recovery"
+        },
+        {
+            "text": "(3) Since we are particularly interested in positive versus negative changes in k and w, we add specification (6) to the basic regressions in columns (1) to (5). We analyze the effects of a positive change in implied growth, + \u0394w, and a positive change in discount rate, + \u0394k, and use a dummy variable for + \u0394w and + \u0394k if the change is positive, zero otherwise, resulting in",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Returns in the extended downmarket including V-shaped recovery"
+        },
+        {
+            "text": "The results are shown in Table 4 . As in our previous analysis, the Gordon factors, which are used as independent variables in simple OLS regressions, appear not to affect stock returns in a significant way. Augmenting the specifications as in columns (4) and (5) to multiple OLS regressions, the Gordon factors become again statistically significant at the 1% level and, as previously, the coefficients of \u0394k and \u0394w show again an almost perfect mirror image in terms of effect size with the signs as expected from the model predictions: an increase in the discount rate k is negatively related to stock returns R, an increase in implied growth is positively related to stock returns.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 25,
+                    "end": 32,
+                    "text": "Table 4",
+                    "ref_id": null
+                }
+            ],
+            "section": "Returns in the extended downmarket including V-shaped recovery"
+        },
+        {
+            "text": "As before, the effect size of \u0394k and \u0394w are large. To account for the observed contemporaneous changes in \u0394w and \u0394k, we replace these two variables by two dummy variables, + \u0394w i and + \u0394k i in specification (6). The dummy variable for a positive change in implied growth, + \u0394w, is significant at the 1% level, that for a positive change in discount rate, + \u0394k is significant at the 5% level. It appears that a positive change in implied growth impacts stock returns more than increases in discount rate, as measured by their beta weights which amount to 36.0% and 20.7%, respectively. The effect from a positive change in implied growth is larger than from a positive change in discount rate by a factor of (36.0%/20.7%) 1.7.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Returns in the extended downmarket including V-shaped recovery"
+        },
+        {
+            "text": "We find that a one standard deviation increase in implied growth affects the stock returns by approximately (0.36 \u00d7 14.70% =) 5.3%, while an increase in discount rate affects the stock returns by roughly (\u2212 0.21 \u00d7 14.70% =) \u2212 3.1%. It also appears noteworthy that the effect sizes of + \u0394w and + \u0394k remain larger than any of the industry affiliation effects.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Returns in the extended downmarket including V-shaped recovery"
+        },
+        {
+            "text": "In the vein of our previous tests of equal means, we find that returns for firms with a decrease in implied growth, \u0394w, are lower by a significant \u2212 6.1% compared to those firms without a decrease in implied growth, this difference again statistically significant at the 1% level (t = \u2212 3.88, z = 3.34). Like before, the returns for firms with an increase in discount rate, \u0394k, show a return that is less negative than that of firms with a decrease in \u0394k, by 3.11% (t = 2.05, z = 1.34). Firms with an increase (decrease) in \u0394k display returns of \u2212 16.54% (\u2212 19.65%).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Returns in the extended downmarket including V-shaped recovery"
+        },
+        {
+            "text": "Overall, we find that the observed effects in the initial downmarket (Table 2 ) are confirmed in the extended downmarket period. Changes in implied growth, \u0394w, affect stock returns more than changes in discount rate, \u0394k, when we use dummy variables and condition \u0394w and \u0394k to be positive (> 0). The effect from a positive change in implied growth is larger than from a positive change in discount rate by a factor of approximately 1.7.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 69,
+                    "end": 77,
+                    "text": "(Table 2",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "Returns in the extended downmarket including V-shaped recovery"
+        },
+        {
+            "text": "(10)",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Returns in the extended downmarket including V-shaped recovery"
+        },
+        {
+            "text": "We use the common valuation factors P/E, P/B, and D/P, and evaluate whether and to what extent they explain variation in stock price losses and stock price recoveries as compared to the Gordon factors. Our evaluation is done for the initial downmarket (February 19 through March 23, 2020) as well as for the extended downmarket including the V-shaped recovery (February 19 through April 30, 2020) . We evaluate whether one should infer information from firm-specific valuation ratios rather than their joint interpretation with respect to underlying market fundamentals, such as those derived from the Gordon model. The results are shown in Table 5 .",
+            "cite_spans": [
+                {
+                    "start": 360,
+                    "end": 396,
+                    "text": "(February 19 through April 30, 2020)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 641,
+                    "end": 648,
+                    "text": "Table 5",
+                    "ref_id": "TABREF6"
+                }
+            ],
+            "section": "Interpretation of valuation ratios versus Gordon factors"
+        },
+        {
+            "text": "Turning to the initial downmarket analysis shown in panel A of Table 5 and the valuation ratios, changes in the P/E, P/B, or D/P ratio are significant at the 5% or 1% level. The effect sizes, as indicated by the beta weights in parenthesis, of changes in the P/E, P/B, or D/P ratios are between 0.08 and 0.21, and the adjusted R 2 s are approximately 30% to 32%. The interpretation of changes in P/E or D/P are, however, not simple. A decrease in P/E may simply be the result of falling stock prices in the downturn, and changes in the D/P may reflect stock returns that are more negative than forward-looking dividends per share. For example, a variation in D/P may be due to irrational bubbles in stock prices. In this case, the dividend-price ratios (and expected returns) are high when stock prices are temporarily irrationally low (and vice versa). This implies that we cannot infer much information from these coefficients. When we compare these results to columns (4) through (7) of panel A of Table 5 , we make four important and noteworthy observations.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 63,
+                    "end": 70,
+                    "text": "Table 5",
+                    "ref_id": "TABREF6"
+                },
+                {
+                    "start": 1001,
+                    "end": 1008,
+                    "text": "Table 5",
+                    "ref_id": "TABREF6"
+                }
+            ],
+            "section": "Interpretation of valuation ratios versus Gordon factors"
+        },
+        {
+            "text": "First, it appears that stock returns in the initial downmarket are dominated by a change in implied growth, + \u0394w, primarily. This variable is significant at the 1% level in column (4) and the 5% level in column (7). The positive relationship with stock returns implies that losses in the initial downmarket are smaller for those stocks with a positive change in implied growth w (and vice versa). As discussed in the context of Table 1 , the cross-sectional mean of the implied growth rate w decreases substantially from 16.5 to 14.5%, and this appears to drive stock returns. Second, the result in column (7) implies that the effects from positive changes in implied growth outweigh those of positive changes in discount rate, as in the multiple regression, + \u0394w is significant, whereas + \u0394k is not. Third, the results from the Gordon factors can intuitively be interpreted: an increase in implied growth (discount rate) is positively (negatively) related to stock returns.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 428,
+                    "end": 435,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Interpretation of valuation ratios versus Gordon factors"
+        },
+        {
+            "text": "In contrast, changes in individual valuation factors are not easily understood, which may lead to spurious conclusions. For example, in the empirical asset pricing literature, an increase in the D/P ratio is typically read as an increase in expected returns. If so, why would then a higher D/P-ratio in the cross-section be negatively related to stock returns, as in column (3)? Fourth, the model fit of specifications (1) through (7) is approximately comparable and around 30%. Against this background, it is hard to understand why one should infer information from firm-specific valuation ratios, which may lead to spurious conclusions, rather than their joint interpretation with respect to the underlying market fundamentals as derived from the Gordon model. The Gordon factors, which can be estimated from the three widely used Table 5 Valuation versus Gordon factors   This table shows (7) the results of OLS regressions of stock returns on positive changes in discount rate, +\u0394k, implied growth, +\u0394w, and the payout ratio, +\u03941 \u2212 b, all changes measured over the period starting Variables (1) (2) (3) (4) (5) (6) (7) Table 5 , which describes the same factors and their effect on stock returns R i in the extended downmarket including the V-shaped recovery after the market low on March 23, 2020. Like before, an increase in D/P is negatively related to stock returns, which is intuitively not what we would expect from traditional asset pricing models (column 3). Albeit their significance, classical valuation ratios are difficult to interpret when using them to estimate stock returns. As before, using valuation factors P/E, P/B, and D/P in columns (1) through (3) renders approximately the same model fit as using the Gordon factors (column 7), the latter now significant at the 1% level (+ \u0394w) and the 5% level (+ \u0394k) and-as stressed before-much more informative than the valuation ratios. Comparable to our previous analysis in Table 4 , the effect from a positive change in implied growth outweighs that from a positive change in discount rate, this time by a factor of approximately 1.6.",
+            "cite_spans": [
+                {
+                    "start": 1085,
+                    "end": 1094,
+                    "text": "Variables",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 833,
+                    "end": 891,
+                    "text": "Table 5 Valuation versus Gordon factors   This table shows",
+                    "ref_id": "TABREF6"
+                },
+                {
+                    "start": 1123,
+                    "end": 1130,
+                    "text": "Table 5",
+                    "ref_id": "TABREF6"
+                },
+                {
+                    "start": 1941,
+                    "end": 1948,
+                    "text": "Table 4",
+                    "ref_id": null
+                }
+            ],
+            "section": "Interpretation of valuation ratios versus Gordon factors"
+        },
+        {
+            "text": "In order to analyze to what extent our results may be generalized to the overall US stock market, respectively, to what extent they might be driven by specific industries, we re-estimate our regressions for the initial downmarket and the extended downmarket period, separately by industry. The results are presented in panels A and B of Table 6 . For ten out of eleven industries and for both, the initial and the extended downmarket, the signs are correct that is negative for \u0394k and positive for \u0394w. Moreover, for seven out of eleven industries, the coefficients are statistically significant and in most industries, the adjusted R 2 exhibits at least the same order of magnitude as in the full sample. In the best cases, our simple model explains 58.5% (76.5%) of the variation in returns in the initial downmarket for the real estate (utilities) industry. Likewise, the explanatory power for the extended downmarket amounts to an important 72.4% and 72.2% for these two industries. However, we also find confirming results for many other industries with significant coefficients and an adjusted R 2 ranging from approximately 21% in the lowest (materials, extended downmarket) to 72% in the highest case (consumer staples, extended downmarket). Unsatisfactory results with wrong, but not significant coefficients and almost no explanatory power are found for the consumer discretionary sector. The industry-specific results and their explanation are subject to further analysis. December 31, 2019 and ending April 30, 2020. Dummy variables are used to estimate the effects of a positive change in implied growth, +\u0394w, and discount rate, +\u0394k. The dummy variables take the value of one if the change is positive, zero otherwise. Robust normalized beta coefficients are shown in parenthesis. These indicate the effect size of the Gordon factors and tell how much of a standard deviation in stock returns change for each standard deviation change in the Gordon factors. We use industry categorical variables to account for industry fixed effects. The communication services industry is used as the base and the factor results and beta weights for industries are shown as differences to this base.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 337,
+                    "end": 344,
+                    "text": "Table 6",
+                    "ref_id": null
+                }
+            ],
+            "section": "Industry specific results"
+        },
+        {
+            "text": "Significance is denoted by ***p<0.01, **p<0.05, *p<0.1 Robust normalized beta coefficients are shown in parenthesis. These indicate the effect size of the Gordon factors and tell how much of a standard deviation in stock returns change for each standard deviation change in the Gordon factors Significance is denoted by ***p<0.01, **p<0.05, *p<0.1",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Industry specific results"
+        },
+        {
+            "text": "In this section, we illustrate the robustness of our main findings for the period following the announcement of the Lehman Brothers bankruptcy in 2008. We use a discount and growth rate consolidation period, which is of similar length as that used in our previous analysis, i.e., four months (from August 29, 2008 , through December 29, 2008 . We choose a time window with a significant market downturn comparable to that observed during the COVID-19 crisis, which is the period following the Lehman Brothers bankruptcy protection filing (Monday, September 15, 2008) . This filing triggered a one-day drop in the Dow Jones Industrial Average of 4.4%, at the time the largest decline since the September 11, 2001 attacks, subsequently exceeded by an even larger \u2212 7.0% stock market return on September 29, 2008, and a total return for the observation period comparable to that of our COVID-19 period.",
+            "cite_spans": [
+                {
+                    "start": 292,
+                    "end": 313,
+                    "text": "(from August 29, 2008",
+                    "ref_id": null
+                },
+                {
+                    "start": 314,
+                    "end": 341,
+                    "text": ", through December 29, 2008",
+                    "ref_id": null
+                },
+                {
+                    "start": 538,
+                    "end": 566,
+                    "text": "(Monday, September 15, 2008)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Comparison with the Global Financial Crisis (GFC)"
+        },
+        {
+            "text": "As with the COVID-19 observation period, the stock returns were exceptionally large, and the severity of the economic downturn induced by the unanticipated crisis was difficult to estimate. The stock market downturn during the GFC is researched by Campbell et al. (2013) , who use a vector autoregressive (VAR) model to estimate the effects from an increase in discount rates as opposed to a decrease in rational expectations of future profits, and find that stock market downturns were primarily driven by the latter. Can we reach the same conclusion by using the much simpler Gordon model? First, we compare the valuation ratios to the estimated Gordon parameters for this period. Second, we rerun a set of OLS regressions and finally, we provide an out-ofsample estimation based on the coefficients of our main analysis. Table 7 shows the descriptive statistics for the GFC, including valuation ratios in panel A and estimated Gordon factors in panel B. The stock return for the GFC period is \u2212 35.02%, comparable in magnitude to the \u2212 37.25% return for the COVID-19 period. A striking observation is the difference between the levels of the P/E and P/B ratios, which are considerably lower for the GFC (as opposed to the COVID-19 crisis). On average, the P/E (P/B) ratio prior to the GFC amounts to 13.7 (2.8), which compares to the same ratios prior to the COVID-19 crisis of 21.2 and 5.0. As expected, the forward-looking multiples declined after the onset of the market downturn. The P/E (P/B) ratio falls from 13.7 to 11.7 by approximately 2.0 or \u2212 14.7% (2.8 to 1.9 by 0.9 or \u2212 32.7%). In comparison, for the COVID-19 period, the P/E (P/B) multiple falls from 20.5 to 18.9 by 1.6 or \u2212 7.8% (5.0 to 4.3 by 0.6 or \u2212 14%).",
+            "cite_spans": [
+                {
+                    "start": 248,
+                    "end": 270,
+                    "text": "Campbell et al. (2013)",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 824,
+                    "end": 831,
+                    "text": "Table 7",
+                    "ref_id": "TABREF7"
+                }
+            ],
+            "section": "Comparison with the Global Financial Crisis (GFC)"
+        },
+        {
+            "text": "As in the COVID-19 period, we observe an increase in the D/P ratio for the GFC period. The cross-sectional mean (median) increases from 1.5% (1.3%) to 2.0% (1.7%), matching our observation during the COVID-19 period that downward revisions of stock prices are larger than those of the forward-looking dividends per share do, and confirming the dividend smoothing of firms.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Descriptive statistics for the GFC period"
+        },
+        {
+            "text": "Turning to the Gordon factors in panel B of Table 7 , the mean (median) implied growth rate w declines from 16.2 to 13.3% (14.9% to 12.3%), implying a substantial mean (median) reduction of the long-term growth expectation in the magnitude of \u2212 17.9% (\u2212 17.4%). As for the COVID-19 period, we also observe a reduction in the discount rate k. The mean (median) decline goes from 17.7 to 15.3% (16.2% to 14.1%), implying an absolute mean (median) change of \u2212 2.4% (\u2212 2.1%) or a relative mean (median) change of \u2212 13.5% (\u2212 13.0%) in k. Using the 10-year constant maturity US treasury rate, we find that the risk-free rate drops from 3.83 to 2.13% or by 1.7% over the same time period. It follows that, as previously, only 0.4% (2.1%-1.7%) of the drop in the discount rate may be attributed to a drop in the expected risk premium.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 44,
+                    "end": 51,
+                    "text": "Table 7",
+                    "ref_id": "TABREF7"
+                }
+            ],
+            "section": "Descriptive statistics for the GFC period"
+        },
+        {
+            "text": "Again, this change in the expected risk premium cannot be explained by standard conditional asset pricing models, which rely on a cyclical risk appetite and rather suggests a growth-risk-related premium as discussed earlier. As observed for the COVID-19 crisis, k decreases also during the GFC. Indeed, the implied discount rate k strongly declines in times when the expected growth rate w declines as well. This observation is consistent with our previous explanation. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Descriptive statistics for the GFC period"
+        },
+        {
+            "text": "In our next analysis, we rerun the downmarket specifications given in Table 2 of our main analysis. The results are presented in Table 8 . We find comparable coefficients both in magnitude and in statistical significance, with the exception that the Gordon parameters \u0394k and \u0394w are already significant in the simple OLS regressions in columns (1) and (2), in both cases at the 1% level. In specification (5), we find an adjusted R 2 of 25.2%. In line with Campbell et al. (2013) , we observe that stock returns were primarily driven by a decrease in implied growth w and to a lesser extent by an increase in discount rate k. Measured by the coefficient's beta weights, the effects from a decrease in implied growth outweigh those from an increase in discount rate by a factor of approximately 1.2 (e.g. 1.94/1.57 in specification 5). While a one standard deviation decrease in implied growth, \u0394w, affects stock returns by a negative approximate (1.94 \u00d7 17.4% =) 34%, a one standard deviation increase in the discount rate, \u0394k, is negatively related to stock returns and impacts stock returns to a lesser extent by an approximate (1.57 \u00d7 17.74% =) 28%.",
+            "cite_spans": [
+                {
+                    "start": 456,
+                    "end": 478,
+                    "text": "Campbell et al. (2013)",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 70,
+                    "end": 77,
+                    "text": "Table 2",
+                    "ref_id": "TABREF2"
+                },
+                {
+                    "start": 129,
+                    "end": 136,
+                    "text": "Table 8",
+                    "ref_id": "TABREF8"
+                }
+            ],
+            "section": "Ordinary Least-Squares (OLS) estimations for the GFC period"
+        },
+        {
+            "text": "In our final analysis, we test the out-of-sample performance of our predictive model. We use the coefficients estimated from the COVID-19 data as given in Table 2 , specification 5, and estimate stock returns during the described GFC period as in where R GFC,i is the expected firm level i stock return measured from the high to the low following the Lehman bankruptcy filing for the period as described previously, \u2212 28.48 is the constant term from specification 5 in Table 2 , and \u2212 506.5, + 524.3, and + 6.614 are the coefficients for \u0394k i , \u0394w i , and \u03941 \u2212 b i of the same specification. \u03b2(industry) are the industry i categorical variable coefficients.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 155,
+                    "end": 162,
+                    "text": "Table 2",
+                    "ref_id": "TABREF2"
+                },
+                {
+                    "start": 469,
+                    "end": 476,
+                    "text": "Table 2",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "Out-of-sample stock return predictions for the GFC period"
+        },
+        {
+            "text": "Estimating the cross-sectional return for the GFC period, R GFC , yields an average stock return of \u2212 31.1% (with a standard deviation of 3.5%). The expected stock return E(R GFC ) within a confidence interval of \u00b1 1\u03c3 ranges from \u2212 27.6 to \u2212 34.6%. This compares to the observed average stock return of \u2212 35% (with a standard deviation of 17.4%). The prediction error of only 3.9% appears to be relatively small, given the noise in stock markets in crisis periods.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Out-of-sample stock return predictions for the GFC period"
+        },
+        {
+            "text": "We analyze to what extent stock returns can be attributed to changes in expected growth rates w and discount rates k. We employ widely used fundamental valuation ratios and the simple Gordon (1959) (3) show the result of simple ordinary least-squares (OLS) regressions of stock returns on the change in discount rate, \u0394k, implied growth, \u0394w, and the payout ratio, \u03941 \u2212 b over the period starting August 29, 2008 and ending December 29, 2008. Columns (4) and (5) show the results using multiple OLS. Robust normalized beta coefficients are shown in parenthesis. These indicate the effect size of the Gordon factors and tell how much of a standard deviation in stock returns change for each standard deviation change in the Gordon factors. We use industry categorical variables to account for industry fixed effects. The communication services industry is used as the base and the factor results and beta weights for industries are shown as differences to this base Significance is denoted by ***p<0.01, **p<0.05, *p<0. recovery, we find that stock returns are largely affected by a change in the implied growth rate w and only to a lesser extent by a change in discount rate k, the latter typically used to explain stock returns in the classical asset pricing literature. The effects from a decrease in implied growth outweigh those from an increase in discount rate by a factor of approximately 1.7, implying the COVID-19 stock market downturn is of long term rather than transitory character. We also find that firms with a decrease in implied growth w show a stock return that is approximately 6.6% more negative than that of firms with no decrease in implied growth. We also evaluate the performance of the Gordon factors in an extended downmarket period including the V-shaped recovery as well as for the Global Financial Crisis (GFC) and find strong support for our observations.",
+            "cite_spans": [
+                {
+                    "start": 184,
+                    "end": 197,
+                    "text": "Gordon (1959)",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 396,
+                    "end": 415,
+                    "text": "August 29, 2008 and",
+                    "ref_id": null
+                },
+                {
+                    "start": 416,
+                    "end": 453,
+                    "text": "ending December 29, 2008. Columns (4)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Aggregate and firm-level stock returns during pandemics, in real time",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Alfaro",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Chari",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Greenland",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Schott",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "NBER Working Paper Series",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "The unprecedented stock market reaction to Covid-19",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Baker",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Bloom",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Davis",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Kost",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Sammon",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Viratyosin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "2020. The coronavirus and the great influenza epidemic-lessons from the \"Spanish Flu\" for the Coronavirus's potential effects on mortality and economic activity",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Barro",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Ursua",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Weng",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Long-run risks and financial markets",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Bansal",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Louis Review",
+            "volume": "89",
+            "issn": "4",
+            "pages": "283--299",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Risks for the long run: A potential resolution of asset pricing puzzles",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Bansal",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Yaron",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "Journal of Finance",
+            "volume": "59",
+            "issn": "4",
+            "pages": "1481--1509",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Estimating the equity premium",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Campbell",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Canadian Journal of Economics",
+            "volume": "41",
+            "issn": "1",
+            "pages": "1--21",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Hard times",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Campbell",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Giglio",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Polk",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Review of Asset Pricing Studies",
+            "volume": "3",
+            "issn": "1",
+            "pages": "95--132",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Discount Rates",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Cochrane",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Journal of Finance",
+            "volume": "66",
+            "issn": "4",
+            "pages": "1047--1108",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "The equity risk premium: A review of models",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Duarte",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Rosa",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Economic Policy Review",
+            "volume": "21",
+            "issn": "2",
+            "pages": "39--57",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "The equity premium",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Fama",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "French",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Journal of Finance",
+            "volume": "57",
+            "issn": "2",
+            "pages": "637--659",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Taming the factor zoo: A test of new factors",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Feng",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Giglio",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Xiu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Journal of Finance",
+            "volume": "75",
+            "issn": "3",
+            "pages": "1327--1370",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Dividends, earnings, and stock prices",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Gordon",
+                    "suffix": ""
+                }
+            ],
+            "year": 1959,
+            "venue": "Review of Economics and Statistics",
+            "volume": "41",
+            "issn": "2",
+            "pages": "99--105",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Coronavirus: Impact on stock prices and growth expectations",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Gormsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Koijen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Presidential address: The scientific outlook in financial economics",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Harvey",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Journal of Finance",
+            "volume": "72",
+            "issn": "4",
+            "pages": "1399--1440",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "\u2026 and the cross-section of expected returns",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Harvey",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Review of Financial Studies",
+            "volume": "29",
+            "issn": "1",
+            "pages": "5--68",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Firm-level exposure to epidemic diseases: Covid-19",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Hassan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Hollander",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Van Lent",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Tahoun",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "SARS, and H1N1. Institute for New Economic Thinking Working Paper Series No. 119",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "A closer look at value premium: Literature review and synthesis",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "P\u00e4t\u00e4ri",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Leivo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Journal of Economic Surveys",
+            "volume": "31",
+            "issn": "1",
+            "pages": "79--168",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Feverish stock price reactions to covid-19. Review of Corporate Finance Studies",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ramelli",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Wagner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/rcfs/cfaa012"
+                ]
+            }
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Explaining the high P/E ratios: The message from the Gordon model. Forthcoming",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zimmermann",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Journal of Investment Management",
+            "volume": "16",
+            "issn": "4",
+            "pages": "64--78",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Long-run implied market fundamentals: An exploration",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zimmermann",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Journal of Investment Management",
+            "volume": "35010",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.2139/ssrn.3501099"
+                ]
+            }
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Publisher's Note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Ex ante and ex post dividend yield (D/P). It shows the ex ante (vertical axis) and ex post (horizontal axis) relationship of the dividend yield (D/P) as observed from December, 2019, through April 30, 2020, for 405 stocks during the COVID-19 crisis",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "the effect of a change in valuation factors P/E, P/B, and D/P as compared to a positive change in the Gordon factors w, k, and 1 \u2212 b on stock returns during the initial market downturn induced by the COVID-19 crisis (February 19 till March 23, 2020) in Panel A. The same factors and their effect on stock returns during the extended downmarket including the V-shaped recovery (February 19, 2020 till April 30, 2020) are shown in Panel B. Columns (1) through (3) show the result of simple ordinary least-squares (OLS) regressions of stock returns on the change in P/E, P/B, and D/P. Columns (4) through",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "D/P, P/E, and P/B, have an intuitive interpretation and consistently show the expected sign in the regressions.We reconcile our analysis with the observation of the results given in panel B of",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "model for extracting the respective longrun expectations. For the COVID-19 market downturn and subsequent V-shaped (11) R GFC,i = \u221228.48 \u2212 506.5 \u0394k i + 524.3 \u0394w i + 6.614\u0394(1 \u2212 b) i + industry i + i ,",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "Fig. 1 COVID-19Crisis, S&P 500, and VIX. It shows the cumulative COVID-19 infections from January 30 through April 30, 2020 for the USA, Italy, China and the world (left scale) and the S&P500 Index/ VIX Index (right scale), the latter indexed (100) to start on January 31, 2020. Source Bloomberg",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "Descriptive statistics COVID-19 crisis This table reports the descriptive statistics with respect to the sample constituents in panel A and the stock returns during the COVID-19 crisis and commonly used valuation ratios in panel B. Losses are measured from February 19 through March 23, 2020. Returns are from February 19 through April 30, 2020. Gains from February 19 through April 30, 2020, corresponding to a percentage recovery, which is the gain scaled by the loss. All valuation ratios are 12-month forward-looking ratios. The data are from S&P Capital IQ. The Gordon factors reported in Panel C are calculated as defined in Eqs. (1) through(6)in the \"Methodology\" section of the paper.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Change in the Gordon factors and stock return. Return period February 19 through March 23, 2020 (downmarket period) This table shows the effect of the change in the Gordon factors on stock returns during the market downturn induced by the COVID-19 crisis (February 19 till March 23, 2020). Columns (1) through",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF4": {
+            "text": "shows how a change in the Gordon factors impacts stock returns in the COVID-19-induced initial downmarket, starting on February 19 and ending on March 23, 2020. We control for industry affiliation using a categorical variable.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF5": {
+            "text": "formula, zero otherwise",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF6": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF7": {
+            "text": "Descriptive statistics Global Financial Crisis (GFC) This table reports the descriptive statistics with respect to stock returns during the Global Financial Crisis (GFC) crisis and commonly used valuation ratios in panel A. Losses are measured from August 29, 2008, to December 12, 2008. All valuation ratios are 12 months forward-looking ratios. The data are from S&P Capital IQ. The Gordon factors reported in Panel B are calculated as defined in Eqs.(1) through (6) in the \"Methodology\" section of the paper.Panel A: loss, gain, recovery, and valuation ratios",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF8": {
+            "text": "Global Financial Crisis (GFC): change in the Gordon factors and stock return downmarket analysis This table shows the effect of the change in the Gordon factors on stock returns during the market downturn induced by the Lehman Brothers bankruptcy filing, losses measured for the period August 29, 2008 through December 12, 2008. Columns (1) through",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "We gratefully acknowledge the insightful comments of an anonymous referee of this journal which improved the paper substantially.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Acknowledgements"
+        },
+        {
+            "text": "The authors declared that they have no conflict of interest.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conflict of interest"
+        }
+    ]
+}

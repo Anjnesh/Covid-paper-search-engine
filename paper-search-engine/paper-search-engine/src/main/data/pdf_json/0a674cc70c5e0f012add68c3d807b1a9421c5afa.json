@@ -1,0 +1,2056 @@
+{
+    "paper_id": "0a674cc70c5e0f012add68c3d807b1a9421c5afa",
+    "metadata": {
+        "title": "Spatio-temporal analysis of COVID-19 incidence rate using GIS: a case study-Tehran metropolitan, Iran",
+        "authors": [
+            {
+                "first": "R",
+                "middle": [
+                    "S"
+                ],
+                "last": "Nasiri",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "",
+                "middle": [],
+                "last": "Akbarpour",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "",
+                "middle": [],
+                "last": "Ar",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "",
+                "middle": [
+                    "N"
+                ],
+                "last": "Zali",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "",
+                "middle": [],
+                "last": "Khodakarami",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "",
+                "middle": [],
+                "last": "Mh",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "",
+                "middle": [],
+                "last": "Boochani",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "",
+                "middle": [
+                    "H"
+                ],
+                "last": "Noory",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "",
+                "middle": [],
+                "last": "Soori",
+                "suffix": "",
+                "affiliation": {},
+                "email": "hsoori@yahoo.com"
+            },
+            {
+                "first": "R",
+                "middle": [],
+                "last": "Nasiri",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "S",
+                "middle": [],
+                "last": "Akbarpour",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "A",
+                "middle": [
+                    "R"
+                ],
+                "last": "Zali",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "N",
+                "middle": [],
+                "last": "Khodakarami",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "M",
+                "middle": [
+                    "H"
+                ],
+                "last": "Boochani",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "H",
+                "middle": [],
+                "last": "Soori",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "has been distinguished as a zoonotic coronavirus, like SARS coronavirus and MERS coronavirus. Tehran metropolis, as the capital of Iran, has a high density of residents that experienced a high incidence and mortality rates which daily increase the number of death and cases. In this study, the IDW (Inverse Distance Weight), Hotspots, and GWR (Geography Weighted Regression) Model are used as methods for analyzing big data COVID-19 in Tehran. The results showed that the majority of patients and deaths were men, but the death rate was higher in women than in men; also was observed a direct relationship between the area of the houses, and the infected rate, to COVID-19. Also, the results showed a disproportionate distribution of patients in Tehran, although in the eastern regions the number of infected people is higher than in other districts; the eastern areas have a high population density as well as residential land use, and there is a high relationship between population density in residential districts and administrative-commercial and the number of COVID-19 cases in all regions. The outputs of local R 2 were interesting among patients and underlying disorders; the local R 2 between hypertension and neurological diseases was 0.91 and 0.79, respectively, which was higher than other disorders. The highest ().,-volV) ( 01234567 89().,-volV) rates of local R 2 for diabetes and heart disease were 0.67 and 0.55, respectively. From this study, it can be concluded the restrictions must be considered especially, in areas densely populated for all people.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "COVID-19 has been distinguished as a zoonotic coronavirus, like SARS coronavirus and MERS coronavirus (Dong et al., 2020; Gao et al., 2020a; Zheng et al., 2020) . Tehran metropolis, the capital of Iran, has a high density of residents, which makes up approximately 20% of the country's population, disproportionately distributed throughout the city. This disproportion causes high incidence and mortality rates where a daily increase in the number of death and cases can be observed.",
+            "cite_spans": [
+                {
+                    "start": 102,
+                    "end": 121,
+                    "text": "(Dong et al., 2020;",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 122,
+                    "end": 140,
+                    "text": "Gao et al., 2020a;",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 141,
+                    "end": 160,
+                    "text": "Zheng et al., 2020)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Disproportionate distribution of different land uses, including residential, commercial, administrative, recreational, green, and sports areas have led to many problems, such as traffic, air pollution, noise pollution, etc. Because of the economic imbalance caused by this disproportionate land use, it can be said for this case the residents of the northern areas have a far better economic rank as well as a better climate than the southern residents of the city (Zarandi et al., 2021) . While the nature of this Virus is unique and strange, it is a very high spread infectious illness. Because of the geographic spread of the Virus, city officials, epidemiologists, and experts need to react and plan a strategy to the infection outbreak fast and suitably (Esri, 2011) . Today, Pandemic monitoring is based and centralized on the potentials of geographic information systems (GIS) (Esri, 2020) . This software gives various beneficial opportunities for improving the quality of the controls over the pandemic. It is done through the GIS abilities on improving monitoring and identifying paths, and it can predict the location of the infected people (Boulos & Geraghty, 2020; Esri, 2011; Koch & Koch, 2005) . The World Health Organization (WHO) has consistently applied spatial analysis to manage and control disease prevalence, during past years (Esri, 2020) . The monitoring and controlling of SARS, Ebola, and Zika and other vector-borne diseases are thriving experiences by application of GIS systems (Esri, 2020) . The knowledge around the location of the patient is very notable in the process of decision-making (Esri, 2011) . At the beginning of the COVID-19 outbreak, some countries began researching infected people and the rate of mortality (WHO, 2020) . Using GIS systems to do this, South Korea became one of the best countries in the world to detect patients with the COVID-19 virus in the early stages of this outbreak (Mollalo et al., 2020) . Like other countries that have used GIS and have succeeded in controlling this disease, we are using this tool to give a better spatial view to planners in the field of control.",
+            "cite_spans": [
+                {
+                    "start": 465,
+                    "end": 487,
+                    "text": "(Zarandi et al., 2021)",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 759,
+                    "end": 771,
+                    "text": "(Esri, 2011)",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 884,
+                    "end": 896,
+                    "text": "(Esri, 2020)",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 1152,
+                    "end": 1177,
+                    "text": "(Boulos & Geraghty, 2020;",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 1178,
+                    "end": 1189,
+                    "text": "Esri, 2011;",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 1190,
+                    "end": 1208,
+                    "text": "Koch & Koch, 2005)",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 1349,
+                    "end": 1361,
+                    "text": "(Esri, 2020)",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 1507,
+                    "end": 1519,
+                    "text": "(Esri, 2020)",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 1621,
+                    "end": 1633,
+                    "text": "(Esri, 2011)",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 1754,
+                    "end": 1765,
+                    "text": "(WHO, 2020)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1936,
+                    "end": 1958,
+                    "text": "(Mollalo et al., 2020)",
+                    "ref_id": "BIBREF21"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "This study aims to show spatial modeling on COVID-19 incidence and mortality rate, COVID-19 mobility pattern and aims to identify the relationship between COVID-19 and comorbidity, population density, and land use.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Some studies have been conducted on various aspects related to the COVID-19 outbreak in Iran. For example, a study investigated effective climatology parameters on the COVID-19 Outbreak in Iran For this study, the main parameters included the number of infected people with COVID-19, population density, intra-provincial movement, infection days at the end of the study period, average temperature, average precipitation, humidity, wind speed, and average solar radiation was investigated. The Partial Correlation Coefficient (PCC) and Sobol'-Jansen methods have been used for analyzing the effect and correlation of variables with the COVID-19 spreading rate. The results of the sensitivity analysis showed that the population density and intra-provincial movement have a direct relationship with the infection outbreak. Conversely, areas with low values of wind speed, humidity, and solar radiation exposure had a high rate of infection that supported the virus's survival. The provinces such as Tehran, Alborz, Mazandaran, Qom, and Gilan are more susceptible to SARS-COV-2 infection because of high population density, intraprovincial movements, and high humidity rate in comparison with Southern provinces (Mohsen Ahmadi et al., 2020) .",
+            "cite_spans": [
+                {
+                    "start": 1218,
+                    "end": 1238,
+                    "text": "Ahmadi et al., 2020)",
+                    "ref_id": "BIBREF2"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Literature review"
+        },
+        {
+            "text": "Another study investigated epidemiological characteristics of coronavirus disease 2019 patients at a hospital in Iran. In their retrospective study, data related to the epidemiological characteristics of COVID-19 patients admitted to Baqiyatallah Hospital in Tehran, Iran, from February 19, 2020, to April 15, 2020, have been analyzed. During this period, 12,870 patients were referred to the hospital emergency department, of which 2968 were hospitalized with a COVID-19 diagnosis. The majority of cases were in the age group of 50 to 60 years old. The male-to-female ratio was 1.93:1. A total of 239 deaths happened among all cases for an overall CFR of 1.85%. Out of all patients, 10.89% had comorbidity. Their results showed that diabetes, chronic respiratory diseases, hypertension, cardiovascular diseases, chronic kidney diseases, and cancer were the most common comorbidities with 3.81, 2.02, 1.99, 1.25, 0.60, and 0.57%, respectively. Male gender (OR = 1.45, 95% CI: 1.08-1.96), older age (OR = 1.05, 95% CI: 1.04-1.06), and having underlying diseases (OR = 1.53, 95% CI: 1.04-2.24) were significantly associated with mortality (Nikpouraghdam et al., 2020) . A study was conducted in Shiraz city that studied 113 COVID-19 positive cases admitted to hospitals affiliated to Shiraz University, Iran, from February 20 to March 20. Their study results showed that the mean age was 53.75 years, and 71 (62.8%) were males. The most typical symptoms at onset were fever (67: 59.3%), cough (73: 64.6%), and fatigue (75: 66.4%). Laboratory data showed a significant correlation between lymphocyte count (P-value = 0.003), partial thromboplastin time (P-value = 0.000), international normalized ratio (P-value = 0.000) with the severity of the disease. The most common abnormality in chest CT scans was ground-glass opacity (77: 93.9%), followed by consolidation (48: 58.5%) (Shahriarirad et al., 2020) .",
+            "cite_spans": [
+                {
+                    "start": 1137,
+                    "end": 1165,
+                    "text": "(Nikpouraghdam et al., 2020)",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 1874,
+                    "end": 1901,
+                    "text": "(Shahriarirad et al., 2020)",
+                    "ref_id": "BIBREF24"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Literature review"
+        },
+        {
+            "text": "There are a limited number of GIS-based spatial modeling studies since the initial outbreak of COVID-19. Some studies indicated various applications of GIS for the precise description of the COVID-19 spread, spread probability, recognition health care priority places about vulnerable communities, including palliative, elderly, and comorbidity patients, mobility pattern, draw solutions (Arab-Mazar et al., 2020; Boulos & Geraghty, 2020; Gao et al., 2020b; Gibson & Rush, 2020; Lakhani, 2020; Mollalo et al., 2020; Rezaei et al., 2020; Sarwar et al., 2020) .",
+            "cite_spans": [
+                {
+                    "start": 388,
+                    "end": 413,
+                    "text": "(Arab-Mazar et al., 2020;",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 414,
+                    "end": 438,
+                    "text": "Boulos & Geraghty, 2020;",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 439,
+                    "end": 457,
+                    "text": "Gao et al., 2020b;",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 458,
+                    "end": 478,
+                    "text": "Gibson & Rush, 2020;",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 479,
+                    "end": 493,
+                    "text": "Lakhani, 2020;",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 494,
+                    "end": 515,
+                    "text": "Mollalo et al., 2020;",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 516,
+                    "end": 536,
+                    "text": "Rezaei et al., 2020;",
+                    "ref_id": null
+                },
+                {
+                    "start": 537,
+                    "end": 557,
+                    "text": "Sarwar et al., 2020)",
+                    "ref_id": "BIBREF23"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Literature review"
+        },
+        {
+            "text": "It extends from 900 to 1800 m above sea level, with a decrease from north to south. This height decrease caused different climates to form in different areas of the Tehran metropolis (Alibakhshi et al., 2020) . In 2019, the Tehran population was 8.964 million with a median age of 30.8 years in 22 districts, with it almost entirely distributed in the central, eastern, and northern regions. Moving from the north to the south, the quality of life and economic situations decrease (Zarandi et al., 2021) .",
+            "cite_spans": [
+                {
+                    "start": 183,
+                    "end": 208,
+                    "text": "(Alibakhshi et al., 2020)",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 481,
+                    "end": 503,
+                    "text": "(Zarandi et al., 2021)",
+                    "ref_id": "BIBREF32"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Study area"
+        },
+        {
+            "text": "Population data and land-use information were obtained from the Statistics Center of Iran, satellite images, and Tehran municipality, respectively. The data of patient's homes area obtained with phone calls to patients and their families. The phone calls were used only to complete the incomplete information in the file registered in the medical centers. In this study, we were contacted with all cases registered in medical centers, that 80% cooperated in completing the information.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data required for the research process"
+        },
+        {
+            "text": "Tehran has 118 hospitals, of which 49 are government hospitals, 55 are private hospitals, and 14 are hospitals belonging to the Armed Forces, called Armed Forces Hospitals.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data required for the research process"
+        },
+        {
+            "text": "The study is only related to hospitalized cases in the Tehran hospitals, and the information on non-hospital cases is unclear. The main source of information is the deputy healthcare system, while patient's incomplete information, such as test results or outcomes, has been completed utilizing other systems and registration systems (patients have adapted to each other using the national code and dossier registration number). The data is also related to January to mid-September. To obtain dispersion maps related to the COVID-19 virus in the Tehran metropolis, first, the patient's location of residence was registered as a unique location code in a spreadsheet next to the address column with the addresses named as the same location code register on Google Earth. Next, the patient's location of residence on Google Earth was called to ARC GIS software and the linguistic data were assigned the appropriate weight. For example, concerning patients' discharge status, were given to death cases, weight 2, hospitalization cases weight 1, and discharge cases weight 0. also those who had the chronic disease were assigned weight 1 and those who did have not were given weight 0.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data required for the research process"
+        },
+        {
+            "text": "The methods were used in GIS, including IDW, Hotspots as well as normalized distribution. Hotspots and Getis-Ord-Gi statistics were used to obtain hot and cold population points in the neighboring areas of each district from different areas of each region in the Tehran metropolis. Inverse Distance Weight (IDW) was used to distribute patients' condition based on deaths, hospitalizations and discharges, distribution of patients in terms of sex, distribution of patients in families, and distribution of patients in the family, as well as distribution based on area of residence location.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "In this study, the GWR model was used to assess the relationship between patients infected to COVID-19 and peoples of infected to COVID-19 with chronic diseases (people with comorbidity).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "The IDW model assumes a weight for each measurement point based on the distance between that point and the position of the point with unknown value. These weights are then controlled by the weighting power. Larger powers reduce the effect of points farther than the estimated point, and smaller powers distribute the weights more evenly between adjacent points. However, this method only takes into account their distance, regardless of the position and arrangement of the points. The points have the same distance from the estimation, the point has the same weight. The weight factor value is calculated using the following equation (Gong et al., 2014) :",
+            "cite_spans": [
+                {
+                    "start": 634,
+                    "end": 653,
+                    "text": "(Gong et al., 2014)",
+                    "ref_id": "BIBREF16"
+                }
+            ],
+            "ref_spans": [],
+            "section": "IDW and hotspots model"
+        },
+        {
+            "text": "where k i is the weight of station I, Di is the station distance to the unknown point, and a is the weighting power.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IDW and hotspots model"
+        },
+        {
+            "text": "The Getis-Ord-Gi statistic was also used to distribute hot and cold spots spatially when a complication is known as a hotspot with both itself and those adjacent to it that have large amounts. When the Getis-Ord-Gi GI statistic is 1, 2, 3, the confidence level is 99%, 95%, 90%, respectively. The Getis-Ord-Gi statistic is calculated as follows (Gemmer et al., 2004) :",
+            "cite_spans": [
+                {
+                    "start": 345,
+                    "end": 366,
+                    "text": "(Gemmer et al., 2004)",
+                    "ref_id": "BIBREF14"
+                }
+            ],
+            "ref_spans": [],
+            "section": "IDW and hotspots model"
+        },
+        {
+            "text": "Geographically weighted regression (GWR) model",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IDW and hotspots model"
+        },
+        {
+            "text": "The geographically weighted regression model (GWR) based on local regression and variable parameter analysis was proposed by Fotheringham and other scholars (Fig. 1 ). Geographically weighted regression (GWR) technique is a model building tool, which provides relatively more precise results if the relationship between variables shows spatial nonstationary characteristics (Fotheringham et al., 2002; Wang & Wang, 2021) . Since the GWR technique calculates the relationship between variables with a different coefficient for each geographical unit, it is possible to map where the relations are weak and strong, significant, and insignificant. It is more explanatory than global regression since it can explain via maps the relationship between two variables for each observation in geography with a different LOG ODD (odds ratio, OR) coefficient (Torun et al., 2020) .",
+            "cite_spans": [
+                {
+                    "start": 374,
+                    "end": 401,
+                    "text": "(Fotheringham et al., 2002;",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 402,
+                    "end": 420,
+                    "text": "Wang & Wang, 2021)",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 848,
+                    "end": 868,
+                    "text": "(Torun et al., 2020)",
+                    "ref_id": "BIBREF27"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 157,
+                    "end": 164,
+                    "text": "(Fig. 1",
+                    "ref_id": null
+                }
+            ],
+            "section": "IDW and hotspots model"
+        },
+        {
+            "text": "The expression of the geographically weighted regression model is as follows:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IDW and hotspots model"
+        },
+        {
+            "text": "In this equation, y is the dependent variable, x i is the independent variable, b 0 and b 1 are the estimated coefficients, e is the error component, u i and v i are the latitude and longitude of the point i, and b k (u i , v i ) is the implementation of the factor examined on a continuous level (Alibakhshi et al., 2020; Chu, 2012; Fotheringham et al., 2015; Mahmoud Ahmadi et al., 2018a , 2018b .",
+            "cite_spans": [
+                {
+                    "start": 297,
+                    "end": 322,
+                    "text": "(Alibakhshi et al., 2020;",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 323,
+                    "end": 333,
+                    "text": "Chu, 2012;",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 334,
+                    "end": 360,
+                    "text": "Fotheringham et al., 2015;",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 361,
+                    "end": 389,
+                    "text": "Mahmoud Ahmadi et al., 2018a",
+                    "ref_id": null
+                },
+                {
+                    "start": 390,
+                    "end": 397,
+                    "text": ", 2018b",
+                    "ref_id": "BIBREF1"
+                }
+            ],
+            "ref_spans": [],
+            "section": "IDW and hotspots model"
+        },
+        {
+            "text": "As shown in Fig. 2 , COVID-19 patients are found in almost all areas of Tehran. Although the number of patients is somewhat higher in the eastern regions, the deaths do not follow a specific spatial pattern, but most cases are in the western or western-oriented areas. Density in some densely populated areas, such as regions 4, 8, and 13, as well as the presence of some disease clusters in neighborhoods such as Tehranpars, Ayat Streets, and Piroozi, are significant. On the contrary, the low frequency of patients and death in the western regions of Tehran, such as regions 9, 18, 21, and 22, is one of the findings of the study. However, in these areas, there are also clusters of patients in the eastern regions of the 18th region and the eastern regions of the 21st region.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 12,
+                    "end": 18,
+                    "text": "Fig. 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "Distribution of infected patients' condition to COVID-19"
+        },
+        {
+            "text": "As shown in Fig. 3a , people with the COVID-19 virus are almost equal in number, but their distribution is disproportionate. As seen here in Fig. 2 , IDW-based interpolation, according to gender, shows that in the western regions with fewer population distribution are industrial zones with mostly male, and that's why most patients in these areas are men. In general, about 60% of those patients and 69% of those who died were male. Figure 4a shows the distribution of the patient's occasion with underlying diseases (hypertension, heart disease, respiratory and asthma, diabetes, cancer, liver, kidney, nervous), and also shown in these figures, a large number of patients had these underlying diseases, among which a large number had hypertension. The tendency of chronic diseases is concentrated in the eastern regions of Tehran, with a high rate of exposure, which is one of the effective factors in increasing hospitalization and death in these areas. Hypertension (47.3), cardiovascular disease (16.3), and diabetes (15.2) were the most common in deaths from COVID-19 in Tehran. Furthermore, respiratory, neurological, and renal diseases appear to be present in border areas 13 and 14. Figure 5a shows the patient's condition in terms of discharge, hospitalization, and death that normalized by various underlying chronic diseases (hypertension, heart disease, diabetes, neurological disease, and Fig. 1 Location map of the study area (Zarandi et al., 2021) cancer). From the following figures, it can be concluded that the COVID-19 patients had various underlying diseases of hypertension, heart disease, diabetes, neurological diseases, and cancer, respectively; which have the same consequence in terms of death. The geographical distribution of patients and deaths from hypertension, heart disease, and diabetes in different districts has been almost proportional, with the disproportionate central regions also infected with COVID-19 suffering from neurological and cancer diseases. Distribution of infected patients' condition to COVID-19 in terms of hospitalization discharge and Population Fig. 6 The total population of the 22 regions is currently about 9 million people with an average age of about 33 years, and a median age of 32 years. More than a third of this population lives in 4-person households (the dimension of household size in Tehran is 3). The total population density of Tehran is about 6700 people per square kilometer, and the population in areas 4 and 5 is higher than in other areas. Figure 6 includes simple population distribution, population density, and population hotspots (hot and cold spots according to their surroundings, which have been studied by Getis-Ord-Gi). As a result, it can be concluded that most patients live in densely populated areas, which has increased the probability that they will come into exposure with another infected person Distribution of infected patients' condition to COVID-19 in terms of hospitalization discharge and homes area",
+            "cite_spans": [
+                {
+                    "start": 1442,
+                    "end": 1464,
+                    "text": "(Zarandi et al., 2021)",
+                    "ref_id": "BIBREF32"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 12,
+                    "end": 19,
+                    "text": "Fig. 3a",
+                    "ref_id": null
+                },
+                {
+                    "start": 141,
+                    "end": 147,
+                    "text": "Fig. 2",
+                    "ref_id": null
+                },
+                {
+                    "start": 434,
+                    "end": 443,
+                    "text": "Figure 4a",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 1193,
+                    "end": 1202,
+                    "text": "Figure 5a",
+                    "ref_id": null
+                },
+                {
+                    "start": 1404,
+                    "end": 1410,
+                    "text": "Fig. 1",
+                    "ref_id": null
+                },
+                {
+                    "start": 2105,
+                    "end": 2111,
+                    "text": "Fig. 6",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 2521,
+                    "end": 2529,
+                    "text": "Figure 6",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Distribution of infected patients' condition to COVID-19"
+        },
+        {
+            "text": "The 2016 census of Tehran shows that about 41% of Tehran's households are tenants, about 90% of whom live in 50 m' homes. About 80% of Tehran's population resides in apartments. The average per capita housing in Tehran is about 18 square meters. As shown in Fig. 3 , most people infected with COVID-19 reside in a low home area, which can lead to more contact between family members due to lack of space and, consequently, an increased risk of transmitting the virus to each other. The figure shows that we have the lowest area of houses in the eastern and central areas, which could lead to an increase in the number of patients for these areas in the coming days. Distribution of infected patients' condition to COVID-19 in terms of hospitalization discharge and density of different land-use in urban areas Figure 5 shows the distribution of patients in terms of discharge status and density of different land uses in urban areas. In these figures, areas with a high density of residential lands, commercial, and administrative lands, have a high number of patients, but there is a less number of patients in the area with a high density of industries. This indicates the number of infected people is low in industrial areas, and contrariwise, more people live or move in densely populated areas of residential, commercial and administrative area, that increases probability of exposure with the COVID-19.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 258,
+                    "end": 264,
+                    "text": "Fig. 3",
+                    "ref_id": null
+                },
+                {
+                    "start": 810,
+                    "end": 818,
+                    "text": "Figure 5",
+                    "ref_id": null
+                }
+            ],
+            "section": "Distribution of infected patients' condition to COVID-19"
+        },
+        {
+            "text": "The United Nations has expressed COVID-19 as a human, social, and economic crisis (Esri, 2020; Mahmoud Ahmadi et al., 2018b) . The socioeconomic impacts and disease burden are especially evident in developing countries (Esri, 2020; Mahmoud Ahmadi et al., 2018b) . It is predicted that the annual global gross domestic product will decrease by 24%, meaning that it is projected to diminish by 2% each month (Chu, 2012; Esri, 2020) . The predictions also estimate a 13% to 32% decline in global trade (Chu, 2012; Esri, 2020) . Recent studies over the world and Iran have shown that various factors like humidity, temperature, age, sex, smoking, and air pollution may add to the cruelty and spread rate of COVID-19. Taghizadeh-Hesary et al. (2020) shows negative impacts of smoking on the health outcomes of COVID-19 patients. Wang et al. (2020) indicated that humidity and temperature could influence the transmission of COVID-19 when compared to other respiratory viruses, suggesting a decline in disease spread. Also, out of other studies done about prevalent comorbidity and COVID-19, the majority showed a positive relationship between patients with COVID-19 and other diseases, including hypertension, diabetes, cardiovascular diseases (Guan et al., 2020; Li et al., 2020; Taghizadeh-Hesary & Akbari, 2020; Wang et al., 2020; Xu et al., 2020; Zheng et al., 2020) . In the meantime, studies were done that related to origin, transmission, and epidemiological characteristics of COVID-19 (Guo et al., 2020; Surveillances, 2020) .",
+            "cite_spans": [
+                {
+                    "start": 82,
+                    "end": 94,
+                    "text": "(Esri, 2020;",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 95,
+                    "end": 124,
+                    "text": "Mahmoud Ahmadi et al., 2018b)",
+                    "ref_id": null
+                },
+                {
+                    "start": 219,
+                    "end": 231,
+                    "text": "(Esri, 2020;",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 232,
+                    "end": 261,
+                    "text": "Mahmoud Ahmadi et al., 2018b)",
+                    "ref_id": null
+                },
+                {
+                    "start": 406,
+                    "end": 417,
+                    "text": "(Chu, 2012;",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 418,
+                    "end": 429,
+                    "text": "Esri, 2020)",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 499,
+                    "end": 510,
+                    "text": "(Chu, 2012;",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 511,
+                    "end": 522,
+                    "text": "Esri, 2020)",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 713,
+                    "end": 744,
+                    "text": "Taghizadeh-Hesary et al. (2020)",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 824,
+                    "end": 842,
+                    "text": "Wang et al. (2020)",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 1239,
+                    "end": 1258,
+                    "text": "(Guan et al., 2020;",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 1259,
+                    "end": 1275,
+                    "text": "Li et al., 2020;",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 1276,
+                    "end": 1309,
+                    "text": "Taghizadeh-Hesary & Akbari, 2020;",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 1310,
+                    "end": 1328,
+                    "text": "Wang et al., 2020;",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 1329,
+                    "end": 1345,
+                    "text": "Xu et al., 2020;",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 1346,
+                    "end": 1365,
+                    "text": "Zheng et al., 2020)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1480,
+                    "end": 1507,
+                    "text": "COVID-19 (Guo et al., 2020;",
+                    "ref_id": null
+                },
+                {
+                    "start": 1508,
+                    "end": 1528,
+                    "text": "Surveillances, 2020)",
+                    "ref_id": "BIBREF25"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "The results of patients' studies in Tehran showed that the majority of patients and deaths were men, but the death rate was higher in women than in men. 59% of definite patients and 63% of deceased patients are men. Of course, higher mortality rates in men than women can be justified. Because the percentage of cases in men is higher, the death rate is consequently higher in men. According to the results, it can be argued that the presence of more men in the outdoor environment is the cause of more exposure and an increase in the rate of infection and death (in Iran, the presence of men outside the home is more likely than women). It is not possible to say with certainty why women have a higher ratio of death to infection than men. Given that the results of the present study have been performed only on visitors to the hospital, it is not possible to draw a correct conclusion from this section.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "It cannot be stated with certainty that the incidence of the disease is higher in men, or that the severity of the disease is more severe in men unless the higher rate of exposure to men for job reasons or men outside the home is the cause of the difference. On the other hand, for biological reasons, women may have a milder form and less frequent visits, and it requires comprehensive serological studies in the epidemiology of the disease. It seems that more studies are needed in women to determine if women are more likely to have a subclinical condition and mild symptoms of the disease and not be diagnosed because of the low severity of the disease.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "The results show a disproportionate distribution of patients in Tehran, although in the eastern regions the number of infected people is higher than in other districts. The eastern areas have a high population density as well as residential land use. These results also indicate a high relationship between population density in residential districts and administrativecommercial in all regions. The eastern areas with a high density of residential land-use, central and northern regions with a high density of administrative-commercial land-use, respectively, have the highest number of COVD-19 cases. As a result, they have more deaths, but in the western high-density industrial districts, the number of patients is lower than in other regions (Figs. 5, 7 and Table 1 ). There is a direct relationship between the area of the houses and the infected rate to COVID-19; most of the infected live in houses with an area of fewer than 100 m. The results of this study showed that most of the patients in their family did not have an infected person and often were family members of 3 people. Figure 7 shows Local R 2 Between Population Density and infected patients to COVID-19. The range of local R 2 between population density and infected patients to COVID-19 was 0.74 to 0.98, which is high in all areas and shows a direct relationship between population density and the number of patients.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 763,
+                    "end": 770,
+                    "text": "Table 1",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 1091,
+                    "end": 1099,
+                    "text": "Figure 7",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Discussion"
+        },
+        {
+            "text": "According to Fig. 6 and Fig. 10 , it seems that the southern and southwestern regions had a lower number of cases as well as lower infected patients to COVID-19. Conversely, the more we go to the northern regions, the infected patients to COVID-19 are increasing, which can be directly related to the economic situation of these areas. Non-referral to medical centers due to unfavorable economic conditions has been the reason for the lower number of patients in the southern and southwestern regions compared to the northern areas. Inversely, the number of patients in the northern regions was high due to better economic ability and more visits to medical centers. In Iran, medical expenses are very high compared to income. In general, the average annual net cost and income for an urban household was 479.946 and 515.35 million Rials in Tehran (2017), respectively. Also, the price of the dollar varied between 30,000 and 50,000 Rials during 2017, and the same price for the dollar in 2020 reached over 300,000 Rials in Iran. It has increased almost ten times compared to the previous three years, which in turn has reduced people's economic ability. However, people's incomes haven't risen over the past three years, which affected families with weaker economies. It seems that if the economic situation of the people is better, the number of patients would be proportionally higher, which is due to the number of visits to medical centers. If we look at the data in Table 1 , we find that the highest mortality rate was in the southern and central regions of Tehran, which have a weaker economy than the northern parts of the city. Also, these areas are facing environmental pollution, including air pollution, noise pollution, and traffic, more than other regions. While the northern areas of the city have a better climate, as well as more green space than other regions, it is worth mentioning that the people of the northern regions of Tehran have a much better economy than the southern areas ( Table 2) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 13,
+                    "end": 19,
+                    "text": "Fig. 6",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 24,
+                    "end": 31,
+                    "text": "Fig. 10",
+                    "ref_id": null
+                },
+                {
+                    "start": 1472,
+                    "end": 1479,
+                    "text": "Table 1",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 2006,
+                    "end": 2014,
+                    "text": "Table 2)",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Discussion"
+        },
+        {
+            "text": "The results of this study showed that a significant number of patients with chronic disease had a higher share of hypertension, heart disease, and diabetes than other underlying disorders.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "The results of local R 2 were interesting among patients and underlying disorders. Local R 2 between (Figs. 7a, 10a) , which was higher than other disorders. The highest rates of local R 2 for diabetes and heart disease were 0.67 and 0.55, respectively (Figs. 8a, 9a). However, as shown in Fig. 10 , local R 2 was higher than 0.91 for all of the patients with comorbidity in all areas. These results should be evaluated clinically to determine the exact cause of underlying patients' vulnerability to COVID-19 relative to healthy individuals.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 101,
+                    "end": 116,
+                    "text": "(Figs. 7a, 10a)",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 290,
+                    "end": 297,
+                    "text": "Fig. 10",
+                    "ref_id": null
+                }
+            ],
+            "section": "Discussion"
+        },
+        {
+            "text": "We used Std Residual and Local Moran's I statistics to validate the results of local R 2 . The results of the std residual show that the GWR model is generally a suitable model for all the studied regions. Based on the obtained results, all areas matched with the GWR model. Likewise, most of these regions were within the Std range of the -2.5 to ? 2.5.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "The spatial autocorrelation was also observed when the analyses were conducted according to distribution of patient's number (Moran's I index 0.261858, z-score 2.050243, P = 0.040341). When the analyses were conducted according to number of infected patients to COVID-19, the correlation was found in the 18 region, with one cluster of high values (high-high). No significant spatial patterns were observed in further areas.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "It can be concluded that there is a strong relationship between patients and their location of residence in terms of population and home area, type of land-use around the living home of patients, and underlying diseases. In general, the study results show that in areas with high population density and districts with commercial and residential land-use, the number of patients is high, and there is a direct relationship between them. This study also found that patients with comorbidity have a higher risk of death and infection to COVID-19 than healthy individuals. The people with chronic diseases, especially those with hypertension and neurological disorders, were more vulnerable to COVID-19 than healthy people, which is noteworthy for patients with hypertension, and neurological disorders; they need to be given more attention than other people. It emphasizes the importance of maintaining social distance and limiting commute in the city, especially in densely populated districts and commercial-administrative regions. It should be noted that it shouldn't limit the traffic passage to only sick people. Rather, the restrictions should be considered for all people. With a large number of Tehran citizens starting their working days in Tehran, there are probably many concerns about the rise in the number of people carrying COVID-19 and their exposure to different surfaces of the city, resulting in a very high increase in the coming days ahead.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Modeling the role of topography on the potential of tourism climate in Iran",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ahmadi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Baaghide",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Roudbari",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Asadi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Modeling Earth Systems and Environment",
+            "volume": "4",
+            "issn": "1",
+            "pages": "13--25",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Spatial modeling of seasonal precipitation elevation in Iran based on aphrodite database",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ahmadi",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kashki",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Roudbari",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Modeling Earth Systems and Environment",
+            "volume": "4",
+            "issn": "2",
+            "pages": "619--633",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Investigation of effective climatology parameters on COVID-19 outbreak in Iran",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ahmadi",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sharifi",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Dorosti",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Ghoushchi",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Ghanbari",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Science of the Total Environment",
+            "volume": "729",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Modeling biophysical variables and land surface temperature using the GWR model: case study-Tehran and its satellite cities",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Alibakhshi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ahmadi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Asl",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Journal of the Indian Society of Remote Sensing",
+            "volume": "48",
+            "issn": "1",
+            "pages": "59--70",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Mapping the incidence of the COVID-19 hotspot in Iran-implications for travellers",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Arab-Mazar",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Sah",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Rabaan",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Dhama",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Rodriguez-Morales",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Travel Medicine and Infectious Disease",
+            "volume": "34",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Geographical tracking and mapping of coronavirus dis-ease COVID-19/severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) epidemic and associated events around the world: How 21st century GIS technologies are supporting the global fight against outbreaks and epidemics",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "N K"
+                    ],
+                    "last": "Boulos",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Geraghty",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "International Journal of Health Geographics",
+            "volume": "19",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Assessing the relationships between elevation and extreme precipitation with various durations in southern Taiwan using spatial regression models",
+            "authors": [
+                {
+                    "first": "H.-J",
+                    "middle": [],
+                    "last": "Chu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "",
+            "volume": "26",
+            "issn": "",
+            "pages": "3174--3181",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "An interactive webbased dashboard to track COVID-19 in real time. The Lancet infectious diseases",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Dong",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Du",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Gardner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "20",
+            "issn": "",
+            "pages": "533--534",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Geographic information systems and pandemic influenza planning and response",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Esri",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Mapping epidemics",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Esri",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Geographical and temporal weighted regression (GTWR)",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Fotheringham",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Crespo",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Yao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Geographical Analysis",
+            "volume": "47",
+            "issn": "",
+            "pages": "431--452",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Geographically weighted regression: The analysis of spatially varying relationships",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Fotheringham",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Brunsdon",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Charlton",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Breakthrough: Chloroquine phosphate has shown apparent efficacy in treatment of COVID-19 associated pneumonia in clinical studies",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Tian",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Bioscience trends",
+            "volume": "14",
+            "issn": "1",
+            "pages": "72--73",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Mapping county-level mobility pattern changes in the United States in response to COVID-19",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Rao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Kang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Liang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Kruse",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "SIGSpatial Special",
+            "volume": "12",
+            "issn": "1",
+            "pages": "16--26",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Observed monthly precipitation trends in China",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Gemmer",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Becker",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Jiang",
+                    "suffix": ""
+                }
+            ],
+            "year": 1951,
+            "venue": "Theoretical and Applied Climatology",
+            "volume": "77",
+            "issn": "1",
+            "pages": "39--45",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Novel coronavirus in Cape Town informal settlements: Feasibility of using informal dwelling outlines to identify high risk areas for COVID-19 transmission from a social distancing perspective",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Gibson",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Rush",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "JMIR Public Health Surveill",
+            "volume": "6",
+            "issn": "2",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Comparison of the accuracy of kriging and IDW interpolations in estimating groundwater arsenic concentrations in Texas",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Gong",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mattevada",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Bryant",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Environmental Research",
+            "volume": "130",
+            "issn": "",
+            "pages": "59--69",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "The origin, transmission and clinical therapies on coronavirus disease 2019 (COVID-19) outbreak-an update on the status",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Guan",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Liang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Liang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "Q"
+                    ],
+                    "last": "Ou",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Guo",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Cao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Hong",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Tan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Jin",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Yan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "European Respiratory Journal",
+            "volume": "55",
+            "issn": "5",
+            "pages": "1--10",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Cartographies of disease: maps, mapping and medi-cine",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Koch",
+                    "suffix": ""
+                },
+                {
+                    "first": ":",
+                    "middle": [],
+                    "last": "Plague",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Bari",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "19--24",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Which Melbourne metropolitan areas are vulnerable to COVID-19 based on age, disability and access to health services? Using spatial analysis to identify service gaps and inform delivery",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Lakhani",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Journal of Pain Symptom Management",
+            "volume": "",
+            "issn": "20",
+            "pages": "30194--30199",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.jpainsymman.2020.03.04"
+                ]
+            }
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Prevalence and impact of cardiovascular metabolic diseases on COVID-19 in China",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zhi",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Clinical Research in Cardiology",
+            "volume": "109",
+            "issn": "5",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "GIS-based spatial modeling of COVID-19 incidence rate in the continental United States",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Mollalo",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Vahedi",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Rivera",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Science of The Total Environment",
+            "volume": "728",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Epidemiological characteristics of coronavirus disease 2019 (COVID-19) patients in IRAN: A single center study",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Nikpouraghdam",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Farahani",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Alishiri",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Heydari",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ebrahimnia",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Samadinia",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Dorostkar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Iranian Journal of Public Health",
+            "volume": "127",
+            "issn": "",
+            "pages": "114--116",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "COVID-19 challenges to Pakistan: Is GIS analysis useful to draw solutions?",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sarwar",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Waheed",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sarwar",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Khan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Science of The Total Environment",
+            "volume": "730",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Epidemiological and clinical features of 2019 novel coronavirus diseases (COVID-19) in the South of Iran",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Shahriarirad",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Khodamoradi",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Erfani",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Hosseinpour",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Ranjbar",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Emami",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Hemmati",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "BMC Infectious Diseases",
+            "volume": "20",
+            "issn": "1",
+            "pages": "1--12",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "The epidemiological characteristics of an outbreak of 2019 novel coronavirus diseases (COVID-19): China, 2020",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Surveillances",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "China CDC Weekly",
+            "volume": "2",
+            "issn": "8",
+            "pages": "113--122",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "The powerful immune system against powerful COVID-19: a hypothesis",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Taghizadeh-Hesary",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Akbari",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.20944/preprints202004.0101.v1"
+                ]
+            }
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Understanding the role of urban form in explaining transportation and recreational walking among children in a logistic GWR model: A spatial analysis in Istanbul",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "\u00d6"
+                    ],
+                    "last": "Torun",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "G\u00f6\u00e7er",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Ye\u015filtepe",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Arg\u0131n",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Turkey. Journal of Transport Geography",
+            "volume": "82",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "High temperature and high humidity reduce the transmission of COVID-19",
+            "authors": [
+                {
+                    "first": "Jingyuan",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Ke",
+                    "middle": [],
+                    "last": "Tang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Kai",
+                    "middle": [],
+                    "last": "Feng",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Lv",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Weifeng",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "SSRN Electronic Journal",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.2139/ssrn.3551767"
+                ]
+            }
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Spatial distribution patterns and influencing factors of pm 2.5 pollution in the Yangtze River delta: Empirical analysis based on a gwr model",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Asia-Pacific Journal of Atmospheric Sciences",
+            "volume": "57",
+            "issn": "",
+            "pages": "63--75",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s13143-019-00153-6"
+                ]
+            }
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Coronavirus disease (COVID-19) Pandemic (Updated",
+            "authors": [],
+            "year": 2020,
+            "venue": "WHO",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Pathological findings of COVID-19 associated with acute respiratory distress syndrome",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Tai",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "The Lancet Respiratory Medicine",
+            "volume": "8",
+            "issn": "4",
+            "pages": "420--422",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "A hybrid model of environmental impact assessment of PM 2.5 concentration using multi-criteria decision-making (MCDM) and geographical information system (GIS): A case study",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Zarandi",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Shahsavani",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Nasiri",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Pradhan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Arabian Journal of Geosciences",
+            "volume": "14",
+            "issn": "3",
+            "pages": "1--20",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "COVID-19 and the cardiovascular system",
+            "authors": [],
+            "year": null,
+            "venue": "Nature Reviews Cardiology",
+            "volume": "17",
+            "issn": "5",
+            "pages": "259--260",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Distribution of infected patients condition to COVID-Distribution of infected patients condition to COVID-19 in terms of hospitalization discharge and homes area",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Land-use of Tehran metropolisFig. 5 Distribution of infected patients condition to COVID-19 in terms of hospitalization discharge and density of different land-use in urban areas",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Distribution of infected patients condition to COVID-19 in terms of hospitalization discharge and Population",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Local R2 Between Population and infected patients to COVID-19",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "Local Moran's I for Total infected patients to COVID-19 Fig. 10 Std Residual and Local R2 Between Total of Chronic Diseases and infected patients to COVID-19",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "Some relevant data of Tehran (2017). Source: hypertension and neurological diseases was 0.91 and 0.79, respectively",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "Infected patients condition to COVID-19 by regions. Source: Ministry of Health and Medical Education of Iran Fig. 8 Infected patients condition to COID-19 by regions",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "Acknowledgements This study was funded by Tehran municipality research center and approved by Men's Health and Reproductive Health Research center, Shahid Beheshti University of Medical Sciences, Tehran-Iran. We would like to thank all university of Medical Sciences located in Tehran, the capital of Iran and all hospitals, patients with COVID-19 and their families for their dedicated collaborations.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "acknowledgement"
+        }
+    ]
+}

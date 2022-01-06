@@ -1,0 +1,1457 @@
+{
+    "paper_id": "0a10dfd9046c81bc43c244956e8c4f7af5f05dd4",
+    "metadata": {
+        "title": "contributed new reagents/analytic tools; D.K. and Y.C. analyzed data; and",
+        "authors": [
+            {
+                "first": "W",
+                "middle": [
+                    "C M"
+                ],
+                "last": "",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "A",
+                "middle": [
+                    "N T"
+                ],
+                "last": "",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "S",
+                "middle": [
+                    "J C K"
+                ],
+                "last": "Research; D",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Z",
+                "middle": [
+                    "L"
+                ],
+                "last": "",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Y",
+                "middle": [
+                    "C"
+                ],
+                "last": "",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "J",
+                "middle": [
+                    "W"
+                ],
+                "last": "",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "S",
+                "middle": [
+                    "J K"
+                ],
+                "last": "C ; D",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "S",
+                "middle": [
+                    "J"
+                ],
+                "last": "",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Globally, severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) has infected more than 59 million people and killed more than 1.39 million. Designing and monitoring interventions to slow and stop the spread of the virus require knowledge of how many people have been and are currently infected, where they live, and how they interact. The first step is an accurate assessment of the population prevalence of past infections. There are very few population-representative prevalence studies of SARS-CoV-2 infections, and only two states in the United States-Indiana and Connecticut-have reported probability-based sample surveys that characterize statewide prevalence of SARS-CoV-2. One of the difficulties is the fact that tests to detect and characterize SARS-CoV-2 coronavirus antibodies are new, are not well characterized, and generally function poorly. During July 2020, a survey representing all adults in the state of Ohio in the United States collected serum samples and information on protective behavior related to SARS-CoV-2 and coronavirus disease 2019 (COVID-19) . Several features of the survey make it difficult to estimate past prevalence: 1) a low response rate; 2) a very low number of positive cases; and 3) the fact that multiple poor-quality serological tests were used to detect SARS-CoV-2 antibodies. We describe a Bayesian approach for analyzing the biomarker data that simultaneously addresses these challenges and characterizes the potential effect of selective response. The model does not require survey sample weights; accounts for multiple imperfect antibody test results; and characterizes uncertainty related to the sample survey and the multiple imperfect, potentially correlated tests.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 1071,
+                    "end": 1081,
+                    "text": "(COVID-19)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Abstract"
+        },
+        {
+            "text": "coronavirus | COVID-19 | imperfect diagnostic tests | SARS-CoV-2 | seroprevalence survey",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "S lowing or stopping the spread of a new virus for which a vaccine does not exist starts with two key pieces of information. One is what fraction of the population has been infected and is thereby potentially less susceptible or even immune to future infection; two is what fraction of the population is currently infected and potentially infectious to others. Together with a basic understanding of the infection process, this information roughly characterizes the potential for the epidemic to grow. However, in the early months of the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) pandemic, there was great uncertainty about the number of people who had been infected due to challenges with adequate testing and asymptomatic and mild cases. Due to this uncertainty, debate occurred over whether the past infection prevalence was far higher than recorded cases suggested, even potentially approaching herd immunity thresholds, believed to be 70 to 85%. A populationbased estimate of past infection prevalence was of critical importance to public health officials and policy makers who have the responsibility to manage the epidemic, make policy, and protect the public.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "As of this writing (late November 2020), the global SARS-CoV-2 pandemic has infected more than 59 million people, and coronavirus disease 2019 has killed more than 1.39 million (1) . Basic epidemiological information to describe the pandemic is scarce because the virus is new and the pandemic exploded rapidly. In its place is a wide variety of indicators based on convenient, mostly nonrepresentative, or indirectly related datacounts of all-cause deaths (e.g., refs. 2-4), facility-based testing results for symptomatic patients, nonrepresentative samples, and in many situations, results from inadequately characterized tests that perform poorly (5) . Franceschi et al. (6) identify 37 SARS-CoV-2 prevalence studies from 19 countries. Most present results are from nonrepresentative, otherwise special, or very small study populations. Just 14 represent large-enough populations to be of policy interest-national or state level-and use a probability-based sample from a credible sampling frame to Significance In July 2020, there was great uncertainty around the spread of severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). Despite its vital importance for public health policy, knowledge about the cumulative incidence of past infections was limited by challenges with diagnostic testing and the presence of mild or asymptomatic cases. Within this environment, competing narratives emerged around the prevalence of past SARS-CoV-2 infections, which would have had differing policy implications. To address this, in July 2020 a populationrepresentative household survey collected serum for SARS-CoV-2 antibody detection in Ohio in the United States. This study describes a Bayesian statistical method developed to estimate the population prevalence of past infections accounting for the low positive rate; multiple imperfect diagnostic tests; and nonignorable nonresponse.",
+            "cite_spans": [
+                {
+                    "start": 177,
+                    "end": 180,
+                    "text": "(1)",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 650,
+                    "end": 653,
+                    "text": "(5)",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 674,
+                    "end": 677,
+                    "text": "(6)",
+                    "ref_id": "BIBREF5"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "produce results that could represent the population of interest-Asia: one (7); Europe: seven (8) (9) (10) (11) (12) (13) (14) ; North America: two (15, 16) ; and South America: four (17) (18) (19) (20) . The two in North America are from the state of Indiana (15) and the state of Connecticut (16) in the United States.",
+            "cite_spans": [
+                {
+                    "start": 93,
+                    "end": 96,
+                    "text": "(8)",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 97,
+                    "end": 100,
+                    "text": "(9)",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 101,
+                    "end": 105,
+                    "text": "(10)",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 106,
+                    "end": 110,
+                    "text": "(11)",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 111,
+                    "end": 115,
+                    "text": "(12)",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 116,
+                    "end": 120,
+                    "text": "(13)",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 121,
+                    "end": 125,
+                    "text": "(14)",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 147,
+                    "end": 151,
+                    "text": "(15,",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 152,
+                    "end": 155,
+                    "text": "16)",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 182,
+                    "end": 186,
+                    "text": "(17)",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 187,
+                    "end": 191,
+                    "text": "(18)",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 192,
+                    "end": 196,
+                    "text": "(19)",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 197,
+                    "end": 201,
+                    "text": "(20)",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 259,
+                    "end": 263,
+                    "text": "(15)",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 293,
+                    "end": 297,
+                    "text": "(16)",
+                    "ref_id": "BIBREF15"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "Conducting population-representative biomarker surveys is difficult-particularly in the United States. Good sampling frames exist in a variety of forms (tax rolls, telephone numbers, etc.), but recruiting willing respondents is exceptionally difficult and likely affected by selection relative to the outcome of interest. Both of the studies in the United States had low response rates for the full interview with valid test results for SARS-CoV-2-Indiana: 23.4% and Connecticut: 7.8%. Further complicating analysis, there were few positive tests among those who did respond-Indiana: 47/3, 658 = 1.3% for the PCR test of current infection and 38/3, 658 = 1.0% for antibody test of ever infected and Connecticut: 23/567 = 4.1% for the antibody test of ever infected. Both studies described concern that the nonresponding participants were likely to be at higher risk of infection with SARS-CoV-2. Finally, like all SARS-CoV-2 immunology investigations to date, both studies struggled with poor-quality antibody tests whose unfavorable performance characteristics were not well understood; ref. 7 has an overview of these issues.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "Statistical analysis of data like these is difficult. First, the low response rate requires extensive recalibration of the sampling weights, and in the worst case, there may be sampling units with no respondents at all. Second, the very small number of positive cases pushes the asymptotic (large-sample) assumptions of frequentist methods to their limits and can break them. Third, the imperfect and poorly characterized antibody tests potentially add a lot of uncertainty that must be reflected in the results, particularly in low-prevalence settings (21) . Fourth, when results from multiple tests with different performance characteristics are combined, the joint result must be accurately described and its uncertainty propagated to the final estimate of prevalence-importantly, including the possibility that results from individual tests are correlated. Finally, if there is selection on the outcome, then the effect of this must be understood. In our review of the literature, we did not find an existing method that addresses all of these challenges in a unified way.",
+            "cite_spans": [
+                {
+                    "start": 553,
+                    "end": 557,
+                    "text": "(21)",
+                    "ref_id": "BIBREF20"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "Here, we describe an analytical approach developed to produce estimates of past infection with SARS-CoV-2 using data from a probability-based household survey representing adults in the state of Ohio in the United States. Like the SARS-CoV-2 prevalence studies in Indiana and Connecticut, the Ohio survey had a low response rate, few positive cases, and the possibility of selective response. Additionally, the Ohio survey used multiple imperfect antibody tests for the same antibodies, resulting in the need to quantify uncertainty in the joint result and account for possible dependence among results.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "To overcome these challenges, we weave together two well-established modeling frameworks into a single coherent approach. We utilize the literature on modeling multiple imperfect diagnostic tests through the use of a Bayesian latent class model (e.g., refs. 22 and 23) . This enables us to combine information across tests to infer the true latent infection status of a participant while incorporating uncertainty about the characteristics of the tests. We use the latent infection status to generate model-based estimates of the population prevalence using multilevel regression and poststratification (21, 24) . These approaches are integrated into a single Bayesian model that allows for the full propagation of uncertainty, exact inferences, and the ability to specify informative priors using external information. By doing so, we produce estimates that reflect all available information and uncertainty.",
+            "cite_spans": [
+                {
+                    "start": 258,
+                    "end": 268,
+                    "text": "22 and 23)",
+                    "ref_id": null
+                },
+                {
+                    "start": 603,
+                    "end": 607,
+                    "text": "(21,",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 608,
+                    "end": 611,
+                    "text": "24)",
+                    "ref_id": "BIBREF23"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "The purpose of this study is to estimate the prevalence of past SARS-CoV-2 infections in the state of Ohio using three separate antibody tests given to randomly selected adult participants. We know that each antibody test is imperfect, and there is no gold standard for detecting prior SARS-CoV-2 infection. Prevalence estimates based on a single imperfect test are always biased but particularly in the case of SARS-CoV-2 infection rates, which are low (21) . To mitigate that bias and incorporate variability due to error in the testing results, we will take a Bayesian latent class approach for modeling multiple diagnostic tests. Our approach will be based on combining a fixed effects framework for modeling conditional dependence across multiple diagnostic tests (22, 23) with a model-based analysis using multilevel regression and poststratification (24) to acknowledge the complex design aspects of the survey.",
+            "cite_spans": [
+                {
+                    "start": 454,
+                    "end": 458,
+                    "text": "(21)",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 769,
+                    "end": 773,
+                    "text": "(22,",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 774,
+                    "end": 777,
+                    "text": "23)",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 857,
+                    "end": 861,
+                    "text": "(24)",
+                    "ref_id": "BIBREF23"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "Survey Design. The survey was designed to provide policy makers with a \"quick\" overall snapshot of the prevalence of prior infection at the state level. The survey sampling scheme was designed as a stratified two-stage cluster sample. Strata were defined by eight administrative regions used by the state. Within each region, 30 census tracts were randomly selected with probability proportional to size (PPS) based on total population size. Then, within a selected tract, five households were randomly selected, and one adult (at least 18 y of age) within each household was randomly selected to participate in the study from all eligible adults in the household using a random number generator. Adults were eligible for the study if they were aged 18 y or older, slept in the home at least 4 d of the last 7 d, were proficient in English or Spanish, were willing to provide blood and nasopharyngeal swab samples, and were able to provide consent. If the selected individual declined to participate, the team moved to the next selected household. Thus, the planned target sample size was 1,200 participants. The study was conducted from 9 to 28 July 2020. The Ohio Department of Health (ODH) Institutional Review Board (IRB) reviewed and approved the research. The Ohio State University IRB ceded review to the ODH IRB. All participants provided written informed consent.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "Each participant in the study provided biological samples, which would be put through a series of diagnostic tests. In this paper, we will focus on prior infection as determined by the presence of SARS-CoV-2 antibodies. Since antibody tests for SARS-CoV-2 are new to the market and of varying quality, we processed participant samples using three different antibody tests. Specifically, we used the Abbott Immunoglobulin G (IgG), Liaison IgG, and Epitope Immunoglobulin M (IgM) tests.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "Model. For each participant in the study, indexed by i = 1, . . . , n, let T i = (T i1 , T i2 , T i3 ) be indicators of a positive test result of the Abbott IgG, Liaison IgG, and Epitope IgM, respectively. Let D i be the unobserved indicator of whether participant i had a prior infection of SARS-CoV-2. This latent indicator of prior infection is our primary outcome of interest. Analysis methods for multiple diagnostic tests without a gold standard hinge on assumptions related to conditional independence (23) . We will assume that (T i1 , T i2 ) and T i3 are independent given the true infection status. This implies that conditional on the true presence of prior infection, we assume tests for the same antibody are dependent and tests for different antibodies are independent. Based on the underlying design of the tests and what they target, we believe these assumptions are reasonable for this specific application.",
+            "cite_spans": [
+                {
+                    "start": 509,
+                    "end": 513,
+                    "text": "(23)",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "Given the assumptions stated above, we can consider this a problem with two conditionally independent sets of tests: the two IgG tests and the IgM test. Thus, we can decompose the joint probability as",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "By doing so, each conditional probability on the right-hand side can be estimated following a fixed effects approach (22) . Since each test result is binary, this leads to eight potential combinations of results, shown in Table  1 , and suggests the following distribution:",
+            "cite_spans": [
+                {
+                    "start": 117,
+                    "end": 121,
+                    "text": "(22)",
+                    "ref_id": "BIBREF21"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 222,
+                    "end": 230,
+                    "text": "Table  1",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "Methods"
+        },
+        {
+            "text": "where Y i is an indicator of participant i's result pattern and p i = p i (D i ) is a vector of length eight where each element is the probability of a result pattern.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "To construct the probability vector p i , we first need to define the conditional probabilities within each antibody. Let S j be the sensitivity and C j be the specificity of test j. Since we have two IgG tests (j = 1, 2), we allow for ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "their results to be correlated. Let R 1 12 be the covariance between the results of tests 1 and 2 given the infection status is positive and R 0 12 be the covariance when the infection status is negative. Then, for the joint probabilities of the IgG test results (22), we have",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "Since we only have one IgM test (j = 3), we have",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "We then use these conditional probabilities to construct the probabilities in the vector p i in the multinomial distribution above. Those eight probabilities can be calculated with the following general equation for each test result pattern:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "These probabilities are the individual elements of the vector p i , which is a function of D i , S, C, R, where S = (S 1 , S 2 , S 3 ), C = (C 1 , C 2 , C 3 ), and R = (R 1 12 , R 0 12 ). The latent true infection status is the primary process of interest as we are interested in estimating the prevalence of prior SARS-CoV-2 infections. We assume",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "where \u03c0 i is the probability of prior infection for participant i, which will be determined by region, strata, and census tract. Specifically, we let r[i], s[i], and t[i] refer to the region, strata, and census tract for participant i, respectively, and assume",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "where \u03b1r is a region-specific random intercept, Xs is a vector of stratum indicators with fixed effects vector \u03b2 s , Xt is a vector of census tract covariates with fixed effects vector \u03b2 t , and bt is a random effect for census tract. In this analysis, Xs includes indicators of participant age group and sex, and Xt is a scalar and corresponds to the log of the total census tract population. We code the groups using sum to zero contrasts, and the log population was standardized to have zero mean and SD of one across the entire state. We assume \u03b1r iid \u223c N(\u03b1, \u03c3 2 ). Since the fixed effects are coded to sum to zero, \u03b1 reflects the overall mean on the logit scale, and \u03b1r can be interpreted as regional means. We also assume bt iid \u223c N(0, \u03c4 2 ), which accounts for correlation between individuals in the same census tract.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "At this point, we link the diagnostic test model to a multilevel regression and poststratification approach (21, 24) for estimating population prevalence. In Eq. 3, we specified a multilevel logistic regression model for the probability of prior infection. Since true infection was rare in our sample, we were unable to fit a saturated model. Instead, we chose to use a hierarchical model with fixed strata effects. By doing so, we assume that while regions may have different probabilities of infection, the relative ordering of the strata will be the same across regions (i.e., there is no interaction between region and strata). Effects for region and census tract population are included to account for the characteristics of the underlying survey design (stratification and PPS sampling), making the selection process ignorable (25) .",
+            "cite_spans": [
+                {
+                    "start": 108,
+                    "end": 112,
+                    "text": "(21,",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 113,
+                    "end": 116,
+                    "text": "24)",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 833,
+                    "end": 837,
+                    "text": "(25)",
+                    "ref_id": "BIBREF24"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "To obtain the population prevalence, we calculate",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "where \u03c0rst is the prevalence and Prst is the adult population in stratum s in census tract t in region r. The prevalence contribution for region r, strata s, and tract t is",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "where bt iid \u223c N(0, \u03c4 2 ). Since we are fitting the model in the Bayesian paradigm, we must specify prior distributions on all unknown parameters. The main reason we chose a fixed effects model for the test results was because it is directly determined by test sensitivity and specificity. This allows us to transparently incorporate prior information using the validation data on the package insert (26-28) (as of October 2020) for each test. Each validation study examined test performance on a set of patients with known past infection status, generating a 2 \u00d7 2 table of true infection status by the test result. Using Beta(\u03b1, \u03b2) distributions, the mean is \u03b1/(\u03b1 + \u03b2), and the variance is scaled by (\u03b1 + \u03b2). Commonly, Beta prior distributions are parameterized as hypothetical binomial experiments with \u03b1 successes of \u03b1 + \u03b2 trials. Here, rather than using a hypothetical experiment, we can directly use the validation data from the 2 \u00d7 2 tables on the package inserts. For sensitivity, \u03b1 is the number of true positives, and \u03b2 is the number of false negatives. For specificity, \u03b1 is the number of true negatives, and \u03b2 is the number of false positives. For the Epitope IgM test, there were no false positives, so \u03b2 was set to 0.1 since it must be greater than 0. This sets the mean of each distribution at the observed value with variability according to the size of the validation study. Based on this information, we let Fig. 1 . The remaining parameters for the diagnostic testing part of the model are the covariance parameters. We enforce necessary constraints on these parameters by specifying independent uniform prior distributions for each parameter restricted to its allowable range (22) . Assuming only positive dependence between tests, we have",
+            "cite_spans": [
+                {
+                    "start": 1696,
+                    "end": 1700,
+                    "text": "(22)",
+                    "ref_id": "BIBREF21"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1426,
+                    "end": 1432,
+                    "text": "Fig. 1",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Methods"
+        },
+        {
+            "text": "For the multilevel regression part of the model, we assume each element of \u03b2 is independently normally distributed with zero mean and variance of nine. We assume \u03c4 and \u03c3 have independent uniform distributions on (0, 5). We assume \u03b1 \u223c N(logit(0.03), 1) to reflect prior belief that the prevalence of prior infection is around 3% and puts 95% of the probability between 0.4 and 18.0%. By putting everything together, we have the full model:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "Pr(D i |\u03b1, \u03b2, b) \u00d7 p(b|\u03c4 2 ) \u00d7 p(\u03b1|\u03b1, \u03c3 2 ) ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "A single available test result would simply lead to a Bernoulli distribution of whether the result was positive (t ij = 1) with the probability calculated as in Eq. 4 with the appropriate parameters for the observed test.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "Sensitivity Analyses. For the analysis of any survey, it is important to account for the potential of nonresponse bias. We note that our primary analysis is valid assuming a nonresponse mechanism that is ignorable given stratum. This is likely a strong assumption, and so, we will consider sensitivity analyses under several assumptions of potential nonignorable scenarios. To do so, assume",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "where \u03c0 R rst and \u03c0 N rst are the prevalence rates among the responders and nonresponders, respectively, and p N rst is the probability of nonresponse. Note that when ignorability is satisfied, we have \u03c0rst = \u03c0 R rst = \u03c0 N rst , which results in the estimates from the primary analysis. Due to the survey design, we can only obtain household nonresponse rates by region, and so, we assume p N rst = p N r for all strata and tracts. In order to carry out a sensitivity analysis, we will assume the prevalence among nonresponders is",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "where \u03bb is the prevalence ratio in nonresponders compared with responders and \u03c0 R rst is the prevalence estimated from the logistic regression described above. We will vary \u03bb to explore different scenarios and assess the sensitivity of our estimates to changes in the prevalence in nonresponders.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "We conduct a second sensitivity analysis to assess the impact of using informative prior distributions on the test sensitivity parameters. This is important because of the limited validation data in individuals with confirmed infection and questions surrounding the detectability of antibodies over time, which would impact the sensitivity of the test when used in a population survey such as this. For this analysis, we fit the model as described above but use Beta(1, 1) prior distributions for S 1 , S 2 , and S 3 . This is a uniform distribution on (0, 1) and serves as a less informative prior distribution. Finally, we conduct a third sensitivity analysis that analyzes the IgG and IgM tests separately. Again, since antibody presence varies with unknown time since infection, these estimates reflect the prevalence of individuals in the postinfection period when IgG or IgM antibodies are detectable and together, can serve as a reasonable upper bound for prior infection prevalence.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "A total of 727 adults participated in the survey. To be included in the analysis, participants had to have at least one antibody test result and have age and sex recorded. Of the 727 participants, 667 (92%) were included in the analysis. Characteristics of those included in the analysis are shown in Table 2 . We observe that our included participants tend to be older and female. We also observe that 23.4% of included participants were from the northwest region of Ohio.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 301,
+                    "end": 308,
+                    "text": "Table 2",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "Our primary goal is to estimate the statewide prevalence of prior infection with SARS-CoV-2. Based on our model, the posterior mean prevalence is 1.3% with a 95% credible interval of (0.2, 2.7%). This corresponds to approximately 118,000 noninstitutionalized adults with a 95% credible interval of (22,000, 240,000). As noted in Methods, the prevalence estimates are based on the latent infection status estimates inferred from the antibody test results. In Fig. 2 , we show the posterior mean probability of prior infection for all 667 participants included in the analysis. This illustrates that there were very few participants in the study who were estimated to actually have prior infection. In fact, only 17 (2.5%) participants had a posterior probability of past infection greater than 1%. As expected, those with the highest estimated probabilities were those for whom there was agreement across the tests. In general, there was little observed agreement across the three diagnostic tests. Of the 39 participants with at least one positive result, only 3 (7.7%) had a positive result on more than one test. For parameters that had informative prior distributions, Fig. 1 and SI Appendix, Fig. S1 show prior and posterior densities to illustrate learning based on the observed data.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 458,
+                    "end": 464,
+                    "text": "Fig. 2",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 1172,
+                    "end": 1203,
+                    "text": "Fig. 1 and SI Appendix, Fig. S1",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "We now turn to the sensitivity analysis that accounted for potential nonignorable nonresponse. The household-level nonresponse rates by region are shown in Table 3 . We believe that nonresponders were most likely to have a higher prevalence of past infection than responders. In Fig. 3 , we show that if we assume that the prevalence of past infection in nonresponders was three times that of responders, the upper bound of the 95% credible interval is at a prevalence of 7%. Thus, across the range of reasonable scenarios that we considered, we observe rates of past infection that do not dramatically differ from the estimates in our primary analysis.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 156,
+                    "end": 163,
+                    "text": "Table 3",
+                    "ref_id": "TABREF3"
+                },
+                {
+                    "start": 279,
+                    "end": 285,
+                    "text": "Fig. 3",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "Finally, we consider the sensitivity analysis using less informative prior distributions for the test sensitivity parameters. In SI Appendix, Fig. S2 , we show posterior mean and credible intervals across prevalence ratios of nonresponders to responders. For the primary analysis, the posterior mean prevalence is 5.2% with 95% credible interval of (0.2, 14.8%). In SI Appendix, Figs. S3 and S4, we show prior and posterior densities and see that this analysis estimates the test sensitivities to be much lower than what was suggested by the validation data, leading to higher estimates of prevalence. We show estimates using only the IgG test results in SI Appendix, Fig. S5 and only the IgM test result in SI Appendix, Fig. S6 . The posterior mean prevalence is 1.3% with 95% credible interval of (0.2, 2.6%) using the IgG tests and is 7.8% with 95% credible interval of (1.0, 18.5%) using the IgM test. However, all of the estimates in the sensitivity analyses would be aligned with a similar public health and policy response as they are not compatible with having reached herd immunity.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 142,
+                    "end": 149,
+                    "text": "Fig. S2",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 668,
+                    "end": 675,
+                    "text": "Fig. S5",
+                    "ref_id": null
+                },
+                {
+                    "start": 721,
+                    "end": 728,
+                    "text": "Fig. S6",
+                    "ref_id": null
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "In this paper, we present an approach to coherently integrate multiple imperfect diagnostic tests and a model-based analysis. By using this approach, we are able to estimate the past prevalence of SARS-CoV-2 infection in the state of Ohio in the United States while appropriately accounting for uncertainty in multiple antibody tests and leveraging the strengths of a designed survey. Through the Bayesian paradigm, we are also able to incorporate external information through informative prior distributions and provide exact inferences for the prevalence estimates. Our approach provides policy makers with the best possible estimates of prior infection given the survey results and our current knowledge of the quality of the antibody tests.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "Through our study, we estimate the magnitude of prior SARS-CoV-2 infection to be low, roughly 118,000 noninstitutionalized adults. However, this still reflects a higher burden of infection than the reported number of cases during the 3-mo period when we would anticipate being able to detect antibodies (31-35)approximately 62,000 cases from mid-April to mid-July 2020.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "Our sensitivity analysis for nonresponse shows that even with a prevalence ratio of three between nonresponders and responders, the upper bound of the credible interval is a prevalence of about 7%. Our sensitivity analysis for test sensitivity shows slightly increased estimates of prevalence but with considerable uncertainty. Similar results are also observed in sensitivity analyses that separately consider each type of antibody. Thus, even in hypothetical scenarios with large selective response and low estimated test sensitivity, we conclude that the majority of Ohio adults still remain susceptible to SARS-CoV-2 infection. This implies that the state must remain vigilant and continue to deploy nonpharmaceutical interventions like masks and social distancing to limit the spread of SARS-CoV-2.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "Methodologically, we developed a coherent statistical framework for analyzing seroprevalence surveys with multiple imperfect diagnostic tests. Typically, one might rely on a single test or the creation of deterministic rules that combine test results to assess positive cases. In contrast, we utilized existing methodology for combining the results of multiple diagnostic tests to fully incorporate information on infection status from each test. We then connected the estimated infection status to a multilevel regression and poststratification approach for generating population-based estimates. Through our fully Bayesian, model-based analysis, we are able to appropriately propagate uncertainty and provide exact inferences while synthesizing the information from each type of test administered. Our approach allows us to make full use of the data collected by the survey while also accounting for its quality. Future methodological challenges remain as test characteristics are likely a function of time since infection, which is unknown and not explicitly considered in our model.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "Our study has significant strengths: a representative random sample, employing multiple diagnostic tests, and conducting a fully Bayesian analysis. There are also limitations. The survey was designed to estimate SARS-CoV-2 infection prevalence at the level of the whole state and was not designed for estimation within any subgroups or smaller geographies. A future study should consider oversampling high-risk subgroups or regions to enable inference specific to those important populations. Nonresponse was a major issue that was addressed in the field using all available resources. We do not have detailed information on nonresponders that could have been incorporated into a more sophisticated model for missing data. However, based on our sensitivity analysis, we do not believe the substantive policy implications of the study would change based on a more complicated missing data model. Finally, the informative prior distributions for antibody test characteristics are based on validation data presented in the test inserts-we are unable to verify the rigor and quality of those validation studies.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "In conclusion, we have developed a statistical analysis framework for analyzing seroprevalence survey data with few positive cases and results from multiple imperfect diagnostic tests. Since estimates of prior and current prevalence are relevant to policy, seroprevalence studies of SARS-CoV-2 are becoming increasingly important and more frequently conducted. Our methodological approach is a critical component to ensuring that serology data are analyzed in a way that is consistent both with the design of the survey and with the inherent limitations in the accuracy of antibody tests. This enables policy makers to have access to the best available estimates that also fully and honestly account for all of the sources of uncertainty that contribute to the quantification of SARS-CoV-2 infection.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "Data Availability. Due to the nature of this research, participants of this study did not agree for their data to be shared publicly, so supporting data are not publicly available. However, deidentified data is available upon reasonable request to the authors. Code is publicly available in GitHub at https://github.com/sinafala/bayes-prevalence.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "An interactive web-based dashboard to track COVID-19 in real time",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Dong",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Du",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Gardner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Lancet Infect. Dis",
+            "volume": "20",
+            "issn": "",
+            "pages": "533--534",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Excess Deaths Associated with COVID-19 (Center for Disease Control and Prevention",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Estimation of excess deaths associated with the COVID-19 pandemic in the United States",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Weinberger",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J. Am. Med. Ass. Intern. Med",
+            "volume": "180",
+            "issn": "",
+            "pages": "1336--1344",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Excess deaths associated with COVID-19, by age and race and ethnicity-United States",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Rossen",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Branum",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Ahmad",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Sutton",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Anderson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "MMWR Morb. Mortal. Wkly. Rep",
+            "volume": "69",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Diagnostic accuracy of serological tests for COVID-19: Systematic review and meta-analysis",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "Lisboa",
+                    "middle": [],
+                    "last": "Bastos",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "BMJ",
+            "volume": "370",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Population-based prevalence surveys during the COVID-19 pandemic: A systematic review",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Franceschi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Rev. Med. Virol",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/rmv.2200"
+                ]
+            }
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Seroprevalence of SARS-CoV-2 in Guilan province",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Shakiba",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Emerg. Infect. Dis",
+            "volume": "27",
+            "issn": "",
+            "pages": "636--638",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Antibody prevalence for SARS-CoV-2 in England following first peak of the pandemic: REACT2 study in 100,000 adults. medRxiv",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Ward",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.08.12.20173690"
+                ]
+            }
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Community prevalence of SARS-CoV-2 virus in England during May 2020: REACT study. medRxiv",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Riley",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.07.10.20150524"
+                ]
+            }
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Low prevalence of active COVID-19 in Slovenia: A nationwide population study of a probability-based sample",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Vodi\u010dar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Clin. Microbiol. Infect",
+            "volume": "26",
+            "issn": "",
+            "pages": "1514--1519",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Novel coronavirus epidemic in the Hungarian population, a crosssectional nationwide survey to support the exit policy in Hungary",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Merkely",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "GeroScience",
+            "volume": "42",
+            "issn": "",
+            "pages": "1063--1074",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Prevalence of SARS-CoV-2 in Spain (ENE-COVID): A nationwide, population-based seroepidemiological study",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Poll\u00e1n",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Lancet",
+            "volume": "396",
+            "issn": "",
+            "pages": "535--544",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Prevalence of SARS-CoV-2 infection in the Luxembourgish population-the CON-VINCE study. medRxiv",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Snoeck",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.05.11.20092916"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Spread of SARS-CoV-2 in the Icelandic population",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Gudbjartsson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "N. Engl. J. Med",
+            "volume": "383",
+            "issn": "",
+            "pages": "2184--2185",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Population point prevalence of SARS-CoV-2 infection based on a statewide random sample-Indiana",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Menachemi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "MMWR Morb. Mortal. Wkly. Rep",
+            "volume": "69",
+            "issn": "",
+            "pages": "960--964",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Seroprevalence of SARS-CoV-2-specific IgG antibodies among adults living in Connecticut: Post-infection prevalence (PIP) study",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mahajan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Am. J. Med",
+            "volume": "134",
+            "issn": "e11",
+            "pages": "526--534",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "A population-based study of the prevalence of COVID-19 infection in Esp\u00edrito Santo, Brazil: Methodology and results of the first stage",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "Costa",
+                    "middle": [],
+                    "last": "Gomes",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.06.13.20130559"
+                ]
+            }
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Population-based seroprevalence of SARS-CoV-2 is more than halfway through the herd immunity threshold in the State of Maranhao, Brazil. medRxiv",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "A M"
+                    ],
+                    "last": "Silva",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.08.28.20180463"
+                ]
+            }
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Population-based surveys of antibodies against SARS-CoV-2 in Southern Brazil",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Silveira",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat. Med",
+            "volume": "26",
+            "issn": "",
+            "pages": "1196--1199",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Remarkable variability in SARS-CoV-2 antibodies across Brazilian regions: Nationwide serological household survey in 27 states. medRxiv",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.05.30.20117531"
+                ]
+            }
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Bayesian analysis of tests with unknown specificity and sensitivity",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Gelman",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Carpenter",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J. Roy. Stat. Soc. Ser. C Appl. Stat",
+            "volume": "69",
+            "issn": "",
+            "pages": "1269--1283",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Bayesian approaches to modeling the conditional dependence between multiple diagnostic tests",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Dendukuri",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Joseph",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Biometrics",
+            "volume": "57",
+            "issn": "",
+            "pages": "158--167",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Modeling conditional dependence among multiple diagnostic tests",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Dendukuri",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Zar",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Joseph",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Stat. Med",
+            "volume": "36",
+            "issn": "",
+            "pages": "4843--4859",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Struggles with survey weighting and regression modeling",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Gelman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Stat. Sci",
+            "volume": "22",
+            "issn": "",
+            "pages": "153--164",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Bayesian inference under cluster sampling with probability proportional to size",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Makela",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Si",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Gelman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Stat. Med",
+            "volume": "37",
+            "issn": "",
+            "pages": "3849--3868",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Liaison SARS-CoV-2 S1/S2 IgG package insert",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Diasorin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "EDI Novel Coronavirus COVID-19 ELISA Kits package insert",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Epitope Diagnostics",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Inc",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "R: A Language and Environment for Statistical Computing (R Foundation for Statistical Computing",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "R Core Team",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Programming with models: Writing statistical algorithms for general model structures with NIMBLE",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "De Valpine",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "J. Comput. Graph Stat",
+            "volume": "26",
+            "issn": "",
+            "pages": "403--417",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Change in antibodies to SARS-CoV-2 over 60 days among health care personnel in Nashville, Tennessee",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Patel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J. Am. Med. Assoc",
+            "volume": "324",
+            "issn": "",
+            "pages": "1781--1782",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Rapid decay of anti-SARS-CoV-2 antibodies in persons with mild COVID-19",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Ibarrondo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "N. Engl. J. Med",
+            "volume": "383",
+            "issn": "",
+            "pages": "1085--1087",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Asymptomatic infection by SARS-CoV-2 in healthcare workers: A study in a large teaching hospital in Wuhan",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "China. Int. J. Infect. Dis",
+            "volume": "99",
+            "issn": "",
+            "pages": "219--225",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Persistence and decay of human antibody responses to the receptor binding domain of SARS-CoV-2 spike protein in COVID-19 patients",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Iyer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Sci. Immunol",
+            "volume": "5",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Clinical and immunological assessment of asymptomatic SARS-CoV-2 infections",
+            "authors": [
+                {
+                    "first": "Q.-X",
+                    "middle": [],
+                    "last": "Long",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat. Med",
+            "volume": "26",
+            "issn": "",
+            "pages": "1200--1204",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "| PNAS https://doi.org/10.1073/pnas.2023947118 Kline et al. Estimating seroprevalence of SARS-CoV-2 in Ohio: A Bayesian multilevel poststratification approach with multiple diagnostic tests",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Beta(109, 13) C 1 \u223c Beta(1066, 4) S 2 \u223c Beta(96, 39) C 2 \u223c Beta(1074, 16)S 3 \u223c Beta(9, 11) C 3 \u223c Beta(54, 0.1). This implies that the means (variances) of the prior distributions are S 1 , 0.893 (0.0008); C 1 , 0.996 (0.000003); S 2 , 0.711 (0.002); C 2 , 0.985 (0.00001); S 3 , 0.450 (0.01); and C 3 , 0.998 (0.00003). The prior densities are also shown in",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Density plots of the prior and posterior distributions for the sensitivity and specificity of each antibody test. (A) Sensitivity of Abbott IgG. (B) Specificity of Abbott IgG. (C) Sensitivity of Liaison IgG. (D) Specificity of Liaison IgG. (E) Sensitivity of Epitope IgM. (F) Specificity of Epitope IgM.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Kline et al. Estimating seroprevalence of SARS-CoV-2 in Ohio: A Bayesian multilevel poststratification approach with multiple diagnostic tests PNAS | 5 of 7 https://doi.org/10.1073/pnas.2023947118",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "Posterior probability of past infection of SARS-CoV-2 for all participants and limited to those participants with a probability of greater than 1%. (A) Posterior probability of infection. (B) Posterior probability of infection greater than 1%.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "Posterior mean and 95% highest posterior density credible intervals for the prevalence of past infection under several scenarios of nonignorable nonresponse. The prevalence ratio is \u03bb in Eq. 6.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "Mapping from the three binary test results to the multinomial response vector and corresponding probabilities",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "Missing Test Results. Some participants did not have results for all three tests considered, which was primarily due to an insufficient amount of sample to run the test. There were also 17 participants with an inconclusive result for the IgM test, which we considered equivalent to not having a result. However, since our primary interest is in the latent infection status of the participant, we can still gain some information about this from the test results that are available. Test result pattern probabilities would still be calculated as above corresponding to the test or pair of tests available for the participant. For example, if a participant only had the IgG test results, there would be four patterns of results that would be defined by the probabilities in Eq. 1. If IgG and IgM tests are observed, the four probabilities would be computed from products of",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Descriptive statistics and counts of positive antibody test results for participants with at least one antibody test result who were included in the analysis of prior infection prevalence",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "Household-level nonresponse rates by region",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "The authors declare no competing interest.y This article is a PNAS Direct Submission.y ACKNOWLEDGMENTS. We acknowledge those who were involved in the conception, design, and implementation of the study, including Alison Norris, Stanley Lemeshow, Maria Gallo, Elisabeth Root, Gene Phillips, and Morgan Spahnie. We also thank all of the study staff for their effort collecting the data in the field. This study was funded by the ODH.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "acknowledgement"
+        }
+    ]
+}

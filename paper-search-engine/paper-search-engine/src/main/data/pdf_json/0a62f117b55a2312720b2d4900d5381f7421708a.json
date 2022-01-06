@@ -1,0 +1,3151 @@
+{
+    "paper_id": "0a62f117b55a2312720b2d4900d5381f7421708a",
+    "metadata": {
+        "title": "Contrasting factors associated with COVID-19- related ICU admission and death outcomes in hospitalised patients by means of Shapley values",
+        "authors": [
+            {
+                "first": "Massimo",
+                "middle": [],
+                "last": "Cavallaro Id",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University of Warwick",
+                    "location": {
+                        "settlement": "Coventry",
+                        "country": "United Kingdom"
+                    }
+                },
+                "email": "*m.cavallaro@warwick.ac.ukmc"
+            },
+            {
+                "first": "Haseeb",
+                "middle": [
+                    "Moiz"
+                ],
+                "last": "Id",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Matt",
+                "middle": [
+                    "J"
+                ],
+                "last": "Keeling Id",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University of Warwick",
+                    "location": {
+                        "settlement": "Coventry",
+                        "country": "United Kingdom"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Noel",
+                "middle": [
+                    "D"
+                ],
+                "last": "Mccarthy",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University of Warwick",
+                    "location": {
+                        "settlement": "Coventry",
+                        "country": "United Kingdom"
+                    }
+                },
+                "email": "noel.mccarthy@tcd.iendm"
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Identification of those at greatest risk of death due to the substantial threat of COVID-19 can benefit from novel approaches to epidemiology that leverage large datasets and complex machine-learning models, provide data-driven intelligence, and guide decisions such as intensive-care unit admission (ICUA). The objective of this study is two-fold, one substantive and one methodological: substantively to evaluate the association of demographic and health records with two related, yet different, outcomes of severe COVID-19 (viz., death and ICUA); methodologically to compare interpretations based on logistic regression and on gradient-boosted decision tree (GBDT) predictions interpreted by means of the Shapley impacts of covariates. Very different association of some factors, e.g., obesity and chronic respiratory diseases, with death and ICUA may guide review of practice. Shapley explanation of GBDTs identified varying effects of some factors among patients, thus emphasising the importance of individual patient assessment. The results of this study are also relevant for the evaluation of complex automated clinical decision systems, which should optimise prediction scores whilst remaining interpretable to clinicians and mitigating potential biases.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "The design is a retrospective cohort study of 13954 in-patients of ages ranging from 1 to 105 year (IQR: 56, 70, 81) with a confirmed diagnosis of COVID-19 by 28th June 2020. This study used multivariable logistic regression to generate odd ratios (ORs) multiply adjusted for 37 covariates (comorbidities, demographic, and others) selected on the basis of clinical interest and prior findings. Results were supplemented by gradient-boosted decision tree (GBDT) classification to generate Shapley values in order to evaluate the impact of the covariates on model output for all patients. Factors are differentially associated with death and ICUA and among patients. Deaths due to COVID-19 were associated with immunosuppression due to disease (OR 1.39, 95% CI 1.10-1.76), type-2 diabetes PLOS Computational Biology | https://doi.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Introduction COVID-19, due to SARS-CoV-2 betacoronavirus, emerged in Wuhan, China in late 2019 and has spread globally. It can cause severe complications of pneumonia, acute respiratory distress syndrome, sepsis, and septic shock [1] . It has, as of October 24, 2020, infected over 42 million people and killed over 1.1 million people [2] . Certain patient subsets, such as the elderly and those with comorbidities, are at an increased risk of severe outcomes from COVID-19 such as admission to intensive care units, respiratory distress requiring mechanical ventilation, and death [3, 4] .",
+            "cite_spans": [
+                {
+                    "start": 230,
+                    "end": 233,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 335,
+                    "end": 338,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 582,
+                    "end": 585,
+                    "text": "[3,",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 586,
+                    "end": 588,
+                    "text": "4]",
+                    "ref_id": "BIBREF3"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "Clinicians can use predictive factors to prioritize patients at higher risk of clinical deterioration and public health authorities can use them to target public health interventions. Identifying factors associated with severe disease has been described as an urgent research priority. Several studies have sought to identify factors predicting poor outcome following COVID-19 infection [5, 6] and assist clinician decision making [7] [8] [9] . A traditional method such as logistic regression can infer the odd ratios (ORs) of the outcome in the presence of a risk factor. Modern machine-learning technologies, widely implemented during the COVID-19 pandemic, can handle more complex patient data types, offer greater generality, and produce more accurate predictions than the previous methods, but at the cost of losing transparency and interpretability [10] .",
+            "cite_spans": [
+                {
+                    "start": 387,
+                    "end": 390,
+                    "text": "[5,",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 391,
+                    "end": 393,
+                    "text": "6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 431,
+                    "end": 434,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 435,
+                    "end": 438,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 439,
+                    "end": 442,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 856,
+                    "end": 860,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "Surveillance systems support these analyses. The COVID-19 Hospitalization in England Surveillance System (CHESS), a UK system distributed by Public Health England (PHE) and adapted from the UK severe influenza surveillance system, collects extensive data on patients admitted to hospital, including known comorbidities and important demographic information (such as age, sex, and ethnicity) [11] . This large national dataset reduces limitations inherent in small cohorts, enabling more reliable identification of associations. We performed analyses on this dataset using logistic regression and a more general machine-learning model (the gradient-boosted decision tree, GBDT), which generated interpretable predictions by means of the Shapley additive explanation, a technique that mitigates the interpretability issue in machine-learning outputs. For different applications of this technique to COVID-19 research see, e.g., references [12, 13] . Through these methods, we demonstrated the extent to which preexisting conditions differentially predicted death and intensive care unit (ICU) admission. Some factors affected both similarly but others proved to be protective for one while increasing the risk for the other, or showed very different effect sizes. We also identified variation of effects among patients. These results may be useful to clinicians assessing hospitalized patients with COVID-19. They may also provide a greater context or benchmark for individuals evaluating or interpreting complex automated clinical decision systems designed to identify those most at-risk.",
+            "cite_spans": [
+                {
+                    "start": 391,
+                    "end": 395,
+                    "text": "[11]",
+                    "ref_id": null
+                },
+                {
+                    "start": 937,
+                    "end": 941,
+                    "text": "[12,",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 942,
+                    "end": 945,
+                    "text": "13]",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "The data used in this study were supplied from the CHESS database after anonymisation under strict data protection protocols agreed between the University of Warwick and Public Health England. The ethics of the use of these data for these purposes was agreed by Public Health England with the Government's SPI-M(O) / SAGE committees.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Ethics statement"
+        },
+        {
+            "text": "We studied a cohort of 13954 patients of which 8947 patients survived and 5007 died after contracting COVID-19. 5758 were admitted to ICUs, of whom 3483 were discharged after treatment, and 2275 died. The dataset includes epidemiological data (demographics, risk factors, and outcomes) on patients with a confirmed diagnosis of COVID-19 by 28th June 2020 who required hospitalization. We included all available chronic and pre-existing morbid conditions recorded by PHE as potential risk factors, including immunosuppression due to disease, asthma requiring medication, immunosuppression due to treatment, neurological conditions, respiratory conditions, obesity, type-1 and type-2 diabetes, hypertension, heart conditions, renal disease, liver diseases, and other comorbidities [11] . No acute illnesses or medical conditions were considered. In the CHESS dataset self-defined ethnicity is categorized according to the Office for National Statistics questionnaires into 17 factors, all included in the study. With 8628 patients, white British was the largest group in the cohort and therefore chosen as a reference category. 1895 patients did not identify themselves with any ethnicity and were labelled as \"NA\". With the exception of age and admission date, all features were stratified to binary variables. Entries labelled \"diabetes\" whose type was unknown and not recorded in the database as \"type 1\", have been considered as \"type 2\". Death and ICU admission were chosen as outcomes. The median age of this sample was 70 years (IQR 56-81, range 1-105), 59.25% were men and 0.18% had an unrecorded sex. The prevalence of comorbidities is reported in Table 1 and ethnicity in Table 2 . Cross-correlations between recorded ethnicities and pre-existing conditions are illustrated in Fig 1. ",
+            "cite_spans": [
+                {
+                    "start": 779,
+                    "end": 783,
+                    "text": "[11]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1655,
+                    "end": 1662,
+                    "text": "Table 1",
+                    "ref_id": null
+                },
+                {
+                    "start": 1680,
+                    "end": 1687,
+                    "text": "Table 2",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 1785,
+                    "end": 1791,
+                    "text": "Fig 1.",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Description of cohort and outcomes"
+        },
+        {
+            "text": "Logistic regression models were used to estimate odd ratios (ORs) of all 37 pre-existing conditions and demographic factors for both outcomes. Standard errors (SEs) and confidence intervals (CIs) of the ORs were computed using the Taylor series-based delta method and the profile likelihood method, respectively, and statistical significance assessed using the Benjamini-Hochberg (BH) test with false discovery rate set to 0.05 [14] .",
+            "cite_spans": [
+                {
+                    "start": 428,
+                    "end": 432,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Statistical analysis"
+        },
+        {
+            "text": "In addition, we applied a \"gradient boosted decision tree\" (GBDT) machine-learning model with logistic objective function, as an appropriate machine learning approach. A GBDT aggregates a large number of weak prediction models, in this case decision trees, into a robust prediction algorithm, where the presence of many trees mitigates the errors due to a singletree prediction. Each individual tree consists of a series of nodes that represent binary decision splits against one of the input variables, with its final output being determined by the nodes at the end of the tree (known as leaves). The model was implemented in the XGBoost library (version 0.81) [15] and depended on a number of hyper-parameters. To avoid over-fitting, these hyper-parameters were selected by means of Bayesian optimization of c-statistics using 5-fold cross-validation over the training set [16] with constant L1-regularisation parameter \u03b1 = 0.5. We used Shapley additive explanation (SHAP) analysis to understand the result of a GBDT model fit [17, 18] . The importance of each feature in the model output is represented by the so-called Shapley values, introduced in game theory literature and providing a theoretically PLOS COMPUTATIONAL BIOLOGY mathematically proven that the Shapley allocation is the only possible one that satisfies two additional desirable properties, i.e., consistency (if a feature's contribution increases or stays the same regardless of the other inputs, its Shapley value does not decrease), and missingness (a zero-valued feature contributes a zero Shapley value) [17] [18] [19] . In tree-based models, the same idea has been extended to allocate the credit to pairs of features, thus yielding",
+            "cite_spans": [
+                {
+                    "start": 662,
+                    "end": 666,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 875,
+                    "end": 879,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 1029,
+                    "end": 1033,
+                    "text": "[17,",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 1034,
+                    "end": 1037,
+                    "text": "18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 1578,
+                    "end": 1582,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 1583,
+                    "end": 1587,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 1588,
+                    "end": 1592,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Statistical analysis"
+        },
+        {
+            "text": "where the F ijk s are referred to as SHAP interaction values [18] . The diagonal term F ijj encodes the net effect on the model prediction f i of a feature j, stripped of its interactions with the other features k6 \u00bcj and is referred to as the SHAP main effect of j. We used an implementation specific to tree-based models, also referred to as TreeSHAP, accessible via the XGBoost and SHAP libraries; we refer the reader to references [17, 18] for a more comprehensive discussion and for the implementation details.",
+            "cite_spans": [
+                {
+                    "start": 61,
+                    "end": 65,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 435,
+                    "end": 439,
+                    "text": "[17,",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 440,
+                    "end": 443,
+                    "text": "18]",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Statistical analysis"
+        },
+        {
+            "text": "Such an approach explains each individual prediction f i and is therefore referred to as a local method. In contrast to that, as a complementary global method, we consider the so-called partial dependence plots (PDPs) to show the average effects of age and admission date on the predicted outcomes, marginalizing over the values of all other features [20] .",
+            "cite_spans": [
+                {
+                    "start": 351,
+                    "end": 355,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Statistical analysis"
+        },
+        {
+            "text": "It is worth comparing this approach with the standard logistic regression. For a patient i with feature values X i \u2254(x i1 , x i2 ,. . .,x iN ), the logistic regression and the GBDT models predict an outcome (here taken to be ICUA or death) with probabilities p(X i ) andp\u00f0X i \u00de, respectively. These satisfy",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Statistical analysis"
+        },
+        {
+            "text": "where the coefficients \u03b2 j s are maximum-likelihood estimates and the values \u03d5 ij s are obtained by means of the TreeSHAP algorithm. To rank the features by their overall importance, we estimate the slopes \u03d5 j x T j =\u00f0x j x T j \u00de for each j, where \u03d5 j \u2254(\u03d5 1j , \u03d5 2j ,. . .,\u03d5 Nj ) and x j \u2254(x 1j , x 2j ,. . .,x Nj ), thus obtaining a novel feature score which we refer to as Imp j and can be directly compared to the coefficient \u03b2 j .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Statistical analysis"
+        },
+        {
+            "text": "All models were fitted to a randomly chosen 90% of data entries, while the remaining entries were used for validation. Goodness-of-prediction was assessed by means of the c-statistics of the receiver operating characteristic curve (ROC-AUC) on the validation set, with bootstrapped 2.5%-97.5% confidence intervals.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Statistical analysis"
+        },
+        {
+            "text": "Risk factors showed strong associations with both death and ICUA, but the strength and even direction of these associations differed substantially across these outcomes. From logistic regression analysis, immunosuppression due to disease (OR 1.39, 95% CI 1.10-1.76), type-2 diabetes (OR 1.31, 95% CI 1.17-1.46), chronic respiratory disease (OR 1.19, 95% CI 1.05-1.35), age (OR 1.56 for each 10 year age increment, 95% CI 1.51-1.61), and being male (OR 1.54, 95% CI 1.42-1.68) were strongly associated with deaths due to COVID-19. The regression was adjusted for other comorbidities including type-1 diabetes, chronic liver disease, serious mental illness, chronic renal disease, chronic neurological condition, chronic heart disease, hypertension, obesity and asthma, none of which were significantly associated with death (BH test). Having any comorbidity other than these was recorded in the dataset as \"other comorbidity\" and appeared to be a protective factor (OR death, 0.87, 95% CI 0.80-0.95). Some self-reported ethnicities, compared to white British, were associated with substantially increased risk of death (e.g., Indian (OR 1.84, 95% CI 1.42-2.73)) risk of death. Asymptomatic testing was associated with substantially lower risk of death (OR 0.29, 95% CI 0.18-0.45). The estimated ORs of deaths are detailed in Table 3 and illustrated in Fig A in S1 Text. Table 3 ). Each of these had far weaker or even negative associations with death. Some features associated with increased risk of death such as chronic respiratory disease were negatively associated with ICUA (OR 0.83, 95% CI 0.72-0.96). No ethnicity was negatively associated with ICUA compared to white British although there was substantial variation across these. Other factors associated with ICUA included immunosuppression due to treatment (OR 1.79, 95% CI 1.41-2.28) and male sex (OR 1.73, 95% CI 1.58-1.89). Old age (OR 0.76, 95% CI 0.74-0.78 for each 10-year increment), asymptomatic testing (OR 0.52, 95% CI 0.35-0.74), and pregnancy (OR 0.34, 95% CI 0.20-0.57) were associated with decreased ICUA. The associations of each predictor with death and with ICUA are illustrated in Fig 2, highlighting some contrasts in direction and magnitude while other risk factors appear more consistently associated with the two outcomes. The overall associations obtained from the GBDT model were consistent with the logistic model results.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 1324,
+                    "end": 1331,
+                    "text": "Table 3",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 1369,
+                    "end": 1376,
+                    "text": "Table 3",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 2158,
+                    "end": 2164,
+                    "text": "Fig 2,",
+                    "ref_id": null
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "The receiver operating characteristic (ROC) curves for the logistic regression models are plotted in Fig 3. The ROC-Area Under the Curve (AUC) scores for the logistic regression classifiers were 0.68 (95% CI 0.65-0.71) and 0.80 (95% CI 0.78-0.82) for death and ICUA outcome predictions, respectively. Generalized collinearity diagnostics by means of variance inflation factor (VIF) excluded severe collinearity (VIFs <2, Table 4 , see also reference [21] ). The scores of GBDT for classification task were 0.68 (95% CI 0.66-0.71) and 0.83 (95% CI 0.82-0.85) for the death and ICUA outcome predictions, respectively. In addition to outcome prediction, the GBDT analysis with Shapley value explanations yielded the impact of each feature on both death and ICUA outcome for each single patient (summarised in Figs C and D in S1 Text).",
+            "cite_spans": [
+                {
+                    "start": 450,
+                    "end": 454,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 101,
+                    "end": 107,
+                    "text": "Fig 3.",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 421,
+                    "end": 428,
+                    "text": "Table 4",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "We contrasted the Shapley values for impacts on death and ICUA in Fig 4. All patients with obesity, serious mental illness, immunosuppressing treatment, male sex, asymptomatic admission, and those whose self-reported ethnicity was other black, Indian, black Caribbean, other Asian, other white, and NA had concordant impacts to death and ICU admission. In almost all asthma patients, it is possible to appreciate negative impact on death and positive impact on ICUA. Patients with type-1 diabetes, chronic renal disease, or chronic neurological disease show positive association with death and negative association with ICUA outcome, although with very dispersed Shapley value distributions. Upon visual inspection, the scatter points for chronic liver disease, type-1 diabetes, chronic neurological, and chronic heart comorbidities show two (or more) clusters with respect to the impact on death. The hypertension scatter plot displays a neat partition with respect to the impact on ICUA outcome, showing that this variable was associated with ICUA. Its impact on death is less clear, with patients having discordant or concordant Shapley values for death. The cases of type-2 diabetes and chronic respiratory disease appear diametrically opposite to these, as all patients with such conditions had positive Shapley values for death with qualitatively different impacts on ICU outcome.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 66,
+                    "end": 72,
+                    "text": "Fig 4.",
+                    "ref_id": null
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "Stratifying on ICUA yields marginally higher ROC-AUC scores (logistic regression 0.69 (95% CI 0.66-0.72), GBDT 0.70 (95% CI 0.67-0.72) compared to death prediction obtained without ICUA prediction. In fact, ICUA is a very strong predictor of death (OR 2.25, 95% CI 2.04-2.48) but is markedly correlated to other features (Fig 1) . The full results are summarised in Figs E-F and Table A in S1 Text.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 321,
+                    "end": 328,
+                    "text": "(Fig 1)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 379,
+                    "end": 386,
+                    "text": "Table A",
+                    "ref_id": null
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "The features were ranked according to their median ORs and their importance scores Imp (defined in Materials and methods), showing that these two are ordinally associated in both death (Spearman's \u03c1 = 0.47, P = 0.005) and ICUA outcomes (Spearman's \u03c1 = 0.97, P = 13\u00d710 \u221222 ), as shown in Fig 5. The explanation model for the GBDT was therefore largely consistent with the interpretable logistic linear model. The analysis of SHAP main effect also revealed the non-linear relations between outcomes and the age and admission day (Figs 6 and  7) . The probability of death rose above 30 years of age. Likelihood of ICU admission decreased markedly above 60.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 287,
+                    "end": 293,
+                    "text": "Fig 5.",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 527,
+                    "end": 542,
+                    "text": "(Figs 6 and  7)",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "This cohort study investigated the association between patient characteristics (demographics and comorbidities) and severe outcomes with COVID-19 using a large national dataset in England (the CHESS database). Our findings on many factors were largely consistent with the patterns observed worldwide in studies on patients infected with SARS-CoV-2 [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] . Both logistic and GBDT models predicted admission to ICU more accurately than death.",
+            "cite_spans": [
+                {
+                    "start": 348,
+                    "end": 352,
+                    "text": "[22]",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 353,
+                    "end": 357,
+                    "text": "[23]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 358,
+                    "end": 362,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 363,
+                    "end": 367,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 368,
+                    "end": 372,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 373,
+                    "end": 377,
+                    "text": "[27]",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 378,
+                    "end": 382,
+                    "text": "[28]",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 383,
+                    "end": 387,
+                    "text": "[29]",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 388,
+                    "end": 392,
+                    "text": "[30]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 393,
+                    "end": 397,
+                    "text": "[31]",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 398,
+                    "end": 402,
+                    "text": "[32]",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 403,
+                    "end": 407,
+                    "text": "[33]",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 408,
+                    "end": 412,
+                    "text": "[34]",
+                    "ref_id": "BIBREF33"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "Obese patients were approximately 3.4-fold more likely to be admitted to ICU (the strongest association for any co-morbid condition), while the association with mortality was small and non-significant (OR 1.16, BH test). In a US study involving 3615 patients, patients with a body mass index (BMI) between 30 and 35 were 2-fold more likely to reach the ICU and those with a BMI of over 35 were 3-fold more likely, when compared to BMIs of less than 30 [22] . These very high levels of ICUA in our and other works, as well as the contrastingly weaker association with COVID-19 mortality, could be explained by clinicians tending to, relatively, over-admit obese patients to ICU. It could reflect ICUA being very effective in reducing",
+            "cite_spans": [
+                {
+                    "start": 452,
+                    "end": 456,
+                    "text": "[22]",
+                    "ref_id": "BIBREF21"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "Features are grouped into comorbidities, self-defined ethnicities, and others (top to bottom). For binary variables, marker sizes are proportional to the frequencies of the exposure. Error bars are 68% confidence intervals (CIs). Gray and white regions correspond to discordant and concordant associations. The figure highlights mismatches in the ORs of a number of variables, e.g., asthma and \"other comorbidity\" were risk factors for ICUA but protective for death outcome. Chronic respiratory disease was a risk factor for death but negatively associated with ICU admission. For most ethnicities the ORs of death and ICUA were concordant in sign but of different magnitude. Abbreviations: Mental ill.: serious mental illness; Resp. dis.: respiratory disease; Neuro. dis.: neurological disease; Immunos. dis.: immunosuppression due to disease; T2D: type-1 diabetes; T1D: type-2 diabetes; Eth. NA: ethnicity unrecorded; Immunos. treat.: immunosuppression due to treatment; Asymp.: asymptomatic-meaning that testing was not due to the presence of COVID-19 symptoms.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Fig 2. Contrasting odd ratios (ORs) of death with ORs of intensive care unit admission (ICUA)."
+        },
+        {
+            "text": "https://doi.org/10.1371/journal.pcbi.1009121.g002 mortality in this group and is an important area for further research [35] . Hypertension, and asthma were associated with ICU admission but not death. Others have reported increased risk of severe COVID-19 among asthmatics, with the increase driven only by patients with non-allergic asthma [27] . Hypertension has been associated with severe COVID-19 disease in previous univariable studies but there is no clear evidence that hypertension is an independent risk factor [29] .",
+            "cite_spans": [
+                {
+                    "start": 120,
+                    "end": 124,
+                    "text": "[35]",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 342,
+                    "end": 346,
+                    "text": "[27]",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 522,
+                    "end": 526,
+                    "text": "[29]",
+                    "ref_id": "BIBREF28"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Fig 2. Contrasting odd ratios (ORs) of death with ORs of intensive care unit admission (ICUA)."
+        },
+        {
+            "text": "Black or Asian minority ethnic groups showed higher odds of death and substantially higher odds of ICU admission in our data compared to white British patients. Similar findings to ours have been demonstrated UK-wide. Multivariable analyses from large multi-ethnic cohorts have suggested that Asian and black patients group experienced an excessive level of mortality, hospital admission, and intensive care admission even when differences in age, sex, deprivation, geographical region, and some key comorbidities were taken into account [5, 28, 30, 31] . White Irish ethnicity was non-significantly associated with lower risk of death (OR 0.49, BH test). This finding, adjusted for all covariates, echoes findings in an earlier study comparing death rates standardised for age and region using census data [30] . Chinese ethnicity predicted ICU admission (OR 10.22 with respect to the white British baseline) most strongly, followed by black Caribbean (OR 5.25) . For these and other minority groups the association with ICU admission far exceeded that of death. An unrecorded or unknown ethnicity was strongly negatively associated with ICU admission, but not strongly associated with death. This may indicate increased recording of ethnicity on ICU admission, a potential cause of bias in estimating true differences in risk of ICU admission across ethnicities. Age, type-1 diabetes, and neurological, heart, and respiratory diseases were negatively associated with ICU admission but not death. Age and chronic respiratory disease were strongly positively associated with death. Data gathered across the USA showed that deaths are 90 times higher in the 65-74 age group than the 18-29 age group and 630 times higher in the 85 and older group [36] . This may reflect judgements of limited capacity to benefit from ICU admission due to age and some co-morbidities. Type-2 diabetes is broadly reported to be associated with poor outcome in COVID-19 patients, while studies reporting outcome for type-1 diabetes are rare [32, 33] . A national general practice based analysis in England demonstrated that both type-1 and type-2 diabetes are associated with increased risk of in-hospital death with COVID-19 [34] . Our multiply adjusted analysis of the CHESS dataset confirmed that type-2 diabetes had a strong association with mortality (and non-significant association with ICU admission), while type-1 diabetes' association was positive but not statistically significant. On the other hand, type-1 diabetes was negatively associated with ICUA outcome. There is uncertainty regarding the effect of diabetes and glycaemic control on COVID-19 outcome. Whilst some suggest a 3-fold increase in intensive care admission and death [24] , others found no association between glycaemic control and severe outcome [26] . Potential mechanisms for effects could include hyperinsulinemia or the interaction of SARS-CoV-2 with ACE2 receptors expressed in pancreatic \u03b2 cells [32, 37] .",
+            "cite_spans": [
+                {
+                    "start": 538,
+                    "end": 541,
+                    "text": "[5,",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 542,
+                    "end": 545,
+                    "text": "28,",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 546,
+                    "end": 549,
+                    "text": "30,",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 550,
+                    "end": 553,
+                    "text": "31]",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 807,
+                    "end": 811,
+                    "text": "[30]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 953,
+                    "end": 962,
+                    "text": "(OR 5.25)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1745,
+                    "end": 1749,
+                    "text": "[36]",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 2020,
+                    "end": 2024,
+                    "text": "[32,",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 2025,
+                    "end": 2028,
+                    "text": "33]",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 2205,
+                    "end": 2209,
+                    "text": "[34]",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 2725,
+                    "end": 2729,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 2805,
+                    "end": 2809,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 2961,
+                    "end": 2965,
+                    "text": "[32,",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 2966,
+                    "end": 2969,
+                    "text": "37]",
+                    "ref_id": "BIBREF36"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Fig 2. Contrasting odd ratios (ORs) of death with ORs of intensive care unit admission (ICUA)."
+        },
+        {
+            "text": "Male sex was positively and similarly associated with both ICU admission and death. The increased risk of male deaths is consistent with worldwide data, in which, on average, 1.4-fold more men than women have died from SARS-CoV2, with some countries reporting greater than 2-fold male deaths [38] . Increased expression of the ACE2 receptor may occur in men and has been suggested as a possible explanation for this finding [25] . Asymptomatic testing",
+            "cite_spans": [
+                {
+                    "start": 292,
+                    "end": 296,
+                    "text": "[38]",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 424,
+                    "end": 428,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Fig 2. Contrasting odd ratios (ORs) of death with ORs of intensive care unit admission (ICUA)."
+        },
+        {
+            "text": "Each marker in the scatter plots corresponds to an in-patient. Colours from red to blue indicate the value of the underlying variable (in binary variables, red colour means feature is present, blue otherwise; in age feature, red to blue shades correspond to old to young ages; in admission day, red to blue shades correspond to early to late dates). The explanation models assigned a concordant (discordant) impact on death and ICUA to the patients in the white (grey) regions. The scatter plots expose not only the importance of a potential risk factor but also its range of effects over the cohort. All patients with immunosuppression disease, type-2 diabetes, liver and respiratory disease, and Pakistani self-defined ethnicity had positive Shapley values from death, with impact on ICU ranging from negative to positive values, thus suggesting that these conditions were always leaning towards death but sometimes not consistently towards ICUA. Conversely hypertension always have positive impact on ICUA whilst can either have positive or negative impact on death for different patients. The Shapley values for death for many features appear clustered (T1 diabetes, chronic liver, neurological, and hearth disease comorbidities), thus suggesting the presence of different groups under the same labels with different effect on patient health. Inspection of the age pattern suggests the presence of a group of young patients (blue markers) with negative impact on both age and ICUA outcome, old-age patients with positive impact on death and negative impact on ICUA outcome, and intermediate-age patients with impacts negative on death and positive on ICUA outcome. For abbreviations, see the caption of Fig 2. https://doi.org/10.1371/journal.pcbi.1009121.g004",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 1707,
+                    "end": 1713,
+                    "text": "Fig 2.",
+                    "ref_id": null
+                }
+            ],
+            "section": "Fig 4. Contrasting Shapley values for impact on death and intensive-care unit admission ICUA for all variables included in this study."
+        },
+        {
+            "text": "Contrasting factors associated with COVID-19-related ICUA and death outcomes and pregnancy demonstrated a strong negative association with both death and ICU admission. These results were expected in view of NHS trusts undertaking surveillance swabs for asymptomatic people, including among elective hospital admissions.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        },
+        {
+            "text": "Different machine-learning models have been leveraged to predict COVID-19 patients at risk of sudden deterioration. A study over 162 infected patients in Israel demonstrated that artificial intelligence may allow accurate risk prediction for COVID-19 patients using three models (neural networks, random trees, and random forests) [39] ; a random forest model was Table 3 ). Red markers correspond to the features whose association with the outcome was not significant according to the logistic regression. The x-axis errorbars comprise 68% confidence intervals. The SHAP importance Imp allows us to assess to what extent a feature contributes to the GBDT prediction. This plot shows that these are consistent with the well-known logistic regression coefficients, despite the underlying models used to generate these two quantities are fundamentally different.",
+            "cite_spans": [
+                {
+                    "start": 331,
+                    "end": 335,
+                    "text": "[39]",
+                    "ref_id": "BIBREF38"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 364,
+                    "end": 371,
+                    "text": "Table 3",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        },
+        {
+            "text": "https://doi.org/10.1371/journal.pcbi.1009121.g005 ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        },
+        {
+            "text": "Contrasting factors associated with COVID-19-related ICUA and death outcomes used over 1987 patients for early prediction of ICU transfer [40] ; the GBDT model was deployed on blood-sample data from 485 patients in Wuhan, China [41] ; GBDT models outperformed conventional early-warning scoring systems for ventilation requirement prediction over 197 patients [42] ; deep learning and ensemble models were reported to perform well for early warning and triaging in China [9, 43] . These models are very complex, but evidence indicates that mortality predictions can be obtained from more parsimonious models, upon selecting the most important features, thus facilitating more efficient implementation of machinelearning in clinical environments [44] . Despite these successes, prediction models have been found overall to be poorly reported and at high risk of bias in a systematic review [45] . A comprehensive list of relevant works is out of the scope of this paper, but it is worth underlining that machine-learning methods typically excel in outcome prediction but lack ease of interpretation of the result. In this study, we bridged the gap between performance and interpretability in machine learning for poor outcome predictions in COVID-19 patients. We trained GBDT models (see Materials and methods section) and extracted not-only their predictions, but also the extent to which each potential risk factor contributed to the prediction overall (thus Overall, the association of patient features with the final outcome (measured by the SHAP importance scores Imp, see Materials and methods and Fig 5) is consistent with the logistic regression results, although the two models are intrinsically different. Moreover, for each feature, we derived an individual Shapley value for each patient, allowing us to consider the variation in effects among patients. As a first example, we discuss interpretation of type-2 diabetes. In the summary plots of Fig 4 and Figs C and D in S1 Text, the red markers correspond to type-2 diabetes patients and blue to patients without type-2 diabetes. In the summary plot for death outcome (Fig C in S1 Text, see also Fig 4) , the red and blue markers are grouped into two distinct clusters. All the type-2 diabetes patients had positive Shapley values, thus showing that such a comorbidity was always associated with death, while all the other patients had nearly zero Shapley values. Conversely, in the summary plot for ICUA outcome (Fig D in S1 Text, see also Fig 4) , the red markers appear scattered. Some T2-diabetes patients had positive Shapley values (positive association with ICU admission) while others had negative values (a negative association with ICU admission). The summary plots thus show not only the overall importance of a potential risk factor, but also its range of effects over the patients. In this case our interpretation is that although consistently increasing the risk of death, the presence of type 2 diabetes had more variable impact on decision making around ICU admission, in some cases apparently adding to the case for admission and in some cases diminishing it.",
+            "cite_spans": [
+                {
+                    "start": 138,
+                    "end": 142,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                },
+                {
+                    "start": 228,
+                    "end": 232,
+                    "text": "[41]",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 360,
+                    "end": 364,
+                    "text": "[42]",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 471,
+                    "end": 474,
+                    "text": "[9,",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 475,
+                    "end": 478,
+                    "text": "43]",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 745,
+                    "end": 749,
+                    "text": "[44]",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 889,
+                    "end": 893,
+                    "text": "[45]",
+                    "ref_id": "BIBREF44"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1603,
+                    "end": 1609,
+                    "text": "Fig 5)",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 1955,
+                    "end": 1964,
+                    "text": "Fig 4 and",
+                    "ref_id": null
+                },
+                {
+                    "start": 2129,
+                    "end": 2141,
+                    "text": "(Fig C in S1",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 2157,
+                    "end": 2163,
+                    "text": "Fig 4)",
+                    "ref_id": null
+                },
+                {
+                    "start": 2474,
+                    "end": 2486,
+                    "text": "(Fig D in S1",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 2502,
+                    "end": 2508,
+                    "text": "Fig 4)",
+                    "ref_id": null
+                }
+            ],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        },
+        {
+            "text": "Being male was positively associated with both death and ICU admission. Its impacts were concordant in sign and confined within a narrow range of values. Conversely, for example, chronic renal disease and immunosuppressive treatment had low impact on predicting death for some patients, but very high impact for others, perhaps reflecting that these categories comprise a number of diverse conditions and therapies. Considering ethnicity, most minority groups were consistently and positively associated with ICUA but the impact attributed to Pakistani ethnicity were much more variable.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        },
+        {
+            "text": "Shapley value analysis of the GBDT model also excels in explaining the nonlinear relations between covariates and their importance to outcome prediction. In Fig 6A, the predicted probability of death is shown to increase with age, in part due to increasing presence of comorbidities which are correlated with increasing age (Fig 1) . In fact, the isolated effect of age (the SHAP main effects for age), illustrated in Fig 6C, shows a sharp rise from age 30 even if it is stripped from the interactions with the other factors. For ICUA, the SHAP main effect for age abruptly drops and even reverses from the 60th year of age (Fig 7) . The abruptness may suggest an age threshold is being applied in clinical decision making on ICU admission.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 157,
+                    "end": 164,
+                    "text": "Fig 6A,",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 324,
+                    "end": 331,
+                    "text": "(Fig 1)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 418,
+                    "end": 425,
+                    "text": "Fig 6C,",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 624,
+                    "end": 631,
+                    "text": "(Fig 7)",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        },
+        {
+            "text": "During the first peak of COVID-19 epidemic healthcare services were under variable strain, with clinical expertise growing over time. Declining in-hospital mortality was observed in Italy [46] and England [47] during the first pandemic peak. This may reflect a mix of changing pressure, developing clinical expertise and variable follow-up time following admission. We included the patient's admission day in our models to allow for these effects in adjustment (logistic regression) and attribution of impact (machine learning). Hospital admission later than March decreased both death and ICUA. These results mirror the PDPs outlined in Figs 6A and 6B and 7A and 7B, showing that a local explanation technique such as the Shapley value analysis supersedes and is consistent with the global explanation of the PDPs. The performance gains of the GBDTs here are small, in part due to the fact that all but two predictors (age and admission date) are binary. Indeed, the logistic model predictions depend on a linear combination of the predictor values, which is adequate if all the predictors are binary and the classes are linearly separable. The similarity in the predictive power for these specific cases should not shadow the other advantages of the GBDTs (including their greater generality and their ability of detecting non-linearity and variation in predictive effect). While all our models had excellent performances, it is worth noting that prediction of ICUA outcome was significantly better than death alone prediction for both. Including laboratory test results in the predictor variable may improve death prediction [48] .",
+            "cite_spans": [
+                {
+                    "start": 188,
+                    "end": 192,
+                    "text": "[46]",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 205,
+                    "end": 209,
+                    "text": "[47]",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 1628,
+                    "end": 1632,
+                    "text": "[48]",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "ref_spans": [],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        },
+        {
+            "text": "In conclusion, this study confirms that, in hospitalised patients, the risk of severe COVID-19, defined as either death or transfer to intensive care unit, is strongly associated with known demographic factors and comorbidities. We found that the association of these variables with death was often qualitatively and quantitatively different from their association with ICU admission. This was consistently derived by means of two different predictive models, i.e., the standard logistic and the GBDT machine-learning models. The Shapley value explanation of the latter model also highlights the sometimes variable impact of each factor for each patient. These results allow an insight into the variable impact of individual risk factors on clinical decision support systems. We suggest that these should not only grant the optimal average prediction, but also provide interpretable outputs for validation by domain experts. Shapley values may also support analytical approaches to address the problem of characterising the group of patients for whom a prediction is incorrect. This is an important additional potential area for research and application. Shapley-value analyses allow clinical interpretation of the results from a complex machine-learning model such as the GBDT. Using these we have derived importance scores which are consistent with the better known ORs as an overall assessment of an average effect but can additionally display the extent to which this average effect is consistent across patients or highly variable among different patient groups. We recommend the wider adoption of Shapley-value analyses to support interpretation of ML outputs in clinical decision making given this capacity to communicate the variation in the effects of predictive variables. These aspects are particularly valuable to tackle COVID-19, a complex disease that can cause a variety of symptoms and clinical outcomes, depending on the patients' conditions, and rapidly overwhelm healthcare systems, thus requiring large-scale automated decision systems. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Transmission, Diagnosis, and Treatment of Coronavirus Disease 2019 (COVID-19): A Review",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Wiersinga",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Rhodes",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Cheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Peacock",
+                    "suffix": ""
+                },
+                {
+                    "first": "Prescott",
+                    "middle": [
+                        "Hc"
+                    ],
+                    "last": "Pathophysiology",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "JAMA-Journal of the American Medical Association. American Medical Association",
+            "volume": "",
+            "issn": "",
+            "pages": "782--793",
+            "other_ids": {
+                "DOI": [
+                    "10.1001/jama.2020.12839"
+                ],
+                "PMID": [
+                    "32648899"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "COVID-19) Dashboard | WHO Coronavirus Disease (COVID-19) Dashboard",
+            "authors": [],
+            "year": null,
+            "venue": "WHO Coronavirus Disease",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Comorbidities and the risk of severe or fatal outcomes associated with coronavirus disease 2019: A systematic review and meta-analysis",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Chi",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Dong",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Lv",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Shen",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "International Journal of Infectious Diseases",
+            "volume": "",
+            "issn": "",
+            "pages": "47--56",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.ijid.2020.07.029"
+                ],
+                "PMID": [
+                    "32721533"
+                ]
+            }
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Clinical Characteristics of Patients Who Died of Coronavirus Disease 2019 in China",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xie",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Tong",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Guan",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Du",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Qiu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "JAMA Netw open",
+            "volume": "3",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1001/jamanetworkopen.2020.5619"
+                ],
+                "PMID": [
+                    "32275319"
+                ]
+            }
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Factors associated with COVID-19-related death using OpenSAFELY",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Williamson",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Walker",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Bhaskaran",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bacon",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Bates",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Morton",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature",
+            "volume": "584",
+            "issn": "",
+            "pages": "430--436",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41586-020-2521-4"
+                ],
+                "PMID": [
+                    "32640463"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Rapid Epidemiological Analysis of Comorbidities and Treatments as risk factors for COVID-19 in Scotland (REACT-SCOT): A population-based case-control study. Murthy S, editor",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Mckeigue",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Weir",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bishop",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Mcgurnaghan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kennedy",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Mcallister",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "PLOS Med",
+            "volume": "17",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/journal.pmed.1003374"
+                ],
+                "PMID": [
+                    "33079969"
+                ]
+            }
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Living risk prediction algorithm (QCOVID) for risk of hospital admission and mortality from coronavirus 19 in adults: national derivation and validation cohort study",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Clift",
+                    "suffix": ""
+                },
+                {
+                    "first": "Cac",
+                    "middle": [],
+                    "last": "Coupland",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Keogh",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Diaz-Ordaz",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Williamson",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Harrison",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "BMJ",
+            "volume": "371",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1136/bmj.m3731"
+                ],
+                "PMID": [
+                    "33082154"
+                ]
+            }
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Risk stratification of patients admitted to hospital with covid-19 using the ISARIC WHO Clinical Characterisation Protocol: development and validation of the 4C Mortality Score",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Knight",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ho",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Pius",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Buchan",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Carson",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Drake",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "BMJ",
+            "volume": "370",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1136/bmj.m3339"
+                ],
+                "PMID": [
+                    "32907855"
+                ]
+            }
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Machine learning based early warning system enables accurate mortality risk prediction for COVID-19",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Cai",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Fang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat Commun",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41467-020-18684-2"
+                ]
+            }
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Interpretable Machine Learning-A Brief History, State-of-the-Art and Challenges",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Molnar",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Casalicchio",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Bischl",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Letter: COVID-19 Hospitalisation in England Surveillance System (CHESS)-daily reporting",
+            "authors": [],
+            "year": 2021,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Development of a prognostic model for mortality in COVID-19 infection using machine learning",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Booth",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Abels",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Mccaffrey",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Mod Pathol",
+            "volume": "34",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41379-020-00700-x"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Machine learning-based prediction of COVID-19 diagnosis based on symptoms",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zoabi",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Deri-Rozov",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Shomron",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Digit Med",
+            "volume": "4",
+            "issn": "3",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41746-020-00372-6"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Benjamini",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Hochberg",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "J R Stat Soc Ser B",
+            "volume": "57",
+            "issn": "",
+            "pages": "289--300",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/j.2517-6161.1995.tb02031.x"
+                ]
+            }
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining-KDD '16",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Guestrin",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Xgboost",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "785--794",
+            "other_ids": {
+                "DOI": [
+                    "10.1145/2939672.2939785"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Making a Science of Model Search: Hyperparameter Optimization in Hundreds of Dimensions for Vision Architectures",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bergstra",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Yamins",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Cox",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Proceedings of the 30th International Conference on Machine Learning",
+            "volume": "",
+            "issn": "",
+            "pages": "115--123",
+            "other_ids": {
+                "DOI": [
+                    "10.1161/CIRCULATIONAHA.113.003334"
+                ],
+                "PMID": [
+                    "24077170"
+                ]
+            }
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "A Unified Approach to Interpreting Model Predictions",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Lundberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "S-I",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Guyon",
+                    "suffix": ""
+                },
+                {
+                    "first": "U V",
+                    "middle": [],
+                    "last": "Luxburg",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bengio",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Wallach",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Fergus",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Vishwanathan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "editors. Nips",
+            "volume": "16",
+            "issn": "",
+            "pages": "426--430",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "From local explanations to global understanding with explainable AI for trees",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Lundberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Erion",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Degrave",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Prutkin",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Nair",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat Mach Intell",
+            "volume": "2",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s42256-019-0138-9"
+                ]
+            }
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Contributions to the Theory of Games (AM-28), Volume II",
+            "authors": [
+                {
+                    "first": "Ls",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Shapley",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Value For N-Person",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Games",
+                    "suffix": ""
+                }
+            ],
+            "year": 1953,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "307--318",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Greedy function approximation: A gradient boosting machine",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Friedman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Ann Stat",
+            "volume": "29",
+            "issn": "",
+            "pages": "1189--1232",
+            "other_ids": {
+                "DOI": [
+                    "10.1214/aos/1013203451"
+                ]
+            }
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "An R companion to applied regression",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Fox",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Weisberg",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Clinical infectious diseases: an official publication of the Infectious Diseases Society of America",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Lighter",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Phillips",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Hochman",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sterling",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Johnson",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Francois",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "896--897",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/cid/ciaa415"
+                ],
+                "PMID": [
+                    "32271368"
+                ]
+            }
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "High Prevalence of Obesity in Severe Acute Respiratory Syndrome Coronavirus-2 (SARS-CoV-2) Requiring Invasive Mechanical Ventilation",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Simonnet",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Chetboun",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Poissy",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Raverdy",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Noulette",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Duhamel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Obesity",
+            "volume": "28",
+            "issn": "",
+            "pages": "1195--1199",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/oby.22831"
+                ],
+                "PMID": [
+                    "32271993"
+                ]
+            }
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "COVID-19 in People with Diabetes: Urgently Needed Lessons from Early Reports. Diabetes Care. American Diabetes Association Inc.; 2020",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Riddle",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Buse",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Franks",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Knowler",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Ratner",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Selvin",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "1378--1381",
+            "other_ids": {
+                "DOI": [
+                    "10.2337/dci20-0024"
+                ],
+                "PMID": [
+                    "32409505"
+                ]
+            }
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Biological sex impacts COVID-19 outcomes",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Klein",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Dhakal",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Ursin",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Deshpande",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Sandberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "Mauvais-Jarvis",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "PLOS Pathog",
+            "volume": "16",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/journal.ppat.1008570"
+                ],
+                "PMID": [
+                    "32569293"
+                ]
+            }
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Phenotypic characteristics and prognosis of inpatients with COVID-19 and diabetes: the CORONADO study",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Cariou",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Hadjadj",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Wargny",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Pichelin",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Al-Salameh",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Allix",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Diabetologia",
+            "volume": "63",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s00125-020-05180-x"
+                ]
+            }
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Association of asthma and its genetic predisposition with the risk of severe COVID-19",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Hasegawa",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Ma",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Fujiogi",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Camargo",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Liang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Allergy Clin Immunol",
+            "volume": "146",
+            "issn": "",
+            "pages": "327--329",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.jaci.2020.06.001"
+                ],
+                "PMID": [
+                    "32522462"
+                ]
+            }
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Ethnicity and Risk of Death in Patients Hospitalised for COVID-19 Infection: An Observational Cohort Study in an Urban Catchment Area",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Sapey",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Gallier",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Mainey",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Nightingale",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Mcnulty",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kolesnyk",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "SSRN Electron J",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.2139/ssrn.3588545"
+                ]
+            }
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Hypertension and related diseases in the era of COVID-19: a report from the Japanese Society of Hypertension Task Force on COVID-19. Hypertension Research",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Shibata",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Arima",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Asayama",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Hoshide",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ichihara",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Ishimitsu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41440-020-0515-0"
+                ]
+            }
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Asian and Minority Ethnic groups in England are at increased risk of death from COVID-19: indirect standardisation of NHS mortality data",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Aldridge",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Lewer",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Katikireddi",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Mathur",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Pathak",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Burns",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Wellcome Open Res",
+            "volume": "5",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.12688/wellcomeopenres.15922.2"
+                ],
+                "PMID": [
+                    "32613083"
+                ]
+            }
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Ethnicity and Outcomes of COVID-19 Patients in England",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Alaa",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Qian",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Rashbass",
+                    "suffix": ""
+                },
+                {
+                    "first": "Gomes",
+                    "middle": [],
+                    "last": "Pinto",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Benger",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Van Der Schaar",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "COVID-19 in people with diabetes: understanding the reasons for worse outcomes",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Apicella",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Campopiano",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mantuano",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Mazoni",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Coppelli",
+                    "suffix": ""
+                },
+                {
+                    "first": "Del",
+                    "middle": [],
+                    "last": "Prato",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/S2213-8587%2820%2930238-2"
+                ],
+                "PMID": [
+                    "32687793"
+                ]
+            }
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Coronavirus Infections and Type 2 Diabetes-Shared Pathways with Therapeutic Implications",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Drucker",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Endocr Rev",
+            "volume": "41",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1210/endrev/bnaa011"
+                ],
+                "PMID": [
+                    "32294179"
+                ]
+            }
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Associations of type 1 and type 2 diabetes with COVID-19-related mortality in England: a whole-population study",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Barron",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Bakhai",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Kar",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Weaver",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Bradley",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Ismail",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Lancet Diabetes Endocrinol",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/S2213-8587%2820%2930272-2"
+                ],
+                "PMID": [
+                    "32798472"
+                ]
+            }
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "VR-, 2020 U. High Prevalence of Obesity in Severe Acute Respiratory Syndrome Coronavirus-2 (SARS-CoV-2) Requiring Invasive Mechanical Ventilation",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Simonnet",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Chetboun",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Poissy",
+                    "suffix": ""
+                },
+                {
+                    "first": ".",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 1994,
+            "venue": "Obesity",
+            "volume": "28",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/oby.23006"
+                ],
+                "PMID": [
+                    "32959517"
+                ]
+            }
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Provisional Death Counts for Coronavirus Disease 2019 (COVID-19)",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "COVID-19 and diabetes: a co-conspiracy?",
+            "authors": [],
+            "year": 2020,
+            "venue": "The Lancet Diabetes Endocrinology TLD&",
+            "volume": "8",
+            "issn": "",
+            "pages": "30315--30321",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/S2213-8587%2820%2930315-6"
+                ],
+                "PMID": [
+                    "32946812"
+                ]
+            }
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "COVID-19 sex-disaggregated data tracker-Global Health 50/50",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Utilization of machine-learning models to accurately predict the risk for critical COVID-19",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Assaf",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Gutman",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Neuman",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Segal",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Amit",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Gefen-Halevi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Intern Emerg Med",
+            "volume": "1",
+            "issn": "9",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s11739-020-02475-0"
+                ],
+                "PMID": [
+                    "32812204"
+                ]
+            }
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Using Machine Learning to Predict ICU Transfer in Hospitalized COVID-19 Patients",
+            "authors": [
+                {
+                    "first": "F-Y",
+                    "middle": [],
+                    "last": "Cheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Joshi",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Tandon",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Freeman",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Reich",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mazumdar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Clin Med",
+            "volume": "9",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/jcm9061668"
+                ],
+                "PMID": [
+                    "32492874"
+                ]
+            }
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "An interpretable mortality prediction model for COVID-19 patients",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Yan",
+                    "suffix": ""
+                },
+                {
+                    "first": "H-T",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Goncalves",
+                    "suffix": ""
+                },
+                {
+                    "first": "Yyy",
+                    "middle": [],
+                    "last": "Xiao",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Guo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat Mach Intell",
+            "volume": "2",
+            "issn": "",
+            "pages": "283--288",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s42256-020-0180-7"
+                ]
+            }
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Prediction of respiratory decompensation in Covid-19 patients using machine learning: The READY trial",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Burdick",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Lam",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mataraso",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Lynn-Palevsky",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Braden",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Dellinger",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Comput Biol Med",
+            "volume": "124",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.compbiomed.2020.103949"
+                ],
+                "PMID": [
+                    "32798922"
+                ]
+            }
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Early triage of critically ill COVID-19 patients using deep learning",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Liang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Yao",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Lv",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Zanin",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat Commun",
+            "volume": "11",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41467-020-17280-8"
+                ],
+                "PMID": [
+                    "32669540"
+                ]
+            }
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "Clinical features of COVID-19 mortality: development and validation of a clinical prediction model",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Yadaw",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Chak",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bose",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Iyengar",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bunyavanich",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Pandey",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Lancet Digit Heal",
+            "volume": "2",
+            "issn": "",
+            "pages": "516--525",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/S2589-7500%2820%2930217-X"
+                ],
+                "PMID": [
+                    "32984797"
+                ]
+            }
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Prediction models for diagnosis and prognosis of covid-19: Systematic review and critical appraisal",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Wynants",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Van Calster",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Collins",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Riley",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Heinze",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Schuit",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "BMJ",
+            "volume": "369",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1136/bmj.m1328"
+                ],
+                "PMID": [
+                    "32265220"
+                ]
+            }
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Decreased in-hospital mortality in patients with COVID-19 pneumonia",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Ciceri",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ruggeri",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Lembo",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Puglisi",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Landoni",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Zangrillo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Pathog Glob Health",
+            "volume": "1",
+            "issn": "2",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/20477724.2020.1785782"
+                ],
+                "PMID": [
+                    "32584660"
+                ]
+            }
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "Declining death rate from COVID-19 in hospitals in England",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Mahon",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Oke",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Heneghan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Risk prediction for poor outcome and death in hospital in-patients with COVID-19: derivation in Wuhan, China and external validation in London, UK. medRxiv",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Bean",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.04.28.20082222"
+                ]
+            }
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Correlation heatmap between self-defined ethnicities and pre-existing conditions. Colour shades from blue to red correspond to increasing values of Person correlation coefficient (white: no correlations are present). NA labels inpatients who did not identify themselves with any ethnicity.https://doi.org/10.1371/journal.pcbi.1009121.g001",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "ROC curves (C-statistics) of the logistic regression classifiers over the validation set. Confidence intervals are obtained by means of bootstrapping. https://doi.org/10.1371/journal.pcbi.1009121.g003",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "SHAP importance scores from the explaination model for GBDT vs logarithm of odd-rations (ORs) from logistic regression for death (A) and intensive-care unit (ICU) admission (B). Each point represents a feature (see",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "A-B) Partial dependence plots (PDPs) and probability of death predicted by GBDT for each patient in training set. C-D) SHAP main effect for age and admission date. These effects can be ascribed to the age/admission date alone, regardless of their covariates. The strong pattern in the main effect for admission date highlights the importance of incorporating timing in predictive models.https://doi.org/10.1371/journal.pcbi.1009121.g006",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "A-B) Partial dependence plots (PDPs) and probability of intensive-care unit admission predicted by GBDT for each patient in training set. C-D) SHAP main effect for age and admission date.https://doi.org/10.1371/journal.pcbi.1009121.g007PLOS COMPUTATIONAL BIOLOGYpermitting comparisons with the more easily-interpretable logistic regression model) and for each patient. So-called \"Shapley values\" quantify such information, as summarised inFig C andD of S1 Text for death and ICUA, respectively.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "Text. Supporting Information, including: Figs A, B, C, D, E, and F, and Table A. (PDF) Author Contributions Conceptualization: Massimo Cavallaro, Matt J. Keeling, Noel D. McCarthy. Data curation: Massimo Cavallaro, Matt J. Keeling. Formal analysis: Massimo Cavallaro.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "Matt J. Keeling, Noel D. McCarthy. Investigation: Massimo Cavallaro. Methodology: Massimo Cavallaro. Software: Massimo Cavallaro. Visualization: Massimo Cavallaro. Writing -original draft: Massimo Cavallaro, Haseeb Moiz, Noel D. McCarthy.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "Fraction of patients in cohort by ethnicity.Table 1. Fraction of patients in cohort by sex and comorbitidies.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "Estimated odd ratios (ORs) from adjusted logistic regressions and importance (Imp) scores of death and intensive-care unit admission (ICUA) outcomes. P values that do not test significant according to the Benjamini-Hochberg procedure are marked with a dagger( \u2020). https://doi.org/10.1371/journal.pcbi.1009121.t003 PLOS COMPUTATIONAL BIOLOGY Contrasting factors associated with COVID-19-related ICUA and death outcomes Among co-morbidities, obesity (OR 3.37, 95% CI 2.90-3.29), serious mental illness (OR 2.57, 95% CI 1.51-4.46), hypertension (OR 1.58, 95% CI 1.42-1.76), asthma (OR 1.51, 95% CI 1.29-1.77), and \"other comorbidity\" (OR 1.31, 95% CI 1.19-1.45) were strongly positively associated with ICU admission (Fig B in S1 Text and",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Variance inflation factors (VIFs) for the logistic regressions. VIF scores are always smaller than two, excluding serious collinearity issues.",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "McCarthy.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "annex"
+        }
+    ]
+}

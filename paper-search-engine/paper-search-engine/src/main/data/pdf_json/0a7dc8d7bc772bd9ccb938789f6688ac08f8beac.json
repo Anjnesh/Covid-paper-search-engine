@@ -1,0 +1,4227 @@
+{
+    "paper_id": "0a7dc8d7bc772bd9ccb938789f6688ac08f8beac",
+    "metadata": {
+        "title": "A new clustering method for the diagnosis of CoVID19 using medical images",
+        "authors": [
+            {
+                "first": "Himanshu",
+                "middle": [],
+                "last": "Mittal",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "\u00b7",
+                "middle": [],
+                "last": "Avinash",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Chandra",
+                "middle": [],
+                "last": "Pandey",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Raju",
+                "middle": [],
+                "last": "Pal",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Ashish",
+                "middle": [],
+                "last": "Tripathi",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "With the spread of COVID-19, there is an urgent need for a fast and reliable diagnostic aid. For the same, literature has witnessed that medical imaging plays a vital role, and tools using supervised methods have promising results. However, the limited size of medical images for diagnosis of CoVID19 may impact the generalization of such supervised methods. To alleviate this, a new clustering method is presented. In this method, a novel variant of a gravitational search algorithm is employed for obtaining optimal clusters. To validate the performance of the proposed variant, a comparative analysis among recent metaheuristic algorithms is conducted. The experimental study includes two sets of benchmark functions, namely standard functions and CEC2013 functions, belonging to different categories such as unimodal, multimodal, and unconstrained optimization functions. The performance comparison is evaluated and statistically validated in terms of mean fitness value, Friedman test, and box-plot. Further, the presented clustering method tested against three different types of publicly available CoVID19 medical images, namely X-ray, CT scan, and Ultrasound images. Experiments demonstrate that the proposed method is comparatively outperforming in terms of accuracy, precision, sensitivity, specificity, and F1-score.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Keywords CoVID19 diagnosis \u00b7 Clustering \u00b7 Metaheuristic algorithm \u00b7 Gravitational search algorithm Publisher's note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "With the rapid outbreak of the Corona virus Disease (CoVID19) around the globe [1] , the World health organization (WHO) has been declared CoVID19 as a Public Health Emergency of International Concern (PHEIC) [2] . Pathogenically, the virus identified in CoVID19 is \"severe acute respiratory syndrome coronavirus 2\" (SARS-CoV-2) which is quite distinct from other respiratory viruses like MERS-CoV, SARS-CoV, avian influenza, and influenza [3] . Usual symptoms in a COVID19 patient are fever, dry cough, and tiredness. Other signs experienced by patients include sore throat, diarrhea, headache, loss of taste Malaviya National Institute of Technology, Jaipur, India or smell, and rash on the skin and severely infected patients have symptoms of breathing difficulty, chest pain, and Multi-Organ Failure (MOF) [4] . Despite worldwide efforts to control the growth of CoVID19, the number of CoVID19 incidences is still rising at a reproduction rate of 3.77 [5] . Globally, there are over 6.15 million confirmed cases, out of which more than 2.63 million patients have recovered while 371,700 patients died, as of the date (1 June 2020) [6] . Moreover, USA with more than 1.8 million confirmed cases is the most severely affected country, followed by Brazil, Russia, United Kingdom, Spain, and Italy, with more than 200 thousand confirmed cases to date. India, being the second-largest population country, has also a significant rise in the number of CoVID19 cases. At the time of this writing article, there are nearly around 200 thousand confirmed cases in India with a death count of 5,394. Presently, there are no approved antiviral drugs or treatment regimens to cure COVID19 [4] .",
+            "cite_spans": [
+                {
+                    "start": 79,
+                    "end": 82,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 209,
+                    "end": 212,
+                    "text": "[2]",
+                    "ref_id": null
+                },
+                {
+                    "start": 440,
+                    "end": 443,
+                    "text": "[3]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 810,
+                    "end": 813,
+                    "text": "[4]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 956,
+                    "end": 959,
+                    "text": "[5]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 1135,
+                    "end": 1138,
+                    "text": "[6]",
+                    "ref_id": null
+                },
+                {
+                    "start": 1679,
+                    "end": 1682,
+                    "text": "[4]",
+                    "ref_id": "BIBREF2"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Meanwhile, real-time polymerase chain reaction (RT-PCR) can be conducted to confirm the diagnosis of CoVID19 [7] . However, it has been observed that this method has several limitations, such as time-consuming, low true-positive rates, and high false-negative rates [7, 8] . Due to the high communicable behavior of CoVID19, such limitations raises a major concern in the current Fig. 1 Representative sample images of non-CoVID19 patients: a chest Xray, b chest CT-scan, and c lung Ultrasound epidemic situation. If an infected person is not diagnosed and treated timely, then the infected person may act as a carrier of the virus and spread it among healthy people unknowingly. Therefore, early identification of the infected people would help to quarantine them, which would be advantageous in declining the growth of CoVID19. As an alternative, clinical observations [9] have observed high sensitivity in diagnosing the CoVID19 through medical imaging modalities. There are irregular groundglass opacities in chest images of the infected people [10] . Figures 1 and 2 illustrate representative samples of three medical imaging modalities, i.e. chest X-ray, chest CTscan, and lung ultrasound images, of non-CoVID19 and CoVID19 patients, respectively. In general, the manual analysis of such images requires expert radiologists which makes this costly and error-prone process. To alleviate the same, computer-aided methods could facilitate as diagnostic aids for CoVID19. Fang et al. [11] has observed that the diagnosis of CoVID19 through imaging patterns in the chest images is much accurate than RT-PCR. Similar observations are also reported by Xie et al. [12] . Recently, many supervised learning methods have been proposed in which the concept of transfer learning is mainly applied in which a pre-trained deep learning model is used as a feature extractor. Deep learning models are not employed directly due to the unavailability of a large dataset of labeled chest images for CoVID19. Therefore, researchers have extracted deep features through transfer learning, and then, classification is performed through supervised models like decision tree, AdaBoost, support vector machine, and many more [4, 13] .",
+            "cite_spans": [
+                {
+                    "start": 109,
+                    "end": 112,
+                    "text": "[7]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 266,
+                    "end": 269,
+                    "text": "[7,",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 270,
+                    "end": 272,
+                    "text": "8]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 871,
+                    "end": 874,
+                    "text": "[9]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 1049,
+                    "end": 1053,
+                    "text": "[10]",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 1486,
+                    "end": 1490,
+                    "text": "[11]",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 1662,
+                    "end": 1666,
+                    "text": "[12]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 2206,
+                    "end": 2209,
+                    "text": "[4,",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 2210,
+                    "end": 2213,
+                    "text": "13]",
+                    "ref_id": "BIBREF11"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 380,
+                    "end": 386,
+                    "text": "Fig. 1",
+                    "ref_id": null
+                },
+                {
+                    "start": 1056,
+                    "end": 1071,
+                    "text": "Figures 1 and 2",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Introduction"
+        },
+        {
+            "text": "Literature has witnessed that the accuracy attained by supervised learning on deep features, i.e. features extracted through transfer learning, is around 90%. However, the availability of limited medical images of CoVID19 may result in overfitting and thus impact the generalization ability of these learnable models. Moreover, the key requirement of supervised learning is labelled data [14, 15] . In such scenarios, literature has witnessed that unsupervised learning is quite efficient in determining patterns within the unlabelled data, especially clustering [16, 17] . Clustering methods induce inferences by discovering constitutional structures from the unlabelled dataset [18] . Therefore, the motivation of this paper is employing unsupervised learning on deep features for the diagnosis of CoVID19 from the medical chest images.",
+            "cite_spans": [
+                {
+                    "start": 388,
+                    "end": 392,
+                    "text": "[14,",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 393,
+                    "end": 396,
+                    "text": "15]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 563,
+                    "end": 567,
+                    "text": "[16,",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 568,
+                    "end": 571,
+                    "text": "17]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 680,
+                    "end": 684,
+                    "text": "[18]",
+                    "ref_id": "BIBREF16"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "In literature, one of the most popular unsupervised methods is Kmeans. Kmeans method clusters the unlabelled dataset into distinct unified clusters according to certain similarity measure [19] . Sometimes, Kmeans method suffers from a number of demerits like, biased towards initial clusters, converges pre-maturely, and produces local optima [20] . To mitigate such limitations, metaheuristic methods have been successful for clustering [21, 22] . Metaheuristic methods are mathematical models that mimic the unique optimization behavior of the natural systems [23] . Generally, metaheuristic methods have exhibited good performance on numerous nonlinear and complex optimization problems [24] [25] [26] . From the last two decades, they have been an integral part of many real-world applications ranging from design to business planning [27, 28] . Some popular metaheuristic methods are genetic algorithm [29] , differential algorithm [30] , particle swarm optimization [31] , ant colony optimization [32] , biogeography-based optimizer [33] , and artificial bee colony [34] . There are many other phenomena in nature that have been utilized for solving other types of realworld problems [35] . One such common phenomenon is Newton's law of gravity and motion which inspired Rashedi et al. [36] to introduce a new metaheuristic method termed as gravitational search algorithm (GSA). Gravitational search algorithm (GSA) has achieved effective results on many optimization problems like image segmentation, energy conservation, parameter selection, and clustering. A comprehensive survey of different applications of GSA is reviewed in [37] . The prominent attribute of GSA is the gravitational interaction among the considered solutions which makes it a unique and stable method [38] . Moreover, it updates solutions based on the fitness of each solution and distance among them, [39] . Further, it considers current solutions to achieve an optimal solution and requires only a single predefined parameter i.e., gravitational constant. [40] . Therefore, this paper leverages the strengthens of GSA for the optimal clustering of image features.",
+            "cite_spans": [
+                {
+                    "start": 188,
+                    "end": 192,
+                    "text": "[19]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 343,
+                    "end": 347,
+                    "text": "[20]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 438,
+                    "end": 442,
+                    "text": "[21,",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 443,
+                    "end": 446,
+                    "text": "22]",
+                    "ref_id": null
+                },
+                {
+                    "start": 562,
+                    "end": 566,
+                    "text": "[23]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 690,
+                    "end": 694,
+                    "text": "[24]",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 695,
+                    "end": 699,
+                    "text": "[25]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 700,
+                    "end": 704,
+                    "text": "[26]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 839,
+                    "end": 843,
+                    "text": "[27,",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 844,
+                    "end": 847,
+                    "text": "28]",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 907,
+                    "end": 911,
+                    "text": "[29]",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 937,
+                    "end": 941,
+                    "text": "[30]",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 972,
+                    "end": 976,
+                    "text": "[31]",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 1003,
+                    "end": 1007,
+                    "text": "[32]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 1039,
+                    "end": 1043,
+                    "text": "[33]",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 1072,
+                    "end": 1076,
+                    "text": "[34]",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 1190,
+                    "end": 1194,
+                    "text": "[35]",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 1292,
+                    "end": 1296,
+                    "text": "[36]",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 1637,
+                    "end": 1641,
+                    "text": "[37]",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 1781,
+                    "end": 1785,
+                    "text": "[38]",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 1882,
+                    "end": 1886,
+                    "text": "[39]",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 2038,
+                    "end": 2042,
+                    "text": "[40]",
+                    "ref_id": "BIBREF37"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "GSA [36] is inspired by the Newtonian law of gravity and motion. It considers a swarm of solutions as objects which update the solution collectively. In GSA, every object interacts with other objects under the gravitational force. Initially, GSA explores the search space by allowing a high number of objects for interaction. The number of objects is linearly decreased to perform exploitation which is controlled by Kbest function [41] . In GSA, the fitness of an object determines its mass, and thus, a heavier object represents a better solution. Therefore, the position of the heaviest object corresponds to the optimal solution of the considered problem. Though GSA is quite efficient, there are still chances of improvement in the solution precision. Therefore, this paper presents a novel variant of GSA, improved GSA (IGSA), to enhance the vicinity to optimal solutions. Further, the proposed variant is employed to obtain optimal clusters in the proposed clustering method for the CoVID19 diagnosis.",
+            "cite_spans": [
+                {
+                    "start": 4,
+                    "end": 8,
+                    "text": "[36]",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 432,
+                    "end": 436,
+                    "text": "[41]",
+                    "ref_id": "BIBREF38"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The overall contribution of this paper is four folds: The proposed KIGSA-C method is experimentally  evaluated against two methods, namely Kmeans and  Kmeans-based gravitational search algorithm clustering  (KGSA-C) . For experimental analysis, three types of medical chest images, i.e. X-ray, CT-scan, and Ultrasound images, of non-CoVID19 and CoVID19 patients are taken from the publicly available links. The effectiveness of the considered methods is compared in terms of confusion matrix along with five classification measures, namely sensitivity, specificity, precision, F1score, and accuracy [42] .",
+            "cite_spans": [
+                {
+                    "start": 599,
+                    "end": 603,
+                    "text": "[42]",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 54,
+                    "end": 215,
+                    "text": "The proposed KIGSA-C method is experimentally  evaluated against two methods, namely Kmeans and  Kmeans-based gravitational search algorithm clustering  (KGSA-C)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Introduction"
+        },
+        {
+            "text": "The organization of the paper is as follows; Section 2 discusses the related work. The feature extraction through transfer learning along with GSA is detailed in Section 3. Section 4 discusses the proposed method along with new variants of GSA followed with the experimental results in Section 5. Lastly, the conclusion is drawn in Section 6.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Xu et al. [43] used a convolutional neural network (CNN) for transfer learning on the CT images and performed classification between influenza-A viral and CoVID19 pneumonia with an accuracy of 86.7%. On the same lines, Wang et al. [44] used a modified inception model instead of CNN to obtain 89.5% accuracy. Further, Hemdan et al. [45] performed a comparative study of various deep learning models on the chest X-ray images and reported the best accuracy of 90.00%. However, Sethy et al. [46] extracted deep features from the X-ray images and then trained the support vector machine to classify between positive and negative cases. The proposed model achieved an accuracy of 95.38%. Further, Wang and Wong [47] modeled a deep learning framework, COVID-Net, for multi-class classification of chest X-ray images among normal, bacterial infection, viral infection, and CoVID19 infection. This study achieved an accuracy of 83.5%. For similar classes, Farooq and Hafeez [48] utilized a pretrained ResNet-50 architecture and reported an accuracy of 96.23%. Further, Maghdid et al. [49] employed supervised methods on features obtained through AlexNet and obtained an accuracy of 94.00%. In literature, GSA has been modified or hybridized with different characteristics to improve its performance on various types of non-linear, non-differentiable, and large search space problems. Shaw et al. [50] used the concept of opposition-based learning to propose opposition-based GSA (OGSA), which achieved better solution precision. Chatterjee et al. [51] applied the wavelet theory in GSA and presented enhanced GSA (EGSA(I)) to improve the exploration ability. In [52] , Mirjalili et al. introduced enhanced GSA (EGSA(II)) in which the velocity parameter incorporates the exploitation feature of PSO. Sarafrazi et al. [53] introduced enhanced GSA (EGSA(III)), which modified the position parameter with disruption operator. Moreover, a modified GSA was proposed by Niknam et al. [54] by incorporating a selfadaptive mutation method in GSA. Li et al. [55] introduced chaotic behavior in the position equation and presented a chaotic gravitational search algorithm (CGSA). Mirjalili et al. [56] proposed adaptive gbest GSA (GGSA) to improve the exploitation at later iterations. Further, Khajehzadeh et al. [57] employed an adaptive maximum velocity constraint in the modified gravitational search algorithm (MGSA(I)). The modified gravitational search algorithm (MGSA(II)) [58] uses the chaotic operator to prevent premature convergence. In piecewise-GSA (PGSA), Li et al. [59] modified the gravitational constant with piecewise equation. Similarly, Li et al. [60] proposed a weighted inertia mass for each object to accelerate convergence. To reduce the centre bias behavior of GSA, Davarynejad et al. [61] introduced a mass-dispersed gravitational search algorithm (mDGSA). Moreover, a chaotic Kbest gravitational search algorithm (CKGSA) [62] introduces chaotic behavior based on logistic mapping in Kbest function. It makes GSA escape the local optima as chaos behavior has shown better-searching behavior than stochastic [58, 63] . However, chaotic behavior is dependent on initial conditions which make this biased towards the initial settings. Mittal et al. [64] proposed logarithmic Kbest GSA (LKGSA) in which Kbest function decreases logarithmically which results in allowing heavier objects to exert force for more number of iterations. However, LKGSA performs exploration for a few iterations only. It diminishes the ability of the LKGSA to explore the search space exhaustively. Further, exponential Kbest GSA (EKGSA) [65] defines the exponentially decrease in Kbest which allows Kbest function to perform exploration at an early stage and exhaustive exploitation at the later stage. Although EKGSA shows exhaustive exploitation at later iterations, the convergence precision still lacks.",
+            "cite_spans": [
+                {
+                    "start": 10,
+                    "end": 14,
+                    "text": "[43]",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 231,
+                    "end": 235,
+                    "text": "[44]",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 332,
+                    "end": 336,
+                    "text": "[45]",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 489,
+                    "end": 493,
+                    "text": "[46]",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 707,
+                    "end": 711,
+                    "text": "[47]",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 967,
+                    "end": 971,
+                    "text": "[48]",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 1077,
+                    "end": 1081,
+                    "text": "[49]",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 1389,
+                    "end": 1393,
+                    "text": "[50]",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 1540,
+                    "end": 1544,
+                    "text": "[51]",
+                    "ref_id": "BIBREF48"
+                },
+                {
+                    "start": 1655,
+                    "end": 1659,
+                    "text": "[52]",
+                    "ref_id": "BIBREF49"
+                },
+                {
+                    "start": 1809,
+                    "end": 1813,
+                    "text": "[53]",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 1970,
+                    "end": 1974,
+                    "text": "[54]",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 2041,
+                    "end": 2045,
+                    "text": "[55]",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 2179,
+                    "end": 2183,
+                    "text": "[56]",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 2296,
+                    "end": 2300,
+                    "text": "[57]",
+                    "ref_id": "BIBREF54"
+                },
+                {
+                    "start": 2463,
+                    "end": 2467,
+                    "text": "[58]",
+                    "ref_id": "BIBREF55"
+                },
+                {
+                    "start": 2563,
+                    "end": 2567,
+                    "text": "[59]",
+                    "ref_id": "BIBREF56"
+                },
+                {
+                    "start": 2650,
+                    "end": 2654,
+                    "text": "[60]",
+                    "ref_id": "BIBREF57"
+                },
+                {
+                    "start": 2793,
+                    "end": 2797,
+                    "text": "[61]",
+                    "ref_id": "BIBREF58"
+                },
+                {
+                    "start": 2931,
+                    "end": 2935,
+                    "text": "[62]",
+                    "ref_id": "BIBREF59"
+                },
+                {
+                    "start": 3116,
+                    "end": 3120,
+                    "text": "[58,",
+                    "ref_id": "BIBREF55"
+                },
+                {
+                    "start": 3121,
+                    "end": 3124,
+                    "text": "63]",
+                    "ref_id": null
+                },
+                {
+                    "start": 3255,
+                    "end": 3259,
+                    "text": "[64]",
+                    "ref_id": "BIBREF60"
+                },
+                {
+                    "start": 3620,
+                    "end": 3624,
+                    "text": "[65]",
+                    "ref_id": "BIBREF61"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "The availability of limited labeled data for a problem domain always leads the training of a deep learning model towards overfitting, especially when the number of samples in the data is much smaller in comparison to the data dimensionality [4] . Moreover, it has been witnessed in the literature that the performance of the raw deep learning model is not significant on CoVID19 images even if strategies like fine-tuning [66] and data augmentation [67] , are applied to reduce the problem of limited or imbalanced data. To resolve this, the concept of transfer learning, termed as transfer learning as feature extractor (TLFE), is employed in which a pre-trained deep learning model learned on a cross-domain dataset is used as a feature extractor for the current dataset [4] . The extracted features are low in dimension, which is further utilized with other learning models to perform the classification. This strategy of transfer learning advantages the learning processing in many ways, such as overcoming overfitting, reducing computational time, and decreasing required resources [13] . Generally, there are two types of deep learning models, namely the convolutional neural network (CNN) and recurrent neural network (RNN). RNN models are better in understanding the textual data while CNN models are efficient in encoding the visual patterns from images [68] . Therefore, a pre-trained CNN model is utilized to extract the feature vectors from the image dataset.",
+            "cite_spans": [
+                {
+                    "start": 241,
+                    "end": 244,
+                    "text": "[4]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 422,
+                    "end": 426,
+                    "text": "[66]",
+                    "ref_id": "BIBREF62"
+                },
+                {
+                    "start": 449,
+                    "end": 453,
+                    "text": "[67]",
+                    "ref_id": "BIBREF63"
+                },
+                {
+                    "start": 773,
+                    "end": 776,
+                    "text": "[4]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 1087,
+                    "end": 1091,
+                    "text": "[13]",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 1363,
+                    "end": 1367,
+                    "text": "[68]",
+                    "ref_id": "BIBREF64"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Transfer learning as feature extraction"
+        },
+        {
+            "text": "In a CNN [69] , there are generally four kinds of layers, namely convolutional layer, non-linear activation layer, pooling layer, and fully-connected layer. Different combinations of these layers present different CNN models. Along with these layers, different CNN models use different classification layers, like sigmoid or softmax, to perform the classification task. Figure 3 depicts the architecture of AlexNet model for image classification. There are many [71] pre-trained CNN models publicly available for TLFE like AlexNet, VGG, ResNet, Inception, and MobileNet. [70] . In general, the convolutional layer performs the convolution operation of filtering the image features by applying 'K' kernels. The output generated from this layer is termed as feature maps. The non-linear activation layer brings nonlinearity in the system by applying non-linear, continuous, and differential functions such as sigmoid, tanh, and rectified linear unit (ReLU). Generally, CNN prefers ReLU for a non-linear activation layer whose mathematically formulation is defined in (1) .",
+            "cite_spans": [
+                {
+                    "start": 9,
+                    "end": 13,
+                    "text": "[69]",
+                    "ref_id": "BIBREF65"
+                },
+                {
+                    "start": 462,
+                    "end": 466,
+                    "text": "[71]",
+                    "ref_id": "BIBREF67"
+                },
+                {
+                    "start": 571,
+                    "end": 575,
+                    "text": "[70]",
+                    "ref_id": "BIBREF66"
+                },
+                {
+                    "start": 1065,
+                    "end": 1068,
+                    "text": "(1)",
+                    "ref_id": "BIBREF0"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 370,
+                    "end": 378,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Convolutional Neural Network (CNN)"
+        },
+        {
+            "text": "where, f (x) corresponds to the output ReLU function for the input value x. It can be observed that ReLU returns 0 if x is less than 0, else it attains x only. Figure 4 illustrates the same functioning of ReLU. Further, the pooling layer is applied in CNN to perform down-sampling and fetch important structural features through either max-pooling or average-pooling. Maxpooling computes the maximum value in the considered region of an image while average-pooling calculates the average value over the studied region. Usually, a filter of size 2 \u00d7 2 is moved around the image to perform down-sampling. Moreover, it has been observed in the literature that the max-pooling layer is more efficient than the average-pooling layer in CNN models comparatively. Lastly, the fully-connected layer, alias dense layer, corresponds to the layer in which each node receives input from each node of the previous layer. To apply this layer in CNN, a flattening operation is performed first, which transforms visual features into feature vectors which are generated from the combination of convolutional, non-linear activation, and pooling layer. After that, CNN employs a set of fully-connected layers till the last layer, i.e. classification layer. The classification layer evaluates the probability and maps the computed feature vectors to [72] class labels. If the classification problem is binary, then the sigmoid function is usually applied in the last layer, else softmax function is used for multi-class problems. To perform the feature extraction, the last layer of a pre-trained CNN model is truncated and the remaining combination of layers, i.e. convolutional, non-linear activation, pooling, and fully-connected, are used to extract the feature vector.",
+            "cite_spans": [
+                {
+                    "start": 1330,
+                    "end": 1334,
+                    "text": "[72]",
+                    "ref_id": "BIBREF68"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 160,
+                    "end": 168,
+                    "text": "Figure 4",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Convolutional Neural Network (CNN)"
+        },
+        {
+            "text": "In GSA, a swarm of solutions is considered to update the solutions collectively. It assumes every solution as an object and allows them to interact with each other under the gravitational force. Initially, GSA explores the search space by allowing a high number of objects for interaction and linearly decreases the number of objects to perform exploitation. Specifically, the search strategy is controlled by the Kbest function. The larger value of this function represents exploration, while its lower value corresponds to the exploitation of GSA. Moreover, the fitness of an object determines its mass, and thus, a heavier object means a better solution with better fitness. Hence, GSA converges every object towards the heaviest one based on the laws of gravity and motion. Moreover, the position of the heaviest object corresponds to the optimal solution of the considered problem.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Gravitational Search Algorithm (GSA)"
+        },
+        {
+            "text": "Assume there are P objects in a d dimensional space, each object (X i ) can be represented as (2).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Gravitational Search Algorithm (GSA)"
+        },
+        {
+            "text": "where, x i r corresponds to the position of i th object in the r th dimension. The position of the i th object at t th iteration is updated according to the (3).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Gravitational Search Algorithm (GSA)"
+        },
+        {
+            "text": "In (3), v r i (t + 1) corresponds to the updated velocity of i th object at t th iteration and computed by (4) .",
+            "cite_spans": [
+                {
+                    "start": 107,
+                    "end": 110,
+                    "text": "(4)",
+                    "ref_id": "BIBREF2"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Gravitational Search Algorithm (GSA)"
+        },
+        {
+            "text": "According to the law of motion, the acceleration (a r i (t)) of each object is computed which is formulated in (5) for i th object at t th iteration.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Gravitational Search Algorithm (GSA)"
+        },
+        {
+            "text": "here, F r i (t) and M i (t) correspond to the total force and mass of i th object at t th iteration respectively.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Gravitational Search Algorithm (GSA)"
+        },
+        {
+            "text": "GSA assumes gravitational mass and inertia mass of an object equal. Therefore, M i is calculated in every iteration t by (6) for i th object with fitness value (f it i (t))",
+            "cite_spans": [
+                {
+                    "start": 121,
+                    "end": 124,
+                    "text": "(6)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Gravitational Search Algorithm (GSA)"
+        },
+        {
+            "text": "where best (t) and worst (t) are measure by (8) and (9) respectively for minimization problem.",
+            "cite_spans": [
+                {
+                    "start": 44,
+                    "end": 47,
+                    "text": "(8)",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Gravitational Search Algorithm (GSA)"
+        },
+        {
+            "text": "Moreover, the total force F r i (t) is defined as a randomly weighted sum of the force by other Kbest objects in r th dimension and is defined as (10) .",
+            "cite_spans": [
+                {
+                    "start": 146,
+                    "end": 150,
+                    "text": "(10)",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Gravitational Search Algorithm (GSA)"
+        },
+        {
+            "text": "where, rand j \u2208 [0, 1] is a random number. F ij is the force of j th object on i th object and is computed by (11) .",
+            "cite_spans": [
+                {
+                    "start": 110,
+                    "end": 114,
+                    "text": "(11)",
+                    "ref_id": "BIBREF9"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Gravitational Search Algorithm (GSA)"
+        },
+        {
+            "text": "In (10), Kbest is computed as (12) at t th iteration.",
+            "cite_spans": [
+                {
+                    "start": 30,
+                    "end": 34,
+                    "text": "(12)",
+                    "ref_id": "BIBREF10"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Gravitational Search Algorithm (GSA)"
+        },
+        {
+            "text": "where max it is the maximum number of iterations and f inal per is the percentage of objects which apply force to others. Equation (12) shows that the value of Kbest decreases linearly over iterations. To illustrate the trend of the Kbest function, Fig. 5 depicts the number of iterations along the x-axis and values attained by this function along the y-axis. It is observable from the figure that the Kbest function decreases linearly. At the end of the stopping criteria, the position of the heaviest object among the Kbest objects defines the optimal solution. The pseudo-code of GSA is presented in Algorithm 1 [73] . ",
+            "cite_spans": [
+                {
+                    "start": 131,
+                    "end": 135,
+                    "text": "(12)",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 616,
+                    "end": 620,
+                    "text": "[73]",
+                    "ref_id": "BIBREF69"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 249,
+                    "end": 255,
+                    "text": "Fig. 5",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Gravitational Search Algorithm (GSA)"
+        },
+        {
+            "text": "This paper presents a new clustering method, Kmeansbased improved gravitational search algorithm clustering (KIGSA-C) method, for the diagnosis of CoVID19 from medical chest images i.e., X-ray, CT-scan, and Ultrasound images. Figure 6 presents the architecture of the proposed method. First, the publicly available medical images of the infected and non-infected persons are collected. Then, the visual quality of all the collected images is improved through pre-processing. Here, standard normalization techniques of image processing are applied. Next, the feature extraction phase is performed in which a pre-trained CNN model acts as TLFE and aids in extracting prominent deep features for each input image.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 226,
+                    "end": 234,
+                    "text": "Figure 6",
+                    "ref_id": null
+                }
+            ],
+            "section": "Proposed method"
+        },
+        {
+            "text": "Since the initial population of a metaheuristic algorithm is initialized randomly, this may impact the algorithm convergence as well as may lead it to local optima. Therefore, the extracted features are optimally clustered through Kmeans-based improved gravitational search algorithm (KIGSA). In KIGSA, the solutions obtained from Kmeans are used for the population initialization of the proposed variant, improved gravitational search algorithm (IGSA). Further, the proposed IGSA updates the solutions to obtain optimal cluster centroids. The objective function considered by IGSA to obtain the optimal solution is the sum of squared Euclidean distance between the features and corresponding cluster centroid. Further, (13) equates the mathematical formulation for the considered objective function.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proposed method"
+        },
+        {
+            "text": "where, C i and x j correspond to the i th cluster centroid and j th feature vector, respectively. Moreover, N represents the Fig. 6 The workflow of the proposed method number of feature vectors, while n depicts the number of clusters to be formed. As the diagnosis of CoVID19 is a binary classification problem, the number of formed clusters is two. Finally, the obtained optimal cluster centroids are used to perform the mapping of input image features with labels. Further, the pseudo-code of the proposed method is described in Algorithm 2. The proposed variant, improved gravitational search algorithm (IGSA), is detailed in the following section.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 125,
+                    "end": 131,
+                    "text": "Fig. 6",
+                    "ref_id": null
+                }
+            ],
+            "section": "Proposed method"
+        },
+        {
+            "text": "In GSA, the Kbest function regulates the trade-off between exploration and exploitation. This function determines the 'K' number of best solutions which apply the gravitational force in an iteration and its value decreases linearly with increasing iterations. Hence, the transition from exploration to exploitation in GSA is linear [74] . Moreover, in later iterations, the small value of Kbest results in reduced exploration ability [75] . Henceforth, the probability of GSA to trap into local optimum increases [76] which results in lacking the ability to achieve better solution precision.",
+            "cite_spans": [
+                {
+                    "start": 332,
+                    "end": 336,
+                    "text": "[74]",
+                    "ref_id": "BIBREF70"
+                },
+                {
+                    "start": 434,
+                    "end": 438,
+                    "text": "[75]",
+                    "ref_id": "BIBREF71"
+                },
+                {
+                    "start": 513,
+                    "end": 517,
+                    "text": "[76]",
+                    "ref_id": "BIBREF72"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Proposed improved GSA (IGSA)"
+        },
+        {
+            "text": "To alleviate the same, a novel variant of GSA, improved gravitational search algorithm (IGSA), is proposed in which the Kbest function is modified. Equation 14 formulates the mathematical definition of the new Kbest function at t th iteration. (14) where, P , max it and f inal per correspond to population size, maximum iterations, and minimum percentage of objects, respectively. Further, Fig. 7 illustrates different values attained by the modified Kbest over 1000 iterations for P as 50.",
+            "cite_spans": [
+                {
+                    "start": 244,
+                    "end": 248,
+                    "text": "(14)",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 148,
+                    "end": 159,
+                    "text": "Equation 14",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 391,
+                    "end": 397,
+                    "text": "Fig. 7",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Proposed improved GSA (IGSA)"
+        },
+        {
+            "text": "It can be observed from Fig. 7 that modified Kbest does not decrease linearly. Moreover, it starts favouring exploitation over exploration after a few iterations. It results in achieving better solution precision as heavier objects exploit the search space over more iterations comparatively.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 24,
+                    "end": 30,
+                    "text": "Fig. 7",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Proposed improved GSA (IGSA)"
+        },
+        {
+            "text": "The time complexity of the proposed method to perform clustering is defined as follows:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Time complexity of KIGSA-C method"
+        },
+        {
+            "text": "where N, k, and t correspond to the number of feature vectors, number of clusters, and number of iterations respectively. Table 1 The considered standard benchmark functions [27] S.No. Ackley",
+            "cite_spans": [
+                {
+                    "start": 174,
+                    "end": 178,
+                    "text": "[27]",
+                    "ref_id": "BIBREF24"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 122,
+                    "end": 129,
+                    "text": "Table 1",
+                    "ref_id": null
+                }
+            ],
+            "section": "Time complexity of KIGSA-C method"
+        },
+        {
+            "text": "Rosenbrock and Yang's",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Dixon and Price"
+        },
+        {
+            "text": "Step Further, each individual of KIGSA-C method is initialized with Kmeans and updated according to IGSA based on the defined objective function. Therefore, the time complexity of the proposed method is defined as O(N x k x t + P 2 + N x k).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Dixon and Price"
+        },
+        {
+            "text": "The experimental evaluation is conducted in two sections. Table 1 describes the first set (S 1 ) of benchmark functions consisting of (F 1 \u2212 F 17 ) functions [27] along with their definitions, range of features, global minimum fitness, optimal position values, and categories. Moreover, to validate the robustness, the second set (S 2 ) contains (C 1 \u2212 C 28 ) real-parameter single-objective unconstrained optimization functions [78] which are briefed in Table 2 . The performance has been evaluated and statistically analyzed in terms of mean fitness value, Friedman test, and box-plot. To perform the comparative analysis, the new variant have been compared with standard GSA and nine variants of GSA, namely OGSA [50] , mDGSA [61] , GGSA [56] , PGSA [59] , MGSA(I) [57] , MGSA(II) [58] , EGSA(I) [51] , EGSA(II) [52] , and EGSA(III) [53] . The comparison also includes the performance results with three recent metaheuristic algorithms, namely modified particle swarm optimization (MPSO) [79] , shuffled differential evolutionary (SDE) [80] , and spiral biogeography based optimizer (SBBO) [81] . Moreover, the algorithms are evaluated over 10, 30, 50, and 90 dimensions for each benchmark function. 30 run of each experiment is conducted to minimize the interference [82] . Table 3 details the parameter settings of all the considered algorithms which are taken from their respective literature. The parameter values of the proposed algorithm have been decided empirically by testing its performance on different parameter values of standard GSA algorithm. Tables 4 and 5 tabulate the mean fitness values of the considered algorithms for S 1 set (F 1 \u2212 F 10 ) and (F 11 \u2212 F 17 ) respectively. Furthermore, Tables 6, 7, and 8 show results on the S 2 set (C 1 \u2212 C 10 ), (C 11 \u2212 C 20 ), and (C 21 \u2212 C 28 ) respectively. In tables, best values are made bold. It can be observed that the IGSA has shown better results comparatively. On S 1 benchmark functions, IGSA obtained superior results on 53%, 71%, 59%, and 65% of 17 problems for each 10, 30, 50, and 90 dimensions respectively. While on the S 2 problems, IGSA outperformed compared algorithms on 54%, 61%, 50%, and 58% out of 28 problems on the respective dimensions. Thus, it can be seen that IGSA attains better trade-off between exploration and exploitation on different complexities functions.",
+            "cite_spans": [
+                {
+                    "start": 158,
+                    "end": 162,
+                    "text": "[27]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 429,
+                    "end": 433,
+                    "text": "[78]",
+                    "ref_id": "BIBREF74"
+                },
+                {
+                    "start": 716,
+                    "end": 720,
+                    "text": "[50]",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 729,
+                    "end": 733,
+                    "text": "[61]",
+                    "ref_id": "BIBREF58"
+                },
+                {
+                    "start": 741,
+                    "end": 745,
+                    "text": "[56]",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 753,
+                    "end": 757,
+                    "text": "[59]",
+                    "ref_id": "BIBREF56"
+                },
+                {
+                    "start": 768,
+                    "end": 772,
+                    "text": "[57]",
+                    "ref_id": "BIBREF54"
+                },
+                {
+                    "start": 784,
+                    "end": 788,
+                    "text": "[58]",
+                    "ref_id": "BIBREF55"
+                },
+                {
+                    "start": 799,
+                    "end": 803,
+                    "text": "[51]",
+                    "ref_id": "BIBREF48"
+                },
+                {
+                    "start": 815,
+                    "end": 819,
+                    "text": "[52]",
+                    "ref_id": "BIBREF49"
+                },
+                {
+                    "start": 836,
+                    "end": 840,
+                    "text": "[53]",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 991,
+                    "end": 995,
+                    "text": "[79]",
+                    "ref_id": "BIBREF75"
+                },
+                {
+                    "start": 1039,
+                    "end": 1043,
+                    "text": "[80]",
+                    "ref_id": "BIBREF76"
+                },
+                {
+                    "start": 1093,
+                    "end": 1097,
+                    "text": "[81]",
+                    "ref_id": "BIBREF77"
+                },
+                {
+                    "start": 1271,
+                    "end": 1275,
+                    "text": "[82]",
+                    "ref_id": "BIBREF78"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 58,
+                    "end": 65,
+                    "text": "Table 1",
+                    "ref_id": null
+                },
+                {
+                    "start": 455,
+                    "end": 462,
+                    "text": "Table 2",
+                    "ref_id": "TABREF2"
+                },
+                {
+                    "start": 1278,
+                    "end": 1285,
+                    "text": "Table 3",
+                    "ref_id": "TABREF4"
+                },
+                {
+                    "start": 1561,
+                    "end": 1575,
+                    "text": "Tables 4 and 5",
+                    "ref_id": "TABREF5"
+                }
+            ],
+            "section": "Experimental results"
+        },
+        {
+            "text": "To validate the IGSA statistically, Friedman's test [83] has been conducted between IGSA and considered algorithms. Friedman's test is a non-parametric statistical test and has been performed by considering the mean fitness values over 30 runs for each benchmark function in the S 1 and S 2 sets and results are presented in Tables 9 and  10 for each considered dimension. Generally, Friedman's test considers two hypotheses, namely null hypotheses and alternative hypotheses. The null hypothesis (H0) refers to that there is no significant difference among the samples Bold font : Best value and the alternative hypothesis signifies that all samples are significantly different. In the tables, p-value is less than the considered significance level, i.e. \u03b1 = 0.05 which indicates that the null hypothesis (H0) is rejected. Moreover, IGSA attained minimum mean rank value among the comparative algorithms in all tables. Therefore, it is perceptible that there is a significant difference between IGSA and other algorithms for both sets over 10, 30, 50, and 90 dimensions. Further, box-plots have been drawn to analyze the consistency of the new variant for different dimensions in terms of the average failure rate. Failure rate corresponds to the number of runs in which an algorithm fails to achieve the optimum value. To count the same, the considered algorithms have been executed 30 times where each execution consists of 30 runs. Figure 8 illustrates the boxplots over different dimensions i.e. 10, 30, 50, and 90. The considered algorithms are depicted on the horizontal axis, while the average failure rate is denoted on the vertical axis. In the figures, IGSA is comparatively more consistent with small interquartile range and medians. Therefore, it is pertinent from experiments that IGSA attains better global and local search balance along with high precision.",
+            "cite_spans": [
+                {
+                    "start": 52,
+                    "end": 56,
+                    "text": "[83]",
+                    "ref_id": "BIBREF79"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 325,
+                    "end": 341,
+                    "text": "Tables 9 and  10",
+                    "ref_id": null
+                },
+                {
+                    "start": 1436,
+                    "end": 1444,
+                    "text": "Figure 8",
+                    "ref_id": "FIGREF7"
+                }
+            ],
+            "section": "Performance analysis of IGSA"
+        },
+        {
+            "text": "The experimental analysis of the proposed clustering (KIGSA-C) method for CoVID19 diagnosis is evaluated on three types of chest images, namely X-ray, CT-scan, and Ultrasound. Table 11 tabulates the considered datasets for the three types of chest images. In the X-ray dataset, there are 234 chest images of CoVID19 patients that are publicly available on [84] . A similar count of non-CoVID19 images is considered from a publicly available dataset which consists of chest X-ray of patients who are infected from other viral and bacterial pneumonia like, MERS, SARS, and ARDS [85] . Further, four CNN models namely, DenseNet-161, ResNet-34, VGG-16, and MobileNet-V2 are considered to perform feature extraction as they have top-5 error value as less than 10 [70] . For feature extraction, the last layer of these pre-trained models is truncated and the remaining combination of layers, i.e. convolutional, non-linear activation, pooling, and fully-connected, are used to extract features. Table 12 tabulates the considered CNN models for TLFE along with the number of extracted features. After extracting the deep features, optimal cluster centroids are obtained through the KIGSA-C method which is used to label the considered images in two categories, namely CoVID19 and non-CoVID19. As labeled dataset is used for experimentation, the performance of the proposed method can be evaluated on different classification parameters, such as accuracy, precision, and F1-score, by comparing the predicted label with actual label [42] . Moreover, the results of the proposed KIGSA-C method is compared against two methods, i.e. Kmeans and Kmeans-based gravitational search algorithm clustering (KGSA-C). Table 13 tabulates the confusion matrices between CoVID19 and non-CoVID19 classes for the considered methods over different TLFE models. Bold entries present the best values. From Table 13 , it is observable that the proposed method identifies more than 98.5% of the CoVID19 images correctly. Moreover, the false-positive rate of the proposed method is comparatively low than the other methods. In terms of false-negative, the KIGSA-C method attained competitive results. For better visualization comparison, the classification accuracy of the considered methods on the X-ray dataset is plotted as barchart in Fig. 9 . In the figure, X \u2212 axis denotes the names of the method while Y \u2212axis represents the obtained accuracy. From the figures, it can be claimed that the proposed KIGSA-C method outperforms other considered methods with a margin of more than 1% approximately. Further, the performance of the proposed method is evaluated on four more parameters, namely sensitivity, specificity, precision, and F1-score. The formulation of each parameter [87] is expressed in (15) -(18) respectively [88] . Table 14 presents the results of the considered methods on the studied parameters for X-ray images. The bold represents the best value. It can be observed for the table that the proposed method has consistency in the results. Sensitivity = true positives true positives + f alse negatives (15) Specif icity = true negatives true negatives + f alse positives (16) P recision = true positives true positives + f alse positives (17) F 1 score = 2 precision * recall precision + recall (18) Further, the performance of the considered methods is examined on CT-scan and Ultrasound images. The CTscan dataset referred from a publicly available resource [86] . This dataset consists of 392 CT-scan images of CoVID19 patients with an equal number of non-CoVID19 Fig. 9 Classification accuracy of considered methods on X-ray dataset ",
+            "cite_spans": [
+                {
+                    "start": 356,
+                    "end": 360,
+                    "text": "[84]",
+                    "ref_id": "BIBREF80"
+                },
+                {
+                    "start": 576,
+                    "end": 580,
+                    "text": "[85]",
+                    "ref_id": "BIBREF81"
+                },
+                {
+                    "start": 758,
+                    "end": 762,
+                    "text": "[70]",
+                    "ref_id": "BIBREF66"
+                },
+                {
+                    "start": 1524,
+                    "end": 1528,
+                    "text": "[42]",
+                    "ref_id": "BIBREF39"
+                },
+                {
+                    "start": 2750,
+                    "end": 2754,
+                    "text": "[87]",
+                    "ref_id": "BIBREF83"
+                },
+                {
+                    "start": 2795,
+                    "end": 2799,
+                    "text": "[88]",
+                    "ref_id": "BIBREF84"
+                },
+                {
+                    "start": 3091,
+                    "end": 3095,
+                    "text": "(15)",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 3160,
+                    "end": 3164,
+                    "text": "(16)",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 3227,
+                    "end": 3231,
+                    "text": "(17)",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 3284,
+                    "end": 3288,
+                    "text": "(18)",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 3449,
+                    "end": 3453,
+                    "text": "[86]",
+                    "ref_id": "BIBREF82"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 176,
+                    "end": 184,
+                    "text": "Table 11",
+                    "ref_id": "TABREF8"
+                },
+                {
+                    "start": 989,
+                    "end": 997,
+                    "text": "Table 12",
+                    "ref_id": "TABREF2"
+                },
+                {
+                    "start": 1698,
+                    "end": 1706,
+                    "text": "Table 13",
+                    "ref_id": "TABREF4"
+                },
+                {
+                    "start": 1878,
+                    "end": 1886,
+                    "text": "Table 13",
+                    "ref_id": "TABREF4"
+                },
+                {
+                    "start": 2308,
+                    "end": 2314,
+                    "text": "Fig. 9",
+                    "ref_id": null
+                },
+                {
+                    "start": 2802,
+                    "end": 2810,
+                    "text": "Table 14",
+                    "ref_id": "TABREF5"
+                },
+                {
+                    "start": 3556,
+                    "end": 3562,
+                    "text": "Fig. 9",
+                    "ref_id": null
+                }
+            ],
+            "section": "Experimental analysis of the proposed clustering method"
+        },
+        {
+            "text": "In this paper, a new clustering method, Kmeans-based gravitational search algorithm clustering (KIGSA-C) method, has been introduced for the diagnosis of CoVID19 from the medical images. Although many supervised models exist in the literature, the generalization of these models may suffer due to the limited availability of datasets. To remedy the same, a new clustering is presented. In the proposed method, features are extracted from the considered images through a deep learning model. The extracted features are further optimally clustered through a novel variant, improved gravitational search algorithm (IGSA). The obtained optimal cluster centroids are then used to perform the labeling of the considered images into CoVID19 and non-CoVID19. Further, the proposed variant, IGSA, has been validated against 16 recent metaheuristic algorithms over two sets of benchmark functions belonging to the three types of problems, namely unimodal, multimodal, and real parameters single-objective optimization problems of IEEE Congress on Evolutionary Computation (CEC), 2013. The experimental performance has been evaluated over four different functional dimensions, i.e. 10, 30, 50, and 90 and studied in terms of mean fitness value, Friedman test, and boxplot. It has been observed from experimental results that IGSA has surpassed the considered algorithms over the maximum number of benchmark problems in each dimension. Moreover, the Friedman test has statistically ranked the IGSA as the top algorithm among the considered algorithms. The analysis of the box-plots indicates that the searching behavior of IGSA is better with consistency. Thus, it can be concluded that IGSA achieves better precision with a balanced trade-off between exploration and exploitation. Further, the performance of the new KIGSA-C method has been evaluated against Kmeans and Kmeansbased gravitational search algorithm clustering methods on three types of medical chest images, namely X-ray, CTscans, and Ultrasound images. In experiments, the feature extraction is performed through four pre-trained deep learning models, namely DenseNet-161, ResNet-34, VGG-16, and MobileNet-V2. The experimental results are measured in terms of sensitivity, specificity, precision, F1-score, and accuracy. Experiments affirm that the proposed KIGSA-C method is efficient and can be used as an alternative tool in aiding the diagnosis of CoVID-19.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        },
+        {
+            "text": "In the future, real-time datasets may be explored to enhance the efficiency of the proposed model. Moreover, it may be scaled upon a distributed framework to reduce the computation time. Additionally, a parallel version of the proposed method can be explored to handle big datasets by employing architectures like spark or Hadoop.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Organization WH (2020) Novel coronavirus (2019-ncov): situation report",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "11",
+            "issn": "",
+            "pages": "2020--2021",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Covid-19 infection: origin, transmission, and characteristics of human coronaviruses",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Shereen",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Khan",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kazmi",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Bashir",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Siddique",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Journal of Advanced Research",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Automatic detection of coronavirus disease (covid-19) in x-ray and ct images: a machine learning-based approach",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Kassani",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Kassasni",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Wesolowski",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Schneider",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Deters",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2004.10641"
+                ]
+            }
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "The epidemiology and pathogenesis of coronavirus disease (covid-19) outbreak",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Rothan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Byrareddy",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Journal of Autoimmunity",
+            "volume": "",
+            "issn": "",
+            "pages": "1--4",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Correlation of chest ct and rt-pcr testing in coronavirus disease 2019 (covid-19) in China: a report of 1014 cases",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Ai",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Hou",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Zhan",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Lv",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Tao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Xia",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Radiology",
+            "volume": "296",
+            "issn": "2",
+            "pages": "32--40",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Classification of covid-19 patients from chest ct images using multi-objective differential evolution-based convolutional neural networks",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Singh",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Kumar",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kaur",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "European Journal of Clinical Microbiology & Infectious Diseases",
+            "volume": "",
+            "issn": "",
+            "pages": "1--11",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Clinical characteristics of 138 hospitalized patients with 2019 novel coronavirusinfected pneumonia in Wuhan, China",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Xiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Cheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Xiong",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Jama",
+            "volume": "323",
+            "issn": "11",
+            "pages": "1061--1069",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Temporal changes of ct findings in 90 patients with covid-19 pneumonia: a longitudinal study",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Dong",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Ren",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Radiology",
+            "volume": "296",
+            "issn": "2",
+            "pages": "55--64",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Ct manifestations of two cases of 2019 novel coronavirus (2019-ncov) pneumonia",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Fang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xie",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Pang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Ji",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Radiology",
+            "volume": "295",
+            "issn": "1",
+            "pages": "208--209",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Chest ct for typical 2019-ncov pneumonia: relationship to negative rt-pcr testing",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Xie",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Zhong",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Zheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Radiology",
+            "volume": "296",
+            "issn": "2",
+            "pages": "41--45",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Automatic detection of coronavirus disease (covid-19) using x-ray images and deep convolutional neural networks",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Narin",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Kaya",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Pamuk",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2003.10849"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Performance comparison of deep neural networks on image datasets",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Agarwal",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Mittal",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "2019 twelfth international conference on contemporary computing (IC3). IEEE",
+            "volume": "",
+            "issn": "",
+            "pages": "1--6",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Enhancing text mining using deep learning models",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Pandey",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Garg",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Rajput",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Proc. of twelfth IEEE international conference on contemporary computing (IC3). IEEE",
+            "volume": "",
+            "issn": "",
+            "pages": "1--5",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Feature selection method based on hybrid data transformation and binary binomial cuckoo search",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Pandey",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Rajpoot",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saraswat",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Journal of Ambient Intelligence and Humanized Computing",
+            "volume": "11",
+            "issn": "2",
+            "pages": "719--738",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "A novel clustering method using enhanced grey wolf optimizer and mapreduce",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Tripathi",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Sharma",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Bala",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Big Data Research",
+            "volume": "14",
+            "issn": "",
+            "pages": "93--100",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "A new fuzzy cluster validity index for hyper-ellipsoid or hyper-spherical shape close clusters with distant centroids",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Mittal",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saraswat",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "IEEE Transactions on Fuzzy Systems",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Twitter sentiment analysis using hybrid cuckoo search method",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Pandey",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Rajpoot",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saraswat",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Information Processing & Management",
+            "volume": "53",
+            "issn": "",
+            "pages": "764--779",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Grey relational analysis based keypoints selection in bag-of-features for histopathological image classification",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Pal",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saraswat",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Recent Patents on Computer Science",
+            "volume": "12",
+            "issn": "4",
+            "pages": "260--268",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "A parallel military dog based algorithm for clustering big data in cognitive industrial internet of things",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Tripathi",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Sharma",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Bala",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kumar",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Menon",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Bashir",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Tripathi",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Mittal",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Saxena",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Gupta",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "IEEE Transactions on Industrial Informatics",
+            "volume": "22",
+            "issn": "",
+            "pages": "1--13",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Parallel bat algorithm-based clustering using mapreduce. In: Networking communication and data knowledge engineering",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Ashish",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kapil",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Manju",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Classification of histopathological images through bag-of-visual-words and gravitational search algorithm",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Mittal",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saraswat",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Soft computing for problem solving",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Dynamic frequency based parallel k-bat algorithm for massive data clustering (dfbpkba)",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Tripathi",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Sharma",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Bala",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "International Journal of System Assurance Engineering and Management",
+            "volume": "9",
+            "issn": "",
+            "pages": "866--874",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "A novel differential evolution test case optimisation (detco) technique for branch coverage fault detection",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Gupta",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Singh",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Sharma",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Mittal",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Smart computing and informatics",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "An exhaustive survey on nature inspired optimization algorithms",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Dixit",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Upadhyay",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Silakari",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Int J Software Eng Applic",
+            "volume": "9",
+            "issn": "",
+            "pages": "91--104",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Eewc: energy-efficient weighted clustering method based on genetic algorithm for hwsns",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Pal",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Yadav",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Karnwal",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Complex & Intelligent Systems",
+            "volume": "",
+            "issn": "",
+            "pages": "1--10",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "A genetic algorithm tutorial",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Whitley",
+                    "suffix": ""
+                }
+            ],
+            "year": 1994,
+            "venue": "Statistics and Computing",
+            "volume": "4",
+            "issn": "",
+            "pages": "65--85",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Differential evolution-a simple and efficient heuristic for global optimization over continuous spaces",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Storn",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Price",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "J Glob Optim",
+            "volume": "11",
+            "issn": "",
+            "pages": "341--359",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Particle swarm optimization",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Kennedy",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Eberhart",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "IEEE internation conference on neural networks",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Ant colony optimization",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Dorigo",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Birattari",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "St\u00fctzle",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "IEEE Comput Intell Mag",
+            "volume": "1",
+            "issn": "",
+            "pages": "28--39",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Biogeography-based optimization",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Simon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "IEEE Trans Evol Comput",
+            "volume": "12",
+            "issn": "",
+            "pages": "702--713",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Artificial bee colony algorithm with global and local neighborhoods",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Jadon",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Bansal",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Tiwari",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Sharma",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "International Journal of System Assurance Engineering and Management",
+            "volume": "9",
+            "issn": "",
+            "pages": "1--13",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Enhancing sentiment analysis using enhanced whale optimisation algorithm",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Mohammed",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Shukla",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Pandey",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "International Journal of Intelligent Information and Database Systems",
+            "volume": "13",
+            "issn": "2-4",
+            "pages": "208--230",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Gsa: a gravitational search algorithm",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Rashedi",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Nezamabadi-Pour",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Saryazdi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Inf Sci",
+            "volume": "179",
+            "issn": "",
+            "pages": "2232--2248",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "A comprehensive survey on gravitational search algorithm",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Rashedi",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Rashedi",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Nezamabadi-Pour",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Swarm and Evolutionary Computation",
+            "volume": "41",
+            "issn": "",
+            "pages": "141--158",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Gravitational search algorithm: a comprehensive analysis of recent variants",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Mittal",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Tripathi",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Pandey",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Pal",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Multimedia Tools and Applications",
+            "volume": "",
+            "issn": "",
+            "pages": "1--28",
+            "other_ids": {}
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "ckgsa based fuzzy clustering method for image segmentation of rgb-d images",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Mittal",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saraswat",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Proc. of IEEE international conference on contemporary computing",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Interval type-2 fuzzy logic for dynamic parameter adaptation in a modified gravitational search algorithm",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Olivas",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Valdez",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Melin",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sombra",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Castillo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Inf Sci",
+            "volume": "476",
+            "issn": "",
+            "pages": "159--175",
+            "other_ids": {}
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Histopathological image classification by optimized neural network using igsa",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Mittal",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saraswat",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Pal",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "International conference on distributed computing and internet technology",
+            "volume": "",
+            "issn": "",
+            "pages": "429--436",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Unsupervised data classification using improved biogeography based optimization",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Pandey",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Pal",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kulhari",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "International Journal of System Assurance Engineering and Management",
+            "volume": "9",
+            "issn": "",
+            "pages": "821--829",
+            "other_ids": {}
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Deep learning system to screen coronavirus disease 2019 pneumonia",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Jiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Ma",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Du",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Lv",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Su",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Lang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "",
+            "volume": "6",
+            "issn": "",
+            "pages": "1122--1129",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "A deep learning algorithm using ct images to screen for corona virus disease",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Kang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ma",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Zeng",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Xiao",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Guo",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Cai",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Meng",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Covidx-net: a framework of deep learning classifiers to diagnose covid-19 in x-ray images",
+            "authors": [
+                {
+                    "first": "Ee-D",
+                    "middle": [],
+                    "last": "Hemdan",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Shouman",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Karar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2003.11055"
+                ]
+            }
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "Detection of coronavirus disease (covid-19) based on deep features",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Sethy",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Behera",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Covid-net: a tailored deep convolutional neural network design for detection of covid-19 cases from chest radiography images",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Wong",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2003.09871"
+                ]
+            }
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Covid-resnet: a deep learning framework for screening of covid19 from radiographs",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Farooq",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Hafeez",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2003.14395"
+                ]
+            }
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "Diagnosing covid-19 pneumonia from x-ray and ct images using deep learning and transfer learning algorithms",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Maghdid",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Asaad",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "Z"
+                    ],
+                    "last": "Ghafoor",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Sadiq",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Khan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2004.00038"
+                ]
+            }
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "A novel oppositionbased gravitational search algorithm for combined economic and emission dispatch problems of power systems",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Shaw",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Mukherjee",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ghoshal",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "International Journal of Electrical Power & Energy Systems",
+            "volume": "35",
+            "issn": "",
+            "pages": "21--33",
+            "other_ids": {}
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "A maiden application of gravitational search algorithm with wavelet mutation for the solution of economic load dispatch problems",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Chatterjee",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ghoshal",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Mukherjee",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "International Journal of Bio-Inspired Computation",
+            "volume": "4",
+            "issn": "",
+            "pages": "33--46",
+            "other_ids": {}
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "A new hybrid psogsa algorithm for function optimization",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mirjalili",
+                    "suffix": ""
+                },
+                {
+                    "first": "Szm",
+                    "middle": [],
+                    "last": "Hashim",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Proc. of IEEE international conference on computer and information application",
+            "volume": "",
+            "issn": "",
+            "pages": "374--377",
+            "other_ids": {}
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "Disruption: a new operator in gravitational search algorithm",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sarafrazi",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Nezamabadi-Pour",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Saryazdi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Scientia Iranica",
+            "volume": "18",
+            "issn": "",
+            "pages": "539--548",
+            "other_ids": {}
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "Probabilistic energy and operation management of a microgrid containing wind/photovoltaic/fuel cell generation and energy storage devices based on point estimate method and self-adaptive gravitational search algorithm",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Niknam",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Golestaneh",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Malekpour",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Energy",
+            "volume": "43",
+            "issn": "",
+            "pages": "427--437",
+            "other_ids": {}
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "Parameters identification of chaotic system by chaotic gravitational search algorithm",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xiao",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Xiao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Chaos. Solitons & Fractals",
+            "volume": "45",
+            "issn": "",
+            "pages": "539--547",
+            "other_ids": {}
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "Adaptive gbest-guided gravitational search algorithm",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mirjalili",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Lewis",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Neural Comput Applic",
+            "volume": "25",
+            "issn": "",
+            "pages": "1569--1584",
+            "other_ids": {}
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "A modified gravitational search algorithm for slope stability analysis",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Khajehzadeh",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Taha",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "El-Shafie",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Eslami",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Eng Appl Artif Intell",
+            "volume": "25",
+            "issn": "",
+            "pages": "1589--1597",
+            "other_ids": {}
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "A chaotic digital secure communication based on a modified gravitational search algorithm filter",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Han",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Chang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Inf Sci",
+            "volume": "208",
+            "issn": "",
+            "pages": "14--27",
+            "other_ids": {}
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "Piecewise function based gravitational search algorithm and its application on parameter identification of avr system",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Kou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Neurocomputing",
+            "volume": "124",
+            "issn": "",
+            "pages": "139--148",
+            "other_ids": {}
+        },
+        "BIBREF57": {
+            "ref_id": "b57",
+            "title": "Path planning of unmanned aerial vehicle based on improved gravitational search algorithm",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Duan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Sci China Technol Sci",
+            "volume": "55",
+            "issn": "",
+            "pages": "2712--2719",
+            "other_ids": {}
+        },
+        "BIBREF58": {
+            "ref_id": "b58",
+            "title": "Massdispersed gravitational search algorithm for gene regulatory network model parameter identification",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Davarynejad",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Forghany",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Van Den Berg",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Proc. of springer asiapacific conference on simulated evolution and learning",
+            "volume": "",
+            "issn": "",
+            "pages": "62--72",
+            "other_ids": {}
+        },
+        "BIBREF59": {
+            "ref_id": "b59",
+            "title": "Chaotic inertia weight in particle swarm optimization",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Mittal",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Pal",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kulhari",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saraswat",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Feng",
+                    "suffix": ""
+                },
+                {
+                    "first": "G-F",
+                    "middle": [],
+                    "last": "Teng",
+                    "suffix": ""
+                },
+                {
+                    "first": "A-X",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y-M",
+                    "middle": [],
+                    "last": "Yao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Proc. of IEEE international conference on innovative computing, information and control",
+            "volume": "",
+            "issn": "",
+            "pages": "475--480",
+            "other_ids": {}
+        },
+        "BIBREF60": {
+            "ref_id": "b60",
+            "title": "An image segmentation method using logarithmic kbest gravitation al search algorithm based superpixel clustering",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Mittal",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saraswat",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Evolutionary Intelligence",
+            "volume": "",
+            "issn": "",
+            "pages": "1--13",
+            "other_ids": {}
+        },
+        "BIBREF61": {
+            "ref_id": "b61",
+            "title": "An optimum multi-level image thresholding segmentation using non-local means 2d histogram and exponential kbest gravitational search algorithm",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Mittal",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saraswat",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Eng Appl Artif Intell",
+            "volume": "71",
+            "issn": "",
+            "pages": "226--235",
+            "other_ids": {}
+        },
+        "BIBREF62": {
+            "ref_id": "b62",
+            "title": "Decision fusion-based fetal ultrasound image plane classification using convolutional neural networks",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Sridar",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kumar",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Quinton",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Nanan",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Krishnakumar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Ultrasound in Medicine & Biology",
+            "volume": "45",
+            "issn": "5",
+            "pages": "1259--1273",
+            "other_ids": {}
+        },
+        "BIBREF63": {
+            "ref_id": "b63",
+            "title": "Automatic diagnosis of fungal keratitis using data augmentation and image fusion with deep convolutional neural network",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Cao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Xiao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Qiu",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Cui",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Computer Methods and Programs in Biomedicine",
+            "volume": "187",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF64": {
+            "ref_id": "b64",
+            "title": "The history began from alexnet: a comprehensive survey on deep learning approaches",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "Z"
+                    ],
+                    "last": "Alom",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Taha",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Yakopcic",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Westberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Sidike",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Nasrin",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Van Esesn",
+                    "suffix": ""
+                },
+                {
+                    "first": "Aas",
+                    "middle": [],
+                    "last": "Awwal",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Asari",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:1803.01164"
+                ]
+            }
+        },
+        "BIBREF65": {
+            "ref_id": "b65",
+            "title": "A survey of deep neural network architectures and their applications",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Zeng",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Alsaadi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Neurocomputing",
+            "volume": "234",
+            "issn": "",
+            "pages": "11--26",
+            "other_ids": {}
+        },
+        "BIBREF66": {
+            "ref_id": "b66",
+            "title": "torchvision.models ? pytorch 1.5.0 documentation",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF67": {
+            "ref_id": "b67",
+            "title": "Enhanced bag of features using alexnet and improved biogeography-based optimization for histopathological image analysis",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Pal",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saraswat",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "2018 eleventh international conference on contemporary computing (IC3). IEEE",
+            "volume": "",
+            "issn": "",
+            "pages": "1--6",
+            "other_ids": {}
+        },
+        "BIBREF68": {
+            "ref_id": "b68",
+            "title": "Improving sentiment analysis using hybrid deep learning model",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Pandey",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Rajpoot",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Recent Advances in Computer Science and Communications",
+            "volume": "13",
+            "issn": "",
+            "pages": "1--20",
+            "other_ids": {}
+        },
+        "BIBREF69": {
+            "ref_id": "b69",
+            "title": "Gsa: a gravitational search algorithm",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Rashedi",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Nezamabadi-Pour",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Saryazdi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Inf Sci",
+            "volume": "179",
+            "issn": "",
+            "pages": "2232--2248",
+            "other_ids": {}
+        },
+        "BIBREF70": {
+            "ref_id": "b70",
+            "title": "Gravitational particle swarm",
+            "authors": [
+                {
+                    "first": "H-C",
+                    "middle": [],
+                    "last": "Tsai",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y-Y",
+                    "middle": [],
+                    "last": "Tyan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y-W",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y-H",
+                    "middle": [],
+                    "last": "Lin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Appl Math Comput",
+            "volume": "219",
+            "issn": "",
+            "pages": "9106--9117",
+            "other_ids": {}
+        },
+        "BIBREF71": {
+            "ref_id": "b71",
+            "title": "A band selection method for airborne hyperspectral image based on chaotic binary coded gravitational search algorithm",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Ye",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Lai",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Neurocomputing",
+            "volume": "273",
+            "issn": "",
+            "pages": "57--67",
+            "other_ids": {}
+        },
+        "BIBREF72": {
+            "ref_id": "b72",
+            "title": "A review of gravitational search algorithm",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Sabri",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Puteh",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Mahmood",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "International Journal of Advances in Soft Computing and its Application",
+            "volume": "5",
+            "issn": "",
+            "pages": "1--39",
+            "other_ids": {}
+        },
+        "BIBREF73": {
+            "ref_id": "b73",
+            "title": "An automatic nuclei segmentation method using intelligent gravitational search algorithm based superpixel clustering",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Mittal",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saraswat",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Swarm and Evolutionary Computation",
+            "volume": "45",
+            "issn": "",
+            "pages": "15--32",
+            "other_ids": {}
+        },
+        "BIBREF74": {
+            "ref_id": "b74",
+            "title": "Real parameter single objective optimization using self-adaptive differential evolution algorithm with more strategies",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Brest",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Bo\u0161kovi\u0107",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Zamuda",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Fister",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Mezura-Montes",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Proc. of IEEE congress on evolutionary computation",
+            "volume": "",
+            "issn": "",
+            "pages": "377--383",
+            "other_ids": {}
+        },
+        "BIBREF75": {
+            "ref_id": "b75",
+            "title": "A modified particle swarm optimization for large-scale numerical optimizations and engineering design problems",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Tu",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Ding",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "J Intell Manuf",
+            "volume": "29",
+            "issn": "",
+            "pages": "1--27",
+            "other_ids": {}
+        },
+        "BIBREF76": {
+            "ref_id": "b76",
+            "title": "Shuffled differential evolution-based combined heat and power economic dispatch",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Nagaraju",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Reddy",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Vaisakh",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Proc. of Springer international conference on soft computing in data analytics",
+            "volume": "",
+            "issn": "",
+            "pages": "525--532",
+            "other_ids": {}
+        },
+        "BIBREF77": {
+            "ref_id": "b77",
+            "title": "Histopathological image classification using enhanced bag-of-feature with spiral biogeography-based optimization",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Pal",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saraswat",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Applied Intelligence",
+            "volume": "49",
+            "issn": "9",
+            "pages": "3406--3424",
+            "other_ids": {}
+        },
+        "BIBREF78": {
+            "ref_id": "b78",
+            "title": "Spam review detection using spiral cuckoo search clustering method",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Pandey",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Rajpoot",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Evol Intel",
+            "volume": "12",
+            "issn": "",
+            "pages": "147--164",
+            "other_ids": {}
+        },
+        "BIBREF79": {
+            "ref_id": "b79",
+            "title": "Overview of friedman's test and post-hoc analysis",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Pereira",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Afonso",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Medeiros",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Communications in Statistics-Simulation and Computation",
+            "volume": "44",
+            "issn": "",
+            "pages": "2636--2653",
+            "other_ids": {}
+        },
+        "BIBREF80": {
+            "ref_id": "b80",
+            "title": "ieee8023/covid-chestxray-dataset: we are building an open database of covid-19 cases with chest x-ray or ct images",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF81": {
+            "ref_id": "b81",
+            "title": "Chest x-ray images (pneumonia) -kaggle",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF82": {
+            "ref_id": "b82",
+            "title": "Covid-ct-dataset: a ct scan dataset about covid-19",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "He",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Xie",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2003.13865"
+                ]
+            }
+        },
+        "BIBREF83": {
+            "ref_id": "b83",
+            "title": "jannisborn/covid19 pocus ultrasound: open source ultrasound (pocus) data collection initiative for covid-19",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF84": {
+            "ref_id": "b84",
+            "title": "A new weighted two-dimensional vector quantisation encoding method in bag-of-features for histopathological image classification",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Pal",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saraswat",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "International Journal of Intelligent Information and Database Systems",
+            "volume": "13",
+            "issn": "2-4",
+            "pages": "150--171",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Representative sample images of CoVID19 patients: a chest Xray, shows opacities in the left lower and right upper lobes, b chest CT-scan, shows multifocal bilateral ground-glass opacities., and c lung Ultrasound, showing small sub-pleural consolidation and pleural irregularities",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "A typical convolutional neural network (CNN)",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Rectified Linear Unit (ReLU)",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Kbest over iterations",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "Modified Kbest over iterations",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "V.: Optimal Value; O.P.: Optimal Position; UM : Uni-Modal; MM : Multi-Modal",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": "Boxplot",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "This article belongs to the Topical Collection: Artificial Intelligence Applications for COVID-19, Detection, Control, Prediction, and DiagnosisJaypee Institute of Information Technology, Noida, India",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Description of considered real-parameter single objective optimization problems of CEC, 2013 [78] Sr. No. UM : Unimodal; MM : Multimodal; CP : Composition\u2022 As IGSA is a variant of GSA, the time complexity is similar to GSA which is O(P 2 )[77], where P is the population size. \u2022 The considered objective function has the computation complexity as O(N \u00d7 k).",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "Section 5.1 performs an extensive analysis of the proposed variant against recent metaheuristic algorithms. Two sets of benchmark functions, namely Standard benchmark functions (F 1 \u2212 F 17 ) and IEEE Congress on Evolutionary Computation (CEC), 2013 benchmark functions (C 1 \u2212 C 28 ), are considered which include unimodal, multimodal, and real parameter single-objective optimization problems of IEEE Congress on Evolutionary Computation (CEC), 2013. Section 5.2 studies the efficiency of the proposed clustering method over three publicly available medical chest image datasets for CoVID19, namely X-ray, CT-scans, and Ultrasound images. All experiments are simulated using a computer with a 2.35 GHz Intel Core i5 processor and 16 GB of RAM with Matlab 2017a.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF4": {
+            "text": "Parameter settings of the considered algorithms",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF5": {
+            "text": "Comparative analysis of existing and new algorithms for mean fitness values over 30 runs on the benchmark functions (F",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF6": {
+            "text": "Comparative analysis of existing and new algorithms for mean fitness values over 30 runs on the benchmark functions (F",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF7": {
+            "text": "534E+01 1.323E+02 7.927E+01 1.299E+02 1.520E+02 1.383E+02 1.579E+02 1.530E+02 1.262E+02 5.238E+01 1.367E+02 1.386E+02 1.290E+02 1.571E+02 1.272E+02 1.270E+02 5.288E+01 50 1.548E+02 1.598E+03 1.811E+01 1.548E+03 1.146E+04 3.437E+03 1.449E+04 6.251E+03 5.076E+03 3.419E+01 1.931E+03 1.499E+03 1.339E+03 1.199E+04 7.273E+02 1.066E+03 2.218E-01 90 2.880E+02 1.273E+03 4.547E+01 9.661E+03 3.270E+04 1.425E+04 3.096E+04 2.054E+04 1.486E+04 4.381E+02 1.127E+04 9.888E+03 9.913E+03 3.147E+04 5.191E+03 7.737E+03 8.643E-02",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF8": {
+            "text": "Considered CoVID19 datasets",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF9": {
+            "text": "Details of the considered TLFE models taken from[70]",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF10": {
+            "text": "Confusion matrix for X-ray images",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF11": {
+            "text": "Performance of considered methods on classification parameters for Xray images",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF12": {
+            "text": "Performance comparison of considered methods on CT-scan and Ultrasound dataset CT-scans. For the Ultrasound dataset, the publicly available images from[87] are considered. It is a relatively small dataset that consists of 19 images in the CoVID19 category and 14 images in the non-CoVID19 category. Further, MobileNet-V2 is employed for feature extraction as considered methods have reported comparatively better results on it inTable 13.Table 15depicts the performance of considered methods in terms of sensitivity, specificity, precision, F1-score, and accuracy. Here, bold value depicts the best value. It is interesting to note that the results of the proposed method on CT-scan images are quite promising in comparison to other methods, despite there is high similarity between CT-scan images of CoVID19 and non-CoVID19 [seeFigs. 1b and 2b]. On the Ultrasound dataset, the specificity and precision of all the methods are 1. Moreover, the proposed method attained the highest accuracy, i.e. 99.3%. Thus, it is pertinent from experiments that KIGSA-C is efficient among all considered methods and may be used as an alternative tool to diagnose CoVID19 from medical images.",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": []
+}

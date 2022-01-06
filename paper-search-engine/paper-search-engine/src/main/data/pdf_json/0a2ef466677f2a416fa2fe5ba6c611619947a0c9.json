@@ -1,0 +1,3973 @@
+{
+    "paper_id": "0a2ef466677f2a416fa2fe5ba6c611619947a0c9",
+    "metadata": {
+        "title": "In silico structural elucidation of the rabies RNA-dependent RNA polymerase (RdRp) toward the identification of potential rabies virus inhibitors",
+        "authors": [
+            {
+                "first": "Duangnapa",
+                "middle": [],
+                "last": "Kiriwan",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Kiattawee",
+                "middle": [],
+                "last": "Choowongkomon",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "The rabies virus (RABV) is a non-segmented, negative single-stranded RNA virus which causes acute infection of the central nervous system in humans. Once symptoms appear, the result is nearly always death, and to date, post-exposure prophylaxis (PEP) is the only treatment applicable only immediately after an exposure. Previous studies have identified viral RNA-dependent RNA polymerase (RdRp) as a potential drug target due to its significant role in viral replication and transcription. Herein we generated an energy-minimized homology model of RABIES-RdRp and used it for virtual screening against 2045 NCI Diversity Set III library. The best five ligand-RdRp complexes were picked for further energy minimization via molecular dynamics (MDs) where the complex with ligand Z01690699 shows a minimum score characterized with stable hydrogen bonds and hydrophobic interactions with the catalytic site residues. Our study identified an important ligand for development of remedial approach for treatment of rabies infection.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "The rabies virus (RABV) is a single-stranded, negative-sense, non-segmented, and enveloped RNA virus belonging to the Rhabdoviridae family. Infection by RABV occurs in more than 150 countries, mainly in Asia and Africa. Rabies exposure without immediately receiving the vaccine [post-exposure prophylaxis (PEP)] results in a worldwide human mortality rate of over 99%.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The RABV genome encodes five proteins associated with either the ribonucleoprotein (RNP) complex or the viral envelope. The nucleoprotein (N), the viral RNA polymerase (L), and NS (transcriptase-associated) protein comprise the RNP complex, together with the viral RNA. The matrix (M) and glycoprotein (G) proteins are associated with the lipid envelope [1] , all of which have complimentary 3\u2032 and 5\u2032 termini [2] . The L protein fragment contains the viral RNA-dependent RNA polymerase (RdRp) domain. In the virus cycle, RABV enters host cells by adsorption: the virus attaches to the host cell membranes by the G protein, enters the cytoplasm by pinocytosis, and becomes uncoated to RNP in the cytoplasm. A virally encoded polymerase (L gene) transcribes the genomic strand of rabies RNA into leader RNA and five capped and polyadenylated mRNAs, which are translated into individual viral proteins. After viral proteins have been synthesized, replication of the genomic RNA continues with the synthesis of full length, positive-stranded RNA that acts as a template for the reproduction of progeny negative-stranded RNA [3] .",
+            "cite_spans": [
+                {
+                    "start": 354,
+                    "end": 357,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 410,
+                    "end": 413,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 1121,
+                    "end": 1124,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The computational tools approach has a wide variety of applications in drug discovery [4] [5] [6] [7] , giving novel insights to the screening of potential drugs for the treatment of RdRp. These approaches are becoming increasingly important to also aid the understanding of protein-ligand interactions. However, virtual screening is bringing a more effective, faster, and cheaper screening approach to drug discovery by using high-performance computations to analyze in vitro testing [8] . One of the approaches for virtual screening, the receptorbased approach has identified leading antiviral compounds against viral epidemics, for example, HIV [9] [10] [11] [12] [13] [14] [15] , EBOV [16] , ZIKV [17] [18] [19] [20] , DENV [21] , influenza A virus [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] , and SARS-CoV-2 [35] . Moreover, molecular dynamics simulation has contributed binding free energy calculations in search of potent antivirals and helps in the understanding of the protein-ligand interactions [6] .",
+            "cite_spans": [
+                {
+                    "start": 86,
+                    "end": 89,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 90,
+                    "end": 93,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 94,
+                    "end": 97,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 98,
+                    "end": 101,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 485,
+                    "end": 488,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 648,
+                    "end": 651,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 652,
+                    "end": 656,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 657,
+                    "end": 661,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 662,
+                    "end": 666,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 667,
+                    "end": 671,
+                    "text": "[13]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 672,
+                    "end": 676,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 677,
+                    "end": 681,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 689,
+                    "end": 693,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 701,
+                    "end": 705,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 706,
+                    "end": 710,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 711,
+                    "end": 715,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 716,
+                    "end": 720,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 728,
+                    "end": 732,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 753,
+                    "end": 757,
+                    "text": "[22]",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 758,
+                    "end": 762,
+                    "text": "[23]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 763,
+                    "end": 767,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 768,
+                    "end": 772,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 773,
+                    "end": 777,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 778,
+                    "end": 782,
+                    "text": "[27]",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 783,
+                    "end": 787,
+                    "text": "[28]",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 788,
+                    "end": 792,
+                    "text": "[29]",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 793,
+                    "end": 797,
+                    "text": "[30]",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 798,
+                    "end": 802,
+                    "text": "[31]",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 803,
+                    "end": 807,
+                    "text": "[32]",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 808,
+                    "end": 812,
+                    "text": "[33]",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 813,
+                    "end": 817,
+                    "text": "[34]",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 835,
+                    "end": 839,
+                    "text": "[35]",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 1028,
+                    "end": 1031,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "To date, there are still no FDA-approved drugs available. In this study, we aimed to identify potential inhibitory compounds targeting the rabies RdRp. The RNA-dependent RNA polymerase was used as a target to screen ZINC compounds by virtual screening and molecular dynamics for the development of medicines to treat rabies. Finally, five potential compounds were finally identified as possible candidates as templates of anti-rabies therapy.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Sequence retrieval, homology modeling, and refinement Due to the absence of an X-ray crystallography structure of Rabies lyssavirus RdRp, we therefore have to model one. The amino acid sequence of Rabies lyssavirus RdRp protein retrieved from the National Center for Biotechnology Information with the accession number \"NP_056797\" [36] was selected for this study. The protein sequence was queried using Blast-P against the PDB database, and coverage of the query was used to identify closely related structural homologs for rabies RdRp. The first hit obtained on Blast-P with query coverage 95% and E-value of 4e-63 was L protein of the vesicular stomatitis virus taken as a template (PDB CODE: 5A22) for homology modeling of Rabies lyssavirus RdRp via SWISS MODEL (http://swissmodel.expasy.org).",
+            "cite_spans": [
+                {
+                    "start": 331,
+                    "end": 335,
+                    "text": "[36]",
+                    "ref_id": "BIBREF36"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Materials and methods"
+        },
+        {
+            "text": "GROMACS 5.1.4 software package using ff54a7 [37] force field was used to refine the RdRp model from homology modeling. The simulation was performed in a cubic box containing the protein with TIP3P water molecules and three Cl \u2212 ions to neutralize the positive charge. The temperature of the simulation was set up at a constant 300 K and pressure at 1 bar. The energy minimization step was performed using the steepest descent algorithm with an energy step size of 0.01 s, and a maximum of 50,000 steps were performed. For production of MD simulations of 50 ns, the step size was 0.02 fs. The coordinates of the protein were collected every 10 ps throughout the simulation time. Backbone dynamics were analyzed using the Qtgrace program [38] . The Ramachandran plot was built by PROCHECK [39] (https:// servicesn.mbi.ucla.edu/PROCHECK/), and local quality and comparison plots by SWISS-MODEL were utilized to check the validity of the models built. Furthermore, the clustering analysis of RdRp modeled was applied to calculate the RMS clusters of RdRp backbone conformations by g_cluster module of GROMACS package, using the method of simple linkage (nearest neighbor) with an RMSD cutoff of 0.25 nm. The cluster representative structures extracted from the trajectories were analyzed by using the PyMOL Molecular Graphics System, Version 1.2r3pre, Schr\u00f6dinger, LLC. [40] .",
+            "cite_spans": [
+                {
+                    "start": 44,
+                    "end": 48,
+                    "text": "[37]",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 736,
+                    "end": 740,
+                    "text": "[38]",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 787,
+                    "end": 791,
+                    "text": "[39]",
+                    "ref_id": "BIBREF39"
+                },
+                {
+                    "start": 1366,
+                    "end": 1370,
+                    "text": "[40]",
+                    "ref_id": "BIBREF40"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Materials and methods"
+        },
+        {
+            "text": "The RdRp protein binding sites were predicted using FT site server (https://ftsite.bu.edu/) [41] , RaptorX binding server (http://raptorx.uchicago.edu/BindingSite/) [42] , and CASTp server (http://sts.bioe.uic.edu/castp/index.html?2cpk) [43] . All consensus residues were used to map binding site of the modeled RdRp.",
+            "cite_spans": [
+                {
+                    "start": 92,
+                    "end": 96,
+                    "text": "[41]",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 165,
+                    "end": 169,
+                    "text": "[42]",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 237,
+                    "end": 241,
+                    "text": "[43]",
+                    "ref_id": "BIBREF43"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Binding site prediction"
+        },
+        {
+            "text": "Virtual screening was performed using the GOLD 5.7.1 software [44] which is a structure-based virtual screening tool. Docking simulations were performed within 15 \u00c5 radius of binding site residues, using default parameters of the genetic algorithm: 100 runs per molecules and 100,000 operation with Goldscore fitness score as default scoring function [45] to perform protein-ligand docking. ZINC Diversity Set III is a free database of commercially available compounds for virtual screening [46] . The Top 5 hits of the library were selected based on docking score (the higher the better). The analysis of docking results was carried out using Discovery Studio Client v 17.2.0.16349 (Accelrys Software Inc. San Diego)",
+            "cite_spans": [
+                {
+                    "start": 62,
+                    "end": 66,
+                    "text": "[44]",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 351,
+                    "end": 355,
+                    "text": "[45]",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 491,
+                    "end": 495,
+                    "text": "[46]",
+                    "ref_id": "BIBREF46"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Virtual screening (VS) with a compound library"
+        },
+        {
+            "text": "The screened protein-ligand complexes was further validated for its binding affinity with the binding site residues of RdRp by performing the molecular dynamics simulations. MDs studies of RdRp complex with top five virtual hits were performed using GROMACS 5.4.1 [47] . The topology and parameters of each ligands were generated using the PRODRG online server [48] . The system minimization, heating, and equilibration (NVT and NPT) were carried out in the same manner used for the optimization of 3D RdRp structure described above. Finally, the MD simulations were performed for 50 ns for each systems of complexes. For each simulation performed in triplicate, the potential of each trajectory produced after MDs was analyzed using g_rms and g_hbond module of GROMACS utilities. The hydrogen bonds were calculated by proton donor and an acceptor distance cutoff of \u22643.5 \u00c5 and an angle cutoff of 30\u00b0. The graph was produced using the Qtgrace tool [38] .",
+            "cite_spans": [
+                {
+                    "start": 264,
+                    "end": 268,
+                    "text": "[47]",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 361,
+                    "end": 365,
+                    "text": "[48]",
+                    "ref_id": "BIBREF48"
+                },
+                {
+                    "start": 948,
+                    "end": 952,
+                    "text": "[38]",
+                    "ref_id": "BIBREF38"
+                }
+            ],
+            "ref_spans": [],
+            "section": "MD simulations of RdRp-ligand complexes"
+        },
+        {
+            "text": "The binding free energy was calculated using the MM-PBSA (Poisson-Boltzmann equations) method developed by Rashmikumara (https://rashmikumari.github.io/g_ mmpbsa/) [49] . The tool is suited for calculating relative binding free energies of similar systems. The analysis of free energy and energy contribution per residues for RdRp with five ZINC compounds were calculated. A total of 751 snapshots were extracted last 15 ns of the equilibrium phase of each system. In this study, different components of the interaction energy that contributed to the binding energy were estimated. That included electrostatic interactions, van der Waals interactions, polar solvation energy, and non-polar solvation energy.",
+            "cite_spans": [
+                {
+                    "start": 164,
+                    "end": 168,
+                    "text": "[49]",
+                    "ref_id": "BIBREF50"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Binding free energy calculations"
+        },
+        {
+            "text": "Briefly, the basic principle is shown in a formula, as below:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Binding free energy calculations"
+        },
+        {
+            "text": "To estimate the free energy of each component, both entropy and enthalpy terms are considered, and the total binding free energy (G binding ) is calculated as a sum of the gas phase interaction energy between protein and ligand (\u0394E MM ), the solvation energy associated with the transition from the gas phase to the solvated state (\u0394G sol ), and the change of conformation entropy associated with ligand binding ( \u2212 T\u0394S).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Binding free energy calculations"
+        },
+        {
+            "text": "Currently, 3D X-ray crystallography structure of the Rabies lyssavirus RdRp protein has not yet been determined. We therefore have to model one. A complete Rabies lyssavirus protein sequence was retrieved from the National Centre for Biotechnology and Information (accession No; NP_056797) [36] . The structures of the RdRp of RABV domains are modeled using SWISS-MODEL web server (http:// swissmodel.expasy.org/) based on a template VSV L protein (PDB: 5A22) [50] (Fig. 1A) . The initial alignment of the rabies RdRp sequence with the template sequence was obtained using ClustalW. The final alignment (37.08% identity) used in the homology modeling and the model structure is generated using the structure of the VSV L protein determined by cryo-electron microscopy (PDB: 5A22) [51] as a template (Fig. 1B) . The RABV RdRp protein was predicted to have an RdRp domain of the RABV L protein as well as the VSV L protein [51] . The sequence alignment between rabies RdRp and the template sequence are generated by ClustalO (supplementary Fig. S1 ). The RdRp model contained four motifs, A, B, C, and D, that represent regions of the highest similarity [36, 52] . The Mononegavirales polymerase sequence has the tetrad GDNQ conserved among all its families, with exception of the genus Novirhabdovirus [53] [54] [55] [56] . It was previously reported that the GDN motif located in CRIII is important for RdRp activity of L proteins of NNS RNA viruses. Moreover, the directed mutagenesis in viruses belonging to other families of the Mononegavirales, have shown that mutations to the aspartate or the asparagine of Motif C result in complete lose by the enzymatic activity. [57] [58] [59] . The final RdRp models from the SWISS-MODEL server was refined through 50 ns MD simulations to optimize overall geometry and to remove clashes in geometry for later analysis.",
+            "cite_spans": [
+                {
+                    "start": 290,
+                    "end": 294,
+                    "text": "[36]",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 460,
+                    "end": 464,
+                    "text": "[50]",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 780,
+                    "end": 784,
+                    "text": "[51]",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 921,
+                    "end": 925,
+                    "text": "[51]",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 1152,
+                    "end": 1156,
+                    "text": "[36,",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 1157,
+                    "end": 1160,
+                    "text": "52]",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 1301,
+                    "end": 1305,
+                    "text": "[53]",
+                    "ref_id": "BIBREF54"
+                },
+                {
+                    "start": 1306,
+                    "end": 1310,
+                    "text": "[54]",
+                    "ref_id": "BIBREF55"
+                },
+                {
+                    "start": 1311,
+                    "end": 1315,
+                    "text": "[55]",
+                    "ref_id": "BIBREF56"
+                },
+                {
+                    "start": 1316,
+                    "end": 1320,
+                    "text": "[56]",
+                    "ref_id": "BIBREF57"
+                },
+                {
+                    "start": 1672,
+                    "end": 1676,
+                    "text": "[57]",
+                    "ref_id": "BIBREF58"
+                },
+                {
+                    "start": 1677,
+                    "end": 1681,
+                    "text": "[58]",
+                    "ref_id": "BIBREF59"
+                },
+                {
+                    "start": 1682,
+                    "end": 1686,
+                    "text": "[59]",
+                    "ref_id": "BIBREF60"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 465,
+                    "end": 474,
+                    "text": "(Fig. 1A)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 799,
+                    "end": 808,
+                    "text": "(Fig. 1B)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 1038,
+                    "end": 1045,
+                    "text": "Fig. S1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Structure prediction of RdRp protein"
+        },
+        {
+            "text": "MD simulations has been commonly applied to refine homology models [47] . So, the initial 3D structure of rabies RdRp from homology modeling was optimized using MD simulations in a solvent mimicking the real physiological environment. The stability of the RdRp model structure during the MD simulations was measured by RMSD. The RMSD values of the RdRp backbone atoms in the entire MD simulations trajectory stabilizes after 10 ns of MDs as seen in Fig. 2A . To further analyze structural stability, conformational cluster analysis corresponding to simulation time is performed with a cutoff of 0.25 nm as shown in Fig. 2B . The statistical analysis showed that the distribution ratio of clusters 1 to 5 of the RdRp model is 0.62 to 5.46 \u00c5. Cluster 1 of RdRp model at 23.34 ns was the most stabilized during the 50 ns MD simulations. Herein, the RdRp model from cluster 1 was selected as a representative conformation for molecular docking.",
+            "cite_spans": [
+                {
+                    "start": 67,
+                    "end": 71,
+                    "text": "[47]",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 449,
+                    "end": 456,
+                    "text": "Fig. 2A",
+                    "ref_id": null
+                },
+                {
+                    "start": 615,
+                    "end": 622,
+                    "text": "Fig. 2B",
+                    "ref_id": null
+                }
+            ],
+            "section": "Structure prediction of RdRp protein"
+        },
+        {
+            "text": "The RdRp model was validated for their structural quality using the Ramachandran plot obtained through PROCHECK. The distribution of the phi and psi angles for the amino acid residues was represented by the Ramachandran plot. After refinement by MD simulations, the Ramachandran plot of optimized RdRp model shows that 82.4% and 99.4% of residues were placed in the favored zone and the allowed zone, respectively (supplementary Fig. S2 ), higher than the initial structure (supplementary Fig. S3 ). This indicates that the MDoptimized rabies RdRp structure will be more stable and reliable for use.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 429,
+                    "end": 436,
+                    "text": "Fig. S2",
+                    "ref_id": null
+                },
+                {
+                    "start": 489,
+                    "end": 496,
+                    "text": "Fig. S3",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Structure prediction of RdRp protein"
+        },
+        {
+            "text": "However, recently the Cryo-EM structure of rabies RdRp (PDB ID: 6UEB) was published in Protein Database Databank. Therefore, the Cryo-EM structure with our optimized RdRp model was superimposed which showed both of them have highly similar structure. The RMSD between RdRp of crystal structure and homology model of RdRp was 1.36 \u00c5, indicating the reliability of our RdRp model.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Structure prediction of RdRp protein"
+        },
+        {
+            "text": "The binding site residues of RdRp modeled predicted by three server are submitted on server FTsite server, RaptorX, and CASTp; the predicted binding sites by these servers are summarized in Fig. 3 and supplementary Table S1. All three servers used a different algorithm, and their combined results give us the increased probability of where the binding pockets are located in the protein structure. The residues identified in the burial cavity of protein include Tyr619, Glu620, Lys621, Ile696, Asp729, Asn730, Gly792, and Lys793, revealing a deep cleft as shown in Fig. 3 which indicated the hydrophobic nature of the binding site of the protein.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 190,
+                    "end": 196,
+                    "text": "Fig. 3",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 566,
+                    "end": 572,
+                    "text": "Fig. 3",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Binding site analysis"
+        },
+        {
+            "text": "The virtual screening of the RdRp protein was performed against 2045 compounds from NCI diversity dataset III using GOLD docking program [44] . Based on GOLD results, the top five compounds having highest scores are identified and screened out as the possible inhibitors of the RdRp protein as Fig. 2 The RMSD of RdRp protein 50 ns. A After molecular dynamics simulation produced by GROMACS [47] . B The clustering analysis was performed with a cutoff of 2.5 \u00c5 shown in supplementary Table S2 . All the selected compounds have docking scores in the range (70-90 kcal/mol). The selected five compounds, Z01690699, ZINC29590257, ZINC29590259, ZINC29590262, and ZINC29590263, are examined in terms of their binding modes and intermolecular interactions with important amino acid residues at the binding site of RdRp shown in Fig. 3 . Interestingly, the benzimidazole and benzopyran moiety from these compounds seem to play a central role during the intermolecular interaction. The compounds Z01690699 containing benzimidazole moiety are arranged in a head-to-head disposition and involve the benzene ring. One carbonyl from Z01690699 established a hydrogen bond with the Arg552 and Asn623. Furthermore, two imidazole nitrogen atoms of Z01690699 also interacted with Lys548, Lys621, and Glu696, while its imidazole ring formed a \u03c0-\u03c0 interaction with the Leu577 and Leu583. Additionally, a \u03c0-sulfur interaction was observed between the imidazole and the side chain of Lys701. For the benzene ring moiety of Z01690699, it formed \u03c0-\u03c0 and \u03c0-alkyl interaction with Leu577 Leu583 Met585 Ala573 Ala726 Trp622, respectively. The 2D-3D interaction profiles of Z01690699 are showed in Fig. 4B .",
+            "cite_spans": [
+                {
+                    "start": 137,
+                    "end": 141,
+                    "text": "[44]",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 391,
+                    "end": 395,
+                    "text": "[47]",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 294,
+                    "end": 300,
+                    "text": "Fig. 2",
+                    "ref_id": null
+                },
+                {
+                    "start": 470,
+                    "end": 492,
+                    "text": "supplementary Table S2",
+                    "ref_id": null
+                },
+                {
+                    "start": 822,
+                    "end": 828,
+                    "text": "Fig. 3",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 1671,
+                    "end": 1678,
+                    "text": "Fig. 4B",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Virtual screening with NCI dataset III"
+        },
+        {
+            "text": "The remaining 4 compounds, namely ZINC29590257, ZINC29590259, ZINC29590262, and ZINC29590263, have a similar benzopyran moiety at center of compounds. The orientations of all four binders are similar: the part of the hydroxyl group at position 4 of benzene ring that could form hydrogen bonding with the residues of binding pocket composed of Lys621 Lys778 and Glu620. Furthermore, these compounds establish hydrophobic interaction with the surrounding residues Lys299, Glu550 Leu698 Lys548 Trp622 Leu583 Leu577 Ala573 Met585 and Glu696 shown in Fig.  4A , C and D. These interactions tightly bound and inhibited the interaction of RdRp. The binding free energy was further investigate using MM-PBSA by GROMACS [47] .",
+            "cite_spans": [
+                {
+                    "start": 711,
+                    "end": 715,
+                    "text": "[47]",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 546,
+                    "end": 554,
+                    "text": "Fig.  4A",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Virtual screening with NCI dataset III"
+        },
+        {
+            "text": "MD simulations were carried out for five RdRp-ligand complexes to understand their dynamic behavior and stability. The five MDs consists of RdRp-Z01690699, RdRp-Z29590257, RdRp-Z29590259, RdRp-Z29590263, and RdRp-Z29590263 complexes were estimated using RMSD changes during the MD simulations. In this current study, the RMSD value, H- In order to evaluate binding free energy interactions between the RdRp domain of RABV and the ligand, these were subjected to 50 ns molecular dynamics simulation using the GROMACS 4.1.0 [47] . This shows the RMSD of the C\u03b1 atom for all complexes throughout MDs. The RMSD values are shown in the plot of RMSD (nm) per time in Fig. 5A . The RMSD plot for C\u03b1 backbone values indicated that most of the MDs reached equilibrium within 35 ns. The average RMSD values for Z01690699, Z29590257, Z29590259, Z29590262, and Z29590263 were 0.58 \u00b1 0.06 nm, 0.80 \u00b1 0.11 nm, 0.55 \u00b1 0.05 nm, 0.30 \u00b1 0.07 nm, and 0.57 \u00b1 0.08 nm, respectively. Overall comparison of C\u03b1 backbone RMSD showed that all of complexes except RdRp-Z29590257 system were much more stable during the MDs when compared to RdRp Apo form.",
+            "cite_spans": [
+                {
+                    "start": 522,
+                    "end": 526,
+                    "text": "[47]",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 661,
+                    "end": 668,
+                    "text": "Fig. 5A",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Molecular dynamics simulation and binding free energy MM-PBSA calculations"
+        },
+        {
+            "text": "The average hydrogen bonds between protein and ligand were calculated from stable trajectories 35-50 ns of MDs shown in Fig. 5A ; the H-bonds are calculated and analyzed using gmx hbond tool that determines the presence of Hbonds based on a cutoff distance of 3.5 \u00c5 and an angle of 30\u00b0. From the Fig. 5B , it is observed that the five complexes exhibited around similar hydrogen bonding ranging from 0 to 11. RdRp-Z01690699 complex represents 0 to 6 hydrogen bonds, while RdRp-29,590,257, RdRp-Z29590259, RdRp-Z29590262, and RdRp-Z29590263 showed 0 to 9, 0 to 11, 0 to 10, and 0 to 8 hydrogen bonds, respectively. All the complexes are very much consistent in terms of changes in numbers of hydrogen bonds after 35 ns; it could therefore be concluded that Z29590259 showed maximum hydrogen bonds, while Z01690699 showed minimum hydrogen bonding.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 120,
+                    "end": 127,
+                    "text": "Fig. 5A",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 296,
+                    "end": 303,
+                    "text": "Fig. 5B",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Molecular dynamics simulation and binding free energy MM-PBSA calculations"
+        },
+        {
+            "text": "The free energy of binding interaction between ligands and receptors was calculated for five complexes.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Molecular dynamics simulation and binding free energy MM-PBSA calculations"
+        },
+        {
+            "text": "MMPBSA methods were applied in triplicate for the last 15 ns (35-50 ns) characterized with stable trajectories. A total of 751 frames at every 20 ps time frames were taken for the calculations of binding free energy (\u0394G) which is an estimation of the non-bonded interaction energies. The \u0394G values for RdRp-Z01690699, RdRp-Z29590257, RdRp-29590259, RdRp-29590262, and RdRp-29590263 were \u2212 240.01 \u00b1 0.75, \u2212 193.17 \u00b1 0.89, \u2212 77.34 \u00b1 0.830, \u2212 176.71 \u00b1 0.80, and \u2212 158.95 \u00b1 0.93 kJ\u00b7mol \u22121 , respectively. Our analysis indicates that RdRp-Z01690699 remained quite high compared with other systems. Therefore, the binding energy of all five compounds is below zero and showed a good binding affinity for RdRp. In all five complexes shown the individual component for binding energy, the van der Waals, the electrostatic interactions, and non-polar solvation energy had contributed negatively to the overall interaction energy as shown in Table 1 . The van der Waals energy, electrostatic contribution, and non-polar energy were favorable for the stability of the binding pattern, while the positive value of polar solvation and non-polar energy values of the fives compounds indicated these contributions have no significant differences of the ligand binding with RNA polymerase. Therefore, the main effect of the binding free energy was from van der Waals energy and electrostatic contribution. To gain more detail into key residues involved in ligand binding, the residues energy decomposition plots were generated which show the total binding energy contribution of each residue for all five MDs.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 932,
+                    "end": 939,
+                    "text": "Table 1",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "Molecular dynamics simulation and binding free energy MM-PBSA calculations"
+        },
+        {
+            "text": "We further analyzed the energy contributions of compounds and the key amino acid in binding site cleft of the RdRp. The graphical representation of per-residue energy decomposition analysis of all complexes is represented in Fig. 6 and supplementary Table S3 . Notably, in RdRp-Z01690699 system, most of the binding site residue contributes higher total binding free energy Glu620 and Lys696 in RdRp-Z29690262 complex exhibit the lowest polar energy contribution (33.31 \u00b1 0.56 kcal\u00b7mol \u22121 and 7.47 \u00b1 0.43 kcal\u00b7mol \u22121 ) and compared to its contribution in RdRp-Z29590259 and RdRp-Z29590263, which is relatively higher (0.04 \u00b1 0.03 kcal\u00b7mol \u22121 and 0.63 \u00b1 0.05 kcal\u00b7mol \u22121 ). This might be attributed to the orientation of Z29590262 in the protein conformational space. Therefore, it can be concluded that the binding energy order for the docked candidates was found to be Z01690699 > Z29590257 > Z29590259 > Z29590263 > Z29690262, respectively.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 225,
+                    "end": 231,
+                    "text": "Fig. 6",
+                    "ref_id": null
+                },
+                {
+                    "start": 250,
+                    "end": 258,
+                    "text": "Table S3",
+                    "ref_id": null
+                }
+            ],
+            "section": "Molecular dynamics simulation and binding free energy MM-PBSA calculations"
+        },
+        {
+            "text": "In this research, the homology model of rabies RdRP generated from VSV L protein as a template had more close homology and reliability when compared with the Cryo-EM structure of rabies RdRp. The fully optimized structure was subjected to MD simulations and clustering method. Assessments of the structure before and after MD simulations revealed that RdRp was structurally and dynamically refined. At the clustering step, the structure at 23.34 ns was selected for docking. The GOLD docking results demonstrated that the active compounds were projected toward the binding site residues, namely Met585, Glu620, Lys621, Trp622, Asn623, Glu696, Leu698, Ala726, and Lys778. The lead compounds had a different binding mode. Further, it was found that the benzimidazole and benzopyran moiety could bind to the surrounding residues in a central hollow of RdRp active site. This difference in the binding modes of RdRp and lead compounds could affect the enzyme activity of the RdRp. Molecular dynamics simulation of five ligand Z01690699, Z29590257, Z29590259, Z29590263, and Z29590263 showed that the difference in forming hydrogen bonds, and electrostatic and hydrophobic interactions with the important residues, such as Met585, Glu620, Lys621, Asn623, Glu696, Leu698, Ala726, and Lys778 in RdRp, played a crucial role in inhibition of these ligand. The present study identified NCI compounds that may be good candidates as drugs for rabies virus treatment. Our methodology is a good practical way to identify new inhibitor with unknown 3D structure. Further in vitro enzymatic experiment will be required for these compounds to demonstrate action against the RNA-dependent RNA polymerase of the rabies virus.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "The online version contains supplementary material available at https://doi.org/10.1007/s00894-021-04798-x.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Supplementary Information"
+        },
+        {
+            "text": "Availability of data and material All data and material are included in this article.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Supplementary Information"
+        },
+        {
+            "text": "Authors' contributions Conceptualization and design, K.C. and D.K. Methodology: K.C. and D.K. Data collection and analysis: D.K. Writing-original draft: D.K. Writing-review and editing: K.C. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Code availability N/A"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Replication strategies of rabies virus",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Finke",
+                    "suffix": ""
+                },
+                {
+                    "first": "K-K",
+                    "middle": [],
+                    "last": "Conzelmann",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "Virus Res",
+            "volume": "111",
+            "issn": "2",
+            "pages": "120--131",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.virusres.2005.04.004"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Virus taxonomy: Ninth Report of the International Committee on Taxonomy of Viruses",
+            "authors": [
+                {
+                    "first": "Flores",
+                    "middle": [],
+                    "last": "Owens",
+                    "suffix": ""
+                },
+                {
+                    "first": "Di",
+                    "middle": [],
+                    "last": "Serio",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Pall\u00e1s",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Randles",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Sano",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "1221--1234",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Rhabdoviruses: rabies virus",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Rupprecht",
+                    "suffix": ""
+                }
+            ],
+            "year": 1996,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Docking and scoring in virtual screening for drug discovery: methods and applications",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Kitchen",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Decornez",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Furr",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bajorath",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "Nat Rev Drug Discov",
+            "volume": "3",
+            "issn": "11",
+            "pages": "935--949",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/nrd1549"
+                ]
+            }
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Docking and virtual screening in drug discovery",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kontoyianni",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Methods Mol Biol",
+            "volume": "1647",
+            "issn": "",
+            "pages": "255--266",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/978-1-4939-7201-2_18"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Molecular dynamics simulations and novel drug discovery",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Yao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Expert Opin Drug Discovery",
+            "volume": "13",
+            "issn": "1",
+            "pages": "23--37",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/17460441.2018.1403419"
+                ]
+            }
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Molecular dynamics simulations in biology",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Karplus",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Petsko",
+                    "suffix": ""
+                }
+            ],
+            "year": 1990,
+            "venue": "Nature",
+            "volume": "347",
+            "issn": "",
+            "pages": "631--639",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/347631a0"
+                ]
+            }
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Virtual screening: an effective tool for lead structure discovery?",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Langer",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Hoffmann",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Curr Pharm Des",
+            "volume": "7",
+            "issn": "7",
+            "pages": "509--527",
+            "other_ids": {
+                "DOI": [
+                    "10.2174/1381612013397861"
+                ]
+            }
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Structure-based identification of small molecule antiviral compounds targeted to the gp41 core structure of the human immunodeficiency virus type 1",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Debnath",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Radigan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Jiang",
+                    "suffix": ""
+                }
+            ],
+            "year": 1999,
+            "venue": "J Med Chem",
+            "volume": "42",
+            "issn": "17",
+            "pages": "3203--3209",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/jm990154t"
+                ]
+            }
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Structurebased design of highly potent HIV-1 protease inhibitors containing new tricyclic ring P2-ligands: design, synthesis, biological, and Xray structural studies",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Ghosh",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kovela",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Osswald",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Amano",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Aoki",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Agniswamy",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Weber",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Mitsuya",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Med Chem",
+            "volume": "63",
+            "issn": "9",
+            "pages": "4867--4879",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.jmedchem.0c00202"
+                ]
+            }
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Improving the positional adaptability: structurebased design of biphenyl-substituted diaryltriazines as novel nonnucleoside HIV-1 reverse transcriptase inhibitors",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Jin",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Zhuang",
+                    "suffix": ""
+                },
+                {
+                    "first": "De",
+                    "middle": [],
+                    "last": "Clercq",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Pannecouque",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Meng",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Acta Pharm Sin B",
+            "volume": "10",
+            "issn": "2",
+            "pages": "344--357",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.apsb.2019.09.007"
+                ]
+            }
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Structure-based insights into the mechanism of nucleotide import by HIV-1 capsid",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "J Struct Biol",
+            "volume": "207",
+            "issn": "2",
+            "pages": "123--135",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.jsb.2019.05.001"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Structure based drug design: clinically relevant HIV-1 integrase inhibitors",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kaur",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Rawal",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Rath",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Goyal",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Curr Top Med Chem",
+            "volume": "18",
+            "issn": "31",
+            "pages": "2664--2680",
+            "other_ids": {
+                "DOI": [
+                    "10.2174/1568026619666190119143239"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Novel natural non-nucleoside inhibitors of HIV-1 reverse transcriptase identified by shape-and structure-based virtual screening techniques",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Costa",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Rocca",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Corona",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Grandi",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Moraca",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Romeo",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Talarico",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Gagliardi",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Ambrosio",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Ortuso",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Alcaro",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Distinto",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Maccioni",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Tramontano",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Artese",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Eur J Med Chem",
+            "volume": "161",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.ejmech.2018.10.029"
+                ]
+            }
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Identification of new potential HIV-1 reverse transcriptase inhibitors by QSAR modeling and structure-based virtual screening",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Shiri",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Pirhadi",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Rahmani",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "J Recept Signal Transduct Res",
+            "volume": "38",
+            "issn": "1",
+            "pages": "37--47",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/10799893.2017.1414844"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Structure based virtual screening of the Ebola virus trimeric glycoprotein using consensus scoring",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Onawole",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "U"
+                    ],
+                    "last": "Kolapo",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Sulaiman",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Adegoke",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Comput Biol Chem",
+            "volume": "72",
+            "issn": "",
+            "pages": "170--180",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.compbiolchem.2017.11.006"
+                ]
+            }
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Structure-based screening and validation of bioactive compounds as Zika virus methyltransferase (MTase) inhibitors through firstprinciple density functional theory, classical molecular simulation and QM/MM affinity estimation",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bharadwaj",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Rao",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Dwivedi",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Mishra",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Yadava",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Biomol Struct Dyn",
+            "volume": "",
+            "issn": "",
+            "pages": "1--14",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/07391102.2020.1747545"
+                ]
+            }
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Identification of Zika virus NS2B-NS3 protease inhibitors by structure-based virtual screening and drug repurposing approaches",
+            "authors": [
+                {
+                    "first": "Frs",
+                    "middle": [],
+                    "last": "Santos",
+                    "suffix": ""
+                },
+                {
+                    "first": "Daf",
+                    "middle": [],
+                    "last": "Nunes",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Lima",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Davyt",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Santos",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Taranto",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Msf",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Chem Inf Model",
+            "volume": "60",
+            "issn": "2",
+            "pages": "731--737",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.jcim.9b00933"
+                ]
+            }
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Potential targets for therapeutic intervention and structure based vaccine design against Zika virus",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Qadir",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Riaz",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saeed",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Shahzad-Ul-Hussan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Eur J Med Chem",
+            "volume": "156",
+            "issn": "",
+            "pages": "444--460",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.ejmech.2018.07.014"
+                ]
+            }
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Structure-based discovery of clinically approved drugs as Zika virus NS2B-NS3 protease inhibitors that potently inhibit Zika virus infection in vitro and in vivo",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Yuan",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Chan",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Den-Haan",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Chik",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Chan",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Poon",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Yip",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Mak",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Zou",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Tee",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Cai",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Chan",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "De La Pena",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Perez-Sanchez",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Ceron-Carrasco",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Yuen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Antivir Res",
+            "volume": "145",
+            "issn": "",
+            "pages": "33--43",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.antiviral.2017.07.007"
+                ]
+            }
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Structure-based design of antivirals against envelope glycoprotein of dengue virus",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Anasir",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Ramanathan",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Poh",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Viruses",
+            "volume": "12",
+            "issn": "4",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/v12040367"
+                ]
+            }
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "A structure-based model for the complete transcription cycle of influenza polymerase",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Wandzik",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Kouba",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Karuppasamy",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Pflug",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Drncova",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Provaznik",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Azevedo",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Cusack",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "181",
+            "issn": "4",
+            "pages": "877--893",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2020.03.061"
+                ]
+            }
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Structure-based virtual screening of influenza virus RNA polymerase inhibitors from natural compounds: molecular dynamics simulation and MM-GBSA calculation",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Jin",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [
+                        "Q"
+                    ],
+                    "last": "Tan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Liang",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Shaw",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Comput Biol Chem",
+            "volume": "85",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.compbiolchem.2020.107241"
+                ]
+            }
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Structure-based methoxyflavone derivatives with potent inhibitory activity against various influenza neuraminidases",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zang",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Hao",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "J Biomol Struct Dyn",
+            "volume": "",
+            "issn": "",
+            "pages": "1--8",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/07391102.2019.1680436"
+                ]
+            }
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Structurebased discovery of the novel antiviral properties of naproxen against the nucleoprotein of influenza A virus",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Lejal",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Tarus",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Bouguyon",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Chenavas",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Bertho",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Delmas",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Ruigrok",
+                    "suffix": ""
+                },
+                {
+                    "first": "Di",
+                    "middle": [],
+                    "last": "Primo",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Slama-Schwok",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Antimicrob Agents Chemother",
+            "volume": "57",
+            "issn": "5",
+            "pages": "2231--2242",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/AAC.02335-12"
+                ]
+            }
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Structure-based discovery of anti-influenza virus A compounds among medicines",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Fukuoka",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Minakuchi",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kawaguchi",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Nagata",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Kamatari",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Kuwata",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Biochim Biophys Acta",
+            "volume": "1820",
+            "issn": "2",
+            "pages": "90--95",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.bbagen.2011.11.003"
+                ]
+            }
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Structure-based drug design of a new chemical class of small molecules active against influenza A nucleoprotein in vitro and in vivo",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Fedichev",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Timakhov",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Pyrkov",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Getmantsev",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Vinnik",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "PLoS Curr",
+            "volume": "3",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/currents.RRN1253"
+                ]
+            }
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Advances in the structure-based design of the influenza A neuraminidase inhibitors",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Mitrasinovic",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Curr Drug Targets",
+            "volume": "11",
+            "issn": "3",
+            "pages": "315--326",
+            "other_ids": {
+                "DOI": [
+                    "10.2174/138945010790711932"
+                ]
+            }
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "On the structure-based design of novel inhibitors of H5N1 influenza A virus neuraminidase (NA)",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Mitrasinovic",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Structure-based characterization and optimization of novel hydrophobic binding interactions in a series of pyrrolidine influenza neuraminidase inhibitors",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Maring",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Stoll",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Krueger",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Stewart",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Madigan",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Kati",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Carrick",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Montgomery",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kempf-Grote",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Marsh",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Molla",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Steffy",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Sham",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Laver",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Gu",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Kempf",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Kohlbrenner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "J Med Chem",
+            "volume": "48",
+            "issn": "12",
+            "pages": "3980--3990",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/jm049276y"
+                ]
+            }
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Influenza virus neuraminidase inhibitors: generation and comparison of structure-based and common feature pharmacophore hypotheses and their application in virtual screening",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Steindl",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Langer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "J Chem Inf Comput Sci",
+            "volume": "44",
+            "issn": "5",
+            "pages": "1849--1856",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/ci049844i"
+                ]
+            }
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Influenza neuraminidase inhibitors: structurebased design of a novel inhibitor series",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Stoll",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Stewart",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Maring",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Muchmore",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Giranda",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Gu",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Kennedy",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Madigan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Saldivar",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Kati",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Laver",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Sowin",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Sham",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Greer",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Kempf",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Biochemistry",
+            "volume": "42",
+            "issn": "3",
+            "pages": "718--727",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/bi0205449"
+                ]
+            }
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Structure-based identification of an inducer of the low-pH conformational change in the influenza virus hemagglutinin: irreversible inhibition of infectivity",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Hoffman",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Kuntz",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "White",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "J Virol",
+            "volume": "71",
+            "issn": "11",
+            "pages": "8808--8820",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Structure-based inhibitors of influenza virus sialidase. A benzoic acid lead with novel interaction",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Singh",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Jedrzejas",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Air",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Luo",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Laver",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Brouillette",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "J Med Chem",
+            "volume": "38",
+            "issn": "17",
+            "pages": "3217--3225",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/jm00017a005"
+                ]
+            }
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Structure-based design of antiviral drug candidates targeting the SARS-CoV-2 main protease",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Dai",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Su",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Xie",
+                    "suffix": ""
+                },
+                {
+                    "first": "Jin",
+                    "middle": [
+                        "Z"
+                    ],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Bai",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Cheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Cen",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Xiao",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Jiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Rao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.abb4489"
+                ]
+            }
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Completion of the rabies virus genome sequence determination: highly conserved domains among the L (polymerase) proteins of unsegmented negative-strand RNA viruses",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Tordo",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Poch",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ermine",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Keith",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Rougeon",
+                    "suffix": ""
+                }
+            ],
+            "year": 1988,
+            "venue": "Virology",
+            "volume": "165",
+            "issn": "2",
+            "pages": "90600--90609",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/0042-6822(88)90600-9"
+                ]
+            }
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "The impact of using single atomistic long-range cutoff schemes with the GROMOS 54A7 force field",
+            "authors": [
+                {
+                    "first": "Tfd",
+                    "middle": [],
+                    "last": "Silva",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Vila-Vicosa",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Reis",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Victor",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Diem",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Oostenbrink",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Machuqueiro",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "J Chem Theory Comput",
+            "volume": "14",
+            "issn": "11",
+            "pages": "5823--5833",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.jctc.8b00758"
+                ]
+            }
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "XMGRACE, version 5.1. 19",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Turner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "AQUA and PROCHECK-NMR: programs for checking the quality of protein structures solved by NMR",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Laskowski",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Rullmannn",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Macarthur",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kaptein",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Thornton",
+                    "suffix": ""
+                }
+            ],
+            "year": 1996,
+            "venue": "J Biomol NMR",
+            "volume": "8",
+            "issn": "4",
+            "pages": "477--486",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/bf00228148"
+                ]
+            }
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Bcl::cluster : a method for clustering biological molecules coupled with visualization in the pymol molecular graphics system",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Alexander",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Woetzel",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Meiler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "IEEE Int Conf Comput Adv Bio Med Sci",
+            "volume": "",
+            "issn": "",
+            "pages": "13--18",
+            "other_ids": {
+                "DOI": [
+                    "10.1109/ICCABS.2011.5729867"
+                ]
+            }
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "The FTMap family of web servers for determining and characterizing ligand-binding hot spots of proteins",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Kozakov",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Grove",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Hall",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Bohnuud",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Mottarella",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Luo",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Xia",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Beglov",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Vajda",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Nat Protoc",
+            "volume": "10",
+            "issn": "5",
+            "pages": "733--755",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/nprot.2015.043"
+                ]
+            }
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Template-based protein structure modeling using the RaptorX web server",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "K\u00e4llberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Peng",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Lu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Nat Protoc",
+            "volume": "7",
+            "issn": "8",
+            "pages": "1511--1522",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/nprot.2012.085"
+                ]
+            }
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "CASTp 3.0: computed atlas of surface topography of proteins",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Tian",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Lei",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Liang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Nucleic Acids Res",
+            "volume": "46",
+            "issn": "W1",
+            "pages": "363--367",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/nar/gky473"
+                ]
+            }
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Molecular recognition of receptor sites using a genetic algorithm with a description of desolvation",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Jones",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Willett",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Glen",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "J Mol Biol",
+            "volume": "245",
+            "issn": "1",
+            "pages": "80037--80046",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/S0022-2836(95)80037-9"
+                ]
+            }
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Pose prediction and virtual screening performance of GOLD scoring functions in a standardized test",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Liebeschuetz",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Cole",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Korb",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "J Comput Aided Mol Des",
+            "volume": "26",
+            "issn": "6",
+            "pages": "737--748",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s10822-012-9551-4"
+                ]
+            }
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "ZINC \u2212 a free database of commercially available compounds for virtual screening",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Irwin",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Shoichet",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "J Chem Inf Model",
+            "volume": "45",
+            "issn": "1",
+            "pages": "177--182",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/ci049714+"
+                ]
+            }
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "GROMACS 4: algorithms for highly efficient, load-balanced, and scalable molecular simulation",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Hess",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Kutzner",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Van Der Spoel",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Lindahl",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "J Chem Theory Comput",
+            "volume": "4",
+            "issn": "3",
+            "pages": "435--447",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/ct700301q"
+                ]
+            }
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "PRODRG: a tool for high-throughput crystallography of protein-ligand complexes",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Schuttelkopf",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Van Aalten",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "g_mmpbsa-a GROMACS tool for high-throughput MM-PBSA calculations",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kumari",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kumar",
+                    "suffix": ""
+                },
+                {
+                    "first": "Open",
+                    "middle": [],
+                    "last": "Source Drug",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Discovery",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Lynn",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "J Chem Inf Model",
+            "volume": "54",
+            "issn": "7",
+            "pages": "1951--1962",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/ci500020m"
+                ]
+            }
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "SWISS-MODEL: an automated protein homology-modeling server",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Schwede",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Kopp",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Guex",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Peitsch",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Nucleic Acids Res",
+            "volume": "31",
+            "issn": "13",
+            "pages": "3381--3385",
+            "other_ids": {}
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "Structure of the L protein of vesicular stomatitis virus from electron cryomicroscopy",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Liang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Jenni",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Rahmeh",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Morin",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Grant",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Grigorieff",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Harrison",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Whelan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Spj",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Cell",
+            "volume": "162",
+            "issn": "2",
+            "pages": "314--327",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2015.06.018"
+                ]
+            }
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "Identification of four conserved motifs among the RNA-dependent polymerase encoding elements",
+            "authors": [
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Poch",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Sauvaget",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Delarue",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Tordo",
+                    "suffix": ""
+                }
+            ],
+            "year": 1990,
+            "venue": "EMBO J",
+            "volume": "8",
+            "issn": "",
+            "pages": "3867--3874",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/j.1460-2075.1989.tb08565.x"
+                ]
+            }
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "Effects of single amino acid substitutions at the E residue in the conserved GDNE motif of the Nipah virus polymerase (L) protein",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Magoffin",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Halpin",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Rota",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Arch Virol",
+            "volume": "152",
+            "issn": "4",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s00705-006-0881-1"
+                ]
+            }
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "Identification of two essential aspartates for polymerase activity in parainfluenza virus L protein by a minireplicon system expressing secretory luciferase",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Matsumoto",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Ohta",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Yumine",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Goto",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Nishio",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Microbiol Immunol",
+            "volume": "59",
+            "issn": "11",
+            "pages": "676--683",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/1348-0421.12329"
+                ]
+            }
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "Molecular function analysis of rabies virus RNA polymerase L protein by using an L gene-deficient virus",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Nakagawa",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Kobayashi",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Ito",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Suzuki",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Okada",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Makino",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Goto",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Takahashi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Sugiyama",
+                    "suffix": ""
+                }
+            ],
+            "year": 1920,
+            "venue": "J Virol",
+            "volume": "91",
+            "issn": "",
+            "pages": "826--00817",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/JVI.00826-17"
+                ]
+            }
+        },
+        "BIBREF57": {
+            "ref_id": "b57",
+            "title": "Transcriptional activity and mutational analysis of recombinant vesicular stomatitis virus RNA polymerase",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Sleat",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Banerjee",
+                    "suffix": ""
+                }
+            ],
+            "year": 1993,
+            "venue": "J Virol",
+            "volume": "67",
+            "issn": "3",
+            "pages": "1334--1339",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/JVI.67.3.1334-1339.1993"
+                ]
+            }
+        },
+        "BIBREF58": {
+            "ref_id": "b58",
+            "title": "Polymerase activity ofin vitromutated rabies virus L protein",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Schnell",
+                    "suffix": ""
+                },
+                {
+                    "first": "K-K",
+                    "middle": [],
+                    "last": "Conzelmann",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "Virology",
+            "volume": "214",
+            "issn": "2",
+            "pages": "522--530",
+            "other_ids": {
+                "DOI": [
+                    "10.1006/viro.1995.0063"
+                ]
+            }
+        },
+        "BIBREF59": {
+            "ref_id": "b59",
+            "title": "Analysis of the mutations in the active site of the RNA-dependent RNA polymerase of human parainfluenza virus type 3 (HPIV3)",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Malur",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Gupta",
+                    "suffix": ""
+                },
+                {
+                    "first": "De",
+                    "middle": [],
+                    "last": "Bishnu",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Banerjee",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Gene Expr",
+            "volume": "10",
+            "issn": "3",
+            "pages": "93--100",
+            "other_ids": {}
+        },
+        "BIBREF60": {
+            "ref_id": "b60",
+            "title": "Effect of single amino acid mutations in the conserved GDNQ motif of L protein of rinderpest virus on RNA synthesis in vitro and in vivo",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Chattopadhyay",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Raha",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Shaila",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "Virus Res",
+            "volume": "99",
+            "issn": "2",
+            "pages": "139--145",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.virusres.2003.11.003"
+                ]
+            }
+        },
+        "BIBREF61": {
+            "ref_id": "b61",
+            "title": "Publisher's note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "The structural superimposition of Rabies Lyssavirus RdRp model. A Template of the model (PDB:5A22) shown in purple color. B The RdRp modeled shown in salmon color. The tri-residues \"GDN\" of the RdRp binding sites at a B-hairpin in the palm motif",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Identified binding pocket and hydrophobic cleft of RdRp protein.Surface area show residues that involves binding site residues (gray color). Binding site results predicted by FTsite, COACH, and CASTp binding site servers for protein target as visualized by the pymol molecular graphics system, Version 1.2r3pre, Schr\u00f6dinger, LLC[40]",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "2D interactions diagrams between RdRp protein with five compounds (A) Z29590259, (B) Z01690699, (C) Z29590263, (D) Z29590257, and (E) Z29590262 at binding site of rabies RdRp virus bonds, MM-PBSA ,and decomposition analysis of the protein-ligand complexes were analyzed. Additionally, the binding free energies of all the complexes for the last stable 15 ns which equilibrated trajectory were performed.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "RMSD of RdRp Apo form and RdRp-ligand complexes. A The RdRp Apo form (brown), RdRp/Z01690699 (black), RdRp/Z29590259 (green), RdRp/29590257 (red), RdRp/Z29590262 (blue), and RdRp/ Z29590263 (yellow). B The number of hydrogen bonds during the simulation time between RdRp and compounds except Met585, Glu620, and Lys778 (\u2212 0.40 \u00b1 0.01 kcal\u00b7 mol \u22121 , \u2212 0.32 \u00b1 0.02 kcal\u00b7mol \u22121 , and 0.38 \u00b1 0.01 kcal\u00b7 mol \u22121 , respectively) which has less significant energy contributions. However, residue Lys621 in the RdRp-Z01690699 complex has the highest binding free energy contribution (\u22125.83 \u00b1 0.22 kcal\u00b7mol \u22121 ) relative to other binding sites. Therefore, Lys621 can be regarded as the stabilizing factor in the binding of RdRp-Z01690699 to RdRp protein. Likewise, the RdRp-Z29590257 complex exhibits Trp 622 to have the highest binding free energy contribution (\u221210.31 \u00b1 0.12 kcal\u00b7mol \u22121 ) compared to a lower energy value (1.94 \u00b1 0.24 kcal\u00b7mol \u22121 ).",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "Total binding free energy for all the RdRp-ligands complexes Fig. 6 The per-residue energy decomposition analysis graph of RdRp-01690699, RdRp-29590257, RdRp-29590259, RdRp-29590262, and RdRp-29590263 complexes",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "Funding This research was supported in part by the National Research",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "annex"
+        }
+    ]
+}

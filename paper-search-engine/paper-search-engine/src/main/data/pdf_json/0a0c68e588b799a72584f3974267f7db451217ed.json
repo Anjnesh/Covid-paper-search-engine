@@ -1,0 +1,1793 @@
+{
+    "paper_id": "0a0c68e588b799a72584f3974267f7db451217ed",
+    "metadata": {
+        "title": "Structure-Based Virtual Screening and Identification of Potential Inhibitors of SARS-CoV-2 S-RBD and ACE2 Interaction",
+        "authors": [
+            {
+                "first": "Jiacheng",
+                "middle": [],
+                "last": "Xiong",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "State Key Laboratory of Drug Research",
+                    "institution": "Chinese Academy of Sciences",
+                    "location": {
+                        "settlement": "Shanghai",
+                        "country": "China"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Yusen",
+                "middle": [],
+                "last": "Xiang",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Shanghai University of Traditional Chinese Medicine",
+                    "location": {
+                        "settlement": "Shanghai",
+                        "country": "China"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "\u2020",
+                "middle": [],
+                "last": "",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Ziming",
+                "middle": [],
+                "last": "Huang",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "State Key Laboratory of Drug Research",
+                    "institution": "Chinese Academy of Sciences",
+                    "location": {
+                        "settlement": "Shanghai",
+                        "country": "China"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Xiaohong",
+                "middle": [],
+                "last": "Liu",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "State Key Laboratory of Drug Research",
+                    "institution": "Chinese Academy of Sciences",
+                    "location": {
+                        "settlement": "Shanghai",
+                        "country": "China"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Mengge",
+                "middle": [],
+                "last": "Wang",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Shanghai University of Traditional Chinese Medicine",
+                    "location": {
+                        "settlement": "Shanghai",
+                        "country": "China"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Guangbo",
+                "middle": [],
+                "last": "Ge",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Hongzhuan",
+                "middle": [],
+                "last": "Chen",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Shanghai University of Traditional Chinese Medicine",
+                    "location": {
+                        "settlement": "Shanghai",
+                        "country": "China"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Jianrong",
+                "middle": [],
+                "last": "Xu",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Shanghai University of Traditional Chinese Medicine",
+                    "location": {
+                        "settlement": "Shanghai",
+                        "country": "China"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Mingyue",
+                "middle": [],
+                "last": "Zheng",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "State Key Laboratory of Drug Research",
+                    "institution": "Chinese Academy of Sciences",
+                    "location": {
+                        "settlement": "Shanghai",
+                        "country": "China"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Lili",
+                "middle": [],
+                "last": "Chen",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Shanghai University of Traditional Chinese Medicine",
+                    "location": {
+                        "settlement": "Shanghai",
+                        "country": "China"
+                    }
+                },
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "The emergence and rapid spread of SARS-CoV-2 have caused a worldwide public health crisis. Designing small molecule inhibitors targeting SARS-CoV-2 S-RBD/ACE2 interaction is considered as a potential strategy for the prevention and treatment of SARS-CoV-2. But to date, only a few compounds have been reported as SARS-CoV-2 S-RBD/ACE2 interaction inhibitors. In this study, we described the virtual screening and experimental validation of two novel inhibitors (DC-RA016 and DC-RA052) against SARS-CoV-2 S-RBD/ACE2 interaction. The NanoBiT assays and surface plasmon resonance (SPR) assays demonstrated their capabilities of blocking SARS-CoV-2 S-RBD/ACE2 interaction and directly binding to both S-RBD and ACE2. Moreover, the pseudovirus assay revealed that these two compounds possessed significant antiviral activity (about 50% inhibition rate at maximum non-cytotoxic concentration). These results indicate that the compounds DC-RA016 and DC-RA052 are promising inhibitors against SARS-CoV-2 S-RBD/ACE2 interaction and deserve to be further developed.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Keywords: SARS-CoV-2, angiotensin-converting enzyme 2 (ACE2), spike protein receptor-binding domain (S-RBD), structure-based virtual screening, protein-protein interaction (PPI) inhibitors",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "There is an ongoing pandemic of coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). SARS-CoV-2 is a kind of positive singlestranded RNA virus with an envelope structure (Gorbalenya et al., 2020; Yao et al., 2020) . It was the seventh known coronavirus able to infect humans . The human infection caused by SARS-CoV-2 can induce severe pulmonary disease and complications with significant morbidities and mortalities Yang X. et al., 2020; Zhang J.-j. et al., 2020) . According to the released statistics from the World Health Organization (WHO), the numbers of confirmed cases and deaths of COVID-19 worldwide have so far exceeded 180 million and four million with a continuous upward tendency (https://covid19.who.int/table). Despite the disastrous effect of COVID-19 on public health, civil society, and the global economy, there is currently still no specific drug available against it. Hence, the search for effective treatment strategies for SARS-CoV-2 infections is in urgent demand.",
+            "cite_spans": [
+                {
+                    "start": 225,
+                    "end": 250,
+                    "text": "(Gorbalenya et al., 2020;",
+                    "ref_id": null
+                },
+                {
+                    "start": 251,
+                    "end": 268,
+                    "text": "Yao et al., 2020)",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 472,
+                    "end": 493,
+                    "text": "Yang X. et al., 2020;",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 494,
+                    "end": 519,
+                    "text": "Zhang J.-j. et al., 2020)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "The invasion of SARS-CoV-2 into host cells relies on the spike protein on the surface of its envelope (Walls et al., 2020) . In humans, the primary receptor of the SARS-CoV-2 spike protein is angiotensin-converting enzyme 2 (ACE2) Zhang H. et al., 2020) . SARS-CoV-2 spike protein recognizes and binds to ACE2 through the receptor-binding domain . Then it is hydrolytically activated by transmembrane protease serine 2 (TMPRSS2) and mediates subsequent virushost cell membrane fusion ( Figure 1A ) (Hoffmann et al., 2020) . The binding affinity between spike protein of SARS-CoV-2 and ACE2 has been determined to be low to \u223c15 nM and 10 to 20 fold higher than that reported in SARS-CoV in 2002, which may be an important cause of the extremely high transmissibility of SARS-CoV-2 (Wrapp et al., 2020) . Considering such a critical role of the interaction between spike protein receptor-binding domain (S-RBD) and ACE2 in the entry of the SARS-CoV-2 into host cells, the inhibition of such interaction is considered as a particularly attractive strategy for the development of treatments for SARS-CoV-2 infections (Li et al., 2020; Monteil et al., 2020; Yang J. et al., 2020) .",
+            "cite_spans": [
+                {
+                    "start": 102,
+                    "end": 122,
+                    "text": "(Walls et al., 2020)",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 231,
+                    "end": 253,
+                    "text": "Zhang H. et al., 2020)",
+                    "ref_id": null
+                },
+                {
+                    "start": 498,
+                    "end": 521,
+                    "text": "(Hoffmann et al., 2020)",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 780,
+                    "end": 800,
+                    "text": "(Wrapp et al., 2020)",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 1113,
+                    "end": 1130,
+                    "text": "(Li et al., 2020;",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 1131,
+                    "end": 1152,
+                    "text": "Monteil et al., 2020;",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 1153,
+                    "end": 1174,
+                    "text": "Yang J. et al., 2020)",
+                    "ref_id": "BIBREF11"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 486,
+                    "end": 495,
+                    "text": "Figure 1A",
+                    "ref_id": null
+                }
+            ],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "Recently, virtual screening and high throughput screening studies targeting SARS-CoV-2 S-RBD/ACE2 interaction have discovered several small molecule inhibitors ( Figure 1B ) (Carino et al., 2020; Fu et al., 2020; Hanson et al., 2020; Yu et al., 2020; Zhu et al., 2021) . Nevertheless, the antiviral activities of some compounds, such as corilagin, glycoursodeoxycholic acid, and glycyrrhizic acid, are not clear (Carino et al., 2020; Hanson et al., 2020; Yu et al., 2020) . Visudyne shows intense antiviral activity against SARS-CoV-2 pseudovirus. However, its cytotoxicity data is not reported (Fu et al., 2020) . Besides, demethylzeylasteral and cediranib have undergone pseudovirus and cytotoxicity tests, but only demethylzeylasteral shows slight FIGURE 1 | The routes of SARS-CoV-2 invade into host cells (A) and several representative inhibitors against SARS-CoV-2 S-RBD/ACE2 interaction (B).",
+            "cite_spans": [
+                {
+                    "start": 174,
+                    "end": 195,
+                    "text": "(Carino et al., 2020;",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 196,
+                    "end": 212,
+                    "text": "Fu et al., 2020;",
+                    "ref_id": null
+                },
+                {
+                    "start": 213,
+                    "end": 233,
+                    "text": "Hanson et al., 2020;",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 234,
+                    "end": 250,
+                    "text": "Yu et al., 2020;",
+                    "ref_id": null
+                },
+                {
+                    "start": 251,
+                    "end": 268,
+                    "text": "Zhu et al., 2021)",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 412,
+                    "end": 433,
+                    "text": "(Carino et al., 2020;",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 434,
+                    "end": 454,
+                    "text": "Hanson et al., 2020;",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 455,
+                    "end": 471,
+                    "text": "Yu et al., 2020)",
+                    "ref_id": null
+                },
+                {
+                    "start": 595,
+                    "end": 612,
+                    "text": "(Fu et al., 2020)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 162,
+                    "end": 171,
+                    "text": "Figure 1B",
+                    "ref_id": null
+                }
+            ],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "Frontiers in Chemistry | www.frontiersin.org September 2021 | Volume 9 | Article 740702 inhibitory activity (approximately 7%) against SARS-CoV-2 pseudovirus under nontoxic concentration . Hence, there remains a critical need and challenge to discover safe and effective inhibitors against the interaction between S-RBD and ACE2. In this study, we identified two novel inhibitors (named DC-RA016 and DC-RA052) against SARS-CoV-2 S-RBD/ACE2 interaction through structure-based virtual screening and biological experiments. NanoLuc binary technology (NanoBiT)-based binding and surface plasmon resonance (SPR) assay demonstrated that DC-RA016 and DC-RA052 could bind to both S-RBD and ACE2, blocking the interaction between them. Additionally, the pseudovirus assay and cytotoxicity experiment showed that both DC-RA016 and DC-RA052 have moderate inhibition ability to SARS-CoV-2-S pseudovirus and low cytotoxicity. In addition, the preliminary pharmacophore analysis and the mechanism action study of DC-RA016 were carried out to further uncover the inhibitory mechanism of the compound on SARS-CoV-2 S-RBD/ACE2 interaction. Therefore, these two compounds are promising new inhibitors of SARS-CoV-2 S-RBD/ACE2 interaction and worth further development.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "The whole virtual screening process was carried out using Schr\u00f6dinger Suite 2017 on a Linux server with four 6-core Intel Xeon E5-4607 CPUs and 32 GB of memory. The crystal structure of the SARS-CoV-2 S-RBD bound to ACE2 (PDB code: 6M0J) was obtained from the Protein Data Bank (PDB) for the docking studies. This crystal structure was prepared using the Protein Preparation Wizard module with default parameters. The process of protein preparation included the determination of valence bonds, the addition of hydrogen atom, removal of water molecule and heteroatom, optimization of hydrogen bond network, optimization of the orientation of Asn, Gln, and His, and restrained structural optimization. Finally, a grid box containing the contact interface of SARS-CoV-2 S-RBD/ACE2 complexes was generated with the Receptor Grid Generation module by manually setting the central coordinate. The size of the grid box was defined as 30 \u00d7 30 \u00d7 30 \u00c5.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Structure-based Virtual Screening and 2D Similarity Search"
+        },
+        {
+            "text": "Small molecules in the SPECS commercial compound database were selected for virtual screening. In order to avoid false positives caused by pan assay interference compounds (PAINS), the compounds containing PAINS structural alert were removed with the Structure Filter module in Canvas. Subsequently, the three-dimensional coordinates, different stereoisomers, and protonation states at pH 7.0 \u00b1 2.0 of remaining compounds were generated with LigPred Module. The resulting structures were used for docking.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Structure-based Virtual Screening and 2D Similarity Search"
+        },
+        {
+            "text": "The final molecular docking was performed with the Virtual Screening Workflow module. All treated molecules were first docked into the defined interface pocket in standard precision mode. Then the top poses were further docked in extra precision mode.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Structure-based Virtual Screening and 2D Similarity Search"
+        },
+        {
+            "text": "The structural similarity between the two molecules was calculated using the 1024-dimensional Morgan fingerprints with radius two and the Tanimoto coefficient. The calculation of fingerprints and the Tanimoto coefficient were both implemented with the RDkit python package.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Structure-based Virtual Screening and 2D Similarity Search"
+        },
+        {
+            "text": "The tested compounds were purchased from SPECS (Zoetermeer, Netherlands) and used directly without further purification. All compounds were first dissolved in DMSO and subsequently diluted to the final bioassay concentration.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Compounds"
+        },
+        {
+            "text": "The initial screening and 50% inhibitory concentration (IC 50 ) determination of SARS-CoV-2 S-RBD/ACE2 interaction inhibitors were conducted as previously described (Yu et al., 2020) . Briefly, SARS-CoV-2 S-RBD-LgBiT (S residues 319-591) and SmBiT-ACE2 (ACE2 residues 19-615) fusion plasmids were transiently co-transfected into HEK293 cells in a 6-well plate using FuGENE HD transfection reagent (Promega, Madison, WI). After 6 h, the HEK293 cells were reseeded into a 384well plate for screening the active compounds. The compounds were added at indicated concentrations and plates were incubated for 3 h. After the addition of Nano-Glo live Cell Assay reagent, luminescence was determined using the Envision plate reader (EnVision, Perkin Elmer, Waltham, MA, United States). To exclude the false positives, the cytotoxicity of the compounds on the HEK293 cells and the inhibitory effects of the compounds on NanoLuc (HEK293/Nanoluc stable cells) were also measured, respectively. The activities of the compounds were evaluated using the inhibitory effects on SARS-CoV-2 S-RBD/ACE2 interaction (NanoBiT inh%), NanoLuc luciferase (NanoLuc inh%) and the cell proliferation (Cytotox inh%, CC 50 ) on HEK293 cells.",
+            "cite_spans": [
+                {
+                    "start": 165,
+                    "end": 182,
+                    "text": "(Yu et al., 2020)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Determination of SARS-CoV-2 S-RBD/ ACE2 Inhibitors by NanoBiT-Based Assay"
+        },
+        {
+            "text": "Three separate plasmids including pAX2, pHB-Rluc and pcDNA3.1-SARS-CoV-2-S were obtained from Precedo (Anhui, China). HEK293T cells were grown in Dulbecco's modified Eagle's medium (DMEM) (Corning Inc., Corning, NY, United States) supplemented with 10% heat-inactivated fetal bovine serum (FBS) (ExCell Bio, Shanghai, China) and 1% penicillin-streptomycin under a humidified atmosphere containing 5% CO 2 at 37\u00b0C. HEK293T cells grown to 70% confluency were co-transfected with the above-mentioned plasmids using LipoFiter 3.0 transfection reagent (Hanbio, Shanghai, China) according to the manufacturer's instruction. After 6 h of transfection, HEK293T cells were refreshed with DMEM containing 10% FBS and SARS-CoV-2-S pseudoviruses in the supernatant was harvested at 48 h, filtered using a 0.45 \u03bcm membrane (Jet Bio-Filtration, Guangzhou, China) and stored in aliquots at \u221280\u00b0C until use. Subsequently, HEK293T cells were transiently transfected with pcDNA3.1-ACE2 (Precedo, Anhui, China) or with vector alone. Transfected HEK293T cells were incubated with the indicated concentrations of test compounds at 37\u00b0C for 1 h. Then, SARS-CoV-2-S pseudovirus and Polybrene (6 \u03bcg/ml) (Absin, Shanghai, China) were added to infect the cells for 24 h. After that, the cells were further cultured with fresh DMEM containing 10% FBS for an additional 24 h. Then cells were lysed with Cell Lysis Buffer (Promega, Madison, WI, United States), and the luciferase activity was detected using a Multilabel Reader (SpectraMax Paradigm, Molecular Devices, CA, United States). The inhibition rate (%) was calculated by the equation: (the luminescence of the test compounds/the maximum luminescence after transfection for SARS-CoV-2-S pseudovirus) \u00d7 100%. IC 50 values were determined via nonlinear regression analysis using GrapPad Prism software 8.0 (GraphPad Software, Inc., San Diego, CA, United States). The cytotoxicity of the test compounds was determined using the CellTiter-Glo (CTG) Luminescent Cell Viability Assay (Promega, Madison, WI, United States) according to the manufacturer's protocols. Selectivity index (SI) for each compound was calculated by dividing CC 50 (cytotoxicity on HEK293T cells) by IC 50 (the inhibitory activity against SARS-CoV-2-S pseudovirus). The maximum non-cytotoxic concentration (MNCC) was defined as the concentration required to retain cell viability by 90% and calculated according to the previously published method (Cheng et al., 2013) . The inhibition of the compounds to SARS-CoV-2-S pseudovirus infectivity at MNCC was fitted based on the inhibition curve and expressed as the inhibition ratio (%I).",
+            "cite_spans": [
+                {
+                    "start": 2445,
+                    "end": 2465,
+                    "text": "(Cheng et al., 2013)",
+                    "ref_id": "BIBREF2"
+                }
+            ],
+            "ref_spans": [],
+            "section": "SARS-CoV-2-S Pseudovirus-Based Inhibition Assay"
+        },
+        {
+            "text": "A BIAcore T200 instrument (GE Healthcare Life Sciences, United States) was used to evaluate the binding affinity of the test compounds to human ACE2 or SARS-CoV-2 S-RBD as previously described (Li et al., 2017) . Briefly, both proteins were respectively immobilized on the different channels of CM5 sensor chip by a standard amine-coupling approach at a flow rate of 10 \u03bcL/min in 10 mM sodium acetate buffer (pH 4.0). The sensor surface was activated with a 7 min injection of the mixture of 50 mM N-hydroxysuccinimide (NHS) and 200 mM 1ethyl-3-(3-dimethylaminopropyl) carbodiimide (EDC). Then 10 \u03bcg/ml of human ACE2 or 50 \u03bcg/ml of SARS-CoV-2 S-RBD was injected for 420 s and the surface was blocked with 1 M ethanolamine, pH 8.5. Series concentrations of the test compounds were injected into the flow system at a flow rate of 30 \u03bcL/min for 90 s, and the dissociation was 120 s. All binding analysis was performed in phosphate buffered saline (PBS) with 0.05% (v/v) Tween-20 and 1% DMSO (pH 7.4) at 25\u00b0C. Prior to analysis, double reference subtractions and solvent corrections were made to eliminate bulk refractive index changes, injection noise, and data drift. The binding affinity was determined by fitting to a Langmuir 1:1 binding model within the BIAcore Evaluation software (GE Healthcare Life Sciences, United States).",
+            "cite_spans": [
+                {
+                    "start": 193,
+                    "end": 210,
+                    "text": "(Li et al., 2017)",
+                    "ref_id": "BIBREF7"
+                }
+            ],
+            "ref_spans": [],
+            "section": "SPR-Based Assay"
+        },
+        {
+            "text": "Statistical analyses were performed using GrapPad Prism software 8.0. One-way ANOVA was used to determine the statistical significance between different groups (*p < 0.05, **p < 0.01, and ***p < 0.001).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Statistical Analysis"
+        },
+        {
+            "text": "In structure-based virtual screening, the primary thing is to choose the appropriate docking pocket and protein crystal structure. However, according to our observation, the SARS-CoV-2 S-RBD and human ACE2 don't have druggable pockets near the contact interface in their unbound forms. Only when they are bound together, there is a well-defined pocket presented on their contact interface, which is hence defined as the docking pocket in the current study. A crystal structure of the SARS-CoV-2 S-RBD/ human ACE2 complex was obtained from PDB and pretreated for virtual screening. The compounds for virtual screening were obtained from the SPECS database and first filtered by PAINS rules. The 202,829 remaining compounds were docking to the previously selected pocket after ligand preparation. The molecular docking was first carried out in standard precision mode. The top 10% poses ranked by SP score were redocked in extra precision mode. The top 20% candidates ranked by XP score were subsequently subjected to cluster analysis and visual inspection to pick the compounds with diversity and reasonable binding mode. Finally, 109 candidate compounds were selected and then purchased for follow-up biological testing. The whole process of the discovery of inhibitors against the interaction between S-RBD and ACE2 protein is schematically depicted in Figure 2 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 1354,
+                    "end": 1362,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Structure-based Virtual Screening"
+        },
+        {
+            "text": "To discover SARS-CoV-2 S-RBD/ACE2 interaction inhibitors, a NanoBiT-based assay was applied for preliminary screening. 24 of 109 compounds showed the primary inhibitory activities against SARS-CoV-2 S-RBD/ACE2 interaction under 20 and 50 \u03bcM concentration, no inhibitory effects on NanoLuc luciferase and cytotoxicity (Supplementary Figure S1) . We next assessed these compounds for their antiviral activities against SARS-CoV-2-S pseudovirus. Among of them, five compounds were identified as potential inhibitors against SARS-CoV-2-S pseudovirus ( Figure 4A ). We further determined IC 50 values of these compounds with serially- (E) DC-RA106. NanoBiT inh%: the inhibition rates against SARS-CoV-2 S-RBD/ACE2 interaction; NanoLuc inh%: the inhibition rates against NanoLuc luciferase; Cytotox inh%: the inhibition rates against the transfected HEK293 cell proliferation. n 3.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 332,
+                    "end": 342,
+                    "text": "Figure S1)",
+                    "ref_id": null
+                },
+                {
+                    "start": 548,
+                    "end": 557,
+                    "text": "Figure 4A",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Identification of SARS-CoV-2 S-RBD/ACE2 Interaction Inhibitors Based on NanoBiT Assay"
+        },
+        {
+            "text": "Frontiers in Chemistry | www.frontiersin.org September 2021 | Volume 9 | Article 740702 5 diluted concentrations for SARS-CoV-2 S-RBD/ACE2 interaction (NanoBiT inh%), NanoLuc luciferase (NanoLuc inh%) and CC 50 values for the cytotoxicity (Cytotox inh%) on HEK293 cells (Figure 3) . It was shown that DC-RA016, DC-RA052, DC-RA076, DC-RA087 and DC-RA106 exhibited dosedependent inhibition against SARS-CoV-2 S-RBD/ACE2 interaction, and their IC 50 values were 26.63, 62.08, 75.60, 86.17 and 24.73 \u03bcM, respectively. These compounds had no obvious inhibitory activities against NanoLuc luciferase (IC 50 > 100 \u03bcM). It was observed that these compounds were low cytotoxicity with CC 50 greater than 100 \u03bcM. Thus, the five compounds could disrupt the interaction between SARS-CoV-2 S-RBD and ACE2.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 270,
+                    "end": 280,
+                    "text": "(Figure 3)",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Identification of SARS-CoV-2 S-RBD/ACE2 Interaction Inhibitors Based on NanoBiT Assay"
+        },
+        {
+            "text": "To evaluate whether the compounds can inhibit the attachment of SARS-CoV-2, a pseudovirus based inhibition assay was established. Due to 24 compounds showing the potent blocking activities against SARS-CoV-2 S-RBD/ACE2 interaction in the initial NanoBiT assay, we next detected the inhibitory activities of these compounds in SARS-CoV-2-S pseudovirus based inhibition assay with the final concentrations of 10 and 100 \u03bcM. As shown in Figure 4A , five compounds significantly inhibited SARS-CoV-2-S pseudovirus attachment to ACE2-expressing HEK293T cells at a concentration of 100 \u03bcM (p < 0.001 ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 434,
+                    "end": 443,
+                    "text": "Figure 4A",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Evaluation of Viral Attachment Inhibitors Using a SARS-CoV-2-S Pseudovirus-Based Inhibition Assay"
+        },
+        {
+            "text": "To further validate the inhibitory mechanism of the five compounds against SARS-CoV-2-S pseudovirus attachment, SPR assay was carried out to investigate whether these compounds could directly bind to SARS-CoV-2 S-RBD or ACE2. As shown in Figure 5 , . All these binding displayed fast kinetics, except for DC-RA087 to human ACE2 ( Figure 5G ). For DC-RA076, no binding was observed for both targets. DC-RA052 exhibited high affinities to both SARS-CoV-2 S-RBD and ACE2 and the KD values were 21.66 and 34.71 \u03bcM, respectively. In spite of concentrationdependent binding curves, saturated binding seemed not reached for DC-RA106, which could lead to poor quality of affinity regression (KD > 100.00 \u03bcM). In view of the previous results of the SARS-CoV-2-S pseudovirus-based inhibition assay, compounds DC-RA016 and DC-RA052 were ultimately identified as the two most promising hits blocking the interaction between SARS-CoV-2 S-RBD and ACE2 and SARS-CoV-2 virus attachment.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 238,
+                    "end": 246,
+                    "text": "Figure 5",
+                    "ref_id": null
+                },
+                {
+                    "start": 330,
+                    "end": 339,
+                    "text": "Figure 5G",
+                    "ref_id": null
+                }
+            ],
+            "section": "Determination of Interactions Between the Five Compounds and SARS-CoV-2 S-RBD or ACE2 by SPR Assay"
+        },
+        {
+            "text": "Through the 2D similarity search, we found there were a few molecules similar to DC-RA016 in the SPECS database. Hence, 12 analogues of DC-RA016 were purchased to explore the structureactivity relationship of it. Their inhibition ability to the interaction of SARS-CoV-2 S-RBD and human ACE2 were tested by NanoBiT assay. As shown in Table 2 , those compounds whose R1 groups were not 3,5-dihydroxy phenyl group all displayed no inhibitory activity against SARS-CoV-2 S-RBD and ACE2 interaction. Among the four compounds having the same R1 group with DC-RA016, two compounds (DC-RA016-9 and DC-RA016-12) could disrupt the interaction between SARS-CoV-2 S-RBD and ACE2 under the concentration of 50 and 20 \u03bcM. We further determined their dose-dependent inhibition against SARS-CoV-2 S-RBD/ACE2 interaction, NanoLuc luciferase and cytotoxicity on HEK293 cells. It was found that DC-RA016-12 exhibited the similar activity (IC 50 26.06 \u03bcM) (Supplementary Figure S2A) to DC-RA016 (IC 50 26.63 \u03bcM), while DC-RA016-9 displayed less inhibitory activity (IC 50 73.84 \u03bcM) (Supplementary Figure S2B ) than DC-RA016. IC 50 : the 50% inhibitory concentration of Anti-SARS-CoV-2-S pseudovirus; CC 50 : cytotoxicities on ACE2-expressing HEK293T cells; MNCC: maximum non-cytotoxic concentration; %I: SARS-CoV-2-S pseudovirus inhibition ratio at MNCC; SI: selectivity index.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 334,
+                    "end": 341,
+                    "text": "Table 2",
+                    "ref_id": "TABREF2"
+                },
+                {
+                    "start": 952,
+                    "end": 963,
+                    "text": "Figure S2A)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 1078,
+                    "end": 1088,
+                    "text": "Figure S2B",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Similarity Search and Structure-activity Relationship"
+        },
+        {
+            "text": "Frontiers in Chemistry | www.frontiersin.org September 2021 | Volume 9 | Article 740702 FIGURE 5 | The binding affinity between the five compounds and SARS-CoV-2 S-RBD or ACE2. Compounds bound to SARS-CoV-2 S-RBD or ACE2. Interactions of SARS-CoV-2 S-RBD or ACE2 with compounds measured by SPR. The SARS-CoV-2 S-RBD or ACE2 was coated on the CM5 sensor chip and serial dilutions of compounds (typically, 1,562.5, 3,125, 6,250, 12,500, 25,000, 50, To analyze the mechanism of action of DC-RA016, the binding pose of the compound DC-RA016 on the SARS-CoV-2 S-RBD/ACE2 interface was generated by XP docking. As shown in Figure 6A , DC-RA016 could form strong interactions with the SARS-CoV-2 S-RBD/ACE2 complex interface. The two phenolic hydroxyls of DC-RA016 respectively formed H-bonds with the His-34 of ACE2 and Gly496 of S-RBD. The replacement of the R1 group of DC-RA016 with other structures would disrupt such interaction, which provided the structural explanation for the impaired activity of compounds DC-RA016-1 to DC-RA016-8. Additionally, an electrostatic interaction also occurred between the nitro of DC-RA016 and Asp-30 of ACE2, which accounted for the stronger inhibitory activity of compounds DC-RA016 and DC-RA016-12 than compounds DC-RA016-9, DC-RA016-10, and DC-RA016-11. Compared with DC-RA016, the change of the position of chlorine substitution in DC-RA016-12 didn't have obvious effects on its inhibitory activity. Moreover, although its R 2 group was quite different from that of DC-RA016, DC-RA016-9 still displayed certain inhibitory activity. These results suggested that the R 2 group was not the essential pharmacophore of DC-RA016, so we plan to carry further structural modification on this group in the future.",
+            "cite_spans": [
+                {
+                    "start": 392,
+                    "end": 446,
+                    "text": "(typically, 1,562.5, 3,125, 6,250, 12,500, 25,000, 50,",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 617,
+                    "end": 626,
+                    "text": "Figure 6A",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "Similarity Search and Structure-activity Relationship"
+        },
+        {
+            "text": "The docking analysis on DC-RA052, another important inhibitor, was also carried out. As shown in Figure 6B , Lys-417, Gln-409, Glu-406, Arg-403, Tyr-505 of SARS-CoV-2 S-RBD, and His-34 of ACE2 were found to form H-bonds with DC-RA052. Moreover, the benzene ring and pyridine ring of DC-RA052 formed \u03c0-cation interaction with the Arg-408 and Arg-403 of S-RBD. Comparing the binding modes of DC-RA016 and DC-RA052, it could be noted that both DC-RA016 and DC-RA052 interacted with the Arg-403 of S-RBD and His-34 of ACE2. Then, based on the docked complex structures, we calculated the per-residue interaction scores with glide. The results indicated the strong interaction of Arg-403 of S-RBD and His-34 of ACE2 to DC-RA016 and DC-RA052 (Supplementary Table S1 ). Moreover, as shown in Figure 6C , there was a deep pocket (marked with the red circle) on the SARS-CoV-2 S-RBD/ACE2 interface. Arg-403 of S-RBD and His-34 of ACE2 were both at the edge of this pocket. Hence, we considered Arg-403 of S-RBD and His-34 of ACE2 as two key residues responsible for the binding of ligands to the SARS-CoV-2 S-RBD/ ACE2 interface. To explore the reason why the binding of identified inhibitors can influence SARS-CoV-2 S-RBD/ACE2 interaction, the mean effects of mutation of each residue within 5 \u00c5 of DC-RA016 and DC-RA052 on the binding affinity of SARS-CoV-2 S-RBD to ACE2 were visualized. The data for visualization was obtained from a previous study, where Starr et al. systematically changed every amino acid in the SARS-CoV-2 S-RBD and determined the effects of the substitutions on ACE2 binding. The mean effects per site were calculated from the set of \u0394log 10 (K D , app) measurements of all missense mutations at a site (Starr et al., 2020) . \u0394log 10 (K D , app) represents the log binding constants relative to the wild-type SARS-CoV-2 RBD. As shown in Supplementary Figure S3 , the mutations of many residues around DC-RA016 and DC-RA052 such as Ile-418 and Phe-497 could significantly reduce the binding affinity of SARS-CoV-2 S-RBD to ACE2, which mean these residues played key roles in the binding of SARS-CoV-2 S-RBD to ACE2. And yet, binding to the SARS-CoV-2 S-RBD/ACE2 interface, DC-RA016 and DC-RA052 would contact with these residues and interfere with their functions, disrupting the interaction between SARS-CoV-2 S-RBD and ACE2.",
+            "cite_spans": [
+                {
+                    "start": 1452,
+                    "end": 1464,
+                    "text": "Starr et al.",
+                    "ref_id": null
+                },
+                {
+                    "start": 1721,
+                    "end": 1741,
+                    "text": "(Starr et al., 2020)",
+                    "ref_id": "BIBREF10"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 97,
+                    "end": 106,
+                    "text": "Figure 6B",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 736,
+                    "end": 759,
+                    "text": "(Supplementary Table S1",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 785,
+                    "end": 794,
+                    "text": "Figure 6C",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 1869,
+                    "end": 1878,
+                    "text": "Figure S3",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Similarity Search and Structure-activity Relationship"
+        },
+        {
+            "text": "Prior work has demonstrated that the interaction of SARS-CoV-2 S-RBD and the ACE2 receptor plays a critical role in the virus invasion into the host cell. Hence interference of SARS-CoV-2 S-RBD/ACE2 interaction is regarded as a promising antiviral Frontiers in Chemistry | www.frontiersin.org September 2021 | Volume 9 | Article 740702",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "CONCLUSION"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Hijacking SARS-Cov-2/ace2 Receptor Interaction by Natural and Semisynthetic Steroidal Agents Acting on Functional Pockets on the Receptor Binding Domain",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Carino",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Moraca",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Fiorillo",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Marchian\u00f2",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Sepe",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Biagioli",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Front. Chem",
+            "volume": "8",
+            "issn": "846",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3389/fchem.2020.572885"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Overview of Lethal Human Coronaviruses",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "E.-K",
+                    "middle": [],
+                    "last": "Tian",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "He",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Tian",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Han",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Sig. Transduct. Target. Ther",
+            "volume": "5",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41392-020-0190-2"
+                ]
+            }
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "In Vitro screening for Compounds Derived from Traditional Chinese Medicines with Antiviral Activities against Porcine Reproductive and Respiratory Syndrome Virus",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Cheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Niu",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "J. Microbiol. Biotechnol",
+            "volume": "23",
+            "issn": "8",
+            "pages": "1076--1083",
+            "other_ids": {
+                "DOI": [
+                    "10.4014/jmb.1303.03074"
+                ]
+            }
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "The Species Severe Acute Respiratory Syndrome-Related Coronavirus: Classifying 2019-nCoV and Naming it SARS-CoV-2",
+            "authors": [
+                {
+                    "first": "Fda- ; A",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Repurposing",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Baker",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Baric",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "De Groot",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Drosten",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Gulyaeva",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat. Microbiol",
+            "volume": "12",
+            "issn": "7",
+            "pages": "536--544",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41564-020-0695-z"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Targeting ACE2-RBD Interaction as a Platform for COVID-19 Therapeutics: Development and Drug-Repurposing Screen of an AlphaLISA Proximity Assay",
+            "authors": [
+                {
+                    "first": "Q",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Hanson",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Wilson",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Shen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Itkin",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Eastman",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Shinn",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "ACS Pharmacol. Transl. Sci",
+            "volume": "3",
+            "issn": "6",
+            "pages": "1352--1360",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acsptsci.0c00161"
+                ]
+            }
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "SARS-CoV-2 Cell Entry Depends on ACE2 and TMPRSS2 and Is Blocked by a Clinically Proven Protease Inhibitor",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Hoffmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Kleine-Weber",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Schroeder",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Kr\u00fcger",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Herrler",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Erichsen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "cell",
+            "volume": "181",
+            "issn": "2",
+            "pages": "271--280",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2020.02.052"
+                ]
+            }
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "The \u03c9-carboxyl Group of 7-Ketocholesteryl-9-Carboxynonanoate Mediates the Binding of oxLDL to CD36 Receptor and Enhances Caveolin-1 Expression in Macrophages",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Chi",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Qin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Int. J. Biochem. Cel Biol",
+            "volume": "90",
+            "issn": "",
+            "pages": "121--135",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.biocel.2017.07.022"
+                ]
+            }
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Targeting the Entry Step of SARS-CoV-2: a Promising Therapeutic Approach",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Zhan",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Sig. Transduct. Target. Ther",
+            "volume": "5",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41392-020-0195-x"
+                ]
+            }
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Inhibition of SARS-CoV-2 Infections in Engineered Human Tissues Using Clinical-Grade Soluble Human ACE2",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Monteil",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Kwon",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Prado",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Hagelkr\u00fcys",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Wimmer",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Stahl",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "181",
+            "issn": "4",
+            "pages": "905--913",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2020.04.004"
+                ]
+            }
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Deep Mutational Scanning of SARS-CoV-2 Receptor Binding Domain Reveals Constraints on Folding and ACE2 Binding",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Starr",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Greaney",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Hilton",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Ellis",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "H D"
+                    ],
+                    "last": "Crawford",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Dingens",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "182",
+            "issn": "5",
+            "pages": "1295--1310",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2020.08.012"
+                ]
+            }
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "A Mouse Model of SARS-CoV-2 Infection and Pathogenesis",
+            "authors": [
+                {
+                    "first": "S.-H",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "H.-J",
+                    "middle": [],
+                    "last": "Gu",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y.-X",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X.-Y",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell Host Microbe",
+            "volume": "28",
+            "issn": "1",
+            "pages": "124--133",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.chom.2020.05.020"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Structure, Function, and Antigenicity of the SARS-CoV-2 Spike Glycoprotein",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Walls",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y.-J",
+                    "middle": [],
+                    "last": "Park",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Tortorici",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Wall",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Mcguire",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Veesler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "181",
+            "issn": "2",
+            "pages": "281--292",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2020.02.058"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Structural and Functional Basis of SARS-CoV-2 Entry by Using Human ACE2",
+            "authors": [
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Niu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "181",
+            "issn": "4",
+            "pages": "894--904",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2020.03.045"
+                ]
+            }
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Cryo-EM Structure of the 2019-nCoV Spike in the Prefusion Conformation",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Wrapp",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Corbett",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Goldsmith",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.-L",
+                    "middle": [],
+                    "last": "Hsieh",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Abiona",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Science",
+            "volume": "367",
+            "issn": "6483",
+            "pages": "1260--1263",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.abb2507"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Conformational Dynamics of SARS-CoV-2 Trimeric Spike Glycoprotein in Complex with Receptor ACE2 Revealed by",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Han",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Hong",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Cryo-EM. Sci. Adv",
+            "volume": "7",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/sciadv.abe5575"
+                ]
+            }
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Frontiers in Chemistry | www.frontiersin.org",
+            "authors": [],
+            "year": 2021,
+            "venue": "",
+            "volume": "9",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Molecular Interaction and Inhibition of SARS-CoV-2 Binding to the ACE2 Receptor",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "J L"
+                    ],
+                    "last": "Petitjean",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Koehler",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Dumitru",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat. Commun",
+            "volume": "11",
+            "issn": "1",
+            "pages": "1--10",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41467-020-18319-6"
+                ]
+            }
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Clinical Course and Outcomes of Critically Ill Patients with SARS-CoV-2 Pneumonia in Wuhan, China: a Single-Centered, Retrospective, Observational Study",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Shu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Xia",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Molecular Architecture of the SARS-CoV-2 Virus",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Yao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "183",
+            "issn": "3",
+            "pages": "730--738",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2020.09.018"
+                ]
+            }
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Glycyrrhizic Acid Exerts Inhibitory Activity against the Spike Protein of SARS-CoV-2",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Yao",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Phytomedicine",
+            "volume": "85",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.phymed.2020.153364"
+                ]
+            }
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "ACE2) as a SARS-CoV-2 Receptor: Molecular Mechanisms and Potential Therapeutic Target",
+            "authors": [],
+            "year": null,
+            "venue": "Angiotensin-converting Enzyme",
+            "volume": "2",
+            "issn": "4",
+            "pages": "586--590",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s00134-020-05985-9"
+                ]
+            }
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Clinical Characteristics of 140 Patients Infected with SARS-CoV-2 in Wuhan",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Dong",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y.-Y",
+                    "middle": [],
+                    "last": "Cao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y.-D",
+                    "middle": [],
+                    "last": "Yuan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y.-B",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y.-Q",
+                    "middle": [],
+                    "last": "Yan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "China. Allergy",
+            "volume": "75",
+            "issn": "7",
+            "pages": "1730--1741",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/all.14238"
+                ]
+            }
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Blocking Effect of Demethylzeylasteral on the Interaction between Human ACE2 Protein and SARS-CoV-2 RBD Protein Discovered Using SPR Technology",
+            "authors": [
+                {
+                    "first": "Z.-L",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "X.-D",
+                    "middle": [],
+                    "last": "Qiu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y.-T",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z.-H",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Molecules",
+            "volume": "26",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/molecules26010057"
+                ]
+            }
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "The flow chart of the discovery of inhibitors against SARS-CoV-2 S-RBD/ACE2 interaction by structure-based virtual screening.Frontiers in Chemistry | www.frontiersin.org September 2021 | Volume 9 | Article 740702",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "NanoBiT-based SARS-CoV-2 S-RBD/ACE2 interaction assays for five compounds: (A) DC-RA016; (B) DC-RA052; (C) DC-RA076; (D) DC-RA087;",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Anti-SARS-CoV-2-S pseudovirus activities and cytotoxicities of several compounds. (A) Determining Anti-SARS-CoV-2-S pseudovirus activities of 24 compounds showing the potent blocking activities against SARS-CoV-2 S-RBD/ACE2 interaction in the initial NanoBiT assay using the two concentrations (10, 100 \u03bcM); (B-F) IC 50 and CC 50 values of five compounds: (B) DC-RA016, (C) DC-RA052, (D) DC-RA076, (E) DC-RA087, (F) DC-RA106; Relative Luminescence (%) standing for the infection of SARS-CoV-2-S pseudovirus (blue), cell viability (purple).Frontiers in Chemistry | www.frontiersin.org September 2021 | Volume 9 | Article 740702",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "DC-RA016, DC-RA052, DC-RA087 and DC-RA106 could bind to human ACE2 (Figures 5A,C,G,I); while DC-RA016, DC-RA052 and DC-RA106 showed binding to SARS-CoV-2 S-RBD (Figures 5B,D,J)",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "000 and 100,000 nM) were used as analytes. Changes in plasmon resonance are shown as response units. (A) Binding curves (colored lines) obtained by passing different concentrations of DC-RA016 over immobilized ACE2. (B) Binding curves (colored lines) obtained by passing different concentrations of DC-RA016 over immobilized S-RBD. (C) Binding curves (colored lines) obtained by passing different concentrations of DC-RA052 over immobilized ACE2. (D) Binding curves (colored lines) obtained by passing different concentrations of DC-RA052 over immobilized S-RBD. (E) Binding curves (colored lines) obtained by passing different concentrations of DC-RA076 over immobilized ACE2. (F) Binding curves (colored lines) obtained by passing different (Continued ) FIGURE 5 | concentrations of DC-RA076 over immobilized S-RBD. (G) Binding curves (colored lines) obtained by passing different concentrations of DC-RA087 over immobilized ACE2. (H) Binding curves (colored lines) obtained by passing different concentrations of DC-RA087 over immobilized S-RBD. (I) Binding curves (colored lines) obtained by passing different concentrations of DC-RA106 over immobilized ACE2. (J) Binding curves (colored lines) obtained by passing different concentrations of DC-RA106 over immobilized S-RBD.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "Analysis of binding modes of DC-RA016 and DC-RA052. (A) The lowest energy docked poses of DC-RA016 on the SARS-CoV-2 S-RBD/ACE2 interface. (B) The lowest energy docked poses of DC-RA052 on the SARS-CoV-2 S-RBD/ACE2 interface. (C) Superimposition of the docked poses of DC-RA016 and DC-RA052 (yellow and purple mesh). The green sticks denote ligands, the critical residues in binding cavities are shown as blue sticks (S-RBD) and pink sticks (ACE2), and the overall protein structures are shown as a blue cartoon (S-RBD) and a pink cartoon (ACE2).",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF1": {
+            "text": "Summary of Anti-SARS-CoV-2-S pseudovirus activities and cytotoxicities of five compounds.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "The activities of DC-RA016 analogues in NanoBiT-based assay. RBD/ACE2 Inhibition %: the inhibition rates against SARS-CoV-2 S-RBD/ACE2 interaction; NanoLuc Inhibition %: the inhibition rates against NanoLuc luciferase.",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "strategy for SARS-CoV-2. However, only fewer small molecule inhibitors targeting such interaction have been reported so far. In this study, the structural-based virtual screening was conducted to search for the compounds that can inhibit the SARS-CoV-2 S-RBD/ACE2 interaction. The screened compounds were docked by targeting the SARS-CoV-2 S-RBD/ACE2 interface. Subsequently, A NanoBiT-based binding assay was performed to evaluate the inhibition effect of those compounds on SARS-CoV-2 S-RBD/ACE2 interaction resulting in 24 potential inhibitor candidates. Among them, DC-RA016, DC-RA052, and DC-RA087 displayed low cytotoxicity and moderate inhibition ability to SARS-CoV-2-S pseudovirus. Furthermore, the SPR assays identified that DC-RA016 and DC-RA052 could directly bond to both ACE2 and S-RBD. Taken together, the compounds DC-RA016 and DC-RA052 obtained in this study can serve as an ideal starting point for drug design against SARS-CoV-2 S-RBD/ACE2 interaction and SARS-CoV-2 infection. In addition, two biological active analogues of DC-RA016 were discovered through the 2D similarity search. Among them, DC-RA016-12 exhibited similar activity to DC-RA016 in NanoBiT-based assay.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "annex"
+        },
+        {
+            "text": "The original contributions presented in the study are included in the article/Supplementary Files, further inquiries can be directed to the corresponding authors.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "DATA AVAILABILITY STATEMENT"
+        },
+        {
+            "text": "LC, MZ, and JXu conceived and designed the experiments. JXi, YX, ZH, XL, and MW carried out the experiments and data analysis. JXi and YX wrote the manuscript. LC, MZ, HC, and GG critically revised the manuscript.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "AUTHOR CONTRIBUTIONS"
+        },
+        {
+            "text": "The Supplementary Material for this article can be found online at: https://www.frontiersin.org/articles/10.3389/fchem.2021.740702/ full#supplementary-material Conflict of Interest: The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "SUPPLEMENTARY MATERIAL"
+        }
+    ]
+}

@@ -1,0 +1,3843 @@
+{
+    "paper_id": "0a9c56c9582bc8122976a582b52226f2a9ad7e5f",
+    "metadata": {
+        "title": "The Use of Low-Cost Unmanned Aerial Vehicles in the Process of Building Models for Cultural Tourism, 3D Web and Augmented/Mixed Reality Applications",
+        "authors": [
+            {
+                "first": "Tomasz",
+                "middle": [],
+                "last": "Templin",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University of Warmia and Mazury in Olsztyn",
+                    "location": {
+                        "postCode": "10-719",
+                        "settlement": "Olsztyn",
+                        "country": "Poland"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Dariusz",
+                "middle": [],
+                "last": "Popielarczyk",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University of Warmia and Mazury in Olsztyn",
+                    "location": {
+                        "postCode": "10-719",
+                        "settlement": "Olsztyn",
+                        "country": "Poland"
+                    }
+                },
+                "email": "dariusz.popielarczyk@uwm.edu.pl*correspondence:tomasz.templin@uwm.edu.pl"
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Unmanned Aerial Systems (UAS) are widely used in low-cost photogrammetry. Even small Unmanned Aerial Vehicles (UAV) can deliver valuable data for the inventory of inaccessible and dangerous areas or objects. The acquisition of data for 3D object modeling is a complicated, time-consuming, and cost-intensive process. It requires the use of expensive equipment and often manual work as well as professional software. These are major barriers limiting the development of modern tourist platforms that promote local attractions. Information technologies offer new opportunities for the development of the services market, including the development of smart tourism services, as an integral part of the smart city concept. 3D models are an important element of this process as they form the basis for the use of new visualization technologies, such as Virtual, Mixed, and Augmented Reality (VR/MR/AR). 3D modeling provides a new opportunity to use AR/MR technology to present information about objects, virtual tours of the historic buildings, and their promotion. It also creates an opportunity to preserve the architectural heritage and preventive maintenance of buildings. Despite the increasing use of new measuring platforms and computer modeling techniques, the implementation of 3D building models in smart tourism services is still limited, focusing more on the results of scientific projects rather than on the implementation of the new ones. The paper presents an universal methodology for the inventory of historical buildings using low-cost UAVs. It describes the most important aspects related to the process of planning UAV measurement missions and photogrammetric data acquisition. The construction of 3D models and the possibilities of their further use to build smart tourism services based on Web/AR/MR/VR technology was also presented.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Sensors 2020, 20, 5457 2 of 26 based on the intensive deployment of information and communication technology (ICT) infrastructure, as well as on the proliferation of mobile technology and its applications [3] . Smart platforms and modern visualization technology allow for the synergy of integration, innovation, and growth [4] .",
+            "cite_spans": [
+                {
+                    "start": 205,
+                    "end": 208,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 324,
+                    "end": 327,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Information technologies have offered new possibilities for the development of the market of services [5] . Smart cultural heritage services are one of the possible ways of unlocking the potential of these technologies. They offer access to historical objects and preserve cultural heritage and the arts. The term has been defined by Borda [6] as services that focus on collaborative approaches, making cultural data open and freely available. They involve consumers in the process of experiencing the content they are discovering, providing access to cultural objects and experiences also across distance. In the literature several authors have presented example of such services [7] [8] [9] [10] .",
+            "cite_spans": [
+                {
+                    "start": 102,
+                    "end": 105,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 681,
+                    "end": 684,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 685,
+                    "end": 688,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 689,
+                    "end": 692,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 693,
+                    "end": 697,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "In the literature, there are many definitions of smart tourism and its role in smart cities [11] . One of the classical approaches defines smart tourism as a subset of the smart city concept, aiming to provide tourists with solutions that address specific travel-related needs [12] . It specifically highlights smart tourism as an integral component of the overall systems and processes.",
+            "cite_spans": [
+                {
+                    "start": 92,
+                    "end": 96,
+                    "text": "[11]",
+                    "ref_id": null
+                },
+                {
+                    "start": 277,
+                    "end": 281,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Cultural heritage tourism involves visiting places that are significant to the past or present cultural identity of a particular group of people [13] . The high availability of mobile apps has led to significant changes in the way people get information, consume digital content, and spend free time [14] . This is particularly evident in the young generation, for whom the participation of mobile devices in this process is becoming obvious. The results of many studies have confirmed that people want to decide when and where they want to access content and how to share it [15] . This is a big chance to promote local historical attractions.",
+            "cite_spans": [
+                {
+                    "start": 145,
+                    "end": 149,
+                    "text": "[13]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 300,
+                    "end": 304,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 576,
+                    "end": 580,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "In the world of cultural heritage, an increasing number of applications are outdoor context-aware, location-based services (LBS) [16] . They use modern visualization methods, especially augmented reality (AR), mixed reality (MR) and virtual reality (VR) [17] . The most popular mobile applications are created for museums, galleries and for promotion of historical events [18] [19] [20] .",
+            "cite_spans": [
+                {
+                    "start": 129,
+                    "end": 133,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 254,
+                    "end": 258,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 372,
+                    "end": 376,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 377,
+                    "end": 381,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 382,
+                    "end": 386,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Rapidly developing technologies allow the provision of building sophisticated services with an increasing number of features. However, they are affected by the risks associated with the complexity of the system and difficulties in meeting the requirements [21] . Another significant problem is the lack of availability of reliable, up-to-date digital content specific for cultural heritage.",
+            "cite_spans": [
+                {
+                    "start": 256,
+                    "end": 260,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Modern laser scanning methods and photogrammetric techniques allow for quick acquisition of 3D scene data [22] . Technological progress has led to the creation of an increasing number of object and environment models [23] . Nevertheless, the process of creating advanced 3D models is expensive, time consuming and requires manual work. This means that research is usually conducted in the most prestigious, attractive historical locations for famous historical objects.",
+            "cite_spans": [
+                {
+                    "start": 106,
+                    "end": 110,
+                    "text": "[22]",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 217,
+                    "end": 221,
+                    "text": "[23]",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Unmanned Aerial Systems (UAS) are widely used in low-cost photogrammetry [24] [25] [26] [27] [28] . Even small aerial vehicles (AVs) can provide valuable data for the inventory of inaccessible and dangerous areas or objects. The UAS multi-sensor approach to 3D modeling and reconstruction of cultural heritage objects has been studied by many authors [29] . The combination of UAS with laser scanning can provide excellent fast data acquisition capabilities, also for AR/MR purposes [30] .",
+            "cite_spans": [
+                {
+                    "start": 73,
+                    "end": 77,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 78,
+                    "end": 82,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 83,
+                    "end": 87,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 88,
+                    "end": 92,
+                    "text": "[27]",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 93,
+                    "end": 97,
+                    "text": "[28]",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 351,
+                    "end": 355,
+                    "text": "[29]",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 483,
+                    "end": 487,
+                    "text": "[30]",
+                    "ref_id": "BIBREF29"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Recently, the scientific community has been working on Historic Building Information Modelling (HBIM) to improve the interoperability between information/data in various types and formats [31] . BIM is an interdisciplinary platform connecting specialists from various fields. It is a centralized access point that helps many users work simultaneously. The multidimensional character of the presented models allows for a holistic overview of the object considering all its aspects, from the design to demolition. Based on the literature, BIM is a fully seven-dimensional (7D) platform. The first three dimensions refer to geometry, the 4D dimension adds dynamics by temporal simulation, the 5D includes costs, the 6D is related to building life cycle management, and the 7D concerns facility and asset management [32] .",
+            "cite_spans": [
+                {
+                    "start": 188,
+                    "end": 192,
+                    "text": "[31]",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 812,
+                    "end": 816,
+                    "text": "[32]",
+                    "ref_id": "BIBREF31"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "BIM is a complete solution that meets the expectations of professional users. It provides an interface for sharing information throughout the whole building life cycle. Currently, several",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Intelligent solutions are the foundation for creating platforms that integrate people, society, and businesses. They are a basis for building environmentally-friendly smart platforms that have a strong positive impact on human life. Smart communities make the lives of citizens better by supporting infrastructure needs, reimagining cultural awareness, and eliminating social inequality. The vision of smart cities has become a common trend in the development of modern towns and metropolises [1] . Nowadays, it is also the subject of many scientific studies and commercial projects. A recent review of solutions implemented at the local, regional, or municipal government level was presented by Camero et al. [2] .",
+            "cite_spans": [
+                {
+                    "start": 493,
+                    "end": 496,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 710,
+                    "end": 713,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "There are new and innovative ways to share and communicate data, exchange views, and collaborate to create better, safer, and more sustainable smart communities. The concept of \"smart\" is commercial applications are available in the market. They offer advanced algorithms for creating, analyzing, and further visualizing building models [33] . There are many studies in the literature concerning the use of VR/AR/MR for the visualization of historical buildings [34] . However, they show the need to develop solutions that allow the use of 3D products also for cultural tourism and services for individual customers.",
+            "cite_spans": [
+                {
+                    "start": 337,
+                    "end": 341,
+                    "text": "[33]",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 462,
+                    "end": 466,
+                    "text": "[34]",
+                    "ref_id": "BIBREF33"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The challenge in the field of cultural heritage services is the lack of universal, easy to implement standards for preparation of digital content for Web/AR/MR/VR services. The existing solutions are usually the result of complex research projects, focusing on individual objects in dispersed locations. They often require advanced computer hardware, expensive software, or have limited spatial coverage.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The article presents the methodology of using UAV data for historical objects to prepare digital 3D assets for Web3D, AR/MR/VR smart cultural heritage services. The raw data is processed and used in GIS applications and optimized for typical tourist services that are based on Web/AR/MR/VR technology. The proposed method indicates the possibility of using low-cost UAV for fast data acquisition in the process of building 3D models of historical buildings. The following sections propose the phase-in of planning measurements and data acquisition. They also describe the problems with the implementation of the UAV mission. Laser scanner measurements and their development are also presented. Then the process of creating the 3D building model and its optimization for mixed and augmented reality solutions is shown. The visualization of the building model is in itself accessible through web browsers as a 3D model, a mobile application as augmented reality content, a windows application with mixed reality; alternatively, it can be experienced as a 3D immersion in virtual reality (VR).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Historic buildings are an important part of cultural property. They have their history and the look of buildings has evolved throughout the ages. Only the buildings which have been highly valued, both by rulers and citizens, have survived the wear of time. Usually these are buildings that fulfilled an important religious role in the society, e.g. churches, cathedrals and temples [35] . Recently another type of building has been added to this list: industrial and military heritage.",
+            "cite_spans": [
+                {
+                    "start": 382,
+                    "end": 386,
+                    "text": "[35]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Problem"
+        },
+        {
+            "text": "Small towns or cities have tight budgets for the preservation of historical buildings. There is a shortage of funds to promote these places and their history and to build tourist services that encourage people to visit them. It caused many cultural heritage locations to be hidden from tourists, especially in countries with many historical attractions. Tourists tend to consider only the most popular towns, turning their back on other beautiful places.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Problem"
+        },
+        {
+            "text": "Despite the increasing use of new measuring platforms and computer modeling techniques, the implementation of 3D building models in smart tourism services is still limited, focusing more on the results of scientific projects rather than on the implementation of the new ones. In the literature on the subject, few studies concentrate on the need for centralized 3D cultural heritage archives [23, 36] . Most of them focus on peer-reviewed 3D models and a methodological approach useful for producing 3D digital content of cultural heritage objects in the context of digital archives.",
+            "cite_spans": [
+                {
+                    "start": 392,
+                    "end": 396,
+                    "text": "[23,",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 397,
+                    "end": 400,
+                    "text": "36]",
+                    "ref_id": "BIBREF35"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Problem"
+        },
+        {
+            "text": "Computer-generated three-dimensional models are the foundation of modern smart tourism services. They can be used in hand-held devices to promote the region and present useful information not only to professional users, specialists in architecture, civil engineering, cultural heritage documentation, and preservation. It could be a unified platform for a wide user community interested in cultural tourism. Digital representations (DRs) supported by modern visualization techniques (VR/AR/MR) can fulfill these visions effectively, revealing the 3D digital content. The overlaid content can be derived from the existing data sets or it can be obtained from modern measurement sensors. One of the cost-effective sources of 3D building models is UAV/UAS. The following subchapters present a method that uses low-cost UAV to quickly and efficiently acquire data on a historical water tower located in the Modlin fortress in Poland. At the beginning we introduce HBIM systems and typical workflow processing. The process of building HBIM is complex, interdisciplinary and requires standards and cooperation of specialists from different fields. The construction of the 3D model is the stage that requires the selection of appropriate measurement technologies and maintenance of accuracy standards.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Problem"
+        },
+        {
+            "text": "In the next step we present the modelling methodology for smart tourism services. The process of creating 3D models of buildings is shown. The model built with the use of the proposed methodology after the accuracy analysis can be used directly in the process of building HBIM, or indirectly among others, for planning the measurement works, visual assessment of the building's condition or planning renovation works.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Problem"
+        },
+        {
+            "text": "In the following subchapters we present the historical model of the building and its further optimization for mixed and augmented reality purposes. Based on the collected data, we make different versions of a 3D textural building model. In the end, the visualization of building models themselves is accessible through web browsers as a 3D model, a mobile application as augmented reality content, and a windows application with mixed reality. The tower visualization can also alternatively be experienced as 3D immersion in virtual reality (VR).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Problem"
+        },
+        {
+            "text": "An unprecedented progress of technologies caused the emergence of many new measurement platforms and sensors. They are able to quickly obtain comprehensive data on historic buildings. They allow us to increase the speed of data acquisition, improve the level of detail and spatial resolution. The development of measurement technologies has also increased the amount of collected data, added new attributes, and additional parameters describing material properties. A comprehensive review of the measurement methods used for the geometric documentation of cultural heritage was presented by Georgopoulos [37] . A typical methodology for implementation of an HBIM is shown in Figure 1 . The direct modeling process uses the point cloud as the basis for vectoring the profiles required to construct a 3D model. In the parametric method, architectural shapes are recognized and segmented based on raw data. The conversion process can be performed by manual, semi-automatic or automatic modelling [43] . All recognized objects are added to HBIM databases as surfaces (planes, curves, or extrusion), volumes, and complex objects. Regarding the measurement platform, the following sources of data can be specified:",
+            "cite_spans": [
+                {
+                    "start": 604,
+                    "end": 608,
+                    "text": "[37]",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 993,
+                    "end": 997,
+                    "text": "[43]",
+                    "ref_id": "BIBREF43"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 675,
+                    "end": 683,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Typical Processing Workflow for HBIM"
+        },
+        {
+            "text": "Existing materials, drawings, photographs, both in digital and analog form (existing sources), \u2022 Traditional measuring methods (geodetic, other), \u2022 Photogrammetric imagery and aerial laser scanning, \u2022",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "\u2022"
+        },
+        {
+            "text": "Data from platforms such as UAV/UAS (passive and active sensors), \u2022 Laser scanning using a terrestrial, mobile, and personal platform, \u2022 Product of non-destructive tests (geo-radar, thermography, sonic tests), \u2022",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "\u2022"
+        },
+        {
+            "text": "Other methods, including minor destructive and destructive tests.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "\u2022"
+        },
+        {
+            "text": "New sensors types, including optical, acoustic, laser scanning, radar, thermal devices provide the opportunity to build complex models with unprecedented levels of detail. Depending on the purpose and requirements, different methodologies can be used. Digital documentation of cultural heritage consists of three stages:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "\u2022"
+        },
+        {
+            "text": "Acquiring raw data, \u2022",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "\u2022"
+        },
+        {
+            "text": "Processing raw data, \u2022 Generating the model.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "\u2022"
+        },
+        {
+            "text": "Data acquisition is an important step in the modeling process. This is the first stage at which data is usually acquired from multiple sources. Several pre-processing steps should be carried out on the raw data before modeling. These steps include registration, segmentation/filtering, triangulation, texturing, and orthophoto creation. Typically, integration of data from multiple data sources is required.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "\u2022"
+        },
+        {
+            "text": "The modeling phase is the last and most challenging stage. The literature presents several different strategies for building BIM models [38] [39] [40] . Two main working methods used to build 3D models are direct and parametric modelling [41] . Some authors also propose the third one as a hybrid solution [42] .",
+            "cite_spans": [
+                {
+                    "start": 136,
+                    "end": 140,
+                    "text": "[38]",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 141,
+                    "end": 145,
+                    "text": "[39]",
+                    "ref_id": "BIBREF39"
+                },
+                {
+                    "start": 146,
+                    "end": 150,
+                    "text": "[40]",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 238,
+                    "end": 242,
+                    "text": "[41]",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 306,
+                    "end": 310,
+                    "text": "[42]",
+                    "ref_id": "BIBREF42"
+                }
+            ],
+            "ref_spans": [],
+            "section": "\u2022"
+        },
+        {
+            "text": "The direct modeling process uses the point cloud as the basis for vectoring the profiles required to construct a 3D model. In the parametric method, architectural shapes are recognized and segmented based on raw data. The conversion process can be performed by manual, semi-automatic or automatic modelling [43] . All recognized objects are added to HBIM databases as surfaces (planes, curves, or extrusion), volumes, and complex objects.",
+            "cite_spans": [
+                {
+                    "start": 307,
+                    "end": 311,
+                    "text": "[43]",
+                    "ref_id": "BIBREF43"
+                }
+            ],
+            "ref_spans": [],
+            "section": "\u2022"
+        },
+        {
+            "text": "At this stage, pre-designed libraries of basic architectural and structural elements are often used. Due to the character of existing and historic buildings, the extensive libraries of predefined parametric objects contained in BIM software do not always contain all the necessary objects and commands for modeling irregular shapes. However, there is great potential for improvement in the modeling process with the development of new parametric libraries dedicated to existing and historic buildings. The results of this work are presented, among others, in the following studies [44] [45] [46] [47] .",
+            "cite_spans": [
+                {
+                    "start": 581,
+                    "end": 585,
+                    "text": "[44]",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 586,
+                    "end": 590,
+                    "text": "[45]",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 591,
+                    "end": 595,
+                    "text": "[46]",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 596,
+                    "end": 600,
+                    "text": "[47]",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "ref_spans": [],
+            "section": "\u2022"
+        },
+        {
+            "text": "With the technological progress we have new algorithms that automate the process of point cloud analysis and object recognition. Automation gives the possibility to shorten time and thus reduce costs of BIM projects. There is a lot of work being performed at the moment. The process of automatic object recognition and object detection gives promising results, but does not automate the entire process from point cloud to BIM. A comprehensive overview of current solutions can be found in Dore et al. [48] . Usually, the construction process is conducted using standard BIM software packages (e.g., Revit, ArchiCAD, OpenBuildings Designer, Teckla) or specialized applications such as the Rhinoceros software.",
+            "cite_spans": [
+                {
+                    "start": 501,
+                    "end": 505,
+                    "text": "[48]",
+                    "ref_id": "BIBREF48"
+                }
+            ],
+            "ref_spans": [],
+            "section": "\u2022"
+        },
+        {
+            "text": "Today the preferred surveying technique for the 3D documentation of historic buildings is terrestrial laser scanning. High-speed, high-accuracy, and dedicated processing software enable efficient creation of 2D, 3D, and BIM models. However, the high price and limitations relating to measuring high objects (roofs of buildings), sometimes renders their use to be limited or requires additional equipment.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Modeling for Smart Tourism Services Based on UAV Data"
+        },
+        {
+            "text": "UAVs combined with RGB and multispectral cameras represent platforms to collect high-quality spatio-temporal data, including digital surface models (DSMs) and orthorectified images (orthophotos) or 3D models of objects. Even small UAVs can deliver valuable data for the inventory of inaccessible and dangerous areas or objects. Figure 2 presents the proposed methodology that describes the use of UAVs and ground images from Digital Single Lens Reflex (DSLR) cameras for preparing a 3D textured model for AR/VR purposes. Typically, after processing the UAV/DSLR raw data dense point cloud is generated. Based on this cloud, wireframes are generated and then using parametric modeling or NURBS curves, BIM models are created. In the proposed approach, we suggest unstructured geometric reconstruction of the external surface of the building based on point cloud. The created model is then optimized in subsequent steps for use in AR and VR mobile applications.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 328,
+                    "end": 336,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Modeling for Smart Tourism Services Based on UAV Data"
+        },
+        {
+            "text": "Sensors 2020, 20, x FOR PEER REVIEW 6 of 27",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Modeling for Smart Tourism Services Based on UAV Data"
+        },
+        {
+            "text": "UAVs combined with RGB and multispectral cameras represent platforms to collect high-quality spatio-temporal data, including digital surface models (DSMs) and orthorectified images (orthophotos) or 3D models of objects. Even small UAVs can deliver valuable data for the inventory of inaccessible and dangerous areas or objects. Figure 2 presents the proposed methodology that describes the use of UAVs and ground images from Digital Single Lens Reflex (DSLR) cameras for preparing a 3D textured model for AR/VR purposes. Typically, after processing the UAV/DSLR raw data dense point cloud is generated. Based on this cloud, wireframes are generated and then using parametric modeling or NURBS curves, BIM models are created. In the proposed approach, we suggest unstructured geometric reconstruction of the external surface of the building based on point cloud. The created model is then optimized in subsequent steps for use in AR and VR mobile applications. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 328,
+                    "end": 336,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Modeling for Smart Tourism Services Based on UAV Data"
+        },
+        {
+            "text": "The Modlin fortress is one of the largest 19th century fortresses in Poland. The fortress is located on the territory of Nowy Dw\u00f3r Mazowiecki, at the fork of the Vistula, Narew and Wkra rivers ( Figure  3 ). It is situated 34 km north-west of the Polish capital, Warsaw. It consists of a citadel on the right bank of the Narew River, fortified forecourts-Kazunski and Nowy Dw\u00f3r-and two rings of forts. The fortress was initially built by the French in the years 1806-1812. The main barrack located within the complex is the longest building in Europe, with a length of 2250 m. It can accommodate up to 20,000 soldiers.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 195,
+                    "end": 204,
+                    "text": "Figure  3",
+                    "ref_id": "FIGREF6"
+                }
+            ],
+            "section": "Study Area"
+        },
+        {
+            "text": "Inside the barracks, the courtyard features a beautifully designed neo-Gothic water tower ( Figure 4 ). The water tower was built around 1847 on a circle plan (octagon). A huge water reservoir placed on the first floor supplied the barracks with water. The water was drawn by means of spouts placed outside the building (in special, roofed recesses). Each was placed in the open mouth of a lion. In the walls of the recesses, there were stone troughs for watering horses. The water tower was used in the interwar period (until 1939) for watering horses. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 92,
+                    "end": 100,
+                    "text": "Figure 4",
+                    "ref_id": "FIGREF7"
+                }
+            ],
+            "section": "Study Area"
+        },
+        {
+            "text": "The Modlin fortress is one of the largest 19th century fortresses in Poland. The fortress is located on the territory of Nowy Dw\u00f3r Mazowiecki, at the fork of the Vistula, Narew and Wkra rivers ( Figure 3 ). It is situated 34 km north-west of the Polish capital, Warsaw. It consists of a citadel on the right bank of the Narew River, fortified forecourts-Kazunski and Nowy Dw\u00f3r-and two rings of forts. The fortress was initially built by the French in the years 1806-1812. The main barrack located within the complex is the longest building in Europe, with a length of 2250 m. It can accommodate up to 20,000 soldiers.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 195,
+                    "end": 203,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF6"
+                }
+            ],
+            "section": "Study Area"
+        },
+        {
+            "text": "Inside the barracks, the courtyard features a beautifully designed neo-Gothic water tower ( Figure 4 ). The water tower was built around 1847 on a circle plan (octagon). A huge water reservoir placed on the first floor supplied the barracks with water. The water was drawn by means of spouts placed outside the building (in special, roofed recesses). Each was placed in the open mouth of a lion. In the Today the tower is no longer used. Although no maintenance work has been carried out on it for years, it is still an ornament of the barracks courtyard (it resembles a palace in its external appearance). It is a unique tourist facility. The building can only be seen with a guide because it is located in the middle of the closed barracks courtyard, which is private property. Today the tower is no longer used. Although no maintenance work has been carried out on it for years, it is still an ornament of the barracks courtyard (it resembles a palace in its external appearance). It is a unique tourist facility. The building can only be seen with a guide because it is located in the middle of the closed barracks courtyard, which is private property. Today the tower is no longer used. Although no maintenance work has been carried out on it for years, it is still an ornament of the barracks courtyard (it resembles a palace in its external appearance). It is a unique tourist facility. The building can only be seen with a guide because it is located in the middle of the closed barracks courtyard, which is private property.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 92,
+                    "end": 100,
+                    "text": "Figure 4",
+                    "ref_id": "FIGREF7"
+                }
+            ],
+            "section": "Study Area"
+        },
+        {
+            "text": "Today, the water tower is one of the tourist attractions inside Modlin fortress. Since its first construction in 1847 it has been demolished and rebuilt several times. In addition to suffering human devastation, forces of nature have caused the building to decay. The original shape of the building, it's size and height, makes it a challenging restoration project. UAV surveys allow accurate assessment of the damage, stability of the structure and required restoration works. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Study Area"
+        },
+        {
+            "text": "The water tower building inventory at the Modlin Fortress was performed with two independent measuring systems: an UAS and a terrestrial laser scanner (TLS).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Measurements"
+        },
+        {
+            "text": "One of the most important steps in using an UAV to make a 3D model is to choose the right moment to fly. In addition to avoiding strong winds and rain, it is also important to choose a little cloudy day around noon, when the shadows are not too strong nor too long. During our research we chose an overcast day and the photos were taken between 1 and 3 pm.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "UAV Data Acquisition"
+        },
+        {
+            "text": "To make a 3D model of a historical building we recommend two or three independent orbital flights around the object at different heights and with different camera angles of view to improve the quality of the final model ( Figure 5 ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 222,
+                    "end": 230,
+                    "text": "Figure 5",
+                    "ref_id": "FIGREF13"
+                }
+            ],
+            "section": "UAV Data Acquisition"
+        },
+        {
+            "text": "Sensors 2020, 20, x FOR PEER REVIEW 9 of 27 ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "UAV Data Acquisition"
+        },
+        {
+            "text": "The TLS data was collected through a time-of-flight laser scanner (ScanStation C10, Leica Geosystems, Heerbrugg, Switzerland). Ten stations were used during field data collection ( Figure 6 ). The technical parameters of Leica ScanStation C10 are presented in Table 3 . Nineteen target spheres were evenly distributed around the building before scanning, and point clouds acquired from different stations were registered into the same coordinate system based on these target spheres.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 181,
+                    "end": 189,
+                    "text": "Figure 6",
+                    "ref_id": "FIGREF15"
+                },
+                {
+                    "start": 260,
+                    "end": 267,
+                    "text": "Table 3",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "TLS Data Acquisition"
+        },
+        {
+            "text": "The acquisition phase and the point cloud treatment was performed with laser scanner Leica ScanStation C10. During the acquisition, ten scan stations were arranged. The measurements were taken within one day (10 h). A high-quality digital camera integrated in the instrument was used to obtain photographic images and good textures for the model. During the measurement, the sky was cloudy, which guaranteed dispersed lighting and the shortest possible shadows.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "TLS Data Acquisition"
+        },
+        {
+            "text": "The even distribution of target points and scanner stations around the building allowed us to obtain the full coverage of scans. Due to the height of the building and the location of the instrument at ground level, the obtained point cloud lacked data of the roof. For this reason and due to the trees in the immediate vicinity of the object and the buildings in the vicinity, the photographic documentation of the object was made in three stages. The first two stages of the inventory were made by a small DJI Phantom 4 PRO UAS (DJI, Shenzhen, China) flying at low altitude, but even before these stages, we started off by capturing nadir images. It outlined our modelling object and the area around it. Then we prepared a safe, autonomous flight plan for our UAV (first stage). Basic technical parameters of the quadcopter are presented in Table 1 . In the first step, an autonomous flight was made in a circle around the upper, highest part of the water tower. The flight parameters were height 10 m, circle radius 15 m. The angle of the camera was approximately 45 \u2022 . In the second step, to ensure the safety of the flying camera, the autonomous mission was abandoned. The trees are 410 m away from the tower and reach a height of 6 m. For this reason, in the central part of the object, the photos were taken in a manual mode, avoiding the obstacles (flight height 5 m). During this part of the mission the angle of the camera was close to 90 \u2022 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 842,
+                    "end": 849,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "TLS Data Acquisition"
+        },
+        {
+            "text": "In the third stage, images have been acquired from ground around the building using an RX100 II camera (Sony, Tokyo, Japan). This camera is an element of the UAS fixed-wing equipment, which is mainly used for mapping larger areas [21] . The technical parameters of the DJI and Sony cameras are shown in Table 2 . ",
+            "cite_spans": [
+                {
+                    "start": 230,
+                    "end": 234,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 303,
+                    "end": 310,
+                    "text": "Table 2",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "TLS Data Acquisition"
+        },
+        {
+            "text": "The TLS data was collected through a time-of-flight laser scanner (ScanStation C10, Leica Geosystems, Heerbrugg, Switzerland). Ten stations were used during field data collection ( Figure 6 ). The technical parameters of Leica ScanStation C10 are presented in Table 3 . Nineteen target spheres were evenly distributed around the building before scanning, and point clouds acquired from different stations were registered into the same coordinate system based on these target spheres. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 181,
+                    "end": 189,
+                    "text": "Figure 6",
+                    "ref_id": "FIGREF15"
+                },
+                {
+                    "start": 260,
+                    "end": 267,
+                    "text": "Table 3",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "TLS Data Acquisition"
+        },
+        {
+            "text": "The comparison between 3D models helps to detect changes in the building through the identification of redundant or missing elements in one model. This methodology also allows evaluating the usability of the new surveying methods by comparing the accuracy of the obtained results with the traditionally used methods. This section presents a methodology of UAV and TLS The acquisition phase and the point cloud treatment was performed with laser scanner Leica ScanStation C10. During the acquisition, ten scan stations were arranged. The measurements were taken within one day (10 h). A high-quality digital camera integrated in the instrument was used to obtain photographic images and good textures for the model. During the measurement, the sky was cloudy, which guaranteed dispersed lighting and the shortest possible shadows.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Point Cloud Comparison (UAV versus TLS)"
+        },
+        {
+            "text": "The even distribution of target points and scanner stations around the building allowed us to obtain the full coverage of scans. Due to the height of the building and the location of the instrument at ground level, the obtained point cloud lacked data of the roof.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Point Cloud Comparison (UAV versus TLS)"
+        },
+        {
+            "text": "The comparison between 3D models helps to detect changes in the building through the identification of redundant or missing elements in one model. This methodology also allows evaluating the usability of the new surveying methods by comparing the accuracy of the obtained results with the traditionally used methods. This section presents a methodology of UAV and TLS models change assessment. It was made by a comparison between point clouds of the Water Tower building collected by UAV and TLS sensors. The processing workflow is presented in Figure 7 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 545,
+                    "end": 553,
+                    "text": "Figure 7",
+                    "ref_id": "FIGREF17"
+                }
+            ],
+            "section": "Point Cloud Comparison (UAV versus TLS)"
+        },
+        {
+            "text": "In order to assess the accuracy and effectiveness of the UAV acquisition method for smart tourism services, the analysis of the Water Tower building was conducted. The comparison of point clouds was performed with the use of the CloudCompare app (CloudCompare Development Team, 2019). Cloud",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Point Cloud Comparison (UAV versus TLS)"
+        },
+        {
+            "text": "Compare is an open-source software package designed specifically for point-cloud processing and contains significant mesh model/point cloud comparison tools.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Point Cloud Comparison (UAV versus TLS)"
+        },
+        {
+            "text": "In the first step, point clouds were registered into a common coordinate system. A coarse registration was done manually with CloudCompare software (v2.9.1, CloudCompare Development Team, 2019), by using three common points between them. The final root mean square error (RMS) of the alignment was 0.04 m. registered as any misregistration error may be wrongly interpreted as a change in the environment. In the second step, a fine registration was made. It was done based on the Iterative Closest Point (ICP) algorithm by minimizing the point-to-point distances between the point clouds. The RMS for point cloud registered using the ICP was calculated as 0.14 m.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Point Cloud Comparison (UAV versus TLS)"
+        },
+        {
+            "text": "The differences between the UAV dense point cloud and the TLS survey were estimated by calculating the nearest neighbor point-to-point 3D distance for every point. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Point Cloud Comparison (UAV versus TLS)"
+        },
+        {
+            "text": "The article presents the methodology of using UAV data for historical objects to prepare digital 3D assets for Web3D, AR/MR/VR smart cultural heritage services. The first step to prepare an object model for smart cultural heritage services is the process of data acquisition. The study describes a universal workflow on data acquisition using small UAVs, which can be replicated to support researchers, scientists, or practitioners in obtaining high accuracy 3D models for small historic buildings. The primary problem with the construction of smart tourism services is the lack of up-todate, reliable 3D models. The presented solution shows how to obtain new 3D data very quickly. The proposed methodology can be used for tourism as well as for the inventory of historical objects for cultural heritage purposes. Special attention was given to planning the UAV measurements in order to obtain accurate, reliable source data. Finally, the quality and completeness of the obtained UAV Additionally, before the final comparison of the point clouds, they should be accurately registered as any misregistration error may be wrongly interpreted as a change in the environment. In the second step, a fine registration was made. It was done based on the Iterative Closest Point (ICP) algorithm by minimizing the point-to-point distances between the point clouds. The RMS for point cloud registered using the ICP was calculated as 0.14 m.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "The differences between the UAV dense point cloud and the TLS survey were estimated by calculating the nearest neighbor point-to-point 3D distance for every point.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "The article presents the methodology of using UAV data for historical objects to prepare digital 3D assets for Web3D, AR/MR/VR smart cultural heritage services. The first step to prepare an object model for smart cultural heritage services is the process of data acquisition. The study describes a universal workflow on data acquisition using small UAVs, which can be replicated to support researchers, scientists, or practitioners in obtaining high accuracy 3D models for small historic buildings. The primary problem with the construction of smart tourism services is the lack of up-to-date, reliable 3D models. The presented solution shows how to obtain new 3D data very quickly. The proposed methodology can be used for tourism as well as for the inventory of historical objects for cultural heritage purposes. Special attention was given to planning the UAV measurements in order to obtain accurate, reliable source data. Finally, the quality and completeness of the obtained UAV point cloud was compared and evaluated on the basis of the point cloud from an independent surveying technique-TLS.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "Data processing was divided into four phases:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "\u2022 UAV point cloud processing, \u2022 TLS data processing, \u2022 UAV and TLS point cloud comparison, \u2022 processing UAV data using 3D modeling software and creating texturing models of the building.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "In the last stage, 3D models were tested for WebGIS, AR/MR purposes. The hardware configuration used for the tests was: OS Windows 10, 64 bit, CPU 2 x Intel(R) Xeon(R) CPU E52667-3.30 GHz, RAM 64 GB, GPU(s) Quadro K2000, Hard Disk SSD 512 GB.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "The post-processing of UAVs images was carried out using the Metashape Prof. v 1.6.1 software (Agisoft, St. Petersburg, Russia). Only the images with the highest quality parameters were used for the orientation procedure of the photogrammetric datasets. In self-calibration mode, the dataset of the 223 images was processed. According to the photogrammetric pipeline, the data set was oriented in Metashape in line with the Self-Calibrating Bundle Adjustment. Later, the feature-based method was used. It does not require specific targets in the scene for photogrammetric acquisitions and makes a list of corresponding pairs by exploiting recognizable natural points and geometries as features. Additionally, scale bars were implemented based on the method presented by Cultural Heritage Imaging [49] .",
+            "cite_spans": [
+                {
+                    "start": 796,
+                    "end": 800,
+                    "text": "[49]",
+                    "ref_id": "BIBREF49"
+                }
+            ],
+            "ref_spans": [],
+            "section": "UAV Data Processing"
+        },
+        {
+            "text": "To evaluate the quality of image matching (alignment), the number of the projections and the achieved error was taken into account. In the next step, an ultra-dense point cloud was built. In total, the final 3D point cloud was created, consisting of 50,288,792 points and textured mesh models ( Figure 8 ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 295,
+                    "end": 303,
+                    "text": "Figure 8",
+                    "ref_id": "FIGREF19"
+                }
+            ],
+            "section": "UAV Data Processing"
+        },
+        {
+            "text": "surveying technique-TLS.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "UAV Data Processing"
+        },
+        {
+            "text": "Data processing was divided into four phases:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "UAV Data Processing"
+        },
+        {
+            "text": "\u2022 UAV point cloud processing, \u2022 TLS data processing, \u2022 UAV and TLS point cloud comparison, \u2022 processing UAV data using 3D modeling software and creating texturing models of the building.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "UAV Data Processing"
+        },
+        {
+            "text": "In the last stage, 3D models were tested for WebGIS, AR/MR purposes. The hardware configuration used for the tests was: OS Windows 10, 64 bit, CPU 2 x Intel(R) Xeon(R) CPU E52667-3.30 GHz, RAM 64 GB, GPU(s) Quadro K2000, Hard Disk SSD 512 GB.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "UAV Data Processing"
+        },
+        {
+            "text": "The post-processing of UAVs images was carried out using the Metashape Prof. v 1.6.1 software (Agisoft, St. Petersburg, Russia). Only the images with the highest quality parameters were used for the orientation procedure of the photogrammetric datasets. In self-calibration mode, the dataset of the 223 images was processed. According to the photogrammetric pipeline, the data set was oriented in Metashape in line with the Self-Calibrating Bundle Adjustment. Later, the feature-based method was used. It does not require specific targets in the scene for photogrammetric acquisitions and makes a list of corresponding pairs by exploiting recognizable natural points and geometries as features. Additionally, scale bars were implemented based on the method presented by Cultural Heritage Imaging [49] .",
+            "cite_spans": [
+                {
+                    "start": 796,
+                    "end": 800,
+                    "text": "[49]",
+                    "ref_id": "BIBREF49"
+                }
+            ],
+            "ref_spans": [],
+            "section": "UAV Data Processing"
+        },
+        {
+            "text": "To evaluate the quality of image matching (alignment), the number of the projections and the achieved error was taken into account. In the next step, an ultra-dense point cloud was built. In total, the final 3D point cloud was created, consisting of 50,288,792 points and textured mesh models ( Figure 8 ). ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 295,
+                    "end": 303,
+                    "text": "Figure 8",
+                    "ref_id": "FIGREF19"
+                }
+            ],
+            "section": "UAV Data Processing"
+        },
+        {
+            "text": "Postprocessing of the collected data was performed in Cyclone software version 9.4.0. An alignment of the acquired point clouds was initially performed based on the cloud-cloud approach, and then manually, by identifying control points between scans and using the ICP algorithm. Points outside the object of interest were removed from the point cloud. The final point cloud was saved in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS file format for further processing. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "TLS Point Cloud Processing"
+        },
+        {
+            "text": "Postprocessing of the collected data was performed in Cyclone software version 9.4.0. An alignment of the acquired point clouds was initially performed based on the cloud-cloud approach, and then manually, by identifying control points between scans and using the ICP algorithm. Points outside the object of interest were removed from the point cloud. The final point cloud was saved in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS file format for further processing.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "TLS Point Cloud Processing"
+        },
+        {
+            "text": "As a result of the work carried out, a 3D model of the entire building was created, consisting of 41,356,675 points with 0.01 m RMS of alignment ( Figure 9 ). The whole model was edited in successive phases of decimation, cleaning, and noise reduction.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 147,
+                    "end": 155,
+                    "text": "Figure 9",
+                    "ref_id": "FIGREF21"
+                }
+            ],
+            "section": "TLS Point Cloud Processing"
+        },
+        {
+            "text": "Sensors 2020, 20, x FOR PEER REVIEW 13 of 27",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "TLS Point Cloud Processing"
+        },
+        {
+            "text": "As a result of the work carried out, a 3D model of the entire building was created, consisting of 41,356,675 points with 0.01 m RMS of alignment (Figure 9 ). The whole model was edited in successive phases of decimation, cleaning, and noise reduction. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 145,
+                    "end": 154,
+                    "text": "(Figure 9",
+                    "ref_id": "FIGREF21"
+                }
+            ],
+            "section": "TLS Point Cloud Processing"
+        },
+        {
+            "text": "The TLS comparison involved comparing the UAV point cloud with the point cloud obtained from the TLS. To assess the UAV model's quality, the cloud-to-cloud (c2c) distance computation tool with a quadratic algorithm from CloudCompare software was used (Figure 7) . As a result, CloudCompare software provides a color scale that shows the value of the c2c distance computation and statistical distribution of the difference values (as shown in Figure 10 ). The mean distance between point clouds was calculated at the level of 0.017 m, and standard deviation values at 0.021 m. Figure 10 shows the range of changes between compared models. The differences obtained indicate that the compared point clouds are properly matched. Both TLS and UAV point clouds are very similar. The presented results confirmed the correctness of the UAV model. It was used in subsequent steps to create polygonal models of different complexity and then to test their suitability for WebGIS, AR/MR services. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 251,
+                    "end": 261,
+                    "text": "(Figure 7)",
+                    "ref_id": "FIGREF17"
+                },
+                {
+                    "start": 442,
+                    "end": 451,
+                    "text": "Figure 10",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 576,
+                    "end": 585,
+                    "text": "Figure 10",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "UAV Point Clouds Accuracy Assessment"
+        },
+        {
+            "text": "The TLS comparison involved comparing the UAV point cloud with the point cloud obtained from the TLS. To assess the UAV model's quality, the cloud-to-cloud (c2c) distance computation tool with a quadratic algorithm from CloudCompare software was used (Figure 7) . As a result, CloudCompare software provides a color scale that shows the value of the c2c distance computation and statistical distribution of the difference values (as shown in Figure 10 ). The mean distance between point clouds was calculated at the level of 0.017 m, and standard deviation values at 0.021 m. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 251,
+                    "end": 261,
+                    "text": "(Figure 7)",
+                    "ref_id": "FIGREF17"
+                },
+                {
+                    "start": 442,
+                    "end": 451,
+                    "text": "Figure 10",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "UAV Point Clouds Accuracy Assessment"
+        },
+        {
+            "text": "The TLS comparison involved comparing the UAV point cloud with the point cloud obtained from the TLS. To assess the UAV model's quality, the cloud-to-cloud (c2c) distance computation tool with a quadratic algorithm from CloudCompare software was used ( Figure 7) . As a result, CloudCompare software provides a color scale that shows the value of the c2c distance computation and statistical distribution of the difference values (as shown in Figure 10 ). The mean distance between point clouds was calculated at the level of 0.017 m, and standard deviation values at 0.021 m. Figure 10 shows the range of changes between compared models. The differences obtained indicate that the compared point clouds are properly matched. Both TLS and UAV point clouds are very similar. The presented results confirmed the correctness of the UAV model. It was used in subsequent steps to create polygonal models of different complexity and then to test their suitability for WebGIS, AR/MR services. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 253,
+                    "end": 262,
+                    "text": "Figure 7)",
+                    "ref_id": "FIGREF17"
+                },
+                {
+                    "start": 443,
+                    "end": 452,
+                    "text": "Figure 10",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 577,
+                    "end": 586,
+                    "text": "Figure 10",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "UAV Point Clouds Accuracy Assessment"
+        },
+        {
+            "text": "Another important element of this study is to show the potential of the meshed model. Meshed models created on the basis of UAV data may include many millions of polygons, so it is practically impossible to directly render the full-size model in real-time without dedicating a hardware platform. This problem is particularly important for instruments with limited computing resources, like mobile devices (smartphones, tablets) and AR/MR (helmets, glasses).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Optimization of a Textured Model for AR/MR Purposes"
+        },
+        {
+            "text": "A raw 3D mesh typically has an enormous amount of detail and requires a simplification procedure. The ideal number of polygons depends on the application and the target platform. Mobile apps (Android/iOS) must have much simpler polygon models than web or desktop applications.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Optimization of a Textured Model for AR/MR Purposes"
+        },
+        {
+            "text": "This change in visual fidelity must be balanced when showing models on AR devices, VR helmets, or MR glasses such as HoloLens. These models should look as realistic and compelling as possible, while allowing these devices to operate efficiently. The modern UAV/TLS data processing software includes automated 3D model optimization tools. This functionality allows simplifying even complex models to fit within the available mobile or AR/MR device resources. A common rule is to balance the number of triangles in order to maintain the highest quality of objects. To create a model with proper mesh construction, a very high-density model is generated and the number of tris (triangles) in the model is reduced so that they run smoothly on their respective applications.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Optimization of a Textured Model for AR/MR Purposes"
+        },
+        {
+            "text": "The process of preparing 3D content for Web 3D/AR/MR/VR required model generalization and generation of additional 2D textures. There are numerous ways to achieve this goal. For our purpose, one general workflow of mesh and texture adaptation for Unity game engine was developed. In this section, the optimization process was described. It was conducted in several steps, which allowed the model to be simplified for multiple scenarios. At this stage, the models were re-processed, so less detail was needed to define them.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Optimization of a Textured Model for AR/MR Purposes"
+        },
+        {
+            "text": "In the first stage, the specifications of AR/MR/VR devices (MS Hololens (Microsoft Corporation, Redmond, WA, USA), Oculus Rifts / Quests (Facebook, Inc., Menlo Park, CA, USA), HTC Vive (HTC Corporation, Xindian, New Taipei, Taiwan), Magic Leap (Magic Leap, Inc., Plantation, FL, USA) and related technical white papers and recommendations for the most famous Software Development Kits (SDKs) and Unity game engines were analyzed [50] [51] [52] [53] [54] [55] [56] [57] . Technical feasibility and manufacturer recommendations for model optimization were analyzed. The following parameters were taken into account: rules for texturing, number of triangles, number of objects in the scene, suggested size and type of textures, scales, recommendations for model preparation. ",
+            "cite_spans": [
+                {
+                    "start": 429,
+                    "end": 433,
+                    "text": "[50]",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 434,
+                    "end": 438,
+                    "text": "[51]",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 439,
+                    "end": 443,
+                    "text": "[52]",
+                    "ref_id": null
+                },
+                {
+                    "start": 444,
+                    "end": 448,
+                    "text": "[53]",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 449,
+                    "end": 453,
+                    "text": "[54]",
+                    "ref_id": null
+                },
+                {
+                    "start": 454,
+                    "end": 458,
+                    "text": "[55]",
+                    "ref_id": "BIBREF54"
+                },
+                {
+                    "start": 459,
+                    "end": 463,
+                    "text": "[56]",
+                    "ref_id": "BIBREF55"
+                },
+                {
+                    "start": 464,
+                    "end": 468,
+                    "text": "[57]",
+                    "ref_id": "BIBREF56"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Optimization of a Textured Model for AR/MR Purposes"
+        },
+        {
+            "text": "Another important element of this study is to show the potential of the meshed model. Meshed models created on the basis of UAV data may include many millions of polygons, so it is practically impossible to directly render the full-size model in real-time without dedicating a hardware platform. This problem is particularly important for instruments with limited computing resources, like mobile devices (smartphones, tablets) and AR/MR (helmets, glasses).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Optimization of a Textured Model for AR/MR Purposes"
+        },
+        {
+            "text": "A raw 3D mesh typically has an enormous amount of detail and requires a simplification procedure. The ideal number of polygons depends on the application and the target platform. Mobile apps (Android/iOS) must have much simpler polygon models than web or desktop applications.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Optimization of a Textured Model for AR/MR Purposes"
+        },
+        {
+            "text": "This change in visual fidelity must be balanced when showing models on AR devices, VR helmets, or MR glasses such as HoloLens. These models should look as realistic and compelling as possible, while allowing these devices to operate efficiently. The modern UAV/TLS data processing software includes automated 3D model optimization tools. This functionality allows simplifying even complex models to fit within the available mobile or AR/MR device resources. A common rule is to balance the number of triangles in order to maintain the highest quality of objects. To create a model with proper mesh construction, a very high-density model is generated and the number of tris (triangles) in the model is reduced so that they run smoothly on their respective applications.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Optimization of a Textured Model for AR/MR Purposes"
+        },
+        {
+            "text": "The process of preparing 3D content for Web 3D/AR/MR/VR required model generalization and generation of additional 2D textures. There are numerous ways to achieve this goal. For our purpose, one general workflow of mesh and texture adaptation for Unity game engine was developed. In this section, the optimization process was described. It was conducted in several steps, which allowed the model to be simplified for multiple scenarios. At this stage, the models were re-processed, so less detail was needed to define them.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Optimization of a Textured Model for AR/MR Purposes"
+        },
+        {
+            "text": "In the first stage, the specifications of AR/MR/VR devices (MS Hololens (Microsoft Corporation, Redmond, WA, USA), Oculus Rifts / Quests (Facebook, Inc., Menlo Park, CA, USA), HTC Vive (HTC Corporation, Xindian, New Taipei, Taiwan), Magic Leap (Magic Leap, Inc., Plantation, FL, USA) and related technical white papers and recommendations for the most famous Software Development Kits (SDKs) and Unity game engines were analyzed [50] [51] [52] [53] [54] [55] [56] [57] . Technical feasibility and manufacturer recommendations for model optimization were analyzed. The following parameters were taken into account: rules for texturing, number of triangles, number of objects in the scene, suggested size and type of textures, scales, recommendations for model preparation.",
+            "cite_spans": [
+                {
+                    "start": 429,
+                    "end": 433,
+                    "text": "[50]",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 434,
+                    "end": 438,
+                    "text": "[51]",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 439,
+                    "end": 443,
+                    "text": "[52]",
+                    "ref_id": null
+                },
+                {
+                    "start": 444,
+                    "end": 448,
+                    "text": "[53]",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 449,
+                    "end": 453,
+                    "text": "[54]",
+                    "ref_id": null
+                },
+                {
+                    "start": 454,
+                    "end": 458,
+                    "text": "[55]",
+                    "ref_id": "BIBREF54"
+                },
+                {
+                    "start": 459,
+                    "end": 463,
+                    "text": "[56]",
+                    "ref_id": "BIBREF55"
+                },
+                {
+                    "start": 464,
+                    "end": 468,
+                    "text": "[57]",
+                    "ref_id": "BIBREF56"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Optimization of a Textured Model for AR/MR Purposes"
+        },
+        {
+            "text": "The concept of building six models was considered-one reference model with the highest level of accuracy. Five derivative models were built on the basis of this model, 2 for desktop devices for VR, WebGIS, and 3 for mobile devices and network operation. After reviewing the documentation, we decided to adopt the following limits for the number of polygons (triangles)-10 M, 3.5 M, 1 M, 250 K, 100 K, 25 K ( Table 4 ). The main goal was to reduce the impact of 3D objects on performance by adapting to the device performance and the selected software architecture (local/network). Firstly, the reference model, as the most accurate version of the model (high-quality model) was prepared. Secondly for scenarios with models stored locally on desktop devices and visualized directly on the client, medium and low-quality models were constructed. The last three models assume a network version with multiple users to share a model on a server for collaborative viewing. The preparation workflow for 3D models is presented in Figure 11 . Initially, the reference model was generated using Agisoft Metachape software. In the following step, Metashape application was used to decimating the model in order to reduce the number of vertices of the model. According to the above assumptions, five models were created from the presented workflow. Based on high-poly model a Normal map was generated. Then the texture of the model was transferred from the high-poly model to the low-poly one. In the next step a diffuse map was generated using the previously created normal map. In the last step the mesh is generated and adjusted with the use of UV mapping mode. Finally, the mesh is imported into Blender in order to adjust its position and scale for use in the Unity game engine.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 408,
+                    "end": 415,
+                    "text": "Table 4",
+                    "ref_id": "TABREF4"
+                },
+                {
+                    "start": 1022,
+                    "end": 1031,
+                    "text": "Figure 11",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Optimization of a Textured Model for AR/MR Purposes"
+        },
+        {
+            "text": "At this stage, six models were generated with various levels of detail/number of polygons ( Figure 12 ). In the following, they have been tested for their usefulness for various visualization platforms WebGIS, AR/MR systems. The analysis was performed using a method that allows for comparing the visual quality of the optimized model with the reference model. In this way, the assumptions regarding the number of polygons and textures were verified by checking the performance on the devices on which Web 3D/AR/MR models were visualized (Figure 13 ). the above assumptions, five models were created from the presented workflow. Based on high-poly model a Normal map was generated. Then the texture of the model was transferred from the highpoly model to the low-poly one. In the next step a diffuse map was generated using the previously created normal map. In the last step the mesh is generated and adjusted with the use of UV mapping mode. Finally, the mesh is imported into Blender in order to adjust its position and scale for use in the Unity game engine. Figure 11 . Methodology used for creating 3D models. Table 4 . Main characteristics of the 3D models.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 92,
+                    "end": 101,
+                    "text": "Figure 12",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 538,
+                    "end": 548,
+                    "text": "(Figure 13",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 1063,
+                    "end": 1072,
+                    "text": "Figure 11",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 1116,
+                    "end": 1123,
+                    "text": "Table 4",
+                    "ref_id": "TABREF4"
+                }
+            ],
+            "section": "Optimization of a Textured Model for AR/MR Purposes"
+        },
+        {
+            "text": "Faces: 10,000,000 Vertices: 5,033,189",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Model 1 (high quality model)"
+        },
+        {
+            "text": "Faces: 3,500,000 Vertices: 1,679,712",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Model 2 (medium quality model)"
+        },
+        {
+            "text": "Faces: 1,000,000 Vertices: 511,101",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Model 3 (low quality model)"
+        },
+        {
+            "text": "Faces: 250,000 Vertices: 125,728",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Model 4 (250 K quality model)"
+        },
+        {
+            "text": "Faces: 100,000 Vertices: 50,141",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Model 5 (100 K quality model)"
+        },
+        {
+            "text": "Faces: 25,000 Vertices: 12,014 At this stage, six models were generated with various levels of detail/number of polygons ( Figure 12 ). In the following, they have been tested for their usefulness for various visualization platforms WebGIS, AR/MR systems. The analysis was performed using a method that allows for comparing the visual quality of the optimized model with the reference model. In this way, the assumptions regarding the number of polygons and textures were verified by checking the performance on the devices on which Web 3D/AR/MR models were visualized ( Figure 13 ). The presented solution assumes building models for different timeframes (database snapshots). The first option is the latest, most up-to-date model (As-is). Presented methodology based on the use of UAVs is one of the methods that allows to prepare an item presenting the current appearance of the building. Then the system database is extended with models showing the appearance of the historical building in the past. They start from the construction stage (As-build) through subsequent stages, including significant modifications (As-was-in-year).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 123,
+                    "end": 132,
+                    "text": "Figure 12",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 571,
+                    "end": 580,
+                    "text": "Figure 13",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Model 6 (25 K quality model)"
+        },
+        {
+            "text": "The presented concept assumes visualization of changes in the building using various technical solutions, including 3D Websites, as well as dedicated mobile AR/MR applications. The unified development platform (Unity) allows to create several models dedicated to different platforms based on one reference model. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Model 6 (25 K quality model)"
+        },
+        {
+            "text": "Smart cultural heritage services are based on the latest technical innovations. Recent technological breakthroughs in VR/MR/AR AR/MR/VR offer new functionalities for tourist attraction promotion. New technology provides an excellent opportunity to demonstrate the history of the building (changes and renovations over time). The concept of system architecture that allows to visualize temporary changes in the building is presented in Figure 14 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 435,
+                    "end": 444,
+                    "text": "Figure 14",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Implementation of Proposed Methodology for Services using Web 3D /AR/MR Technology"
+        },
+        {
+            "text": "The presented concept assumes visualization of changes in the building using various technical solutions, including 3D Websites, as well as dedicated mobile AR/MR applications. The unified development platform (Unity) allows to create several models dedicated to different platforms based on one reference model.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Implementation of Proposed Methodology for Services using Web 3D /AR/MR Technology"
+        },
+        {
+            "text": "The concept of the system was presented based on three case studies. The first one presents a model of the water tower in Modlin. It contains only the latest model (As-is). The second is the main building of the Faculty of Geoengineering, which contains models from three phases (construction (As-build), first modernization (As-was), and the last phase showing the appearance after a major modernization (As-is). The third building is the Old Town Hall building in Olsztyn. It has two models; the first one reconstructed on the basis of historical documentation and original photographs of the facade from 1916, and the second one is a real model (created using UAS).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Implementation of Proposed Methodology for Services using Web 3D /AR/MR Technology"
+        },
+        {
+            "text": "The following sections show the results of testing constructed 3D models. Five models have been tested with Web/AR/MR/VR applications. Finally, the possibilities of presenting temporary changes in the history of the building are also shown. The concept of the system was presented based on three case studies. The first one presents a model of the water tower in Modlin. It contains only the latest model (As-is). The second is the main building of the Faculty of Geoengineering, which contains models from three phases (construction (As-build), first modernization (As-was), and the last phase showing the appearance after a major modernization (As-is). The third building is the Old Town Hall building in Olsztyn. It has two models; the first one reconstructed on the basis of historical documentation and original photographs of the facade from 1916, and the second one is a real model (created using UAS).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Implementation of Proposed Methodology for Services using Web 3D /AR/MR Technology"
+        },
+        {
+            "text": "The following sections show the results of testing constructed 3D models. Five models have been tested with Web/AR/MR/VR applications. Finally, the possibilities of presenting temporary changes in the history of the building are also shown.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Implementation of Proposed Methodology for Services using Web 3D /AR/MR Technology"
+        },
+        {
+            "text": "The usability of particular mesh models has been tested in different environments. In the first stage, the models have been visualized using the methodology described by the authors in the article [17] . A web browser-based and 3D WebGIS solution were used, in which the models are visualized as Collada models using cartodb (https://carto.com/), jquery (https://jquery.com/) and three.js (https://threejs.org/) libraries. The proposed solution presents a thematic map with a layer of buildings in Olsztyn. Each object has attributes with information about the year of construction and recreation.",
+            "cite_spans": [
+                {
+                    "start": 197,
+                    "end": 201,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Testing Mesh Models Using 3D Web, MR and AR"
+        },
+        {
+            "text": "The range of content displayed on the map is defined by the timeline slider. Only buildings whose year of construction is within the indicated time range are visible.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Testing Mesh Models Using 3D Web, MR and AR"
+        },
+        {
+            "text": "The models were treated as one of the stages of building history and shown as the most recent stage of the building. The view of the selected models is shown in Figure 15 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 161,
+                    "end": 170,
+                    "text": "Figure 15",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Testing Mesh Models Using 3D Web, MR and AR"
+        },
+        {
+            "text": "buildings whose year of construction is within the indicated time range are visible.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Testing Mesh Models Using 3D Web, MR and AR"
+        },
+        {
+            "text": "The models were treated as one of the stages of building history and shown as the most recent stage of the building. The view of the selected models is shown in Figure 15 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 161,
+                    "end": 170,
+                    "text": "Figure 15",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Testing Mesh Models Using 3D Web, MR and AR"
+        },
+        {
+            "text": "In the next step, the ability to build a mobile AR application displaying a 3D model was tested. The application is based on Android Studio v. 3.2.1 and a cross-platform game engine Unity, developed by Unity Technologies. The tests implemented two technological approaches typically used in outdoor smart tourism services: markerless AR (location-based or sensor-based AR) and superimposition-based AR. Both provide excellent opportunities for the presentation of historical objects, and location-based technology allows the use of GNSS positions and presents AR content directly in the field. The application is based on the ARCore framework provided by Google. Two main functionalities offered by ARCore are: tracking the position of a mobile device while it is moving and building its understanding of the real world. Figure 15 . Visualization of the water station building model as a dae models in 3D web GIS environment.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 821,
+                    "end": 830,
+                    "text": "Figure 15",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Testing Mesh Models Using 3D Web, MR and AR"
+        },
+        {
+            "text": "In Figure 16 screenshots from the smartphone are presented. They show the appearance of superimposition AR content (100 k building model) on the physical world observed by the camera, contained in a smartphone. In order to display the model, it is necessary to recognize the surface (paving block in the figure) and then indicate the point at which the model is displayed. The figure shows the model in real size. It is possible to move around the building, as well as enter its interior. In the next step, the ability to build a mobile AR application displaying a 3D model was tested. The application is based on Android Studio v. 3.2.1 and a cross-platform game engine Unity, developed by Unity Technologies. The tests implemented two technological approaches typically used in outdoor smart tourism services: markerless AR (location-based or sensor-based AR) and superimposition-based AR. Both provide excellent opportunities for the presentation of historical objects, and location-based technology allows the use of GNSS positions and presents AR content directly in the field. The application is based on the ARCore framework provided by Google. Two main functionalities offered by ARCore are: tracking the position of a mobile device while it is moving and building its understanding of the real world.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 3,
+                    "end": 12,
+                    "text": "Figure 16",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 304,
+                    "end": 311,
+                    "text": "figure)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Testing Mesh Models Using 3D Web, MR and AR"
+        },
+        {
+            "text": "In Figure 16 screenshots from the smartphone are presented. They show the appearance of superimposition AR content (100 k building model) on the physical world observed by the camera, contained in a smartphone. In order to display the model, it is necessary to recognize the surface (paving block in the figure) and then indicate the point at which the model is displayed. The figure shows the model in real size. It is possible to move around the building, as well as enter its interior.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 3,
+                    "end": 12,
+                    "text": "Figure 16",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 304,
+                    "end": 311,
+                    "text": "figure)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Testing Mesh Models Using 3D Web, MR and AR"
+        },
+        {
+            "text": "In the next stage the models were tested and visualised on the desk ( Figure 17 ). The application enables to present the models on a scale, thanks to which it is possible to analyse the quality of the model. It is also possible to scale, rotate and move the model. Switching on and off layers.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 70,
+                    "end": 79,
+                    "text": "Figure 17",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Testing Mesh Models Using 3D Web, MR and AR"
+        },
+        {
+            "text": "The AR application can visualize multiple models at the same time ( Figure 18 ). This method was used to display two models of the same building to show its appearance in 1976 and 2002. The application offers additional functionalities, such as zooming, moving, and rotating the models. The gesture-based functionality helps to analyse existing differences and evaluate changes. The comparison shows that in 2002 a new part was added to the historic part of the building. A new entrance was also added, but the appearance of the building was maintained in the same style. In the next stage the models were tested and visualised on the desk ( Figure 17 ). The application enables to present the models on a scale, thanks to which it is possible to analyse the quality of the model. It is also possible to scale, rotate and move the model. Switching on and off layers. The AR application can visualize multiple models at the same time ( Figure 18 ). This method was used to display two models of the same building to show its appearance in 1976 and 2002. The application offers additional functionalities, such as zooming, moving, and rotating the models. The gesture-based functionality helps to analyse existing differences and evaluate changes. The comparison shows that in 2002 a new part was added to the historic part of the building. A new entrance was also added, but the appearance of the building was maintained in the same style. In the next stage the models were tested and visualised on the desk ( Figure 17 ). The application enables to present the models on a scale, thanks to which it is possible to analyse the quality of the model. It is also possible to scale, rotate and move the model. Switching on and off layers. The AR application can visualize multiple models at the same time ( Figure 18 ). This method was used to display two models of the same building to show its appearance in 1976 and 2002. The application offers additional functionalities, such as zooming, moving, and rotating the models. The gesture-based functionality helps to analyse existing differences and evaluate changes. The comparison shows that in 2002 a new part was added to the historic part of the building. A new entrance was also added, but the appearance of the building was maintained in the same style. To check models in the MR environment the Microsoft Hololens helmet (Microsoft Corporation, Redmond, WA, USA) was used. A test application has been created that displays the water station building as a hologram and enables the user to interact with it using gestures. The application was made using Microsoft Visual Studio IDE (Integrated Development Environment) and a crossplatform game engine Unity, developed by Unity Technologies. It provides an interface that allows you to rotate, move, and scale tested models using gestures or Clicker hardware. The process is To check models in the MR environment the Microsoft Hololens helmet (Microsoft Corporation, Redmond, WA, USA) was used. A test application has been created that displays the water station building as a hologram and enables the user to interact with it using gestures. The application was made using Microsoft Visual Studio IDE (Integrated Development Environment) and a cross-platform game engine Unity, developed by Unity Technologies. It provides an interface that allows you to rotate, move, and scale tested models using gestures or Clicker hardware. The process is presented in Figure 19 . To check models in the MR environment the Microsoft Hololens helmet (Microsoft Corporation, Redmond, WA, USA) was used. A test application has been created that displays the water station building as a hologram and enables the user to interact with it using gestures. The application was made using Microsoft Visual Studio IDE (Integrated Development Environment) and a crossplatform game engine Unity, developed by Unity Technologies. It provides an interface that allows you to rotate, move, and scale tested models using gestures or Clicker hardware. The process is presented in Figure 19 . ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 68,
+                    "end": 77,
+                    "text": "Figure 18",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 642,
+                    "end": 651,
+                    "text": "Figure 17",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 935,
+                    "end": 944,
+                    "text": "Figure 18",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 1509,
+                    "end": 1518,
+                    "text": "Figure 17",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 1802,
+                    "end": 1811,
+                    "text": "Figure 18",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 3458,
+                    "end": 3467,
+                    "text": "Figure 19",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 4052,
+                    "end": 4061,
+                    "text": "Figure 19",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Testing Mesh Models Using 3D Web, MR and AR"
+        },
+        {
+            "text": "The smart city offers a comprehensive range of activities for the development of urban agglomerations and local communities. One of the most important aspects influencing community development is building the identity of the inhabitants through cultural evolution and access to cultural heritage. These opportunities are provided by introducing new smart tourism services that promote local culture, tradition, and history.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "The acquisition of spatial data and further modeling is a long-term, cost-intensive process. Historical objects require involvement of specialists from various disciplines. The interdisciplinary character of the tasks means that data acquisition is based on the HBIM methodology. This methodology renders results in the form of advanced 3D proof-reading of HBIM models, including Figure 19 . Visualization of the water station building model as a hologram using Microsoft Hololens MR helmet.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 380,
+                    "end": 389,
+                    "text": "Figure 19",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "The smart city offers a comprehensive range of activities for the development of urban agglomerations and local communities. One of the most important aspects influencing community development is building the identity of the inhabitants through cultural evolution and access to cultural heritage. These opportunities are provided by introducing new smart tourism services that promote local culture, tradition, and history.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "The acquisition of spatial data and further modeling is a long-term, cost-intensive process. Historical objects require involvement of specialists from various disciplines. The interdisciplinary character of the tasks means that data acquisition is based on the HBIM methodology. This methodology renders results in the form of advanced 3D proof-reading of HBIM models, including databases containing data describing each object. However, it results in the limited number of such models and their dispersed locations. There are no available standards of workflow, and there are no open repositories giving access to historical 3D models.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "New measurement techniques, especially photogrammetric methods, provide the opportunity for a rapid acquisition of reliable data. The article presents a methodology that demonstrates the possibilities of using low-cost photogrammetry and UAVs as a measurement platform allowing for a quick data collection for smart tourism services. As a test area, one of the objects which is a part of the largest 19t h-century fortresses in Poland was chosen. The 3D building model was prepared and optimized. Additionally, the possibility of combining UAV products with existing datasets and models, different characteristics in terms of construction methodology, accuracy, and reliability was tested.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "The study has shown that low-cost UAV/UAS with non-metric cameras can be an interesting alternative to the already used methods. They allow to produce 3D models of historical buildings with high accuracy, that can be almost directly used in cultural heritage services and LBS applications. The most important advantages of the UAS based photogrammetry are: a cost-effective and quick way of accurate 3D scanning, measurement, surveying, and reality capture in the documentation of the cultural heritage. In the proposed approach, we suggest unstructured geometric reconstruction of the building outer surface based on point cloud. The geometric accuracies of the obtained models are 2-3 cm. This accuracy level allows us to use it also for the conservation and/or monitoring of archaeological heritage or architectural restoration purposes. The achievable results could even be better if a higher resolution professional camera were used.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "Virtual and augmented reality technology is becoming increasingly popular. Virtual reality (VR), augmented reality (AR), and mixed reality (MR) are changing the way people perceive the digital world. Gartner indicates that by 2028, users' experiences will change significantly in the way they perceive the digital world and interact with it [58] . He claims that perception and interaction models will move to multi-sensors and multimodal experience. Many researchers are currently working on the influence that recent technological breakthroughs in VR/MR/AR have on user experience. Interesting works were presented by Flavian [59] , Griffin [60] , Yung [61] .",
+            "cite_spans": [
+                {
+                    "start": 341,
+                    "end": 345,
+                    "text": "[58]",
+                    "ref_id": "BIBREF57"
+                },
+                {
+                    "start": 628,
+                    "end": 632,
+                    "text": "[59]",
+                    "ref_id": "BIBREF58"
+                },
+                {
+                    "start": 643,
+                    "end": 647,
+                    "text": "[60]",
+                    "ref_id": "BIBREF59"
+                },
+                {
+                    "start": 655,
+                    "end": 659,
+                    "text": "[61]",
+                    "ref_id": "BIBREF60"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "Most of the current research on tourism and historical sites is focused on the use of virtual reality in museums [62] . The implemented solutions usually provide extended opportunities of presenting selected objects or exhibitions. They increase the level of immersion by moving the user to the virtual world as a whole [63] .",
+            "cite_spans": [
+                {
+                    "start": 113,
+                    "end": 117,
+                    "text": "[62]",
+                    "ref_id": "BIBREF61"
+                },
+                {
+                    "start": 320,
+                    "end": 324,
+                    "text": "[63]",
+                    "ref_id": "BIBREF62"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "AR technology brings new possibilities for content presentation. It enables adding content to the real world observed by the user. This technology allows us to visualize, even in natural dimensions, 3D models of objects located in distant locations. It improves the perception of the observed objects by superimposition of computer-generated content, descriptions, sounds, videos, and animations. There are two technological approaches typically used in outdoor smart tourism services: markerless AR (location based or sensor-based AR) and superimposition-based AR. Both provide excellent opportunities to present historical objects, while location-based technology allows adding content to a physical object. Apart from visualizing the objects, it is also possible to visualize temporal changes in buildings.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "In addition, it is possible to add a lector's voice and to present selected parts of objects. This technology can also be widely used by adding historical animations to outdoor objects, such as open-air museums [64] . The only limitation is devices (smartphone/tablet). Their technical parameters are a significant limitation in presenting advanced 3D models or animations. Thus, optimization of digital AR content is becoming an essential factor.",
+            "cite_spans": [
+                {
+                    "start": 211,
+                    "end": 215,
+                    "text": "[64]",
+                    "ref_id": "BIBREF63"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "MR is the most advanced visualization method. It enhances the level of immersion thanks to goggles, which not only offer the possibility to visualize digital content/3D models but also to interact with these objects through touch and gestures. The MR application offers the highest level of immersion and the best capabilities to interact with virtual objects.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "The presented AR/MR methods are of particular importance at the time of the global health crisis caused by the coronavirus pandemic COVID-19. This has a significant impact on the tourism industry due to the resulting travel restrictions, as well as a decrease in demand among travelers. Virtual tourism based on AR/MR can be a breakthrough solution that will change the limitations of access to historical objects, enabling dynamic development of smart cultural heritage services.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "The research has indicated several problems in the implementation of different models for tourism services based on AR/MR or web. The use of UAVs for data acquisition allows to work with models with real dimensions and to maintain the scale of objects. The model's scale is correct and based on the vertices, so the normal model transformation matrix has no scaling (1 Unity unit = 1 m).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "Recommended number of polygons depends mostly on the software and hardware. In our opinion, the optimal number ranges between 25,000 and 50,000 for mobile devices. For web apps, this number should be less than 250,000, and for desktop apps up to 2,500,000 for the whole scene. The number of calls drawn is often more limiting than the total number of polygons. It is beneficial to present one or more complex meshes than too many separate, less complicated models.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "Based on the analysis of the use of mesh models for WebGIS, AR/MR, it was found that it is a good practice to make multiple Level of Detail models. This makes it possible to switch between different level of detail (LOD) models as users move away from the model. It prevents overloading of used devices, while maintaining a good framerate.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "The proposed methodology provides a great opportunity to create solutions at the local level. It allows for the promotion of interesting local sites and historical monuments. It also enables the development of mobile applications that meet young generation requirements. It changes classical storytelling methods and combines them with new technology, especially data visualization methods (3D Web/AR/MR). It reviewed the digital documentation of heritage using low-cost UAV, TLS, LIDAR 3D parametric HBIM models of heritage buildings. The proposed framework was implemented in the Modlin water tower, located near a unique military complex near the Vistula and Narew rivers in Poland. The procedure for heritage digital documentation consists of three tiers: (1) Collecting Raw data using UAV and TLS, (2) Process acquired data and prepare point clouds, and (3) Generate the parametric model. AgiSoft Metashape was used to help in tracing the as-built point cloud data captured by the laser scanner. The workflow provides new tools and methods for 3D virtual heritage modeling, documentation, management, and analysis.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        },
+        {
+            "text": "The potential intersections of AR/MR and smart environments are yet to be explored further. The conducted research is a part of the work related to the use of crowdsourcing and volunteered geographic information methodology in the process of obtaining data on historical objects. It will combine the capabilities of GIS systems and HBIM databases to create a solution for the visualization of temporal changes in the look of historical buildings.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and Conclusions"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Smart cities in Europe",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Caragliu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Del Bo",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Nijkamp",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "J. Urban Technol",
+            "volume": "18",
+            "issn": "",
+            "pages": "65--82",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/10630732.2011.601117"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Smart City and information technology: A review",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Camero",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Alba",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Cities",
+            "volume": "93",
+            "issn": "",
+            "pages": "84--94",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cities.2019.04.014"
+                ]
+            }
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Smart Tourism Destinations: An Extended Conception of Smart Cities Focusing on Human Mobility. Information and Communication Technologies in Tourism",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Lamsfus",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Mart\u00edn",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Alzua-Sorzabal",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Torres-Manzanera",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "363--375",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "International Organization for Standardization/International Electrotechnical Commission, ISO/IEC Information technology-Security techniques-Information security management systems-Overview and vocabulary",
+            "authors": [],
+            "year": 2020,
+            "venue": "IEC_27000_2016(E).zip",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "The influence of Information Technologies on the Availability of Cultural Heritage",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Madirov",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Absalyamova",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Procedia Soc. Behav. Sci",
+            "volume": "188",
+            "issn": "",
+            "pages": "255--258",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.sbspro.2015.03.385"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Smart Cities and Cultural Heritage-A Review of Developments and Future Opportunities",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Borda",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Bowen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Proceedings of the Electronic Visualisation and the Arts",
+            "volume": "",
+            "issn": "",
+            "pages": "9--18",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "CESARSC: Framework for creating cultural entertainment systems with augmented reality in smart cities",
+            "authors": [
+                {
+                    "first": "\u00c1",
+                    "middle": [],
+                    "last": "Garc\u00eda-Crespo",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Gonz\u00e1lez-Carrasco",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "L\u00f3pez-Cuadrado",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Villanueva",
+                    "suffix": ""
+                },
+                {
+                    "first": "\u00c1",
+                    "middle": [],
+                    "last": "Gonz\u00e1lez",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Comput. Sci. Inf. Syst",
+            "volume": "13",
+            "issn": "",
+            "pages": "395--425",
+            "other_ids": {
+                "DOI": [
+                    "10.2298/CSIS150620006G"
+                ]
+            }
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Smart environments and Cultural Heritage: A novel approach to create intelligent cultural spaces",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Chianese",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Piccialli",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Valente",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "J. Locat. Based Serv",
+            "volume": "9",
+            "issn": "",
+            "pages": "209--234",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/17489725.2015.1099752"
+                ]
+            }
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Context awareness in mobile cultural heritage applications",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Roffia",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Raffa",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Pettinari",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Gaviani",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "",
+            "volume": "4",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Old Masters at Your Fingertips: The Journey of Creating a Museum App for the iPhone & iTouch",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Lagoudi",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Sexton",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Smart city and smart tourism: A case of Dubai",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Khan",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Woo",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Nam",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Chathoth",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "9",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/su9122279"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Cultural Heritage Toursim; Partners for livable communities",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Mcnulty",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "An experimental study on the role of augmented reality content type in an outdoor site exploration",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Javornik",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Kostopoulou",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Rogers",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Fatah Gen Schieck",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Koutsolampros",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Maria Moutinho",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Julier",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Behav. Inf. Technol",
+            "volume": "38",
+            "issn": "",
+            "pages": "9--27",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/0144929X.2018.1505950"
+                ]
+            }
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Tourists' intention to visit a destination: The role of augmented reality (AR) application for a heritage site",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Chung",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Han",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Joun",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Comput. Hum. Behav",
+            "volume": "50",
+            "issn": "",
+            "pages": "588--599",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.chb.2015.02.068"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Context-based infomobility system for cultural heritage recommendation: Tourist Assistant-TAIS. Pers. Ubiquitous Comput",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Smirnov",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Kashevnik",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ponomarev",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "21",
+            "issn": "",
+            "pages": "297--311",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s00779-016-0990-0"
+                ]
+            }
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Connect Smart Cities and Heritage Through Augmented Reality",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Arroyo",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "De La Fuente",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Prieto",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Perea",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "State of the Art Virtual Reality and Augmented Reality Knowhow",
+            "volume": "",
+            "issn": "",
+            "pages": "25--39",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Can I touch this? Using Natural Interaction in a Museum Augmented Reality System",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Kyriakou",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Hermon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Digit. Appl. Archaeol. Cult. Herit",
+            "volume": "12",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.daach.2018.e00088"
+                ]
+            }
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Combining traditional and indirect augmented reality for indoor crowded environments. A case study on the Casa Batll\u00f3 museum",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Gimeno",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Portal\u00e9s",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Coma",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Fern\u00e1ndez",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Mart\u00ednez",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Comput. Graph",
+            "volume": "69",
+            "issn": "",
+            "pages": "92--103",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cag.2017.09.001"
+                ]
+            }
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Augmented reality for heritage",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Julier",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Fatah Gen",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Schieck",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Blume",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Moutinho",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Koutsolampros",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Javornik",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Rovira",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Kostopoulou",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Visage",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Proceedings of the 5th ACM International Symposium on Pervasive Displays",
+            "volume": "",
+            "issn": "",
+            "pages": "257--258",
+            "other_ids": {
+                "DOI": [
+                    "10.1145/2914920.2939884"
+                ]
+            }
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Advanced mobile and wearable systems",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "J\u00f3\u017awiak",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Microprocess. Microsyst",
+            "volume": "50",
+            "issn": "",
+            "pages": "202--221",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.micpro.2017.03.008"
+                ]
+            }
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Visualization of Spatiooral Building Changes Using 3D Web GIS",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Templin",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Brzezinski",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Rawa",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Proceedings of the World Multidisciplinary Earth Sciences Symposium (WMESS 2018)",
+            "volume": "221",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Research challenges for digital archives of 3D cultural heritage models",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Koller",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Frischer",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Humphreys",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "J. Comput. Cult. Herit",
+            "volume": "2",
+            "issn": "7",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1145/1658346.1658347"
+                ]
+            }
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Unmanned aerial systems for photogrammetry and remote sensing: A review",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Colomina",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Molina",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "ISPRS J. Photogramm. Remote Sens",
+            "volume": "92",
+            "issn": "",
+            "pages": "79--97",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.isprsjprs.2014.02.013"
+                ]
+            }
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "The use of unmanned aerial vehicles (UAVs) for remote sensing and mapping",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Everaerts",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Int. Arch. Photogramm. Remote Sens. Spat. Inf. Sci",
+            "volume": "37",
+            "issn": "",
+            "pages": "1187--1192",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Application of Low-Cost Fixed-Wing UAV for Inland Lakes Shoreline Investigation",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Templin",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Popielarczyk",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kosecki",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Pure Appl. Geophys",
+            "volume": "175",
+            "issn": "",
+            "pages": "3263--3283",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s00024-017-1707-7"
+                ]
+            }
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Low cost and flexible UAV deployment of sensors",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "S\u00f8rensen",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Jacobsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Hansen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "17",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/s17010154"
+                ]
+            }
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Methodology for Carrying Out Measurements of the Tombolo Geomorphic Landform Using Unmanned Aerial and Surface Vehicles near Sopot Pier",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Specht",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Lewicka",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Specht",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "D\u0105browski",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Burdziakowski",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Poland. J. Mar. Sci. Eng",
+            "volume": "8",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/jmse8060384"
+                ]
+            }
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "An UAS-assisted multi-sensor approach for 3D modeling and reconstruction of cultural heritage site",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Erenoglu",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Akcay",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Erenoglu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "J. Cult. Herit",
+            "volume": "26",
+            "issn": "",
+            "pages": "79--90",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.culher.2017.02.007"
+                ]
+            }
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "A Survey of Drone use for Entertainment and AVR (Augmented and Virtual Reality). In Augmented Reality and Virtual RealityIn",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Jeong",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Park",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Ryu",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Oh",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "339--352",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "The Role of 4D Historic Building Information Modelling and Management in the Analysis of Constructive Evolution and Decay Condition within the Refurbishment Process",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bruno",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Musicco",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Fatiguso",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Dell&apos;osso",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Int. J. Archit. Herit",
+            "volume": "2019",
+            "issn": "",
+            "pages": "1--17",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/15583058.2019.1668494"
+                ]
+            }
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Integrating Augmented Reality with Building Information Modeling: Onsite construction process controlling for liquefied natural gas industry",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Truijens",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Hou",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Autom. Constr",
+            "volume": "40",
+            "issn": "",
+            "pages": "5457--5482",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.autcon.2013.12.003"
+                ]
+            }
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "On the Use of the OptD Method for Building Diagnostics",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Suchocki",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "B\u0142aszczak-B\u0105k",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Dami\u0119cka-Suchocka",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Jagoda",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Masiero",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/rs12111806"
+                ]
+            }
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Historic BIM for Mobile VR/AR Applications. In Mixed Reality and Gamification for Cultural Heritage",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Barazzetti",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Banfi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "271--290",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "The production of 3D digital archives and the methodologies for digitally supporting research in architectural and urban cultural heritage",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Apollonio",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Digital Research and Education in Architectural Heritage",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Data Acquisition for the Geometric Documentation of Cultural Heritage. In Mixed Reality and Gamification for Cultural Heritage",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Georgopoulos",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "29--73",
+            "other_ids": {}
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Modeling the decay in an hbim starting from 3d point clouds. A followed approach for cultural heritage knowledge",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Chiabrando",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Lo Turco",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Rinaudo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Proceedings of the 26th International CIPA Symposium",
+            "volume": "",
+            "issn": "",
+            "pages": "605--612",
+            "other_ids": {
+                "DOI": [
+                    "10.5194/isprs-archives-XLII-2-W5-605-2017"
+                ]
+            }
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "An efficient pipeline to obtain 3D model for HBIM and structural analysis purposes from 3D point clouds",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Pepe",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Costantino",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Garofalo",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Appl. Sci",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/app10041235"
+                ]
+            }
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "HBIM challenge among the paradigm of complexity, tools and preservation: The basilica Di collemaggio 8 years after the earthquake (L'aquila)",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Brumana",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Dellatorre",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Oreni",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Previtali",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Cantini",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Barazzetti",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Franchi",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Banfi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Proceedings of the 26th International CIPA Symposium",
+            "volume": "",
+            "issn": "",
+            "pages": "97--104",
+            "other_ids": {
+                "DOI": [
+                    "10.5194/isprs-archives-XLII-2-W597--2017"
+                ]
+            }
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "From Point Cloud To Bim: A Modelling Challenge in the Cultural Heritage Field",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Tommasi",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Achille",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Fassi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Proceedings of the XXIII ISPRS Congress",
+            "volume": "",
+            "issn": "",
+            "pages": "429--436",
+            "other_ids": {
+                "DOI": [
+                    "10.5194/isprs-archives-xli-b5429--2016"
+                ]
+            }
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "A restoration oriented HBIM system for cultural heritage documentation: The case study of parma cathedral",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Bruno",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Roncella",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Proceedings of the ISPRS TC II Mid-term Symposium \"Towards Photogrammetry 2020",
+            "volume": "",
+            "issn": "",
+            "pages": "171--178",
+            "other_ids": {
+                "DOI": [
+                    "10.5194/isprs-archives-XLII-2171--2018"
+                ]
+            }
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "UAV deployment exercise for mapping purposes: Evaluation of emergency response applications",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Boccardo",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Chiabrando",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Dutto",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Tonolo",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Lingua",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Sensors",
+            "volume": "15",
+            "issn": "",
+            "pages": "15717--15737",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/s150715717"
+                ]
+            }
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Establishing an appropriate level of detail (LOD) for a building information model (BIM) -West Block, Parliament Hill, Ottawa, Canada",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Fai",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Rafeiro",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Proceedings of the ISPRS Annals of the Photogrammetry",
+            "volume": "",
+            "issn": "",
+            "pages": "123--130",
+            "other_ids": {}
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Historic Building Information Modelling -Adding intelligence to laser and image based surveys of European classical architecture",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Murphy",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Mcgovern",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Pavia",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "ISPRS J. Photogramm. Remote Sens",
+            "volume": "76",
+            "issn": "",
+            "pages": "89--102",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.isprsjprs.2012.11.006"
+                ]
+            }
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "Jeddah historical building information modeling \"JHBIM\"-object library",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Baik",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Alitany",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Boehm",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Robson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Proceedings of the ISPRS Technical Commission V Symposium",
+            "volume": "",
+            "issn": "",
+            "pages": "41--47",
+            "other_ids": {}
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Developing an Open Access BIM Objects Library: A Hong Kong Study",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Lu",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Xue",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Proceedings of the Joint Conference on Computing in Construction",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "Current state of the art historic building information modelling",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Dore",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Murphy",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Proceedings of the 26th International CIPA Symposium",
+            "volume": "",
+            "issn": "",
+            "pages": "185--192",
+            "other_ids": {}
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "Guidelines for Calibrated Scale Bar Placement and Processing",
+            "authors": [],
+            "year": 2020,
+            "venue": "Cultural Heritage Imaging",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "Using 3D Viewer on HoloLens (1s t gen)|Microsoft Docs. Available online",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "Create 3D models for use in the home-Mixed Reality|Microsoft Docs",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "Performance Analysis and Optimization for PC-Based VR Applications",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "Graphics. Available online",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Unity-Manual",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "Best Practices for High Performance Graphics in VR/AR|Augmented & Virtual Reality Development|Unity",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "Optimization Tips for Mobile VR experiences-Wave VR 3.2.0 documentation",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF57": {
+            "ref_id": "b57",
+            "title": "Tradisional khas Gartner Identifies the Top 10 Strategic Technology Trends for 2020",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Aceh",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF58": {
+            "ref_id": "b58",
+            "title": "The impact of virtual, augmented and mixed reality technologies on the customer experience",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Flavi\u00e1n",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ib\u00e1\u00f1ez-S\u00e1nchez",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Or\u00fas",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "J. Bus. Res",
+            "volume": "100",
+            "issn": "",
+            "pages": "547--560",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.jbusres.2018.10.050"
+                ]
+            }
+        },
+        "BIBREF59": {
+            "ref_id": "b59",
+            "title": "Virtual Reality and Implications for Destination Marketing",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Griffin",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Giberson",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Guttentag",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kandaurova",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Proceedings of the TTRA International Conference",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF60": {
+            "ref_id": "b60",
+            "title": "New realities: A systematic literature review on virtual reality and augmented reality in tourism research",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Yung",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Khoo-Lattimore",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Curr. Issues Tour",
+            "volume": "22",
+            "issn": "",
+            "pages": "2056--2081",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/13683500.2017.1417359"
+                ]
+            }
+        },
+        "BIBREF61": {
+            "ref_id": "b61",
+            "title": "Mapping requirements for the wearable smart glasses augmented reality museum application",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Tom Dieck",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Jung",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Han",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "J. Hosp. Tour. Technol",
+            "volume": "7",
+            "issn": "",
+            "pages": "230--253",
+            "other_ids": {
+                "DOI": [
+                    "10.1108/JHTT-09-2015-0036"
+                ]
+            }
+        },
+        "BIBREF62": {
+            "ref_id": "b62",
+            "title": "Effects of Virtual Reality and Augmented Reality on Visitor Experiences in Museum. In Book Information and Communication Technologies in Tourism",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Jung",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Tom Dieck",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Chung",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "621--635",
+            "other_ids": {}
+        },
+        "BIBREF63": {
+            "ref_id": "b63",
+            "title": "Mapping history: Orienting museum visitors across time and space",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ress",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Cafaro",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Bora",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Prasad",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Soundarajan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "J. Comput. Cult. Herit",
+            "volume": "11",
+            "issn": "",
+            "pages": "1--25",
+            "other_ids": {
+                "DOI": [
+                    "10.1145/3199669"
+                ]
+            }
+        }
+    },
+    "ref_entries": {
+        "FIGREF1": {
+            "text": "A typical methodology for implementation of an HBIM.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "A typical methodology for implementation of an HBIM.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "Review of the methodology adopted for the reconstruction of 3D buildings using UAV/UAS.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "Review of the methodology adopted for the reconstruction of 3D buildings using UAV/UAS.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "the recesses, there were stone troughs for watering horses. The water tower was used in the interwar period (until 1939) for watering horses.Sensors 2020, 20, Study area.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": "The water tower inside Modlin fortress-recent look.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF8": {
+            "text": "Study",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF9": {
+            "text": "Study area.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF10": {
+            "text": "The water tower inside Modlin fortress-recent look.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF11": {
+            "text": "The water tower inside Modlin fortress-recent look.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF13": {
+            "text": "Photos taken using the DJI and Sony cameras.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF14": {
+            "text": "Photos taken using the DJI and Sony cameras.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF15": {
+            "text": "The locations of the TLS stations and the target points.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF16": {
+            "text": "The locations of the TLS stations and the target points.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF17": {
+            "text": "Methodology of UAV dense point cloud quality assessment.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF18": {
+            "text": "Methodology of UAV dense point cloud quality assessment.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF19": {
+            "text": "Visualization of UAV dense point cloud (left), texture shaded model (right).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF20": {
+            "text": "Visualization of UAV dense point cloud (left), texture shaded model (right).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF21": {
+            "text": "Visualization of the TLS point cloud.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF22": {
+            "text": "Visualization of the TLS point cloud.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF23": {
+            "text": "Visualization of the TLS point cloud.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF24": {
+            "text": "Cont. Sensors 2020, 20, Cloud to cloud comparison (absolute distance calculation using Quadratic algorithm from CloudCompare).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF25": {
+            "text": "Cloud to cloud comparison (absolute distance calculation using Quadratic algorithm from CloudCompare).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF26": {
+            "text": "shows the range of changes between compared models. The differences obtained indicate that the compared point clouds are properly matched. Both TLS and UAV point clouds are very similar. The presented results confirmed the correctness of the UAV model. It was used in subsequent steps to create polygonal models of different complexity and then to test their suitability for WebGIS, AR/MR services.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF27": {
+            "text": "Methodology used for creating 3D models. Sensors 2020, 20, x FOR PEER REVIEW 16 of 27",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF28": {
+            "text": "Visual illustration of the strategy of generating mesh models.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF29": {
+            "text": "Visual illustration of the strategy of generating mesh models.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF30": {
+            "text": "Comparison of mesh models of Water Tower building: (a) High quality model. (b) Medium quality model (c) Low quality model (d) 250 k quality model (e) 100 k quality model (f) 25 k quality model (top-models with textures, middle-solid model, bottom-models with triangles (bottom part of building with door)).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF31": {
+            "text": "Comparison of mesh models of Water Tower building: (a) High quality model. (b) Medium quality model (c) Low quality model (d) 250 k quality model (e) 100 k quality model (f) 25 k quality model (top-models with textures, middle-solid model, bottom-models with triangles (bottom part of building with door)).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF32": {
+            "text": "Concept of architecture that allow one to visualize temporary changes of the building fa\u00e7ade based on the Water Town in Modlin (top), the Old Town Hall in Olsztyn (middle), main building of the Faculty of Geodesy, Geoengineering (bottom).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF33": {
+            "text": "Concept of architecture that allow one to visualize temporary changes of the building fa\u00e7ade based on the Water Town in Modlin (top), the Old Town Hall in Olsztyn (middle), main building of the Faculty of Geodesy, Geoengineering (bottom).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF34": {
+            "text": "Visualization of the water station building model as a dae models in 3D web GIS environment.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF35": {
+            "text": "Visualization of the 3D water station building model in prototype AR application-100k model (from the left surface recognizing, walking near 3D model of Water Station (real sizes), view from inside the building, view from near the building). Test carried out in the parking lot in Olsztyn on the UWM campus.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF36": {
+            "text": "Visualization of the 3D water station building model in prototype AR application superimposed on the desk (100 k model).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF37": {
+            "text": "Visualization of the 3D water station building model in prototype AR application-100 k model (from the left surface recognizing, walking near 3D model of Water Station (real sizes), view from inside the building, view from near the building). Test carried out in the parking lot in Olsztyn on the UWM campus. Sensors 2020, 20, x FOR PEER REVIEW 20 of Visualization of the 3D water station building model in prototype AR application-100k model (from the left surface recognizing, walking near 3D model of Water Station (real sizes), view from inside the building, view from near the building). Test carried out in the parking lot in Olsztyn on the UWM campus.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF38": {
+            "text": "Visualization of the 3D water station building model in prototype AR application superimposed on the desk (100 k model).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF39": {
+            "text": "Visualization of the 3D water station building model in prototype AR application superimposed on the desk (100 k model). Sensors 2020, 20, x FOR PEER REVIEW 21 of Visualization of temporal changes of the Dean's Office of the Faculty of Geoengineering building (at the top 3D model of current look of the building, on the right model from 1976).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF40": {
+            "text": "Visualization of temporal changes of the Dean's Office of the Faculty of Geoengineering building (at the top 3D model of current look of the building, on the right model from 1976).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF41": {
+            "text": "Visualization of temporal changes of the Dean's Office of the Faculty of Geoengineering building (at the top 3D model of current look of the building, on the right model from 1976).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF42": {
+            "text": "Visualization of the water station building model as a hologram using Microsoft Hololens MR helmet.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "DJI and Sony RX100 II cameras technical specification.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "Technical specification of DJI Phantom 4 Pro UAS.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "DJI and Sony RX100 II cameras technical specification.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "Leica ScanStation C10 technical parameters.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF4": {
+            "text": "Main characteristics of the 3D models.",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "The authors declare no conflict of interest.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conflicts of Interest:"
+        }
+    ]
+}

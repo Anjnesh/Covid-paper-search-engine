@@ -1,0 +1,3489 @@
+{
+    "paper_id": "00d1502eea414ead87f676afa6b7ceaa585ddbf9",
+    "metadata": {
+        "title": "Behavioral Bias Benefits: Beating Benchmarks By Bundling Bouncy Baskets Investment Decisions; D81 Criteria for Decision-Making under Risk and Uncertainty; C63 Computational Techniques; D91 Role and Effects of Psychological, Emotional, Social, and Cognitive Factors on Decision Making ; G41 Role and Effects of Psychological, Emotional, Social, and Cognitive Factors on Decision Making in Financial Markets",
+        "authors": [
+            {
+                "first": "Ravi",
+                "middle": [],
+                "last": "Kashyap",
+                "suffix": "",
+                "affiliation": {},
+                "email": "ravi.kashyap@stern.nyu.edu"
+            }
+        ]
+    },
+    "abstract": [],
+    "body_text": [
+        {
+            "text": "We consider in detail an investment strategy, titled \"The Bounce Basket\", designed for someone to express a bullish view on the market by allowing them to take long positions on securities that would benefit the most from a rally in the markets. We demonstrate the use of quantitative metrics and large amounts of historical data towards decision making goals. This investment concept combines macroeconomic views with characteristics of individual securities to beat the market returns. The central idea of this theme is to identity securities from a regional perspective that are heavily shorted and yet are fundamentally sound with at least a minimum buy rating from a consensus of stock analysts covering the securities. We discuss the components of creating such a strategy including the mechanics of constructing the portfolio. Using simulations, in which securities lending data is modeled as geometric brownian motions, we provide a few flavors of creating a ranking of securities to identity the ones that are heavily shorted.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "An investment strategy of this kind will be ideal in market scenarios when a downturn happens due to unexpected extreme events and the markets are anticipated to bounce back thereafter. This situation is especially applicable to incidents being observed, and relevant proceedings, during the Coronavirus pandemic in 2020-2021. This strategy is one particular way to overcome a potential behavioral bias related to investing, which we term the \"rebound effect\". 3 We consider in detail an investment strategy, titled \"The Bounce Basket\". This strategy acts as a complete numerical illustration of the general principles behind trading strategies discussed in Kashyap (2019) . We come up with a potential behavioral bias with respect to the financial markets, which we term the \"rebound effect\". Our investment strategy becomes one probable way to overcome such a bias. We demonstrate the use of quantitative metrics and large amounts of historical data towards decision making goals.",
+            "cite_spans": [
+                {
+                    "start": 461,
+                    "end": 462,
+                    "text": "3",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 658,
+                    "end": 672,
+                    "text": "Kashyap (2019)",
+                    "ref_id": "BIBREF46"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Our trading idea is designed for someone to express a bullish view on the market by allowing them to take long positions on securities that would benefit the most from a rally in the markets. This investment concept combines macroeconomic views with characteristics of individual securities to beat the market returns. The central idea of this theme is to identity securities from a regional perspective that are heavily shorted and yet are fundamentally sound (Summers 1986 The most heavily shorted securities are obtained from a top shorts ranking model (Kashyap 2017b ). To outline the intuition behind such a ranking, suppose we wanted to rank the most livable cities in the world (or let us say, the best soccer players in history). We would identify characteristics that might be useful to make such an assessment. We would weight the individual characteristics and then collect data for the entities that are being ranked. We could then calculate an overall score, which would be an aggregation based on the collected data and the corresponding weights. The overall score would then yield a suitable ranking, since having one number for each object we are interested in facilitates a ranking.",
+            "cite_spans": [
+                {
+                    "start": 461,
+                    "end": 474,
+                    "text": "(Summers 1986",
+                    "ref_id": "BIBREF82"
+                },
+                {
+                    "start": 556,
+                    "end": 570,
+                    "text": "(Kashyap 2017b",
+                    "ref_id": "BIBREF45"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Once a ranking is formed, we could use some of the factors as the criteria for exclusion from the finalized standings. These factors act as filters to remove securities from the overall universe of stocks in a region (say Asia) based on specific levels of the parameters. Again, to outline the intuition here: a city could rank very well on most factors, but could be below acceptable standards in one factor, (say air quality), requiring that it be removed from the final ranking. Hence, certain securities would be excluded from the final basket if they fall below certain minimum acceptable thresholds.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "We relate our methodology to three different streams of literature in Section (3) . Section (2.1) has a discussion of one potential behavioral bias related to the financial markets (but possibly lurking in many other areas of life), which we term the \"rebound effect\". Section (4) provides a detailed discussion of the variables (or factors), specific to securities lending that would be helpful to come up with a ranking of the most heavily shorted securities, including one possible way to weight the factors and combine them. Section (5) provides an alternative aggregation scheme that does not have subjective weights as discussed in Section (4) .",
+            "cite_spans": [
+                {
+                    "start": 78,
+                    "end": 81,
+                    "text": "(3)",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 537,
+                    "end": 540,
+                    "text": "(5)",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 646,
+                    "end": 649,
+                    "text": "(4)",
+                    "ref_id": "BIBREF3"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Section (6) shows how we generate sample data using simulations in which securities lending information is generated via geometric brownian motions (GBMs). The actual data for back testing such a strategy would be available from the securities lending desk of a broker dealer. We have taken great care to ensure that the sample time series is similar to actual historical data in terms of some of its statistical properties such as starting value, drift and volatility (Equations: 6; 7). Section (7) illustrates numerical scores for three flavors of the alternative aggregation scheme discussed in Section (5) and shows how we can obtain a top shorts ranking. Section (8) provides details on how to construct a portfolio based on the ranking method in Section (5) . Section (9) has suggestions for improvement that address one of the main drawbacks of using volatility as a decision making tool since it fails to fully capture the effect of changes in the direction in the time series of any variable. Clearly, such views are bound to be erroneous and have a significant degree of error. Hence, we could be conservative in our trading strategy and the time horizon of our trade can be a fraction of the time over which there is consensus expectation for the markets to trend upwards. As an alternative to our investment idea, we could go long an index future or exchange-traded fund 3 or take a derivative position on an index in anticipation of a market rebound, which would be an example of a passive strategy.",
+            "cite_spans": [
+                {
+                    "start": 8,
+                    "end": 11,
+                    "text": "(6)",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 496,
+                    "end": 499,
+                    "text": "(7)",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 606,
+                    "end": 609,
+                    "text": "(5)",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 668,
+                    "end": 671,
+                    "text": "(8)",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 760,
+                    "end": 763,
+                    "text": "(5)",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 774,
+                    "end": 777,
+                    "text": "(9)",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "The bounce basket is an example of an active strategy. In this case, since we are carefully selecting the constituents of the basket from a broader index or market, we can expect to outperform the overall performance of the market. An investment strategy of this kind will be ideal in market scenarios when a downturn happens, due to unexpected extreme events, and the markets are anticipated to bounce back thereafter. This situation is especially applicable to incidents being observed, and relevant proceedings, during the Coronavirus pandemic in 2019, 2020 and 2021. Most studies focused on any crisis discuss how such events adversely affect the financial markets. We wish to shed a ray of light in the current fight against COVID (and also in other seemingly dire straits) by suggesting ways in which investors can benefit and hope that this positivity will usher in recoveries on all fronts (markets and otherwise).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "A \"rebound relationship\" is commonly understood as a relationship that is initiated shortly after a romantic breakup -before the feelings about the former relationship have been resolved (Brumbaugh & Fraley 2015 With regards to the financial markets and investment decision making: studying the timing, magnitude and types of investments people make after facing losses -either due to bad selection (idiosyncratic risk) or due to bad market events (systemic risk) -need to be pursued further 5 . If a rebound effect exists, with respect to investing and subsequent to a market crash, people will load up on the entire market (or at-least big portions of it) in the hopes of the market moving up. Hence, a more careful selection of securities is bound to yield greater dividends. Indiscriminate or haphazard investing on the back of a market crash, which might have caused personal portfolios losses, would perhaps not be advisable. A more circumspect approach can benefit from the behavioral biases that are entrenched among the wider population and are 4 Clearly, there are multiple ways of experiencing a rebound effect with respect to financial investments. As an alternative to losses caused due to a market crash, someone's portfolio might be exposed only to a minor sub-section of the market and the value of their assets might plummet significantly due to the nature of their specific holdings. Many interesting questions and avenues of research arise here, in terms of how people respond to casualties caused by different types of investments, and how their later investment behavior is transformed due to any mishaps experienced earlier. 5 For detailed discussions on diversifiable and non-diversifiable risks, see: Ross, et al., 2009 not easy to remedy (Section 3.4). Even if the rebound effect does not exist, or is insignificant, our strategy can still be used as a prudent means of stock selection that can provide outsized returns. Our approach is certainly expedient for someone who did not experience a market crash, but is eager to make the most of an anticipated recovery in the markets.",
+            "cite_spans": [
+                {
+                    "start": 187,
+                    "end": 211,
+                    "text": "(Brumbaugh & Fraley 2015",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 1054,
+                    "end": 1055,
+                    "text": "4",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 1647,
+                    "end": 1648,
+                    "text": "5",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 1725,
+                    "end": 1743,
+                    "text": "Ross, et al., 2009",
+                    "ref_id": "BIBREF74"
+                }
+            ],
+            "ref_spans": [],
+            "section": "The Market Rebound Effect"
+        },
+        {
+            "text": "3 Related Literature on Crisis, Pandemics, Biases, Behavior and",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The Market Rebound Effect"
+        },
+        {
+            "text": "We relate our paper to three different strands of literature: 1) Economic / financial crisis, pandemics and stock market reactions; 2) Behavioral biases and decision making; and 3) Portfolio management techniques and investment strategies.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Investments"
+        },
+        {
+            "text": "Many excellent studies discuss the origins, transmission and other characteristics of the COVID-19 infection and compare it to other pandemics in recent recorded history (Guo, et ",
+            "cite_spans": [
+                {
+                    "start": 170,
+                    "end": 178,
+                    "text": "(Guo, et",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "The COVID-19 Pandemic"
+        },
+        {
+            "text": "Looking beyond the COVID-19 pandemic, we consider the broader linkages between financial / economic crisis and financial markets. Kindleberger A series of studies have been performed on the co-movement among the stock markets since the so-called October crash of 1987, when the stock markets in the world collapsed globally one after another. Roll (1988) found that all major world markets declined substantially in October 1987 (of 23 markets, 19 declined more than 20 per cent). This is an exceptional occurrence, given the usual modest correlations of returns across countries observed at that time. Schwert (1990) analyzed the behavior of stock return volatility, using daily data from 1885 through 1988, and found that stock volatility jumped dramatically during and after the crash 7 . But he confirms, using implied volatilities from call option prices and estimates of volatility from futures contracts on stock indexes, that volatility returned to lower, more normal levels more quickly than past experience predicted.",
+            "cite_spans": [
+                {
+                    "start": 130,
+                    "end": 142,
+                    "text": "Kindleberger",
+                    "ref_id": null
+                },
+                {
+                    "start": 343,
+                    "end": 354,
+                    "text": "Roll (1988)",
+                    "ref_id": "BIBREF73"
+                },
+                {
+                    "start": 603,
+                    "end": 617,
+                    "text": "Schwert (1990)",
+                    "ref_id": "BIBREF76"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Financial Markets and Crisis"
+        },
+        {
+            "text": "Lee & Kim (1993) find that national stock markets became more interrelated after the 1987 crash, and the strengthening co-movements among national stock markets continued for a longer period after the crash. and Japan, Hong Kong, Singapore and Taiwan as neighboring countries. Then dividing the period of study into three sub-periods of pre-crisis, crises and post-crisis period, they try to answer such questions as whether there existed a common trend in Asian stock markets before the crisis, whether the correlations among the Asian stock markets are increased due to the crisis and whether there are any changes in the causal relations between the stock markets during the sample period. They use time series tests such as the co-integration test and the Granger causality test (Granger 1969 markets were apparently segmented before the crisis and that they were highly integrated during the crisis.",
+            "cite_spans": [
+                {
+                    "start": 783,
+                    "end": 796,
+                    "text": "(Granger 1969",
+                    "ref_id": "BIBREF35"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Financial Markets and Crisis"
+        },
+        {
+            "text": "This suggests that there are less diversification benefits during crises when investors would need them the most.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Financial Markets and Crisis"
+        },
+        {
+            "text": "Clearly ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Analysis of Investment Strategies"
+        },
+        {
+            "text": "There are numerous studies that investigate the effects of behavior and biases with respect to investing.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Biases, Games and Investor Behavior"
+        },
+        {
+            "text": "Investor sentiment, defined broadly, is a belief about future cash flows and investment risks that is not justified by the facts at hand. Pompian (2011) is an excellent guide for understanding how to use behavioral finance theory in investing. Menkhoff & Nikiforow (2009) provide evidence on the hypothesis that many behavioral finance patterns are so deeply rooted in human behavior that they are difficult to overcome by learning.",
+            "cite_spans": [
+                {
+                    "start": 244,
+                    "end": 271,
+                    "text": "Menkhoff & Nikiforow (2009)",
+                    "ref_id": "BIBREF57"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Biases, Games and Investor Behavior"
+        },
+        {
+            "text": "De Bondt & Thaler (1985) perform a study of market efficiency that investigates whether the tendency for most people to \"overreact\" to unexpected and dramatic news events affects stock prices. They present empirical evidence using monthly data for the period between January 1926 and December 1982, from the Center for Research in Security Prices (CRSP) at the University of Chicago, which is consistent with the overreaction hypothesis.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Biases, Games and Investor Behavior"
+        },
+        {
+            "text": "The question is no longer whether investor sentiment affects stock prices, but how to measure investor sentiment and quantify its effects. One approach is \"bottom up\" -using biases in individual investor psy- This approach builds on the two broader and more irrefutable assumptions of behavioral finance --sentiment and the limits to arbitrage --to explain which stocks are likely to be most affected by sentiment. They suggest in particular that stocks that are difficult to arbitrage or to value are most affected by sentiment.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Biases, Games and Investor Behavior"
+        },
+        {
+            "text": "Oechssler, Roider& Schmitz (2009) provide an experimental test for the hypothesis that the incidence of behavioral biases is related to cognitive abilities. They find that individuals with low cognitive reflection test (Frederick 2005) scores are significantly more likely to be subject to the conjunction fallacy (Tversky & Kahneman 1983 ) and to conservatism with respect to probability updating. Loewenstein (2000) ",
+            "cite_spans": [
+                {
+                    "start": 219,
+                    "end": 235,
+                    "text": "(Frederick 2005)",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 314,
+                    "end": 338,
+                    "text": "(Tversky & Kahneman 1983",
+                    "ref_id": "BIBREF85"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Biases, Games and Investor Behavior"
+        },
+        {
+            "text": "Below we discuss some of the factors that can be helpful towards forming a top shorts ranking from a securities lending perspective and the rationale behind the usage of these factors to create the ranking. We also provide contextual information and numerical pointers that could be used to implement the filtering mechanism.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Securities Lending Factors"
+        },
+        {
+            "text": "1. Short Interest (SI) -The short interest is the amount of shares shorted in a security by all market participants and is clearly a direct indicator of investors intending to express negative sentiment on that stock. This metric is best expressed in USD so it is normalized across securities and also when dealing with multi-market regions like Asia. Only securities with Short Interest of more than a certain USD value (say 10 million) are considered for inclusion into the basket. An adjustment is made to factor in the relative size of the markets. This would mean that for two securities with say short interest of 11 million USD, one from Japan and one from Taiwan, the Taiwan security would get ranked higher since the stock loan market for Japan is higher and the levels of short interest are much higher for Japanese 11 SI can also be expressed as a ratio, shown below, but using the actual share amount makes for a more granular ranking and generally traders want to know how many shares are shorted compared not just to the float amount, but the supply they can obtain from other lenders. Also the loan rates are higher when the short interest compared to the float is higher, so another 2. Loan Rates (LR) -The most important variable that indicates how heavily shorted a security is, is the loan rate. Only securities with annual loan rates greater than a threshold (say 1.5 percent) are",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Securities Lending Factors"
+        },
+        {
+            "text": "considered. An adjustment is done to factor in the maximum level of loan rates in each market similar to Point (1) above. A lending desk has at-least two flavors of these loan rates: a rate at which the desk is able to source inventory and another alternate rate which is slightly higher since it is the rate at which loans are made to end investors. To avoid any confusion, we refer to these as the loan rate and the alternate loan rate respectively. The short interest ratio (also called days-to-cover ratio) represents the number of days it takes short sellers on average to cover their positions, that is repurchase all of the borrowed shares. It is calculated by dividing the number of shares sold short by the average daily trading volume, generally over the last 30 trading days. The ratio is used by both fundamental and technical traders to identify trends. The days-to-cover ratio can also be calculated for an entire exchange to determine the sentiment of the market as a whole. If an exchange has a high days-to-cover ratio of around five or greater, this can be taken as a bearish signal, and vice versa. Short Interest Ratio, Wikipedia Link used as contribution factor towards a total score, since lower this amount, greater the pressure on loan rates and a higher indication that a particular security is heavily shorted. Only securities with loan availability below a certain threshold are considered (say 10 million USD) are considered. 6 . Liquidity (L) -We consider the average daily trading volume to ensure that once a basket is constructed, we have enough volume being traded so that we can implement this strategy without liquidity problems.",
+            "cite_spans": [
+                {
+                    "start": 1454,
+                    "end": 1455,
+                    "text": "6",
+                    "ref_id": "BIBREF5"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Securities Lending Factors"
+        },
+        {
+            "text": "Only securities that had a 20 day average trading volume (ADV ) of more than a certain figure (say 25 million USD) are considered. The variables we have discussed above are easier to acquire and utilize for investment firms. Most broker dealers are likely to act as good sources of information for these variables. Some of the additional factors we outline next are hard even for broker dealers to estimate accurately. Close attention also needs to be paid to regulatory restrictions that might differ by regions and how they might affect the variables that are under consideration. The tradeoffs between the costs to acquire additional information and the potential benefits they bring need to be assessed carefully.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Days To"
+        },
+        {
+            "text": "Additional factors such as the total number of lenders, the number of total shares available for securities loans, etc. can be included. As the number of lenders or market participants, making loans or having short positions on a particular security respectively, increases the effect each of them will have on the overall movement in the variables will decrease. Though with more players, there is likely to be more uncertainty.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Days To"
+        },
+        {
+            "text": "Generally, the number of lenders is inversely related to the loan rates, since having more sources of supply can mitigate the effects of a few sources drying up. As the short interest gets closer to the total shares available for loans, loan rates might skyrocket and become highly volatile.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Days To"
+        },
+        {
+            "text": "The factor weights are estimated using a trial and error approach (Ismail 2014; Kashyap 2021) 12 so that the profitability of the securities chosen from a securities lending perspective over a historical period are maximized. The rationale for such a weighting scheme is that a security is the most shorted security if it was creating significant profits for the trading desk. One sample model for the overall scoring mechanism can be summarized as shown in Equation (1). Here n is the total number of factors. w i is the weights of the individual factors, f i .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Days To"
+        },
+        {
+            "text": "+ Other factors to capture moving average and volatility of individual variables Also, n i=1 w i = 1",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Days To"
+        },
+        {
+            "text": "A key issue with the above scoring mechanism (Equation: 1 in Section 4) to create a top shorts ranking is the subjectivity of the weights and the necessity of having to constantly tweak them. A significant amount of effort is involved to ensure that the weights are closely aligned with the drivers of the Profit and Loss (P&L).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Sharpening the Sharpe Ratio"
+        },
+        {
+            "text": "As an alternate to the above scoring mechanism, which is an aggregation of a number of separate factors weighted subjectively, we could use a single numeric indicator similar to the Sharpe ratio, SR (Sharpe 1966 ; 1994) 13 .",
+            "cite_spans": [
+                {
+                    "start": 199,
+                    "end": 211,
+                    "text": "(Sharpe 1966",
+                    "ref_id": "BIBREF77"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Sharpening the Sharpe Ratio"
+        },
+        {
+            "text": "12 As Taleb explains, \"it is trial with small errors that are important for progress\". The emphasis on small errors is especially true in a portfolio management context, since a huge error could lead to a blow up of the investment fund. (Ismail 2014 ) mentions the following quote from Taleb, \"Knowledge gives you a little bit of an edge, but tinkering (trial and error) is the equivalent of 1,000 IQ points. It is tinkering that allowed the industrial revolution\". Link for Nassim Taleb and Daniel Kahneman discussing Trial and Error / IQ Points, among other things, at the New York Public Library on Feb 5, 2013. 13 In finance, the Sharpe ratio (also known as the Sharpe index, the Sharpe measure, and the reward-to-variability ratio) is a way to examine the performance of an investment by adjusting for its risk. The ratio measures the excess return (or risk premium) per unit of deviation in an investment asset or a trading strategy, typically referred to as risk, named after William",
+            "cite_spans": [
+                {
+                    "start": 237,
+                    "end": 249,
+                    "text": "(Ismail 2014",
+                    "ref_id": "BIBREF39"
+                },
+                {
+                    "start": 615,
+                    "end": 617,
+                    "text": "13",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Sharpening the Sharpe Ratio"
+        },
+        {
+            "text": "The SR combines the risk, (\u03c3 r , the standard deviation of returns), and return, (E (r), the expected return or an estimate based on historical returns), of each individual asset or portfolio to give one number that contributes to a ranking. The return figure used is the return of the asset in excess of a certain threshold, which is usually the risk free rate, r f , but it could be the return on any other benchmark security",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "F. Sharpe. Sharpe Ratio, Wikipedia Link"
+        },
+        {
+            "text": "). This ensures that assets providing returns below the threshold have a negative score and are relegated towards the bottom of the ranking.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "F. Sharpe. Sharpe Ratio, Wikipedia Link"
+        },
+        {
+            "text": "A similar score can be created based on the loan rates and the corresponding standard deviation as shown in Equation (2). The key point to note here is that we are considering the expectation of loan rates and the corresponding standard deviation of the loan rates instead of the price returns and the standard deviation of the returns, which are used in the SR.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "F. Sharpe. Sharpe Ratio, Wikipedia Link"
+        },
+        {
+            "text": "If the loan rates for certain securities are below the risk free rate (or another higher threshold), any loans made on those securities are not contributing much to bottom-line. Positions on such securities could be available internally, since other trading desks within the firm could be long those stocks. To obtain those shares the firm would need to borrow money at the risk free rate (or higher), but making securities loans on those positions will only earn back less than that. Also many lending desks might chose to make loans 7) ranking of the security using the score calculated with r f ; 8) and ranking of the security using the score calculated without r f .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "F. Sharpe. Sharpe Ratio, Wikipedia Link"
+        },
+        {
+            "text": "As we see in Figure ( 1), security BBB with an expected loan rate, E (LR) = 5.00, and a loan rate standard deviation, \u03c3 LR = 2.00, ranks higher than security CCC with E (LR) = 8.00 and \u03c3 LR = 4.00 when we consider 14 Marketable collateral is the exchange of financial assets, such as stocks and bonds, for a loan between a financial institution and borrower. To be deemed marketable collateral, assets must be capable of being sold under normal market conditions with reasonable promptness at a fair market value. Conditions are based upon actual transactions on an auction or similarly available daily bid, or ask price market. Marketable Collateral, Wikipedia Link just the ratio of expected loan rate and loan rate standard deviation, E (LR) /\u03c3 LR . This issue is fixed and security CCC is ranked higher than BBB when we consider the excess loan rate or loan rate premium divided by the loan rate standard deviation, [E (LR) \u2212 r f ] /\u03c3 LR , to obtain a score.",
+            "cite_spans": [
+                {
+                    "start": 214,
+                    "end": 216,
+                    "text": "14",
+                    "ref_id": "BIBREF13"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 13,
+                    "end": 21,
+                    "text": "Figure (",
+                    "ref_id": null
+                }
+            ],
+            "section": "F. Sharpe. Sharpe Ratio, Wikipedia Link"
+        },
+        {
+            "text": "We could extend the above short score (Equation: 2) to include the short interest, loan availability, days to cover and the loan balance growth to get the formulations shown in Equations (3; 4; 5).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Figure 1: Ranking with and without Rate Threshold"
+        },
+        {
+            "text": "Below, \u03be () represents the moving average function applied over the last few (two or three) months.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Figure 1: Ranking with and without Rate Threshold"
+        },
+        {
+            "text": "Below, LB t is the loan balance at time t. N is the number of days or observations in the time series data.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Figure 1: Ranking with and without Rate Threshold"
+        },
+        {
+            "text": "Due to the multiplication of factors, the loan balance growth is better represented as the ratio of the loan balance at the end and start of the time period under consideration. We use a ratio instead of expressing growth in percentage terms, which is more suitable for a summation. A higher ratio indicates an increase in the loan balance contribution to a higher score and vice versa, LBG = LB t /LB t\u2212N . We also take the moving average of some variables since without taking the moving average the ranking would be sensitive to daily changes and might change quite drastically from day to day. Scores based on the moving average are more stable. Hence depending on the trading strategy, whether we are re-balancing the portfolio on a weekly basis or once in a few months, we can choose either the moving average or the values on a particular day.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Figure 1: Ranking with and without Rate Threshold"
+        },
+        {
+            "text": "The scores can also be highly sensitive since they combine the sensitivities of the individual factors. This requires watching out for outliers and also having filters and other constraints that can remove the outliers.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Figure 1: Ranking with and without Rate Threshold"
+        },
+        {
+            "text": "Depending on the statistical properties of the variables under consideration, rules can be established to set bounds on the extent to which the ratios and hence the scores can change over a given time period. This will provide alerts when there are huge changes and aid in managing the sensitivities.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Figure 1: Ranking with and without Rate Threshold"
+        },
+        {
+            "text": "Other extensions could use a SR type score for each variable and combine it with the other variables.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Figure 1: Ranking with and without Rate Threshold"
+        },
+        {
+            "text": "Instead of the risk free rate, we would need to use a suitable cutoff point for the other variables, such that when the variable drops below that point, it gets taken out of the top ranking by having a negative score.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Figure 1: Ranking with and without Rate Threshold"
+        },
+        {
+            "text": "We need to pay attention while combining such ratios since if more than two variables have a negative value and they are multiplied together, the resultant score could still be positive.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Figure 1: Ranking with and without Rate Threshold"
+        },
+        {
+            "text": "When considering any measure that is similar to the SR, the total variation (or risk) will have a systematic and unsystematic component. The changes in the variable due to these market or individual sources will affect the maximum or minimum values that the variable will take on during short and long term horizons. The effect of the idiosyncratic or non-idiosyncratic sources on each of the factors could be different. To isolate these effects we would need to run regressions across historical data sets to calculate the corresponding coefficients, which can provide a way to gauge the sensitivities. The challenge would be to create a proxy for the market specific to the factor under consideration.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Figure 1: Ranking with and without Rate Threshold"
+        },
+        {
+            "text": "The sources of risk will also vary across different types of crisis. As we have observed, the global financial crisis affected the financial sector initially and then spread to other sectors. The COVID-19 pandemic is having a much more severe impact on the travel and hospitality sectors. The sources of risk will differ across industry, region, market capitalization and other security classifications. Pursuing this avenue, of better understanding the sensitivities from systematic and unsystematic components including the variations across groups of securities, also opens the door to many advanced econometric techniques.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Figure 1: Ranking with and without Rate Threshold"
+        },
+        {
+            "text": "The bounce basket (and other such baskets) can be created by various sell side brokers for buy side firms.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data Generation via Simulation"
+        },
+        {
+            "text": "Having an idea of how such baskets are created, including the factors used based on the discussion in Sections (4; 5), can lead to meaningful discussions between the two parties that want to participate in such a scheme. As noted earlier, given the number of random variables involved (and hence the complexity of the system), a certain amount of computational infrastructure would be necessary. A typical securities lending desk can have loan positions on anywhere from a few hundred to upwards of a few thousand different securities and many years of historical data. It is therefore, a good complement to build some intelligence that utilizes the historical time series and calculates the short score from the corresponding formulae derived in Section (5) without the need for too many ongoing changes. This can be accomplished by software routines that automatically run daily using data received from broker firms.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data Generation via Simulation"
+        },
+        {
+            "text": "To demonstrate how this technique would work, we simulate the historical time series. As opposed to the intermediary, who would have all the above information, a typical investment firm is unlikely to have Alternately, we could sample the variable values, S it , from an absolute normal distribution with mean, \u00b5 Si , and variance, \u03c3 2 Si , as shown in Equation (7).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data Generation via Simulation"
+        },
+        {
+            "text": "The simulation seed is chosen so that the drift and volatility we get for the variables are similar to what would be observed in practice. For example in Figure ( 2), the price and rate volatility are lower than the volatilities of the availability and other quantities, which tend to be much higher. The range of the drift for the quantities, which are share amounts, is also higher as compared to the drift range of prices and rates.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 154,
+                    "end": 162,
+                    "text": "Figure (",
+                    "ref_id": null
+                }
+            ],
+            "section": "Data Generation via Simulation"
+        },
+        {
+            "text": "This ensures that we are keeping it as close to a realistic setting as possible, without having access to an actual historical time series. The volatility and drift, which are proxies for the standard deviation and mean for the loan balance process, of the variables for each security are shown in Figure ( Comparing the scores on the first day and last day should give us an idea of how the scores, and hence the ranking, can change over the duration of a few months. Also, availability can be zero for certain securities, leading to a error in the score calculation when we divide by zero, which is avoided in many cases by using a moving average. Since our scores are based on a simulation we see some low loan rates, low availability and high short interest numbers. In general, low availability and high short interest will be reflected as higher loan rates. Similarly high loan rates, high availability and low short interest rarely occur in practice. The days to cover generally does not include the moving average of the short interest, but we use the moving average only for the flavor in Figure (5) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 298,
+                    "end": 306,
+                    "text": "Figure (",
+                    "ref_id": null
+                },
+                {
+                    "start": 1098,
+                    "end": 1108,
+                    "text": "Figure (5)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Data Generation via Simulation"
+        },
+        {
+            "text": "The initial ranking of top shorts is ideally done over a large universe and the final basket will need around a couple of dozen stocks. Hence, filters need to be chosen to narrow down the original list. We can remove a certain percentage of securities from the bottom (say 20 percent) from this ranked set of securities and additional filters can be applied (sector, market capitalization, etc.) to further narrow down the constituents of the basket. Some details about how filters can be applied are provided in the explanation of the factors (Section 4) and the selection methodology above. Some of the markets on which empirical tests using real data were tried, at various investment firms we have been involved with in the past, include Japan, Hong",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data Generation via Simulation"
+        },
+        {
+            "text": "Kong, Taiwan, Korea, Singapore, Thailand, Indonesia and Malaysia. Custom baskets for each market or even for individual sectors can be created based on the same selection model.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data Generation via Simulation"
+        },
+        {
+            "text": "Once a top shorts ranking has been created and the securities are ranked accordingly, we can pick a certain number of securities from the ranking above a threshold value of the short score. We provide one technique to construct a portfolio, even though most standard rules used to construct portfolios can be applied given One particular way to weight the securities in a portfolio is shown in Equations (8; 9). The intuition behind the weighting is that the securities that have a higher short score are weighted higher in the overall portfolio. The market capitalization or average trading volume can also be included in the short score using the mechanism we have shown in Section (5) . The weight of a particular security will be higher proportional to the extent by which the short score and the trading volume exceed the corresponding metrics for the other constituent securities.",
+            "cite_spans": [
+                {
+                    "start": 684,
+                    "end": 687,
+                    "text": "(5)",
+                    "ref_id": "BIBREF4"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "The weights of individual securities in the portfolio, u i are given below. SS i is the short score of security i and there are a total of M securities selected for the portfolio.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "Also,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "We next describe some mechanisms that can bring in a certain amount of robustness to the constructed portfolio. One simple way to make the portfolio more robust would be to measure the changes in the rankings of the variables over time and penalize the securities with greater movement in their rankings. This would mean that securities with greater movement in the scores and hence the rankings would have a lower weight.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "Also, we could change the security weights only when the change in the scores and hence the rankings are beyond certain thresholds. This would ensure that minor changes would not require rebalancing the portfolio.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "A more sophisticated way to weight the securities can be based on the variance of the short score of the securities over a historical time period. Kashyap (2016) provides an example of such a weighting, which has an intuitive and practical appeal since the time series with a higher variance is set a lower weight and hence represented accordingly in the resultant portfolio. Similar to the description in Section (4) we could apply filters based on individual variables to ensure that outliers are not added into the portfolio.",
+            "cite_spans": [
+                {
+                    "start": 147,
+                    "end": 161,
+                    "text": "Kashyap (2016)",
+                    "ref_id": "BIBREF43"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "Any portfolio constructed using scores based on an SR type metric (Section 5) will be sensitive to the two sources of variation in the factors, systematic and unsystematic, which will influence the total return that can be earned on the portfolio across different time durations. In a portfolio constructed purely using the risk and return of security prices, Markowitz diversification assumptions will ensure that we can minimize the idiosyncratic risk as we add more securities to the portfolio. But for some of the other factors we are using, the diversification benefits would need to be tested more thoroughly since there could be heavy skew towards the unsystematic components. The number of securities required to bring in diversification benefits could be significantly different as well.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "Sector related considerations, in terms of overweighting or underweighting a particular sector, can be applied. These sector considerations would depend on the type of crisis that is unfolding, its causes and the effect it is having. As we discussed earlier in Section (5), during the COVID-19 crisis travel and hospitality sectors have taken a greater hit. Hence as the wider market recovers, the sectors that have been more badly affected might take longer to bounce back and it would be judicious to underweight the corresponding sectors. It is possible that, once the troubled sectors start to recover, they might warrant a greater weighting.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "Some subjective approaches might be necessary. If we need to follow a completely data driven approach, measuring sector specific effects due to the crisis and performing an allocation to different sectors based on their performance before the event would be necessary.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "Securities with negative events in terms of credit rating downgrades, earnings downgrades, ongoing litigation or the commencement of new litigation, failure to close a major deal, loss of a significant customer etc., are removed on a case by case basis. The source for this information can be market data vendors or credit rating companies. This step is included as a fail-safe procedure since the analyst rating filters and short factors we have in place would remove most of these securities.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "Baskets can be constructed using this same concept by utilizing data from different historical periods when there is an upward rally. We have observed, from our earlier experience with actual empirical data, that the bounce basket has been found to outperform the broader market. The portfolio construction and portfolio performance are not shown in the numerical examples since the data is fictitious, but these steps follow quite easily based on the techniques we have provided.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "A key improvement in the bounce basket 16 would be some method to factor in the effect of changes in the upward or downward movements of a variable over time. Such directional changes could be either beneficial or detrimental to our trading position, depending on whether we are long or short. This would be especially important for the purpose of creating any ranking, which is central to the bounce basket, since we would need to know how steady the changes in a variable are in terms of whether it is trending upwards or downwards.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "One of the main drawbacks of volatility is that it fails to capture the effect of changes in the direction in the time series of any variable. This is because both rising or falling prices still have volatility and if we are long a security, upwardly mobile prices could get penalized in any portfolio management decisions. Figures   (8; 9 ; 10) illustrate this limitation of using volatility. In all three figures, we compare two variables with different time paths but which offer the same overall return over the time period under consideration.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 324,
+                    "end": 339,
+                    "text": "Figures   (8; 9",
+                    "ref_id": null
+                }
+            ],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "In Figure (8) , variable one and variable two both have a steady upward path (not a single down movement), but variable two, which has higher volatility, ends up having a lower return to volatility ratio (return to risk ratio, if volatility is used to measure risk) and could get underrepresented in a portfolio in comparison with variable one. This is clearly a sub-optimal outcome. Likewise, in Figure (9) , variable two has lower volatility, but has falling prices for some time intervals, when compared to variable one which does not have a single fall in price. Lastly, in Figure ( 10), variable one is falling more steadily than variable two, but variable one has greater volatility and hence can be seen as better than variable two from a return to volatility perspective.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 3,
+                    "end": 13,
+                    "text": "Figure (8)",
+                    "ref_id": null
+                },
+                {
+                    "start": 397,
+                    "end": 407,
+                    "text": "Figure (9)",
+                    "ref_id": null
+                },
+                {
+                    "start": 578,
+                    "end": 586,
+                    "text": "Figure (",
+                    "ref_id": null
+                }
+            ],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "These examples show that volatility is not the most conducive metric to represent risk. Clearly, these",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "are simplified examples meant to illustrate the limitations of volatility. When we use average returns, either geometric 17 or arithmetic 18 , we do consider the path taken by the variable to a certain extent. But whenever we form expectations of risk and return, without considering the up and down movements more carefully, and use risk-return based measures to form portfolios, the path agnostic nature of volatility can be costly.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "As an alternative to using volatility, we are working on creating a specially developed factor called the time weighted arrival deviation (Kashyap 2017a ). This factor can be used as a metric to measure the path taken by any variable to arrive at the current value, over the last few months or last few time periods. To articulate the intuition, any security that had steady upward growth, over a particular time period, is ranked higher than a security with similar growth, over the same time period, but with more ups and downs in the path, or changes in direction. Similarly, any security that had steady downward growth is ranked lower than a security with similar downward growth but with more changes in direction in the path. To summarize, securities are penalized for having ups and downs in their price process. But unidirectional jumps in the direction of intended movement suffer no such penalty, since if our position is long (or short) then we want the price to go up (or down).",
+            "cite_spans": [
+                {
+                    "start": 138,
+                    "end": 152,
+                    "text": "(Kashyap 2017a",
+                    "ref_id": "BIBREF44"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Portfolio Construction and Robustness"
+        },
+        {
+            "text": "We have discussed in detail a trading strategy, called the bounce basket, for someone to express a bullish view on the market by allowing them to take long positions on securities that would benefit the most from a rally in the markets. This investment idea could be a stock selection mechanism for active investors given its inherent focus on the selection of securities that are expected to outperform the market or a corresponding securities index. We have come up with a possible behavioral bias that might be prevalent in the financial markets (possibly also present in many other areas of life), which we have termed the rebound effect. The trading idea we have outlined could be a way to overcome behavioral biases that investors might harbor, which might lead investors to trade in an unrestrained manner, after experiencing losses due to market crashes.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion and Possibilities for Improvement"
+        },
+        {
+            "text": "We have illustrated the components of creating our strategy including the mechanics of constructing the portfolio. Using simulated data, we have given a few flavors of creating a top shorts ranking of securities.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion and Possibilities for Improvement"
+        },
+        {
+            "text": "We have considered many pointers on how our idea can be made more robust including the practical aspects one needs to pay attention to while implementing our investment strategy. The ongoing state of affairs, due to the COVID-19 pandemic, renders an ideal scenario for implementing the strategy we have developed. Stock markets globally have been affected by the pandemic, but as life returns to normal and markets recover, careful selection of securities based on our strategy can lead to outsized returns. Any crisis or pandemic is bound to flood the media and research outlets, and hence many aspects of our lives, with negative sentiment. During times of such adversity, it is not uncommon to be bombarded with news that seems to adversely affect everything around us including the financial markets.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion and Possibilities for Improvement"
+        },
+        {
+            "text": "Our attempt is to bring some optimism into the present (or any?) distressed atmosphere by drawing attention to the good things that await us once we emerge from any calamity. As has been told many times in the past, the night seems darkest before dawn. Hence, as the crisis seems to rage on at its fiercest, our desire is that this paper can be a tiny beacon of radiance and a glimmer of hope that will lead to resurgence in the financial markets and other aspects of life affected by this fight against the COVID-19 infectious disease.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion and Possibilities for Improvement"
+        },
+        {
+            "text": "The many benefits of holding a positive attitude need to be studied further, but embracing such an outlook can possibly cause little harm and might give us the strength to prevail against overwhelming odds.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion and Possibilities for Improvement"
+        },
+        {
+            "text": "In Figure ( 2) we show the minimum and maximum values that act as the inputs to a uniform distribution.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 3,
+                    "end": 11,
+                    "text": "Figure (",
+                    "ref_id": null
+                }
+            ],
+            "section": "Figures for Section (6), Data Generation via Simulation"
+        },
+        {
+            "text": "The random samples chosen from the uniform distribution act as the starting value, the drift and volatility for the GBMs, corresponding to the one hundred hypothetical securities that are under consideration, for each of the following variables: stock price, availability, short interest, trading volume, loan balance, loan rate and the alternate loan rate. The columns represent the following information respectively: date, security ID, price, 60 day moving average of the availability, 60 day moving average of the short interest, 60 day moving average of the trading volume, loan rate, alternate loan rate, rate volatility, loan balance at the start of the time series sample or on the first day, loan balance at the end of the time series sample or on the last day, short score one (Eq: 2), short score two (Eq: 3), short score three (Eq: 4) and short score four (Eq: 5). The values in the table correspond to the date specified in the first column.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Figures for Section (6), Data Generation via Simulation"
+        },
+        {
+            "text": "In Figure (6) we provide short scores for the securities based on the values on the first day of the time series sample. The columns represent the following information respectively: date, security ID, price, availability, short interest, trading volume, loan rate, alternate loan rate, rate volatility, loan balance at the start of the time series sample or on the first day, loan balance at the end of the time series sample or on the last day, short score one (Eq: 2), short score two (Eq: 3), short score three (Eq: 4) and short score four (Eq: 5). Here, the short scores do not use moving averages for availability, short interest and trading volume but use values on the particular day indicated.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 3,
+                    "end": 13,
+                    "text": "Figure (6)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Figures for Section (6), Data Generation via Simulation"
+        },
+        {
+            "text": "In Figure (7) we provide short scores for the securities based on the values on the last day of the time series sample. The columns represent the following information respectively: date, security ID, price, availability, short interest, trading volume, loan rate, alternate loan rate, rate volatility, loan balance at the start of the time series sample or on the first day, loan balance at the end of the time series sample or on the last day, short score one (Eq: 2), short score two (Eq: 3), short score three (Eq: 4) and short score four (Eq: 5). Here, the short scores do not use moving averages for availability, short interest and trading volume but use values on the particular day indicated.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Figures for Section (6), Data Generation via Simulation"
+        },
+        {
+            "text": "In Figure ( In Figure ( 10), variable one is falling more steadily than variable two. Variable one has greater volatility of 18.98% and hence can be seen as better than variable two, which has a volatility of 16.41%, from a return to volatility perspective. Both variables have a negative return of -9% over the time duration under consideration. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 3,
+                    "end": 11,
+                    "text": "Figure (",
+                    "ref_id": null
+                },
+                {
+                    "start": 15,
+                    "end": 23,
+                    "text": "Figure (",
+                    "ref_id": null
+                }
+            ],
+            "section": "Figures for Section (9), Taming the Volatility Skew"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "The moonlighting game: An experimental study on reciprocity and retribution",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Abbink",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Irlenbusch",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Renner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "Journal of Economic Behavior & Organization",
+            "volume": "42",
+            "issn": "2",
+            "pages": "265--277",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Stock return, consumer confidence, purchasing managers index and economic fluctuations",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Afshar",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Arabian",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Zomorrodian",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Journal of Business & Economics Research (JBER)",
+            "volume": "",
+            "issn": "8",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Analyzing active investment strategies",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ammann",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kessler",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Tobler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "The Journal of Portfolio Management",
+            "volume": "33",
+            "issn": "1",
+            "pages": "56--67",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Short interest, institutional ownership, and stock returns",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Asquith",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Pathak",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Ritter",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "Journal of Financial Economics",
+            "volume": "78",
+            "issn": "2",
+            "pages": "243--276",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "COVID-19 and stock market volatility: An industry level analysis",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Baek",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Mohanty",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Glambosky",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Finance Research Letters",
+            "volume": "37",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Investor sentiment in the stock market",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Baker",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wurgler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Journal of economic perspectives",
+            "volume": "21",
+            "issn": "2",
+            "pages": "129--152",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "The unprecedented stock market reaction to COVID-19",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Baker",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Bloom",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Davis",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Kost",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Sammon",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Viratyosin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "The Review of Asset Pricing Studies",
+            "volume": "10",
+            "issn": "4",
+            "pages": "742--758",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Stock valuation in dynamic economies",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Bakshi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "Journal of Financial Markets",
+            "volume": "8",
+            "issn": "2",
+            "pages": "111--151",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Mean reversion across national stock markets and parametric contrarian investment strategies",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Balvers",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Gilliland",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "The Journal of Finance",
+            "volume": "55",
+            "issn": "2",
+            "pages": "745--772",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Can investors profit from the prophets? Security analyst recommendations and stock returns",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Barber",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Lehavy",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mcnichols",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Trueman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "The Journal of Finance",
+            "volume": "56",
+            "issn": "2",
+            "pages": "531--563",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Reassessing the returns to analysts' stock recommendations",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Barber",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Lehavy",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mcnichols",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Trueman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Financial Analysts Journal",
+            "volume": "59",
+            "issn": "2",
+            "pages": "88--96",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Rebound sex: Sexual motives and behaviors following a relationship breakup",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Barber",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Cooper",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Archives of Sexual Behavior",
+            "volume": "43",
+            "issn": "2",
+            "pages": "251--265",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Trust, reciprocity, and social history",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Berg",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Dickhaut",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Mccabe",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "Games and economic behavior",
+            "volume": "10",
+            "issn": "1",
+            "pages": "122--142",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Defining the rebound effect",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Berkhout",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Muskens",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Velthuijsen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "Energy policy",
+            "volume": "28",
+            "issn": "6-7",
+            "pages": "425--432",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Trust and gender: An examination of behavior and beliefs in the Investment Game",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Buchan",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Croson",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Solnick",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Journal of Economic Behavior & Organization",
+            "volume": "68",
+            "issn": "3-4",
+            "pages": "466--476",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Investments and portfolio management",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Bodie",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kane",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Marcus",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Efficiency and the bear: Short sales and markets around the world",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Bris",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Goetzmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "The Journal of Finance",
+            "volume": "62",
+            "issn": "3",
+            "pages": "1029--1079",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Analyst recommendations, mutual fund herding, and overreaction in stock prices",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Brown",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Wei",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Wermers",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Management Science",
+            "volume": "60",
+            "issn": "1",
+            "pages": "1--20",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Risk-constrained dynamic active portfolio management",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Browne",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "Management Science",
+            "volume": "46",
+            "issn": "9",
+            "pages": "1188--1199",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Too fast, too soon? An empirical investigation into rebound relationships",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Brumbaugh",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Fraley",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Journal of Social and Personal Relationships",
+            "volume": "32",
+            "issn": "1",
+            "pages": "99--118",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "An investment game with third-party intervention",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Charness",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Cobo-Reyes",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Jim\u00e9nez",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Journal of Economic Behavior & Organization",
+            "volume": "68",
+            "issn": "1",
+            "pages": "18--28",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Stock market volatility and the crash of 1987: evidence from six emerging markets",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Choudhry",
+                    "suffix": ""
+                }
+            ],
+            "year": 1996,
+            "venue": "Journal of International money and Finance",
+            "volume": "15",
+            "issn": "6",
+            "pages": "969--981",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "On dynamic investment strategies",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Cox",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Leland",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "Journal of Economic Dynamics and Control",
+            "volume": "24",
+            "issn": "",
+            "pages": "1859--1880",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Does the stock market overreact",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "De Bondt",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Thaler",
+                    "suffix": ""
+                }
+            ],
+            "year": 1985,
+            "venue": "The Journal of finance",
+            "volume": "40",
+            "issn": "3",
+            "pages": "793--805",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Short-sellers, fundamental analysis, and stock returns",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Dechow",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Hutton",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Meulbroek",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Sloan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Journal of Financial Economics",
+            "volume": "61",
+            "issn": "1",
+            "pages": "77--106",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Central clearing and collateral demand",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Duffie",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Scheicher",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Vuillemey",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Journal of Financial Economics",
+            "volume": "116",
+            "issn": "2",
+            "pages": "237--256",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "The slide to protectionism in the great depr -ession: who succumbed and why",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Eichengreen",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Irwin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "The Journal of Economic History",
+            "volume": "70",
+            "issn": "4",
+            "pages": "871--897",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Modern portfolio theory and investment analysis",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Elton",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Gruber",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Brown",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Goetzmann",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Cognitive reflection and decision making",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Frederick",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "Journal of Economic perspectives",
+            "volume": "19",
+            "issn": "4",
+            "pages": "25--42",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Game theory mit press",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Fudenberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Tirole",
+                    "suffix": ""
+                }
+            ],
+            "year": 1991,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Re-Use of Collateral in the Repo Market",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Fuhrer",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Guggenheim",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Schumacher",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Journal of Money, Credit and Banking",
+            "volume": "48",
+            "issn": "6",
+            "pages": "1169--1193",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Game theory for applied economists",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Gibbons",
+                    "suffix": ""
+                }
+            ],
+            "year": 1992,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "The rebound effect is overplayed",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Gillingham",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Kotchen",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Rapson",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Wagner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Nature",
+            "volume": "493",
+            "issn": "7433",
+            "pages": "475--476",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "The origin, transmission and clinical therapies on coronavirus disease 2019 (COVID-19) outbreak-an update on the status",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Guo",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Cao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Hong",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Tan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Jin",
+                    "suffix": ""
+                },
+                {
+                    "first": ".",
+                    "middle": [
+                        "."
+                    ],
+                    "last": "Yan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Military Medical Research",
+            "volume": "7",
+            "issn": "1",
+            "pages": "1--10",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Life and death during the Great Depression",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "A T"
+                    ],
+                    "last": "Granados",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "V D"
+                    ],
+                    "last": "Roux",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Proceedings of the national academy of sciences",
+            "volume": "106",
+            "issn": "",
+            "pages": "17290--17295",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Investigating causal relations by econometric models and cross-spectral methods",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Granger",
+                    "suffix": ""
+                }
+            ],
+            "year": 1969,
+            "venue": "Econometrica: journal of the Econometric Society",
+            "volume": "",
+            "issn": "",
+            "pages": "424--438",
+            "other_ids": {}
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Exposure to the COVID-19 stock market crash and its effect on household expectations",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Hanspal",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Weber",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wohlfart",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Review of Economics and Statistics",
+            "volume": "",
+            "issn": "",
+            "pages": "1--45",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Hedge funds and prime broker dealers: steps towards a \"best practice proposal",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Hildebrand",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Options, futures, and other derivatives",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Hull",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Basu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Exponential Organizations: Why new organizations are ten times better, faster, and cheaper than yours (and what to do about it)",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ismail",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Long/short equity investing",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Jacobs",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Levy",
+                    "suffix": ""
+                }
+            ],
+            "year": 1993,
+            "venue": "Journal of Portfolio Management",
+            "volume": "20",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "The Asian financial crisis and the co-movement of Asian stock markets",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Jang",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Sul",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Journal of Asian Economics",
+            "volume": "13",
+            "issn": "1",
+            "pages": "94--104",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "COVID-19 pandemic more than a century after the Spanish flu",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Javelle",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Raoult",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "The Lancet Infectious Diseases",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "Securities Lending Strategies: Exclusive Auction Bids",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kashyap",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Time Weighted Arrival Deviation: Moving from the Efficient Frontier towards the Final Frontier of Investments",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kashyap",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Securities Lending Strategies, TBR and TBR (Theoretical Borrow Rate and Thoughts Beyond Rates)",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kashyap",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "Concepts, Components, and Collections of Trading Strategies and Market Color",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kashyap",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "The Journal of Wealth Management",
+            "volume": "22",
+            "issn": "3",
+            "pages": "115--128",
+            "other_ids": {}
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Artificial Intelligence: A Child's Play",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kashyap",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Technological Forecasting and Social Change",
+            "volume": "166",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "Contagion in the stock markets: The Asian financial crisis revisited",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Khan",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "W K"
+                    ],
+                    "last": "Park",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Journal of Asian Economics",
+            "volume": "20",
+            "issn": "5",
+            "pages": "561--569",
+            "other_ids": {}
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "Manias, panics and crashes: a history of financial crises",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Kindleberger",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "Z"
+                    ],
+                    "last": "Aliber",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "Using the purchasing managers' index to assess the economy's strength and the likely direction of monetary policy. Federal Reserve Bank of Dallas Economic and Financial Policy Review",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Koenig",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "",
+            "volume": "1",
+            "issn": "",
+            "pages": "1--14",
+            "other_ids": {}
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "Rational'or'Intuitive': Are Behavioral Biases Correlated Across Stock Market Investors",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kudryavtsev",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Cohen",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Hon-Snir",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Contemporary economics",
+            "volume": "7",
+            "issn": "",
+            "pages": "31--53",
+            "other_ids": {}
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "Does the October 1987 crash strengthen the co-movements among national stock markets?",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Kim",
+                    "suffix": ""
+                }
+            ],
+            "year": 1993,
+            "venue": "Review of Financial Economics",
+            "volume": "3",
+            "issn": "1",
+            "pages": "89--102",
+            "other_ids": {}
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "Emotions in economic theory and economic behavior",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Loewenstein",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "American economic review",
+            "volume": "90",
+            "issn": "2",
+            "pages": "426--432",
+            "other_ids": {}
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "Passive investment strategies and efficient markets",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Malkiel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "European Financial Management",
+            "volume": "9",
+            "issn": "1",
+            "pages": "1--10",
+            "other_ids": {}
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "COVID-19 and the march 2020 stock market crash. Evidence from S&P1500",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mazur",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Dang",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Vega",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Finance Research Letters",
+            "volume": "38",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "The crisis in the foreign exchange market",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Melvin",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Taylor",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Journal of International Money and Finance",
+            "volume": "28",
+            "issn": "8",
+            "pages": "1317--1330",
+            "other_ids": {}
+        },
+        "BIBREF57": {
+            "ref_id": "b57",
+            "title": "Professionals' endorsement of behavioral finance: Does it impact their perception of markets and themselves?",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Menkhoff",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Nikiforow",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Journal of Economic Behavior & Organization",
+            "volume": "71",
+            "issn": "2",
+            "pages": "318--329",
+            "other_ids": {}
+        },
+        "BIBREF58": {
+            "ref_id": "b58",
+            "title": "The origin of COVID-19 and why it matters. The American journal of tropical medicine and hygiene",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Morens",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Breman",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Calisher",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Doherty",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Hahn",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Keusch",
+                    "suffix": ""
+                },
+                {
+                    "first": ".",
+                    "middle": [
+                        "."
+                    ],
+                    "last": "Taubenberger",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "103",
+            "issn": "",
+            "pages": "955--959",
+            "other_ids": {}
+        },
+        "BIBREF59": {
+            "ref_id": "b59",
+            "title": "Baltic stock markets and the financial crisis of",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Nikkinen",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Piljak",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "\u00c4ij\u00f6",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Research in International Business and Finance",
+            "volume": "26",
+            "issn": "3",
+            "pages": "398--409",
+            "other_ids": {}
+        },
+        "BIBREF60": {
+            "ref_id": "b60",
+            "title": "The normal and lognormal distributions",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Norstad",
+                    "suffix": ""
+                }
+            ],
+            "year": 1999,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF61": {
+            "ref_id": "b61",
+            "title": "Booms and Busts: An Encyclopedia of Economic History from the First Stock Market Crash of 1792 to the Current Global Economic Crisis",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Odekon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF62": {
+            "ref_id": "b62",
+            "title": "Cognitive abilities and behavioral biases",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Oechssler",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Roider",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Schmitz",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Journal of Economic Behavior & Organization",
+            "volume": "72",
+            "issn": "1",
+            "pages": "147--152",
+            "other_ids": {}
+        },
+        "BIBREF63": {
+            "ref_id": "b63",
+            "title": "What-or who-started the great depression?",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Ohanian",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Journal of Economic Theory",
+            "volume": "144",
+            "issn": "6",
+            "pages": "2310--2335",
+            "other_ids": {}
+        },
+        "BIBREF64": {
+            "ref_id": "b64",
+            "title": "Translation of gambles and aspiration level effects in risky choice behavior",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Payne",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Laughhunn",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Crum",
+                    "suffix": ""
+                }
+            ],
+            "year": 1980,
+            "venue": "Management Science",
+            "volume": "26",
+            "issn": "10",
+            "pages": "1039--1060",
+            "other_ids": {}
+        },
+        "BIBREF65": {
+            "ref_id": "b65",
+            "title": "A reassessment of the purchasing managers' index",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Pelaez",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Business Economics",
+            "volume": "38",
+            "issn": "4",
+            "pages": "35--42",
+            "other_ids": {}
+        },
+        "BIBREF67": {
+            "ref_id": "b67",
+            "title": "Comparing SARS-CoV-2 with SARS-CoV and influenza pandemics. The Lancet infectious diseases",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Simonsen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF68": {
+            "ref_id": "b68",
+            "title": "Country responses and the reaction of the stock market to COVID-19-A preliminary exposition. Emerging Markets Finance and Trade",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "H B"
+                    ],
+                    "last": "Phan",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Narayan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "56",
+            "issn": "",
+            "pages": "2138--2150",
+            "other_ids": {}
+        },
+        "BIBREF69": {
+            "ref_id": "b69",
+            "title": "Behavioral finance and wealth management: how to build investment strategies that account for investor biases",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Pompian",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "",
+            "volume": "667",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF70": {
+            "ref_id": "b70",
+            "title": "Wolf in sheep's clothing: the active investment strategies behind index performance",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ranaldo",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Haeberle",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "European Financial Management",
+            "volume": "14",
+            "issn": "1",
+            "pages": "55--81",
+            "other_ids": {}
+        },
+        "BIBREF71": {
+            "ref_id": "b71",
+            "title": "This time is different: Eight centuries of financial folly",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Reinhart",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Rogoff",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF72": {
+            "ref_id": "b72",
+            "title": "Monetary intervention mitigated banking panics during the great depression: quasi-experimental evidence from a federal reserve district border, 1929-1933",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Richardson",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Troost",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Journal of Political Economy",
+            "volume": "117",
+            "issn": "6",
+            "pages": "1031--1073",
+            "other_ids": {}
+        },
+        "BIBREF73": {
+            "ref_id": "b73",
+            "title": "The international crash of",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Roll",
+                    "suffix": ""
+                }
+            ],
+            "year": 1987,
+            "venue": "Financial analysts journal",
+            "volume": "44",
+            "issn": "5",
+            "pages": "19--35",
+            "other_ids": {}
+        },
+        "BIBREF74": {
+            "ref_id": "b74",
+            "title": "Corporate finance: Core principles & applications",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Ross",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Westerfield",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Jaffe",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Jordan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF75": {
+            "ref_id": "b75",
+            "title": "Rehypothecation dilemma: Impact of collateral rehypothecation on derivative prices under bilateral counterparty credit risk",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Sakurai",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Uchida",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Journal of Banking & Finance",
+            "volume": "48",
+            "issn": "",
+            "pages": "361--373",
+            "other_ids": {}
+        },
+        "BIBREF76": {
+            "ref_id": "b76",
+            "title": "Stock volatility and the crash of'87. The review of financial studies",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Schwert",
+                    "suffix": ""
+                }
+            ],
+            "year": 1990,
+            "venue": "",
+            "volume": "3",
+            "issn": "",
+            "pages": "77--102",
+            "other_ids": {}
+        },
+        "BIBREF77": {
+            "ref_id": "b77",
+            "title": "Mutual fund performance",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Sharpe",
+                    "suffix": ""
+                }
+            ],
+            "year": 1966,
+            "venue": "The Journal of business",
+            "volume": "39",
+            "issn": "1",
+            "pages": "119--138",
+            "other_ids": {}
+        },
+        "BIBREF78": {
+            "ref_id": "b78",
+            "title": "The sharpe ratio",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Sharpe",
+                    "suffix": ""
+                }
+            ],
+            "year": 1994,
+            "venue": "Journal of portfolio management",
+            "volume": "21",
+            "issn": "1",
+            "pages": "49--58",
+            "other_ids": {}
+        },
+        "BIBREF79": {
+            "ref_id": "b79",
+            "title": "COVID-19 infection: Origin, transmission, and characteristics of human coronaviruses",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Shereen",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Khan",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kazmi",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Bashir",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Siddique",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Journal of advanced research",
+            "volume": "24",
+            "issn": "",
+            "pages": "91--98",
+            "other_ids": {}
+        },
+        "BIBREF80": {
+            "ref_id": "b80",
+            "title": "The rebound effect: Microeconomic definitions, limitations and extensions",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sorrell",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Dimitropoulos",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Ecological Economics",
+            "volume": "65",
+            "issn": "3",
+            "pages": "636--649",
+            "other_ids": {}
+        },
+        "BIBREF81": {
+            "ref_id": "b81",
+            "title": "On the rebound: Focusing on someone new helps anxiously attached individuals let go of ex-partners",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Spielmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Macdonald",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Wilson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Personality and Social Psychology Bulletin",
+            "volume": "35",
+            "issn": "10",
+            "pages": "1382--1394",
+            "other_ids": {}
+        },
+        "BIBREF82": {
+            "ref_id": "b82",
+            "title": "Does the stock market rationally reflect fundamental values",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Summers",
+                    "suffix": ""
+                }
+            ],
+            "year": 1986,
+            "venue": "The Journal of Finance",
+            "volume": "41",
+            "issn": "3",
+            "pages": "591--601",
+            "other_ids": {}
+        },
+        "BIBREF83": {
+            "ref_id": "b83",
+            "title": "The Day the Bubble Burst: A Social History of the Wall Street Crash of 1929",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Thomas",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Morgan-Witts",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Open Road Media",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF84": {
+            "ref_id": "b84",
+            "title": "Is the Purchasing Managers' Index useful for assessing the economy's strength? A directional analysis",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Tsuchiya",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Economics Bulletin",
+            "volume": "",
+            "issn": "2",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF85": {
+            "ref_id": "b85",
+            "title": "Extensional versus intuitive reasoning: The conjunction fallacy in probability judgment",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Tversky",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Kahneman",
+                    "suffix": ""
+                }
+            ],
+            "year": 1983,
+            "venue": "Psychological review",
+            "volume": "90",
+            "issn": "4",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF86": {
+            "ref_id": "b86",
+            "title": "A group selection perspective on economic behavior, institutions and organizations",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Van Den Bergh",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Gowdy",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Journal of Economic Behavior & Organization",
+            "volume": "72",
+            "issn": "1",
+            "pages": "1--20",
+            "other_ids": {}
+        },
+        "BIBREF87": {
+            "ref_id": "b87",
+            "title": "Does the rebound effect exist? Time to remarriage and subsequent union stability",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Wolfinger",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Journal of Divorce & Remarriage",
+            "volume": "46",
+            "issn": "3-4",
+            "pages": "9--20",
+            "other_ids": {}
+        },
+        "BIBREF88": {
+            "ref_id": "b88",
+            "title": "Probable pangolin origin of SARS-CoV-2 associated with the COVID-19 outbreak",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Current biology",
+            "volume": "30",
+            "issn": "7",
+            "pages": "1346--1351",
+            "other_ids": {}
+        },
+        "BIBREF89": {
+            "ref_id": "b89",
+            "title": "Strategies to trace back the origin of COVID-19",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Roy",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Shen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Journal of Infection",
+            "volume": "80",
+            "issn": "6",
+            "pages": "39--40",
+            "other_ids": {}
+        },
+        "BIBREF90": {
+            "ref_id": "b90",
+            "title": "A pneumonia outbreak associated with a new coronavirus of probable bat origin",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": ".",
+                    "middle": [
+                        "."
+                    ],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "nature",
+            "volume": "579",
+            "issn": "7798",
+            "pages": "270--273",
+            "other_ids": {}
+        },
+        "BIBREF91": {
+            "ref_id": "b91",
+            "title": "Appendix of Figures For each of the figures in this appendix, detailed explanations are provided in the main body of the text to help facilitate better understanding. Below, we provide supplementary descriptions for each figure",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "; Dechow, Hutton, Meulbroek & Sloan 2001; Bakshi & Chen 2005) with at least a minimum buy rating from a consensus of stock analysts covering the securities (Barber, Lehavy, McNichols & Trueman 2001; Barber, Lehavy, McNichols & Trueman 2003; Brown, Wei & Wermers 2013).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "& Aliber (2011) is an entertaining account of the history of crises and speculative manias. Reinhart & Rogoff (2009) prove wrong many claims that the old rules of valuation no longer apply and that the new situation bears little similarity to past disasters. Odekon (2015) is a timely and authoritative exploration of three centuries of good times and hard times in major economies throughout the world. Events from Tulipmania during the 1630s to the US federal stimulus package of 2009 are covered. Thomas & Morgan-Witts (2014) is the story of an overheated stock market and the Wall Street crash of 1929, that led to the Great Depression of the 1930s. Ohanian (2009) develops a theory of labor market failure for the Depression based on Hoover's industrial labor program that provided industry with protection from unions in return for keeping nominal wages fixed. Richardson & Troost (2009) consider the varying monetary interventions by different federal reserve banks during the 1930 banking crisis. Atlanta expedited lending to banks in need, while St. Louis did not. In Atlanta, banks survived at higher rates, lending continued at higher levels, commerce contracted less, and recovery began earlier. These patterns indicate that central bank intervention influenced bank health, credit availability, and business activity. Granados & Roux (2009) used historical life expectancy and mortality data to examine associations of economic growth with population health for the period 1920-1940. They find that population health did not decline and indeed generally improved during the 4 years of the Great Depression, 1930-1933, with mortality decreasing for almost all ages, and life expectancy increasing by several years in males, females, whites, and nonwhites. Eichengreen & Irwin (2010) note that the Great Depression was marked by a severe outbreak of protectionist trade policies. But contrary to the presumption that all countries scrambled to raise trade barriers, there was substantial cross-country variation in the movement to protectionism.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "studied volatility, risk premia and the persistence of volatility in six emerging stock markets before and after the 1987 stock market crash. Using monthly data, from Argentina, Greece, India, Mexico, Thailand, and Zimbabwe between January of 1976 and August of 1994, he noted that the changes were not uniform and they depended upon the individual markets including the possibility that factors other than the 1987 crash may also be responsible for the changes. The Asian financial crisis, triggered by the collapse of the value of Thai Baht in July 1997, spread to all the countries in the region. Khan & Park (2009) present empirical evidence of herding contagion in the stock markets during the 1997 Asian financial crisis, above and beyond macroeconomic fundamental driven co-movements 8 . Jang & Sul (2002) select seven stock markets: Thailand, Indonesia and Korea as direct crisis countries",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": ", there is a strong line of inquiry in the existing literature related to better portfolio management techniques and the analysis of investment strategies. (Kashyap 2019) has a detailed discussion of some general principles that can be utilized towards goals of seeking excess returns. Browne (2000) considers a dynamic active portfolio management problem where the objective is related to the tradeoff between the achievement of performance goals and the risk of a shortfall. Specifically, the objective relates the probability of achieving a given performance objective to the time it takes to achieve the objective. Most studies that analyze dynamic investment strategies have obtained explicit results by restricting utility functions to a few specific forms. The resultant dynamic strategies have exhibited a very limited range of behavior, not surprisingly. In contrast, Cox & Leland (2000) consider any specific dynamic strategy and ask whether we can characterize the results of following it through time? More precisely, they try to determine whether it is self-financing, yields path-independent returns, and is consistent with optimal behavior for some expected utility maximizing investor. They provide necessary and sufficient conditions for a dynamic strategy to satisfy each of these properties. Ammann, Kessler & Tobler (2006) use tracking error variance (TEV) as a measure of activity and introduce two decompositions of TEV for identifying different investment strategies Ranaldo & Haeberle (2008) argue that the commonly used market indices imply forms of active investment management in disguise. Malkiel (2003) presents the case for and the evidence in favor of passive investment strategies and examines the major criticisms of the technique. Balvers, Wu & Gilliland (2000) find strong evidence of mean reversion in relative stock index prices. They use additional cross-sectional power gained from national stock index data of 18 countries during the period 1969 to 1996. Their findings, which are robust to alternative specifications and data, imply a significantly positive speed of reversion with a half-lifeof three to three and one-half years. They devise a parametric contrarian strategy, which efficiently exploits the information on mean reversion across countries directly from the parameter estimates of their econometric model, that outperforms buy-and-hold and standard contrarian strategies.9",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "argues that emotions are not only important but the determinations of emotional factors and their impact on economic behavior are amenable to formal modeling. van den Bergh & Gowdy (2009) examine the role of group dynamics and interactions in explaining economic behavior.Kudryavtsev, Cohen & Hon-Snir (2013) analyze the effects of five well-documented behavioral biases 10namely, the disposition effect, herd behavior, availability heuristic, gambler's fallacy and hot hand fallacy -on the mechanisms of stock market decision making and, in particular, the correlations between the magnitudes of the biases in the cross-section of market investors. Employing an extensive online survey, they demonstrate that, on average, active capital market investors exhibit moderate degrees of behavioral biases. By calculating the cross-sectional correlation coefficients between the biases they find that all of them are positive and highly significant for both professional and non-professional investors and for all categories of investors, as classified by their experience levels, genders, and ages.10 A more complete list of cognitive biases is given here: List of Cognitive Biases, Wikipedia Link Game theoretical techniques (Fudenberg & Tirole 1991; Gibbons 1992) can be used to understand the decision strategies of individuals. While such an approach can be insightful to understand decision making with limited participants, extending those results to markets is not a straightforward affair. Payne, Laughhunn & Crum (1980) present model of the effects of a reference point on risky choice behavior. Target returns and reference points represent variations on the concept of an aspiration level, an old idea in theories of decision making. They present additional evidence on the need to incorporate such a concept in the analysis of risky choice behavior. Charness, Cobo-Reyes & Jim\u00e9nez (2008) explore the effect of the possibility of third-party intervention on behavior. A third-party's material payoff is not affected by the decisions made by the other participants, but this person may choose to punish a responder who has been overly selfish. The concern over this possibility may serve to discipline potentially selfish responders. Buchan, Croson & Solnick (2008) pose the questiondoes gender influence trust, the likelihood of being trusted and the level of trustworthiness? They compare choices by men and women in an investment game and use questionnaire data to try to understand the motivations for the behavioral differences. They find that men trust more than women, and women are more trustworthy than men. Abbink, Irlenbusch & Renner (2000) introduce a game (Berg, Dickhaut & McCabe 1995) that allows the study of both positively and negatively reciprocal behaviour.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "stocks (Asquith, Pathak & Ritter 2005; Kashyap 2016; Bris, Goetzmann & Zhu 2007) 11 ).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "Cover (DT C) -Days to cover (also known as the Short Interest Ratio: Hong, Li, Ni, Scheinkman & Yan 2015; Point 1) is a measurement of a company's issued shares that are currently shorted, expressed as the number of days required to close out all of the short positions. It is calculated by taking the number of shares that are currently shorted and dividing that amount by the average daily volume for the shares in question. For example, if a company has average daily volume of 1 million shares and 2 million shares are currently short sold, the shares have a cover rate of 2 days (2 Million/1 Million). A higher value for this metric indicates that if investors wish to cover their shorts, it could take many days and during that time, their positions could end up losing money significantly. Only securities requiring more than a certain days to cover, (say 4) are considered. 4. Loan Balance Growth (LBG) -The loan balance is a notional amount (measured in USD) and represents the total amount of loans being made by a particular broker or short selling desk. Hence, growth in this amount (expressed in percentage terms), captures the increase in the short sentiment being seen by this participant. This information is sometimes shared with clients who are interested in trading with the desk. Only securities with loan balance growth of more than a certain percentage, (say 25 percent) over the past few months are considered. 5. Inverse Loan Availability (ILA or Loan Availability, LA) -The availability is the amount of shares that could be possibly borrowed towards putting on additional short positions. It is the amount available for shorting but currently unused. The inverse of this number (normalized by expressing in USD) isfactor captures the effect of this ratio. The SI ratio is also included in our model as a separate factor (Point 3) referred to below as the Days to Cover.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": "Buy Rating (BR) -Only securities with a minimum buy rating from a consensus of analysts covering the stocks are considered. The rationale behind this is that, as markets rebound, the securities that are fundamentally sounds are the ones that will receive positive inflows and trend up higher. Securities that have problems with their operations are likely to remain in the negative investor sentiment zone, or stay shorted.8. High Beta (HB) -The securities with a relatively high beta in comparison to the market are chosen so that they are geared to capitalize the most from any upward movement in the overall market. Only Securities with Beta more than a certain value (say 1.2) are considered.The factors related to securities lending(SI, LR, DT C, LBG, ILA) and the liquidity(L) are technical in nature. That is, they have a time series that changes quite often. Hence they have to be further checked for stability and changes over time by looking at the moving average and volatility of the particular factor over the last few (two or three) months. Securities with a higher moving average are ranked higher and securities with higher volatility are ranked lower.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF8": {
+            "text": "in these securities as part of a broader loan arrangement with other securities or they could bundle it up with other securities as collateral for other positions: (Sakurai & Uchida 2014; Duffie, Scheicher & Vuillemey 2015; Fuhrer, Guggenheim & Schumacher 2016) 14 . Given their low contribution to the P&L, these securities are not to be placed in the top short ranking, irrespective of the values of other factors.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF9": {
+            "text": ") can help us to understand why we need the minimum loan rate threshold and why just the ratio of return to risk is not enough. The columns from left to right inFigure (1) represent the following information: 1) security name; 2) expected loan rate; 3) loan rate threshold; 4) loan rate standard deviation 5) score calculated using the formula [E (LR) \u2212 r f ] /\u03c3 LR ; 6) score calculated using the formula E (LR) /\u03c3 LR ;",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF10": {
+            "text": "An in-depth comprehension of the techniques involved can be immensely useful towards maximizing the benefits of such strategies. The data-set required for an in-house flavor of the above idea, for risk monitoring or fine tuning the parameters, can be obtained by any investment firm from the securities lending desks of their prime brokers(Hildebrand 2007; Melvin & Taylor 2009; Jacobs & Levy 1993) 15 .15 Prime brokerage is the generic name for a bundled package of services offered by investment banks, wealth management firms, and securities dealers to hedge funds which need the ability to borrow securities and cash in order to be able to invest on a netted basis and achieve an absolute return. The prime broker provides a centralized securities clearing facility for the hedge fund so the hedge fund's collateral requirements are netted across all deals handled by the prime broker. These two features are advantageous to their clients. The prime broker benefits by earning fees (\"spreads\") on financing the client's margined long and short cash and security positions, and by charging, in some cases, fees for clearing and other services. It also earns money by re-hypothecating the margined portfolios of the hedge funds currently serviced and charging interest on those borrowing securities and other investments. Re-hypothecation occurs when the creditor (a bank or broker-dealer) re-uses the collateral posted by the debtor (a client such as a hedge fund) to back the broker's own trades and borrowing. This mechanism also",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF11": {
+            "text": "access to the full historical time series. An investment firm might have the time series of loan rates, prices, trading volume and availability and hence would have to simulate the variables for which the historical data is absent, as shown in this section, to come up with a short score. We create one hundred different hypothetical securities and we come up with the time series of all the variables involved: Price, Availability, Short Interest, Trading Volume, Loan Rate, Alternate Loan Rate. We model these variables as Geometric Brownian Motions (GBMs) with uncertainty introduced via sampling from suitable log normal distributions or by sampling from suitable absolute normal distributions (Equations: 6; 7). Norstad (1999) has a technical discussion of the normal and log normal distributions. Hull & Basu (2016) provide an excellent account of using GBMs to model stock prices and other time series that are always positive. It is worth noting that the starting value, mean and standard deviation of the time series are themselves simulations from other appropriately chosen uniform distributions (Figure 2). Some of the above variables can be modeled as Poisson distributions or we can simply consider them as the absolute value of a normal distribution with appropriately chosen units. As an example, we model the Loan Balance process as a folded normal distribution or by taking the absolute value of a normal distribution. The mean and standard deviation of the loan balance distribution for each security are chosen from another appropriately chosen uniform distribution.A GBM is characterized as below. S it is the stochastic process that follows a GBM by satisfying the below stochastic differential equation (Equation: 6). S i could be the price or another variable that always takes positive values of the i th security. \u00b5 Si is the drift and \u03c3 Si is the volatility. W Si t is the Weiner Process governing the variable S th i variable.Geometric Brownian Motion \u2261 dS it S it = \u00b5 Si dt + \u03c3 Si dW Si t(6) enables leverage in the securities market. Prime Broker, Wikipedia Link",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF12": {
+            "text": "3). The length of the simulated time series is a little longer than one year or around 252 trading days for each security. A sample of the time series of the variables generated using the simulated drift and volatility parameters is shown in Figure (4). The full time series corresponding to the sample shown in the figures is available upon request. 7 Simple Sample Ranking In Figures (5; 6; 7) we provide three flavors of the short scores of the securities based on the 60 day moving average of the variables, the values on the first day and the values on the last day of the sample correspondingly. Under each of the three flavors, we consider all four formulations of the short scores given in Equations (2; 3; 4; 5) from Section (5).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF13": {
+            "text": "that we have a way to rank and select securities (Elton, Gruber, Brown & Goetzmann 2009; Bodie, Kane & Marcus 2013). The securities in the basket can simply be weighted based on a combination of their top shorts ranking and market capitalization, with a maximum weight of say 10% for any single security to ensure sufficient diversification. As discussed in Kashyap (2019) the number of securities we pick needs to account for the costs of trade executions.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF14": {
+            "text": "Simulation SeedInFigure (3) we show some samples for ten hypothetical securities, out of the total one hundred, drawn from a uniform distribution with range specified according to values inFigure (2). The values chosen from the uniform distribution, which are shown inFigure (3), act as the starting value, the drift and volatility for the GBMs corresponding to the stock price, availability, short interest, trading volume, loan balance, loan rate and the alternate loan rate.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF15": {
+            "text": "Simulation Sample Distributions In Figure (4) we show some sample time series values created using the corresponding GBMs for two securities for ten days for the following variables: stock price, availability, short interest, trading volume, loan balance, loan rate and the alternate loan rate. The starting value, drift and volatility for the corresponding GBMs are specified according to the values in Figure (3).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF16": {
+            "text": "Simulation Sample Time Series 12.2 Figures for Section (7), Simple Sample Ranking In Figure (5) we provide short scores for the securities based on the 60 day moving average of some of the variables.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF17": {
+            "text": "8), variable one and variable two both have a steady upward path without a single down movement. Variable two which has a higher volatility of 19.70% ends up having a lower return to volatility ratio and could get underrepresented in a portfolio in comparison with variable one which has a volatility of 18.98%. Both variables have a return of 9% over the time duration under consideration.InFigure (9), variable two has a lower volatility of 14.27% but has falling prices for some intervals. In comparison, variable one does not have a single fall in price and has a volatility of 18.98%. Both variables have a return of 9% over the time duration under consideration.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF18": {
+            "text": "Short Scores -60 Day Moving Average Short Scores -First Day of Sample Short Scores -Last Day of Sample Limitations of Volatility -Upward Movement Penalized Limitations of Volatility -Downward Movement Not Penalized Limitations of Volatility -Downward Movement",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "Data Generation via Simulation . . . . . . . . . . . . . . . . . . . . . 32 12.2 Figures for Section (7), Simple Sample Ranking . . . . . . . . . . . . . . . . . . . . . . . . . . 33 12.3 Figures for Section (9), Taming the Volatility Skew . . . . . . . . . . . . . . . . . . . . . . . . 34",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "The investment time horizon for a trading strategy, such as the bounce basket, will depend on the time horizon over which the markets are expected to rebound and stay bullish. This would depend on the views from global macro researchers that analyze countries, or regions, and try to estimate whether the economic conditions are conducive of growth combined with optimism about future prospects. A supplement to the views of macro researchers would be an economic activity indicator such as the Purchasing Manager's Index",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Research into the rebound effect, as it pertains to our love lives, suggest that there might be some benefits episodes to cope with distress and to get over or get back at the ex-partner were elevated immediately following the breakup. Self-help books often advise readers to avoid rushing into new relationships after a break-up. Wolfinger(2007)tests the effects of rebound time, measured as time elapsed between marital dissolution and the formation of a new union, on remarriage duration and finds no evidence of a rebound effect. While the jury (in terms of undeniable research evidence) is still out on the possibilities of rebound in our love lives, clearly, this line of inquiry could be an interesting and fruitful pursuit in other areas of life as well. We note that the rebound effect has another meaning related to the consumption of energy services following an improvement in the technical efficiency of delivering those services (Berkhout, Muskens & Velthuijsen 2000; Sorrell & Dimitropoulos 2008; Gillingham, et al., 2013). Though in our present context, we are concerned with what people do once they experience a market crash and how they react thereafter 4 .",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "Javelle & Raoult 2020)6 . No previous infectious disease outbreak, including the Spanish Flu, has affected the stock market as forcefully as the COVID-19 pandemic. COVID-19 has had significant impact on stock",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF5": {
+            "text": "chology, such as overconfidence, representativeness, and conservatism -to explain how individual investors under-react or overreact to past returns or fundamentals. Baker & Wurgler (2007) develop a \"top down\" and macroeconomic approach. They take the origin of investor sentiment as exogenous and focus on its empirical effects. They show that it is quite possible to measure investor sentiment and that waves of sentiment have clearly discernible, important, and regular effects on individual firms and on the stock market as a whole.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF6": {
+            "text": "The variables we have discussed in detail are the more commonly available ones, though we have mentioned other supplementary variables which can be harder to acquire but can improve the decision process. Our discussion holds many lessons for developing other investment ideas and putting them into action. We point the readers to a comprehensive collection of trading strategies and market color information inKashyap (2019).Future investigations regarding the rebound effect should concentrate on verifying, under different scenarios and assumptions, whether such an effect actually exists with regards to financial investments. Investor reactions after making losses (human behavior before and after hardship) can be a very interesting avenue for exploration. Some possibilities are to look at how soon investor intentions are to return back to making investments, changes to the size of investments, any alterations to their risk appetites and desired asset classes. Though, as we have outlined earlier, even if the rebound effect is not significant in the financial markets or across broad categories of investors, our strategy can be an excellent security selection tool when markets are expected to trend upwards.We have outlined a key limitation of using volatility, as a measure of risk, and chronicled our initial efforts to arrive at an alternate metric that is more sensitive to the path taken by variables. Further efforts in this line of inquiry can be challenging yet quite rewarding. Much work can be done in terms of investigating the significance and variation of the factors over time and across geographical locations. We have taken care of ensure that the simulations we have run to create the security ranking mirror real datasets that we have worked with in the past. The portfolio construction and portfolio performance are not shown in the numerical examples since the data is fictitious, but these steps follow quite easily based on the techniques we have provided. The exact formulae derived in Sections (5; 8) can be immediately applied by investors to implement these strategies in a straight forward manner.",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": []
+}

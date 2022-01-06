@@ -1,0 +1,3856 @@
+{
+    "paper_id": "0a3a0897db275de1cace7b112cc5cc0ebaa3a9ca",
+    "metadata": {
+        "title": "Revealing latent traits in the social behavior of distance learning students",
+        "authors": [
+            {
+                "first": "Rozita",
+                "middle": [],
+                "last": "Tsoni",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Hellenic Open University",
+                    "location": {
+                        "settlement": "Patras",
+                        "country": "Greece"
+                    }
+                },
+                "email": "rozita.tsoni@ac.eap.gr"
+            },
+            {
+                "first": "Christos",
+                "middle": [
+                    "\u03a4"
+                ],
+                "last": "Panagiotakopoulos",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University of Patras",
+                    "location": {
+                        "settlement": "Patras",
+                        "country": "Greece"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "\u00b7",
+                "middle": [],
+                "last": "Vassilios",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "S",
+                "middle": [],
+                "last": "Verykios",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Hellenic Open University",
+                    "location": {
+                        "settlement": "Patras",
+                        "country": "Greece"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Cpanag@upatras",
+                "middle": [],
+                "last": "Gr Vassilios",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Verykios@eap",
+                "middle": [],
+                "last": "Gr",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "This paper proposes a multilayered methodology for analyzing distance learning students' data to gain insight into the learning progress of the student subjects both in an individual basis and as members of a learning community during the course taking process. The communication aspect is of high importance in educational research. Additionally, it is difficult to assess as it involves multiple relationships and different levels of interaction. Social network analysis (SNA) allows the visualization of this complexity and provides quantified measures for evaluation. Thus, initially, SNA techniques were applied to create one-mode, undirected networks and capture important metrics originating from students' interactions in the fora of the courses offered in the context of distance learning programs. Principal component analysis and clustering were used next to reveal latent students' traits and common patterns in their social interactions with other students and their learning behavior. We selected two different courses to test this methodology and to highlight convergent and divergent features between them. Three major factors that explain over 70% of the variance were identified and four groups of students were found, characterized by common elements in students' learning profile. The results highlight the importance of academic performance, social behavior and online participation as the main criteria for clustering that could be helpful for tutors in distance learning to closely monitor the learning process and promptly interevent when needed.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Distance Learning emerged as a field almost a century ago (Valentine, 2002) . However, lately, new powerful tools and massive changes in the educational demand have brought Distance Learning into the spotlight of our personal and social lives. Two milestones cultivated the hype of online learning in the past decade: the rise of MOOCs and the Covid-19 pandemic. The revolution brought about by the massive participation in MOOCs and the proliferation of Open Educational Resources originated in conventional universities that mainly provided face-to-face courses (MIT, Stanford, Yale, etc.) New educational models that fueled participation were adopted but at the same time, the dropout rates were skyrocketed (Laurillard et al., 2018) . The massive public acceptance and adoption of online courses created significant challenges and urged researchers of the educational field to find answers to important questions concerning teaching and learning quality, learners' behavior, policies, educational design, and many other relevant issues.",
+            "cite_spans": [
+                {
+                    "start": 58,
+                    "end": 75,
+                    "text": "(Valentine, 2002)",
+                    "ref_id": "BIBREF73"
+                },
+                {
+                    "start": 711,
+                    "end": 736,
+                    "text": "(Laurillard et al., 2018)",
+                    "ref_id": "BIBREF41"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "In this already marginal situation, the crisis of the Covid19 pandemic came along, forcing the need for emergency measures to be taken hastily. To the ears of the inexperienced and novice in Distance Education methodology, every effort allocated towards the preservation of the educational process offering from distance was simply considered a \"distance education program\". Nevertheless, in most cases, what was actually happening can be best described as \"emergency remote education\" (Bozkurt, et al., 2020) . To avoid an escalated risk from the degeneration of distance education to emergency remote education, a reflection of the basic values that established the Distance Education field is needed.",
+            "cite_spans": [
+                {
+                    "start": 486,
+                    "end": 509,
+                    "text": "(Bozkurt, et al., 2020)",
+                    "ref_id": "BIBREF9"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The impact of Learning Analytics and Knowledge (LAK) and Educational Data Mining (EDM) in the Distance Education field is crucial because they can offer solid proof based on the plethora of data created by the online educational activity. There is a large number of analytical methods that can be applied to this data such as social network analysis, sentiment analysis, influence analysis, discourse analysis, classification, clustering, Bayesian modeling, relationship mining, and discovery with models (Siemens & Baker, 2012) , and even larger number of tools that offer an implementation of such methods. Driven by this notion that \"learning analytics is about learning. As such, the computational aspects of learning analytics must be well integrated within the existing educational research\" (Ga\u0161evi\u0107 et al., 2015) , we adopt a three-layered learning analytics methodology that is immersed into our educational research of investigating traits of students that facilitate learning in a distance education scenario. Hence, we propose a sequence of methodological steps aiming to lead to a better understanding of a distant students' community. Several data sources were combined to mine primitive variables concerning students' academic performance and social interaction.",
+            "cite_spans": [
+                {
+                    "start": 505,
+                    "end": 528,
+                    "text": "(Siemens & Baker, 2012)",
+                    "ref_id": "BIBREF62"
+                },
+                {
+                    "start": 798,
+                    "end": 820,
+                    "text": "(Ga\u0161evi\u0107 et al., 2015)",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "As it is known, the physical distance of the persons involved in the educational process deprives important information and impoverishes their interaction (Bouhnik & Marcus, 2006) . Thus, it is necessary to replace those missing properties so that the educational activity could regain its social character. Michael G. Moore (2007) addresses the problem of geographical separation in the transactional distance theory, using the concepts of structure (that concerns the educational methodology) and dialogue (between learners, tutors and teaching material) to explain how learners' autonomy is affected in a distance learning course. At the same time, Conectivism, a new educational theory, fine-tuned with the internet era, emerged by Siemens and Downes (2008) . Connectivism expands the social aspect of learning in the digital age stressing that knowledge lies within networks, where nodes of information are linked in a meaningful way. Thus, SNA techniques enriched our data with network related metrics and Principal Components Analysis (PCA) analysis allowed us to create a new latent space of lower dimensionality. Consequently, we were able to cluster students' community, dentify common learning patterns and create actionable information.",
+            "cite_spans": [
+                {
+                    "start": 155,
+                    "end": 179,
+                    "text": "(Bouhnik & Marcus, 2006)",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 319,
+                    "end": 331,
+                    "text": "Moore (2007)",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 736,
+                    "end": 761,
+                    "text": "Siemens and Downes (2008)",
+                    "ref_id": "BIBREF61"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The problem of observing and understanding students' behavior in order to improve their educational experience and their learning outcomes has been in the spotlight of educational research since the beginning of typical education. In online learning environments, the lack of direct communication is compensated by the vast amount of available data generated in the educational context. Therefore, we are aiming to propose a multilayered methodology that would make good use of these data to produce actionable conclusions for the improvement of the educational process as it is conceived by the students. Two main aspects of learning are taken into consideration in our proposed methodology: the academic performance indices and the social interaction indices. The objective of our research is not focused on the prediction of the final achievement. Instead, we attempt to explore features that go beyond Key Performance Indicators (KPI) and uncover deeper aspects of learning. We aim to identify groups of typical students' profiles, so that tutors could easier make targeted interventions. Thus, data from a full academic year, along with students' grades, were used to create an integrated image about their learning behavior and evolution as members of a learning community. Hopefully, a more sophisticated taxonomy than the dipole \"good student-weak student\" will occur. The identification of learning behavioral patterns could lead further research about performance prediction and the creation of early warning systems. In addition, it is of high importance to quantitatively imprint the contribution of each variable concerning different aspects of the learning process deriving by students' digital traces. This result would allow the creation students' profiles with increased accuracy. We summarize the goals of our study in the following research questions:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Research problem statement"
+        },
+        {
+            "text": "Which methodological steps along with specialized tools and algorithms can combine simple metrics and derived variables to reveal aspects of students' participation and performance, difficult to monitor aspects of students' participation and performance in distance learning settings? This methodology should be threefold, in the sense that it should include: a) a process that would capture learners' social interaction, b) a process that would group variables and would explain their relations and c) a clustering method for the students' community based on the intergraded features. Every layer of analysis would provide new variables based on the previous layer in order to create a new space where latent features can best describe students' interactions of high complexity. RQ2: Within a number of available primitive and derived variables, what is the contribution of each one of them, how are they correlated and which principal components can capture the majority of the variance? In particular, we attempt to explore the contribution of observable features (like the number of views or the number of posts), together with academic performance features (like grades) and more advanced attributes concerning students' interaction. By definition, some of these variables are interrelated. Thus, it is necessary to explore their relations. In addition, in the search of a simple, yet elaborated way of describing the learning behavior in an online setting, it is necessary to indicate factors that would bring together the important attributes and would transform our data, preventing biased and skewed results and reducing the multidimensionality of the problem. RQ3: Which obvious or latent features signify the evolution of learning between different learning communities and how do they differentiate the structure of the learning community? Each methodology which is tested in the context of a specific course, produces results which are strongly related with a number of factors concerning the scientific field of the course, the educational design, the teaching and assessment methods and many others. However, the learning process is much alive, constantly transforming the learning community. Moreover, the learning process itself changes within the learning community as the learners and their tutors adapt to the demands of a society that constantly builds up ties and balances the behavior of different personalities and learning profiles. Therefore, it is meaningful to investigate different learning communities so that will be able to identify those aspects that capture their evolution as a whole but also individually.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "RQ1:"
+        },
+        {
+            "text": "To address the research questions, a knowledge discovery process is proposed based on students' data from their activity in an online learning environment. SNA is used, not as a final step, but as a pre-processing phase to produce indices for PCA. The eigenvectors of the new space produce third-level variables that are used for clustering. Consequently, the groups that occur, sort students based on hidden characteristics revealing deeper aspects of their learning behavior.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "RQ1:"
+        },
+        {
+            "text": "Increasing amounts of important data across the board of student academic life and performance are becoming openly available, providing more resources with a high potential for improving learning (Bates, 2019) . Educational organizations have already started to reap the benefits from this potential and researchers show increased interest. A significant factor for successful tutoring and student guidance in a Distance Learning Course goes hand in hand with the direct access of the educational stakeholders to accurate and updated information. Therefore, a Learning Analytics (LA) approach that can provide for this actionable information that is missing from the process itself, is a necessity in Distance Education. Often there is a mismatch between the ideal dynamic of a group of students and their actual potential (Hern\u00e1ndez-Garc\u00eda & Su\u00e1rez-Navas, 2017) . The importance and the benefits that LA offers to education are highly recognized (Sergis & Sampson, 2017) as it can shift the educational research in deeper understanding (Viberg et al., 2018) and provide the means to tailor learning experience according to individual learners needs (Tsoni et al., 2019a, b, c) . The knowledge originated by LA in order to be actionable has to be meaningful. However, not all meaningful knowledge is actionable. As Ga\u0161evi\u0107 et al. (2015) pointed out, some significant predictors of academic performance (i.e., the number of logins) cannot be used in a practical sense to improve academic performance if they don't come along with suggestions for teaching and learning improvement.",
+            "cite_spans": [
+                {
+                    "start": 196,
+                    "end": 209,
+                    "text": "(Bates, 2019)",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 823,
+                    "end": 862,
+                    "text": "(Hern\u00e1ndez-Garc\u00eda & Su\u00e1rez-Navas, 2017)",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 947,
+                    "end": 971,
+                    "text": "(Sergis & Sampson, 2017)",
+                    "ref_id": "BIBREF58"
+                },
+                {
+                    "start": 1037,
+                    "end": 1058,
+                    "text": "(Viberg et al., 2018)",
+                    "ref_id": "BIBREF74"
+                },
+                {
+                    "start": 1150,
+                    "end": 1177,
+                    "text": "(Tsoni et al., 2019a, b, c)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1315,
+                    "end": 1336,
+                    "text": "Ga\u0161evi\u0107 et al. (2015)",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "Students' profiling, predictive models, personalization, and adaptive learning are some of the areas that LA and EDM are focusing on (Siemens, 2013) . In several studies students' data, including grades, log files, and forum participation data, were utilized to build predictive models, referring to the students' final achievement (Bayer et al., 2012; Crossley et al., 2017; Gkontzis et al., 2018; Romero et al., 2013a, b) . Chiu & Hew (2018) demonstrated that the number of views in a forum, had greater predictive power than the number of posts a student makes. The need that the forum activity has to be investigated in a deeper level than by simply looking to posts' counts was also proven by Sun et al. (2018) who studied the impact of students' grouping tactics on the forum interaction. The importance of selecting advanced, tailored tools that can provide analysis that captures the complexity of group or community formation in distance learning was stressed by Hern\u00e1ndez-Garc\u00eda, and Su\u00e1rez-Navas, (2017). Methodological issues are treated thoroughly by the LA community. LA approaches can be applied in a wide range of educational problems (Kla\u0161nja-Milicevic & Ivanovic, 2018) however, the power of Artificial Intelligence has changed the traditional hypothesis-testing research approach.",
+            "cite_spans": [
+                {
+                    "start": 133,
+                    "end": 148,
+                    "text": "(Siemens, 2013)",
+                    "ref_id": "BIBREF60"
+                },
+                {
+                    "start": 332,
+                    "end": 352,
+                    "text": "(Bayer et al., 2012;",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 353,
+                    "end": 375,
+                    "text": "Crossley et al., 2017;",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 376,
+                    "end": 398,
+                    "text": "Gkontzis et al., 2018;",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 399,
+                    "end": 423,
+                    "text": "Romero et al., 2013a, b)",
+                    "ref_id": null
+                },
+                {
+                    "start": 426,
+                    "end": 443,
+                    "text": "Chiu & Hew (2018)",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 698,
+                    "end": 715,
+                    "text": "Sun et al. (2018)",
+                    "ref_id": "BIBREF64"
+                },
+                {
+                    "start": 1151,
+                    "end": 1187,
+                    "text": "(Kla\u0161nja-Milicevic & Ivanovic, 2018)",
+                    "ref_id": "BIBREF38"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "Educational research is a sensitive domain and it is important to maintain the balance between theory-driven, humanistic approaches and advanced algorithms with high predictive power. Sharma et al., (2019) proposed a methodology that combined theory-driven research questions with data modeling for feature extraction and prediction in educational settings. A synergy of pedagogical criteria and machine learning techniques of analysis lead Gkontzis et al., (2020) to accurate performance prediction by dividing the academic year of students into six periods.",
+            "cite_spans": [
+                {
+                    "start": 184,
+                    "end": 205,
+                    "text": "Sharma et al., (2019)",
+                    "ref_id": "BIBREF59"
+                },
+                {
+                    "start": 441,
+                    "end": 464,
+                    "text": "Gkontzis et al., (2020)",
+                    "ref_id": "BIBREF25"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "Regarding social interaction, SNA was used by numerous scientists to study the complex relations between the members of learning communities. Several studies were focusing on tools and applications (Batagelj & Mrvar, 1998; Borgatti et al., 2002; Bastian et al., 2009; Chen et al., 2010; Csardi, 2013) while others aimed to identify network features that can improve the educational research (Sternitzke et al., 2008; Yusof, & Rahman, 2009; Traxler et al., 2018) . Two successive studies (Lotsari et al., 2014; Kagklis et al., 2015) leveraged Network Analysis of forum activity to create students' profile based on their online participation. Network representation through time revealed the evolution of students' community and along with polarity analysis can provide insights into the social aspect of their learning behavior (Tsoni et al., 2019a, b, c) . The idea of a detailed analysis, including the content of the discussion fora, was one of the main findings of a literature review conducted by Cela et al., (2015) . Additionally, social network metrics derived from the forum activity were used as indicators of the structure of communities of practice and communities of inquiry (Jan & Vlachopoulos, 2019) . Amano et al. (2019) proposed a collaborative forum-based learning design, including pre-learning and post-learning activities based on SNA findings.",
+            "cite_spans": [
+                {
+                    "start": 198,
+                    "end": 222,
+                    "text": "(Batagelj & Mrvar, 1998;",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 223,
+                    "end": 245,
+                    "text": "Borgatti et al., 2002;",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 246,
+                    "end": 267,
+                    "text": "Bastian et al., 2009;",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 268,
+                    "end": 286,
+                    "text": "Chen et al., 2010;",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 287,
+                    "end": 300,
+                    "text": "Csardi, 2013)",
+                    "ref_id": null
+                },
+                {
+                    "start": 391,
+                    "end": 416,
+                    "text": "(Sternitzke et al., 2008;",
+                    "ref_id": "BIBREF63"
+                },
+                {
+                    "start": 417,
+                    "end": 439,
+                    "text": "Yusof, & Rahman, 2009;",
+                    "ref_id": "BIBREF77"
+                },
+                {
+                    "start": 440,
+                    "end": 461,
+                    "text": "Traxler et al., 2018)",
+                    "ref_id": "BIBREF67"
+                },
+                {
+                    "start": 487,
+                    "end": 509,
+                    "text": "(Lotsari et al., 2014;",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 510,
+                    "end": 531,
+                    "text": "Kagklis et al., 2015)",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 828,
+                    "end": 855,
+                    "text": "(Tsoni et al., 2019a, b, c)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1002,
+                    "end": 1021,
+                    "text": "Cela et al., (2015)",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 1188,
+                    "end": 1214,
+                    "text": "(Jan & Vlachopoulos, 2019)",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 1217,
+                    "end": 1236,
+                    "text": "Amano et al. (2019)",
+                    "ref_id": "BIBREF1"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "Finally, De-Marcos et al. (2016) conducted PCA of network metrics and additionally examined the correlation between those metrics and students' academic achievement. They found a moderate correlation between most centrality measures and learning achievement. However, they pointed out that this result is affected by the educational design that included graded forum related assignments. PCA was also used to identify certain activities within the use of Web 2.0 that students had selected, as indicators of students' success (Giovannella et al., 2013) .",
+            "cite_spans": [
+                {
+                    "start": 9,
+                    "end": 32,
+                    "text": "De-Marcos et al. (2016)",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 526,
+                    "end": 552,
+                    "text": "(Giovannella et al., 2013)",
+                    "ref_id": "BIBREF23"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "Although SNA, PCA, and Clustering have benefited the educational research, in the vast majority of the relevant literature, they are used separately. SNA is used as a final modeling method to reveal information about the community of learners. PCA and Clustering are modeling primitive variables drawn from LMSs or questionnaires. The sequential combination of the abovementioned techniques could address the challenge to intergrade data that represent various aspects ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Related work"
+        },
+        {
+            "text": "Two main types of variables were chosen as the most relevant to our research questions: variables concerning the academic performance and variables concerning their online participation (Table 1) . Furthermore, there is a distinction between primitive and derived variables. Primitive variables were mined directly from the online environment that support learners' activity, while derived variables were produced by a process that followed the initial data mining.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 186,
+                    "end": 195,
+                    "text": "(Table 1)",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "Feature engineering"
+        },
+        {
+            "text": "To assess the academic performance of the students, the grades of their mandatory written assignments were used. In the first-year course students have to hand in up to six written assignments and an average grade of 50% is prerequired for their participation in the final exams (variables WA_1 to WA_6). The same applies in the second-year course but there are 5 written assignments instead. The variable \"exams\" is a binary variable that represents whether a student has the right to participate in the final exams, that is, whether she/he have gained a minimum average grade of 50% in the written assignments.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Academic performance features"
+        },
+        {
+            "text": "Concerning online participation, the variable \"views\" captures the total number of forum views of each participant for the whole academic year. We have to point out that the binary variable \"forum participant\" isn't based on the number of views as all of the students in both courses have visited the forum just to read other posts and also denote a rather passive participation. Instead, the degree (derived by the SNA) of each user was used (that has to be non-zero for a student to be characterized as a forum participant) in order to capture active participation. That means that a forum participant has at least one forum post during the academic year.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Online participation features"
+        },
+        {
+            "text": "Attributes derived from the online participation of students were based on network metrics which are strongly affected by the type of network that was used to imprint the students' interaction in their forum. One-mode undirected networks were created for both courses including all students and tutors. Each node represents a person and the edges represent ties between nodes/participants that have posted in the same thread. Thus, it is obvious that students who did not post on the forum, appear to have zero values in all network-related metrics.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Online participation features"
+        },
+        {
+            "text": "In order to describe the metrics and the algorithms related to the network of students' communication, we created a small, sample network with the same properties. That is, an undirected, one-mode network of five nodes and nine edges (Fig. 1) . The small number of nodes allows creating a network of an appropriate magnitude so that the relations between nodes to be obvious and, at the same time, to be adequate so that complex metrics to be meaningful. A list of edges between the nodes is presented in Table 2 and the metrics that emerged for the sample network are listed in Table 3 . The theoretical underpinning of the SNA which is of high importance for our methodology based on which we attempt to build new knowledge, is presented below.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 234,
+                    "end": 242,
+                    "text": "(Fig. 1)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 505,
+                    "end": 512,
+                    "text": "Table 2",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 579,
+                    "end": 586,
+                    "text": "Table 3",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "Online participation features"
+        },
+        {
+            "text": "The degree is the simplest metric of the network showing the number of nodes adjacent to a given node. Node's A degree is equal to three because it is linked to three nodes: B, D and E. In the forum participation network, the degree of a participant reveals the number of other persons who posted in a common thread with her/him. Additionally, the weighted degree adds up the frequency of each interaction. Two participants who have the same degree interacted with the same number of peers but a higher weighted degree indicates a more active participant because she/he made more posts. In the sample network the weighted degree of Node A is equal to five because it is connected five times with other nodes (there is one link with node B, two links with node D and two links with node E).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Online participation features"
+        },
+        {
+            "text": "Closeness centrality (x) , (1) was proposed by Latora and Marchiori (2001) that can be used in both connected or unconnected graphs. Closeness centrality is defined as: where x,y are two vertices in the network G, d(x,y) denotes their distance, that is the number of edges in a shortest path connecting them, and N is the number of nodes in the graph. Thus, a node with high closeness centrality is a central node in the network. In other words, if the sum of the distances is large, then the closeness is small and vice versa (Metcalf & Casey, 2016) . In the sample network, the node D is directly connected with all the other nodes, thus, it has the highest closeness centrality. On the contrary, node C is directly connected only with node D, so it has the lowest closeness centrality. Harmonic Closeness Centrality H(x) , can be computed as follows:",
+            "cite_spans": [
+                {
+                    "start": 47,
+                    "end": 74,
+                    "text": "Latora and Marchiori (2001)",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 527,
+                    "end": 550,
+                    "text": "(Metcalf & Casey, 2016)",
+                    "ref_id": "BIBREF48"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Online participation features"
+        },
+        {
+            "text": "In case that there is no path between x, y the value of 1 d(y,x) equals zero. Harmonic closeness centrality was chosen over closeness centrality in our study due to the disconnected nodes that were included in the networks that represent the non-active participants. High harmonic closeness centrality of the nodes in the students' communication network indicates participants, in the core of the network, that are directly or closely related with a large number of others.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Online participation features"
+        },
+        {
+            "text": "Eccentricity e G(v) , is a distance measure that is considered to be much simpler than closeness centrality (Sereni et al., 2018) . In a given network G the eccentricity e G(v) of a node v is the maximum distance between node v and u over all the nodes of the network. From the definition below (Eq. 3) it is obvious that a node with high eccentricity is a distant node.",
+            "cite_spans": [
+                {
+                    "start": 15,
+                    "end": 19,
+                    "text": "G(v)",
+                    "ref_id": null
+                },
+                {
+                    "start": 108,
+                    "end": 129,
+                    "text": "(Sereni et al., 2018)",
+                    "ref_id": "BIBREF57"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Online participation features"
+        },
+        {
+            "text": "(1)",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Online participation features"
+        },
+        {
+            "text": "In the sample network all nodes' eccentricity is equal to two because it takes maximum two steps for each one of them to reach any other node. An exemption is node D that is directly connected with all other nodes; therefore, its eccentricity equals to one. Certain nodes might have an important role in connecting two, otherwise separate, groups of the network called bridges. In a learning community, this is a very important feature that indicates a person who facilitates communication between distant members. This feature is captured by the metric of betweenness centrality. Betweenness centrality C(x) , (4) is loosely defined as the number of times that a node is part of the shortest path between two other nodes. Thus:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Online participation features"
+        },
+        {
+            "text": "Node D lies in the shortest path between C and A, C and B and C and E, thus its betweenness centrality equals to three whereas, all other nodes' is zero because they don't participate in other shortest paths. Eigenvector centrality EC(x i ) , (5) captures the influence a node has. It is proportional to the sum of centralities of the nodes who are straightly linked to it. Thus, a participant with significant neighbors gains significance itself. Given matrix A, an eigenvector for this matrix is a vector x that satisfies the equation Ax = x for some constant . This would give the equation:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Online participation features"
+        },
+        {
+            "text": "where j \u2208 M(i) means that the sum is overall j such that the nodes i, j are connected. Each node gets a centrality score affected by the value of the nodes to whom is connected with. Therefore, all nodes in the sample network are benefited from its connection with the highly influential node D that adds value on them. Eigenvector centrality is more meaningful in larger networks where nodes have different neighbors.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Online participation features"
+        },
+        {
+            "text": "Advanced metrics of higher complexity are derived by elevated algorithms aiming to illustrate a node's value in a network in accordance with the quality of its neighbors and the strength of their ties. In this respect, there are two widely used algorithms: HITS that produces the metrics \"Authority\" and \"Hub\" and the PageRank algorithm that was initially designed as a measure of influence. Both are based on the Principle of Repeated Improvement that is an iterative process where an initial value is assigned to a node and then a re-weighting process begins re-assigning new values according to each node's connections until the convergence criteria are met. In a students' communication network, this process allows to efficiently imprint the augmented influence of a person in the community as she/he establishes her/his relations with other participants considering their level of influence also. In the next subsection, the main characteristics of these algorithms are briefly discussed.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Online participation features"
+        },
+        {
+            "text": "Hyperlink-Induced Topic Search (HITS), is a link analysis algorithm for webpages ranking (Kleinberg, 1999) . HITS algorithm is also known as \"Hubs and Authorities\". Initially, a hub and an authority value are assigned in each node according to its incoming and outgoing edges. An iterative process begins correcting these values until a default point of convergence is met. A high value of hub means that the node points to high authorities i.e., nodes with valuable information, represented as nodes with high in-degree in a directed network. Respectively, a node with high authority is being pointed by good hubs in a mutually reinforcing relationship. A good hub adds value to an authority and subsequently, the authority becomes better, adding more value to the hub in a recurrent process that, after several iterations, converges to a final result. The degree of convergence e (epsilon), that determines the ending point of the iterative algorithm is the maximum divergence between two sequential results. Thus, at first, each node p is assigned with a hub value and an authority value equal to one ( x <p> = 1 and y <p> = 1) . Then, these values are recalculated according to the incoming and the outgoing links of the nodes respectively. The operation that updates the weights for hubs and authorities ( x <p> :authority update rule, and y <p> :hub update rule), respectively are: and where V is a collection of nodes represented as a directed graph G = (V, E) and a directed edge (p, q) indicates the presence of a link from p to q. In a one-mode undirected network the incoming links (represented by the in-degree) and the outgoing links (represented by the out-degree) are the same because of the reciprocity of each edge. Therefore, hub and authority result to same value. In the sample network the highest hub and authority is assigned to Node D and the lowest to the node C. Nodes A, B and E have the same value of hub and authority because they are connected to the same nodes creating triangles (that means that each one of them is directly linked with all the direct connections of its neighbors).",
+            "cite_spans": [
+                {
+                    "start": 89,
+                    "end": 106,
+                    "text": "(Kleinberg, 1999)",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [],
+            "section": "HITS and pagerank algorithms"
+        },
+        {
+            "text": "HITS algorithm is used in a wide range of fields like biology (Lei et al., 2019; Szczurek & Horeni, 2018) , traffic modeling (Tran & Draeger, 2021) , location-based services (Farahat et al., 2006) , education and social sciences (Capocci et al., 2005; Hu et al., 2017; Zhou et al., 2018) .",
+            "cite_spans": [
+                {
+                    "start": 62,
+                    "end": 80,
+                    "text": "(Lei et al., 2019;",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 81,
+                    "end": 105,
+                    "text": "Szczurek & Horeni, 2018)",
+                    "ref_id": "BIBREF65"
+                },
+                {
+                    "start": 125,
+                    "end": 147,
+                    "text": "(Tran & Draeger, 2021)",
+                    "ref_id": "BIBREF66"
+                },
+                {
+                    "start": 174,
+                    "end": 196,
+                    "text": "(Farahat et al., 2006)",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 229,
+                    "end": 251,
+                    "text": "(Capocci et al., 2005;",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 252,
+                    "end": 268,
+                    "text": "Hu et al., 2017;",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 269,
+                    "end": 287,
+                    "text": "Zhou et al., 2018)",
+                    "ref_id": "BIBREF78"
+                }
+            ],
+            "ref_spans": [],
+            "section": "HITS and pagerank algorithms"
+        },
+        {
+            "text": "Another similar advanced algorithm is PageRank. PageRank is a widespread scoring function that measures objectively the subjective notion of importance initially introduced as a Google feature for Webpages ranking (Brin & Page, 1998) . It is also based on the idea of assigning value to a node depending on its connections following the principle of repeated improvement. The PageRank is defined",
+            "cite_spans": [
+                {
+                    "start": 214,
+                    "end": 233,
+                    "text": "(Brin & Page, 1998)",
+                    "ref_id": "BIBREF10"
+                }
+            ],
+            "ref_spans": [],
+            "section": "HITS and pagerank algorithms"
+        },
+        {
+            "text": "for directed graphs; however, some studies use it in undirected graphs (Abbassi & Mirrokni, 2007; Andersen et al., 2006; Iv\u00e1n & Grolmusz, 2011; Perra & Fortunato, 2008; Wang et al., 2007) in several different fields (Brown, 2017; Jiang et al., 2017; Kandiah & Shepelyansky, 2012; Lazova & Basnarkov, 2015; Mooney et al., 2012; Mukai, 2013) . As a measure of influence, it is related to the number of connections a node has. Furthermore, Lotfi et al., (2019) showed that there is a PageRank vector ordering that is proportional with the variance of degree sequence in an undirected graph. The widespread use of PageRank in the past years brought certain modifications in the algorithm including fairness-aware link analysis (Tsioutsiouliklis et al., 2020) to avoid bias against a protected group defined by the value of a sensitive attribute.",
+            "cite_spans": [
+                {
+                    "start": 71,
+                    "end": 97,
+                    "text": "(Abbassi & Mirrokni, 2007;",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 98,
+                    "end": 120,
+                    "text": "Andersen et al., 2006;",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 121,
+                    "end": 143,
+                    "text": "Iv\u00e1n & Grolmusz, 2011;",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 144,
+                    "end": 168,
+                    "text": "Perra & Fortunato, 2008;",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 169,
+                    "end": 187,
+                    "text": "Wang et al., 2007)",
+                    "ref_id": "BIBREF76"
+                },
+                {
+                    "start": 216,
+                    "end": 229,
+                    "text": "(Brown, 2017;",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 230,
+                    "end": 249,
+                    "text": "Jiang et al., 2017;",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 250,
+                    "end": 279,
+                    "text": "Kandiah & Shepelyansky, 2012;",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 280,
+                    "end": 305,
+                    "text": "Lazova & Basnarkov, 2015;",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 306,
+                    "end": 326,
+                    "text": "Mooney et al., 2012;",
+                    "ref_id": "BIBREF49"
+                },
+                {
+                    "start": 327,
+                    "end": 339,
+                    "text": "Mukai, 2013)",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 437,
+                    "end": 457,
+                    "text": "Lotfi et al., (2019)",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 723,
+                    "end": 754,
+                    "text": "(Tsioutsiouliklis et al., 2020)",
+                    "ref_id": "BIBREF68"
+                }
+            ],
+            "ref_spans": [],
+            "section": "HITS and pagerank algorithms"
+        },
+        {
+            "text": "In the sample network PageRank provides analogous information as the HITS algorithm. This is due to the small size of the network where all nodes have the same neighbors. In larger networks HITS and PageRank algorithms capture different details in their structure as they exhibit many different features (Grover & Wason, 2012) . One of them is that HITS is applied to the local neighborhood of a node whereas PageRank is applied to the entire network. There is a significant interrelation between metrics of the network determining largely the analysis process followed. A more thorough presentation of the abovementioned metrics could point out their differences, their interrelations and their special features, however, this is out of the scope of this study. Unlike most of the educational research incorporating SNA in their methodology and presenting its metrics as their final results, in this study SNA is rather a pre-processing step, providing the derived variables for the next steps of the analysis.",
+            "cite_spans": [
+                {
+                    "start": 304,
+                    "end": 326,
+                    "text": "(Grover & Wason, 2012)",
+                    "ref_id": "BIBREF26"
+                }
+            ],
+            "ref_spans": [],
+            "section": "HITS and pagerank algorithms"
+        },
+        {
+            "text": "The research problem that we are confronting concerns the improvement of understanding students' behavior by making the most of the data accumulated by their online learning activity. There is enough theoretical evidence to drive the selection of data about their academic performance, their online presence, and their position in the learning network as it is expressed in the course's forum community. To achieve our research goal three main types of modeling are used: a) Social Network Analysis, to capture the social aspect of learning b) Factor Analysis, to group primitive and derived variables and reveal their significance c) Clustering, to identify common features in students' learning behavior.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A Three-layered learning analytics approach for understanding students learning behavior"
+        },
+        {
+            "text": "Our model follows a Learning Analytics cycle (Fig. 2) . LA cycles were actually evolved from older learning theories and enclose adequate theoretical grounding (Clow, 2012) .",
+            "cite_spans": [
+                {
+                    "start": 160,
+                    "end": 172,
+                    "text": "(Clow, 2012)",
+                    "ref_id": "BIBREF16"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 45,
+                    "end": 53,
+                    "text": "(Fig. 2)",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "A Three-layered learning analytics approach for understanding students learning behavior"
+        },
+        {
+            "text": "Starting out from Pask's conversational theory (1976) and Kolb's learning cycle (1984) and moving on to more recent views like the reflection-in-action and the reflection-on-action of Sch\u00f6n (1991) and finally, to Laurillard's conversation of action and conversation of conception (2013), several similar iterative processes of generating data, producing metrics and visualization and proving feedback, aim to improve the education. The LA cycle narrates briefly the idea of a methodology for discovering meaningful information concerning the learning process bases on observable and countable features.",
+            "cite_spans": [
+                {
+                    "start": 80,
+                    "end": 86,
+                    "text": "(1984)",
+                    "ref_id": null
+                },
+                {
+                    "start": 184,
+                    "end": 196,
+                    "text": "Sch\u00f6n (1991)",
+                    "ref_id": "BIBREF56"
+                }
+            ],
+            "ref_spans": [],
+            "section": "A Three-layered learning analytics approach for understanding students learning behavior"
+        },
+        {
+            "text": "Social Network Analysis is an interdisciplinary field that collaborates Network Analysis, Social Science, and Graph theory. Some common tasks are the identification of most central nodes, the detection of inner communities and cliques, and the investigation of the link strengthens (strong and weak ties). There are two main SNA approaches. The socio-centric approach faces the network as a whole aiming to discover structural patterns. The egocentric approach, on the other hand, focuses on individuals aiming to discover types of relations and contributions in the community. A mixed approach is often used to meet the challenges of high complexity problems.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Social network analysis techniques"
+        },
+        {
+            "text": "There are several software packages (e.g., Ucinet, Gephi, Pajek, NetMiner, and R packages) offering networks' creation, visualization, and manipulation of networks, quantitative statistical analysis, and community detection. Our data size and our research goals lead us to the selection of the software Gephi (Bastian et al., 2009) . It provides visualization, appearance and layout formatting, statistical analysis and metrics exportation, and a large number of add-ons for advanced features.",
+            "cite_spans": [
+                {
+                    "start": 309,
+                    "end": 331,
+                    "text": "(Bastian et al., 2009)",
+                    "ref_id": "BIBREF3"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Social network analysis techniques"
+        },
+        {
+            "text": "Students' forum data were imported to Gephi for analysis. A two-node network (participant-to-thread) was initially created and the first step in Gephi modeling was its projection into a unimodal network (participant-to-participant). A unimodal network serves best our research goals due to the focus on actors' behavior regardless of the topic of the discussion. The second step was the appearance and layout customization using color and size partition for certain nodes' features and the Force Atlas2 algorithm (Jacomy et al., 2014) to achieve a clear visualization of participants interaction. The third step was to run statistics to get centrality measures and more complex algorithms' outputs (HITS and PageRank). For the iterative algorithms the degree of convergence epsilon used was e = 0.0001. Finally, the metrics' output was exported and merged with the dataset to prepare the next level of analysis. Evidently, the purpose of Gephi analysis was twofold: to produce information directly used to understand participants' place and role in the learning community and to derive metrics for further analysis.",
+            "cite_spans": [
+                {
+                    "start": 513,
+                    "end": 534,
+                    "text": "(Jacomy et al., 2014)",
+                    "ref_id": "BIBREF32"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Social network analysis techniques"
+        },
+        {
+            "text": "Studying human behavior has always been a complex and compound task. Even though we investigate certain interactions in a closed and relatively controlled environment, without including cultural or personal data, the high complexity remains, creating a large volume feature space, difficult to interpret. Dimensionality reduction is a statistical process providing fewer parameters and a simpler structure maintaining the majority of variation. Exploratory factor analysis can reveal can provide insight into the learning process are reveal traits that weren't obvious in the preliminary multidimensional space. There are several methods of dimensionality reduction. We chose to operate PCA. PCA is an orthogonal transformation that provides principal components as a linear combination of the initial variables weighted by their variance. This allows us: a) to simplify our study coping with fewer, unrelated components, b) to easily visualize the new lower-dimensional feature space, c) to use the main components that capture the majority of variance for further analysis (see cluster analysis below), d) to examine the impact of the initial variables and interpret the results.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Dimensionality reduction techniques"
+        },
+        {
+            "text": "The IBM SPSS syntax editor was used to perform the analysis mainly due to the flexibility and the repeatability that can provide. SPSS syntax editor is a programming language that uses commands rather than the graphical interface of SPSS and also the total sequence of commands can be stored and repeated precisely. The new dataset contains the network metrics along with the initial students' data is imported to SPSS. Firstly, simple statistics, distributions, and visualization were conducted. Sixteen variables were standardized and used for PCA. Additionally, parallel analysis determined the number of factors to be kept. Finally, we visualized the latent variables that were produced in the new space.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Dimensionality reduction techniques"
+        },
+        {
+            "text": "Until this point, the sequence of actions created a new space with latent variables that explain most of the variance of our data. However, a grouping method is needed to indicate students' common features that cannot be directly observed using the initial variables. Thus, exploratory cluster analysis was conducted using the SPSS syntax editor. The process consisting of three steps using two algorithms is presented below: a) Hierarchical Cluster Analysis (between-group linkage method using the Euclidean distance) to determine the optimal number of clusters. b) K-means clustering to identify the clusters of students with common features. c) Computation of mean squared error of cluster distances to examine the cohesion of the clusters.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Cluster analysis"
+        },
+        {
+            "text": "In the next section, the experimental testing of the proposed methodology is presented.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Cluster analysis"
+        },
+        {
+            "text": "The Hellenic Open University is the only university in Greece that provides exclusively distance education. Additionally, it is the only university with open admission (no written exams required). Students living in remote areas can also attend because there is no obligatory face-to-face participation apart from some practical laboratory courses with short duration in the field of science that take place in summer vacation. The curriculum includes group sessions for advisory and support. The sessions are optional and students can choose to participate either in a face-to-face group or in an online group. Students have to hand on up to six written assignments (WA). A minimum average grade of five out of ten is a prerequisite in WA to establish the right to participate in the final exams where a passing grade of five out of ten leads to the successful completion of the course.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Experimental design"
+        },
+        {
+            "text": "Two datasets were used to test the proposed methodology and conduct a comparative analysis between learning communities with different characteristics. In that sense, two different courses were selected. The courses are offered in a postgraduate program of the School of Science and Technology at the Hellenic Open University. The Learning Management System that supports the courses is based in a Moodle platform. A main feature of the program is that it is targeting at a wide range of attendants leading to a significant heterogeneity in the community of learners. The first course (hereafter Course A) is a compulsory firstyear course that signifies students' first contact with the program, and for many of them, their first experience in Distance Learning. The second course (hereafter Course B) is a second-year optional course. This choice is driven by RQ3 that refers to the development of the students within the learning process in a Distance Learning course. Basic information about Courses A and B is presented below in Table 4 . The proposed methodology was tested in four main steps. The first step was the data retrieval from several sources. The second step included all the pre-processing actions (anonymization, data selection and exclusion, data cleaning and merging, and preparation for the modeling tools). The next step was the threelayered modeling process described in Sect. 5. Results emerging from a layer of modeling were used as derived variables for the next modeling action. Finally, evaluation metrics were used to ensure the validity of the results (Fig. 3) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 1033,
+                    "end": 1040,
+                    "text": "Table 4",
+                    "ref_id": "TABREF3"
+                },
+                {
+                    "start": 1582,
+                    "end": 1590,
+                    "text": "(Fig. 3)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Experimental design"
+        },
+        {
+            "text": "The results are presented in the following three sub-sections. The first sub-section is about Course A, the second concerns Course B, and the third sub-section covers its comparison. Simple results about explicit features are initially presented, followed by latent features derived from PCA and Clustering.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Experimental results and comparison"
+        },
+        {
+            "text": "Course A, as is abovementioned, signifies the first chance for the students to experience the program's actual workload and its demands. For many of them is also their first experience in an online learning setting. Consequently, the learning outcome that is imprinted in their final grade is rather low with an average final grade 4,26 (std = 3,29). The high standard deviation reflects the heterogeneity of the participants' performance that is also consistent with the admission data that show a wide range of different backgrounds of students (Kagklis et al., 2017) . Their online participation styles also vary. The average number of forum views is 429,38 (std = 545,62) and their degree in the forum network range from 0 to 23 (average degree = 1,93, std = 4,61). ",
+            "cite_spans": [
+                {
+                    "start": 547,
+                    "end": 569,
+                    "text": "(Kagklis et al., 2017)",
+                    "ref_id": "BIBREF36"
+                }
+            ],
+            "ref_spans": [],
+            "section": "A data-based description of the first-year course's community"
+        },
+        {
+            "text": "There is a descending pattern in students' grades, that is in accordance with the gradually increasing difficulty of the course (Fig. 4) , while there is an almost steady precedence of students who actively participate in the forum.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 128,
+                    "end": 136,
+                    "text": "(Fig. 4)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Fig. 4 Average grades in Course A"
+        },
+        {
+            "text": "Different learning styles and behavioral patterns are revealed from the study of the ten most active participants of the forum community (Table 5 ). The most active participant is tutor1A. Tutor2A is also very active, confirming tutors' mediative role in the collaboration network. All of the highly active students completed successfully the course except std145A. Std145A is an interesting case due to his/her high participation in the forum community and his/her high grades in the written assignments (all grades above 9/10) but he/she didn't show up in the final exams leading to the course failure. Additionally, the comparison of the metrics concerning std51A and std18A shows a very different learning attitude. Std51A has far fewer views and weighted degree than std18A. However, they have a similar degree and std51A features higher values of betweenness centrality, authority, and eigenvector centrality, indicating a more focused behavior. Their final grade is exactly the same showing that the differences in their actions have not any implication in their final performance, however, std18A seems to have followed a more time-consuming learning path (Fig. 5) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 137,
+                    "end": 145,
+                    "text": "(Table 5",
+                    "ref_id": "TABREF4"
+                },
+                {
+                    "start": 1164,
+                    "end": 1172,
+                    "text": "(Fig. 5)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Fig. 4 Average grades in Course A"
+        },
+        {
+            "text": "The visualization of the community network reveals two discrete areas (Fig. 6) . Area 1 includes forum viewers that do not actively participate in the discussions and Area 2 includes forum active participants. Green nodes represent tutors and orange nodes represent students. There is a very active and strongly connected center and several weak linked, peripheral nodes. The majority of the tutors have a central strategic position in the network confirming their leading role. Moreover, the structure of the network indicates a novice community with low levels of autonomy and relatively weak ties between fellow students. Fig. 6 The network of students' forum interaction in Course A Previous to the factor analysis, suitability testing is needed to ensure that our data are correlated. The Kaiser-Meyer-Olkin Measure of Sampling Adequacy indicated a sufficient value KMO (Table 6) . Additionally, Bartlett's Test of Sphericity confirms the suitability of our data.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 70,
+                    "end": 78,
+                    "text": "(Fig. 6)",
+                    "ref_id": null
+                },
+                {
+                    "start": 625,
+                    "end": 631,
+                    "text": "Fig. 6",
+                    "ref_id": null
+                },
+                {
+                    "start": 875,
+                    "end": 884,
+                    "text": "(Table 6)",
+                    "ref_id": "TABREF5"
+                }
+            ],
+            "section": "Fig. 4 Average grades in Course A"
+        },
+        {
+            "text": "Three principal components emerged (eigenvalues > 1) that explain 73,9% of the variance (Fig. 7) . Additionally, parallel analysis was conducted resulting in random eigenvectors with values that were all below one. Thus, we can keep all three components of the PCA analysis.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 88,
+                    "end": 96,
+                    "text": "(Fig. 7)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Fig. 4 Average grades in Course A"
+        },
+        {
+            "text": "Varimax rotation technique was used to adjust the coordinates of the main components and provide more explainable results that represent how data correlate with each principal component in a more apparent way (Table 7 ). The first component compiles the majority of the network metrics, explaining 43,25% of the variance. The second factor that explains 22,42% of the variance, sums up the academic performance since it is strongly correlated exclusively with students' grades. The third factor, which explains 8,22% of the variance, concerns students' online activity due to its strong correlation with the number of views and the degree that shows the number of peers a person has interacted with within the forum community.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 209,
+                    "end": 217,
+                    "text": "(Table 7",
+                    "ref_id": "TABREF6"
+                }
+            ],
+            "section": "Fig. 4 Average grades in Course A"
+        },
+        {
+            "text": "The 3D scatterplot of the eigenvectors that emerged in the latent space shows two different groups of students. The distinctive feature is their active participation in the forum community (Fig. 8) . However, forum participants (green dots) appear a wider diffusion. Cluster analysis will eventually reveal groups of students with common latent characteristics. Initially, Hierarchical Cluster Analysis provided us the optimal number of clusters. Subsequently, k-Means clustering for 4 clusters was conducted and produced the following results (Table 8 ). The first cluster contains 44 students. They're all active forum participants, with a high number of views and high grades. The students in the second cluster are not active forum participants with an average number of views and good grades. Cluster 3 has captured an outlier. The outlier is std18A that his/her profile differs a lot from his/her peers with a number of views over ten times above the average and a value of weighted degree almost 150% above the weighted degree of the second most active participant of the forum ( Table 5 ). The fourth cluster gathers all the students with low academic achievement regardless of their social behavior. Therefore, it includes both active and non-active forum participants (Fig. 9) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 189,
+                    "end": 197,
+                    "text": "(Fig. 8)",
+                    "ref_id": null
+                },
+                {
+                    "start": 544,
+                    "end": 552,
+                    "text": "(Table 8",
+                    "ref_id": "TABREF7"
+                },
+                {
+                    "start": 1087,
+                    "end": 1094,
+                    "text": "Table 5",
+                    "ref_id": "TABREF4"
+                },
+                {
+                    "start": 1278,
+                    "end": 1286,
+                    "text": "(Fig. 9)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Fig. 4 Average grades in Course A"
+        },
+        {
+            "text": "Course B is offered in the second academic year. It is an optional course with high demand. The average final grade is 7,1 (std = 1,7) and students appear to be active with an average number of views equal to 346,63 (std = 230,67) and an average degree equal to 11,12 (std = 15,34). Similar to Course A, students who actively participate in the forum community tend to have higher grades in the written assignments and the final examination (Fig. 10) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 441,
+                    "end": 450,
+                    "text": "(Fig. 10)",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "A data-based description of second-year course's community"
+        },
+        {
+            "text": "Two out of the ten most active participants are tutors (Table 9 ). Tutor2B is the most active participant who facilitates interaction (he/she has the highest eigenvector Fig. 11 Network metrics for the ten more active forum participants in Course B centrality communication) and mediates communication (he/she has the highest betweenness centrality). On the other hand, tutor4B adopts a less intervening type of assisting learning with much more views, relatively high betweenness centrality but far less posting (Table 9 ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 55,
+                    "end": 63,
+                    "text": "(Table 9",
+                    "ref_id": "TABREF8"
+                },
+                {
+                    "start": 170,
+                    "end": 177,
+                    "text": "Fig. 11",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 513,
+                    "end": 521,
+                    "text": "(Table 9",
+                    "ref_id": "TABREF8"
+                }
+            ],
+            "section": "A data-based description of second-year course's community"
+        },
+        {
+            "text": "The network of students' forum interaction in Course B All active students develop a common pattern of behavior where a more central position in the network comes with a higher grade (Fig. 11) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 183,
+                    "end": 192,
+                    "text": "(Fig. 11)",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Fig. 12"
+        },
+        {
+            "text": "The forum network in Course B is also parted into two areas (Fig. 12) . Area 1 contains the non-active participants who only visit the forum just to read the posts and area 2 that shows the interaction of active students. Green dots represent tutors and orange dots represent students. A large number of edges indicate that there is a lot of interconnection in the network with a small number of visible peripheral members. Dimensionality reduction was also conducted in the dataset of Course B since the suitably testing confirmed that our data are fitting for Principal Component Analysis (Table 10) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 60,
+                    "end": 69,
+                    "text": "(Fig. 12)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 591,
+                    "end": 601,
+                    "text": "(Table 10)",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "Fig. 12"
+        },
+        {
+            "text": "Three main components met the criterion of having an eigenvalue above 1 (Fig. 13) . Additionally, the parallel analysis produced all random eigenvalues below one so three factors were kept.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 72,
+                    "end": 81,
+                    "text": "(Fig. 13)",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Fig. 12"
+        },
+        {
+            "text": "The rotated component matrix (Table 11 ) presents some highly explainable results. The first factor, which explains 46% of the variance (Fig. 13) , gathers all network metrics. The second factor concerns academic performance since it is strongly correlated with students' grades and the third factor is about online attendance, mainly related to the number of views.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 29,
+                    "end": 38,
+                    "text": "(Table 11",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 136,
+                    "end": 145,
+                    "text": "(Fig. 13)",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Fig. 12"
+        },
+        {
+            "text": "In the case of Course B, there is no large distinction between active forum participants and non-active forum participants. The two groups are separate but close together, indicating that active forum participation might be more important distinctive factor in Course A (Fig. 14) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 270,
+                    "end": 279,
+                    "text": "(Fig. 14)",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Fig. 12"
+        },
+        {
+            "text": "Clustering was conducted following the same process as in the Course A dataset. Hierarchical clustering also indicated an optimal number of 4 clusters and k-Means clustering produced the results shown in Table 12 . Mean squared error = 1,14",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 204,
+                    "end": 212,
+                    "text": "Table 12",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "Fig. 12"
+        },
+        {
+            "text": "The first cluster represents a group of students who participated in the course's forum and had a relatively high number of views yet, they had poor grades indicating that they were facing severe difficulties. The second cluster, on the other hand, contains highly active students with very good grades and important social interaction. The students in the third cluster had good academic performance but mediocre social interaction. The fourth group captures low-activity students with low grades (Fig. 15 ). ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 498,
+                    "end": 506,
+                    "text": "(Fig. 15",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Fig. 12"
+        },
+        {
+            "text": "Students in the two courses differ in their social behavior and their academic performance. In both courses, written assignments start with high grades in a descending pattern. However, Course A has lower completion rate. Participation and social behavior are reflected in views and forum network metrics. Students from course A have a higher average number of views per participant while network's metrics that represent the mediative role and their position in the network (i.e., eigenvector centrality and harmonic closeness centrality) present lower values (Figs. 16, 17) . This is an indication of a society seeking to be connected where participants are interested in interacting however there is not a solid structure of actively connected participants. The evaluation of the structure of the network in each course is imprinted in metrics that concern the total network (Table 13 ). Both networks (Fig. 18) . 18 The diversity in forum participation networks' structure participants are four links away. The average path length is smaller in Course B indicating a closer relationship between participants. There is a significant difference between the density of the networks. The small size of both networks prevents us from securely assuming a small world effect. Participants in Course B are connected with stronger ties in a more condensed structure but with a higher tendency to form inner communities demonstrated by its higher modularity. The comparison of the visualized networks is clearly showing the difference in the interaction level. Green nodes that denote tutors are in the center of both networks. Yet, in Course A this center is the core of interaction that connects several peripheral nodes but in Course B even distant nodes are well connected with a larger number of peers as well.",
+            "cite_spans": [
+                {
+                    "start": 561,
+                    "end": 571,
+                    "text": "(Figs. 16,",
+                    "ref_id": null
+                },
+                {
+                    "start": 572,
+                    "end": 575,
+                    "text": "17)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 878,
+                    "end": 887,
+                    "text": "(Table 13",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 905,
+                    "end": 914,
+                    "text": "(Fig. 18)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 915,
+                    "end": 919,
+                    "text": ". 18",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "A comparison between students' communities"
+        },
+        {
+            "text": "Another type of visual representation that provides a valid comparison of the social interaction is the distribution of some typical network metrics. As it was mentioned above, weighted degree in the one-mode network of forum participants represents the number of participants a person communicated with through a post in a common thread, weighted by the number of messages he/she has posted. Thus, for an active participant weighted degree rises in a non-proportional way. The distribution of weighted degree in two courses (Fig. 19) shows that in Course A there are some very highly active participants while the rest of them have significantly lower participation. On the other hand, in Course B the participation of active students does not differ so much from a regular participant. It is a community where everyone communicates in a balanced manner rather than few persons monopolize the discussion that seems to happen in Course A.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 525,
+                    "end": 534,
+                    "text": "(Fig. 19)",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "A comparison between students' communities"
+        },
+        {
+            "text": "A participant with high betweenness centrality joins parts of the network that would otherwise have been apart. This mediative role usually is assigned to tutors, especially at the beginning of the semester. In Course A all tutors embrace that task, but also there is a student with very high betweenness centrality. He/she is the same student who also stands out in Fig. 19 . He/she participates in almost any thread and often dominates the discussion with persistence. Apart from this finding, the main Fig. 19 The distribution of weighted degree. The left graph refers to course A and the right graph to Course B. Purple bars denote students and blue bares denote tutors (note that the grand difference in y-axis scale between two courses) difference between the communities of the two courses is that in Course B more participants act meditatively and facilitate communication and collaboration, while in Course A there are fewer students in this role. Distant nodes in the collaboration network with high eccentricity are indicating that these students did not establish strong ties with their peers and stayed in the periphery of the community. In the second-year course, there are only three remote students, far fewer than the first-year's remote students.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 367,
+                    "end": 374,
+                    "text": "Fig. 19",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 505,
+                    "end": 512,
+                    "text": "Fig. 19",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "A comparison between students' communities"
+        },
+        {
+            "text": "The authority distribution tells a similar story. In Course A there are a lot of authoritative participants having a leading role in the community. At the same time, there is a large number of low authority participants.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A comparison between students' communities"
+        },
+        {
+            "text": "All the distributions presented in this section (Figs. 19, 20, 21 and 22) designate that there are two types of communities: a \"leaders-followers\" community in Course Fig. 21 The distribution of Eccentricity. The left graph refers to Course A and the right graph to Course B. Purple bars denote students and blue bares denote tutors A, and a collaborative/democratized community in Course B. This is a strong indication of a maturation process that concerns the online students who gradually adapt to the distance learning environment, create bonds with their tutors and their peers that help them to cross the barriers of physical distance and communicate effectively and enhance their learning autonomy and, at the same time, becoming members of a collaborative community.",
+            "cite_spans": [
+                {
+                    "start": 48,
+                    "end": 58,
+                    "text": "(Figs. 19,",
+                    "ref_id": null
+                },
+                {
+                    "start": 59,
+                    "end": 62,
+                    "text": "20,",
+                    "ref_id": null
+                },
+                {
+                    "start": 63,
+                    "end": 73,
+                    "text": "21 and 22)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 167,
+                    "end": 174,
+                    "text": "Fig. 21",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "A comparison between students' communities"
+        },
+        {
+            "text": "Borje Holmberg who strongly supported empathy and individualization in Distance Learning, even before technological tools revolutionize communication, in his book \"Theory and Practice of Distance education\" (2005) indicated three types of guided didactic dialogue: a) commentary on the learning process b) personal support of the learner's reflection and c) referents for evaluating learning competence. All three types of conversation can be supported by the discussion forum where, additional, those who do not actively participate can be benefited too. The first research question (RQ1) was aiming to propose a process that takes into account both academic and social aspects of learning. The proposed methodology was thoroughly described in Sect. 6. The methodology generally follows the LA cycle that has its roots in grounded learning theories and has several specific steps that serve the purpose of this research. The results provide a rich description of the learning and the social behavior of students using a combination of relevant indices.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and pedagogical reflections"
+        },
+        {
+            "text": "Regarding the identification of common features between the communities of the courses, it was found that in the heart of the interaction tutors and highly graded students were placed (Tables 5 and 9 ). Active participants with a high academic profile can act as the More Knowledgeable Other (Vygotsky, 1978) enhancing the learning process. Additionally, the combination of grades and network metrics revealed outliers in both courses. The first extreme case is a student in Course A, a \"super-poster\" Fig. 22 Authority distribution for both courses. The left graph refers to Course A and the right graph to course B. Purple bars denote students and blue bares denote tutors who heavily contributed to the forum community. However, a mass quantitative contribution does not necessarily imply a qualitative contribution (Huang et al., 2014) . Network metrics indicate that this is the case with the certain student as he/she is engaged in a large number of threads with a reply rate far greater than the average, insisting on long dialogues often only with his/her tutors. The second outlier is a student in Course B whose academic and social performance was steadily high. However, he/she didn't sit the final exam. It is obviously a case where personal barriers led the student to fail the course. Similar cases stress the importance of the communication and phycological support that goes beyond tutoring and provide second chances for students in need. The combination of metrics also reveals small differences between students that denote different learning styles and behaviors like the example presented in Sect. 7.1. One of the main findings of this study regarding the contribution of certain variables to the explanation of students' learning behavior comes from the dimensionality reduction process. The PCA pointed three unrelated principal components that explain over 70% of the variance in both courses. The first factor is the network position factor that gathers all network metrics, proving the importance of the social aspect of learning as it is express in the discussion forum community. The second factor is the academic performance factor relying on students' grades, and the online presence factor is mainly related to the number of views. This result describes all students, regardless of the course they participated in even though the communities that were analyzed had significant differences in their structure and their participants' behavior.",
+            "cite_spans": [
+                {
+                    "start": 292,
+                    "end": 308,
+                    "text": "(Vygotsky, 1978)",
+                    "ref_id": "BIBREF75"
+                },
+                {
+                    "start": 819,
+                    "end": 839,
+                    "text": "(Huang et al., 2014)",
+                    "ref_id": "BIBREF30"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 184,
+                    "end": 199,
+                    "text": "(Tables 5 and 9",
+                    "ref_id": "TABREF4"
+                },
+                {
+                    "start": 502,
+                    "end": 509,
+                    "text": "Fig. 22",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Discussion and pedagogical reflections"
+        },
+        {
+            "text": "Several findings indicated the maturation of the learners' community as they pass from a first-year compulsory course to a second-year optional course (RQ3). Already by comparing some of the primitive variables some simple, yet important differences occur. Students performed better in Course B. Moreover, in Course B a greater percentage of students participated actively in the forum community. On the other hand, students in Course A were visiting more often the forum just to read other participants' posts, indicating passive participation. The online participation becomes more substantial in Course B, where derived network metrics indicate that more students undertook central roles in the interaction community. The higher quantity and quality of second-year students' participation in the forum implies an increasing acceptance of the facilitating function of the forum community in the learning process. The network visualization illustrates complex relations that reveal the structure of the community as a whole, as well as individual features derived from each node's position. The differences in the networks' structure ( Fig. 18 ) reveals that Course A was a novice, tutor-centered community that contained many peripheral participants. On the contrary, the graph created by Course's B participants interaction was a more \"small-word\"-like network, where students tend to act more autonomously, building relationships with peers in a more coherent community. These results are also confirmed by the distribution of the network metrics presented in Sect. 7.3. The final step of data modeling included a cluster analysis. Two out of the four clusters that emerged in each course had common features: the first one contained high-graded students who actively participated in the forum community, and the second contained less sociable students with good academic performance. However, in Course A the same cluster contains all poorly performed students, regardless of their social behavior, whereas, in Course B there were two separate clusters of low-graded students: one with those who participated actively in the forum community and one with the non-participants (who also had slightly worse grades). The cluster of the low-graded and socially active students is a typical group of students where intervention has to be made. They were probably interacting with the learning community seeking support, but unsurpassed barriers prevented them from succeeding. Finally, it is important to note that the clusters in Course A are much more coherent (Mean Squared Error = 0,49) than clusters in Course B (Mean Squared Error = 1,14) indicating more homogeneous groups of participants.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 1137,
+                    "end": 1144,
+                    "text": "Fig. 18",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Discussion and pedagogical reflections"
+        },
+        {
+            "text": "Students in the learning community were classified by Wegner (1999) into four groups depending on the level of their contribution:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and pedagogical reflections"
+        },
+        {
+            "text": "i. Full participation ii. Legitimate peripherality iii. Marginality iv. Full non-participation Even though this classification was rather a theoretical approach in the Community of Practice educational theory, LA confirms the existence of these groups. The experimental testing of the proposed methodology produced clusters that, in some cases, match the abovementioned classification. Cluster 1 of the Course A and cluster 2 of the Course B could match the full participation group (i). Clusters of Full non-participation (iv) were identified in both courses (cluster 4 in both courses) while clusters 3 and 2 of the Course A and Course B respectively, could be included in the Legitimate peripherality (ii) group. However, cluster 1 of the Course B that contains active participants with low academic performance cannot be assigned to any of the four groups of Wegner's classification. This fact provides a strong indication that other parameters apart from forum activity should be intergraded when studying learning communities.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and pedagogical reflections"
+        },
+        {
+            "text": "As it concerns the classification of learners, in a relevant study about the use of learning tools in an LMS (including forum use) Lust et al. (2013) identified four disparate groups that match Wegner's pre-LMS classification:",
+            "cite_spans": [
+                {
+                    "start": 131,
+                    "end": 149,
+                    "text": "Lust et al. (2013)",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion and pedagogical reflections"
+        },
+        {
+            "text": "i. no-users, ii. intensive active learners iii. selective users iv. intensive superficial Although there are numerous studies in the field of learning analytics incorporating discretely SNA, PCA and clustering methods, authors were not able to find any relevant studies where clustering is based on the combination of the level of social interaction with actual learning outcome metrics in a latent space created by principal components. Due the multidimensionality of the research problem it has to be stressed that the groups found in this study are probably subject-related sensitive. Moreover, the level of education might also differentiate the results.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion and pedagogical reflections"
+        },
+        {
+            "text": "This paper proposes an exploratory, multilayered methodology aiming to investigate students' learning behavior in an online environment. The experimental design and evaluation brought into light some interesting results for students' profiling as well as for their communities' structure. Dawson et al. (2019) highlighted the need for an integrative, complex, and holistic view to understand the dynamics outside of a specific course that influence learning performance as learning experience does not limit to a single course. The selection of two successive courses allowed us to compare the learning habits of the participants and get a sense of their evolvement in the learning community. There are some common features between courses but also some important distinctions signifying the change that comes along in students learning path. However, the three principal components that similarly emerged for the two student communities, highlight the important factors that can describe learning behavior based on observable attitudes of their digital traces. The repeatability of the results is an issue of many related aspects. In our future work, we plan to automate the proposed LA process, flexibly, so that the experiments could be repeated in different settings, providing results with higher generalizability.",
+            "cite_spans": [
+                {
+                    "start": 289,
+                    "end": 309,
+                    "text": "Dawson et al. (2019)",
+                    "ref_id": "BIBREF19"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusion"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "A recommender system based on local random walks and spectral methods",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Abbassi",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Mirrokni",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Proceedings of the 9th WebKDD and 1st SNA-KDD 2007 workshop on Web mining and social network analysis",
+            "volume": "",
+            "issn": "",
+            "pages": "102--108",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Learning Together for Mastery by Using a Discussion Forum",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Amano",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Tsuzuku",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Suzuki",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Hiraoka",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "2019 International Symposium on Educational Technology (ISET)",
+            "volume": "",
+            "issn": "",
+            "pages": "165--169",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Local graph partitioning using pagerank vectors",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Andersen",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Chung",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Lang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "47th Annual IEEE Symposium on Foundations of Computer Science (FOCS'06)",
+            "volume": "",
+            "issn": "",
+            "pages": "475--486",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Gephi: An open-source software for exploring and manipulating networks",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Bastian",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Heymann",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Jacomy",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Icwsm",
+            "volume": "8",
+            "issn": "",
+            "pages": "361--362",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Pajek-program for large network analysis",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Batagelj",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Mrvar",
+                    "suffix": ""
+                }
+            ],
+            "year": 1998,
+            "venue": "Connections",
+            "volume": "21",
+            "issn": "2",
+            "pages": "47--57",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Teaching in a Digital Age",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Bates",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Predicting Drop-Out from Social Behaviour of Students. International Educational Data Mining Society",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bayer",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Bydzovsk\u00e1",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "G\u00e9ryk",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Obsivac",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Popelinsky",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Ucinet for Windows: Software for social network analysis",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Borgatti",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Everett",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Freeman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "analytic technologies",
+            "volume": "6",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Interaction in distance-learning courses",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Bouhnik",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Marcus",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Journal of the American Society for Information Science and Technology",
+            "volume": "57",
+            "issn": "3",
+            "pages": "299--305",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "A global outlook to the interruption of education due to COVID-19 Pandemic: Navigating in a time of uncertainty and crisis",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Bozkurt",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Jung",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xiao",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Vladimirschi",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Schuwer",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Egorov",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Rodes",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Asian Journal of Distance Education",
+            "volume": "15",
+            "issn": "1",
+            "pages": "1--126",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "The anatomy of a large-scale hypertextual web search engine. Computer Networks and ISDN Systems",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Brin",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Page",
+                    "suffix": ""
+                }
+            ],
+            "year": 1998,
+            "venue": "",
+            "volume": "30",
+            "issn": "",
+            "pages": "107--117",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "A PageRank model for player performance assessment in basketball, soccer and hockey",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Brown",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:1704.00583"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Detecting communities in large networks",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Capocci",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Servedio",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Caldarelli",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Colaiori",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "Physica A: Statistical Mechanics and Its Applications",
+            "volume": "352",
+            "issn": "2-4",
+            "pages": "669--676",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Social network analysis in e-learning environments: A preliminary systematic review",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Cela",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "\u00c1"
+                    ],
+                    "last": "Sicilia",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "S\u00e1nchez",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Educational Psychology Review",
+            "volume": "27",
+            "issn": "1",
+            "pages": "219--246",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Meerkat: Community mining with dynamic social networks",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Fagnan",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Goebel",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Rabbany",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Sangi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Takaffoli",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "\u2026 &amp; Zaiane",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "2010 IEEE International Conference on Data Mining Workshops",
+            "volume": "",
+            "issn": "",
+            "pages": "1377--1380",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Factors influencing peer learning and performance in MOOC asynchronous online discussion forum",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Chiu",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Hew",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Australasian Journal of Educational Technology",
+            "volume": "34",
+            "issn": "4",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "The learning analytics cycle: closing the loop effectively",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Clow",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Proceedings of the 2nd international conference on learning analytics and knowledge",
+            "volume": "",
+            "issn": "",
+            "pages": "134--138",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Predicting success in massive open online courses (MOOCs) using cohesion network analysis",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Crossley",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Dascalu",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Mcnamara",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Baker",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Trausan-Matu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "International Society of the Learning Sciences",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Increasing the impact of learning analytics",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Dawson",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Joksimovic",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Poquet",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Siemens",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Proceedings of the 9th International Conference on Learning Analytics & Knowledge",
+            "volume": "",
+            "issn": "",
+            "pages": "446--455",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Social network analysis of a gamified e-learning course: Small-world phenomenon and network metrics as predictors of academic performance",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "De-Marcos",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Garc\u00eda-L\u00f3pez",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Garc\u00eda-Cabot",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Medina-Merodio",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Dom\u00ednguez",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Mart\u00ednez-Herr\u00e1iz",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Diez-Folledo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Computers in Human Behavior",
+            "volume": "60",
+            "issn": "",
+            "pages": "312--321",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Authority rankings from HITS, Pag-eRank, and SALSA: Existence, uniqueness, and effect of initialization",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Farahat",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Lofaro",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Miller",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Rae",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Ward",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "SIAM Journal on Scientific Computing",
+            "volume": "27",
+            "issn": "4",
+            "pages": "1181--1201",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Let's not forget: Learning analytics are about learning",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Ga\u0161evi\u0107",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Dawson",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Siemens",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "",
+            "volume": "59",
+            "issn": "",
+            "pages": "64--71",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "A PCA study of student performance indicators in a Web 2.0-based learning environment",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Giovannella",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Scaccia",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Popescu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "2013 IEEE 13th International Conference on Advanced Learning Technologies",
+            "volume": "",
+            "issn": "",
+            "pages": "33--35",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "An effective LA approach to predict student achievement",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Gkontzis",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kotsiantis",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Tsoni",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Verykios",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Proceedings of the 22nd Pan-Hellenic Conference on Informatics",
+            "volume": "",
+            "issn": "",
+            "pages": "76--81",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Polarity, emotions and online activity of students and tutors as features in predicting grades",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Gkontzis",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kotsiantis",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Kalles",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Panagiotakopoulos",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Verykios",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Intelligent Decision Technologies",
+            "volume": "",
+            "issn": "",
+            "pages": "1--28",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Comparative analysis of pagerank and hits algorithms",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Grover",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Wason",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "International Journal of Engineering Research & Technology (IJERT)",
+            "volume": "1",
+            "issn": "8",
+            "pages": "1--15",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "GraphFES: A web service and application for Moodle message board social graph extraction",
+            "authors": [
+                {
+                    "first": "\u00c1",
+                    "middle": [],
+                    "last": "Hern\u00e1ndez-Garc\u00eda",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Su\u00e1rez-Navas",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Big data and learning analytics in higher education",
+            "volume": "",
+            "issn": "",
+            "pages": "167--194",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Theory and practice of distance education",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Holmberg",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "ibgp: A bipartite graph propagation approach for mobile advertising fraud detection. Mobile Information Systems",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Liang",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Dong",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Superposter behavior in MOOC forums",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Dasgupta",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ghosh",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Manning",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Sanders",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Proceedings of the first ACM conference on Learning@ scale conference",
+            "volume": "",
+            "issn": "",
+            "pages": "117--126",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "When the Web meets the cell: Using personalized PageRank for analyzing protein interaction networks",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Iv\u00e1n",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Grolmusz",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Bioinformatics",
+            "volume": "27",
+            "issn": "3",
+            "pages": "405--407",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "ForceAtlas2, a continuous graph layout algorithm for handy network visualization designed for the Gephi software",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Jacomy",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Venturini",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Heymann",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Bastian",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "PloS One",
+            "volume": "9",
+            "issn": "6",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Social network analysis: A framework for identifying communities in higher education online learning",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Jan",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Vlachopoulos",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Technology, Knowledge and Learning",
+            "volume": "24",
+            "issn": "4",
+            "pages": "621--639",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "AptRank: An adaptive PageRank model for protein function prediction on bi-relational graphs",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Jiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Kloster",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Gleich",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Gribskov",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Bioinformatics",
+            "volume": "33",
+            "issn": "12",
+            "pages": "1829--1836",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "A learning analytics methodology for detecting sentiment in student fora: A case study in Distance Education",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Kagklis",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Karatrantou",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Tantoula",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Panagiotakopoulos",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Verykios",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "European Journal of Open, Distance and E-Learning",
+            "volume": "18",
+            "issn": "2",
+            "pages": "74--94",
+            "other_ids": {}
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Student admission data analytics for open and distance education in Greece. Open Education: The Journal for Open and Distance Education and Educational Technology",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Kagklis",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Lionarakis",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Marketos",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Panagiotakopoulos",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Stavropoulos",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Verykios",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "13",
+            "issn": "",
+            "pages": "6--16",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "PageRank model of opinion formation on social networks",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Kandiah",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Shepelyansky",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Physica a: Statistical Mechanics and Its Applications",
+            "volume": "391",
+            "issn": "22",
+            "pages": "5779--5793",
+            "other_ids": {}
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Learning Analytics-New Flavor and Benefits for Educational Environments",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kla\u0161nja-Milicevic",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ivanovic",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Informatics in Education",
+            "volume": "17",
+            "issn": "2",
+            "pages": "285--300",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Authoritative sources in a hyperlinked environment",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Kleinberg",
+                    "suffix": ""
+                }
+            ],
+            "year": 1999,
+            "venue": "Journal of the ACM (JACM)",
+            "volume": "46",
+            "issn": "5",
+            "pages": "604--632",
+            "other_ids": {}
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Rethinking university teaching: A conversational framework for the effective use of learning technologies",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Laurillard",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "How could digital learning at scale address the issue of equity in education? Learning at scale for the global south. Foundation for Information Technology Education and Development",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Laurillard",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Kennedy",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Efficient behavior of small-world networks",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Latora",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Marchiori",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Physical review letters",
+            "volume": "87",
+            "issn": "19",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "PageRank approach to ranking national football teams",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Lazova",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Basnarkov",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:1503.01331"
+                ]
+            }
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Identification of essential proteins based on improved HITS algorithm",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Lei",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Genes",
+            "volume": "10",
+            "issn": "2",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "A Study of PageRank in Undirected Graphs",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Lotfi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ghorbani",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Mesgarani",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Mathematics Interdisciplinary Research",
+            "volume": "4",
+            "issn": "2",
+            "pages": "157--169",
+            "other_ids": {}
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "A learning analytics methodology for student profiling",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Lotsari",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Verykios",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Panagiotakopoulos",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Kalles",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Hellenic Conference on Artificial Intelligence",
+            "volume": "",
+            "issn": "",
+            "pages": "300--312",
+            "other_ids": {}
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Students' tool-use within a web enhanced course: Explanatory mechanisms of students' tool-use pattern",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Lust",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Elen",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Clarebout",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Computers in Human Behavior",
+            "volume": "",
+            "issn": "5",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "Cybersecurity and applied mathematics",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Metcalf",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Casey",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "MoleculaRnetworks: An integrated graph theoretic and data mining tool to explore solvent organization in molecular simulation",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Mooney",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Corrales",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Clark",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Journal of Computational Chemistry",
+            "volume": "33",
+            "issn": "8",
+            "pages": "853--860",
+            "other_ids": {}
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "The Theory of Transactional Distance",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Moore",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "89--108",
+            "other_ids": {}
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "PageRank-based traffic simulation using taxi probe data",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Mukai",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Procedia Computer Science",
+            "volume": "22",
+            "issn": "",
+            "pages": "1156--1163",
+            "other_ids": {}
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "Styles and strategies of learning",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Pask",
+                    "suffix": ""
+                }
+            ],
+            "year": 1976,
+            "venue": "British Journal of Educational Psychology",
+            "volume": "46",
+            "issn": "2",
+            "pages": "128--148",
+            "other_ids": {}
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "Spectral centrality measures in complex networks",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Perra",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Fortunato",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Physical Review E",
+            "volume": "78",
+            "issn": "3",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "Predicting students' final performance from participation in on-line discussion forums",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Romero",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "L\u00f3pez",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Luna",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ventura",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Computers & Education",
+            "volume": "68",
+            "issn": "",
+            "pages": "458--472",
+            "other_ids": {}
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "Web usage mining for predicting marks of students that use Moodle courses",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Romero",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Espejo",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Zafra",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Romero",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ventura",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Computer Applications in Engineering Education",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "The Reflective Turn: Case studies in and on educational practice",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Sch\u00f6n",
+                    "suffix": ""
+                }
+            ],
+            "year": 1991,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF57": {
+            "ref_id": "b57",
+            "title": "Eccentricity of networks with structural constraints. Discussiones mathematicae",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Sereni",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Krnc",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "\u0160krekovski",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Yilma",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "1--22",
+            "other_ids": {}
+        },
+        "BIBREF58": {
+            "ref_id": "b58",
+            "title": "Teaching and learning analytics to support teacher inquiry: A systematic literature review",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sergis",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Sampson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Learning analytics: Fundaments, applications, and trends",
+            "volume": "",
+            "issn": "",
+            "pages": "25--63",
+            "other_ids": {}
+        },
+        "BIBREF59": {
+            "ref_id": "b59",
+            "title": "Building pipelines for educational data using AI and multimodal analytics: A \"grey-box\" approach",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Sharma",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Papamitsiou",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Giannakos",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "British Journal of Educational Technology",
+            "volume": "50",
+            "issn": "6",
+            "pages": "3004--3031",
+            "other_ids": {}
+        },
+        "BIBREF60": {
+            "ref_id": "b60",
+            "title": "Learning analytics: The emergence of a discipline",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Siemens",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "American Behavioral Scientist",
+            "volume": "57",
+            "issn": "10",
+            "pages": "1380--1400",
+            "other_ids": {}
+        },
+        "BIBREF61": {
+            "ref_id": "b61",
+            "title": "Connectivism & connective knowledge",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Siemens",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Downes",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF62": {
+            "ref_id": "b62",
+            "title": "Learning analytics and educational data mining: towards communication and collaboration",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Siemens",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "S D"
+                    ],
+                    "last": "Baker",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Proceedings of the 2nd international conference on learning analytics and knowledge",
+            "volume": "",
+            "issn": "",
+            "pages": "252--254",
+            "other_ids": {}
+        },
+        "BIBREF63": {
+            "ref_id": "b63",
+            "title": "Visualizing patent statistics by means of social network analysis tools. World Patent Information",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Sternitzke",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Bartkowski",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Schramm",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "",
+            "volume": "30",
+            "issn": "",
+            "pages": "115--131",
+            "other_ids": {}
+        },
+        "BIBREF64": {
+            "ref_id": "b64",
+            "title": "The influence of grouping/non-grouping strategies upon student interaction in online forum: A social network analysis",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Guo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "2018 International Symposium on Educational Technology (ISET)",
+            "volume": "",
+            "issn": "",
+            "pages": "173--177",
+            "other_ids": {}
+        },
+        "BIBREF65": {
+            "ref_id": "b65",
+            "title": "Using Link Analysis Algorithms to Study the Role of Neurons in the Worm Connectome",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Szczurek",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Horeni",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "IEEE 32nd International Conference on Advanced Information Networking and Applications (AINA)",
+            "volume": "",
+            "issn": "",
+            "pages": "651--657",
+            "other_ids": {}
+        },
+        "BIBREF66": {
+            "ref_id": "b66",
+            "title": "A data-driven complex network approach for planning sustainable and inclusive urban mobility hubs and services. Environment and Planning B: Urban Analytics and City Science",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Tran",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Draeger",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF67": {
+            "ref_id": "b67",
+            "title": "Networks identify productive forum discussions",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Traxler",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Gavrin",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Lindell",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Physical Review Physics Education Research",
+            "volume": "14",
+            "issn": "2",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF68": {
+            "ref_id": "b68",
+            "title": "Fairness-Aware Link Analysis",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Tsioutsiouliklis",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Pitoura",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Tsaparas",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Kleftakis",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Mamoulis",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2005.14431"
+                ]
+            }
+        },
+        "BIBREF69": {
+            "ref_id": "b69",
+            "title": "Looking for the \"More Knowledgeable Other\" through Learning Analytics",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Tsoni",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Verykios",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "proceeding of 10th International Conference in Open and Distance Learning",
+            "volume": "10",
+            "issn": "",
+            "pages": "239--251",
+            "other_ids": {}
+        },
+        "BIBREF70": {
+            "ref_id": "b70",
+            "title": "Looking under the hood of students' collaboration networks in distance learning. The Envisioning Report for Empowering Universities",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Tsoni",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Paxinou",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Stavropoulos",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Panagiotakopoulos",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Verykios",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "39--41",
+            "other_ids": {}
+        },
+        "BIBREF71": {
+            "ref_id": "b71",
+            "title": "From Analytics to Cognition: Expanding the Reach of Data in Learning",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Tsoni",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Samaras",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Paxinou",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Panagiotakopoulos",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Verykios",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Proceedings of CSEDU",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF72": {
+            "ref_id": "b72",
+            "title": "Leveraging Learning Analytics with the Power of Words",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Tsoni",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Stavropoulos",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Verykios",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "24--27",
+            "other_ids": {}
+        },
+        "BIBREF73": {
+            "ref_id": "b73",
+            "title": "Distance learning: Promises, problems, and possibilities",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Valentine",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Online Journal of Distance Learning Administration",
+            "volume": "5",
+            "issn": "3",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF74": {
+            "ref_id": "b74",
+            "title": "The current landscape of learning analytics in higher education",
+            "authors": [
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Viberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Hatakka",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "B\u00e4lter",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Mavroudi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Computers in Human Behavior",
+            "volume": "89",
+            "issn": "",
+            "pages": "98--110",
+            "other_ids": {}
+        },
+        "BIBREF75": {
+            "ref_id": "b75",
+            "title": "Mind in society: The development of higher psychological processes",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Vygotsky",
+                    "suffix": ""
+                }
+            ],
+            "year": 1978,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF76": {
+            "ref_id": "b76",
+            "title": "Keyword extraction based on pagerank",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+            "volume": "",
+            "issn": "",
+            "pages": "857--864",
+            "other_ids": {}
+        },
+        "BIBREF77": {
+            "ref_id": "b77",
+            "title": "Students' interactions in online asynchronous discussion forum: A Social Network Analysis",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Yusof",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Rahman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "2009 International Conference on Education Technology and Computer",
+            "volume": "",
+            "issn": "",
+            "pages": "25--29",
+            "other_ids": {}
+        },
+        "BIBREF78": {
+            "ref_id": "b78",
+            "title": "Identifying important scholars via directed scientific collaboration networks",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Zeng",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Fan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Di",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Scientometrics",
+            "volume": "114",
+            "issn": "3",
+            "pages": "1327--1343",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "A sample undirected onemode network of five nodes",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "The LA cycle",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "The students' groups in the latent space (Course A) Average Grades in Course B",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "The 3d Scatterplot for the three main components in the latent space partitioned by forum participation for Course B",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "The students' groups in the latent space (Comparison of three network metrics (HC: Harmonic Closeness Centrality, EC: Eigenvector Centrality, HITS: Hub and Authority)",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": "Betweenness Centrality distribution for courses A and B. The left graph refers to Course A and the right graph to Course B. Purple bars denote students and blue bares denote tutors",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "The list of links between nodes in the sample network",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Basic metrics of the sample network's nodes",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "Basic information about the courses",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF4": {
+            "text": "Network metrics for the ten more active participants in Course A based on their Pagerank scoreFig. 5Network metrics for the ten more active forum participants in Course A",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF5": {
+            "text": "Suitability testing for PCA (Course A dataset) Fig. 7 Principal components for Course A dataset (left: Scree Plot, right: Initial eigenvalues and variance explained)",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF6": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF7": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF8": {
+            "text": "Network metrics for the ten more active forum participants in Course B based on their Pagerank score",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF9": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF11": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF12": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF13": {
+            "text": "have the same diameter. The four degrees of separation indicate that the most distant",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": []
+}

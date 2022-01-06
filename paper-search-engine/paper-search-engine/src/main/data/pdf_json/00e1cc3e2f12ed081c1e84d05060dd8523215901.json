@@ -1,0 +1,2365 @@
+{
+    "paper_id": "00e1cc3e2f12ed081c1e84d05060dd8523215901",
+    "metadata": {
+        "title": "Rapid, Affordable and Scalable SARS-CoV-2 Detection from Saliva",
+        "authors": [
+            {
+                "first": "Andrew",
+                "middle": [],
+                "last": "Hayden",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University at Albany",
+                    "location": {
+                        "postCode": "12144",
+                        "settlement": "Rensselaer",
+                        "region": "NY",
+                        "country": "USA"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Marcy",
+                "middle": [],
+                "last": "Kuentzel",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University at Albany",
+                    "location": {
+                        "postCode": "12144",
+                        "settlement": "Rensselaer",
+                        "region": "NY",
+                        "country": "USA"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Sridar",
+                "middle": [
+                    "V"
+                ],
+                "last": "Chittur",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University at Albany",
+                    "location": {
+                        "postCode": "12144",
+                        "settlement": "Rensselaer",
+                        "region": "NY",
+                        "country": "USA"
+                    }
+                },
+                "email": "schittur@albany.edu"
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Here we present an inexpensive, rapid, and robust RT-LAMP based SARS-CoV-2 detection method that is easily scalable, enabling point of care facilities and clinical labs to determine results from patients' saliva directly in 30 minutes for less than $2 a sample. The method utilizes a novel combination of widely available reagents that can be prepared in bulk, plated and frozen and remain stable until samples are received. This innovation dramatically reduces preparation time, enabling high-throughput automation and testing with time to results (including setup) in less than one hour for 96 patient samples simultaneously when using a 384 well format. By utilizing a dual-reporter (phenol red pH indicator for end-point detection and SYTO-9 fluorescent dye for real-time), the assay also provides internal validation of results and redundancy in the event of an instrument malfunction.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Since early 2020 the world has been overtaken by the Covid-19 pandemic caused by infections of the Sars-Cov2 coronavirus. There have been many efforts by various groups around the globe to develop molecular and antigen-based assays for detection and surveillance of this infection.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "Early efforts using RT-qPCR 1,2 based detection of nasopharyngeal swabs from individuals were quickly hampered by disruption of supply chains for reagents and consumables and insufficient testing sites across the world. These challenges led scientists to look for alternative methods for detection using a wide variety of biosamples that included oral/nasal swabs, mouth gargles 3 , saliva 2,4-6 and urine 7, 8 . The detection methodologies also included non-RT-qPCR methods such as reverse transcription loop isothermal amplification (RT-LAMP 2, [9] [10] [11] ), CRISPR-based [12] [13] [14] , reverse transcription recombinase polymerase amplification (RT-RPA) 15 or reverse transcription recombinase aided amplification (RT-RAA) 16 with their outputs coupled with fluorescent or colorimetric reporters as well as lateral flow strip platforms to facilitate readout processes. Some of the popular methods still included the requirement to isolate the virus from the sample and this was a cause of concern again due to the extra steps/consumables required. The requirements for expensive instrumentation, reagents and time prevents some of these assays from being widely deployable especially to low resource settings. Here we describe our modifications of the RT-LAMP assay using saliva that is inexpensive, quick and scalable for various resource settings and does not require RNA extraction.",
+            "cite_spans": [
+                {
+                    "start": 406,
+                    "end": 408,
+                    "text": "7,",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 409,
+                    "end": 410,
+                    "text": "8",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 544,
+                    "end": 546,
+                    "text": "2,",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 547,
+                    "end": 550,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 551,
+                    "end": 555,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 556,
+                    "end": 560,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 577,
+                    "end": 581,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 582,
+                    "end": 586,
+                    "text": "[13]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 587,
+                    "end": 591,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 662,
+                    "end": 664,
+                    "text": "15",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 731,
+                    "end": 733,
+                    "text": "16",
+                    "ref_id": "BIBREF15"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "During our protocol development, we noticed that the standard LAMP assay protocol tended to generate false positive reactions (albeit at later time points) and we questioned if inclusion of the loop primers were necessary. Previous reports from other groups using LAMP have suggested that the loop primers could result in reproducibility issues with LAMP. Our analysis suggested that while exclusion of loop primers delayed the reactions, we could detect amplification reliably by omitting just the loop forward (LF) primer from the master mix. This observation resulted in our recipe with just 5 of the 6 commonly used primers for each gene in the LAMP protocol. Our assays included primer sets for the E and the N genes and is called EN* primer mix ( Figure 1 ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 753,
+                    "end": 761,
+                    "text": "Figure 1",
+                    "ref_id": null
+                }
+            ],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "The assay is a modified version of the colorimetric RT-LAMP protocol developed by Tanner et al. at New England Biolabs 2,4,17-19 , which includes guanidine hydrochloride for enhanced sensitivity and specificity. Further modifications included the addition of Antarctic thermolabile UDG to reduce carryover contamination thereby reducing false-positives, and the inclusion of RNaseOUT recombinant RNase inhibitor or polyvinylsulfonic acid (PVSA) for improved sample stability 20, 21 .",
+            "cite_spans": [
+                {
+                    "start": 82,
+                    "end": 95,
+                    "text": "Tanner et al.",
+                    "ref_id": null
+                },
+                {
+                    "start": 475,
+                    "end": 478,
+                    "text": "20,",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 479,
+                    "end": 481,
+                    "text": "21",
+                    "ref_id": "BIBREF20"
+                }
+            ],
+            "ref_spans": [],
+            "section": "METHODS AND MATERIALS"
+        },
+        {
+            "text": "The saliva sample preparation method is modified from Rabe and Cepko's protocol 22 .",
+            "cite_spans": [
+                {
+                    "start": 80,
+                    "end": 82,
+                    "text": "22",
+                    "ref_id": "BIBREF21"
+                }
+            ],
+            "ref_spans": [],
+            "section": "METHODS AND MATERIALS"
+        },
+        {
+            "text": "The following reagents used in assay development were purchased from New England BioLabs:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "METHODS AND MATERIALS"
+        },
+        {
+            "text": ", Antarctic Thermolabile UDG (M0372L), dUTP Solution (N0459S). All primers used for early assay development were standard-desalted oligos synthesized by Integrated DNA Technologies (IDT). Assay optimization was performed using HPLC purified inner primers (FIP and BIP) for SARS-CoV-2 E1 and N2 genes synthesized by LGC Biosearch",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "METHODS AND MATERIALS"
+        },
+        {
+            "text": "The RT-LAMP reaction mixes (see supplementary table 1) included two primer mixes (the E1-LF + N2-LF or EN* mix for the COVID-19 test, and the rActin mix as an internal control).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "LAMP Master Mix (15 \u00b5L Reaction Volume) setup"
+        },
+        {
+            "text": "The following reagents were combined in two separate 1.5 mL microcentrifuge tubes in this order: Using a single/multichannel pipette 11.45 \u00b5L of EN* master mix was aliquoted into columns 2-4, 6-8, 10-12, 14-16, 18-20, and 22-24 of a 384 well optical plate. The rActin (11.45 \u00b5L) master mix was aliquoted into columns 1, 5, 9, 13, 17, and 21 . After sealing the plate with optical tape, we centrifuged at 4,000 rpm for 5 minutes to remove bubbles and settle contents in wells. This plate was cover with aluminum foil and seal in a zip lock bag and frozen at -20\u2070C until ready to use.",
+            "cite_spans": [
+                {
+                    "start": 317,
+                    "end": 340,
+                    "text": "1, 5, 9, 13, 17, and 21",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "LAMP Master Mix (15 \u00b5L Reaction Volume) setup"
+        },
+        {
+            "text": ". CC-BY-NC-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. (which was not certified by peer review)",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "LAMP Master Mix (15 \u00b5L Reaction Volume) setup"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted April 5, 2021. ; https://doi.org/10.1101/2021.04.01.21254182 doi: medRxiv preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "LAMP Master Mix (15 \u00b5L Reaction Volume) setup"
+        },
+        {
+            "text": "Upon receipt, saliva was heat-inactivated at 95\u00b0C for 5 minutes, then placed on ice immediately for 3-10 minutes to chill. After cooling, the saliva was centrifuged at 5,000 rpm or greater for 5 minutes to pellet debris. The supernatant was removed while carefully avoiding the pelleted material and transferred to a fresh 1.5 mL tube. This supernatant was then diluted 1:5x or 1:10x with 2.5 mM TCEP + 1 mM EDTA buffer prepared as per Rabe & Cepko's protocol 22 , and pipetted 10X to mix thoroughly, spun down and stored on ice until ready to assay. When saliva samples were unable to be processed immediately, the diluents were frozen at -80 \u2070C for upwards of two weeks.",
+            "cite_spans": [
+                {
+                    "start": 460,
+                    "end": 462,
+                    "text": "22",
+                    "ref_id": "BIBREF21"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Saliva Sample Preparation"
+        },
+        {
+            "text": "On removal from freezer the plate was thawed at room temperature protected from light 20 minutes before running the assay. Once thawed, the plate seal was removed, and 3.55 \u00b5L of positive control was spiked in into wells in columns 2, 6, 10, 14, 18, and 22; 3.55 \u00b5L of NTC (water) was spiked into wells in columns 3, 7, 11, 15, 19, and 23; then saliva samples diluted in 2.5 mM TCEP 1mM EDTA pH 8.0 were spiked in into wells in columns 1, 4, 5, 8, 9, 12, 13, 16, 17, 20, 21, and 24 . After resealing the plate with optical tape, it was vortexed briefly to mix followed by centrifugation at 4,000 rpm for 5 minutes. The assay was performed on a thermal cycler or realtime qPCR instrument with the following settings:",
+            "cite_spans": [
+                {
+                    "start": 436,
+                    "end": 481,
+                    "text": "1, 4, 5, 8, 9, 12, 13, 16, 17, 20, 21, and 24",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Running the Assay"
+        },
+        {
+            "text": "\uf0b7 65\u00b0C for 30 minutes (data collection every 30 seconds for 80 cycles if using qPCR) \uf0b7 4\u00b0C for 5 minutes (or melt-curve analysis if using qPCR)",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Running the Assay"
+        },
+        {
+            "text": ". CC-BY-NC-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. (which was not certified by peer review)",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Running the Assay"
+        },
+        {
+            "text": "Initial testing was conducted using NEB WarmStart\u00ae Colorimetric LAMP 2X Master Mix (DNA & RNA) (M1800L) and WarmStart\u00ae LAMP Kit (DNA & RNA) (E1700L) using N-A and ORF1a primers from Dao Thi et al. 19 , but due to low reproducibility and high false positive rates with these primers, further assay development used E1 and N2 primer sets designed by Zhang et al. 18 combined with 40 mM guanidine hydrochloride. The E1 and N2 primers with guanidine yielded dramatic improvements in sensitivity and specificity of the assay, demonstrating a limit of detection of 10 copies per reaction using Twist Bioscience SARS-CoV-2 control RNA. However, despite these improvements the assay still suffered sporadic non-specific amplification in no template controls. To eliminate carryover contamination as a potential cause of non-specific amplification, Antarctic thermolabile UDG and dUTP were added to the reaction mixture. These components succeeded in quashing NTC amplification, but amplification in positive control reactions remained inconsistent.",
+            "cite_spans": [
+                {
+                    "start": 197,
+                    "end": 199,
+                    "text": "19",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 348,
+                    "end": 363,
+                    "text": "Zhang et al. 18",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "To address this short-coming, both E1 and N2 primers were analyzed using IDT's OligoAnalzyer tool to determine whether cross-reactivity such as primer-dimer or secondary structures in any of the primers might lead to inconsistent amplification as Meagher et al. suggest 23 .",
+            "cite_spans": [
+                {
+                    "start": 270,
+                    "end": 272,
+                    "text": "23",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Primer mix optimization"
+        },
+        {
+            "text": "OligoAnalyzer results revealed that some primer pairs could form exceptionally strong secondary structures even at the LAMP incubation temperature of 65\u2070C. Additionally, it was found the E1-LF primer had a melting-temperature 20\u2070C lower than any other primer in either the E1 or N2 primer sets, suggesting that it could inhibit amplification by out competing the other primers . CC-BY-NC-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Primer mix optimization"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted April 5, 2021. ; https://doi.org/10.1101/2021.04.01.21254182 doi: medRxiv preprint during hybridization. As Khorosheva, E. M., et al. 24 suggest in their research using digital real-time RT-LAMP, LAMP primers must hybridize to the template in a specific order to enable amplification to occur (F3/B3 \uf0e0 FIP/BIP \uf0e0 LF/LB), any other order terminates amplification abruptly.",
+            "cite_spans": [
+                {
+                    "start": 193,
+                    "end": 195,
+                    "text": "24",
+                    "ref_id": "BIBREF23"
+                }
+            ],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "Interestingly, Khorosheva et al. also found in their research that although loop primers improve the speed of amplification in LAMP, these primers do not improve the reaction efficiency, such that a RT-LAMP reaction containing a single loop primer can be as efficient as or more so than a reaction containing two loop primers. Ding et al. 25 also found that removing loop primers from a LAMP reaction can improve specificity and sensitivity. Based on the OligoAnalyzer data and the literature, all SARS-CoV-2 LAMP primer combinations were evaluated systematically to determine the optimum sets (see Figure 2 ). The combined LAMP primer sets E1 and N2 that omitted the LF primers from both sets demonstrated the best specificity, sensitivity and time to positive, so all further tests used this optimum primer combination.",
+            "cite_spans": [
+                {
+                    "start": 339,
+                    "end": 341,
+                    "text": "25",
+                    "ref_id": "BIBREF24"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 599,
+                    "end": 607,
+                    "text": "Figure 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "After primer optimization, sensitivity and specificity testing of direct saliva RT-LAMP was pursued.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Sample RNA integrity optimization"
+        },
+        {
+            "text": "Initial sensitivity tests using mock positive saliva (saliva that was spiked with either Twist control Sensitivity and specificity for mock saliva tests containing 1000 copies or 100 copies of SARS-CoV-2 RNA were both 100% with combined E1-LF and N2-LF primer sets.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Sample RNA integrity optimization"
+        },
+        {
+            "text": "Despite the dramatic improvement in reproducibility of the assay upon inclusion of RNaseOUT, it was felt that the cost of this nuclease inhibitor would be prohibitive especially in low resource settings. To reduce cost and improve accessibility of the assay, chemical nuclease inhibitors were also investigated. A search of the literature 20, 21, 26 revealed that the anionic polymer polyvinylsulfonic acid (PVSA) is an exceptionally potent, thermostable, yet affordable RNase inhibitor when used in RT-qPCR, IVT, and RT-LAMP. Earl et al. 20 demonstrated that PVSA could improve mRNA integrity fivefold when used in IVT at less than 1/1,700 th the cost of conventional ribonuclease inhibitors, and Smyrlaki et al. 21 showed that PVSA at a final concentration of 45 \u00b5g/mL dramatically improved SARS-CoV-2 RNA stability in heat inactivated nasopharyngeal . CC-BY-NC-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [
+                {
+                    "start": 339,
+                    "end": 342,
+                    "text": "20,",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 343,
+                    "end": 346,
+                    "text": "21,",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 347,
+                    "end": 349,
+                    "text": "26",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 527,
+                    "end": 541,
+                    "text": "Earl et al. 20",
+                    "ref_id": null
+                },
+                {
+                    "start": 714,
+                    "end": 716,
+                    "text": "21",
+                    "ref_id": "BIBREF20"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Assay cost reduction"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted April 5, 2021. ; https://doi.org/10.1101/2021.04.01.21254182 doi: medRxiv preprint swabs in their direct RT-qPCR assay. PVSA also lyses cells as Yu, Racevskis, and Webb 26 described, thereby improving RNA yield and potentially decreasing the limit of detection for direct detection from patient samples.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "Comparative sensitivity and specificity testing was done to evaluate the effectiveness of PVSA against RNaseOUT using the same conditions as previously described. These tests showed that PVSA outperformed RNaseOUT at preserving the integrity of RNA in saliva samples (Figure 4 ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 267,
+                    "end": 276,
+                    "text": "(Figure 4",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "RT-LAMP master mix containing a final concentration of 45 \u00b5g/mL PVSA demonstrated better reproducibility and quicker time to positive results than master mixes containing 30 U/reaction",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "RNaseOUT. There were no false positives or false negatives, demonstrating the assay's exceptional robustness when testing saliva directly ( Figure 5 ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 140,
+                    "end": 148,
+                    "text": "Figure 5",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "After establishing that PVSA was at least as effective as RNaseOUT at preserving RNA integrity in saliva, sensitivity tests were conducted to determine the assay's limit of detection (LoD) with PVSA. Mock saliva samples containing viral concentrations from 1000 copies per reaction to 10 copies per reaction were tested in triplicate. This test showed that the assay retained 100% specificity and sensitivity down to 50 copies per reaction, and 33% specificity and 100% sensitivity at 10 copies per reaction -two-fold lower than with RNaseOUT.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "After optimizing the master mix, stability testing was conducted to determine if pre-plated master mix could withstand prolonged cold storage, thereby enabling scalability and dramatically reducing hands-on time for the assay. Three 384 well plates containing triplicate wells for internal controls, positive controls, no template controls, and tests were prepared. Each plate was frozen . CC-BY-NC-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Stability testing"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted April 5, 2021. ; https://doi.org/10.1101/2021.04.01.21254182 doi: medRxiv preprint at -20\u00b0C or -80\u00b0C for the following durations: 24 hours, ten days, and one month. At each time point, one plate was removed and thawed at room temperature ( Figure 6 ), then tested by adding and mixing the appropriate sample or control and run on an ABI QuantStudio 12K Flex qPCR instrument with the program described above.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 299,
+                    "end": 307,
+                    "text": "Figure 6",
+                    "ref_id": null
+                }
+            ],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "During assay development several components and techniques were identified that proved essential to the reliability of the assay. There were also several short-comings to the colorimetric LAMP assay, and the LAMP method in general was found to have a much steeper learning curve than conventional RT-qPCR. The following factors were critical to the assay's performance.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "Thorough in silico screening and bench testing of LAMP primer designs for non-specificity is perhaps the most critical factor in developing a reliable assay, as LAMP reactions typically contain four to 12 primers or more in a reaction mixture. Consequently, non-specific amplification is more probable with LAMP than conventional amplification methods such as PCR, and false positives are a common hazard. Amplification of no template controls were a common occurrence during the early stages of this assay's development, and inconsistent reproducibility of purified RNA positive controls even with high template concentrations strongly suggested that primer cross reactivity was involved. In this assay, it was found that removing certain loop primers sacrificed some reaction speed but vastly improved specificity and reproducibility. This reliability carried over to direct saliva testing, indicating that the tradeoff in speed for specificity was justified.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Screening LAMP primers"
+        },
+        {
+            "text": ". CC-BY-NC-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Screening LAMP primers"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted April 5, 2021. ; https://doi.org/10.1101/2021.04.01.21254182 doi: medRxiv preprint Primer specificity testing requires fluorometric validation, to ensure amplification of true LAMP products. This is an essential stage of early RT-LAMP assay development and should not be overlooked. There are several methods now available for monitoring LAMP specificity, including molecular beacons (LAMP-BEAC 27 ), fluorescent self-quenching LAMP probes (detection of amplification by release of quenching or DARQ 28 ), and quenching of unincorporated amplification signal reporters (QUASR 29 ), or nucleic acid specific fluorescent dyes such as SYTO-9. There are advantages of each chemistry, but for this assay SYTO-9 was chosen as the most economic and convenient solution as it was a component already available with the E1700 NEB WarmStart\u00ae LAMP kit (DNA &RNA), and as others' research has shown 30-32 SYTO-9 is a reliable, non-inhibitory fluorescent reporter in LAMP.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "Through numerous productive conversations with Nathan Tanner of NEB, and others of the Global LAMP Consortium, several reagents were identified which greatly improved the speed, sensitivity, and reliability of the RT-LAMP assay. Among these key ingredients, guanidine hydrochloride 18 was found to halve the time to results for the assay, enabling results in 30 minutes or less when two LAMP primer sets were used. It was also found that SYTO-9 fluorescent dye diluted to 0.05X in DMSO improved specificity and sensitivity of the RT-qLAMP assays. This enhancement is consistent with Wang et al. research 33 , that showed 7.5% DMSO could improve LAMP sensitivity and specificity.",
+            "cite_spans": [
+                {
+                    "start": 604,
+                    "end": 606,
+                    "text": "33",
+                    "ref_id": "BIBREF32"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Reaction additives"
+        },
+        {
+            "text": "Antarctic thermolabile uracil deglycosylase (UDG) was another adjunct suggested by Nathan Tanner, as a means of mitigating carryover contamination and reducing no template . CC-BY-NC-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Reaction additives"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted April 5, 2021. ; https://doi.org/10.1101/2021.04.01.21254182 doi: medRxiv preprint amplification. The inclusion of this enzyme was found to be essential to preventing further false positives that plagued early assay development.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "Each of these components produced enormous improvements when tested using synthetic or purified RNA extracts. However, when direct saliva tests were conducted the same results were not seen. This inconsistency suggested that RNA template degradation was occurring, and another additive was needed to protect the sample during the assay. As mentioned in the methods, various nuclease inhibitors were tested, but ultimately it was found that a very affordable anionic polymer (PVSA) 20,21 was the best nuclease inhibitor for RT-LAMP as it improved the limit of detection by two-fold over the best conventional nuclease inhibitor tested, Invitrogen",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "RNaseOUT, at negligible cost (supplementary table 3 ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 29,
+                    "end": 51,
+                    "text": "(supplementary table 3",
+                    "ref_id": null
+                }
+            ],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "Besides the various adjuncts and primer optimizations made to the standard NEB RT-LAMP reaction, it was found that saliva samples required specific treatment to be assayed directly.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Sample treatment"
+        },
+        {
+            "text": "Several methods for direct saliva RT-LAMP were tested 5,6,22 , some of which included proteinase K for inactivation of nucleases, but it was found that proteinase K remained partially active in the RT-LAMP reaction even after 95\u00b0C heat treatment and flash-freezing on dry ice. In our tests, proteinase K often caused false negative results in the RT-qLAMP assays. Residual proteinase K activity was also found to lead to false positive results in no template controls in the colorimetric assays, presumably due to hydrolysis of salivary proteins and other enzymes. For these reasons, proteinase K was omitted from future testing and nuclease inhibitors were focused on instead.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Sample treatment"
+        },
+        {
+            "text": ". CC-BY-NC-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Sample treatment"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted April 5, 2021. ; https://doi.org/10.1101/2021.04.01.21254182 doi: medRxiv preprint It was also determined during assay development that prolonged heat-inactivation used in some protocols severely degraded viral RNA causing false negative results as others have reported [34] [35] [36] [37] . Consequently, we chose to use a modified version of Rabe and Cepko's protocol that involved heat-treating saliva samples at 95\u00b0C for five minutes prior to dilution in 2.5 mM TCEP with 1mM EDTA buffer. There are two major advantages to this technique. First, by heat inactivating saliva samples prior to addition of other agents, this dramatically reduces exposure to potential biohazardous material for the tester. As Smyrlaki et al. 21 confirmed by plaque assay, heatinactivation at 95\u00b0C for 5 minutes is sufficient to completely eliminate SARS-CoV-2 viral activity.",
+            "cite_spans": [
+                {
+                    "start": 329,
+                    "end": 333,
+                    "text": "[34]",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 334,
+                    "end": 338,
+                    "text": "[35]",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 339,
+                    "end": 343,
+                    "text": "[36]",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 344,
+                    "end": 348,
+                    "text": "[37]",
+                    "ref_id": null
+                },
+                {
+                    "start": 785,
+                    "end": 787,
+                    "text": "21",
+                    "ref_id": "BIBREF20"
+                }
+            ],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "The second major advantage of Rabe Cepko's dilute TCEP solution was that it proved to consistently buffer saliva samples when diluted 5X to 10X, regardless of the collection conditions. Mock tests conducted with saliva samples taken from known negative individuals who drank coffee or even smoked just prior to collection, gave no false positives in any no template controls by colorimetric detection, and all true positive spike-in controls amplified specifically by fluorimetry. This buffer greatly simplified the assay by eliminating the extra time and cost of additional enzymes and processing.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "Here several improvements have been suggested for adapting a conventional RT-LAMP kit to be used for high-throughput direct saliva testing of SARS-CoV-2. However, several shortcomings of the assay were found, yet remained unaddressed due to time and other constraints.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Future developments"
+        },
+        {
+            "text": "Foremost among these were recurrent ambiguous colorimetric results presented by the pH indicator dye used in the colorimetric LAMP mix, phenol red. Phenol red operates within a fairly . CC-BY-NC-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Future developments"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted April 5, 2021. ; https://doi.org/10.1101/2021.04.01.21254182 doi: medRxiv preprint narrow pH range (6.2 to 8.2 38 ) which is convenient for the LAMP reaction, as a mildly buffered solution can demonstrate an observable color change after just a few minutes of amplification.",
+            "cite_spans": [
+                {
+                    "start": 170,
+                    "end": 172,
+                    "text": "38",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "Despite this, a great diversity of colors ranging from cerise, to various shades of orange, to bright yellow can occur during the reaction process. The pH of any reaction component will affect these changes in color. Consequently, interpretation of colorimetric results with phenol red indicator can be very subjective. During our tests it was also found that certain additives could even prevent a color change from occurring (e.g. inorganic pyrophosphatase), such that a known positive control sample that showed strong amplification by fluorescence, appeared to remain negative by phenol red colorimetric detection. Had only a colorimetric reporter been used in these reactions these could not have been identified as false negatives.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "Fortunately, the current pandemic has spurred on unprecedented innovation in engineering, molecular biology, and chemistry and several affordable alternatives to pH indicator dyes for indirect detection have been found that are adaptable to LAMP assays. These include the use of metal indicator dyes such as hydroxy naphthol blue (HNB) 3 , eriochrome black T 39 , and calcein 40 .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "Numerous methods using dual reporter fluorescent dyes have also been developed over the past few years for both indirect colorimetric end point detection and direct fluorescent measurements, including leuco triphenylmethane dyes 41 , and various fluorescent intercalating dyes 30, 32, 42 Another general fault of RT-LAMP assays, including fluorescent assays such as this one, is that these assays are semi-quantitative at best, and so cannot be used to accurately determine viral titer. However, recently developed hue-based LAMP assays such as the open-source smart-. CC-BY-NC-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [
+                {
+                    "start": 229,
+                    "end": 231,
+                    "text": "41",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 277,
+                    "end": 280,
+                    "text": "30,",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 281,
+                    "end": 284,
+                    "text": "32,",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 285,
+                    "end": 287,
+                    "text": "42",
+                    "ref_id": "BIBREF41"
+                }
+            ],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted April 5, 2021. ;  phone based eriochrome black T LAMP assay developed by Nguyen et al. 39 may soon enable point-of-care truly quantitative RT-LAMP for SARS-CoV-2 and other infectious diseases.",
+            "cite_spans": [
+                {
+                    "start": 59,
+                    "end": 75,
+                    "text": "April 5, 2021. ;",
+                    "ref_id": null
+                },
+                {
+                    "start": 76,
+                    "end": 76,
+                    "text": "",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "Assay cost and shelf-stability are the two remaining hurdles than must be overcome to bring RT-LAMP out of the lab to enable regular affordable testing for all, and these challenges were only partially met by the assay we propose here. Although we succeeded in reducing the cost per test Also, although we demonstrated that this assay remained stable when frozen for one month, we were unable to conduct shelf-stability tests for longer durations and did not test stability at higher temperatures which is essential for a field deployable assay where refrigeration cannot be guaranteed. Lyophilization of reaction mixtures and stabilization with trehalose sugar can enable room temperature stability of LAMP master mixes 43 for SARS-CoV-2 44 , these goals are reasonable and achievable.",
+            "cite_spans": [
+                {
+                    "start": 721,
+                    "end": 723,
+                    "text": "43",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 739,
+                    "end": 741,
+                    "text": "44",
+                    "ref_id": "BIBREF43"
+                }
+            ],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "The RT-LAMP assay presented here demonstrates that with some key modifications, a widely available commercial RT-LAMP kit can be adapted for sensitive, robust, timely, and affordable direct detection of SARS-CoV-2 infection from saliva samples. This RT-LAMP formulation, which is stable for at least four weeks at -20\u00b0C, provides a low cost, high-throughput method of . CC-BY-NC-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted April 5, 2021. testing for patient saliva samples directly and can be adapted for future epidemics. SARS-CoV-2 and other infectious diseases will remain a public health burden for the foreseeable future. RT-LAMP assays such as this can help alleviate that burden.",
+            "cite_spans": [
+                {
+                    "start": 59,
+                    "end": 73,
+                    "text": "April 5, 2021.",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "Figures: Figure 1 : Schematic of dual-assay workflow . CC-BY-NC-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. (which was not certified by peer review)",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 9,
+                    "end": 17,
+                    "text": "Figure 1",
+                    "ref_id": null
+                }
+            ],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted April 5, 2021. ; https://doi.org/10.1101/2021.04.01.21254182 doi: medRxiv preprint Figure 2 : Primer Optiization . CC-BY-NC-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. (which was not certified by peer review)",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 142,
+                    "end": 150,
+                    "text": "Figure 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted April 5, 2021. ; https://doi.org/10.1101/2021.04.01.21254182 doi: medRxiv preprint CC-BY-NC-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. (which was not certified by peer review)",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted April 5, 2021. ; https://doi.org/10.1101/2021.04.01.21254182 doi: medRxiv preprint is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. (which was not certified by peer review)",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted April 5, 2021. ; https://doi.org/10.1101/2021.04.01.21254182 doi: medRxiv preprint Figure 6 : Stability testing . CC-BY-NC-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. (which was not certified by peer review)",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 142,
+                    "end": 150,
+                    "text": "Figure 6",
+                    "ref_id": null
+                }
+            ],
+            "section": "(which was not certified by peer review)"
+        },
+        {
+            "text": "The copyright holder for this preprint this version posted April 5, 2021. ; https://doi.org/10.1101/2021.04.01.21254182 doi: medRxiv preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review)"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "A 5-Min RNA Preparation Method for COVID-19 Detection with RT-QPCR. Infectious Diseases (except HIV/AIDS)",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ladha",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Joung",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Abudayyeh",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Gootenberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.05.07.20055947"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Facilitating Detection of SARS-CoV-2 Directly from Patient Samples: Precursor Studies with RT-qPCR and Colorimetric RT-LAMP Reagents",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Gray",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Nichols",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "rapid and highly sensitive isothermal detection of SARS-CoV-2 for laboratory and home testing. bioRxiv",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Kellner",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Ross",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Schnabl",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.06.23.166397"
+                ]
+            }
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Clinical Evaluation of Self-Collected Saliva by RT-QPCR, Direct RT-QPCR, RT-LAMP, and a Rapid Antigen Test to Diagnose COVID-19. Infectious Diseases (except HIV/AIDS)",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ikeda",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Imai",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Tabata",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.06.06.20124123"
+                ]
+            }
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "SalivaDirect: A simplified and flexible platform to enhance SARS-CoV-2 testing capacity. medRxiv",
+            "authors": [
+                {
+                    "first": "Cbf",
+                    "middle": [],
+                    "last": "Vogels",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Watkins",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Harden",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "28",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.08.03.20167791"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Saliva-Based Molecular Testing for SARS-CoV-2 that Bypasses RNA Extraction. bioRxiv",
+            "authors": [
+                {
+                    "first": "Dre",
+                    "middle": [],
+                    "last": "Ranoa",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Holland",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Alnaji",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.06.18.159434"
+                ]
+            }
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Detection and Isolation of SARS-CoV-2 in Serum, Urine, and Stool Specimens of COVID-19 Patients from the Republic of Korea. Osong Public Health Res Perspect",
+            "authors": [
+                {
+                    "first": "J-M",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Lee",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "11",
+            "issn": "",
+            "pages": "112--117",
+            "other_ids": {
+                "DOI": [
+                    "10.24171/j.phrp.2020.11.3.02"
+                ]
+            }
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "The urine foaming test in COVID-19 as a useful tool in diagnosis, prognosis and follow-up: Preliminary results",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Kurtulmus",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Kazezoglu",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Cakiroglu",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Yilmaz",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Guner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "North Clin Istanb",
+            "volume": "7",
+            "issn": "6",
+            "pages": "534--540",
+            "other_ids": {
+                "DOI": [
+                    "10.14744/nci.2020.42027"
+                ]
+            }
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "A Single and Two-Stage, Closed-Tube, Molecular Test for the 2019 Novel Coronavirus (COVID-19) at Home, Clinic, and Points of Entry",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "El-Tholoth",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Bau",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Screening for SARS-CoV-2 Infections with Colorimetric RT-LAMP and LAMP Sequencing",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Dao Thi",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Herbst",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Boerner",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.05.05.20092288"
+                ]
+            }
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Rapid and Accurate Detection of Three Genes in SARS-CoV-2 Using RT-LAMP Method",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Dang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Review; 2020",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.21203/rs.3.rs-28070/v1"
+                ]
+            }
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Amplification-free detection of SARS-CoV-2 with CRISPR-Cas13a and mobile phone microscopy",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Fozouni",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Son",
+                    "suffix": ""
+                },
+                {
+                    "first": "D\u00edaz",
+                    "middle": [],
+                    "last": "De Le\u00f3n Derby",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Cell",
+            "volume": "184",
+            "issn": "2",
+            "pages": "323--333",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2020.12.001"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Point-of-Care Testing for COVID-19 Using SHERLOCK Diagnostics. Infectious Diseases (except HIV/AIDS)",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Joung",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ladha",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Saito",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.05.04.20091231"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "CRISPR-Cas12-based detection of SARS-CoV-2",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Broughton",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Deng",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature Biotechnology",
+            "volume": "38",
+            "issn": "7",
+            "pages": "870--874",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41587-020-0513-4"
+                ]
+            }
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Rapid Detection of SARS-CoV-2 by Low Volume Real-Time Single Tube Reverse Transcription Recombinase Polymerase Amplification Using an Exo Probe with an Internally Linked Quencher (Exo-IQ)",
+            "authors": [
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Behrmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Bachmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Spiegel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Clin Chem",
+            "volume": "66",
+            "issn": "8",
+            "pages": "1047--1054",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/clinchem/hvaa116"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Reverse-Transcription Recombinase-Aided Amplification Assay for Rapid Detection of the 2019 Novel Coronavirus (SARS-CoV-2)",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Xue",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Anal Chem",
+            "volume": "92",
+            "issn": "14",
+            "pages": "9699--9705",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.analchem.0c01032"
+                ]
+            }
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Optimized integration of New England Biolabs loop-mediated isothermal amplification (LAMP) reagents with Axxin ISO instruments",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Tanner",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Enhancing Colorimetric LAMP Amplification Speed and Sensitivity with Guanidine Chloride",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Ren",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Buss",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Barry",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Patton",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Tanner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Biochemistry",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.06.03.132894"
+                ]
+            }
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "A colorimetric RT-LAMP assay and LAMP-sequencing for detecting SARS-CoV-2 RNA in clinical samples",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Dao Thi",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Herbst",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Boerner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Sci Transl Med",
+            "volume": "12",
+            "issn": "556",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/scitranslmed.abc7075"
+                ]
+            }
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Polyvinylsulfonic acid: A Low-cost RNase inhibitor for enhanced RNA preservation and cell-free protein translation",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Earl",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Smith",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Lease",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Bundy",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Bioengineered",
+            "volume": "9",
+            "issn": "1",
+            "pages": "90--97",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/21655979.2017.1313648"
+                ]
+            }
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Massive and rapid COVID-19 testing is feasible by extraction-free SARS-CoV-2 RT-PCR",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Smyrlaki",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ekman",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Lentini",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature Communications",
+            "volume": "11",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41467-020-18611-5"
+                ]
+            }
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "SARS-CoV-2 detection using isothermal amplification and a rapid, inexpensive protocol for sample inactivation and purification",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Rabe",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Cepko",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1073/pnas.2011221117"
+                ]
+            }
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Impact of Primer Dimers and Self-Amplifying Hairpins on Reverse Transcription Loop-Mediated Isothermal Amplification Detection of Viral RNA",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Meagher",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Priye",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Light",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Analyst",
+            "volume": "143",
+            "issn": "8",
+            "pages": "1924--1933",
+            "other_ids": {
+                "DOI": [
+                    "10.1039/c7an01897e"
+                ]
+            }
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Lack of correlation between reaction speed and analytical sensitivity in isothermal amplification reveals the value of digital methods for optimization: validation using digital real-time RT-LAMP",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Khorosheva",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Karymov",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Selck",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Ismagilov",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Nucleic Acids Res",
+            "volume": "44",
+            "issn": "2",
+            "pages": "10--10",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/nar/gkv877"
+                ]
+            }
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Dual-Priming Isothermal Amplification (DAMP) for Highly Sensitive and Specific Molecular Detection with Ultralow Nonspecific Signals",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Ding",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Yin",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Sfeir",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Anal Chem",
+            "volume": "91",
+            "issn": "20",
+            "pages": "12852--12858",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.analchem.9b02582"
+                ]
+            }
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Regulated Transport of Ribosomal Subunits from Regenerating Rat Liver Nuclei in a Cell-free System",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Racevskis",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Webb",
+                    "suffix": ""
+                }
+            ],
+            "year": 1972,
+            "venue": "",
+            "volume": "32",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "LAMP-BEAC: Detection of SARS-CoV-2 RNA Using RT-LAMP and Molecular Beacons. medRxiv",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sherrill-Mix",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Hwang",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Roche",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.08.13.20173757"
+                ]
+            }
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Simultaneous multiple target detection in real-time loopmediated isothermal amplification",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Tanner",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Evans",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "BioTechniques",
+            "volume": "53",
+            "issn": "2",
+            "pages": "81--89",
+            "other_ids": {
+                "DOI": [
+                    "10.2144/0000113902"
+                ]
+            }
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Quenching of Unincorporated Amplification Signal Reporters in Reverse-Transcription Loop-Mediated Isothermal Amplification Enabling Bright, Single-Step, Closed-Tube, and Multiplexed Detection of RNA Viruses | Analytical Chemistry",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.analchem.5b04054"
+                ]
+            }
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Employing DNA binding dye to improve detection of Enterocytozoon hepatopenaei in real-time",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Ma",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Fang",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "LAMP. Scientific Reports",
+            "volume": "9",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41598-019-52459-0"
+                ]
+            }
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Comparison of fluorescent intercalating dyes for quantitative loop-mediated isothermal amplification (qLAMP)",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Oscorbin",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Belousova",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Zakabunin",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Boyarskikh",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Filipenko",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "BioTechniques",
+            "volume": "61",
+            "issn": "1",
+            "pages": "20--25",
+            "other_ids": {
+                "DOI": [
+                    "10.2144/000114432"
+                ]
+            }
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Selection of fluorescent DNA dyes for realtime LAMP with portable and simple optics",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Seyrig",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Stedtfeld",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Tourlousse",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "J Microbiol Methods",
+            "volume": "119",
+            "issn": "",
+            "pages": "223--227",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.mimet.2015.11.004"
+                ]
+            }
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Two Methods for Increased Specificity and Sensitivity in Loop-Mediated Isothermal Amplification",
+            "authors": [
+                {
+                    "first": "D-G",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Brewster",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Paul",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Tomasula",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Molecules",
+            "volume": "20",
+            "issn": "4",
+            "pages": "6048--6059",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/molecules20046048"
+                ]
+            }
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Potential False-Negative Nucleic Acid Testing Results for Severe Acute Respiratory Syndrome Coronavirus 2 from Thermal Inactivation of Samples with Low Viral Loads | Clinical Chemistry | Oxford Academic",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Inactivation of coronaviruses by heat",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Kampf",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Voss",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Scheithauer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Hosp Infect",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.jhin.2020.03.025"
+                ]
+            }
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Heat inactivation of serum interferes with the immunoanalysis of antibodies to SARS-CoV-2 | medRxiv",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.03.12.20034231v1"
+                ]
+            }
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Evaluation of heating and chemical protocols for inactivating SARS-CoV-2 | bioRxiv",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.04.11.036855v1"
+                ]
+            }
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Quantification of colorimetric isothermal amplification on the smartphone and its opensource app for point-of-care pathogen detection | Scientific Reports",
+            "authors": [],
+            "year": 2021,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Shining a light on LAMP assays' A comparison of LAMP visualization methods including the novel use of berberine",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Fischbach",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Xander",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Frohme",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Gl\u00f6kler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "BioTechniques",
+            "volume": "58",
+            "issn": "4",
+            "pages": "189--194",
+            "other_ids": {
+                "DOI": [
+                    "10.2144/000114275"
+                ]
+            }
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Method for colorimetric detection of doublestranded nucleic acid using leuco triphenylmethane dyes",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Miyamoto",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sano",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Takahashi",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Jikihara",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Analytical Biochemistry",
+            "volume": "473",
+            "issn": "",
+            "pages": "28--33",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.ab.2014.12.016"
+                ]
+            }
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Loop Mediated Isothermal Amplification (LAMP) for Embryo Sex Determination in Pregnant Women at Eight Weeks of Pregnancy",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Almasi",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Almasi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "J Reprod Infertil",
+            "volume": "18",
+            "issn": "1",
+            "pages": "197--204",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Progress in loopmediated isothermal amplification assay for detection of Schistosoma mansoni DNA: towards a ready-to-use test",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Garc\u00eda-Bernalt Diego",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Fern\u00e1ndez-Soto",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Crego-Vicente",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Scientific Reports",
+            "volume": "9",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41598-019-51342-2"
+                ]
+            }
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "Accessible LAMP-Enabled Rapid Test (ALERT) for detecting SARS-CoV-2. medRxiv",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Bekta\u015f",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Covington",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Aidelberg",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2021.02.18.21251793"
+                ]
+            }
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "for Sars-Cov2 or BEI coronavirus cell lysate) gave inconsistent results, sometimes showing no amplification even with high RNA template inputs. These results indicated that active nucleases were present in the heat inactivated saliva samples. To prevent further degradation of RNA that could result in false-negative tests, various RNase inhibitors were tested both in the sample preparation and the RT-LAMP master mix. The following RNase inhibitors were evaluated: NEB RNase inhibitor murine, Invitrogen SUPERase\u00b7In, and Invitrogen RNaseOUT Recombinant Ribonuclease Inhibitor. Only RNaseOUT at a final concentration of 30 units per reaction was consistently inhibit nuclease activity in direct saliva RT-LAMP at the optimum incubation temperature of 65\u00b0C. RNaseOUT performed equally well when used either in the master mix or applied to the saliva sample. Sensitivity and specificity testing (Figure 3) were conducted using negative saliva samples that were heat inactivated at 95\u2070C for 5 minutes 21 and diluted 1:10 in TCEP buffer before being spiked with BEI SARS-CoV-2 isolate USA-WA1/2020 heat-inactivated cell lysate (NR-52286) (stock concentration = 375,000 copies/uL) to final concentrations of 1000, and 100 total genome copy equivalents (GCE) per reaction. All reactions were run with 20 replicates. No template controls contained negative saliva diluted 1:10 in TCEP buffer.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "to nearly half that of a conventional kit, $1.80 per test is still far beyond what many people can afford to pay in developing countries. Most of the assay cost came from the proprietary enzymes used in the LAMP reaction mix. This cost could be greatly reduced by substitution of open-source enzymes as Kellner et al. 3 demonstrated in their rapid beads based SARS-CoV-2 RT-LAMP assay.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Sensitivity",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Comparative performance metrics of PVSA vs RNaseOUT",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "Sensitivity",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "1. 7.5 \u00b5L NEB Colorimetric LAMP 2X Master 2. 0.8 \u00b5L 1X Fluorescent Dye 3. 1.5 \u00b5L 10X LAMP Primers (EN* / rActin) 4. 0.3 \u00b5L Antarctic Thermolabile UDG (2U/\u00b5L) 5. 0.1 \u00b5L dUTP (100 mM) 6. 0.5 \u00b5L GuHCl (1.2 M) 7. 0.75 \u00b5L RNaseOUT (30U/15 \u00b5L reaction) or PVSA (900 \u00b5g/mL) Mix thoroughly by vortexing at medium speed for 10 seconds, spin down and protect from light until ready to plate.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": ", thereby overcoming this obstacle too. Fortunately, as Bektas et al. have shown, with their accessible LAMP-enabled rapid test (ALERT)",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "This work was supported by seed funding through the COVID-19 SUNY Seed Funding Program.We wish to express our special thanks to Nathan Tanner of New England Biolabs for his advice and assistance in troubleshooting during assay development. We also wish to thank Chris Mason of Weill Cornell Medical Research for establishing the Global LAMP Consortium (gLAMP) along with all the other gLAMP members around the world for sharing their expertise, trials and LAMP tribulations without which we could not have gotten where we are.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Acknowledgements"
+        },
+        {
+            "text": "Tables:Suppl. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Supplementary Information"
+        }
+    ]
+}

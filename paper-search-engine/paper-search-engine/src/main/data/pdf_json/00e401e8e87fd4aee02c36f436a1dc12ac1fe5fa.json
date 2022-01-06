@@ -1,0 +1,4467 @@
+{
+    "paper_id": "00e401e8e87fd4aee02c36f436a1dc12ac1fe5fa",
+    "metadata": {
+        "title": "",
+        "authors": [
+            {
+                "first": "Nimisha",
+                "middle": [],
+                "last": "Ghosh",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Michael",
+                "middle": [],
+                "last": "Poidinger",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Gustavo",
+                "middle": [
+                    "Fioravanti"
+                ],
+                "last": "Vieira",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Giovanni",
+                "middle": [],
+                "last": "Mazzocco",
+                "suffix": "",
+                "affiliation": {},
+                "email": "giovanni.mazzocco@ardigen.com"
+            }
+        ]
+    },
+    "abstract": [],
+    "body_text": [
+        {
+            "text": "As of August 6, 2020, more than 19 million cases of COVID-19 were reported worldwide, leading to more than 700 thousands deaths 1 . The disease was first recorded on December 26, 2019, when a 41-year-old patient with no history of hepatitis, tuberculosis, or diabetes was hospitalized at the Central Hospital of Wuhan due to respiratory problems (Wu F. et al., 2020) . The metagenomic RNA sequencing of bronchoalveolar lavage (BAL) fluid sample obtained from that patient led to the identification of the seventh coronavirus (CoV) strain known to infect humans.",
+            "cite_spans": [
+                {
+                    "start": 346,
+                    "end": 366,
+                    "text": "(Wu F. et al., 2020)",
+                    "ref_id": "BIBREF70"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "Coronaviruses are well known human respiratory pathogens associated with the common cold. Until the 21st century they were neglected by the medical world, but the emergence and subsequent spread of the SARS-CoV in the 2002/2003 season raised interest in this virus family and increased awareness of the potential threat. At present, there are four seasonal coronaviruses infecting humans and they cluster within alphacoronaviruses (HCoV-NL63, HCoV-229E) and betacoronaviruses (HCoV-OC43, HCoV-HKU1) genera. Further, three zoonotic strains were reported -severe acute respiratory syndrome coronavirus (SARS-CoV; 2002 , the Middle East respiratory syndrome coronavirus (MERS-CoV; 2012-) , and SARS-CoV-2 (2019-), all of which belong to the betacoronavirus genus . The highly pathogenic species cluster in two subgenerasarbecoviruses (SARS-CoVs) and merbecoviruses (MERS-CoVs) (Hu et al., 2018; Wu F. et al., 2020; Zhou et al., 2020) .",
+            "cite_spans": [
+                {
+                    "start": 600,
+                    "end": 610,
+                    "text": "(SARS-CoV;",
+                    "ref_id": null
+                },
+                {
+                    "start": 611,
+                    "end": 615,
+                    "text": "2002",
+                    "ref_id": null
+                },
+                {
+                    "start": 667,
+                    "end": 677,
+                    "text": "(MERS-CoV;",
+                    "ref_id": null
+                },
+                {
+                    "start": 678,
+                    "end": 684,
+                    "text": "2012-)",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 874,
+                    "end": 891,
+                    "text": "(Hu et al., 2018;",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 892,
+                    "end": 911,
+                    "text": "Wu F. et al., 2020;",
+                    "ref_id": "BIBREF70"
+                },
+                {
+                    "start": 912,
+                    "end": 930,
+                    "text": "Zhou et al., 2020)",
+                    "ref_id": "BIBREF72"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "While generally, viruses infect one host, some have broader specificity or can cross the interspecies borders, causing outbreaks, epidemics, and pandemics. In this context, it is worth mentioning viruses like the Ebola virus, dengue fever virus, Nipah virus, rabies virus, or Hendra virus. However, these are well known and long studied animal viruses that only sometimes enter the human population. Coronaviruses are slightly different, as among the myriads of viral species and subspecies found in animals, it is unlikely to predict the place, the time, and the genotype of the coronavirus that will emerge. The classic transmission route of these viruses encompasses the spillover of the bat species to wild or domesticated animals, rapid evolution in this intermediate host, and subsequent transmission to humans. Coronaviruses emerge at different sites of the globe where the interaction between humans and animals is broad, such as the Asian wet markets and the dromedary camel farms in the Arabian peninsula. While these high-risk regions were identified, the next spillover may occur in Europe or the Americas, as sarbecoviruses are prevalent around the globe (Andersen et al., 2020) .",
+            "cite_spans": [
+                {
+                    "start": 1168,
+                    "end": 1191,
+                    "text": "(Andersen et al., 2020)",
+                    "ref_id": "BIBREF2"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "The coronavirus genome is a single-stranded RNA of positive polarity, which ranges in size from 26,000 up to 32,000 bases. Two-thirds of the genome on the 5 end are occupied by two large open reading frames (ORFs) that may be read along due to the ribosomal slippery site. The resulting polyprotein undergoes subsequent autoproteolysis, and the matured proteins form the complete replicatory machinery and re-shape the microenvironment of the infection. Downstream of the 1ab ORFs, a number of ORFs are found that encode structural 1 https://coronavirus.jhu.edu/map.html and accessory proteins (Cui et al., 2019; Song et al., 2019) . Four major structural proteins are: spike surface glycoprotein (S), envelope protein (E), membrane glycoprotein (M), and nucleocapsid phosphoprotein (N). Of them the S protein is the primary determinant of the species and cell tropism, interacting with the receptors and co-receptors on the host cells (Li, 2016; Zhu et al., 2020) .",
+            "cite_spans": [
+                {
+                    "start": 594,
+                    "end": 612,
+                    "text": "(Cui et al., 2019;",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 613,
+                    "end": 631,
+                    "text": "Song et al., 2019)",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 936,
+                    "end": 946,
+                    "text": "(Li, 2016;",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 947,
+                    "end": 964,
+                    "text": "Zhu et al., 2020)",
+                    "ref_id": "BIBREF73"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "Evolutionary studies indicate that CoV genomes display high plasticity in terms of gene content and recombination (Forni et al., 2016) . The long CoV genome expands the sequence space available for adaptive mutations, and the spike glycoprotein used by the virus to engage target cells can adapt with relative ease to exploit homologs of cellular receptors in different species. While coronaviruses are rapidly evolving, their mutation rate is lower than expected for an RNA virus. The large genomes require proofreading machinery to maintain their functions, and proteins required for such activity are among the 1a/1ab proteins.",
+            "cite_spans": [
+                {
+                    "start": 114,
+                    "end": 134,
+                    "text": "(Forni et al., 2016)",
+                    "ref_id": "BIBREF18"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "While sarbecoviruses and merbecoviruses are associated with severe, potentially lethal diseases and are known for their epidemic potential in humans and animals, several years of research did not allow for the development of effective and safe vaccines. In addition to the high variability and ability to elude immune recognition, there are several aspects to be considered. First, the antibody-dependent enhancement (ADE) of the infection was previously reported for some coronaviruses, including sarbecoviruses. ADE is based on the fact that the virus exploits non-neutralizing antibodies to enter the host's cells utilizing the Fc receptor (FcR). The ADE phenomenon was originally observed for antibodies specific to certain dengue virus serotypes developed after a primary infection. During subsequent dengue infections, caused by a different virus serotype, these antibodies were able to recognize the virus but were not capable of neutralizing it. Instead, antibodies bridged the dengue virus and the Fc receptors of the immune cells, such as macrophages and B-cells, mediating viral entry into these cells and transforming the disease from a relatively mild illness to a life-threatening infection. A similar mechanism was later observed for HIV and Ebola infections (Takada et al., 2003 (Takada et al., , 2001 Guzman et al., 2007; Whitehead et al., 2007; Beck et al., 2008; Dejnirattisai et al., 2010; Willey et al., 2011; Katzelnick et al., 2017) . Importantly, ADE has also been reported for some coronaviruses. The bestdocumented ADE cases are associated with feline infectious peritonitis virus. It was shown that immunization of cats with feline coronavirus spike protein leads to increased severity during future infections due to the induction of infection-enhancing antibodies (Corapi et al., 1992; Hohdatsu et al., 1998) . Further, some studies show that antibodies induced by the SARS-CoV spike protein enhance viral entry into FcR-expressing cells (Kam et al., 2007; Jaume et al., 2011; Wang et al., 2014) . It was confirmed that this Abs-dependent SARS-CoV entry was independent of the classical ACE2 receptor-mediated entry (Jaume et al., 2011) . A recent study investigated the molecular mechanism behind antibody-dependent and receptor-dependent viral entry of MARS-CoV and SARS-CoV pseudoviruses in vitro (Wan et al., 2019) . The authors demonstrated that MERS-CoV and SARS-CoV neutralizing monoclonal antibodies (mAbs) binding to the receptor-binding domain region of the respective spike protein were capable of mediating viral entry into FcR-expressing human cells, confirming the possibility of coronavirus-mediated ADE. Given the critical role of antibodies in host immunity, ADE causes serious concerns in epidemiology, vaccine design, and antibody-based drug therapy.",
+            "cite_spans": [
+                {
+                    "start": 1274,
+                    "end": 1294,
+                    "text": "(Takada et al., 2003",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 1295,
+                    "end": 1317,
+                    "text": "(Takada et al., , 2001",
+                    "ref_id": null
+                },
+                {
+                    "start": 1318,
+                    "end": 1338,
+                    "text": "Guzman et al., 2007;",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 1339,
+                    "end": 1362,
+                    "text": "Whitehead et al., 2007;",
+                    "ref_id": "BIBREF65"
+                },
+                {
+                    "start": 1363,
+                    "end": 1381,
+                    "text": "Beck et al., 2008;",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 1382,
+                    "end": 1409,
+                    "text": "Dejnirattisai et al., 2010;",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 1410,
+                    "end": 1430,
+                    "text": "Willey et al., 2011;",
+                    "ref_id": "BIBREF66"
+                },
+                {
+                    "start": 1431,
+                    "end": 1455,
+                    "text": "Katzelnick et al., 2017)",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 1793,
+                    "end": 1814,
+                    "text": "(Corapi et al., 1992;",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 1815,
+                    "end": 1837,
+                    "text": "Hohdatsu et al., 1998)",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 1967,
+                    "end": 1985,
+                    "text": "(Kam et al., 2007;",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 1986,
+                    "end": 2005,
+                    "text": "Jaume et al., 2011;",
+                    "ref_id": null
+                },
+                {
+                    "start": 2006,
+                    "end": 2024,
+                    "text": "Wang et al., 2014)",
+                    "ref_id": "BIBREF63"
+                },
+                {
+                    "start": 2145,
+                    "end": 2165,
+                    "text": "(Jaume et al., 2011)",
+                    "ref_id": null
+                },
+                {
+                    "start": 2329,
+                    "end": 2347,
+                    "text": "(Wan et al., 2019)",
+                    "ref_id": "BIBREF62"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "The consequences of ADE may be dramatic, as it may cause lymphopenia and induce or increase the frequency of the cytokine storm syndrome (CSS). This may result directly from the active infection of immune cells, which in response produce large amounts of the inflammatory markers or indirectly, when virus-antibody complex binds to FcR and activates proinflammatory signaling, skewing macrophages responses to the accumulation of pro-inflammatory M1 macrophages in lungs. The macrophages secrete inflammatory cytokines, such as MCP-1 and IL-8, which lead to worsened lung injury (Fu et al., 2020) . In both animal models and patients who eventually died from SARS, extensive lung damage was associated with high initial viral loads, increased accumulation of inflammatory monocytes/macrophages in the lungs, and elevated levels of serum pro-inflammatory cytokines and chemokines (IL-1, IL-6, IL-8, CXCL-10, and MCP1) (Channappanavar et al., 2016) . Moreover, during the SARS-CoV outbreak in Hong Kong (2003) (2004) , 80% of the patients developed acute respiratory distress syndrome after 12 days from the diagnosis, coinciding with IgG seroconversion (Peiris et al., 2003) . Another study by Huang et al. (2020) highlighted an increased release of IL-1\u03b2, IL-4, IL-10, IFN\u03b3, MCP-1, and IP-10 in COVID-19 patients. Interestingly, compared with non-severe cases, severe patients in the intensive care unit showed higher plasma concentrations of TNF\u03b1, IL-2, IL-7, IL-10, MIP-1A, MCP-1, and G-CSF, supporting the hypothesis of a possible correlation between CSS and severity of the disease. An extensive study done by Liu et al. (2019) demonstrated that anti-spike IgGs enhanced the induction of pro-inflammatory cytokines (i.e., IL-6, IL-8, and MPC-1) in Chinese rhesus monkeys through the stimulation of alternatively activated monocyte-derived macrophages (MDM) upon SARS-CoV rechallenge. The presence of high MDM infiltrations was shown by histochemical staining of the lung tissue from 3 deceased SARS patients. The blockade of Fc-receptors for IgG (Fc\u03b3Rs) reduced proinflammatory cytokine production, suggesting a potential role of Fc\u03b3Rs for the reprogramming of alternatively activated macrophages. Putting these results in the context of other works in literature (Pahl et al., 2014) , one has to consider that anti-S IgG may promote pro-inflammatory cytokine production and, consequently, CSS development.",
+            "cite_spans": [
+                {
+                    "start": 579,
+                    "end": 596,
+                    "text": "(Fu et al., 2020)",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 917,
+                    "end": 946,
+                    "text": "(Channappanavar et al., 2016)",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 1001,
+                    "end": 1007,
+                    "text": "(2003)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1008,
+                    "end": 1014,
+                    "text": "(2004)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1152,
+                    "end": 1173,
+                    "text": "(Peiris et al., 2003)",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 1193,
+                    "end": 1212,
+                    "text": "Huang et al. (2020)",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 1614,
+                    "end": 1631,
+                    "text": "Liu et al. (2019)",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 2268,
+                    "end": 2287,
+                    "text": "(Pahl et al., 2014)",
+                    "ref_id": "BIBREF44"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "Taking into account the risk associated with the improper humoral response and high variability of sites targeted by the neutralizing antibodies, together with the low effectiveness of IgG-mediated immunity during mucosal infection, it is of importance to consider the anticoronaviral vaccine in a broader perspective. This may include alternative delivery systems/routes based on, e.g., virus-like particles and intranasal delivery for the IgA mediated response, but it is also important to consider combining the humoral response with the cell-mediated response. Ideally, such an approach might allow for the design of a vaccine carrying carefully selected epitopes to induce only the neutralizing antibodies and epitopes targeted for induction of the cellular response. While neutralizing antibodies impair the virus entry, activated CD8+ cytotoxic T-cells can identify and eliminate infected cells. Moreover, CD4+ helper T-cells are required to stimulate the production of antibodies. Antibody response was found to be short-lived in convalescent SARS-CoV patients (Tang et al., 2011) in contrast to T-cell responses, which have been shown to provide long-term protection (Peng et al., 2006; Fan et al., 2009; Tang et al., 2011) , up to 11 years postinfection (Ng et al., 2016) . The activation of CD8+ cytotoxic T-cells capable of recognizing and destroying infected cells represents a crucial second line of defense against the virus that should be considered. The importance of both CD8+ and CD4+ T-cell activation has been reported in several SARS-CoV studies for both animal models and humans (Channappanavar et al., 2014) . Moreover, several recent studies indicate a strong correlation between the reduction of lymphocyte counts (CD4+ and CD8+) and the severity of COVID-19 cases Liao et al., 2020; Wan et al., 2020) .",
+            "cite_spans": [
+                {
+                    "start": 1069,
+                    "end": 1088,
+                    "text": "(Tang et al., 2011)",
+                    "ref_id": "BIBREF56"
+                },
+                {
+                    "start": 1176,
+                    "end": 1195,
+                    "text": "(Peng et al., 2006;",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 1196,
+                    "end": 1213,
+                    "text": "Fan et al., 2009;",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 1214,
+                    "end": 1232,
+                    "text": "Tang et al., 2011)",
+                    "ref_id": "BIBREF56"
+                },
+                {
+                    "start": 1264,
+                    "end": 1281,
+                    "text": "(Ng et al., 2016)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1602,
+                    "end": 1631,
+                    "text": "(Channappanavar et al., 2014)",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 1791,
+                    "end": 1809,
+                    "text": "Liao et al., 2020;",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 1810,
+                    "end": 1827,
+                    "text": "Wan et al., 2020)",
+                    "ref_id": "BIBREF61"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "The selection of epitopes capable of eliciting either B-cell or T-cell responses is a critical step for the development of subunit vaccines. Most of the efforts in this area are directed toward the stimulation of neutralizing antibodies, whereas the cellular immune response is less explored. Considering the importance of T-cell activation for vaccine efficacy, the focus of the work here presented is on the latter. Despite the apparent similarity between SARS-CoV and SARS-CoV-2, there is still a considerable genetic variation between these two. Thus, it is not trivial to assess if epitopes eliciting an immune response against previous coronaviruses are likely to be effective against SARS-CoV-2, with the exception of identical peptides shared among subgenera. A restricted list of SARS-CoV epitopes identical to those present in SARS-CoV-2 and resulting positive in immunoassays, has been recently reported (Ahmed et al., 2020) . Nonetheless, the 29 T-cell epitopes described therein are mostly limited to S, N, and M antigens and encompass an exiguous number of Class I Human Leukocyte Antigen (HLA) alleles. In order to extend the search area to other epitopes, computational predictive models might be applied. Methods for the selection of vaccine peptides are typically based on the predicted binding affinity (or probability of presentation on the cell surface) of peptide-HLA (pHLA) complexes or defined by the physicochemical properties of the peptides (Baruah and Bose, 2020; Grifoni et al., 2020; Lee and Koohy, 2020) . These methods take into account only restricted parts of processes contributing to the final immunogenicity of an epitope, and thus their prediction capabilities are limited. In addition to pHLA binding, proteasome cleavage, pHLA loading, and presentation, as well as direct activation of CD8+ T-cell to the pHLA complex should be taken into account.",
+            "cite_spans": [
+                {
+                    "start": 915,
+                    "end": 935,
+                    "text": "(Ahmed et al., 2020)",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 1468,
+                    "end": 1491,
+                    "text": "(Baruah and Bose, 2020;",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 1492,
+                    "end": 1513,
+                    "text": "Grifoni et al., 2020;",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 1514,
+                    "end": 1534,
+                    "text": "Lee and Koohy, 2020)",
+                    "ref_id": "BIBREF33"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "Here, we use a machine learning model for the prediction of epitope immunogenicity. The model is trained on data including the experimental T-cell immunogenicity data of viral epitopes. We validate our model on publicly available immunogenicity data of epitopes from the Coronaviridae virus family (held out from training). Assessment of the risk of immuno-toxicity and the analysis of epitope conservation among different strains are also performed.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "A curated dataset containing peptides presented by class I HLAs on the surface of host cells was extracted from publicly available databases (Abelin et al., 2017; Di Marco et al., 2017; Sarkizova et al., 2020) . The presentation of each peptide within the dataset was experimentally confirmed by massspectroscopy experiments. All peptides were of human origin and were presented on the surfaces of monoallelic human cell lines (see Figure 1 and Table 1 ). Synthetic negative data (non-presented peptides) were also prepared based on human proteome (GRChg38, release 98).",
+            "cite_spans": [
+                {
+                    "start": 141,
+                    "end": 162,
+                    "text": "(Abelin et al., 2017;",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 163,
+                    "end": 185,
+                    "text": "Di Marco et al., 2017;",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 186,
+                    "end": 209,
+                    "text": "Sarkizova et al., 2020)",
+                    "ref_id": "BIBREF49"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 432,
+                    "end": 440,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 445,
+                    "end": 452,
+                    "text": "Table 1",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "Presentation Data"
+        },
+        {
+            "text": "All peptides collected from the IEDB database (Vita et al., 2019) were of viral origin and were confirmed in experimental immunoassays. Similar data were extracted from selected publications (Wang et al., 2004; Chen et al., 2005; Tsao et al., 2006; Liu et al., 2010; Zhang, 2013; Ogishi and Yotsuyanagi, 2019) . The number of pHLAs (per immunoassay category) used for training is given in Table 2 . Most of the peptides were obtained from human hosts, with a minority obtained from transgenic mice. Only peptides containing 8-11 amino acids were included in the analysis. In some cases, multiple experimental settings and protocols were used to validate immunogenicity for a given pHLA, occasionally leading to non-consensual results. Each pHLA was considered immunogenic if at least one experiment conducted on human cells positively confirmed that immunological event. If no experiments conducted on human cells were available, the pHLA was considered immunogenic, if at least one such confirming experiment was conducted in transgenic mice. The remaining pHLAs were used as negative examples. From this dataset we held out the Coronaviridae family as a separate test set.",
+            "cite_spans": [
+                {
+                    "start": 46,
+                    "end": 65,
+                    "text": "(Vita et al., 2019)",
+                    "ref_id": "BIBREF60"
+                },
+                {
+                    "start": 191,
+                    "end": 210,
+                    "text": "(Wang et al., 2004;",
+                    "ref_id": "BIBREF64"
+                },
+                {
+                    "start": 211,
+                    "end": 229,
+                    "text": "Chen et al., 2005;",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 230,
+                    "end": 248,
+                    "text": "Tsao et al., 2006;",
+                    "ref_id": null
+                },
+                {
+                    "start": 249,
+                    "end": 266,
+                    "text": "Liu et al., 2010;",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 267,
+                    "end": 279,
+                    "text": "Zhang, 2013;",
+                    "ref_id": "BIBREF71"
+                },
+                {
+                    "start": 280,
+                    "end": 309,
+                    "text": "Ogishi and Yotsuyanagi, 2019)",
+                    "ref_id": "BIBREF42"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 389,
+                    "end": 396,
+                    "text": "Table 2",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Immunogenicity Data"
+        },
+        {
+            "text": "Our computational methods are based on machine learning and predict (1) the probability of pHLAs to be presented on the host's cell surface and (2) the immunogenicity of such complexes. The model for pHLA presentation is based on artificial neural networks and has been trained on a curated collection of peptide presentation data (Abelin et al., 2017; Di Marco et al., 2017; Sarkizova et al., 2020) . Both peptide sequence and HLA type were taken into consideration as separate inputs. We use bootstrapping and select 80% of positive examples during training with the remaining ones used for early stopping. We then ensemble the results of a collection of 27 such neural networks. Our model is pan-specific and can be used to generate predictions for any peptide and any canonical class I HLA (i.e., A, B, and C). Note, that the accuracy of our method depends on the considered HLA type, as in the case of other machine learning methods for predicting pHLA properties. The model mentioned above was also used as a starting point for training the immunogenicity model. The latter was finetuned using the viral peptide immunogenicity data collected from IEDB (Vita et al., 2019) and Ogishi and Yotsuyanagi (2019) . The immunogenicity model was validated using a Leave One Group Out (LOGO) cross-validation scheme with groups defined by viral families. The final model is an ensemble of 11 models -one per each LOGO split. An additional group \"others\" was defined by aggregating data from viruses that belong to several families, having a small number of observations. Such an approach provides data splits according to the virus families and leads to a better measure of performance on virus families not seen in training (e.g., Coronaviridae). Moreover, it reveals the differences in model performance on various virus families. The final predictions of our model (called ArdImmune Rank) are obtained by combining the predictions of both models (i.e., the pHLA presentation and the immunogenicity model).",
+            "cite_spans": [
+                {
+                    "start": 331,
+                    "end": 352,
+                    "text": "(Abelin et al., 2017;",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 353,
+                    "end": 375,
+                    "text": "Di Marco et al., 2017;",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 376,
+                    "end": 399,
+                    "text": "Sarkizova et al., 2020)",
+                    "ref_id": "BIBREF49"
+                },
+                {
+                    "start": 1158,
+                    "end": 1177,
+                    "text": "(Vita et al., 2019)",
+                    "ref_id": "BIBREF60"
+                },
+                {
+                    "start": 1182,
+                    "end": 1211,
+                    "text": "Ogishi and Yotsuyanagi (2019)",
+                    "ref_id": "BIBREF42"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Predictive Model Design"
+        },
+        {
+            "text": "Both models were implemented in Python 3.7 using the keras 2.4.3 package, which is a high-level API of TensorFlow. For our usage TensorFlow with GPU support was deployed, i.e., tensorflow-gpu 2.2.0. For GPU-based computations we used cudnn 7.6.5 and cudatoolkit 10.2.89 and a machine equipped with NVIDIA Tesla V100 GPU card with CUDA R 7.0 architecture, 640 Tensor Cores, 5,120 CUDA R Cores and 32 GB HBM2 GPU Memory. Additionally, scikit-learn, pandas, and numpy were used to perform standard machine learning tasks while images were produced using matplotlib and seaborn.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Predictive Model Design"
+        },
+        {
+            "text": "In order to validate the ArdImmune Rank model over different virus families not seen during the training procedure, a LOGO strategy was applied. The peptides associated with coronaviruses were held out from the dataset and left for testing purposes only. At each LOGO iteration, the dataset was split into training and validation sets, and the model was tested accordingly. Peptides within the training set highly similar to the ones in the validation set were removed from the training set. The similarity of peptides was assessed using a clustering algorithm classifying their sequences into groups of peptides sharing a common root (differing only by short prefixes or suffixes of lengths of at most three amino acids). The number of pre-processed peptides in each group is given in Figure 2 . Finally, the immunogenicity model (an ensemble of 11 models from the LOGO scheme) was validated on the held-out Coronaviridae dataset.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 786,
+                    "end": 794,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Validation Scheme"
+        },
+        {
+            "text": "Class I HLA types were chosen based on their frequency of occurrence in the United States and Europe. HLA-allele frequency data were downloaded from 2 , accounting for all the populations within the regions of choice and all ethnicities. The overall frequency for each allele was computed as the weighted average with weights corresponding to the size of each population, separately for the United States and Europe, encompassing all ethnic populations. All HLA-alleles with frequency \u2265 0.01 were chosen for the study.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Selection of HLA Alleles"
+        },
+        {
+            "text": "In order to evaluate the risk for a given pHLA to be crossreactive or tolerogenic with respect to self-epitopes within the human proteome, a procedure for the evaluation of potential toxicity/tolerance was implemented. Initially, each SARS-CoV-2 peptide was queried against the reference human proteome (GRChg38, release 100) using the BLASTp algorithm and a BLOSUM45 substitution matrix. All matches with E-values less than or equal to four were included in the analysis. The selected peptides are available in Supplementary Data 1.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Toxicity/Tolerance Evaluation"
+        },
+        {
+            "text": "The dataset consisting of SARS-CoV-2 peptides was generated according to the following procedure: (1) all the reference sequences of the virus proteins were collected from the NCBI database 3 , (2) from each protein, all possible peptides of length 8-11 amino acids were selected. In addition, for proteins encoded by the ORF1a and ORF1ab genes (i.e., pp1a, pp1ab, respectively), the peptides within the cleavage sites were excluded. Finally, all the peptide duplicates were removed from the dataset. A total of 47,612 peptide sequences were collected.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Selection of Peptides"
+        },
+        {
+            "text": "The analysis of conservation of SARS-CoV-2 genomic sequences was performed using 8,639 complete genomic sequences obtained from the GISAID database 4 and GenBank 5 . All sequences were aligned to the SARS-CoV-2 reference genome (NCBI Reference Sequence: NC_045512.2). The R DECIPHER package (Wright, 2015) v2.14.0 was used to perform the multiple sequence alignment (MSA) of long SARS-CoV-2 whole genome sequences. The following parameters were applied: AlignSeqs(sequences, iterations = 2, refinements = 1, gapOpening = c(\u221218, \u221216), gapExtension = c(\u22122, \u22121), FUN = AdjustAlignment, processors = 18). In order to align short sequences with partial fragments of the SARS-CoV-2 genome, the R Biostrings v2.54.0 package was used, adopting the following parameters: Biostrings:pairwiseAlignment(pattern = sequences, subject = reference_genome, type = \"local, \" and scoreOnly = F). Next, all the nucleotides within the coding cDNA sequence (CDS) regions of the reference genome were translated into amino acids using the translate function available in the R Biostring package v2.45.0 (Pag\u00e8s and DebRoy, 2020) with the following parameters: Biostrings:translate [DNAStringSet(sequences), if.fuzzy.codon = \"solve\"]. The Standard Genetic Code provided by default was used for the encoding. All the fuzzy codons were marked as unknown amino acids by setting the if.fuzzy.codon = \"solve\" parameter. For each protein, all sequences containing indels or being inconveniently aligned were removed. Inconvenient sequences include those having short reading frameshifts, marked as transcription artifacts. Mutation frequencies for both long and short genomics fragments were computed for each amino acid in the SARS-CoV-2 proteome. The mutation frequency of each amino acid was defined as the ratio between the number of translated protein sequences containing the mutation and the number of sequences containing a valid nucleotide (sequences containing unknown nucleotides in this position were excluded). The maximum mutation frequency score for each peptide was computed as the maximum value of the mutation frequency scores among all amino acid positions of the peptide. Mutation frequency values for all positions within SARS-CoV-2 proteome are available in Supplementary Data 2.",
+            "cite_spans": [
+                {
+                    "start": 291,
+                    "end": 305,
+                    "text": "(Wright, 2015)",
+                    "ref_id": "BIBREF67"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Estimation of SARS-CoV-2 Genome Diversity"
+        },
+        {
+            "text": "In order to highlight similarities and differences of our approach with respect to other methods, we compare the scores of our model with scores relative to the same pHLAs reported in a list of selected studies. A peptide missing from the reference proteome (\"QSADAQSFLNR\") was removed. Only peptides between 8 and 11 amino acids were considered. The peptides arising from the cleavage sites of the ORF1a/ab polyprotein were also removed from the datasets. These sites are defined as nucleic acids within the NCBI reference sequence: NC_045512.2 but outside the range of the ORF1a/ab coding sequences.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Datasets for External Comparison"
+        },
+        {
+            "text": "The ORF1a and ORF1ab cleavage sites were corrected for reading frameshift which occurs for ORF1ab (as opposed to ORF1a), when independently translating RNA polymerase and nsp11, respectively.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Datasets for External Comparison"
+        },
+        {
+            "text": "1. Baruah and Bose (2020) : Five epitopes from the surface glycoprotein of SARS-CoV-2 and their corresponding HLA class I supertype representative were reported by the authors ( Table 1 in the reference publication). Bioinformatics protocols, machine learning methods, and structural analysis were applied in the original paper for the selection of these pHLAs. (2020) Table 6 in the reference publication) and 41 peptides were excluded as a result of our filtering procedure. b. 2nd dataset: 28 SARS-CoV-2 CD8+ epitopes mapped to immunodominant SARS-CoV epitopes were selected ( Table 5 in the reference publication). One peptide was excluded as a result of our filtering procedure.",
+            "cite_spans": [
+                {
+                    "start": 3,
+                    "end": 25,
+                    "text": "Baruah and Bose (2020)",
+                    "ref_id": "BIBREF3"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 178,
+                    "end": 185,
+                    "text": "Table 1",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 369,
+                    "end": 376,
+                    "text": "Table 6",
+                    "ref_id": null
+                },
+                {
+                    "start": 580,
+                    "end": 587,
+                    "text": "Table 5",
+                    "ref_id": "TABREF4"
+                }
+            ],
+            "section": "Datasets for External Comparison"
+        },
+        {
+            "text": "4. Gupta et al. (2020) : 10 HLA-A * 11:01 restricted peptides from the surface glycoprotein of SARS-CoV-2 were selected by the authors ( Table 4 in the reference publication). Bioinformatics protocols, machine learning methods, and structural analysis were used for the selection of those pHLAs. A candidate with an optimal docking score is reported. 5. Prachar et al. (2020) : 138 peptides with pHLA complex stability measurements performed using Immunotrack's NeoScreens R assay were made available by the authors. A peptide absent in our dataset was excluded from the comparison. 6. Rammensee et al. (2020) : 5 HLA class I peptides were used by the authors for the experimental vaccination of selfexperimenting healthy volunteers. IFN\u03b3 ELISPOT assays for the measurement of CD8+ activation were negative for all these peptides. The ArdImmune Rank percentile rank for the pHLAs described in the above datasets was computed for groups of peptides according to their HLA allele. Only pHLAs with a binding affinity percentile rank score < 0.02 (computed using NetMHCpan 4.0) were considered. The predictions were calculated separately for peptides of structural and non-structural origin.",
+            "cite_spans": [
+                {
+                    "start": 3,
+                    "end": 22,
+                    "text": "Gupta et al. (2020)",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 354,
+                    "end": 375,
+                    "text": "Prachar et al. (2020)",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 586,
+                    "end": 609,
+                    "text": "Rammensee et al. (2020)",
+                    "ref_id": "BIBREF48"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 137,
+                    "end": 144,
+                    "text": "Table 4",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "Lee and Koohy"
+        },
+        {
+            "text": "The performance of our method on the test set encompassing Coronaviridae epitopes (excl. SARS-CoV-2 epitopes) is shown in Figure 3 . In addition, the results of our approach are compared to those obtained by other commonly used pHLA binding affinity and pHLA presentation probability predictors, namely netMHCpan 4.0 (Jurtz et al., 2017) and MHCflurry (O'Donnell et al., 2018) , as well as the IEDB immunogenicity predictor, version 3.0 (Calis et al., 2013) . For both binding affinity tools [MHCflurry and netMHCpan (BA)], the binding affinity predictions in nanomoles (nM) are converted into (0, 1) range with a widely used logarithmic transformation [i.e., first the predictions are bounded from above by 50,000 nM and from below by 1 nM and then transformed with 1 \u2212 log 10 x log 10 50,000 . The difference in the predictive performance (measured with ROC AUC) of our model with respect to the other methods is statistically significant (and ranges from 0.10 to 0.39). Moreover (as verified on our training dataset across virus families), the high Pearson correlation between the results produced by the binding predictors (corr. coeff. \u03c1 = 0.88) and the low correlation of such results with the predictions of our model (\u03c1 = 0.45 and \u03c1 = 0.53) demarcate substantial differences between our approach and the approaches based on those methods for predicting immunogenic epitopes (see Figure 4) .",
+            "cite_spans": [
+                {
+                    "start": 317,
+                    "end": 337,
+                    "text": "(Jurtz et al., 2017)",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 352,
+                    "end": 376,
+                    "text": "(O'Donnell et al., 2018)",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 437,
+                    "end": 457,
+                    "text": "(Calis et al., 2013)",
+                    "ref_id": "BIBREF5"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 122,
+                    "end": 130,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 1387,
+                    "end": 1396,
+                    "text": "Figure 4)",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Model Performance"
+        },
+        {
+            "text": "We apply the LOGO cross-validation scheme according to the procedure described in the Materials and methods section. While we observe a significant variation in ROC AUC scores depending on the tested groups (i.e., virus families), the performance of each method is not correlated with the number of observations within each group. The Pneumoviridae family might be an outlier in our dataset as the predictive performance of all the considered models are substantially different for this family than those observed for the other families. Although some groups display a noticeable correlation between pHLA immunogenicity and pHLA binding affinity predictions (e.g., Pneumoviridae and Orthomyxoviridae), this trend is not confirmed across all groups. The performance (median ROC AUC across virus families) of our method is comparable to those obtained for binding affinity and ligand likelihood predictors, usually with a smaller variance of prediction performance (see Figures 5, 6) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 968,
+                    "end": 981,
+                    "text": "Figures 5, 6)",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "Model Performance"
+        },
+        {
+            "text": "Note that the Coronaviridae dataset (Figure 3) is the most relevant dataset to the problem at hand, but it also is a very small dataset containing 67 epitopes. Hence, the variation of performance of the selected methods is expected to be high and their performance on the training set (Figures 5, 6 ) might be different (note also that in the LOGO validation -in Figures 5, 6 -we use a single immunogenicity model instead of 11 models, as in Figure 3 ). On the other hand, evaluation on the Coronaviridae dataset might still reflect performance of the selected methods on the epitopes from the SARS-CoV-2 genome. The dataset encompassing all other virus families used in our LOGO cross-validation procedure (training dataset) is much larger, but is also very heterogeneous. For example the Poxviridae family contains predominantly Vaccinia virus, which is a model organism with mostly non-immunogenic epitopes reported in IEDB. Namely, there are 1.6% immunogenic observations in the Poxviridae family, whereas for Herpesviridae 62% of the observations are immunogenic. Moreover, IEDB observations are very small in size within some families (e.g., Adenoviridae with N = 58) and much larger in others (e.g., Poxviridae with N = 21709). In such a situation, the large variance of performance of predictive methods when evaluated on different viral families is expected and originates from both the underlying biological and experimental factors, as well as from the small number of observations for some virus families.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 36,
+                    "end": 46,
+                    "text": "(Figure 3)",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 285,
+                    "end": 298,
+                    "text": "(Figures 5, 6",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 363,
+                    "end": 375,
+                    "text": "Figures 5, 6",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 442,
+                    "end": 450,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Model Performance"
+        },
+        {
+            "text": "The model was then used to predict the immunogenicity of peptides from the SARS-CoV-2 proteome. Target peptides and HLA types considered for the analysis were selected according to the procedure described in the \"Selection of peptides\" and \"Selection of HLA alleles\" sections, respectively. A considerable number of peptides with high scores are observed in both structural and non-structural proteins, encompassing different HLA alleles. Structural epitopes are dominated by the Spike protein, whereas the non-structural ones mostly originate from the ORF1a/ORF1ab-encoded polyproteins. Peptides with percentile rank \u2264 2 presented across the selected HLAs, were considered for both structural ( Table 3) and non-structural ( Table 4 ) viral proteins. We noticed that some HLA alleles exhibit a large number of highly-ranked peptides, in particular A * 02:01, A * 11:01, A * 24:41 and C * 12:03. Interestingly, the presence of some of these alleles was earlier reported to be statistically correlated with the immune protection in SARS cases. Namely, A * 02:01 was found to present immunogenic peptides (Ahmed et al., 2020; Lee and Koohy, 2020) whereas A * 11:01-restricted epitopes were proposed to be included in a SARS-CoV vaccine by Sylvester-Hvid et al. (2004) . Groups of peptides predicted to be associated with multiple HLAs are shown in Figure 7 . These epitopes originate from both structural and non-structural antigens.",
+            "cite_spans": [
+                {
+                    "start": 1103,
+                    "end": 1123,
+                    "text": "(Ahmed et al., 2020;",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 1124,
+                    "end": 1144,
+                    "text": "Lee and Koohy, 2020)",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 1237,
+                    "end": 1265,
+                    "text": "Sylvester-Hvid et al. (2004)",
+                    "ref_id": "BIBREF52"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 696,
+                    "end": 704,
+                    "text": "Table 3)",
+                    "ref_id": "TABREF2"
+                },
+                {
+                    "start": 726,
+                    "end": 733,
+                    "text": "Table 4",
+                    "ref_id": "TABREF3"
+                },
+                {
+                    "start": 1346,
+                    "end": 1354,
+                    "text": "Figure 7",
+                    "ref_id": null
+                }
+            ],
+            "section": "Model Performance"
+        },
+        {
+            "text": "FIGURE 7 | Peptides presented across multiple HLAs. Immunogenicity scores are reported for epitopes from both structural (top) and non-structural (bottom) proteins. Peptide-HLA combinations marked in gray are predicted non-binders (netMHCpan 4.0 percentile rank > 2). For the remaining pHLAs, the color relates to the percentile rank of our predictions for a given HLA type (0.95 means that the prediction is among top 5% of the predictions for that particular HLA allele). Peptides marked in red are considered as Highly Variable (HV) due to maximum mutation frequency score \u2265 0.05.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Model Performance"
+        },
+        {
+            "text": "Frontiers in Genetics | www.frontiersin.org ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Model Performance"
+        },
+        {
+            "text": "In order to enable the exclusion of peptides originating from genetically highly variable areas, the mutation frequency of each amino acid within the SARS-CoV-2 genome was computed (see section \"Materials and Methods\" for details).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "SARS-CoV-2 Genome Diversity Analysis"
+        },
+        {
+            "text": "The genes that those peptides originate from are likely to mutate, hence the inclusion of such peptides might lower the vaccine efficacy over time. From the analysis of 8,639 complete genome sequences, obtained from different SARS-CoV-2 isolates, which then were translated into protein sequences, the mutation frequency at each amino acid position was computed. For each peptide in the SARS-CoV-2 proteome, the maximum mutation frequency was calculated (see section \"Materials and Methods\"), and peptides with the resulting score \u2265 0.05 (marked in color in Tables 3, 4 ) are considered to be highly variable (HV) and should be disregarded as vaccine components. 13 amino acid positions were observed to contain mutations in at least 5% of the selected sequences. Among these, as many as nine amino acid positions were mutated in more than 10% of the selected sequences, while two positions showed mutations in fully half of the samples (more than 50%). In Table 5 Within the top-50 immunogenic peptides originating from the SARS-CoV-2 structural and non-structural proteins (NSPs), 1 and 3 HV peptides were found, respectively.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 558,
+                    "end": 569,
+                    "text": "Tables 3, 4",
+                    "ref_id": "TABREF2"
+                },
+                {
+                    "start": 957,
+                    "end": 964,
+                    "text": "Table 5",
+                    "ref_id": "TABREF4"
+                }
+            ],
+            "section": "SARS-CoV-2 Genome Diversity Analysis"
+        },
+        {
+            "text": "Each peptide derived from the SARS-CoV-2 proteome was studied to ascertain the lack of similarity with peptides present in the reference human proteome. When administered in a vaccine, epitopes highly similar to peptides presented by the host's healthy tissues could either trigger an unwanted immune self-reaction or be tolerated by the immune system.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Toxicity/Tolerance Results"
+        },
+        {
+            "text": "In both cases, these peptides should be eliminated from the vaccine composition. A total of 11 SARS-CoV-2-derived peptides with moderate similarity to human proteins were found (Evalue \u2264 4). Of these, four were significantly similar (Evalue \u2264 1) and thus should be avoided (see Supplementary Data 1). None of these peptides were found within the top-100 ranked peptides.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Toxicity/Tolerance Results"
+        },
+        {
+            "text": "Results from a list of selected publications were compared with percentile ranks computed by our method for the same pHLAs. We did not find any significant correlation with the in silico predictions from Grifoni et al. (2020) , Lee and Koohy (2020) , and Gupta et al. (2020) highlighting a clear distinction between our methodology and the procedures used in these studies. Although the best candidate selected by Gupta et al. is not among our best candidates for HLA-A * 11:01, it is scored by the model as the top candidate among those proposed by the authors. A moderate negative correlation (\u03c1 \u223c = \u22120.45) was observed between the percentile rank scores of our method and the scores presented by Smith et al. (2020) . Although our top peptide candidates associated with the HLAs proposed by Baruah and Bose (2020) do not include any of the five peptides proposed by the authors, we noticed a consensus between the HLA percentile rank of the pHLAs selected by the authors, and our percentile rank scores (Figure 8) .",
+            "cite_spans": [
+                {
+                    "start": 204,
+                    "end": 225,
+                    "text": "Grifoni et al. (2020)",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 228,
+                    "end": 248,
+                    "text": "Lee and Koohy (2020)",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 255,
+                    "end": 274,
+                    "text": "Gupta et al. (2020)",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 699,
+                    "end": 718,
+                    "text": "Smith et al. (2020)",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 794,
+                    "end": 816,
+                    "text": "Baruah and Bose (2020)",
+                    "ref_id": "BIBREF3"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1006,
+                    "end": 1016,
+                    "text": "(Figure 8)",
+                    "ref_id": "FIGREF8"
+                }
+            ],
+            "section": "Comparison With Other Methods"
+        },
+        {
+            "text": "The immunogenicity scores predicted by our model were then compared with the experimental measurement of pHLA binding stability done by Prachar et al. (2020) . Peptide candidates with low immunogenicity ranks are enriched in regions with a low stability percentage. The results are shown in Figure 9 , on the left. The immunogenicity score is expressed as the complement to 100 of the immunogenicity percentile rank. The stability percentage is defined relative to reference peptides (see Prachar et al., 2020 for details) . The concordance between high immunogenicity (or low immunogenicity rank) and high stability percentage is more noticeable after the exclusion of peptides with low predicted binding affinity (Figure 9 , right). The Spearman correlation between pHLA stability percentage and the predicted immunogenicity (\u03c1 = 0.392) is higher than the correlation between the stability percentage and the predicted binding affinity (\u03c1 = 0.313). The binding affinity was computed using NetMHCpan 4.0 (Jurtz et al., 2017) .",
+            "cite_spans": [
+                {
+                    "start": 136,
+                    "end": 157,
+                    "text": "Prachar et al. (2020)",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 489,
+                    "end": 522,
+                    "text": "Prachar et al., 2020 for details)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1005,
+                    "end": 1025,
+                    "text": "(Jurtz et al., 2017)",
+                    "ref_id": "BIBREF30"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 291,
+                    "end": 299,
+                    "text": "Figure 9",
+                    "ref_id": null
+                },
+                {
+                    "start": 715,
+                    "end": 724,
+                    "text": "(Figure 9",
+                    "ref_id": null
+                }
+            ],
+            "section": "Comparison With Other Methods"
+        },
+        {
+            "text": "A noticeable difference in the distributions of experimentally measured pHLA stability percentage was obtained by ranking using binding affinity predictors and our immunogenicity predictions. A clear distinction between stable and unstable pHLAs was obtained through the selection of the top-10% and the bottom-10% scores predicted by the immunogenicity model, whereas the use of filters relying on standard binding affinity thresholds (e.g., 100 nM) leads to a less defined separation (Figure 10) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 486,
+                    "end": 497,
+                    "text": "(Figure 10)",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Comparison With Other Methods"
+        },
+        {
+            "text": "Finally, we report low scores for all the five class I pHLAs which were experimentally confirmed to be non-immunogenic by Rammensee et al. (2020) . None of these peptides were recommended by ArdImmune Rank as a candidate to be included in a vaccine formulation against SARS-CoV-2. FIGURE 9 | Comparison between ArdImmune Rank percentile ranks for pHLA immunogenicity and pHLA stability data measured by Prachar et al. (2020) Scatter plots and kernel density estimations are shown with (right) and without (left) the exclusion of pHLA predicted non-binders (K d percentile rank \u2265 2). The complement of the ArdImmune Rank percentile rank is shown on the y-axis (higher value = lower rank), while the stability percentage as reported by Prachar et al. (2020) is shown on the x-axis.",
+            "cite_spans": [
+                {
+                    "start": 122,
+                    "end": 145,
+                    "text": "Rammensee et al. (2020)",
+                    "ref_id": "BIBREF48"
+                },
+                {
+                    "start": 403,
+                    "end": 424,
+                    "text": "Prachar et al. (2020)",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 734,
+                    "end": 755,
+                    "text": "Prachar et al. (2020)",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Comparison With Other Methods"
+        },
+        {
+            "text": "FIGURE 10 | Distribution of stability percentage for different filtering procedures. The respective pHLA stability score densities of the 10% top ranked and the 10% lowest ranked peptides in terms of predicted immunogenicity is shown on the left. The pHLA stability score densities computed according to the binding affinity ranges reported by Prachar et al. (2020) . (K d \u2265 100 nM, K d < 100 nM, based on predicted binding affinity) is shown on the right.",
+            "cite_spans": [
+                {
+                    "start": 344,
+                    "end": 365,
+                    "text": "Prachar et al. (2020)",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Comparison With Other Methods"
+        },
+        {
+            "text": "The high selective pressure exerted upon coronaviruses, caused by the need of a viable host for survival, together with their high genetic variability, facilitates their rapid evolution and the prompt generation of escape mutants. Despite the vigorous effort of the industry, vaccine design, clinical trials, and production require at least several months and most likely several years. Many investigations aimed at developing vaccines protecting humans and animals from coronaviruses were initiated in the last few decades, setting the basis for the recent scientific advancement in COVID-19 treatment. Nonetheless, a limiting aspect associated with the approval and commercialization of a vaccine is that the demand for a vaccine is limited to the outbreak period, and its market value is proportional to the number of people affected. This represented a major issue for the development of vaccines for SARS and MERS (Du et al., 2009; Dhama et al., 2020) . In addition, the majority of coronavirus biotherapeutics (i.e., antibodies and vaccines) are designed to leverage neutralizing antibodies directed against the S protein.",
+            "cite_spans": [
+                {
+                    "start": 919,
+                    "end": 936,
+                    "text": "(Du et al., 2009;",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 937,
+                    "end": 956,
+                    "text": "Dhama et al., 2020)",
+                    "ref_id": "BIBREF13"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "Safety issues such as those associated with the ADE and CSS events, make the development of vaccine and antibody-based therapies even more problematic.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "In combination with the stimulation of humoral immune response, which is aimed at the direct neutralization of the virus, the targeted elimination of infected cells is a crucial element of the immune response against viruses. This might be induced either by the administration of a vaccine eliciting protective CD8+ Cytotoxic T Lymphocyte (CTL) or by transferring CD8+ cells engineered to recognize viral antigens specifically. Previous studies have confirmed a strong correlation between the depletion and exhaustion of T-cells and worse prognosis in critical coronavirus patients (Diao et al., 2020) highlighting the potential of vaccines inducing T-cell responses for COVID-19 prevention. This strategy has beneficial features such as a lower risk of stimulating ADE and CSS with respect to antibody-based strategies (Jaume et al., 2011; Channappanavar et al., 2016) and the stimulation of the immune response against intracellular epitopes not reachable by the antibodies but potentially highly immunogenic. In both cases, the selection of effective immunogenic epitopes is of paramount importance.",
+            "cite_spans": [
+                {
+                    "start": 582,
+                    "end": 601,
+                    "text": "(Diao et al., 2020)",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 820,
+                    "end": 840,
+                    "text": "(Jaume et al., 2011;",
+                    "ref_id": null
+                },
+                {
+                    "start": 841,
+                    "end": 869,
+                    "text": "Channappanavar et al., 2016)",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "The aim of this study was to identify SARS-CoV-2 epitopes for the development of a vaccine composition focused on T-cell activation. We investigated several aspects predetermining whether viral epitopes may induce an effective T-cell response, including the MHC-I peptide presentation and immunogenicity potential, SARS-CoV-2 genome variability, and possible toxicity/immune tolerance of the peptides considered.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "In contrast to the majority of works on this topic either relying of pHLA binding and presentation events or modeling single pHLA structural interactions, the model applied herein was designed to leverage simultaneously information about the propensity of a peptide to be presented by its cognated HLA and the probability that such pHLA is immunogenic, inferred from similar experimental data. As we show in Figure 3 when evaluated on the experimentally-validated Coronaviridae immunogenicity data, our approach has higher performance than the widely-used predictors assessing pHLA binding affinity, presentation or immunogenicity (i.e., IEDB).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 408,
+                    "end": 416,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "By applying our method, a considerable amount of highly scored T-cell epitopes was found across the SARS-CoV-2 proteome, encompassing the structural proteins and NSPs, as shown in Tables 3, 4. The majority of selected epitopes were conserved across different SARS-CoV-2 isolates. Only 16 epitopes were excluded because of their significant mutability (see Table 5 ). The availability of epitopes from NSPs allows for the design of vaccine components dedicated to T-cell responses, and might be further integrated with other components focused on B-cell responses. The adoption of such a compartmentalized strategy might help to lower the risk of non-neutralizing antibody production, which constituted a reason of concern during the development of a vaccine formulation for SARS. Moreover, during the early stages of viral infection, the expression of non-structural proteins is significantly higher than the expression of structural ones. The targeted stimulation of the immune response toward epitopes originating from nonstructural proteins might be useful to induce an immune response at the early phase of the disease. Some highly ranked peptides were found to be presented across multiple HLAs and could be used to increase population coverage while decreasing the number of epitopes needed to be included in the vaccine formulation. This aspect could be particularly relevant for solutions relying on delivery systems of limited capacity.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 356,
+                    "end": 363,
+                    "text": "Table 5",
+                    "ref_id": "TABREF4"
+                }
+            ],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "The risk of eliciting potentially harmful and sometimes deadly (Linette et al., 2013) cross-reactivities is an issue to be carefully addressed in vaccine design. On the other hand, epitopes shared with proteins from the host could also be tolerated by the host's immune system, being not useful for vaccine purposes. Considering the importance of such an aspect, the analysis of potential toxicity and tolerance was addressed in this study, leading to the identification of four highly ranked epitopes having a certain degree of similarity with proteins within the human proteome. Such peptides were removed for safety and efficacy reasons.",
+            "cite_spans": [
+                {
+                    "start": 63,
+                    "end": 85,
+                    "text": "(Linette et al., 2013)",
+                    "ref_id": "BIBREF36"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "The substantial difference between the selection of pHLA candidates performed by our methodology with respect to those presented by Grifoni et al. (2020) , Lee and Koohy (2020) , and Gupta et al. (2020) highlights a clear distinction between these approaches. Nonetheless, our method supported the selection of top candidates in small datasets obtained by applying hand-crafted filtering stages (Baruah and Bose, 2020; Gupta et al., 2020) . The mild correlation with the results from Smith et al. (2020) might indicate the usage of equivalent components during some steps of the selection process. A relative concordance between the pHLA stability scores from Prachar et al. (2020) and the associated immunogenic scores computed by our method was observed (Figure 9 ). Moreover, we show that the peptide ranks produced by our immunogenicity model have a higher correlation with the experimentally measured pHLA stability than the ranks obtained by methods relying solely on binding affinity or ligand likelihood predictions. This observation is consistent with works reported in the literature (Harndahl et al., 2012) . We also obtained low immunogenicity scores for all five peptides which have been experimentally confirmed by Rammensee to be unable to activate CD8+ lymphocytes.",
+            "cite_spans": [
+                {
+                    "start": 132,
+                    "end": 153,
+                    "text": "Grifoni et al. (2020)",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 156,
+                    "end": 176,
+                    "text": "Lee and Koohy (2020)",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 183,
+                    "end": 202,
+                    "text": "Gupta et al. (2020)",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 395,
+                    "end": 418,
+                    "text": "(Baruah and Bose, 2020;",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 419,
+                    "end": 438,
+                    "text": "Gupta et al., 2020)",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 484,
+                    "end": 503,
+                    "text": "Smith et al. (2020)",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 660,
+                    "end": 681,
+                    "text": "Prachar et al. (2020)",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 1094,
+                    "end": 1117,
+                    "text": "(Harndahl et al., 2012)",
+                    "ref_id": "BIBREF23"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 756,
+                    "end": 765,
+                    "text": "(Figure 9",
+                    "ref_id": null
+                }
+            ],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "In this paper we suggested a SARS-CoV-2 vaccine composition in the form of the list of epitopes optimized for their (predicted) immunogenicity and HLA population coverage. Our motivation is that cellular immune response is fundamental for an effective SARS-CoV-2 vaccine and it also mitigates the risks of ADE and CSS which are typically associated with modalities relying on the activation of humoral immune response. We showed that the predictive model, on which our methodology is based outperforms, on Coronaviridae data, other methods used to date for the design of epitope-based vaccines against SARS-CoV-2. Our approach differs from other existing methods and shows a higher correlation with the measured pHLA stability in comparison with methods based solely on binding affinity predictions. The limitations of our method have the same roots as those found in other in silico approaches based on predicting various pHLA properties, i.e., the accuracy of these predictive methods. We expect that with the increasing amount of experimentally validated data and with further algorithmic enhancements in the field of artificial intelligence, the accuracy of such models and the effectiveness of vaccine design will continue to improve. Computational methods have proven to be of considerable support in optimizing the vaccine design process on several occasions. Moreover, a notable improvement in the predicting skills of such methods has been recorded in recent years, admittedly due to the increasing advancements in machine learning coupled with a surge in the availability of powerful computational resources. However, it is important to mention that such tools do not represent a substitute for the laboratory experiments necessary to verify and optimize the safety and efficacy of vaccines. Their role is to support the design of such experiments in order to reduce their number, the time needed and cost.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "CONCLUSION"
+        },
+        {
+            "text": "The lists containing the predicted immunogenic peptides with percentile rank \u2264 2 are included in this study (Tables 3 and 4) . The lists of all the predicted immunogenic peptides generated during this study are available from the corresponding author upon reasonable request.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 108,
+                    "end": 124,
+                    "text": "(Tables 3 and 4)",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "DATA AVAILABILITY STATEMENT"
+        },
+        {
+            "text": "GM wrote the article with contributions from IN, PSk, and JK. AM, PSk, IN, and KG performed the analyses and generated figures and tables included in the article. GM, IN, AM, PSk, JK, AS-D, KG, PK, and MD developed the applied methodology. PSt conceived the idea for the project and coordinated the work. AS-D, MS, and KP gave essential contributions to the interpretation of immunological and virological aspects of the study. All the authors reviewed, edited, contributed to the article and approved the submitted version.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "AUTHOR CONTRIBUTIONS"
+        },
+        {
+            "text": "The study was sponsored by Ardigen. The applied methodology was in part developed prior to this study with support from the regional Polish grant RPMP.01.02.01-12-0301/17 (European Funds, Regional Program) approved by the Ma\u0142opolska Centre for Entrepreneurship.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "FUNDING"
+        },
+        {
+            "text": "Ardigen and COVID-19 Vaccine Corporation (CVC) announced that they entered a research collaboration aimed at the development of SARS-CoV-2 vaccine.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "ACKNOWLEDGMENTS"
+        },
+        {
+            "text": "The Supplementary Material for this article can be found online at:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "SUPPLEMENTARY MATERIAL"
+        },
+        {
+            "text": "https://www.frontiersin.org/articles/10.3389/fgene.2021. 602196/full#supplementary-material",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "SUPPLEMENTARY MATERIAL"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Mass spectrometry profiling of HLA-associated peptidomes in monoallelic cells enables more accurate epitope prediction",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Abelin",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Keskin",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sarkizova",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Hartigan",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Sidney",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Immunity",
+            "volume": "46",
+            "issn": "",
+            "pages": "315--326",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.immuni.2017.02.007"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Preliminary identification of potential vaccine targets for the COVID-19 Coronavirus (SARS-CoV-2) based on SARS-CoV immunological studies",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Ahmed",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Quadeer",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Mckay",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Viruses",
+            "volume": "12",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/v12030254"
+                ]
+            }
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "The proximal origin of SARS-CoV-2",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Andersen",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Rambaut",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Lipkin",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Holmes",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Garry",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat. Med",
+            "volume": "26",
+            "issn": "",
+            "pages": "450--452",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41591-020-0820-9"
+                ]
+            }
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Immunoinformatics-aided identification of T Cell and B Cell Epitopes in the surface glycoprotein of 2019-nCoV",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Baruah",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bose",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J. Med. Virol",
+            "volume": "92",
+            "issn": "",
+            "pages": "495--500",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/jmv.25698"
+                ]
+            }
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Traitors of the immune systemenhancing antibodies in HIV infection: their possible implication in HIV vaccine development",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Beck",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Proh\u00e1szka",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "F\u00fcst",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Vaccine",
+            "volume": "26",
+            "issn": "",
+            "pages": "3078--3085",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.vaccine.2007.12.028"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Properties of MHC class I presented peptides that enhance immunogenicity",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "J A"
+                    ],
+                    "last": "Calis",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Maybeno",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Greenbaum",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Weiskopf",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "De Silva",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sette",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "PLoS Comput. Biol",
+            "volume": "9",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/journal.pcbi.1003266"
+                ]
+            }
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Dysregulated Type I interferon and inflammatory monocytemacrophage responses cause lethal pneumonia in SARS-CoV-infected mice",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Channappanavar",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Fehr",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Vijay",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mack",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Meyerholz",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Cell Host Microb",
+            "volume": "19",
+            "issn": "",
+            "pages": "181--193",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.chom.2016.01.007"
+                ]
+            }
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Virus-specific memory CD8 T cells provide substantial protection from lethal severe acute respiratory syndrome coronavirus infection",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Channappanavar",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Fett",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Meyerholz",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Perlman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "J. Virol",
+            "volume": "88",
+            "issn": "",
+            "pages": "11034--11044",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/JVI.01505-14"
+                ]
+            }
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Response of Memory CD8 + T cells to severe acute respiratory syndrome (SARS) Coronavirus in recovered SARS patients and healthy individuals",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Hou",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Jiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ma",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Meng",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "J. Immunol",
+            "volume": "175",
+            "issn": "",
+            "pages": "591--598",
+            "other_ids": {
+                "DOI": [
+                    "10.4049/jimmunol.175.1.591"
+                ]
+            }
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Epidemiological and clinical characteristics of 99 cases of 2019 novel Coronavirus pneumonia in Wuhan, China: a descriptive study",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Dong",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Qu",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Gong",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Han",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Lancet",
+            "volume": "395",
+            "issn": "",
+            "pages": "507--513",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/S0140-6736(20)30211-7"
+                ]
+            }
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Monoclonal antibody analysis of neutralization and antibody-dependent enhancement of feline infectious peritonitis virus",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Corapi",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Olsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Scott",
+                    "suffix": ""
+                }
+            ],
+            "year": 1992,
+            "venue": "J. Virol",
+            "volume": "66",
+            "issn": "",
+            "pages": "6695--6705",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/JVI.66.11.6695-6705.1992"
+                ]
+            }
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Origin and evolution of pathogenic Coronaviruses",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Cui",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Nat. Rev. Microbiol",
+            "volume": "17",
+            "issn": "",
+            "pages": "181--192",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41579-018-0118-9"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Cross-reacting antibodies enhance dengue virus infection in humans",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Dejnirattisai",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Jumnainsong",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Onsirisakul",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Fitton",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Vasanawathana",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Limpitikul",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Science",
+            "volume": "328",
+            "issn": "",
+            "pages": "745--748",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.1185181"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "COVID-19, an emerging coronavirus infection: advances and prospects in designing and developing vaccines, immunotherapeutics, and therapeutics",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Dhama",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Sharun",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Tiwari",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Dadar",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Malik",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Singh",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Hum. Vacc. Immunotherap",
+            "volume": "16",
+            "issn": "",
+            "pages": "1232--1238",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/21645515.2020.1735227"
+                ]
+            }
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Unveiling the peptide motifs of HLA-C and HLA-G from naturally presented peptides and generation of binding prediction matrices",
+            "authors": [
+                {
+                    "first": "Di",
+                    "middle": [],
+                    "last": "Marco",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Schuster",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Backert",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Ghosh",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Rammensee",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Stevanoviae",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "J. Immunol",
+            "volume": "199",
+            "issn": "",
+            "pages": "2639--2651",
+            "other_ids": {
+                "DOI": [
+                    "10.4049/jimmunol.1700938"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Reduction and functional exhaustion of T cells in patients with Coronavirus disease 2019 (COVID-19)",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Diao",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Tan",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Ning",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Front. Immunol",
+            "volume": "11",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3389/fimmu.2020.00827"
+                ]
+            }
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "The spike protein of SARS-CoV -a target for vaccine and therapeutic development",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Du",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "He",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Zheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Jiang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Nat. Rev. Microbiol",
+            "volume": "7",
+            "issn": "",
+            "pages": "226--236",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/nrmicro2090"
+                ]
+            }
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Characterization of SARS-CoV-specific memory T cells from recovered individuals 4 years after infection",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Fan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Koup",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Archiv. Virol",
+            "volume": "154",
+            "issn": "",
+            "pages": "1093--1099",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s00705-009-0409-6"
+                ]
+            }
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Extensive positive selection drives the evolution of nonstructural proteins in Lineage C Betacoronaviruses",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Forni",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Cagliani",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Mozzi",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Pozzoli",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Al-Daghri",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Clerici",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "J. Virol",
+            "volume": "90",
+            "issn": "",
+            "pages": "3627--3639",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/JVI.02988-15"
+                ]
+            }
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Understanding SARS-CoV-2-mediated inflammatory responses: from mechanisms to potential therapeutic tools",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Fu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Cheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Virol. Sin",
+            "volume": "35",
+            "issn": "",
+            "pages": "266--271",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s12250-020-00207-4"
+                ]
+            }
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "A sequence homology and bioinformatic approach can predict candidate targets for immune responses to SARS-CoV-2",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Grifoni",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Sidney",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Scheuermann",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Peters",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sette",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell Host Microb",
+            "volume": "27",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.chom.2020.03.002"
+                ]
+            }
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Identification of potential vaccine candidates against SARS-CoV-2, a step forward to fight novel Coronavirus 2019-NCoV: a reverse vaccinology approach",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Gupta",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Mishra",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "R K"
+                    ],
+                    "last": "Niraj",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.04.13.039198"
+                ]
+            }
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Neutralizing antibodies after infection with dengue 1 virus",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Guzman",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Alvarez",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Rodriguez-Roche",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Bernardo",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Montes",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Vazquez",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Emerg. Infect. Dis",
+            "volume": "13",
+            "issn": "",
+            "pages": "282--286",
+            "other_ids": {
+                "DOI": [
+                    "10.3201/eid1302.060539"
+                ]
+            }
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Peptide-MHC class I stability is a better predictor than peptide affinity of CTL immunogenicity: antigen processing",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Harndahl",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Rasmussen",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Roder",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Dalgaard Pedersen",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "S\u00f8rensen",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Nielsen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Eur. J. Immunol",
+            "volume": "42",
+            "issn": "",
+            "pages": "1405--1416",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/eji.201141774"
+                ]
+            }
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Antibody-dependent enhancement of feline infectious peritonitis virus infection in feline alveolar macrophages and human monocyte cell line U937 by Serum of cats experimentally or naturally infected with feline Coronavirus",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Hohdatsu",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Yamada",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Tominaga",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Makino",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Kida",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Koyama",
+                    "suffix": ""
+                }
+            ],
+            "year": 1998,
+            "venue": "J. Veter. Med. Sci",
+            "volume": "60",
+            "issn": "",
+            "pages": "49--55",
+            "other_ids": {
+                "DOI": [
+                    "10.1292/jvms.60.49"
+                ]
+            }
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Genomic characterization and infectivity of a novel SARS-like Coronavirus in Chinese Bats",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Ai",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "He",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Ye",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Emerg. Micro. Infect",
+            "volume": "7",
+            "issn": "",
+            "pages": "1--10",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41426-018-0155-5"
+                ]
+            }
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Clinical features of patients infected with 2019 novel Coronavirus in Wuhan",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Ren",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "China. Lancet",
+            "volume": "395",
+            "issn": "",
+            "pages": "497--506",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/S0140-6736(20)30183-5"
+                ]
+            }
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "The potential danger of suboptimal antibody responses in COVID-19",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Iwasaki",
+                    "suffix": ""
+                },
+                {
+                    "first": "Yang",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat. Rev. Immunol",
+            "volume": "20",
+            "issn": "",
+            "pages": "339--341",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41577-020-0321-6"
+                ]
+            }
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Anti-Severe acute respiratory syndrome Coronavirus spike antibodies trigger infection of human immune cells via a PH-and cysteine protease-independent Fc R pathway",
+            "authors": [],
+            "year": null,
+            "venue": "J. Virol",
+            "volume": "85",
+            "issn": "",
+            "pages": "10582--10597",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/JVI.00671-11"
+                ]
+            }
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "NetMHCpan-4.0: improved peptide-MHC class I interaction predictions integrating eluted Ligand and peptide binding affinity data",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Jurtz",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Paul",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Andreatta",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Marcatili",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Peters",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Nielsen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "J. Immunol",
+            "volume": "199",
+            "issn": "",
+            "pages": "3360--3368",
+            "other_ids": {
+                "DOI": [
+                    "10.4049/jimmunol.1700893"
+                ]
+            }
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Antibodies against Trimeric S glycoprotein protect hamsters against SARS-CoV challenge despite their capacity to mediate Fc\u03b3RII-dependent entry into B Cells in vitro",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Kam",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Kien",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Roberts",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Cheung",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Lamirande",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Vogel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Vaccine",
+            "volume": "25",
+            "issn": "",
+            "pages": "729--740",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.vaccine.2006.08.011"
+                ]
+            }
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Antibody-dependent enhancement of severe dengue disease in humans",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Katzelnick",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Gresh",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Halloran",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Mercado",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Kuan",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Gordon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Science",
+            "volume": "358",
+            "issn": "",
+            "pages": "929--932",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.aan6836"
+                ]
+            }
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "In silico identification of vaccine targets for 2019-NCoV",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Koohy",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "9",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.12688/f1000research.22507.2"
+                ]
+            }
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Structure, function, and evolution of Coronavirus spike proteins",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Ann. Rev. Virol",
+            "volume": "3",
+            "issn": "",
+            "pages": "237--261",
+            "other_ids": {
+                "DOI": [
+                    "10.1146/annurev-virology-110615-042301"
+                ]
+            }
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Single-cell landscape of bronchoalveolar immune cells in patients with COVID-19",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Liao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Yuan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wen",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat. Med",
+            "volume": "26",
+            "issn": "",
+            "pages": "842--844",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41591-020-0901-9"
+                ]
+            }
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Cardiovascular toxicity and titin cross-reactivity of affinity-enhanced T cells in Myeloma and melanoma",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Linette",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Stadtmauer",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Maus",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Rapoport",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Levine",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Emery",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Blood",
+            "volume": "122",
+            "issn": "",
+            "pages": "863--871",
+            "other_ids": {
+                "DOI": [
+                    "10.1182/blood-2013-03-490565"
+                ]
+            }
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "The membrane protein of severe acute respiratory syndrome Coronavirus acts as a dominant immunogen revealed by a clustering region of novel functionally and structurally defined cytotoxic T-lymphocyte epitopes",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Qi",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Chu",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "J. Infect. Dis",
+            "volume": "202",
+            "issn": "",
+            "pages": "1171--1180",
+            "other_ids": {
+                "DOI": [
+                    "10.1086/656315"
+                ]
+            }
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Anti-Spike IgG causes severe acute lung injury by skewing macrophage responses during acute SARS-CoV infection",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Wei",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Lin",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Fang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Kwok",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "JCI Insight",
+            "volume": "4",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1172/jci.insight.123158"
+                ]
+            }
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Memory T cell responses targeting the SARS Coronavirus persist up to 11 years post-infection",
+            "authors": [],
+            "year": 2008,
+            "venue": "Vaccine",
+            "volume": "34",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.vaccine.2016.02.063"
+                ]
+            }
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "MHCflurry: open-source class I MHC binding affinity prediction",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "O&apos;donnell",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Rubinsteyn",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Bonsack",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Riemer",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Laserson",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Hammerbacher",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Cell Syst",
+            "volume": "7",
+            "issn": "",
+            "pages": "129--132",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cels.2018.05.014"
+                ]
+            }
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Quantitative prediction of the landscape of T Cell epitope immunogenicity in sequence space",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ogishi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Yotsuyanagi",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Front. Immunol",
+            "volume": "10",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3389/fimmu.2019.00827"
+                ]
+            }
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "Biostrings: Efficient Manipulation of Biological Strings",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Pag\u00e8s",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Debroy",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Macrophages inhibit human osteosarcoma cell growth after activation with the bacterial cell wall derivative Liposomal Muramyl tripeptide in combination with Interferon-\u03b3",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "H W"
+                    ],
+                    "last": "Pahl",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "M C"
+                    ],
+                    "last": "Kwappenberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Varypataki",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Santos",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Kuijjer",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mohamed",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "J. Exper. Clin. Cancer Res",
+            "volume": "33",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1186/1756-9966-33-27"
+                ]
+            }
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Clinical progression and viral load in a community outbreak of Coronavirus-associated SARS pneumonia: a prospective study",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "S M"
+                    ],
+                    "last": "Peiris",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Chu",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "C C"
+                    ],
+                    "last": "Cheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Chan",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [
+                        "F N"
+                    ],
+                    "last": "Hung",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "L M"
+                    ],
+                    "last": "Poon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Lancet",
+            "volume": "361",
+            "issn": "",
+            "pages": "1767--1772",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/S0140-6736(03)13412-5"
+                ]
+            }
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "Longlived memory T lymphocyte responses against SARS Coronavirus nucleocapsid Protein in SARS-recovered patients",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Peng",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [
+                        "Q"
+                    ],
+                    "last": "Lu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Virology",
+            "volume": "351",
+            "issn": "",
+            "pages": "466--475",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.virol.2006.03.036"
+                ]
+            }
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "COVID-19 vaccine candidates: prediction and validation of 174 SARS-CoV-2 epitopes",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Prachar",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Justesen",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Steen-Jensen",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Thorgrimsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Jurgons",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Winther",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.03.20.000794"
+                ]
+            }
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "Designing a therapeutic SARS-CoV-2 T-cell-inducing vaccine for high-risk patient groups",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Rammensee",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Stevanoviae",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Gouttefangeas",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Heidu",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Klein",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Preu\u00df",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.21203/rs.3.rs-27316/v1"
+                ]
+            }
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "A large peptidome dataset improves HLA class I epitope prediction across most of the human population",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sarkizova",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Klaeger",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Le",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Oliveira",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Keshishian",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat. Biotechnol",
+            "volume": "38",
+            "issn": "",
+            "pages": "199--209",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41587-019-0322-9"
+                ]
+            }
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "Landscape and selection of vaccine epitopes in SARS-CoV-2. bioRxiv",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Smith",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Entwistle",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Willis",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Vensko",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Beck",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Garness",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.06.04.135004"
+                ]
+            }
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "From SARS to MERS, thrusting coronaviruses into the spotlight",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Bao",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Qu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Viruses",
+            "volume": "11",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/v11010059"
+                ]
+            }
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "SARS CTL vaccine candidates; HLA Supertype-, genome-wide scanning and biochemical validation",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Sylvester-Hvid",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Nielsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Lamberth",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Roder",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Justesen",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Lundegaard",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "Tissue Antig",
+            "volume": "63",
+            "issn": "",
+            "pages": "395--400",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/j.0001-2815.2004.00221.x"
+                ]
+            }
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "Antibodydependent enhancement of ebola virus infection",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Takada",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Feldmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Ksiazek",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Kawaoka",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "J. Virol",
+            "volume": "77",
+            "issn": "",
+            "pages": "7539--7544",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/JVI.77.13.7539-7544.2003"
+                ]
+            }
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "Infectivity-enhancing antibodies to ebola virus glycoprotein",
+            "authors": [],
+            "year": null,
+            "venue": "J. Virol",
+            "volume": "75",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/JVI.75.5.2324-2330.2001"
+                ]
+            }
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "Lack of peripheral memory B cell responses in recovered patients with severe acute respiratory syndrome: a six-year follow-up study",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Tang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Quan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Xin",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wrammert",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Ma",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Lv",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "J. Immunol",
+            "volume": "186",
+            "issn": "",
+            "pages": "7264--7268",
+            "other_ids": {
+                "DOI": [
+                    "10.4049/jimmunol.0903490"
+                ]
+            }
+        },
+        "BIBREF58": {
+            "ref_id": "b58",
+            "title": "HLA-A * 0201 T-cell epitopes in severe acute respiratory syndrome (SARS)",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF59": {
+            "ref_id": "b59",
+            "title": "Coronavirus nucleocapsid and spike proteins",
+            "authors": [],
+            "year": null,
+            "venue": "Biochem. Biophys. Res. Commun",
+            "volume": "344",
+            "issn": "",
+            "pages": "63--71",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.bbrc.2006.03.152"
+                ]
+            }
+        },
+        "BIBREF60": {
+            "ref_id": "b60",
+            "title": "The Immune Epitope Database (IEDB)",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Vita",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mahajan",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Overton",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Dhanda",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Martini",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Cantrell",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "update. Nucleic Acids Res",
+            "volume": "47",
+            "issn": "",
+            "pages": "339--343",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/nar/gky1006"
+                ]
+            }
+        },
+        "BIBREF61": {
+            "ref_id": "b61",
+            "title": "Clinical features and treatment of COVID-19 patients in northeast Chongqing",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Xiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Fang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J. Med. Virol",
+            "volume": "92",
+            "issn": "",
+            "pages": "797--806",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/jmv.25783"
+                ]
+            }
+        },
+        "BIBREF62": {
+            "ref_id": "b62",
+            "title": "Molecular mechanism for antibody-dependent enhancement of coronavirus entry",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wan",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Shang",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Tai",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Geng",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "J. Virol",
+            "volume": "94",
+            "issn": "",
+            "pages": "2015--2034",
+            "other_ids": {}
+        },
+        "BIBREF63": {
+            "ref_id": "b63",
+            "title": "Antibody-dependent SARS Coronavirus infection is mediated by antibodies against spike proteins",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Tseng",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Yen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Tsao",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Shen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Biochem. Biophys. Res. Commun",
+            "volume": "451",
+            "issn": "",
+            "pages": "208--214",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.bbrc.2014.07.090"
+                ]
+            }
+        },
+        "BIBREF64": {
+            "ref_id": "b64",
+            "title": "T-Cell Epitopes in severe acute respiratory syndrome (SARS) Coronavirus spike protein elicit a specific T-Cell immune response in patients who recover from SARS",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "Y F"
+                    ],
+                    "last": "Sin",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Wong",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Pang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "J. Virol",
+            "volume": "78",
+            "issn": "",
+            "pages": "5612--5618",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/JVI.78.11.5612-5618.2004"
+                ]
+            }
+        },
+        "BIBREF65": {
+            "ref_id": "b65",
+            "title": "Prospects for a dengue virus vaccine",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Whitehead",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Blaney",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Durbin",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Murphy",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Nat. Rev. Microbiol",
+            "volume": "5",
+            "issn": "",
+            "pages": "518--528",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/nrmicro1690"
+                ]
+            }
+        },
+        "BIBREF66": {
+            "ref_id": "b66",
+            "title": "Extensive complement-dependent enhancement of HIV-1 by autologous non-neutralising antibodies at early stages of infection",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Willey",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "M I"
+                    ],
+                    "last": "Aasa-Chapman",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "O&apos;farrell",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Pellegrino",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Williams",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Weiss",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Retrovirology",
+            "volume": "8",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1186/1742-4690-8-16"
+                ]
+            }
+        },
+        "BIBREF67": {
+            "ref_id": "b67",
+            "title": "DECIPHER: harnessing local sequence context to improve protein multiple sequence alignment",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Wright",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "BMC Bioinform",
+            "volume": "16",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1186/s12859-015-0749-z"
+                ]
+            }
+        },
+        "BIBREF69": {
+            "ref_id": "b69",
+            "title": "Genome composition and divergence of the novel Coronavirus (2019-NCoV) originating in China",
+            "authors": [],
+            "year": null,
+            "venue": "Cell Host Microb",
+            "volume": "27",
+            "issn": "",
+            "pages": "325--328",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.chom.2020.02.001"
+                ]
+            }
+        },
+        "BIBREF70": {
+            "ref_id": "b70",
+            "title": "A new Coronavirus associated with human respiratory disease in China",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Song",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature",
+            "volume": "579",
+            "issn": "",
+            "pages": "265--269",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41586-020-2008-3"
+                ]
+            }
+        },
+        "BIBREF71": {
+            "ref_id": "b71",
+            "title": "A Combination of Epitope prediction and molecular docking allows for good identification of MHC class I restricted T-Cell epitopes",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Comput. Biol. Chem",
+            "volume": "45",
+            "issn": "",
+            "pages": "30--35",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.compbiolchem.2013.03.003"
+                ]
+            }
+        },
+        "BIBREF72": {
+            "ref_id": "b72",
+            "title": "A pneumonia outbreak associated with a new Coronavirus of probable bat origin",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature",
+            "volume": "579",
+            "issn": "",
+            "pages": "270--273",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41586-020-2012-7"
+                ]
+            }
+        },
+        "BIBREF73": {
+            "ref_id": "b73",
+            "title": "A novel Coronavirus from patients with pneumonia in China",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "New Engl. J. Med",
+            "volume": "382",
+            "issn": "",
+            "pages": "727--733",
+            "other_ids": {
+                "DOI": [
+                    "10.1056/NEJMoa2001017"
+                ]
+            }
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Venn diagram showing the number of unique and common peptides among datasets.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "The number of pHLA complexes with confirmed immunogenicity in the curated database per virus family (logarithmic scale). Families counting less than 55 observations are aggregated in the \"other\" group.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": ": 19 A * 02:01 restricted epitopes were selected applying TCR-specific Position Weight Matrices (PWM) previously published by the authors. The geometric mean of the three scores was used as an estimator for immunogenicity (Tables 4, 5 in the reference publication). 3.Grifoni et al. (2020): a. 1st dataset: 386 SARS-CoV-2 CD8+ predicted epitopes were collected (Supplementary",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Predictive performance of the selected models on the Coronaviridae dataset. ArdImmune Rank, blue bars; MHCflurry, orange bars. netMHCpan, green and red bars for the predicted binding affinity (BA) and ligand likelihood (EL); IEDB immunogenicity, purple bars. 7. Smith et al. (2020): Predictions for \u223c615 k peptides were extracted from the SupplementaryTable 1 of the reference publication. Approximately 7,600 peptides were excluded as a result of our filtering procedure.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "The pairwise relationships between the predictions of the selected models on the training set -(1) ArdImmune Rank, (2) MHCflurry, (3) netMHCpan (BA), (4) netMHCpan (EL), and (5) IEDB immunogenicity. Lower triangle -scatterplots with linear regression models fitted (yellow lines) and Pearson's correlation coefficients (PCC) that measure linear correlations between two variables. Diagonal and upper triangle -the prediction distributions obtained by kernel density estimations (1D-KDE and 2D-KDE, respectively).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "Predictive performance of the selected models obtained in a LOGO cross validation and measured with ROC AUC. ArdImmune Rank, blue bars; MHCFlurry, orange bars; NetMHCpan (BA), green bars; NetMHCpan (EL), red bars; IEDB immunogenicity, purple bars.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "Predictive performance of the selected models, averaged across virus groups in the training dataset.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": "we present the most frequently mutated positions within the SARS-CoV-2 proteome. Mutation frequency values for all positions are available in the Supplementary Data 2. Figures presenting distribution of mutation frequency are available in the Supplementary Data 3.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF8": {
+            "text": "The HLA percentile ranks of the five peptides selected byBaruah et al.  as computed from Baruah score and ArdImmune Rank.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "The total number of pHLAs included in our model from each dataset.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "The number of pHLA complexes used for training per immunogenic assay group.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Peptides with ArdImmune Rank percentile rank \u2264 2 obtained from SARS-CoV-2 structural proteins, sorted by (1) the number of HLA types capable of binding and presenting given peptide and (2) the median rank across different HLA types.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF4": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "The remaining authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.Copyright \u00a9 2021 Mazzocco, Niemiec, Myronov, Skoczylas, Kaczmarczyk, Sanecka-Duin, Gruba, Kr\u00f3l, Drwal, Szczepanik, Pyrc and St\u0229pniak. This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conflict of Interest"
+        }
+    ]
+}

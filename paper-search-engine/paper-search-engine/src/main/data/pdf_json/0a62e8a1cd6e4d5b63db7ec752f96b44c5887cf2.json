@@ -1,0 +1,677 @@
+{
+    "paper_id": "0a62e8a1cd6e4d5b63db7ec752f96b44c5887cf2",
+    "metadata": {
+        "title": "Factors influencing the COVID-19 daily deaths peak across European countries",
+        "authors": [
+            {
+                "first": "Katarzyna",
+                "middle": [],
+                "last": "Jab\u0142o\u0144ska",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Creativ-Ceutical",
+                    "location": {
+                        "addrLine": "ul. Przemys\u0142owa 12",
+                        "postCode": "30-701",
+                        "settlement": "Krak\u00f3w",
+                        "country": "Poland"
+                    }
+                },
+                "email": "katarzyna.jablonska@creativ-ceutical.com"
+            },
+            {
+                "first": "Samuel",
+                "middle": [],
+                "last": "Aball\u00e9a",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "MSc",
+                    "location": {
+                        "addrLine": "Westblaak 90, 3012KM Rotterdam, Netherlands 6 3 MD",
+                        "settlement": "PhD, MSc",
+                        "region": "Creativ-Ceutical, PhD"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Mondher",
+                "middle": [],
+                "last": "Toumi",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "OBJECTIVES: The purpose of this study was to determine predictors of the height of COVID-12 19 daily deaths peak and time to the peak, in order to explain their variability across European 13 countries. 14 STUDY DESIGN: For 34 European countries, publicly available data were collected on daily 15 numbers of COVID-19 deaths, population size, healthcare capacity, government restrictions 16",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "and their timing, tourism and change in mobility during the pandemic. 17",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Univariate and multivariate generalised linear models using different selection 18 algorithms (forward, backward, stepwise and genetic algorithm) were analysed with height of 19 COVID-19 daily deaths peak and time to the peak as dependent variables. 20",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "The proportion of the population living in urban areas, mobility at the day of first 21",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "reported death and number of infections when borders were closed were assessed as 22 significant predictors of the height of COVID-19 daily deaths peak. Testing the model with 23",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "variety of selection algorithms provided consistent results. Total hospital bed capacity, 24 population size, number of foreign travellers and day of border closure, were found as 25 significant predictors of time to COVID-19 daily deaths peak. 26 CONCLUSIONS: Our analysis demonstrated that countries with higher proportions of the 27 population living in urban areas, with lower reduction in mobility at the beginning of the 28 pandemic, and countries which closed borders having more infected people experienced 29 higher peak of COVID-19 deaths. Greater bed capacity, bigger population size and later 30 border closure could result in delaying time to reach the deaths peak, whereas a high number 31 of foreign travellers could accelerate it. 32",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "The coronavirus infectious disease 2019 outbreak was announced as a pandemic 37 by the World Health Organization (WHO) on 11 March 2020. 1 By the end of March, Europe 38 exceeded Asia and became the region experiencing the highest percentage mortality from the 39 virus across the world, 2 until 10 June 2020, when the rapidly growing COVID-19 mortality rate 40",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "36"
+        },
+        {
+            "text": "in the Americas exceeded all other continents. 3 According to the WHO report from 5 July 2020, 41 38% of the global mortality due to COVID-19 was from Europe. 4 42",
+            "cite_spans": [
+                {
+                    "start": 47,
+                    "end": 48,
+                    "text": "3",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "36"
+        },
+        {
+            "text": "Since incidence and mortality rates varied between countries, numerous studies have recently 43 been published investigating factors associated with COVID-19 infection and death rate 44 across countries. A variety of potential predictors have been assessed in the literature, such 45 as country-specific demographic and health characteristics, economic and social indicators, 5-46 8 mobility scores and social-distancing measures, 9, 10 as well as ecological and environmental 47 perspectives. 8, 11 To assess the relationship between covariates and COVID-19 incidence or 48 mortality, the most common approach used by authors was to analyse multivariate regression 49 models of total number of infections or deaths up to a given time point, using log-transformed 50 data or without any transformation, as well as daily data on infections or deaths as outcomes. 51",
+            "cite_spans": [
+                {
+                    "start": 494,
+                    "end": 496,
+                    "text": "8,",
+                    "ref_id": null
+                },
+                {
+                    "start": 497,
+                    "end": 499,
+                    "text": "11",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "36"
+        },
+        {
+            "text": "In this study, we used data on numbers of deaths, not infections, since the former has a much 52 higher degree of reliability than the latter, being better monitored and less dependent on the 53 number of tests done. Since all European countries seem to already reach the peak of deaths 54 by 3 June 2020 from the first wave of COVID-19 disease, our idea was to use height of daily 55 deaths peak as a primary outcome of interest, and time to the peak as a secondary outcome. 56",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "36"
+        },
+        {
+            "text": "To the best of our knowledge, this perspective has not been investigated so far. When raw 57",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "36"
+        },
+        {
+            "text": "and cumulative daily numbers of infections and deaths are subject to deviations from between-58 country differences in reporting and depend on the date up to which the analysis is performed, 59 maximum number of daily deaths can be assessed as an interesting new indicator of disease 60 mortality magnitude. In addition, analysis of the height of daily deaths peak enables us to 61 assess the overall capacity of healthcare systems. 62",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "36"
+        },
+        {
+            "text": "This study aims to detect significant drivers of COVID-19 mortality with the use of multivariate 63 generalised linear models (GLM) and distinct selection algorithms, to explain the variability of 64 height of and time to the deaths peak among European countries. Due to relatively low sample size, a risk of bias could appear for models with too high number 140 of variables included. To overcome the problem and limit the number of covariates, sensitivity 141 analyses were performed using variety of selection algorithms: stepwise, backward, forward 142 and the genetic algorithm. For the backward, forward and stepwise algorithms, a criterion of 143 having p-value lower than 0.1 was applied for each variable to stay in a model (backward and 144 stepwise) and to enter a model (forward and stepwise). For the genetic algorithm, the best 145 model was fitted based on the value of Akaike's Information Criterion (AIC) corrected for small 146 sample sizes (AICC). Models with only main effects were considered. Additional sensitivity 147 analysis was performed removing countries for which imputation of government restriction 148 dates was needed. 149 Similar methods were used to analyse time to deaths peak but without any transformation 150 since it seemed to follow a normal distribution. GLM models with a normal distribution function 151 and identity link function were analysed. 152",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "36"
+        },
+        {
+            "text": "For all analyses, a p-value lower than 0.05 was considered as statistically significant. For each 153 GLM model, fit statistics such as AIC and its equivalent AICC were produced with lower values 154 indicating better fit. 155",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "36"
+        },
+        {
+            "text": "Analyses were performed using SAS 9.4 software. R 3.6.2 software was used to apply the 156 genetic algorithm with the package glmulti. 22",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "36"
+        },
+        {
+            "text": "Descriptive analysis 160 Characteristics of the countries included in the study are presented in Table 1 , and a histogram 161 of the height of COVID-19 deaths peak is depicted in Figure 1 . The graph presenting deaths 162 peak height by country is provided in Figure 2 . 163",
+            "cite_spans": [
+                {
+                    "start": 21,
+                    "end": 24,
+                    "text": "160",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 97,
+                    "end": 104,
+                    "text": "Table 1",
+                    "ref_id": "TABREF7"
+                },
+                {
+                    "start": 180,
+                    "end": 188,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 261,
+                    "end": 269,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "159"
+        },
+        {
+            "text": "Median height of the peak per 1 million inhabitants per day was equal to 3.48 deaths ([lower  164 quartile; upper quartile] = [1.68; 12.78]), with Belgium reaching outstandingly higher peak than 165 other countries. As can be seen from these statistics and the histogram, the height of the 166 deaths peak does not follow a normal distribution, but it seems it can be well approximated 167 using a log-normal distribution. areas was found significant (p<0.001) and the mobility score at the day of first reported death 184 was very close to reaching significance (p=0.052). Results are presented in Table 2 . 185",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 85,
+                    "end": 97,
+                    "text": "([lower  164",
+                    "ref_id": "TABREF7"
+                },
+                {
+                    "start": 599,
+                    "end": 606,
+                    "text": "Table 2",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "159"
+        },
+        {
+            "text": "Considering small sample size (N=34), selection algorithms were applied to the base case 186 model to limit the number of covariates, increase model precision and improve the model fit. 187",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "159"
+        },
+        {
+            "text": "All selection algorithms were consistent and selected the model with three significant 188 parameters (\"final\" model), indicating its best fit. The proportion of the population living in urban 189 areas (6.848, p<0.001), mobility score at the day of first reported death (0.049 p<0.001) and 190 number of infections when borders were closed per 1 million inhabitants (0.0002, p=0.016) 191",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "159"
+        },
+        {
+            "text": "were all significantly associated with the deaths peak height ( preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in The copyright holder for this this version posted November 5, 2020. found significantly related with time to COVID-19 deaths peak. Results are presented in Table  208 3. Considering the small sample size (N=34), selection algorithms were applied to the above 209 multivariate model. The \"final\" model had four covariates and was selected by the backward 210 and the genetic algorithm (details in Supplementary Materials ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 353,
+                    "end": 363,
+                    "text": "Table  208",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "159"
+        },
+        {
+            "text": "This study provides some evidence about factors associated with COVID-19 mortality peak 221 and time to the peak. One of the strongest predictors of the COVID-19 mortality peak identified 222 in our analysis was the proportion of population living in urban areas. The relationship between 223 urbanisation and COVID-19 infections ratio was earlier outlined by the United Nations 224",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "Association, 23 estimating that 90% of all reported COVID-19 cases (by July 2020) came from 225 urban areas, becoming the epicentre of the pandemic. High population density increases the 226 propensity of viruses spread by increasing the contact rates of individuals. However, some 227 authors 24 warn readers against putting too much weight on urban density, arguing that large 228 cities just faced the coronavirus earlier (due to the higher number of incoming people) and that 229 the timing of epidemy start was of bigger interest than population density itself. This 230 observation seems to be on the contrary to our study, since neither proportion of population 231 living in urban areas, nor proportion living in metropolitan cities were related with the time to 232 deaths peak. 233",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "Number of infections when borders were closed was found to be another important factor 234 associated with the COVID-19 deaths peak height, whereas a positive association between 235 borders closure day and time to reach the peak was observed in this study. It shows that 236 stopping arrivals to the country at the earlier stage of epidemy can be crucial in reducing the 237 peak height, stopping the increase of daily number of deaths earlier and, consequently, to 238 flatten the deaths curve. These findings are on the contrary with Chaudhry who showed no 239 association between rapid border closures and COVID-19 mortality per million people, using 240 cumulative data available as of 1 April 2020. 25 However, the peak height and mortality may 241 not be strongly correlated. For example some countries experience a point peak and dropping 242 fast, (France, United Kingdom, Spain, Italy) while other countries may experience a flattened 243 peak with a mortality staying high over a long period of time (US, Brazil, Mexico). 12 244 All rights reserved. No reuse allowed without permission. perpetuity. preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in The copyright holder for this this version posted November 5, 2020. ; https://doi.org/10.1101/2020.11.04.20225656 doi: medRxiv preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "The difference in average mobility before the pandemic and at the day when first death was 245 reported in a country was found to be associated with deaths peak height, which suggests that 246 rapid reduction in mobility was important in terms of reducing overall mortality. These findings 247 are consistent with other authors opinion that changes in social-distancing covariates can 248 flatten the curve by changing the peak death rate. 9, 10 249 Tourism indicators were found not to be associated with deaths peak height, but to be 250 significant drivers of time to reach the peak. It suggests that the magnitude of inbound tourism 251",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "can have an impact on accelerating the moment of reaching the peak. However, Aldibasi 5 and 252",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "Garcia de Alcaniz 8 found tourism to be a significant predictor of COVID-19 mortality and 253 infection rates. Ostig and Askin 26 also found a significant positive relationship between number 254 of airline passengers and number of COVID-19 infections. 255",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "Another conclusion resulting from the study is that timing of government restrictions, especially 256 border closure, can be found as an important factor in terms of COVID-19 mortality. What can 257 be observed for many countries is that closing borders (and other government restrictions as 258 well) took place several days before any death was reported in a country. Therefore, increase 259 or decrease in mortality can be seen as a result of undertaking preventive action by the 260 government. 261",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "There is no general conclusion on the association between COVID-19 fatality and hospital 262 beds capacity in literature. Our study showed lack of association between beds capacity and 263 deaths peak height, but higher beds capacity was related with longer time to peak. Garcia de 264",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "Alcaniz showed no association between hospital beds density and both the number of 265 infections and number of deaths at any moment of the pandemic. 8 preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in The copyright holder for this this version posted November 5, 2020. ; https://doi.org/10.1101 https://doi.org/10. /2020 preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in ",
+            "cite_spans": [
+                {
+                    "start": 150,
+                    "end": 151,
+                    "text": "8",
+                    "ref_id": null
+                },
+                {
+                    "start": 335,
+                    "end": 354,
+                    "text": "November 5, 2020. ;",
+                    "ref_id": null
+                },
+                {
+                    "start": 355,
+                    "end": 378,
+                    "text": "https://doi.org/10.1101",
+                    "ref_id": null
+                },
+                {
+                    "start": 379,
+                    "end": 404,
+                    "text": "https://doi.org/10. /2020",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "All rights reserved. No reuse allowed without permission.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "375 376"
+        },
+        {
+            "text": "perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "375 376"
+        },
+        {
+            "text": "preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "375 376"
+        },
+        {
+            "text": "The copyright holder for this this version posted November 5, 2020. ; https://doi.org/10.1101 https://doi.org/10. /2020 ",
+            "cite_spans": [
+                {
+                    "start": 50,
+                    "end": 69,
+                    "text": "November 5, 2020. ;",
+                    "ref_id": null
+                },
+                {
+                    "start": 70,
+                    "end": 93,
+                    "text": "https://doi.org/10.1101",
+                    "ref_id": null
+                },
+                {
+                    "start": 94,
+                    "end": 119,
+                    "text": "https://doi.org/10. /2020",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "375 376"
+        },
+        {
+            "text": "GLM univariate and multivariate models with normal distribution and logit link function were used to explore factors associated with COVID-19 deaths peak height as of 3 rd June 2020. Each model 380 was run using 34 observations. Variables significant in univariate models were included into the multivariate base case model, avoiding highly correlated pairs. The final multivariate model was 381 selected based on the use of selection algorithms (backward, forward, stepwise and the genetic algorithm). 382 383 384 385 ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "379"
+        },
+        {
+            "text": "Abbreviations: AIC, Akaike's Information Criterion; AICC, AIC corrected for small sample sizes; GLM, generalised linear models; ICU, intensive care unit; mln, million. 389 GLM univariate and multivariate models with normal distribution and identity link function were used to explore factors associated with time to COVID-19 deaths peak (starting from the day when the 390 first death was reported in a given country), as of 3 rd June 2020. Each model was run using 34 observations. Variables significant in univariate models were included into the multivariate base case 391 model, avoiding highly correlated pairs. The final multivariate model was selected based on the use of selection algorithms (backward, forward, stepwise and the genetic algorithm). perpetuity. preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in The copyright holder for this this version posted November 5, 2020. ; https://doi.org/10.1101/2020.11.04.20225656 doi: medRxiv preprint perpetuity. preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in The copyright holder for this this version posted November 5, 2020. ; https://doi.org/10. 1101 ",
+            "cite_spans": [
+                {
+                    "start": 1273,
+                    "end": 1277,
+                    "text": "1101",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "388"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "World Health Organisation",
+            "authors": [],
+            "year": 2020,
+            "venue": "Coronavirus disease 2019 (COVID-19) Situation Report -51",
+            "volume": "306",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "World Health Organisation. Coronavirus disease (COVID-19) Situation Report -142",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "311",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Covid-19 coronavirus pandemic",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Worldometer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "335",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "National responses to the COVID-19 pandemic",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Wikipedia",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Google. COVID-19 Community Mobility Reports",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "What is loess regression? SAS Blogs: SAS",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Wicklin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Eurostat. Eurostat Database",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Air traffic increases, finances in crisis",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Air passenger traffic in Turkish airports rose 8.8 percent in 2018",
+            "authors": [
+                {
+                    "first": "Hurriyet Daily",
+                    "middle": [],
+                    "last": "News",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "350",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Record-breaking 20.5 million passengers at Ukrainian airports in 2018",
+            "authors": [
+                {
+                    "first": "Kyiv",
+                    "middle": [],
+                    "last": "Post",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Statistics corner: A guide to appropriate use of correlation coefficient in medical 356 research",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Mukaka",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Malawi Med J",
+            "volume": "24",
+            "issn": "",
+            "pages": "69--71",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "An R Package for Easy Automated Model Selection with 358 ( Generalized ) Linear Models",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Calcagno",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "De Mazancourt",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Glmulti",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Journal Of Statistical Software",
+            "volume": "359",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "COVID-19 in an Urban World",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Guterres",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "United Nations",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Are Crowded Cities the Reason for the COVID-19 Pandemic? Placing too 362 much blame on urban density is a mistake",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Barr",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Tassier",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Scientific American",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Histogram the distribution of height of COVID-19 deaths peak per 1 million inhabitants across 34 countries. A log-397 normal curve was fitted to the distribution with scale parameter sigma=1.12 and location parameter zeta=1.38, assuming 398 logarithm of height of the deaths peak is normally distributed[Normal(zeta, sigma)",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Height of COVID-19 daily deaths peak per 1 million inhabitants across countries 402403The plot presents the height of COVID-19 deaths peak per 1 million inhabitants across 34 countries, with Belgium having 404 outstandingly highest peak per population size (>40 deaths per 1 million inhabitants)",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "The secondary outcome of interest was time to COVID-19 daily deaths peak, defined as 76 number of days from the day when the first death was reported in a given country, up to the 77 day of reaching the COVID-19 daily deaths peak. 78 A set of explanatory variables used to predict outcomes consisted of the following: 79All dates were considered as number of days after the day of first reported COVID-19 death 107 in each country. Variables indicating healthcare capacity and tourism were considered in 108 relation to the population size of a given country (per inhabitant or 1 million inhabitants). 109Data on COVID-19 deaths, infections, number of tests, all and ICU beds capacity, dates of Mobility scores were uploaded from Google COVID-19 Community Mobility Reports.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "Univariate GLM models of height of the peak were analysed (Table 2). Eight factors turned 174 out to be significant: educational facilities closure day, gathering restrictions day, businesses 175 closure day, proportion living in urban areas, mobility score at the day of first reported death, 176 border closure day, number of COVID-19 infections when borders were closed, and number 177 of COVID-19 deaths when borders were closed. All of them have positive estimates. Stay-at-178 home order day, as well as the proportion living in metropolitan cities >1 million inhabitants A base case multivariate GLM model included six covariates. The proportion living in urban 183",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Analysis of data removing countries with imputed dates of businesses or borders closure 193 (N=29) provided consistent results regarding the significance of all three covariates from the 194 final models in relation to the deaths peak height (details are provided inSupplementary 195Materials). 196Time to the deaths peakUnivariate GLM models of time to the peak were analysed(Table 3). Nine factors turned out 199 to be potentially significant (with p<0.1): all beds capacity, ICU beds capacity, educational 200 facilities closure day, gathering restrictions day, population size, arrivals at airports per 201 All rights reserved. No reuse allowed without permission.perpetuity.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "; https://doi.org/10.1101/2020.11.04.20225656 doi: medRxiv preprint inhabitant, number of foreign tourists per inhabitant, mobility score at the day of first reported 202 death, as well as day of border closure. The majority of these factors have positive estimates, 203 except the number of arrivals and tourists. As for the next step, linear correlations between 204 them were verified. Results can be found in Supplementary Materials. 205 A base case multivariate GLM model was run using six explanatory variables. All beds 206 capacity, population size in millions and the number of foreign tourists per inhabitant were 207",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF5": {
+            "text": "Our study has several limitations. Data on a limited number of countries were used. We 273 decided not to include countries for which reliable and comparative evidence could not be 274found, nor countries with very low mortality. Our idea was to focus only on Europe, not toThe set of included explanatory variables can be viewed as non-exhaustive.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF6": {
+            "text": "This study demonstrated the significant drivers of COVID-19 mortality magnitude in Europe 289and shed a light on reasons behind the variability between different countries.Contributors: MT conceived the study, KJ collected and analysed the data, KJ, MT and SA 299 interpreted the results, KJ wrote the first draft of the manuscript, KJ, MT and SA revised the 300 manuscript and approved the final version. 301 Competing interests: The authors declare no competing interests. 302",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF7": {
+            "text": "Characteristics of countries included in the analysis. 373",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF8": {
+            "text": "Results of univariate and multivariate GLM of COVID-19 deaths peak height, with normal distribution and logit link function 377 -value <0.05; **p-value < 0.1.Abbreviations: AIC, Akaike's Information Criterion; AICC, AIC corrected for small sample sizes; GLM, generalised linear models; ICU, intensive care unit; mln, million.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF9": {
+            "text": "Results of univariate and multivariate GLM of time to COVID-19 deaths peak, with normal distribution and identity link function 387 Total no. of tests up to time of the peak [per 1 mln No. of COVID-19 infections when borders were closed [per 1 mln inhabitants] No. of COVID-19 deaths when borders were closed [per 1 mln inhabitants] -value < 0.05; **p-value < 0.1.",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": []
+}

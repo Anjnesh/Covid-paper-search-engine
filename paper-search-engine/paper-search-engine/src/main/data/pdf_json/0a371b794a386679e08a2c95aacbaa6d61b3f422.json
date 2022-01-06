@@ -1,0 +1,225 @@
+{
+    "paper_id": "0a371b794a386679e08a2c95aacbaa6d61b3f422",
+    "metadata": {
+        "title": "ScienceDirect ScienceDirect A new methodology to analyze the functional and physical architecture of existing products for an assembly oriented product family identification",
+        "authors": [
+            {
+                "first": "Paul",
+                "middle": [],
+                "last": "Stief",
+                "suffix": "",
+                "affiliation": {},
+                "email": "paul.stief@ensam.eu"
+            },
+            {
+                "first": "Jean-Yves",
+                "middle": [],
+                "last": "Dantan",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Alain",
+                "middle": [],
+                "last": "Etienne",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Ali",
+                "middle": [],
+                "last": "Siadat",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "In today's business environment, the trend towards more product variety and customization is unbroken. Due to this development, the need of agile and reconfigurable production systems emerged to cope with various products and product families. To design and optimize production systems as well as to choose the optimal product matches, product analysis methods are needed. Indeed, most of the known methods aim to analyze a product or one product family on the physical level. Different product families, however, may differ largely in terms of the number and nature of components. This fact impedes an efficient comparison and choice of appropriate product family combinations for the production system. A new methodology is proposed to analyze existing products in view of their functional and physical architecture. The aim is to cluster these products in new assembly oriented product families for the optimization of existing assembly lines and the creation of future reconfigurable assembly systems. Based on Datum Flow Chain, the physical structure of the products is analyzed. Functional subassemblies are identified, and a functional analysis is performed. Moreover, a hybrid functional and physical architecture graph (HyFPAG) is the output which depicts the similarity between product families by providing design support to both, production system planners and product designers. An illustrative example of a nail-clipper is used to explain the proposed methodology. An industrial case study on two product families of steering columns of thyssenkrupp Presta France is then carried out to give a first industrial evaluation of the proposed approach.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "A key focus of the CIRP CAT 2020 is the role of standardization in GPS specification, and the constraints and opportunities provided by standards throughout the design lifecycle, including in the verification of products. This focus is supported by two Keynote presentations from the chairmen of the ASME and ISO committees that develop standards for the specifications of geometric tolerances. The CIRP CAT conferences provide an opportunity for researchers and practitioners to exchange new ideas and discuss the implications of new and evolving research in the areas of geometrical tolerancing, assembly analysis, modeling of manufacturing processes, and standardization.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "A key focus of the CIRP CAT 2020 is the role of standardization in GPS specification, and the constraints and opportunities provided by standards throughout the design lifecycle, including in the verification of products. This focus is supported by two Keynote presentations from the chairmen of the ASME and ISO committees that develop standards for the specifications of geometric tolerances. The CIRP CAT conferences provide an opportunity for researchers and practitioners to exchange new ideas and discuss the implications of new and evolving research in the areas of geometrical tolerancing, assembly analysis, modeling of manufacturing processes, and standardization.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Due to the fast development in the domain of communication and an ongoing trend of digitization and digitalization, manufacturing enterprises are facing important challenges in today's market environments: a continuing tendency towards reduction of product development times and shortened product lifecycles. In addition, there is an increasing demand of customization, being at the same time in a global competition with competitors all over the world. This trend, which is inducing the development from macro to micro markets, results in diminished lot sizes due to augmenting product varieties (high-volume to low-volume production) [1] . To cope with this augmenting variety as well as to be able to identify possible optimization potentials in the existing production system, it is important to have a precise knowledge of the product range and characteristics manufactured and/or assembled in this system. In this context, the main challenge in modelling and analysis is now not only to cope with single products, a limited product range or existing product families, but also to be able to analyze and to compare products to define new product families. It can be observed that classical existing product families are regrouped in function of clients or features. However, assembly oriented product families are hardly to find.",
+            "cite_spans": [
+                {
+                    "start": 636,
+                    "end": 639,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "On the product family level, products differ mainly in two main characteristics: (i) the number of components and (ii) the type of components (e.g. mechanical, electrical, electronical).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Classical methodologies considering mainly single products or solitary, already existing product families analyze the product structure on a physical level (components level) which causes difficulties regarding an efficient definition and comparison of different product families. Addressing this",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Held every two years, the CIRP Conference on Computer-Aided Tolerancing allows researchers in the fields of tolerancing, variation, uncertainty, and metrology to gather and exchange their research findings. Although the novel coronavirus prevented an in-person meeting, the keynote presentations, research presentations, and question and answer sessions were all managed in an \"e-conference\" format.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The theme of the conference was \"Opportunities and Constraints in the Standardization of Geometrical Product Specifications\" and this theme was supported by having two keynote presentations on the first day. The speakers, Paul Drake and Iain Macleod, are the chairmen of the ASME Y14.5 committee and the ISO/TC 213 committee respectively. Their presentations intentionally had similar structure: giving the history of the committee, describing some of the current challenges at present, and describing a desired course forward as the demands for product specifications continue to evolve.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The titles of the keynote presentations are:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Geometric Dimensioning and Tolerancing -the work of ASME Y14.5",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Paul Drake ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Held every two years, the CIRP Conference on Computer-Aided Tolerancing allows researchers in the fields of tolerancing, variation, uncertainty, and metrology to gather and exchange their research findings. Although the novel coronavirus prevented an in-person meeting, the keynote presentations, research presentations, and question and answer sessions were all managed in an \"e-conference\" format.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The theme of the conference was \"Opportunities and Constraints in the Standardization of Geometrical Product Specifications\" and this theme was supported by having two keynote presentations on the first day. The speakers, Paul Drake and Iain Macleod, are the chairmen of the ASME Y14.5 committee and the ISO/TC 213 committee respectively. Their presentations intentionally had similar structure: giving the history of the committee, describing some of the current challenges at present, and describing a desired course forward as the demands for product specifications continue to evolve. Many of the papers in this special issue -and the presentations that accompanied them during the conferencemade an effort to emphasize the links between the national and international tolerancing standards and the research work being pursued. It is clear that the synergy between research and standardization is particularly strong in the field of tolerancing. The concepts of invariance classes [1] and the duality principle [2] are but two examples of where research and standardization have supported each other. Papers from this conference made new recommendations regarding the use of mathematical tools for tolerance evaluation, filtration for datums, and the reconstruction operation.",
+            "cite_spans": [
+                {
+                    "start": 985,
+                    "end": 988,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 1015,
+                    "end": 1018,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "As evidenced by the broad participation in the CIRP CAT 2020 conference, the field of tolerancing research remains healthy. There are two primary drivers for the current evolution of the ASME and ISO tolerancing standards. The first driver is the growing number of fields of application for geometric tolerancing, where advanced manufacturing techniques are allowing more complex geometries to be specified. The second driver is the massive increase in the amount of data available to be analyzed in evaluating a given product. Compared to only ten years ago, orders of magnitude more points can now be measured on the surface of a part, which in turn are evaluated against the tolerance specification for conformance, or fed back to the manufacturing process. In addition, ancillary information about the part and its environment may be stored with the geometric information of the part, forming the digital twin.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A perspective on tolerancing"
+        },
+        {
+            "text": "The challenge to documentary standards, and the bodies that produce them, is to be sufficiently advanced so that designers have standardized tools with which to describe design requirements, but not be so avant-garde that standards are produced addressing technologies that are still rapidly evolving. Herein lies the role of research: to look for extensions to the structure of specification (and verification) that are based on current published standards, but provide important steps forward to support the growing needs of industry. These ideas can be tested in the laboratory and in other controlled settings to establish their efficacy in controlling the needed requirements, to determine that they can in fact be measured and evaluated, and to see that they have applicability across multiple product domains. This vetting of ideas, coupled with a close relationship between researchers and standards writers, is a fundamental connections that will insure that future standards retain their relevance and technical correctness in the future. It is hoped that the ideas exchanged and relationships established at this and other CIRP CAT conferences will continue to support tolerancing standards for many years to come.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A perspective on tolerancing"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "The TTRSs: 13 constraints for dimensioning and tolerancing",
+            "authors": [
+                {
+                    "first": "Andr\u00e9",
+                    "middle": [],
+                    "last": "Clem\u00e9nt",
+                    "suffix": ""
+                },
+                {
+                    "first": "Alain",
+                    "middle": [],
+                    "last": "Riviere",
+                    "suffix": ""
+                },
+                {
+                    "first": "Philippe",
+                    "middle": [],
+                    "last": "Serr\u00e9",
+                    "suffix": ""
+                },
+                {
+                    "first": "Catherine",
+                    "middle": [],
+                    "last": "Valade",
+                    "suffix": ""
+                }
+            ],
+            "year": 1998,
+            "venue": "Geometric design tolerancing: theories, standards and applications",
+            "volume": "",
+            "issn": "",
+            "pages": "122--131",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "An integrated view of geometrical product specification and verification",
+            "authors": [
+                {
+                    "first": "Vijay",
+                    "middle": [],
+                    "last": "Srinivasan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Geometric Product Specification and Verification: Integration of Functionality",
+            "volume": "",
+            "issn": "",
+            "pages": "1--11",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "TABREF1": {
+            "text": "The titles of the keynote presentations are:",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "The 16 th CIRP Conference on Computer-Aided Tolerancing has been organized with the resources of the Department of Mechanical Engineering and Engineering Science at the University of North Carolina at Charlotte. Additional administrative support has been provided by the Center for Precision Metrology. The organizers also gratefully acknowledge the sponsorship of the University of Nebraska -Lincoln, the UNC Charlotte Center for Precision Metrology, and TDP360.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Acknowledgements"
+        }
+    ]
+}

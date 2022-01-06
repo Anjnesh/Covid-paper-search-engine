@@ -1,0 +1,3250 @@
+{
+    "paper_id": "00fec8e57d2e732ca6424dfa519e78f84379453d",
+    "metadata": {
+        "title": "Using genetic variants to evaluate the causal effect of serum vitamin D concentration on COVID-19 susceptibility, severity and hospitalization traits: a Mendelian randomization study",
+        "authors": [
+            {
+                "first": "Zhiyong",
+                "middle": [],
+                "last": "Cui",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Yun",
+                "middle": [],
+                "last": "Tian",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Background: The coronavirus disease 2019 (COVID-19) pandemic has struck globally and is exerting a devastating toll on humans. The pandemic has led to calls for widespread vitamin D supplementation in public. However, evidence supporting the role of vitamin D in the COVID-19 pandemic remains controversial.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "We performed a two-sample Mendelian randomization (MR) analysis to analyze the causal effect of the 25-hydroxyvitamin D [25(OH)D] concentration on COVID-19 susceptibility, severity and hospitalization traits by using summary-level GWAS data. The causal associations were estimated with inverse variance weighted (IVW) with fixed effects (IVW-fixed) and random effects (IVW-random), MR-Egger, weighted edian and MR Robust Adjusted Profile Score (MR.RAPS) methods. We further applied the MR Steiger filtering method, MR Pleiotropy RESidual Sum and Outlier (MR-PRESSO) global test and PhenoScanner tool to check and remove single nucleotide polymorphisms (SNPs) that were horizontally pleiotropic.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "We found no evidence to support the causal associations between the serum 25(OH)D concentration and the risk of COVID-19 susceptibility [IVW-fixed: odds ratio (OR) = 0.9049, 95% confidence interval (CI) 0.8197-0.9988, p = 0.0473], severity (IVW-fixed: OR = 1.0298, 95% CI 0.7699-1.3775, p = 0.8432) and hospitalized traits (IVW-fixed: OR = 1.0713, 95% CI 0.8819-1.3013, p = 0.4878) using outlier removed sets at a Bonferroni-corrected p threshold of 0.0167. Sensitivity analyses did not reveal any sign of horizontal pleiotropy.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Our MR analysis provided precise evidence that genetically lowered serum 25(OH)D concentrations were not causally associated with COVID-19 susceptibility, severity or hospitalized traits. Our study did not provide evidence assessing the role of vitamin D supplementation during the COVID-19 pandemic. High-quality randomized controlled trials are necessary to explore and define the role of vitamin D supplementation in the prevention and treatment of COVID-19.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "The coronavirus disease 2019 (COVID-19) pandemic caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) has struck globally and is exerting a devastating toll on humans [1] . As of February 12, 2021, this emerging highly infectious disease has spread to six continents, and there have been 107,252,265 confirmed cases of COVID-19, including 2,355,339 deaths, reported to the World Health Organization (WHO) [2] . The pandemic situation has engulfed the global community into an accelerated search for preventive and therapeutic strategies and has led to calls for widespread vitamin D supplementation [3] . On Dec 17, 2020, the National Institute for Health and Care Excellence (NICE) published an updated rapid review of recent studies on vitamin D and COVID-19 in collaboration with Public Health England and the Scientific Advisory Committee on Nutrition [4] . They support the advice for everyone to take vitamin D supplements to maintain bone and muscle health during the autumn and winter months [4] . The UK government also released and updated new guidance allowing extremely clinically vulnerable people to opt in to receive a free 4-month supply of daily vitamin D supplementation [5] .",
+            "cite_spans": [
+                {
+                    "start": 185,
+                    "end": 188,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 423,
+                    "end": 426,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 617,
+                    "end": 620,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 874,
+                    "end": 877,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 1018,
+                    "end": 1021,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 1207,
+                    "end": 1210,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Humans obtain vitamin D from exposure to sunlight by the action of ultraviolet B on the skin, from their diet, and from dietary supplementation. The vitamin D status is reflected by the level of serum 25-hydroxyvitamin D [25(OH)D], which is produced by the hepatic hydroxylation of vitamin D [6] . The beneficial role of vitamin D in bone growth and maintenance is undisputed and has influenced practical clinical guidelines and public health policies over the years [7] . However, the evidence supporting the role of vitamin D in other health and disease processes, in particular in acute respiratory tract infection or COVID-19, remains controversial [8] . One metaanalysis of 25 randomized controlled trials (RCTs) of over 11,000 participants showed that vitamin D supplementation could reduce the risk of acute respiratory infections. The protective effects were stronger in those with baseline 25(OH)D concentrations < 25 nmol/l [9] . However, another prespecified analysis from the D-Health RCT in more than 20,000 Australian adults recruited from the general population suggested that monthly doses of 60,000 IU of vitamin D did not reduce the risk or severity of acute respiratory tract infections. Although the analysis showed a statistically significant effect on the overall duration of symptoms, the reduction was small (0.5 days) and unlikely to be clinically meaningful [10] .",
+            "cite_spans": [
+                {
+                    "start": 292,
+                    "end": 295,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 467,
+                    "end": 470,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 653,
+                    "end": 656,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 934,
+                    "end": 937,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 1384,
+                    "end": 1388,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "RCTs are the optimal study design to explore and define the role of vitamin D supplementation in preventing the occurrence and severe course of COVID-19, but they have challenges [11] . Mendelian randomization (MR) analysis can overcome the limitations of conventional studies by using single nucleotide polymorphisms (SNPs) as instrumental variables (IVs) for assessing the causal effect of a risk factor (exposure) on an outcome [12] . MR relies on three assumptions: (1) the genetic variant is associated with the exposures; (2) the genetic variant is not associated with confounders; and (3) the genetic variant influences the outcome only through the exposures [13] . A two-sample MR obtains IV-exposure and IV-outcome associations from two different sets of participants. The IVs used in MR are available due to the genomewide association studies (GWAS) being conducted and high-throughput genomic technologies being developed. In this study, we used the MR approach to explore the causal effect of the 25(OH)D concentration on COVID-19 susceptibility, severity and hospitalization traits. This approach may provide estimates of the effect of 25(OH) D while reducing bias due to confounding and reverse causation.",
+            "cite_spans": [
+                {
+                    "start": 179,
+                    "end": 183,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 431,
+                    "end": 435,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 666,
+                    "end": 670,
+                    "text": "[13]",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "We performed a two-sample MR analysis to study the effect of the 25(OH)D concentration on COVID-19 susceptibility, severity and hospitalization traits. Our approach relied upon summary-level GWAS data to obtain MR estimates [13, 14] . We used all SNPs that strongly and independently (R 2 < 0.001) predicted exposures at genome-wide significance (p < 5E\u221208). Proxy SNPs (R 2 > 0.9) from LDlink (https:// ldlink. nci. nih. gov/) were used when the SNPs were not available for the outcome [15] . The palindromic SNPs with intermediate allele frequencies (palindromic SNPs referred to the SNPs with A/T or G/C alleles and \"intermediate allele frequencies\" referred to 0.01 < allele frequency < 0.30) were excluded from the above selected instrument SNPs. SNPs with a minor allele frequency (MAF) of < 0.01 were also excluded to avoid potential the statistical bias from the original GWAS since they usually carry with low confidence. We also calculated the F statistics for the SNPs to measure the strength of the instruments. IVs with a F statistic less than 10 were excluded and were often labeled \"weak instruments\" [16] . Further, we used the PhenoScanner tool [17, 18] to exclude any of the selected SNPs were associated with other phenotypes at risk of affecting COVID-19 susceptibility, severity or hospitalization independently of the 25(OH)D concentration. These rigorously selected SNPs were used as the final instrumental SNPs for the subsequent MR analysis.",
+            "cite_spans": [
+                {
+                    "start": 224,
+                    "end": 228,
+                    "text": "[13,",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 229,
+                    "end": 232,
+                    "text": "14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 487,
+                    "end": 491,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 1116,
+                    "end": 1120,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 1162,
+                    "end": 1166,
+                    "text": "[17,",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 1167,
+                    "end": 1170,
+                    "text": "18]",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "We retrieved summary data for the association between SNPs and the serum 25(OH)D concentration from the UK Biobank (UKB) with phenotype, genotype and clinical information on 417,580 individuals of European ancestry (age range from 40 to 69 years old) [19] . Individuals were identified by projecting the UKB sample to the first two principal components of the 1,000 Genome Project using Hap Map 3 SNPs with MAF > 0.01 in both data sets. Genotype data were quality-controlled and imputed to the Haplotype Reference Consortium and UK10K reference panels by the UKB group. Genetic variants with a minor allele count > 5 and imputation score > 0.3 for all individuals were extracted and converted genotype probabilities to hard-call genotypes using PLINK2. In total, 8,806,780 variants, including 260,713 SNPs on the X chromosome, were available for analysis. A linear mixed model GWAS was performed to identify the associations between genetic variants and the 25(OH)D concentration. Meta-analysis with SUNLIGHT consortium GWAS results [20] was also performed. Information regarding the quality control and statistical analyses has been reported previously [19] .",
+            "cite_spans": [
+                {
+                    "start": 251,
+                    "end": 255,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 1033,
+                    "end": 1037,
+                    "text": "[20]",
+                    "ref_id": null
+                },
+                {
+                    "start": 1154,
+                    "end": 1158,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "We obtained estimates of the effect of the 25(OH)D concentration on COVID-19 by obtaining effect coefficients from the above SNPs in GWAS meta-analyses from the COVID-19 Host Genetics Initiative (COVID-19 HGI) [21] . The latest summary statistics were from the fifth round of GWAS meta-analysis shared publicly on January 18, 2021. Detailed information on participating studies, quality control, and analyses has been provided on the COVID-19 HGI website (https:// www. covid 19hg. org/ resul ts/). The COVID-19 HGI used different case/ control definitions to identify genetic variants associated with COVID-19 susceptibility, disease severity and hospitalized cases of European ancestry and all ancestries. In our study, we only included European ancestry. We used a susceptibility phenotype that compared 38,984 confirmed COVID-19 cases, defined as individuals with laboratory confirmation of SARS-CoV-2 infection based on nucleic acid amplification-or serology-based tests or by electrical health records [using International Classification of Diseases (ICD) or physician notes], chart review or self-reporting, with 1,644,784 controls enrolled in the cohorts and not included as cases. To assess COVID-19 severity, we used the severe phenotype with 5101 patients, who were defined as patients with COVID-19 with very severe respiratory symptoms and requiring respiratory support, including intubation, CPAP, BiPAP, continuous external negative pressure or high-flow nasal cannula. Controls were 1,383,241 individuals enrolled in the cohorts and not included as cases. The hospitalized phenotype compared 9,986 hospitalized patients with COVID-19, with 1,877,672 controls enrolled in the cohorts and not included as cases. The study details included in the COVID-19 HGI GWAS meta-analyses and three phenotypes are shown in Additional file 1: Tables S1, Additional file 2: Tables S2, Additional file 3: Tables S3. We extracted 114 independent SNPs from the 25(OH)D GWAS as IVs for the three COVID-19 phenotypes. One SNP (rs182244780) was not available in the GWAS of the hospitalized phenotype, and we did not find the proxy SNP from LDlink; therefore, it was left out of the analysis. After harmonizing the exposure and outcomes datasets, two SNPs (rs11606, rs2246832) were removed for being palindromic with intermediate allele frequencies. Finally, 112, 112 and 111 SNPs were the \"Complete sets\" involved in the MR analyses (Table 1) .",
+            "cite_spans": [
+                {
+                    "start": 210,
+                    "end": 214,
+                    "text": "[21]",
+                    "ref_id": "BIBREF21"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 2429,
+                    "end": 2438,
+                    "text": "(Table 1)",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "Methods"
+        },
+        {
+            "text": "We applied the principles of univariable two-sample MR to obtain estimates of the causal effect of the 25(OH) D concentration on COVID-19 susceptibility, severity and hospitalization traits separately. Analyses were performed using TwoSampleMR R package of MR-Base [14] (https:// github. com/ MRCIEU/ TwoSa mpleMR). The statistical tests of the MR analysis were two-sided, and the results of the MR analyses were considered statistically significant at a Bonferroni-corrected p < 0.0167 (e.g., 0.05/3 outcomes). The causal associations were estimated with inverse variance weighted (IVW) with fixed effects (IVW-fixed) and random effects (IVW-random) [14, 22] , MR-Egger [23, 24] and weighted median estimate methods [25] . The IVW method uses a meta-analysis approach to combine the Wald ratios of the causal effects of each SNP and can provide the most precise estimates [14, 22] . The weighted median estimate provides a reliable effect estimate of the causal effect when at least 50% of the weight in the analysis comes from effective IVs [25] . MR-Egger regression is used to create a weighted linear regression of the outcome coefficients with the exposure coefficients. The slope of the weighted regression line provides an asymptotically unbiased causal estimate of the exposure on the outcome if the INSIDE (instrument strength is independent of direct effect) assumption is met. In addition, the intercept of the MR-Egger regression line was used to quantify the amount of horizontal pleiotropy present in the data averaged across the genetic instruments [23, 24] . Under the INSIDE assumption, the MR-Egger intercept test identifies horizontal pleiotropy if the intercept from the MR-Egger analysis is not equal to zero [24] . We also calculated the Robust Adjusted Profile Score (MR.RAPS) to estimate the causal effects, which can lead to considerably higher statistical power than the conventional MR analysis [26] . MR.RAPS considers the measurement error in SNP-exposure effects and is unbiased when there are many weak instruments as well as robust to systematic and idiosyncratic pleiotropy [26] . The MR.RAPS method can also alleviate but cannot solve the problem of horizontal pleiotropy [26] .",
+            "cite_spans": [
+                {
+                    "start": 265,
+                    "end": 269,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 651,
+                    "end": 655,
+                    "text": "[14,",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 656,
+                    "end": 659,
+                    "text": "22]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 671,
+                    "end": 675,
+                    "text": "[23,",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 676,
+                    "end": 679,
+                    "text": "24]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 717,
+                    "end": 721,
+                    "text": "[25]",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 873,
+                    "end": 877,
+                    "text": "[14,",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 878,
+                    "end": 881,
+                    "text": "22]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 1043,
+                    "end": 1047,
+                    "text": "[25]",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 1565,
+                    "end": 1569,
+                    "text": "[23,",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 1570,
+                    "end": 1573,
+                    "text": "24]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 1731,
+                    "end": 1735,
+                    "text": "[24]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 1923,
+                    "end": 1927,
+                    "text": "[26]",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 2108,
+                    "end": 2112,
+                    "text": "[26]",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 2207,
+                    "end": 2211,
+                    "text": "[26]",
+                    "ref_id": "BIBREF26"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "When selecting SNPs from the GWAS, especially in very large GWAS, it can be difficult to determine whether a SNP has its primary association with the exposure being studied or the outcome [27] . For example, in our study, if COVID-19 phenotypes exert a causal effect on the serum 25(OH)D concentration, then there is a possibility that some SNPs primarily associated with COVID-19 may also pass the genome-wide significance threshold in a GWAS of the 25(OH)D concentration with a large sample size. These SNPs can then misleadingly be applied as genetic instruments for the 25(OH)D concentration when they should actually be applied as IVs for COVID-19. Therefore, we applied MR Steiger filtering [28] as implemented in the TwoSampleMR R package to test the causal direction of each of the extracted SNPs on the exposures [25(OH)D] and outcome (COVID-19 phenotypes). This approach calculates the variance explained in the exposure and the outcome by the instrumenting SNPs and tests if the variance in the outcome is less than the exposure. For any SNP that had less variance in the exposure than the outcome (which means it showed evidence of primarily affecting outcomes rather than exposures), we removed those lipid SNPs and conducted IVW, MR-Egger, weighted median and MR.RAPS using the remaining instruments (\"Steiger filtered\" sets). IVs with \"TRUE\" meant the evidence for causality in the expected direction, while \"FALSE\" meant the evidence for causality in the reverse direction (Additional file 4:  Tables S4, Additional file 5: Tables S5, Additional file 6:  Tables S6). After Steiger filtering, 109, 109 and 109 SNPs (rs182244780, rs1894100 and rs4694423 were excluded) were involved in the MR analysis (Table 1) . We further applied the MR Pleiotropy RESidual Sum and Outlier (MR-PRESSO) global test [29] to reduce heterogeneity in the estimate of the causal effect to remove SNPs that were horizontal pleiotropic outliers. We conducted this analysis by using the MR-PRESSO R package (https:// github. com/ rondo lab/ MR-PRESSO). The number of distributions was set to 1000 and the threshold was set to 0.05. We also conducted IVW, MR-Egger, weighted median and MR.RAPS using the remaining instruments (\"Outlier removed\" sets). None of the horizontal pleiotropic outliers were identified for the COVID-19 severity and hospitalization, while three SNPs (rs532436, rs12949853 and rs72997688) were removed for COVID-19 susceptibility (Table 1) . We estimated the power of our study using the outlier removed sets according to a method suggested by Brion et al. [30] . The equations using an approximate linear model on the observed binary (0-1) scale were adapted for binary outcomes, which require several parameters to estimate. These parameters include the proportion of phenotypic variation explained by IV SNPs, the effect size of the exposure to the outcome at the epidemiological level, sample size, and the standard deviation (SD) of the exposure and outcome. The three outlier removed sets of SNPs for COVID-19 susceptibility, severity and hospitalization collectively explained 0.0183, 0.0185 and 0.0185 of the variance in the 25(OH)D concentration, respectively (Additional file 4: Tables S4, Additional file 5: Tables S5,  Additional file 6: Tables S6). We used the IVW, MR-Egger and Maximum likelihood [31] methods to detect heterogeneity. Heterogeneity was quantified by the Cochran Q statistic. To identify potentially influential SNPs, we performed a \"leave-oneout\" sensitivity analysis in which we excluded one SNP at a time and performed an IVW-random method on the remaining SNPs to identify the potential influence of outlying variants on the estimates. To validate the MR results, we conducted sensitivity analyses using genetic variants associated with 25(OH)D that were identified in the SUNLIGHT consortium GWAS results [20] . The large, multicenter, GWAS analysis considering phenotype data from 79,366 individuals of European ancestry included 31 studies from epidemiological cohorts from Europe, Canada, and the USA [20] . We first extracted 7 SNPs associated with 25(OH)D at genome-wide significance (p < 5E\u221208) and pruned for linkage disequilibrium at a R 2 coefficient of correlation of < 0.001 (Additional file 7: Table S7 ). Then, to reduce the limitations of SNP numbers, we pruned SNPs to a R 2 of 0.01 and extracted 10 SNPs associated with 25(OH)D (Additional file 8: Table S8 ). We performed IVW-fixed, IVW-random [14, 22] , MR-Egger [23, 24] and weighted median methods [25] to calculate the causal estimates.",
+            "cite_spans": [
+                {
+                    "start": 188,
+                    "end": 192,
+                    "text": "[27]",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 697,
+                    "end": 701,
+                    "text": "[28]",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 1814,
+                    "end": 1818,
+                    "text": "[29]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 2572,
+                    "end": 2576,
+                    "text": "[30]",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 3326,
+                    "end": 3330,
+                    "text": "[31]",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 3855,
+                    "end": 3859,
+                    "text": "[20]",
+                    "ref_id": null
+                },
+                {
+                    "start": 4054,
+                    "end": 4058,
+                    "text": "[20]",
+                    "ref_id": null
+                },
+                {
+                    "start": 4461,
+                    "end": 4465,
+                    "text": "[14,",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 4466,
+                    "end": 4469,
+                    "text": "22]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 4481,
+                    "end": 4485,
+                    "text": "[23,",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 4486,
+                    "end": 4489,
+                    "text": "24]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 4518,
+                    "end": 4522,
+                    "text": "[25]",
+                    "ref_id": "BIBREF25"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1489,
+                    "end": 1582,
+                    "text": "(Additional file 4:  Tables S4, Additional file 5: Tables S5, Additional file 6:  Tables S6).",
+                    "ref_id": null
+                },
+                {
+                    "start": 1716,
+                    "end": 1725,
+                    "text": "(Table 1)",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 2445,
+                    "end": 2454,
+                    "text": "(Table 1)",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 3204,
+                    "end": 3276,
+                    "text": "Tables S4, Additional file 5: Tables S5,  Additional file 6: Tables S6).",
+                    "ref_id": null
+                },
+                {
+                    "start": 4256,
+                    "end": 4264,
+                    "text": "Table S7",
+                    "ref_id": null
+                },
+                {
+                    "start": 4414,
+                    "end": 4422,
+                    "text": "Table S8",
+                    "ref_id": null
+                }
+            ],
+            "section": "Methods"
+        },
+        {
+            "text": "Further, we used the PhenoScanner tool [17, 18] to check whether any of the 109 identified SNPs in the outlier removed sets in the current study were associated with other phenotypes at risk of affecting the three COVID-19 phenotypes independent of the 25(OH) D concentration. We assessed SNPs at a threshold of p < 5E\u221208 for their association with any other phenotypes. Using the PhenoScanner tool, we found that 35 SNPs (rs10454087, rs1047891, rs10822145, rs12056768, rs12317268, rs1260326, rs142004400, rs1800588, rs182050989, rs2037511, rs2131925, rs2229742, rs2418929, rs2642439, rs2756119, rs28407950, rs2952289, rs3745669, rs41301394, rs429358, rs4418728, rs4616820, rs4846917, rs512083, rs532436, rs5771043, rs58387006, rs6834488, rs71297391, rs73413596, rs804281, rs8063565, rs8107974, rs964184 and rs9861009) were significantly associated with hematological traits (e.g., white blood cell count, platelet count and granulocyte count). Changes in hematological parameters in SARS-CoV-2 infected patients are very common, and several studies have shown that hematological parameters are markers of disease severity and progression. It was confirmed that SARS-CoV-2 infection was associated with alterations in the blood cell count. One in four COVID-19 patients experienced some form of leukopenia (WBC < 4.00E+09 cells/l), with the majority (63.0%) exhibiting lymphocytopenia (lymphocyte count < 1.00E+09 cells/l) [32] . Additionally, a reduced number of eosinophils has been reported in more than half (52.9%) of patients who tested positive for COVID-19 [33] . Zhou et al. [34] also reported a significant platelet count reduction between patients with severe disease and those exhibiting mild disease. To avoid horizontal pleiotropy caused by possible causal mechanistic associations between hematological traits and COVID-19 phenotypes, we performed univariable two-sample MR with IVW-fixed and IVWrandom methods to assess the epidemiological correlations between hematological traits and COVID-19 phenotypes. Genome-wide significant (p < 5E\u221208) and independent (R 2 < 0.001) genetic variants of predicted exposures of 34 blood cell indices, including white blood cell count, platelet count and lymphocyte count were extracted from the Astle et al. GWAS [35] . The GWAS on blood cell traits was performed on a population of approximately 173,000 individuals of European ancestry, excluding those with blood cancers or major blood disorders, largely from the UK. The significance threshold was set using Bonferroni correction at p < 4.90E\u221204 (0.05/ [34 \u00d7 3]). We excluded SNPs significantly associated with blood cell traits if causal links were identified between blood cell traits and COVID-19 phenotypes.",
+            "cite_spans": [
+                {
+                    "start": 39,
+                    "end": 43,
+                    "text": "[17,",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 44,
+                    "end": 47,
+                    "text": "18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 1423,
+                    "end": 1427,
+                    "text": "[32]",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 1565,
+                    "end": 1569,
+                    "text": "[33]",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 1584,
+                    "end": 1588,
+                    "text": "[34]",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 2267,
+                    "end": 2271,
+                    "text": "[35]",
+                    "ref_id": "BIBREF35"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "As we mentioned above, outlier removed sets included 106,109 and 109 SNPs, respectively ( Fig. 1 ). Table 2 We performed \"leave-one-out\" analysis based on the IVW-random method using the outlier removed sets for three COVID-19 phenotypes and found that there was no potentially influential SNP driving the causal link, 19:300 and the result was stable (Additional file 9: Tables S9, Additional file 10: Tables S10, Additional file 11: Tables S11). Extended MR analysis using 25(OH)D-related variants from the SUNLIGHT consortium GWAS [20] also reported no evidence of causal association between 25(OH)D and COVID-19 traits (Additional file 7: Table S7 , Additional file 8: Table S8 ). To avoid horizontal pleiotropy, we performed univariable two-sample MR between hematological traits and COVID-19 phenotypes due to 35 SNPs associated with blood traits. Using the IVW-fixed and IVW-random methods, we found the evidence to report the significant causal associations between the monocyte percentage of white cells and COVID-19 severity risk (beta = 0.1685, IVW-fixed p = 0.0002, IVW-random p = 0.0004) (p < 4.90E\u221204) (Additional file 12: Table S12 , Additional file 13: Tables S13, Additional file 14: Tables S14). Therefore, we removed three SNPs (rs10822145, rs2642439 and rs2756119) associated with the monocyte percentage of white cells in the outlier removed sets and re-performed the MR analysis using IVW-fixed, IVW-random, MR-Egger, weighted median and MR.RAPS methods. The final results were consistent with the outlier removed sets and did not provide evidence for the causal effects between the effect of the serum 25(OH)D concentration on three COVID-19 traits (Additional file 15: Table S15 ). Table 3 shows the sample size in the current analysis for the three COVID-19 traits. The total COVID-19 susceptibility group sample size was 1,683,768, of which 38,984 were COVID-19 cases. The overall COVID-19 severity group sample size was 1,388,342, of which 5101 were COVID-19 severe cases. The sample size of all COVID-19 hospitalization was 1,887,658, of which 9986 were COVID-19 hospitalized cases. We presented the power estimations for a range of proportions of 25(OH) D variation explained by genetic variants. Under the current sample size with outlier removed sets, our study had 80% power to detect a causal effect of a relative 12% (ORs ",
+            "cite_spans": [
+                {
+                    "start": 319,
+                    "end": 325,
+                    "text": "19:300",
+                    "ref_id": null
+                },
+                {
+                    "start": 534,
+                    "end": 538,
+                    "text": "[20]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 90,
+                    "end": 96,
+                    "text": "Fig. 1",
+                    "ref_id": null
+                },
+                {
+                    "start": 100,
+                    "end": 107,
+                    "text": "Table 2",
+                    "ref_id": "TABREF4"
+                },
+                {
+                    "start": 643,
+                    "end": 651,
+                    "text": "Table S7",
+                    "ref_id": null
+                },
+                {
+                    "start": 673,
+                    "end": 681,
+                    "text": "Table S8",
+                    "ref_id": null
+                },
+                {
+                    "start": 1137,
+                    "end": 1146,
+                    "text": "Table S12",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 1693,
+                    "end": 1702,
+                    "text": "Table S15",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 1706,
+                    "end": 1713,
+                    "text": "Table 3",
+                    "ref_id": "TABREF5"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "There is no doubt that immune modulation is the fulcrum of most diseases, and COVID-19 is no exception. Vitamin D has many mechanisms to modulate immunity, such as physical barriers and innate and adaptive immunity, to reduce the risk of microbial and viral infection [36, 37] . Vitamin D was reported to help maintain tight junctions, gap junctions, and adherens junctions to resist infections [38] . It can enhance cellular innate immunity through the release of antimicrobial peptides, such as human cathelicidin [39] , which exhibits direct antimicrobial activities by killing invading pathogens by perturbing the cell membranes and viral envelope, such as SARS-CoV-2 [40] . Vitamin D could also activate T cells, B cells, dendritic cells and macrophages by the vitamin D receptor (VDR) expressed by most immune cells [37] . These cells are able to produce a wide repertoire of responses that ultimately determine the nature and duration of the immune responses. Moreover, vitamin D exerts an inhibitory, anti-inflammatory action on the adaptive immune system. Vitamin D can reduce the production of proinflammatory T helper type 1 (Th1) cytokines, such as tumor necrosis factor \u03b1 and interferon \u03b3, and increase the expression of anti-inflammatory cytokines by macrophages [41] . It can also promote cytokine production by T helper type 2 (Th2) cells, which helps enhance the suppression of Th1 cells indirectly [42] . In this MR study, we used the strong IVs from the summary statistics of the largest GWAS conducted for vitamin D and COVID-19 phenotypes in European populations. We aimed to determine whether the relationship between 25(OH)D and COVID-19 was causal by employing a range of two-sample MR methods. We employed a range of methods known to control for pleiotropy, checked the heterogeneity and obtained highly consistent results. Pleiotropic effects were detected by using the MR-Egger intercept and MR-PRESSO method. Using the MR design, we could mitigate the confounding factors due to the application of Mendel's second law of the random assortment of alleles. Reverse causality was also prevented because genetic variants were fixed at conception and cannot be affected by disease processes. We used the PhenoScanner tool to detect potential pleiotropic SNPs. Some SNPs were found to be associated with hematological parameters. We performed univariable MR and found the causal association between the monocyte percentage of white cells and COVID-19 severity risk. we removed the SNPs associated with the monocyte percentage of white cells in the outlier removed sets and reperformed the MR analysis. The results above showed that the presence of pleiotropic SNPs was minimal. Taken together, our MR results did not support the evidence that the serum 25(OH)D concentration was a causal factor for COVID-19 susceptibility, severity or hospitalization traits. Based on the evidence above, our study did not recommend the vitamin D supplementation during the pandemic. This is the first study to illustrate the causal relationship between the serum 25(OH)D concentration and COVID-19 using MR analysis. Multiple published traditional epidemiology studies have demonstrated the role of vitamin D supplementation in reducing the risk of COVID-19 and its severity. However, the results were inconsistent and likely to be confounded by multiple unmeasured or improperly controlled variables. Hastie et al. [43, 44] used individual data from UK Biobank participants to correlate historical vitamin D levels checked between 2006 and 2010 with risk for COVID-19 positivity. They found that the 25(OH)D concentration was univariably associated with severe COVID-19 and mortality, but statistical significance was lost after adjustment for confounders. A retrospective, observational analysis including 191,779 patients from across all US states used data from tests performed at a national clinical laboratory [45] . They found a strong association between lower 25(OH)D concentrations and an increased rate of SARS-CoV-2 positivity. This remained significant after adjustment for sex, age, latitude and ethnicity. A retrospective cohort from Chicago included 489 patients tested for COVID-19 who had a vitamin D level checked in the year before testing. The relative risk of testing positive for COVID-19 was 1.77 times greater for patients with likely deficient vitamin D status (25-hydroxycholecalciferol < 20 ng/ml) compared with patients with likely sufficient vitamin D status, a difference that was statistically significant [46] . Carpagnano et al. [47] analyzed the demographic, clinical and laboratory data of 42 patients with acute respiratory failure due to COVID-19 in Italy. They reported that patients with severe vitamin D deficiency had a significantly higher mortality risk. However, the small sample size and low follow-up of enrolled patients might limit the power of the study. Despite major efforts to control for confounding, such observational studies still remained prone to residual confounding by uncontrolled or imperfectly measured covariates. Additionally, collider bias could arise when researchers restrict analyses on a collider variable in observational studies. The collider bias referred to restricting analyses to some people who experienced a specific event, such as hospitalization with COVID-19, or volunteered their participation in a large-scale study. The association effects in the specific sample will not be a reliable indication of the individual-level causal effects. Therefore, collider bias caused associations to fail to generalize beyond the sample and for causal inferences to be inaccurate within the sample [48] . Reverse causal effects would also violate the results of observational studies. Vitamin D binding protein was reported as a positive acute phase reactant after infections, which might lower the level of 25(OH)D. A decrease in 25(OH)D may also be the result of COVID-19 [49] .",
+            "cite_spans": [
+                {
+                    "start": 268,
+                    "end": 272,
+                    "text": "[36,",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 273,
+                    "end": 276,
+                    "text": "37]",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 395,
+                    "end": 399,
+                    "text": "[38]",
+                    "ref_id": "BIBREF39"
+                },
+                {
+                    "start": 516,
+                    "end": 520,
+                    "text": "[39]",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 672,
+                    "end": 676,
+                    "text": "[40]",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 822,
+                    "end": 826,
+                    "text": "[37]",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 1277,
+                    "end": 1281,
+                    "text": "[41]",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 1416,
+                    "end": 1420,
+                    "text": "[42]",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 3423,
+                    "end": 3427,
+                    "text": "[43,",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 3428,
+                    "end": 3431,
+                    "text": "44]",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 3923,
+                    "end": 3927,
+                    "text": "[45]",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 4545,
+                    "end": 4549,
+                    "text": "[46]",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 4570,
+                    "end": 4574,
+                    "text": "[47]",
+                    "ref_id": "BIBREF48"
+                },
+                {
+                    "start": 5675,
+                    "end": 5679,
+                    "text": "[48]",
+                    "ref_id": "BIBREF49"
+                },
+                {
+                    "start": 5951,
+                    "end": 5955,
+                    "text": "[49]",
+                    "ref_id": "BIBREF50"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "In one quasi-experimental study, Annweiler et al. [50] included sixty-six residents with COVID-19 from a French nursing home. They reported that vitamin D supplementation represented an effective, accessible and well-tolerated treatment for COVID-19 to reduce the severe COVID-19 cases and improve survival rates. To the best of our knowledge, most RCTs of vitamin D in the community are unlikely to be complete until spring 2021 [51] , although we noted the positive results of a randomized trial [52] reporting that the administration of a high dose of calcifediol or 25(OH)D significantly reduced the need for intensive care unit (ICU) treatment of patients requiring hospitalization due to COVID-19. However, imperfect double-blinding, uneven distribution and imperfect control for potential confounders were limitations of this trial. Well-designed studies are paramount for more fully exploring and defining the role of vitamin D supplementation in preventing the occurrence and severe course of COVID-19.",
+            "cite_spans": [
+                {
+                    "start": 50,
+                    "end": 54,
+                    "text": "[50]",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 430,
+                    "end": 434,
+                    "text": "[51]",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 498,
+                    "end": 502,
+                    "text": "[52]",
+                    "ref_id": "BIBREF53"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "Despite the MR design being less susceptible to confounding than other observational studies, limitations still exist. First, potential pleiotropy is the common limitation on all MRs, and our results may still have been affected by unmeasured horizontal pleiotropy. To assess this bias, we assessed potential pleiotropy using the MR-Egger method and MR-PRESSO method. We also used MR Steiger filtering and the PhenoScanner tool and observed no evidence that pleiotropic SNPs existed. Hence, whereas the risk of a residual horizontal pleiotropic effect cannot be ruled out, we still believe it is unlikely to change the conclusions of this study in a clinically meaningful way. Second, the low power of MR might be the reason for null results rather than a true null. However, our study had 80% power to detect the decreased risk of COVID-19 susceptibility, severity and hospitalization traits with ORs of 0.89, 0.72 and 0.80 per SD increase in the serum 25(OH)D concentration. Third, genetic associations may be affected by population stratification, which is another potential bias-inducing factor for MR analyses since the MAF differences among different ancestries and may differ between the populations in the exposure and outcome GWAS. The limitation was minimized by utilizing genetic associations from studies mainly of people of European ancestry with genomic control in our study. However, extending our results to people outside Europe should proceed with caution. Lastly, the MR study only tested the linear effect of serum vitamin D concentration in the general population. Future studies may be designed to comprehensively evaluate any nonlinear relationships between the vitamin D concentration and COVID-19 traits.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Discussion"
+        },
+        {
+            "text": "In summary, we provided precise evidence that genetically lowered serum 25(OH)D concentrations were not causally associated with COVID-19 susceptibility, severity or hospitalization traits. In balance, the current evidence does not support the need to take the vitamin D supplements in order to reduce the risk of COVID-19 susceptibility, severity and hospitalization. We are looking forward to the results of ongoing well-designed randomized controlled trials providing more evidence concerning the role of vitamin D in the prevention and treatment of COVID-19. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Pathophysiology, transmission, diagnosis, and treatment of Coronavirus disease 2019 (COVID-19): a review",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Wiersinga",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Rhodes",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Cheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Peacock",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Prescott",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "JAMA",
+            "volume": "324",
+            "issn": "",
+            "pages": "782--93",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "COVID-19) situation report as of 10:25 am CET",
+            "authors": [],
+            "year": 2021,
+            "venue": "WHO. Coronavirus disease 2019",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Evidence that vitamin D supplementation could reduce risk of influenza and COVID-19 infections and deaths",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Grant",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Lahore",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Mcdonnell",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Baggerly",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "French",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Aliano",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nutrients",
+            "volume": "12",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "National Institute for Health and Care Excellence (UK)",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "London",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Guidance on vitamin D supplementation for clinically extremely vulnerable groups",
+            "authors": [],
+            "year": 2021,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Vitamin D deficiency",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Holick",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "N Engl J Med",
+            "volume": "357",
+            "issn": "",
+            "pages": "266--81",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Skeletal and extraskeletal actions of vitamin D: current evidence and outstanding questions",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Bouillon",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Marcocci",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Carmeliet",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Bikle",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "White",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Dawson-Hughes",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Lips",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Munns",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Lazaretti-Castro",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Giustina",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Endocr Rev",
+            "volume": "40",
+            "issn": "",
+            "pages": "1109--51",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Notable developments for vitamin D amid the COVID-19 pandemic, but caution warranted overall: a narrative review",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Lordan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Nutrients",
+            "volume": "13",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Vitamin D supplementation to prevent acute respiratory tract infections: systematic review and meta-analysis of individual participant data",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Martineau",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Jolliffe",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Hooper",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Greenberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Aloia",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Bergman",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Dubnov-Raz",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Esposito",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Ganmaa",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ginde",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "BMJ",
+            "volume": "356",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "The effect of vitamin D supplementation on acute respiratory tract infection in older Australian adults: an analysis of data from the D-Health Trial",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Pham",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Waterhouse",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Baxter",
+                    "suffix": ""
+                },
+                {
+                    "first": "Duarte",
+                    "middle": [],
+                    "last": "Romero",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Mcleod",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Armstrong",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Ebeling",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "English",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Hartel",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Kimlin",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Lancet Diabetes Endocrinol",
+            "volume": "9",
+            "issn": "",
+            "pages": "69--81",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Vitamin D to prevent COVID-19: recommendations for the design of clinical trials",
+            "authors": [
+                {
+                    "first": "Caj",
+                    "middle": [],
+                    "last": "Camargo",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Martineau",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "FEBS J",
+            "volume": "287",
+            "issn": "",
+            "pages": "3689--92",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Mendelian randomization",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Emdin",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Khera",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kathiresan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "JAMA",
+            "volume": "318",
+            "issn": "",
+            "pages": "1925--1931",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Mendelian randomization: using genes as instruments for making causal inferences in epidemiology",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Lawlor",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Harbord",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Sterne",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Timpson",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Davey",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Stat Med",
+            "volume": "27",
+            "issn": "",
+            "pages": "1133--63",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "The MR-Base platform supports systematic causal inference across the human phenome",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Hemani",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Elsworth",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Wade",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Haberland",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Baird",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Laurin",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Burgess",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bowden",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Langdon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Elife",
+            "volume": "7",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "LDlink: a web-based application for exploring population-specific haplotype structure and linking correlated alleles of possible functional variants",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Machiela",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Chanock",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Bioinformatics",
+            "volume": "31",
+            "issn": "",
+            "pages": "3555--3562",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "A review of instrumental variable estimators for Mendelian randomization",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Burgess",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Small",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Thompson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Stat Methods Med Res",
+            "volume": "26",
+            "issn": "",
+            "pages": "2333--55",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "PhenoScanner: a database of human genotype-phenotype associations",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Staley",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Blackshaw",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kamat",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ellis",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Surendran",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Paul",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Freitag",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Burgess",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Danesh",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Bioinformatics",
+            "volume": "32",
+            "issn": "",
+            "pages": "3207--3216",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "PhenoScanner V2: an expanded tool for searching human genotype-phenotype associations",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kamat",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Blackshaw",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Young",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Surendran",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Burgess",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Danesh",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Butterworth",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Staley",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Bioinformatics",
+            "volume": "35",
+            "issn": "",
+            "pages": "4851--4854",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Genome-wide association study identifies 143 loci associated with 25 hydroxyvitamin D concentration",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Revez",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Lin",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Qiao",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Xue",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Holtz",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zeng",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Sidorenko",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Kemper",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat Commun",
+            "volume": "11",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "European-ancestry individuals informs the geneticarchitecture of 25-hydroxyvitamin D levels",
+            "authors": [],
+            "year": 2018,
+            "venue": "Nat Commun",
+            "volume": "9",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "The COVID-19 Host Genetics Initiative, a global initiative to elucidate the role of host genetic factors in susceptibility and severity of the SARS-CoV-2 virus pandemic",
+            "authors": [],
+            "year": 2020,
+            "venue": "COVID-19 Host Genetics Initiative",
+            "volume": "28",
+            "issn": "",
+            "pages": "715--723",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Mendelian randomization analysis with multiple genetic variants using summarized data",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Burgess",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Butterworth",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Thompson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Genet Epidemiol",
+            "volume": "37",
+            "issn": "",
+            "pages": "658--65",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/gepi.21758"
+                ]
+            }
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Assessing the suitability of summary data for two-sample Mendelian randomization analyses using MR-Egger regression: the role of the I2 statistic",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bowden",
+                    "suffix": ""
+                },
+                {
+                    "first": "Del",
+                    "middle": [],
+                    "last": "Greco",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Minelli",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "Davey",
+                    "middle": [],
+                    "last": "Smith",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Sheehan",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Thompson",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Int J Epidemiol",
+            "volume": "45",
+            "issn": "",
+            "pages": "1961--74",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Interpreting findings from Mendelian randomization using the MR-Egger method",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Burgess",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Thompson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Eur J Epidemiol",
+            "volume": "32",
+            "issn": "",
+            "pages": "377--89",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Consistent estimation in Mendelianrandomization with some invalid instruments using a Weighted median estimator",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bowden",
+                    "suffix": ""
+                },
+                {
+                    "first": "Davey",
+                    "middle": [],
+                    "last": "Smith",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Haycock",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Burgess",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Genet Epidemiol",
+            "volume": "40",
+            "issn": "",
+            "pages": "304--318",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Powerful three-sample genome-wide design and robust statistical inference in summary-data Mendelian randomization",
+            "authors": [
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Small",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Int J Epidemiol",
+            "volume": "48",
+            "issn": "",
+            "pages": "1478--92",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "The effect of plasma lipids and lipidlowering interventions on bone mineral density: a Mendelian randomization study",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Brion",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Kemp",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Warrington",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Borges",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Hemani",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Richardson",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Rasheed",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Qiao",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Haycock",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Bone Miner Res",
+            "volume": "35",
+            "issn": "",
+            "pages": "1224--1259",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Orienting the causal relationship between impreciselymeasured traits using GWAS summary data",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Hemani",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Tilling",
+                    "suffix": ""
+                },
+                {
+                    "first": "Davey",
+                    "middle": [],
+                    "last": "Smith",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "PLoS Genet",
+            "volume": "13",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Detection of widespread horizontal pleiotropy in causal relationships inferred from Mendelian randomization between complex traits and diseases",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Verbanck",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Neale",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Do",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Nat Genet",
+            "volume": "50",
+            "issn": "",
+            "pages": "693--701",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Calculating statistical power in Mendelian randomization studies",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Brion",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Shakhbazov",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Visscher",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Int J Epidemiol",
+            "volume": "42",
+            "issn": "",
+            "pages": "1497--501",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Efficient design for Mendelian randomization studies: subsample and 2-sample instrumental variable estimators",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Pierce",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Burgess",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Am J Epidemiol",
+            "volume": "178",
+            "issn": "",
+            "pages": "1177--84",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Clinical features of patients infected with 2019 novel coronavirus in Wuhan",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Ren",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Fan",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Gu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "China. Lancet",
+            "volume": "395",
+            "issn": "",
+            "pages": "497--506",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Clinical characteristics of 140patients infected with SARS-CoV-2 in Wuhan",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Dong",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Cao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Yuan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Yan",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Akdis",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "China. Allergy",
+            "volume": "75",
+            "issn": "",
+            "pages": "1730--1771",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Clinical course andrisk factors for mortality of adult inpatients with COVID-19 in Wuhan, China: a retrospective cohort study",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Du",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Fan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Gu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Lancet",
+            "volume": "395",
+            "issn": "",
+            "pages": "1054--62",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "The allelic landscape of human blood cell trait variation and links to common complex disease",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Astle",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Elding",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Jiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Allen",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Ruklisa",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Mann",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Mead",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Bouman",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Riveros-Mckay",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Kostadima",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Cell",
+            "volume": "167",
+            "issn": "",
+            "pages": "1415--1444",
+            "other_ids": {}
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "19:300 \u2022 fast, convenient online submission \u2022 thorough peer review by experienced researchers in your field \u2022 rapid publication on acceptance \u2022 support for research data, including large and complex data types \u2022 gold Open Access which fosters wider collaboration and increased citations maximum visibility for your research: over 100M website views per year \u2022 At BMC, research is always in progress. Learn more biomedcentral.com/submissions Ready to submit your research Ready to submit your research ? Choose BMC",
+            "authors": [
+                {
+                    "first": "Tian J Transl",
+                    "middle": [],
+                    "last": "Cui",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Med",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Choose BMC and benefit from",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "A review of micronutrients and the immune system-working in harmony to reduce the risk of infection",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Gombart",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Pierre",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Maggini",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nutrients",
+            "volume": "12",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Mechanisms in endocrinology: vitamin D and COVID-19",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bilezikian",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Bikle",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Hewison",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Lazaretti-Castro",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Formenti",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Gupta",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Madhavan",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Nair",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Babalyan",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Hutchings",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Eur J Endocrinol",
+            "volume": "183",
+            "issn": "",
+            "pages": "133--180",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "A review of the critical role of vitamin D in the functioning of the immune system and the clinical implications of vitamin D deficiency",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Schwalfenberg",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Mol Nutr Food Res",
+            "volume": "55",
+            "issn": "",
+            "pages": "96--108",
+            "other_ids": {}
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Toll-like receptor triggering of a vitamin D-mediated human antimicrobial response",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Stenger",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Wenzel",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Tan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Krutzik",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ochoa",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Schauber",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Meinken",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Science",
+            "volume": "311",
+            "issn": "",
+            "pages": "1770--1773",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Human antimicrobial peptides as therapeutics for viral infections",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ahmed",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Siman-Tov",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Hall",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Bhalla",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Narayanan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Viruses",
+            "volume": "11",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Vitamin D and 1,25(OH)2D regulation of T cells",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Cantorna",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Snyder",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Lin",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Nutrients",
+            "volume": "7",
+            "issn": "",
+            "pages": "3011--3032",
+            "other_ids": {}
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "1,25-Dihydroxyvitamin D3 and IL-2 combine to inhibit T cell production of inflammatory cytokines and promote development of regulatory T cells expressing CTLA-4 and FoxP3",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Jeffery",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Burke",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mura",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Qureshi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Hewison",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Walker",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Lammas",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Raza",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Sansom",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "J Immunol",
+            "volume": "183",
+            "issn": "",
+            "pages": "5458--67",
+            "other_ids": {}
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Vitamin D and COVID-19 infection and mortality in UK Biobank",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Hastie",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Pell",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Sattar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Eur JNutr",
+            "volume": "60",
+            "issn": "",
+            "pages": "545--553",
+            "other_ids": {}
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Vitamin D concentrations and COVID-19 infection in UK Biobank",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Hastie",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Mackay",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Ho",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Celis-Morales",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Katikireddi",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Niedzwiedz",
+                    "suffix": ""
+                },
+                {
+                    "first": "Jani",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Welsh",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Mair",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Gray",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Diabetes Metab Syndr",
+            "volume": "14",
+            "issn": "",
+            "pages": "561--566",
+            "other_ids": {}
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "SARS-CoV-2 positivity rates associated with circulating 25-hydroxyvitamin D levels",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Kaufman",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Niles",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kroll",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Bi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Holick",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "PLoS ONE",
+            "volume": "15",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Association of vitamin D status and other clinical characteristics with COVID-19 test results",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Meltzer",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Best",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Vokes",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Arora",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Solway",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "JAMA Netw Open",
+            "volume": "3",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "Vitamin D deficiency as a predictor of poor prognosis in patients with acute respiratory failure due to COVID-19",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Carpagnano",
+                    "suffix": ""
+                },
+                {
+                    "first": "Di",
+                    "middle": [],
+                    "last": "Lecce",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Quaranta",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Zito",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Buonamico",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Capozza",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Palumbo",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "Di",
+                    "middle": [],
+                    "last": "Gioia",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Valerio",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Resta",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Endocrinol Invest",
+            "volume": "44",
+            "issn": "",
+            "pages": "765--71",
+            "other_ids": {}
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "Collider bias undermines our understanding of COVID-19 disease risk and severity",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Griffith",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Morris",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Tudball",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Herbert",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Mancano",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Pike",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Sharp",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Sterne",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Palmer",
+                    "suffix": ""
+                },
+                {
+                    "first": "Davey",
+                    "middle": [],
+                    "last": "Smith",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat Commun",
+            "volume": "11",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "Does serum 25-hydroxyvitamin D decrease during acute-phase response? A systematic review",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Silva",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Furlanetto",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Nutr Res",
+            "volume": "35",
+            "issn": "",
+            "pages": "91--97",
+            "other_ids": {}
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "C\u00e9larier T. Vitamin D and survival in COVID-19 patients: A quasi-experimental study",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Annweiler",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Hanotte",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Grandin",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "&apos;eprevier",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Sabatier",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Lafaie",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Steroid Biochem Mol Biol",
+            "volume": "204",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "Commentary: myths and facts on vitamin D amidst the COVID-19 pandemic",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Chakhtoura",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Napoli",
+                    "suffix": ""
+                },
+                {
+                    "first": "El",
+                    "middle": [],
+                    "last": "Hajj",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Metabolism",
+            "volume": "109",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "Effect ofcalcifediol treatment and best available therapy versus best available therapy on intensive care unit admission and mortality among patients hospitalized for COVID-19: a pilot randomized clinical study",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Entrenas",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Entrenas",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Vaquero",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Alcal\u00e1",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "L\u00f3pez",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Bouillon",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Quesada",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Steroid Biochem Mol Biol",
+            "volume": "203",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "displays the heterogeneity analysis results using the IVW, MR-Egger and Maximum likelihood methods, and pleiotropy analysis using the MR-Egger intercept test. At the Bonferroni-corrected p threshold of 0.0167, we observed strong evidence of heterogeneity across complete SNP sets for COVID-19 susceptibility (IVW: Q = 214.2548, p = 1.49E\u221208, MR-Egger: Q = 214.2489, p = 1.06E\u221208, Maximum likelihood: Q = 214.2201, p = 1.50E\u221208), but evidence of heterogeneity was lacking for the COVID-19 severity and hospitalization (IVW: Q = 137.6576, p = 0.0439, MR-Egger: Q = 137.6540, p = 0.0382, Maximum likelihood: Q = 137.6563, p = 0.0439 for COVID-19 severity; IVW: Q = 136.2421, p = 0.0456, MR-Egger: Q = 135.2766, p = 0.0447, Maximum likelihood: Q = 136.2287, p = 0.0456 for COVID-19 hospitalization). After Steiger filtering and outlier removing, we did not observe the evidence of heterogeneity using three SNP sets for the three COVID-19 phenotypes (for COVID-19 susceptibility using outlier removed sets, IVW: Q = 128.5356, p = 0.0592, MR-Egger: Q = 128.4032, p = 0.0525, Maximum likelihood: Q = 128.4887, p = 0.0595). Based on the MR-Egger intercept test, we did not find evidence of directional pleiotropy between the 25(OH)D concentration and three COVID-19 phenotypes using three SNPs sets (complete SNPs sets: intercept = \u2212 0.0001, p = 0.9561 for COVID-19 susceptibility; intercept = 0.0033, p = 0.9573 for COVID-19 severity; intercept = \u2212 0.0037, p = 0.3797 for COVID-19 hospitalization).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Forest plot of the causal effects of the 25(OH)D concentration on COVID-19 susceptibility, severity and hospitalization traits. The analysis was conducted using outlier removed sets of SNPs. OR odds ratio, SD standard deviation, CI confidence interval, IVW-fixed inverse variance weighted with fixed effects, IVW-random inverse variance weighted with random effects, MR.RAPS MR Robust Adjusted Profile Score, MR-PRESSO MR Pleiotropy RESidual Sum and Outlier, COVID-19 coronavirus disease 2019, 25(OH)D 0.8994) decrease in COVID-19 susceptibility risk, a relative 32% (ORs less than 0.7251) decrease in COVID-19 severity risk and a relative 22% (ORs less than 0.8004) decrease in COVID-19 hospitalization risk per 1-SD increase in the 25(OH)D concentration.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Abbreviations COVID-19: Coronavirus disease 2019; MR: Mendelian randomization; 25(OH)D: 25-Hydroxyvitamin D; GWAS: Genome-wide association studies; IVW: Inverse variance weighted; MR.RAPS: MR Robust Adjusted Profile Score; MR-PRESSO: MR Pleiotropy RESidual Sum and Outlier; SARS-CoV-2: Severe acute respiratory syndrome coronavirus 2; WHO: World Health Organization; NICE: National Institute for Health and Care Excellence; RCT : Randomized controlled trials; SNP: Single nucleotide polymorphism; IV: Instrumental variable; MAF: Minor allele frequency; UKB: UK Biobank; COVID-19 HGI: COVID-19 Host Genetics Initiative; ICD: International Classification of Diseases; INSIDE: Instrument strength is independent of direct effect; SD: Standard deviation; OR: Odds ratio; VDR: Vitamin D receptor; Th1: T helper type 1; Th2: T helper type 2; ICU: Intensive care unit.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "Summary of the univariable Mendelian randomization of the causal effect of the serum 25(OH)D concentration on three COVID-19 phenotypes using different sets of SNPs as instrumental variables",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "COVID-19 coronavirus disease 2019, SNP single nucleotide polymorphism, MR Mendelian randomization, OR odds ratio, CI confidence interval, IVW-fixed inverse variance weighted with fixed effects, IVW-random inverse variance weighted with random effects, MR.RAPS MR Robust Adjusted Profile Score, MR-PRESSO MR Pleiotropy RESidual Sum and Outlier, 25(OH)D 25-hydroxyvitamin D",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF4": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF5": {
+            "text": "Number of COVID-19 cases and controls and statistical power in a Mendelian randomization study of the serum vitamin D concentration and three COVID-19 phenotypes",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "The authors wish to thank Dr Siying Zhuang for the support in the preparation of this manuscript.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Acknowledgements"
+        },
+        {
+            "text": "The online version contains supplementary material available at https:// doi. org/ 10. 1186/ s12967-021-02973-5.Additional file 1: Table S1 . The study details included in COVID-19 HGI GWAS meta-analyses of COVID-19 susceptibility. Additional file 2: Table S2 . The study details included in COVID-19 HGI GWAS meta-analyses of COVID-19 severity.Additional file 3: Table S3 . The study details included in COVID-19 HGI GWAS meta-analyses of COVID-19 hospitalization. Table S7 . MR results between the serum 25(OH)D concentration and COVID-19 phenotypes from sensitivity analysis with linkage-disequilibrium coefficient (R2) < 0.001. Additional file 8: Table S8 . MR results between the serum 25(OH)D concentration and COVID-19 phenotypes from sensitivity analysis with linkage-disequilibrium coefficient (R2) < 0.01. Additional file 9: Table S9 . \"Leave-one-out\" analysis of causal associations between the serum 25(OH)D concentration and COVID-19 susceptibility risk using outlier removed sets based on IVW-random method.Additional file 10: Table S10 . \"Leave-one-out\" analysis of causal associations between the serum 25(OH)D concentration and COVID-19 severity risk using outlier removed sets based on IVW-random method.Additional file 11: Table S11 . \"Leave-one-out\" analysis of causal associations between the serum 25(OH)D concentration and COVID-19 hospitalization risk using outlier removed sets based on IVW-random method. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 131,
+                    "end": 139,
+                    "text": "Table S1",
+                    "ref_id": null
+                },
+                {
+                    "start": 251,
+                    "end": 259,
+                    "text": "Table S2",
+                    "ref_id": null
+                },
+                {
+                    "start": 364,
+                    "end": 372,
+                    "text": "Table S3",
+                    "ref_id": null
+                },
+                {
+                    "start": 466,
+                    "end": 474,
+                    "text": "Table S7",
+                    "ref_id": null
+                },
+                {
+                    "start": 651,
+                    "end": 659,
+                    "text": "Table S8",
+                    "ref_id": null
+                },
+                {
+                    "start": 835,
+                    "end": 843,
+                    "text": "Table S9",
+                    "ref_id": null
+                },
+                {
+                    "start": 1041,
+                    "end": 1050,
+                    "text": "Table S10",
+                    "ref_id": null
+                },
+                {
+                    "start": 1242,
+                    "end": 1251,
+                    "text": "Table S11",
+                    "ref_id": null
+                }
+            ],
+            "section": "Supplementary Information"
+        },
+        {
+            "text": "YT and ZC conceptualized and designed the study. ZC provided the package codes in R language and analyzed the data in the study. ZC drafted the manuscript. YT gave constructive suggestions when writing the manuscript. Both authors read and approved the final manuscript.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Authors' contributions"
+        },
+        {
+            "text": "This work was supported by grants from Beijing Municipal Science and Technology Commission (Z181100001718195).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Funding"
+        },
+        {
+            "text": "Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Publisher's Note"
+        }
+    ]
+}

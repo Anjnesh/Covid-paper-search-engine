@@ -1,0 +1,1640 @@
+{
+    "paper_id": "0a090ad6fbeb2ee51a7b436fb5fa453b9f478ce3",
+    "metadata": {
+        "title": "Optimal Control to Limit the Spread of COVID-19 in Italy",
+        "authors": [
+            {
+                "first": "Mohamed",
+                "middle": [
+                    "Abdelaziz"
+                ],
+                "last": "Zaitri",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "Research Unit LaMOS (Modeling and Optimization of Systems",
+                    "institution": "University of Bejaia",
+                    "location": {
+                        "postCode": "06000",
+                        "settlement": "Bejaia",
+                        "country": "Algeria"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Mohand",
+                "middle": [
+                    "Ouamer"
+                ],
+                "last": "Bibi",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "Research Unit LaMOS (Modeling and Optimization of Systems",
+                    "institution": "University of Bejaia",
+                    "location": {
+                        "postCode": "06000",
+                        "settlement": "Bejaia",
+                        "country": "Algeria"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "F",
+                "middle": [
+                    "M"
+                ],
+                "last": "Delfim",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "",
+                "middle": [],
+                "last": "Torres",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University of Aveiro",
+                    "location": {
+                        "postCode": "3810-193",
+                        "settlement": "Aveiro",
+                        "country": "Portugal"
+                    }
+                },
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "We apply optimal control theory to a generalized SEIR-type model. The proposed system has three controls, representing social distancing, preventive means, and treatment measures to combat the spread of the COVID-19 pandemic. We analyze such optimal control problem with respect to real data transmission in Italy. Our results show the appropriateness of the model, in particular with respect to the number of quarantined/hospitalized (confirmed and infected) and recovered individuals. Considering the Pontryagin controls, we show how in a perfect world one could have drastically diminish the number of susceptible, exposed, infected, quarantined/hospitalized, and death individuals, by increasing the population of insusceptible/protected.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "A severe outbreak of respiratory illness started in Wuhan, a city of eleven million people in central China, in December 2019. The causative agent was the novel severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2), which was identified and isolated from a single patient in early January 2020 and subsequently verified in sixteen additional patients. The virus is believed to have a zoonotic origin. In particular, the Huanan Seafood Market, a live animal and seafood wholesale market in Wuhan, was regarded as a primary source of this epidemic, as it is found that 55% of the first four hundred twenty-five confirmed cases were linked to the marketplace. Meanwhile, recent comparisons of the genetic sequences of this virus and bat coro-naviruses show a 96% similarity (Lu et al. 2020) .",
+            "cite_spans": [
+                {
+                    "start": 778,
+                    "end": 794,
+                    "text": "(Lu et al. 2020)",
+                    "ref_id": "BIBREF10"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Multiple mathematical models were already presented to predict the dynamics of this pandemic at a regional and global level, and some of these models were implemented, following different methods, to evaluate a strategy for preventive measures: in (Bagal et al. 2020) , the classical susceptible-infected-recovered (SIR) modeling approach (Kermack and McKendrick 1927) was employed to study the parameters of this model for India while considering different governmental lockdown measures; in (Lauer et al. 2020) , the length of the incubation period of COVID-19 is estimated using confirmed COVID-19 cases reported between January 4 and February 24, 2020, from fifty provinces, regions, and counties from China; in (Lin et al. 2020 ) a model of the out-break in Wuhan, with individual reaction and governmental action (holiday extension, city lockdown, hospitalisation and quarantine) is analyzed in the light of the 1918 influenza pandemic in London; in (Moussaoui and Auger 2020) , susceptibleexposed-infectious-recovered (SEIR) modeling is considered to forecast the COVID-19 outbreak in Algeria by using real data from March 1 to April 10, 2020; in , a modified SEIR model is considered under three intervention scenarios (suppression, mitigation, mildness) and simulated to predict and investigate the realities in several African countries: South Africa, Egypt, Algeria, Nigeria, Senegal and Kenya. The list of such studies is long: see, e.g., (Lemos-Pai\u00e3o et al. 2020 ) for a new compartmental epidemiological model for COVID-19 with a case study of Portugal; ) for a fractional (noninteger order) model applied to COVID-19 in Galicia, Spain and Portugal; (Zine et al. 2020 ) for a stochastic time-delayed COVID-19 model with application to the Moroccan deconfinement strategy; etc.",
+            "cite_spans": [
+                {
+                    "start": 248,
+                    "end": 267,
+                    "text": "(Bagal et al. 2020)",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 339,
+                    "end": 368,
+                    "text": "(Kermack and McKendrick 1927)",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 493,
+                    "end": 512,
+                    "text": "(Lauer et al. 2020)",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 716,
+                    "end": 732,
+                    "text": "(Lin et al. 2020",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 956,
+                    "end": 982,
+                    "text": "(Moussaoui and Auger 2020)",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 1451,
+                    "end": 1475,
+                    "text": "(Lemos-Pai\u00e3o et al. 2020",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 1664,
+                    "end": 1681,
+                    "text": "(Zine et al. 2020",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "In (Peng et al. 2020 ), a mathematical system, generalizing the SEIR model, is presented to analyze the COVID-19 epidemic based on a dynamic mechanism that incorporates the intrinsic impact of hidden latent and infectious cases on the entire process of the virus transmission. The authors of (Peng et al. 2020) validate their model by analyzing data correlation on public data of the National Health Commission of China from January 20 to February 9, 2020, and produce reliable estimates and predictions, revealing key parameters of the COVID-19 epidemic. Here, we modify the model analyzed in (Peng et al. 2020) in order to consider optimal control problems. More precisely, we introduce three control variables and combine them with the main parameters of the model of (Peng et al. 2020 ). Secondly, we analyze a concrete optimal control problem, solving it analytically through the celebrated Pontryagin minimum principle (Pontryagin et al. 1962) . Moreover, we perform numerical simulations of the spread of COVID-19 in Italy from September 1 to November 30, 2020. The model of (Peng et al. 2020 ) has shown to be a good model to describe the reality of China. It's weakness is that it just tries to describe a reality but without controlling it. Our main purpose and contribution here is to include control measures that allow us to interfere with reality. Moreover, we want to illus-trate the validity of the model in a different context. For this reason, we have considered real data of COVID-19 from Italy instead of China.",
+            "cite_spans": [
+                {
+                    "start": 3,
+                    "end": 20,
+                    "text": "(Peng et al. 2020",
+                    "ref_id": null
+                },
+                {
+                    "start": 292,
+                    "end": 310,
+                    "text": "(Peng et al. 2020)",
+                    "ref_id": null
+                },
+                {
+                    "start": 594,
+                    "end": 612,
+                    "text": "(Peng et al. 2020)",
+                    "ref_id": null
+                },
+                {
+                    "start": 771,
+                    "end": 788,
+                    "text": "(Peng et al. 2020",
+                    "ref_id": null
+                },
+                {
+                    "start": 925,
+                    "end": 949,
+                    "text": "(Pontryagin et al. 1962)",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 1082,
+                    "end": 1099,
+                    "text": "(Peng et al. 2020",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The paper is organized as follows. In Section 2, we recall the generalized SEIR model of (Peng et al. 2020) . Our original results begin with Section 3, where we introduce a generalized SEIR control system. An optimal control problem is posed and solved analytically in Section 4. Then, in Section 5, we estimate the parameters of the model using real data of COVID-19 from Italy, and we illustrate the usefulness of the proposed optimal control problem through numerical simulations. Our results show that the generalized SEIR model of (Peng et al. 2020) , originally considered for China, is also effective with respect to Italy, being able to model well available real data, while our optimal control approach shows clearly the positive and crucial effects of social distancing, preventive means, and treatment in the combat of COVID-19. We end with Section 6 of conclusions.",
+            "cite_spans": [
+                {
+                    "start": 89,
+                    "end": 107,
+                    "text": "(Peng et al. 2020)",
+                    "ref_id": null
+                },
+                {
+                    "start": 537,
+                    "end": 555,
+                    "text": "(Peng et al. 2020)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The classical SEIR model consists of four compartments: susceptible individuals S(t), exposed individuals E(t), infected individuals I(t), recovered individuals R(t). This SEIR model is too simplistic to describe COVID-19 epidemic and new classes need to be included, e.g., Deaths and Quarantined individuals, in order to describe the reality. A generalized SEIR-type model for COVID-19 is proposed by Peng et al. (Peng et al. 2020) , being expressed by a seven-dimensional dynamical system as follows:",
+            "cite_spans": [
+                {
+                    "start": 402,
+                    "end": 432,
+                    "text": "Peng et al. (Peng et al. 2020)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "A generalized SEIR-type model"
+        },
+        {
+            "text": "subject to fixed initial conditions",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A generalized SEIR-type model"
+        },
+        {
+            "text": "Here, the population is divided into susceptible individuals S(t), exposed individuals E(t), infected individuals I(t), quarantined/hospitalized individuals (confirmed and infected) Q(t), recovered individuals R(t), death individuals D(t), and insusceptible individuals (protected population) P (t). It follows from (1) tha\u1e6b",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A generalized SEIR-type model"
+        },
+        {
+            "text": "is constant along time t. This constant will be denoted by N , being determined by the initial conditions (2):",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A generalized SEIR-type model"
+        },
+        {
+            "text": "The constant parameters \u03b1, \u03b2, \u03b3 and \u03b4 represent, respectively, the protection rate, infection rate, inverse of the average latent time, and the rate at which infectious people enter in quarantine, and they have the dimension of time \u22121 (day \u22121 ). The recovery and mortality rates, respectively \u03bb and \u03ba, are time-dependent analytical functions defined by",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A generalized SEIR-type model"
+        },
+        {
+            "text": "and",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A generalized SEIR-type model"
+        },
+        {
+            "text": "where the parameters \u03bb 1 , \u03bb 2 , \u03bb 3 , \u03ba 1 , \u03ba 2 and \u03ba 3 are determined empirically from real data. Note that \u03bb 1 , \u03bb 2 , \u03ba 1 and \u03ba 2 have the dimension of time \u22121 (day \u22121 ), while \u03bb 3 and \u03ba 3 have the dimension of time (day).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A generalized SEIR-type model"
+        },
+        {
+            "text": "(1) depends on (3) and, therefore, it is a nonautonomous system. In this case, we are not aware of a valid method to compute the basic reproduction number.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Remark 1 The basic reproduction number is usually computed for autonomous systems, when the right-hand side of the system does not depend explicitly on time t (Barril et al. 2021, van den Driessche and Watmough 2002). Here, system"
+        },
+        {
+            "text": "We introduce three time-dependent controls to model (1) of (Peng et al. 2020): \u2212 control u 1 (t), representing the effect of social distancing;",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Formulation of the Problem"
+        },
+        {
+            "text": "\u2212 control u 2 (t), representing the effect of preventive means;",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Formulation of the Problem"
+        },
+        {
+            "text": "\u2212 control u 3 (t), representing the effect of treatment.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Formulation of the Problem"
+        },
+        {
+            "text": "Mathematically, we have the control system",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Formulation of the Problem"
+        },
+        {
+            "text": "subject to initial conditions (2). We call (5) the generalized SEIR-type control model. A schematic diagram of our control system is given in Figure 1 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 142,
+                    "end": 150,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Formulation of the Problem"
+        },
+        {
+            "text": "We consider the generalized SEIR control model (5) and formulate an optimal control problem to determine the strategy u(t) = (u 1 (t), u 2 (t), u 3 (t)), over a fixed interval of time [0, t f ], that minimizes the cost functional",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Optimal Control"
+        },
+        {
+            "text": "where t f represents the final time of the period under study and the constants w 1 , w 2 , w 3 , v 1 , v 2 and v 3 represent the weights associated with the total number of new infections, the number of recovered individuals, the number of insusceptible individuals, and the costs associated with the controls u 1 , u 2 and u 3 , respectively. The controls u are Lebesgue measurable and bounded:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Optimal Control"
+        },
+        {
+            "text": "The intervals [u i min , u i max ] also translate the fact that there are limitations to the effects of social distancing, the preventive means and the treatment rate. Let",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Optimal Control"
+        },
+        {
+            "text": "The optimal control problem consists to find the optimal trajectoryx associated with the optimal control\u0169 \u2208 L 1 ,\u0169(t) \u2208 \u0393, satisfying the control system (5), the initial conditions",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Optimal Control"
+        },
+        {
+            "text": "and giving minimum value to (6). The existence of an optimal control\u0169 and associated optimal trajectoryx comes from the convexity of the integrand of the cost functional (6) with respect to control u and the Lipschitz property of the state system with respect to state variables x (see (Cesari 1983) for existence results of optimal solutions). According to the Pontryagin Minimum Principle (Pontryagin et al. 1962) , if u \u2208 L 1 is optimal for problem (5)-(8) and fixed final time t f , then there exists \u03c8 \u2208 AC([0, t f ]; R 7 ), \u03c8(t) = (\u03c8 1 (t), . . . , \u03c8 7 (t)), called the adjoint vector, such that",
+            "cite_spans": [
+                {
+                    "start": 286,
+                    "end": 299,
+                    "text": "(Cesari 1983)",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 391,
+                    "end": 415,
+                    "text": "(Pontryagin et al. 1962)",
+                    "ref_id": "BIBREF15"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Optimal Control"
+        },
+        {
+            "text": "where the Hamiltonian H is defined by",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Optimal Control"
+        },
+        {
+            "text": "H(x(t),\u0169(t),\u03c8(t)) = min u\u2208\u0393 H(x(t), u,\u03c8(t)) (9)",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The minimality condition"
+        },
+        {
+            "text": "holds almost everywhere on [0, t f ]. Moreover, the transversality conditions",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The minimality condition"
+        },
+        {
+            "text": "hold. Solving the minimality condition (9) on the interior of the set of admissible controls \u0393 gives",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The minimality condition"
+        },
+        {
+            "text": "where the adjoint functions satisfy",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The minimality condition"
+        },
+        {
+            "text": "(10) Note that we have obtained an analytical explicit expression for the controls\u0169 1 (t),\u0169 2 (t) and\u0169 3 (t),",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The minimality condition"
+        },
+        {
+            "text": "but we do not have the controls in open-loop (because they depend on the state variablesx and adjoint variables\u03c8). To plot\u0169(t) as a function of t we need to solve numerically system (5) and (10) to know the expressions forx and\u03c8 and be able to obtain the controls u i , i = 1, 2, 3, in agreement with (11). This is done numerically in next section. For more on numerical approaches to solve optimal control problems, we refer the reader to (Alipour 2017 , Zaitri et al. 2019 ) and references therein.",
+            "cite_spans": [
+                {
+                    "start": 440,
+                    "end": 453,
+                    "text": "(Alipour 2017",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 454,
+                    "end": 474,
+                    "text": ", Zaitri et al. 2019",
+                    "ref_id": "BIBREF19"
+                }
+            ],
+            "ref_spans": [],
+            "section": "The minimality condition"
+        },
+        {
+            "text": "Now, our aim is to find optimal controls to limit the spread of the epidemic of COVID-19 in Italy, by reducing the number of new infections and by increasing insusceptible individuals and the percentage of those recovered, while reducing the cost during the period of three months starting from September 1, 2020. All numerical Fig. 2 . The recovery and mortality rates (3) and (4) for the case of Italy (Section 5).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 328,
+                    "end": 334,
+                    "text": "Fig. 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "Numerical Results"
+        },
+        {
+            "text": "computations were performed in the numeric computing environment MATLAB R2019b using the medium order method and numerical interpolation (Shampine and Reichelt 1997) . The rest of the preliminary conditions and real data were taken and computed from the database https://raw.githubusercontent.com/pcm-dpc/COV The real data for COVID-19 pandemic in Italy, for September and October 2020, is summarized in appendix: see Appendix A for recovered individuals, Appendix B for deaths, and Appendix C for quarantined individuals.",
+            "cite_spans": [
+                {
+                    "start": 137,
+                    "end": 165,
+                    "text": "(Shampine and Reichelt 1997)",
+                    "ref_id": "BIBREF16"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Numerical Results"
+        },
+        {
+            "text": "The parameters \u03b1, \u03b2, \u03b3, \u03b4, (\u03ba 1 , \u03ba 2 , \u03ba 3 ) and (\u03bb 1 , \u03bb 2 , \u03bb 3 ) were fitted in the least square sense. In Figure 2 , we plot functions \u03bb(t) (3) and \u03ba(t) (4) by considering the initial guess \u03b1 = 0.06, \u03b2 = 1, \u03b3 = 5, \u03b4 = 0.5, (\u03bb 1 , \u03bb 2 , \u03bb 3 ) = (0.01, 0.1, 10) and (\u03ba 1 , \u03ba 2 , \u03ba 3 ) = (0.001, 0.001, 10), respectively.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 111,
+                    "end": 119,
+                    "text": "Figure 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "Numerical Results"
+        },
+        {
+            "text": "The parameters of the generalized SEIR model (1) were computed simultaneously by the nonlinear least-squares solver (Cheynet 2020) . These parameters, during the period under study, were found as follows: \u03b1 = 1.1775 \u00d7 10 \u22127 , \u03b2 = 3.97, \u03b3 = 0.0048, \u03b4 = 0.1432, (\u03bb 1 , \u03bb 2 , \u03bb 3 ) = (0.0181, 0.8111, 6.9882) and (\u03ba 1 , \u03ba 2 , \u03ba 3 ) = (0.00062, 0.0233, 54.0351). For the optimal control problem of Section 4, we further fixed w i = v i = 1, u 1 min = 0.1, u j min = 0, u i max = 1, i = 1, 2, 3, j = 1, 2.",
+            "cite_spans": [
+                {
+                    "start": 116,
+                    "end": 130,
+                    "text": "(Cheynet 2020)",
+                    "ref_id": "BIBREF5"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Numerical Results"
+        },
+        {
+            "text": "In Figures 3 and 4 , we present plots with the numerical solutions to the nonlinear differential equations of the generalized SEIR model (1), in red color; to the nonlinear differential equations of the generalized SEIR control system (5) under optimal controls, in the sense of Section 4, in green color; and the real data of the quarantined cases, the number of recovered individuals, and the number of deaths from September 1 to October 31, 2020, in orange. The computed optimal controls for Italy from September 1 to November 30, 2020, which give rise to the green curves in the plots of Figures 3 and 4 , are shown in Figure 5 . The obtained simulations allow us to predict the results of the decisions taken in Italy, as well to give the best decisions for Italy, according to our generalized SEIR control system and optimal control problem.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 3,
+                    "end": 18,
+                    "text": "Figures 3 and 4",
+                    "ref_id": null
+                },
+                {
+                    "start": 592,
+                    "end": 607,
+                    "text": "Figures 3 and 4",
+                    "ref_id": null
+                },
+                {
+                    "start": 623,
+                    "end": 631,
+                    "text": "Figure 5",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Numerical Results"
+        },
+        {
+            "text": "The orange curves in Figures 3e and 3f and Figure 4 represent the real data on quarantine, recovered, and death cases in Italy from September 1 to October 31, 2020. The red curves simulate what happens from the beginning of September to the end of November following the generalized SEIR model (1), when the number of quarantined, recovered, and deaths increase, and reach, respectively, two million three hundred eighty-eight thousand (2388000), nine hundred six thousand three hundred (906300), and forty-five thousand seven hundred (45700) cases.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 21,
+                    "end": 51,
+                    "text": "Figures 3e and 3f and Figure 4",
+                    "ref_id": null
+                }
+            ],
+            "section": "Numerical Results"
+        },
+        {
+            "text": "The red curves in Figures 3c, 3d and 3a simulate what happens from the beginning of September to the end of November, according with the generalized SEIR model, when the number of infected, exposed and insusceptible cases reach, respectively, one million one hundred forty-six thousand (1146000), forty-one million two hundred fifty thousand (41250000) and five hundred twentyeight (528) cases.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 18,
+                    "end": 39,
+                    "text": "Figures 3c, 3d and 3a",
+                    "ref_id": null
+                }
+            ],
+            "section": "Numerical Results"
+        },
+        {
+            "text": "The green curves in Figures 3 and 4 show what happens from September 1 to November 30, 2020, under optimal control measures, when the number of infected (Figure 3c ) and recovered (Figure 3f ) cases increase and reach six hundred and fifty (650) and two hundred forty-nine thousand four hundred (249400) cases, respectively, while the number of exposed (Figure 3d ), insusceptible (Figure 3a) , and quarantined (Figure 3e ) cases reach eighteen thousand four hundred ninety (18490), sixty million one hundred eighty thousand (60180000), and one hundred twenty-eight (128) cases, respectively. Deaths remain stable during the entire period, precisely, thirty-five thousand five hundred (35500) cases (Figure 4 ). Figure 5 show the optimal controls that need to be implemented in order to reduce the overall burden of COVID-19 in Italy and obtain the best possible situation given by the green curves in Figures 3 and 4 , which take into account the cost reduction resulting from the controls u 1 , u 2 and u 3 . The effect of social distancing is equal to the minimum value of its constraint (u 1 = 0.1), see Figure 5a , and this corresponds to the application of social distancing among the entire population. The effect of preventive measures is equal to the maximum value of its constraint until September 19 (u 2 = 1), see Figure 5b , then decreases gradually until it reaches zero (u 2 = 0) on November 30, 2020, see Figure 5c . The effect of treatment takes the maximum value of its constraint until November 29, 2020 (u 3 = 1), then decreases to zero on November 30, 2020 (u 3 = 0), meaning a decrease in the pressure on the health sector. Note that by taking preventive measures (u 1 , u 2 , u 3 ), we limit the spread of COVID-19 and we have better results. This means that, with the help of optimal control theory, what happened in Italy would have been less dramatic.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 20,
+                    "end": 35,
+                    "text": "Figures 3 and 4",
+                    "ref_id": null
+                },
+                {
+                    "start": 153,
+                    "end": 163,
+                    "text": "(Figure 3c",
+                    "ref_id": null
+                },
+                {
+                    "start": 180,
+                    "end": 190,
+                    "text": "(Figure 3f",
+                    "ref_id": null
+                },
+                {
+                    "start": 353,
+                    "end": 363,
+                    "text": "(Figure 3d",
+                    "ref_id": null
+                },
+                {
+                    "start": 381,
+                    "end": 392,
+                    "text": "(Figure 3a)",
+                    "ref_id": null
+                },
+                {
+                    "start": 411,
+                    "end": 421,
+                    "text": "(Figure 3e",
+                    "ref_id": null
+                },
+                {
+                    "start": 699,
+                    "end": 708,
+                    "text": "(Figure 4",
+                    "ref_id": null
+                },
+                {
+                    "start": 712,
+                    "end": 720,
+                    "text": "Figure 5",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 902,
+                    "end": 917,
+                    "text": "Figures 3 and 4",
+                    "ref_id": null
+                },
+                {
+                    "start": 1108,
+                    "end": 1117,
+                    "text": "Figure 5a",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 1326,
+                    "end": 1335,
+                    "text": "Figure 5b",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 1421,
+                    "end": 1430,
+                    "text": "Figure 5c",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Numerical Results"
+        },
+        {
+            "text": "Recent results have shown how the theory of optimal control is an important tool to combat COVID-19 in a community: in ) for a controlled sanitary deconfinement in Portugal; in (Zamir et al. 2021 ) from a more theoretical point of view; here for the case of Italy. We proposed a simple SEIR-type control system, showing its effectiveness with respect to real data from Italy in the period from September 1 to November 30, 2020. While the real data (see Appendices A, B and C) is consistent with the generalized SEIR model (1), because the goal of this model is to describe well the COVID-19 reality, our new SEIR control system (5) simulates what would happen if we took into account the values of the three control functions, as described in Section 3. In agreement, the situations obtained with controls are better than the situations obtained without controls. More precisely, by considering the proposed controls, we show how optimal control theory could have drastically diminish the burden of COVID-19 in the period under study while taking into account the resulting cost reduction. In concrete, if it would have been possible to implement optimally, in the sense of optimal control theory and Pontryagin's optimality conditions, the control measures of social distancing as in Figure 5a , preventive means as in Figure 5b , and treatment as in Figure 5c , then it would have Number of the exposed cases been possible to decrease significantly the number of deaths (cf. Figure 4 and Tables 3 and 4, which account a decrease of 7.36% of deaths in Italy by the of October 2020 under optimal control) with much less quarantined individuals (see Figure 3e and Tables 5 and 6 , which account a decrease of 99.96% of quarantined individuals in Italy by the end of October 2020 under optimal control theory). Thus, one can say that the approach proposed by the theory of optimal control is very effective, simultaneously from health and economical points of view, being far from trivial. Note that by following Pontryagin's minimum priciple one obtains an increase on the number of recovered individuals in a first period, up to 14-Oct-2020, and, after this date, a decrease on the number of recovered (cf. Figure 3f and Tables 1 and 2), caused by the drastic reduction on the number of susceptible and infected (see Figures 3b and 3c , respectively). While our aim here was to study the effect of controls, guided by application of the Pontryagin minimum principle and showing how they can help to decrease the spread of COVID-19, other aspects remain open for further research. In particular, it remains open the theoretical study of the stability of the models. In this direction, the recent results of (Boukhouima et al. 2021, Nda\u00efrou and Torres 2021) may be useful. ",
+            "cite_spans": [
+                {
+                    "start": 177,
+                    "end": 195,
+                    "text": "(Zamir et al. 2021",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 2706,
+                    "end": 2742,
+                    "text": "(Boukhouima et al. 2021, Nda\u00efrou and",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1285,
+                    "end": 1294,
+                    "text": "Figure 5a",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 1320,
+                    "end": 1329,
+                    "text": "Figure 5b",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 1352,
+                    "end": 1361,
+                    "text": "Figure 5c",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 1477,
+                    "end": 1485,
+                    "text": "Figure 4",
+                    "ref_id": null
+                },
+                {
+                    "start": 1649,
+                    "end": 1658,
+                    "text": "Figure 3e",
+                    "ref_id": null
+                },
+                {
+                    "start": 1663,
+                    "end": 1677,
+                    "text": "Tables 5 and 6",
+                    "ref_id": null
+                },
+                {
+                    "start": 2207,
+                    "end": 2216,
+                    "text": "Figure 3f",
+                    "ref_id": null
+                },
+                {
+                    "start": 2317,
+                    "end": 2334,
+                    "text": "Figures 3b and 3c",
+                    "ref_id": null
+                }
+            ],
+            "section": "Conclusion"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Numerical study on multi-order multidimensional fractional optimal control problem in general form",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Alipour",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Kuwait J. Sci",
+            "volume": "44",
+            "issn": "3",
+            "pages": "9--19",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Estimating the parameters of susceptibleinfected-recovered model of COVID-19 cases in India during lockdown periods",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Bagal",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Rath",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Barua",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Patnaik",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Chaos Solitons Fractals",
+            "volume": "140",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "On the basic reproduction number in continuously structured populations",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Barril",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Calsina",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Cuadrado",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ripoll",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Math. Methods Appl. Sci",
+            "volume": "44",
+            "issn": "1",
+            "pages": "799--812",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Stability analysis and optimal control of a fractional HIV-AIDS epidemic model with memory and general incidence rate",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Boukhouima",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Lotfi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mahrouf",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Rosa",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "F M"
+                    ],
+                    "last": "Torres",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Yousfi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Eur. Phys. J. Plus",
+            "volume": "136",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2012.04819"
+                ]
+            }
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Optimization-theory and applications, Applications of Mathematics",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Cesari",
+                    "suffix": ""
+                }
+            ],
+            "year": 1983,
+            "venue": "",
+            "volume": "17",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Generalized SEIR Epidemic Model (fitting and computation)",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Cheynet",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "28",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "A contribution to the mathematical theory of epidemics",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Kermack",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Mckendrick",
+                    "suffix": ""
+                }
+            ],
+            "year": 1927,
+            "venue": "Proc. R. Soc. Lond., Ser. A",
+            "volume": "115",
+            "issn": "",
+            "pages": "700--721",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "The incubation period of coronavirus disease 2019 (COVID-19) from publicly reported confirmed cases: Estimation and application",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Lauer",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Grantz",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Bi",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Jones",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Zheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Meredith",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Azman",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Reich",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Lessler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Annals of Internal Medicine",
+            "volume": "172",
+            "issn": "9",
+            "pages": "577--583",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Torres, A new compartmental epidemiological model for COVID-19 with a case study of Portugal",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Lemos-Pai\u00e3o",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Silva",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Ecological Complexity",
+            "volume": "44",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2011.08741"
+                ]
+            }
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "A conceptual model for the coronavirus disease 2019 (COVID-19) outbreak in Wuhan, China with individual reaction and governmental action",
+            "authors": [
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Lin",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Lou",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Musa",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Cai",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "He",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "International Journal of Infectious Diseases",
+            "volume": "93",
+            "issn": "",
+            "pages": "211--216",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Genomic characterisation and epidemiology of 2019 novel coronavirus: Implications for virus origins and receptor binding",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Lu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "The Lancet",
+            "volume": "395",
+            "issn": "10224",
+            "pages": "565--574",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Prediction of confinement effects on the number of Covid-19 outbreak in Algeria",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Moussaoui",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Auger",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Math. Model. Nat. Phenom",
+            "volume": "15",
+            "issn": "37",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Fractional model of COVID-19 applied to Galicia",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Nda\u00efrou",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Area",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Nieto",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Silva",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "F M"
+                    ],
+                    "last": "Torres",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "",
+            "volume": "144",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2101.01287"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Mathematical analysis of a fractional COVID-19 model applied to Wuhan",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Nda\u00efrou",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "F M"
+                    ],
+                    "last": "Torres",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Axioms",
+            "volume": "10",
+            "issn": "3",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2106.15407"
+                ]
+            }
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Epidemic analysis of COVID-19 in China by dynamical modeling",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Peng",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Zhuge",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Hong",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "The mathematical theory of optimal processes",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Pontryagin",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Boltyanskii",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Gamkrelidze",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Mishchenko",
+                    "suffix": ""
+                }
+            ],
+            "year": 1962,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "The MATLAB ODE suite",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Shampine",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Reichelt",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "SIAM J. Sci. Comput",
+            "volume": "18",
+            "issn": "1",
+            "pages": "1--22",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Optimal control of the COVID-19 pandemic: controlled sanitary deconfinement in Portugal",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Silva",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Scientific Reports",
+            "volume": "11",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Van Den Driessche",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Watmough",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Math. Biosci",
+            "volume": "180",
+            "issn": "",
+            "pages": "29--48",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "A hybrid direction algorithm for solving optimal control problems",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Zaitri",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Bibi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Bentobache",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Cogent Math. Stat",
+            "volume": "6",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "An optimal control analysis of a COVID-19 model",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Zamir",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Abdeljawad",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Nadeem",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Wahid",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Yousef",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Alexandria Engineering Journal",
+            "volume": "60",
+            "issn": "3",
+            "pages": "2875--2884",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Prediction of the COVID-19 spread in African countries and implications for prevention and control: A case study in South Africa",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Ma",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Science of the Total Environment",
+            "volume": "729",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "A stochastic time-delayed model for the effectiveness of Moroccan COVID-19 deconfinement strategy",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zine",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Boukhouima",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Lotfi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mahrouf",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "F M"
+                    ],
+                    "last": "Torres",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Yousfi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Math. Model. Nat. Phenom",
+            "volume": "15",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2010.16265"
+                ]
+            }
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Schematic diagram of the generalized SEIR-type control system (5).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "SEIR-type model The generalized SEIR-type controlled model",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "The Pontryagin extremal controls of the optimal control problem of Section 4 for the case of Italy between Sept. 1 and Nov. 30, 2020.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "The generalized SEIR-type model The generalized SEIR-type controlled modelFig. 3. Predictions for Italy from the generalized SEIR model (1), in red, the generalized SEIR control system (5) under optimal controls, in green, between Sept. 1 and Nov. 30, 2020, versus available real data of quarantined and recovered from Sept. 1 to Oct. 31, 2020, in orange.The generalized SEIR-type model The generalized SEIR-type controlled model Real dataFig. 4. Predictions for Italy from the generalized SEIR model (1), in red, the generalized SEIR control system (5) under optimal controls, in green, between Sept. 1 and Nov. 30, 2020, versus available real data of deaths from Sept. 1 to Oct. 31, 2020, in orange.",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "This research is part of first author's Ph.D. project. Zaitri is grateful to the financial support from the Ministry of Higher Education and Scientific Research of Algeria; Torres acknowledges the financial support from CIDMA through project UIDB/04106/2020. The authors would like to thank two anonymous Reviewers for their detailed and thought-out suggestions.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Acknowledgments"
+        },
+        {
+            "text": "In Tables 1 and 2, we show the real data R(t) of recovered individuals from COVID-19 in Italy, September (Table 1) and October (Table 2 ) 2020, versus the number R(t) of recovered individuals predicted by SEIR-type model (1) of (Peng et al. 2020 ) and the controlled model (5). We also indicate the improvement one could have done by introducing suitable controls, as explained in Section 3, and using the theory of optimal control as in Section 4. For that, we give in Tables 1 and 2 the percentage of relative error \u03b7 R between real data and the one predicted by model (1); and the improvement I R (increase of recovered individuals with respect to real data in September and up to 14-Oct-2020; and decrease of recovered from 15-Oct-2020 on, because of a drastic reduction on the number of infected and susceptible individuals) by introducing controls u 1 , u 2 and u 3 , as in (5), in an optimal control way. ",
+            "cite_spans": [
+                {
+                    "start": 228,
+                    "end": 245,
+                    "text": "(Peng et al. 2020",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 105,
+                    "end": 114,
+                    "text": "(Table 1)",
+                    "ref_id": null
+                },
+                {
+                    "start": 127,
+                    "end": 135,
+                    "text": "(Table 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "Appendix A: Recovered"
+        },
+        {
+            "text": "In Tables 3 and 4 , we give real data of death individuals D(t) from COVID-19 in Italy, September (Table 3) and October (Table 4 ) 2020, versus the number D(t) of death individuals predicted by the SEIR-type model (1) of (Peng et al. 2020 ) and our controlled model (5). We also indicate the improvement one could have done by introducing suitable controls, as explained in Section 3, and using the theory of optimal control as in Section 4: we show the percentage of relative error \u03b7 D between real data and the one predicted by model (1); and the improvement I D (decrease of death individuals with respect to real data) by introducing controls u 1 , u 2 and u 3 , as in (5), in an optimal control way. ",
+            "cite_spans": [
+                {
+                    "start": 221,
+                    "end": 238,
+                    "text": "(Peng et al. 2020",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 3,
+                    "end": 17,
+                    "text": "Tables 3 and 4",
+                    "ref_id": null
+                },
+                {
+                    "start": 98,
+                    "end": 107,
+                    "text": "(Table 3)",
+                    "ref_id": null
+                },
+                {
+                    "start": 120,
+                    "end": 128,
+                    "text": "(Table 4",
+                    "ref_id": null
+                }
+            ],
+            "section": "Appendix B: Deaths"
+        },
+        {
+            "text": "In Tables 5 and 6 , we show the real data Q(t) of quarantined individuals from COVID-19 in Italy, September (Table 5) and October (Table 6 ) 2020, versus the number Q(t) of quarantined individuals predicted by the SEIR-type model (1) of (Peng et al. 2020 ) and the one predicted by our model (5).We also indicate the improvement one could have done by introducing suitable controls, as explained in Section 3, and using the theory of optimal control: we give the percentage of relative error \u03b7 Q between real data and the one predicted by model (1); and the improvement I Q (decrease of quarantined individuals with respect to real data) by introducing controls u 1 , u 2 and u 3 in an optimal control way. ",
+            "cite_spans": [
+                {
+                    "start": 237,
+                    "end": 254,
+                    "text": "(Peng et al. 2020",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 3,
+                    "end": 17,
+                    "text": "Tables 5 and 6",
+                    "ref_id": null
+                },
+                {
+                    "start": 108,
+                    "end": 117,
+                    "text": "(Table 5)",
+                    "ref_id": null
+                },
+                {
+                    "start": 130,
+                    "end": 138,
+                    "text": "(Table 6",
+                    "ref_id": null
+                }
+            ],
+            "section": "Appendix C: Quarantined"
+        }
+    ]
+}

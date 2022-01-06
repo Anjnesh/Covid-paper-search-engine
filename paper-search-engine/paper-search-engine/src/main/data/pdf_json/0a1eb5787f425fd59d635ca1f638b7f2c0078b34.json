@@ -1,0 +1,3344 @@
+{
+    "paper_id": "0a1eb5787f425fd59d635ca1f638b7f2c0078b34",
+    "metadata": {
+        "title": "Journal Pre-proof A simple mathematical tool to forecast COVID-19 cumulative case numbers A Simple Mathematical Tool to Forecast COVID-19 Cumulative Case Numbers Affiliation: A Simple Mathematical Tool for Estimating to",
+        "authors": [
+            {
+                "first": "Naci",
+                "middle": [],
+                "last": "Balak",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Marmara University",
+                    "location": {
+                        "settlement": "Istanbul",
+                        "country": "Turkey"
+                    }
+                },
+                "email": "drnacibalak@yahoo.com"
+            },
+            {
+                "first": "Deniz",
+                "middle": [],
+                "last": "Inan",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Marmara University",
+                    "location": {
+                        "settlement": "Istanbul",
+                        "country": "Turkey"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Mario",
+                "middle": [],
+                "last": "Ganau",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Oxford University Hospitals NHS Foundation Trust",
+                    "location": {
+                        "settlement": "Oxford",
+                        "region": "MD",
+                        "country": "UK"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Cesare",
+                "middle": [],
+                "last": "Zoia",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Fondazione IRCCS Policlinico San Matteo",
+                    "location": {
+                        "settlement": "Pavia",
+                        "country": "Italy"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Sinan",
+                "middle": [],
+                "last": "S\u00f6nmez",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Marmara University",
+                    "location": {
+                        "settlement": "Istanbul",
+                        "country": "Turkey"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Batuhan",
+                "middle": [],
+                "last": "Kurt",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Marmara University",
+                    "location": {
+                        "settlement": "Istanbul",
+                        "country": "Turkey"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Ahmet",
+                "middle": [],
+                "last": "Akg\u00fcl",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Marmara University",
+                    "location": {
+                        "settlement": "Istanbul",
+                        "country": "Turkey"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "M\u00fcjgan",
+                "middle": [],
+                "last": "Tez",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Marmara University",
+                    "location": {
+                        "settlement": "Istanbul",
+                        "country": "Turkey"
+                    }
+                },
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Word: 249 Number of Figures: 3 Number of Tables: 7 Number of references: 74 Acknowledgments: We would like to express our gratitude to Prof. Mehmet Oktav for his exceptional support, without which the completion of this article would not have been possible. We also thank Mrs. Ann Hazinedar for her help in proofreading. J o u r n a l P r e -p r o o f Conflict-of-interest disclosure: The authors declare no competing financial interests and no sources of funding and support, including any for equipment and medications. Ethical issues: The ethical issues for this study involving human subjects have been carefully considered in line with the Declaration of Helsinki (1964).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Financial support: None Authors' contributions Naci Balak: naci.balak@gmail.com, drnacibalak@yahoo.com. Conception of the idea, data collection, analysis design and performance results interpretation, writing the text, literature search, text revision Deniz Inan denizlukuslu@marmara.edu.tr Analysis performance, literature search, text revision, critical review of the intellectual content Mario Ganau Mario.Ganau@alumni.harvard.edu Data analysis and design, interpretation of the results, literature search, text revision , critical review of the intellectual content Cesare Zoia gioiaoffice@gmail.com Data analysis and design, interpretation of the results, literature search, text revision, critical review of the intellectual content Sinan S\u00f6nmez ssonmez@marmara.edu.tr Literature search, text revision, critical review of the intellectual content Batuhan Kurt batuhan@marmara.edu.tr Literature search, text revision, critical review of the intellectual content Ahmet Akg\u00fcl ahmetakgul@marmara.edu.tr Literature search, Text revision, critical review of the intellectual content M\u00fcjgan Tez mtez@marmara.edu.tr Data analysis, literature search, text revision, critical review of the intellectual content, supervision of the course of the project and the article J o u r n a l P r e -p r o o f ABSTRACT Objective: Mathematical models are known to help determine potential intervention strategies by providing an approximate idea of the transmission dynamics of infectious diseases. To develop proper responses, not",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "only are more accurate disease spread models needed, but also those that are easy to use.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "As of July 1, 2020, we selected the 20 countries with the highest numbers of COVID-19 cases in the world. Using the Verhulst-Pearl logistic function formula, we calculated estimates for the total number of cases for each country. We compared these estimates to the actual figures given by the WHO on the same dates. Finally, the formula was tested for longer-term reliability at t =18 and t = 40 weeks.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "The Verhulst-Pearl logistic function formula estimated the actual numbers precisely, with only a 0.5% discrepancy on average for the first month. For all countries in the study and the world at large, the estimates for the 40 th week were usually overestimated, although the estimates for some countries were still relatively close to the actual numbers in the forecasting long term. The estimated number for the world in general was about 8 times that actually observed for the long term.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "The Verhulst-Pearl equation has the advantage of being very straightforward and applicable in clinical use for predicting the demand on hospitals in the short term of 4-6 weeks, which is usually enough time to reschedule elective procedures and free beds for new waves of the pandemic patients.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "The COVID-19 pandemic caused enormous changes to the delivery of healthcare across the world, and the routine practice of clinical physicians has been substantially affected. [1] [2] [3] [4] [5] [6] Mathematical models are known to help determine potential intervention strategies by providing an approximate idea of the transmission dynamics of infectious diseases. [7] [8] [9] [10] To predict the course of epidemics, various complex mathematical concepts and models have been developed, including the following: the epidemic exponential growth rate (mainly the susceptible-infectious-recovered [SIR] model) [11] [12] [13] , susceptible-exposed-infectiousrecovered (SEIR) model 12, [14] [15] [16] [17] , exponential growth rate and basic reproduction number (parametric approach, nonparametric approach), the autoregressive integrated moving average (ARIMA) model 18 , least squares estimation, maximum likelihood estimation, and mechanistic and phenomenological models. 19 However, working with these models is the purview of highly specialized professionals. To estimate the pandemic growth rate, an adequate mix of medical and advanced mathematical knowledge is required. To develop proper responses, not only are more accurate disease spread models needed, but also those that are easy to use. 13, 20 Few studies have been published in search for a straightforward mathematical model that can be easily used by clinicians to forecast the approximate rate of COVID-19 spread, and unfortunately, none of these few models published are as simple as expected. 18, 20, 21 Therefore, it may be useful for clinicians and healthcare managers working daily in hospitals to have access to fundamental formulas that can easily predict the course of the epidemic based on its current state of evolution.",
+            "cite_spans": [
+                {
+                    "start": 175,
+                    "end": 178,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 179,
+                    "end": 182,
+                    "text": "[2]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 183,
+                    "end": 186,
+                    "text": "[3]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 187,
+                    "end": 190,
+                    "text": "[4]",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 191,
+                    "end": 194,
+                    "text": "[5]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 195,
+                    "end": 198,
+                    "text": "[6]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 367,
+                    "end": 370,
+                    "text": "[7]",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 371,
+                    "end": 374,
+                    "text": "[8]",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 375,
+                    "end": 378,
+                    "text": "[9]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 379,
+                    "end": 383,
+                    "text": "[10]",
+                    "ref_id": null
+                },
+                {
+                    "start": 610,
+                    "end": 614,
+                    "text": "[11]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 615,
+                    "end": 619,
+                    "text": "[12]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 620,
+                    "end": 624,
+                    "text": "[13]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 680,
+                    "end": 683,
+                    "text": "12,",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 684,
+                    "end": 688,
+                    "text": "[14]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 689,
+                    "end": 693,
+                    "text": "[15]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 694,
+                    "end": 698,
+                    "text": "[16]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 699,
+                    "end": 703,
+                    "text": "[17]",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 866,
+                    "end": 868,
+                    "text": "18",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 973,
+                    "end": 975,
+                    "text": "19",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 1300,
+                    "end": 1303,
+                    "text": "13,",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 1304,
+                    "end": 1306,
+                    "text": "20",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 1562,
+                    "end": 1565,
+                    "text": "18,",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 1566,
+                    "end": 1569,
+                    "text": "20,",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 1570,
+                    "end": 1572,
+                    "text": "21",
+                    "ref_id": "BIBREF25"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "To put it simply, most epidemics are known to grow exponentially in the first stage of an outbreak. 22 For this, epidemic curves can be mathematically studied, and the trajectory of the spreading infection can be drawn according to the number of cases in units of time, such as days, weeks, or months. The logistic function curve fits well with the pace of the pandemic over time, both with an early exponential rise and an eventual flattening as the population gains herd immunity. 13, [23] [24] [25] (Figure 1 ) Pierre Fran\u00e7ois Verhulst (1804-1849), a Belgian mathematician, studied the law of population growth and showed that its curve increases with a convex curvature and then continues to increase towards a limit but with a concave curvature. 23, 25, 26 J o u r n a l P r e -p r o o f Over time, a stable population will reach a saturation level, which is the limit, and the total number of events will not increase higher than this limit. 12 Verhulst-Pearl's exponential growth model has formed the basis for other models. Using this formula simply, if the population of a country and the cumulative number of infected cases in two subsequent time units (t0 and t1) in the given country are known, it is possible to estimate the cumulative number of cases at future time points (t2, t3, t4, and so on).",
+            "cite_spans": [
+                {
+                    "start": 100,
+                    "end": 102,
+                    "text": "22",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 483,
+                    "end": 486,
+                    "text": "13,",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 487,
+                    "end": 491,
+                    "text": "[23]",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 492,
+                    "end": 496,
+                    "text": "[24]",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 497,
+                    "end": 501,
+                    "text": "[25]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 751,
+                    "end": 754,
+                    "text": "23,",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 755,
+                    "end": 758,
+                    "text": "25,",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 759,
+                    "end": 761,
+                    "text": "26",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 948,
+                    "end": 950,
+                    "text": "12",
+                    "ref_id": "BIBREF15"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 502,
+                    "end": 511,
+                    "text": "(Figure 1",
+                    "ref_id": null
+                }
+            ],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "We conducted this study to reveal whether Verhulst-Pearl's exponential growth model could be proposed as a simple, reliable formula to predict the cumulative case numbers growth rate of the COVID-19 pandemic, and whether it is applicable in neurosurgery for the prediction of the demand on hospitals.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "From the situation report dated July 1, 2020, on the World Health Organization's (WHO's) website 27 , we chose the 20 countries with the highest numbers of COVID-19 cases in the world (Table 1) . We retrieved the latest population figures in millions and the population densities per square meter of these countries from their Wikipedia pages and recorded them (The Wikimedia Foundation, Inc, San Francisco, CA, United States). The motivation behind using Wikipedia as a source for this information was that those pages are updated with the latest data on the countries' populations. We also recorded the world's total population for a comparison. The total number of COVID-19 cases and the total number for these 20 countries and for the world were obtained from the WHO situation report dated July 1, 2010, and recorded as time t = 0. Similarly, we found the total numbers of COVID-19 cases from the WHO status report dated July 8, 2020 28 , a week later, and recorded them as time t = 1. Then, using the Verhulst-Pearl logistic function formula, we calculated the total case estimates for each country and the world for July 15, July 22, and July 29, 2020 and recorded them as times t = 2, t = 3, and t = 4, respectively. We then compared our estimates with the numbers from the relevant dates of the WHO status reports on July 15, July 22, and July 29, 2020 [29] [30] [31] . We divided our estimation numbers by actual numbers and examined how much they deviated from the number 1. Finally, the formula was tested for longer-term reliability at t =18 and t = 40 weeks.",
+            "cite_spans": [
+                {
+                    "start": 97,
+                    "end": 99,
+                    "text": "27",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 1362,
+                    "end": 1366,
+                    "text": "[29]",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 1367,
+                    "end": 1371,
+                    "text": "[30]",
+                    "ref_id": null
+                },
+                {
+                    "start": 1372,
+                    "end": 1376,
+                    "text": "[31]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 184,
+                    "end": 193,
+                    "text": "(Table 1)",
+                    "ref_id": "TABREF5"
+                }
+            ],
+            "section": "MATERIALS AND METHODS"
+        },
+        {
+            "text": "The complete data for the actual numbers can be found on the WHO website at https://covid19.who.int/WHO-COVID-19-global-data.csv. 32",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "J o u r n a l P r e -p r o o f"
+        },
+        {
+            "text": "The single, simple formula we used in this study is an application of the Verhulst-Pearl logistic function: 26",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Mathematical model"
+        },
+        {
+            "text": "(* world population, if calculations are made for the whole world),",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Mathematical model"
+        },
+        {
+            "text": "where N represents the cumulative number of infected cases at time t, e represents a mathematical constant approximately equal to 2.71828, c is the constant of integration, and b is the exponential function base (the rate of change). The result is defined as a logistic curve, which is S-shaped (Figure 1 ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 295,
+                    "end": 304,
+                    "text": "(Figure 1",
+                    "ref_id": null
+                }
+            ],
+            "section": "Mathematical model"
+        },
+        {
+            "text": "We can explain this formula using an example. Let the cumulative number of infected cases at time t0 be 600 and the size of population be 90,000. If the cumulative number of infected cases reaches 1,800 one",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Mathematical model"
+        },
+        {
+            "text": "week later (t1), the cumulative number of infected cases at t4 (forth week) can be estimated as follows:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Mathematical model"
+        },
+        {
+            "text": "When t = 0 600 = This means that after four weeks, the total number infected people will reach approximately 32,000.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Mathematical model"
+        },
+        {
+            "text": "In the classical population growth scenario, the Verhulst-Pearl logistic equation comprises three assumptions. 33 First, all individuals are equivalent, i.e., the addition of every new individual reduces the actual rate of increase by the same fraction at every density. Second, reproductive rate and carrying capacity are unchangeable constants. Third, no time lag exists in the response of the actual rate of increase per individual to changes in population density. In the pandemic scenario, herd immunity is an assumption, i.e., J o u r n a l P r e -p r o o f it is assumed that each individual can be infected only once, then becomes immune afterwards. It also is assumed that population size does not change and that no migrations, deaths, or births occur. In addition, it is assumed that no change in the reproduction rate occurs regardless of virus mutations or protective measures taken.",
+            "cite_spans": [
+                {
+                    "start": 111,
+                    "end": 113,
+                    "text": "33",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Mathematical model"
+        },
+        {
+            "text": "The Table 1) . The actual cumulative case numbers between July 1 and July 8, which were the bases of the estimates of the following weeks, are shown in Table 1 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 4,
+                    "end": 12,
+                    "text": "Table 1)",
+                    "ref_id": "TABREF5"
+                },
+                {
+                    "start": 152,
+                    "end": 159,
+                    "text": "Table 1",
+                    "ref_id": "TABREF5"
+                }
+            ],
+            "section": "Data collection and statistical analysis"
+        },
+        {
+            "text": "When the estimates for July 15, 2020 (t = 2) were calculated using the data from July 1 (t= 0) and July 8 (t = 1) and divided by the actual numbers of July 15, 2020, the mean was 1.005 (range: 0.899-1.039) ( Table 2 ). This shows that the formula estimated the actual numbers with only a 0.5% discrepancy on average. We noticed that the total number of cases in the United Kingdom suddenly decreased from 313,487",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 208,
+                    "end": 215,
+                    "text": "Table 2",
+                    "ref_id": "TABREF6"
+                }
+            ],
+            "section": "Short-term estimates"
+        },
+        {
+            "text": "on July 2, 2020 to 283,761 on July 3, 2020. This change occurred because the United Kingdom revised its J o u r n a l P r e -p r o o f historical data, leading to a negative number of new cases and an overall decrease in cases for the country.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Short-term estimates"
+        },
+        {
+            "text": "When we removed the United Kingdom from the list, the mean ratio of the estimated number/actual number was 1.01 for July 15, 2020. Then the result showed, on average, only a 1% discrepancy between the estimated and observed numbers. The estimates for two countries, Italy and Peru, deviated from the actual numbers by less than 0.1%. The estimates for July 15 for three countries, Pakistan, Saudi Arabia, and South",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Short-term estimates"
+        },
+        {
+            "text": "Africa, were less accurate. However, the discrepancies in the estimates for those three countries were still minimal and were equal to or less than 3.9%.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Short-term estimates"
+        },
+        {
+            "text": "When the same calculations were performed for July 22, 2020 (t = 3), the mean ratio of the estimated cumulative case number divided by the actual cumulative case number was found to be 1.017 (1.065 excluding the United Kingdom), and the range was 0.813-1.154 (Table 3) . This means that the formula estimated the actual numbers with only a 1.7% error on average. The mean value came closer to 1 when the UK was included, but this was a paradox and resulted from the buffering effect of the UK on excessively diverging values in the opposite direction from those of other countries, as the UK revised and reduced the number of historical cases. The estimates for three countries, Italy, Peru, and Germany, deviated from the actual cumulative case numbers by less than 0.1%, which showed greater certainty. The formula estimated the case numbers of five countries (the United Kingdom, Pakistan, Saudi Arabia, Bangladesh, and Brazil)",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 259,
+                    "end": 268,
+                    "text": "(Table 3)",
+                    "ref_id": "TABREF7"
+                }
+            ],
+            "section": "Short-term estimates"
+        },
+        {
+            "text": "for July 22 less accurately than it did for other countries.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Short-term estimates"
+        },
+        {
+            "text": "When the same calculations were performed for July 29, 2020 (t = 4), the mean ratio of the estimated cumulative case number/actual cumulative case number was found to be 1.068 (range: 732-1.367) ( Table   4 ). In terms of the frequencies of the ratios, a comparison of the correctness of the estimates regarding the cumulative cases for July 15, 22, and 29 is shown in Figures 2 A, B , and C.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 197,
+                    "end": 206,
+                    "text": "Table   4",
+                    "ref_id": "TABREF8"
+                },
+                {
+                    "start": 369,
+                    "end": 383,
+                    "text": "Figures 2 A, B",
+                    "ref_id": null
+                }
+            ],
+            "section": "Short-term estimates"
+        },
+        {
+            "text": "The estimation for the total world numbers was nearly exact for July 15, and the estimated numbers differed very little in the short term in general. The estimated/actual ratios were 0.08% for cumulative cases ( Table 5 ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 212,
+                    "end": 219,
+                    "text": "Table 5",
+                    "ref_id": "TABREF9"
+                }
+            ],
+            "section": "Short-term estimates"
+        },
+        {
+            "text": "Four months after the first estimation week t = 2, we tested the formula's precision for the worldwide cumulative case number estimation for t =18 weeks (November 5, 2020[30]) and found a number 80% greater than the actual number (the estimate is higher than the actual number). This may suggest that the estimates for the long term may be misleading. However, it may also suggest that fewer cases have been diagnosed worldwide than estimated even though the second wave of the pandemic has continued in Europe since the summer months. The cumulative case number estimates for t = 18 weeks were more accurate for Turkey, Peru, and the Russian Federation (5%, 25%, and 30% discrepancy, respectively) than the total case estimates for all countries. It is worth noting that Turkey revised the number of cases in November 2020.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "J o u r n a l P r e -p r o o f"
+        },
+        {
+            "text": "Turkey did not report the number of asymptomatic cases after July 29, 2020 until revision. As of November 25, 2020, those who were positive for the polymerase chain reaction (PCR) test were added to the number of patients even though they were asymptomatic. Asymptomatic cases from July 29 to December 10 were also added to the number of patients and updated in Turkey.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "J o u r n a l P r e -p r o o f"
+        },
+        {
+            "text": "For all countries in the study and the world at large, the estimates for the 40 th week were not as accurate as in the first month ( Table 6 ). The estimated number for the world in general was about 8 times that actually observed. In twelve countries, as in the world in general, the estimated numbers were higher than the observed. However, in some countries this difference was relatively close to the respective estimates (Russian Federation, Iran, Qatar, and Peru). In contrast, the difference was much pronounced in some countries (India, Bangladesh, Saudi Arabia, South Africa, and Mexico). These countries had significantly less case observations than anticipated at the longer term. Eight countries had many more case observations than anticipated. Of these, India, Italy, France, and the UK were the most prominent. (However, it is necessary to remember that the UK revised the case numbers at the time we obtained the reference values).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 133,
+                    "end": 140,
+                    "text": "Table 6",
+                    "ref_id": "TABREF10"
+                }
+            ],
+            "section": "Longer-term estimates at t = 40 weeks"
+        },
+        {
+            "text": "In Figure 2 , the curves of the estimated and observed cumulative case numbers in selected 6 countries in short-and long-term are demonstrated as an overview. The complete data of this chart are shown in Table   7 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 3,
+                    "end": 11,
+                    "text": "Figure 2",
+                    "ref_id": null
+                },
+                {
+                    "start": 204,
+                    "end": 213,
+                    "text": "Table   7",
+                    "ref_id": null
+                }
+            ],
+            "section": "Longer-term estimates at t = 40 weeks"
+        },
+        {
+            "text": "J o u r n a l P r e -p r o o f",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Longer-term estimates at t = 40 weeks"
+        },
+        {
+            "text": "In Figure 3 , when examining the curves of the worldwide observed numbers and estimated cumulative case numbers during the 40 weeks between July 2020 and April 2021 it can be easily seen that the formula quite accurately predicted the observed numbers for the first four months (from July to October 2020).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 3,
+                    "end": 11,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Longer-term estimates at t = 40 weeks"
+        },
+        {
+            "text": "However, the estimates for November and December 2020 were slightly above the observed figures. This overestimation has become increasingly apparent after January 2021. This may not be surprising, as this period coincides with the start and gradual acceleration of vaccination around the world.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Longer-term estimates at t = 40 weeks"
+        },
+        {
+            "text": "Our model using the simple Verhulst-Pearl logistic function equation proves to be in perfect agreement with the real data for forecasting the pandemic progress in the short but not long term, probably because Whether static, deterministic, or dynamic stochastic models are used, studies generally covered one-to three-month periods. Therefore, we were unable to make comparisons with other studies in the literature in the longer term, although our study covers a 10-month period. However, for the short term, the model we used provided estimation results that were similar to those of the dynamic stochastic complex models. Three methods, the mathematical models will not necessarily be accurate for long-term estimates, and therefore, the model parameters should be updated to provide reliable long-term forecasts. 22 This can be explained by the S-shape of the logistic function curve, which is convex in the early stages of a pandemic unlike the concave curvature seen in the later periods. In other words, when the curve approaches the limit (the saturation of transmission), the change over time will be less. Some published research suggests that mathematical models provide more accurate results at the early exponential growth stage of outbreaks, perhaps because any precautions have not yet been taken. 13 Since we have been interested in the long-term course of the pandemic leading to a potential herd immunity rather than the very short-term course, we used \"week\" instead of \"day\" for the time t-value in the formula, although we were aware that mathematical models were more accurate for short term daily forecasts and weekly forecasts are more prone to error as Arora et al noted. 39 To get an idea of whether the simple model we used in this study is as reliable as the complex models, we compared it with two published studies, one using the Susceptible, Infected and Recovered (SIR) model 40 and the other using recurrent neural networks, and long short-term memory (LSTM) based model 39 .",
+            "cite_spans": [
+                {
+                    "start": 817,
+                    "end": 819,
+                    "text": "22",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 1313,
+                    "end": 1315,
+                    "text": "13",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 1697,
+                    "end": 1699,
+                    "text": "39",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "In the first of these studies, using the SIR model with correction factor, Malavika et al. 40 Both of these studies were conducted in the pre-vaccination period covering a 2 to 3-week period using daily initial references. In contrast, our study provides estimates for a longer period of 40 weeks, including the vaccination period, using weekly rather than daily initial references for practical purposes.",
+            "cite_spans": [
+                {
+                    "start": 91,
+                    "end": 93,
+                    "text": "40",
+                    "ref_id": "BIBREF34"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "Appropriately measuring the transmission dynamics of infectious diseases is a function of the calendar period. 41 The most commonly used determinant of the transmission potential is the basic reproduction number, which is defined as the expected number of secondary cases arising from a typical primary case throughout its entire course of infection in a fully susceptible population. [42] [43] [44] One of the methods to estimate the reproduction number is to use the growth rate of the cumulative incidence of cases during the exponential growth phase of the pandemic. 44 As can be expected, an exponential growth model estimates parameters more precisely during a pandemic's exponential growth phase. 45 All mathematical models are a simplifications of reality. 46 However, when these simplifications have little effect on the characteristics of the epidemic of interest, it can lead to a satisfactory result. Therefore, the Verhulst-Pearl equation is valid and useful in solving a simple optimal growth problem. 25, 26, 47 Of course, it is not flawless; the Verhulst model is a deterministic model (not a process wherein the random variable exists) and does not include any stochastic (randomly determined) components. Stochastic effects make the invasion threshold challenging to discern. 48 For example, the number of individuals susceptible to infection J o u r n a l P r e -p r o o f and the reproduction number decreases as the outbreak progresses. 49 The fluctuations on the level of the limit (in other words, endemic disease die-outs or the population saturation point or carrying capacity, similar to that of the increase of a country's population, is not unlimited in terms of herd immunity) cannot be explained by the Verhulst-Pearl model. 50 However, while adding more complexity to a mathematical model increases the realism, it often makes analysis difficult for an ordinary clinician, and more parameters increase the uncertainty.",
+            "cite_spans": [
+                {
+                    "start": 111,
+                    "end": 113,
+                    "text": "41",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 385,
+                    "end": 389,
+                    "text": "[42]",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 390,
+                    "end": 394,
+                    "text": "[43]",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 395,
+                    "end": 399,
+                    "text": "[44]",
+                    "ref_id": null
+                },
+                {
+                    "start": 571,
+                    "end": 573,
+                    "text": "44",
+                    "ref_id": null
+                },
+                {
+                    "start": 704,
+                    "end": 706,
+                    "text": "45",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 765,
+                    "end": 767,
+                    "text": "46",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 1016,
+                    "end": 1019,
+                    "text": "25,",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 1020,
+                    "end": 1023,
+                    "text": "26,",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 1024,
+                    "end": 1026,
+                    "text": "47",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 1294,
+                    "end": 1296,
+                    "text": "48",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 1458,
+                    "end": 1460,
+                    "text": "49",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 1755,
+                    "end": 1757,
+                    "text": "50",
+                    "ref_id": "BIBREF46"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "Using the mathematical formula in this study, we can predict when the pandemic will end around the world. For herd immunity in the community, typically 60-90% of the population must be immunized via infection or vaccination. 51, 52 This percentage is called the herd immunity threshold. The basic reproduction number (R0) is the most important parameter in calculating the herd immunity threshold and refers to the average number of infected people caused by a single infectious person. 53, 54 Although it is not yet known what this rate is for COVID-19, it is estimated to be between 50-83%; deducted from that, the R0 value has been reported to be between 2 and 6 in COVID-19. 51, 52, 54, 55 . This means that when 50-83% of the population becomes immune to the COVID-19 disease, herd immunity will be theoretically achieved (calculated from the formula: herd immunity threshold R=1-1/R0). 53, 54, 56 . Hence, assuming there are no reinfections in COVID-19 disease and a lifelong immunity is obtained, and the R0 value is an average of 4 (i.e., 75% of the population must be infected for herd immunity), we found that 75% (approximately 5.8 billion) of the world population will be infected and immunized 64 weeks (1.10.2021) after t0 time (1.7.2020) in our study, and thus, herd immunity will be reached. This finding supports claims that herd immunity against COVID-19 cannot be achieved without unacceptably high case fatality rates, even if we assume that the death rate is 2%. 52 If the immunity gained by ongoing vaccination is considered, it may be possible to achieve herd immunity earlier. These estimates are for the whole world and, because there is heterogeneity in transmission, much better scenarios can be expected for an individual country based on the individual transmission dynamics including their specific R0 value and mortality rate, which are themselves dependent on many other factors, including age, genetic factors, socioeconomic factors, healthcare system, behavioral factors, use of personal protective equipment, and the spatial distribution of people. 53 J o u r n a l P r e -p r o o f",
+            "cite_spans": [
+                {
+                    "start": 225,
+                    "end": 228,
+                    "text": "51,",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 229,
+                    "end": 231,
+                    "text": "52",
+                    "ref_id": "BIBREF48"
+                },
+                {
+                    "start": 487,
+                    "end": 490,
+                    "text": "53,",
+                    "ref_id": "BIBREF49"
+                },
+                {
+                    "start": 491,
+                    "end": 493,
+                    "text": "54",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 679,
+                    "end": 682,
+                    "text": "51,",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 683,
+                    "end": 686,
+                    "text": "52,",
+                    "ref_id": "BIBREF48"
+                },
+                {
+                    "start": 687,
+                    "end": 690,
+                    "text": "54,",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 691,
+                    "end": 693,
+                    "text": "55",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 892,
+                    "end": 895,
+                    "text": "53,",
+                    "ref_id": "BIBREF49"
+                },
+                {
+                    "start": 896,
+                    "end": 899,
+                    "text": "54,",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 900,
+                    "end": 902,
+                    "text": "56",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 1484,
+                    "end": 1486,
+                    "text": "52",
+                    "ref_id": "BIBREF48"
+                },
+                {
+                    "start": 2084,
+                    "end": 2086,
+                    "text": "53",
+                    "ref_id": "BIBREF49"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "As herd immunity and a constant force of infection are assumptions in the Verhulst-Pearl exponential growth model we used, this static model has some weaknesses in forecasting the COVID-19 pandemic in the longer term. With the COVID-19 pandemic, the herd immunity threshold seems highly unlikely due to factors such as the emergence of new variants, vaccine hesitancy, limited use of vaccines for children, and uncertainty about the extent to which vaccinated people are infected and spread the virus. 57 In the model used in our study, it was assumed that each individual could have only one COVID-19 infection, regardless of age, gender, or any other variable. In reality, we now know that it is possible to become infected more than once with COVID-19 and even that the virus might have a potential to reactivate after a latent period 58 , but we also know that this is not a very common situation, at least not during our study period. Therefore, we think that the herd immunity assumption may not have affected our study's overall results too much.",
+            "cite_spans": [
+                {
+                    "start": 502,
+                    "end": 504,
+                    "text": "57",
+                    "ref_id": "BIBREF53"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "In contrast to the Verhulst-Pearl exponential growth model's static nature, dynamic models simulate changes in infectious strength and the infectious pathogen's dynamics. 57, 59 Dynamic models are highly sophisticated and complex models, but they need detailed knowledge of transmission routes and infectiousness. Therefore, these models' results still might contain much uncertainty. However, the Verhulst-Pearl exponential growth model is deterministic, i.e., if the state of the system at a certain point in time is known, all future states can be determined by solving the relevant model. 59 Thus, when a rapid investigation is required, analysis using the Verhulst-Pearl exponential growth model, without taking potential stochastic effects into account, may be an option that provides initial results and an idea of the general sequence of events. 57, 60 . Therefore, large populations in stable environments often are modelled with deterministic models, while stochastic models are more useful in demonstrating the system's inherent variability for small population sizes. 59, 60 Thinking in deterministic terms is a way of generating concepts and trying to determine the most probable course of events, even if it excludes stochastic dynamics from the model. 60 Where pandemic led to a rationing of neurosurgical care in 80% of the responding countries. 3 While the study demonstrated a correlation between the resources available before the pandemic and the ability to uphold neurosurgical services, it also highlighted the collateral damage that prioritization and rationing may have on the population served by the neurosurgical centers participating in the survey. When forced to ration resources due to a pandemic event, an accurate estimation of its evolution would be extremely useful.",
+            "cite_spans": [
+                {
+                    "start": 171,
+                    "end": 174,
+                    "text": "57,",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 175,
+                    "end": 177,
+                    "text": "59",
+                    "ref_id": "BIBREF55"
+                },
+                {
+                    "start": 593,
+                    "end": 595,
+                    "text": "59",
+                    "ref_id": "BIBREF55"
+                },
+                {
+                    "start": 854,
+                    "end": 857,
+                    "text": "57,",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 858,
+                    "end": 860,
+                    "text": "60",
+                    "ref_id": "BIBREF56"
+                },
+                {
+                    "start": 1080,
+                    "end": 1083,
+                    "text": "59,",
+                    "ref_id": "BIBREF55"
+                },
+                {
+                    "start": 1084,
+                    "end": 1086,
+                    "text": "60",
+                    "ref_id": "BIBREF56"
+                },
+                {
+                    "start": 1267,
+                    "end": 1269,
+                    "text": "60",
+                    "ref_id": "BIBREF56"
+                },
+                {
+                    "start": 1362,
+                    "end": 1363,
+                    "text": "3",
+                    "ref_id": "BIBREF3"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "COVID-19 is expected to evolve into multiple waves, and forecasts on bed availability might mean the difference between being offered surgical or conservative treatment for individual neurosurgical patients.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "Neurosurgery is under a higher economic burden than many other medical branches in terms of both the cost of patient treatment and the training of residents and medical students interested in neurosurgery [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73] The fair and effective use of resources has become even more important during the pandemic, which seems to be lasting longer than initially thought. Therefore, it is imperative that neurosurgery clinics and neurosurgical societies organize longer-term work patterns and training programs, including professional congresses.",
+            "cite_spans": [
+                {
+                    "start": 205,
+                    "end": 209,
+                    "text": "[63]",
+                    "ref_id": "BIBREF59"
+                },
+                {
+                    "start": 210,
+                    "end": 214,
+                    "text": "[64]",
+                    "ref_id": "BIBREF60"
+                },
+                {
+                    "start": 215,
+                    "end": 219,
+                    "text": "[65]",
+                    "ref_id": "BIBREF61"
+                },
+                {
+                    "start": 220,
+                    "end": 224,
+                    "text": "[66]",
+                    "ref_id": "BIBREF62"
+                },
+                {
+                    "start": 225,
+                    "end": 229,
+                    "text": "[67]",
+                    "ref_id": "BIBREF63"
+                },
+                {
+                    "start": 230,
+                    "end": 234,
+                    "text": "[68]",
+                    "ref_id": "BIBREF64"
+                },
+                {
+                    "start": 235,
+                    "end": 239,
+                    "text": "[69]",
+                    "ref_id": "BIBREF66"
+                },
+                {
+                    "start": 240,
+                    "end": 244,
+                    "text": "[70]",
+                    "ref_id": "BIBREF67"
+                },
+                {
+                    "start": 245,
+                    "end": 249,
+                    "text": "[71]",
+                    "ref_id": "BIBREF68"
+                },
+                {
+                    "start": 250,
+                    "end": 254,
+                    "text": "[72]",
+                    "ref_id": "BIBREF69"
+                },
+                {
+                    "start": 255,
+                    "end": 259,
+                    "text": "[73]",
+                    "ref_id": "BIBREF70"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "As well as the direct effects of the epidemic, attempts to control it have profound economic consequences. 55, 70, 71 This continuing situation, the length of which is unknown, has caused many government to make economic decisions. Economic decisions have a tremendous influence on the character of life in a society. 74 Therefore, a reliable estimation of the course of the pandemic will help physicians design more effective plans and arrangements for their patients and the training of residents.",
+            "cite_spans": [
+                {
+                    "start": 107,
+                    "end": 110,
+                    "text": "55,",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 111,
+                    "end": 114,
+                    "text": "70,",
+                    "ref_id": "BIBREF67"
+                },
+                {
+                    "start": 115,
+                    "end": 117,
+                    "text": "71",
+                    "ref_id": "BIBREF68"
+                },
+                {
+                    "start": 318,
+                    "end": 320,
+                    "text": "74",
+                    "ref_id": "BIBREF71"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "Despite numerous speculations about the epidemiological course of the pandemic, identifying the correct prediction is difficult. We made this study based on figures we obtained from the WHO's sources. that the decrease in cases shown over time should be interpreted with the trend in country participation, that delays in reporting may be observed, and that the number of cases depends on detection and testing strategies that vary between countries and over time. Therefore, due to variable information collection and reporting, it is more appropriate to analyze each country/region independently.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Limitations"
+        },
+        {
+            "text": "The benefit of this algorithm, although limited to a short time horizon, is its relative simplicity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Limitations"
+        },
+        {
+            "text": "Essentially, methods for modeling viral disease dynamics are often more complex, including intrahost, interhost, and environmental factors and involving a large number of stochastic processes. The simple design of the formula we used has not been validated for long time periods. It is just a way of projecting current trends into the near future. However, although this mathematical approach is not complex, its application still requires a basic knowledge of mathematics.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Limitations"
+        },
+        {
+            "text": "The Verhulst-Pearl equation is a valid and useful tool to solve a simple optimal growth problem.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "CONCLUSIONS"
+        },
+        {
+            "text": "Unlike complex mathematical models that increase accuracy, this equation makes the analysis easy for an ordinary clinician. When forced to ration resources due to a pandemic event, an accurate estimation of its evolution would be extremely useful. This model has the advantage of being very simple and applicable in neurosurgery for predicting the demand on hospitals in the short term of 4-6 weeks, which is usually enough time to reschedule elective procedures and free beds for new waves of the pandemic patients. However, the reliability of the formula in long-term estimates is uncertain.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "CONCLUSIONS"
+        },
+        {
+            "text": "The authors declare no competing financial interests and no sources of funding and support, including any for equipment and medications. J o u r n a l P r e -p r o o f Table 7 : Forty-week estimated and observed cumulative case numbers of selected 6 countries, of which diagrammatic representations are shown in Figure 2 . In the short-term of about 2-3 months, estimated numbers were close to the observed numbers in all of the countries. In the longer-term (up to ten months), an overestimation was observed in some countries such as India, Peru, Russian federation and USA, and an underestimation was observed in some countries such as Italy and Turkey. However, in some countries such as Russian Federation and Peru, error in the prediction was relatively low even in the longer-term. (The countries in the chart were listed in alphabetical order.) ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 168,
+                    "end": 175,
+                    "text": "Table 7",
+                    "ref_id": null
+                },
+                {
+                    "start": 312,
+                    "end": 320,
+                    "text": "Figure 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "Conflict-of-interest disclosure:"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Neurosurgeons and the fight with COVID-19: a position statement from the EANS Individual Membership Committee",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ganau",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Netuka",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Broekman",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Zoia",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Tsianaka",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Schwake",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Ethical triage during the COVID-19 pandemic: a toolkit for neurosurgical resource allocation",
+            "authors": [
+                {
+                    "first": "Afc",
+                    "middle": [],
+                    "last": "Hulsbergen",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Eijkholt",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Balak",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Brennum",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Bolger",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Bohrer",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Acta Neurochir (Wien)",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "A snapshot of European neurosurgery December 2019 vs",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Mathiesen",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Arraez",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Asser",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Balak",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Barazi",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Bernucci",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Acta Neurochir (Wien)",
+            "volume": "162",
+            "issn": "9",
+            "pages": "2221--2254",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Will COVID-19 change neurosurgical clinical practice?",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Montemurro",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Perrini",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Br J Neurosurg",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/02688697.2020.1773399"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "COVID-19 response measures -a",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "Z"
+                    ],
+                    "last": "Leong",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "X"
+                    ],
+                    "last": "Lim",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Tan",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Teo",
+                    "suffix": ""
+                },
+                {
+                    "first": "Vdw",
+                    "middle": [],
+                    "last": "Nga",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Lwin",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Singapore Neurosurgical Academic Medical Centre experience segregated team model to maintain tertiary level neurosurgical care during the COVID-19 outbreak",
+            "authors": [],
+            "year": null,
+            "venue": "Br J Neurosurg",
+            "volume": "2020",
+            "issn": "",
+            "pages": "1--6",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/02688697.2020.1758629"
+                ]
+            }
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Three pitfalls of accountable healthcare rationing",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Eijkholt",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Broekman",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Balak",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Mathiesen",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J Med Ethics",
+            "volume": "2021",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1136/medethics-2020-106943"
+                ]
+            }
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Mathematical models to characterize early epidemic growth: A review",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Chowell",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Sattenspiel",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bansal",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Viboud",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Phys Life Rev",
+            "volume": "18",
+            "issn": "",
+            "pages": "66--97",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Correcting notification delay and forecasting of COVID-19 data",
+            "authors": [
+                {
+                    "first": "Ajq",
+                    "middle": [],
+                    "last": "Sarnaglia",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Zamprogno",
+                    "suffix": ""
+                },
+                {
+                    "first": "Fajardo",
+                    "middle": [],
+                    "last": "Molinares",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "De Godoi",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "Jimenez",
+                    "middle": [],
+                    "last": "Monroy",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "J Math Anal Appl",
+            "volume": "",
+            "issn": "125202",
+            "pages": "1--15",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Complex network model for COVID-19: Human behavior, pseudo-periodic solutions and multiple epidemic waves",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Silva",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Cantin",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Cruz",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Fonseca-Pinto",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Passadouro",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Soares Dos Santos",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "transmission in the United States through interstate and foreign travels and evaluating impact of governmental public health interventions",
+            "authors": [],
+            "year": 2020,
+            "venue": "J Math Anal Appl",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.jmaa.2020.124896"
+                ]
+            }
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Characterizing the reproduction number of epidemics with early subexponential growth dynamics",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Chowell",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Viboud",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Simonsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Moghadas",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "J R Soc Interface",
+            "volume": "13",
+            "issn": "123",
+            "pages": "1--12",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Mathematical modeling of the spread of the coronavirus disease 2019 (COVID-19) taking into account the undetected infections. The case of China",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Ivorra",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Ferrandez",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Vela-Perez",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Ramos",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Estimation of COVID-19 dynamics \"on a back-of-envelope\": Does the simplest SIR model provide quantitative parameters and predictions?",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Postnikov",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Chaos Solitons Fractals",
+            "volume": "135",
+            "issn": "",
+            "pages": "1--6",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Comparative estimation of the reproduction number for pandemic influenza from daily case notification data",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Chowell",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Nishiura",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Bettencourt",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "J R Soc Interface",
+            "volume": "4",
+            "issn": "12",
+            "pages": "155--66",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Transmission potential of influenza A/H7N9",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Chowell",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Simonsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Towers",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Miller",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Viboud",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "China. BMC Med",
+            "volume": "11",
+            "issn": "214",
+            "pages": "1--13",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Covid-19 Outbreak Progression in Italian Regions: Approaching the Peak by the End of March in Northern Italy and First Week of April in Southern Italy",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Distante",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Piscitelli",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Miani",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Int J Environ Res Public Health",
+            "volume": "17",
+            "issn": "3025",
+            "pages": "1--9",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Forecasting Epidemics Through Nonparametric Estimation of Time-Dependent Transmission Rates Using the SEIR Model",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Smirnova",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Chowell",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Bull Math Biol",
+            "volume": "81",
+            "issn": "11",
+            "pages": "4343--65",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "COVID-SGIS: A Smart Tool for Dynamic Monitoring and Temporal Forecasting of Covid-19",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "De Lima",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Da Silva",
+                    "suffix": ""
+                },
+                {
+                    "first": "Acg",
+                    "middle": [],
+                    "last": "Da Silva",
+                    "suffix": ""
+                },
+                {
+                    "first": "Luiz",
+                    "middle": [],
+                    "last": "Silva",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Marques",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "De Araujo",
+                    "suffix": ""
+                },
+                {
+                    "first": "Ljb",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Front Public Health",
+            "volume": "8",
+            "issn": "580815",
+            "pages": "1--21",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Estimating epidemic exponential growth rate and basic reproduction number",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ma",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Infect Dis Model",
+            "volume": "5",
+            "issn": "",
+            "pages": "129--170",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Bertalanffy-Putter models for the first wave of the COVID-19 outbreak",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Brunner",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kuhleitner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Infect Dis Model",
+            "volume": "6",
+            "issn": "",
+            "pages": "532--576",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "A simple model for the total number of SARS-CoV-2 infections on a national level",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Blanco",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Stafford",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Lavoie",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Brandenburg",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Gorna",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Merski",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Epidemiol Infect",
+            "volume": "149",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "A simple transmission dynamics model for predicting the evolution of COVID-19 under control measures in China",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Shang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Shang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Epidemiol Infect",
+            "volume": "149",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Verhulst and the logistic equation (1838)",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Baca\u00ebr",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Short History of Mathematical Population Dynamics",
+            "volume": "",
+            "issn": "",
+            "pages": "35--44",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "How SARS-CoV-2 is forcing us to reconsider and reorganize our daily neurosurgical practice",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Chibbaro",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ganau",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Todeschi",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Proust",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Cebula",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Neurochirurgie",
+            "volume": "66",
+            "issn": "4",
+            "pages": "189--91",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Analysis of logistic growth models",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Tsoularis",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wallace",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Math Biosci",
+            "volume": "179",
+            "issn": "1",
+            "pages": "21--55",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Introductory Mathematical Analysis. For Business, Economics, and the Life and Social Sciences",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Haeussler",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Paul",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Wood",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Coronavirus disease (COVID-19) Situation Report -163. Data as received by WHO from national authorities by 10:00 CEST",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Coronavirus disease (COVID-19) Situation Report -170. Data as received by WHO from national authorities by 10:00 CEST",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Coronavirus disease (COVID-19) Situation Report -177. Data as received by WHO from national authorities by 10:00 CEST",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Forecasting COVID-19 epidemic in India and high incidence states using SIR and logistic growth models",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Malavika",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Marimuthu",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Joy",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Nadaraj",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Asirvatham",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Jeyaseelan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Clin Epidemiol Glob Health",
+            "volume": "9",
+            "issn": "",
+            "pages": "26--33",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Time variations in the generation time of an infectious disease: implications for sampling to appropriately quantify transmission potential",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Nishiura",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Math Biosci Eng",
+            "volume": "7",
+            "issn": "4",
+            "pages": "851--69",
+            "other_ids": {}
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Inferring pandemic growth rates from sequence data",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "De Silva",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Ferguson",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Fraser",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "J R Soc Interface",
+            "volume": "9",
+            "issn": "73",
+            "pages": "1797--808",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Early estimation of the reproduction number in the presence of imported cases: pandemic influenza H1N1-2009 in New Zealand",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Roberts",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Nishiura",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "PLoS One",
+            "volume": "6",
+            "issn": "5",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Real-time characterization of the molecular epidemiology of an influenza pandemic",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Hedge",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Lycett",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Rambaut",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Biol Lett",
+            "volume": "9",
+            "issn": "",
+            "pages": "1--5",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Epidemic modelling: aspects where stochasticity matters",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Britton",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Lindenstrand",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Math Biosci",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "A functional interpretation of the logistic equation",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Gatto",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Muratori",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Rinaldi",
+                    "suffix": ""
+                }
+            ],
+            "year": 1988,
+            "venue": "Ecological Modelling",
+            "volume": "42",
+            "issn": "2",
+            "pages": "155--164",
+            "other_ids": {}
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "The scaling of contact rates with population density for the infectious disease models",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Nigmatulina",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Eckhoff",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Math Biosci",
+            "volume": "244",
+            "issn": "2",
+            "pages": "125--159",
+            "other_ids": {}
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Quantifying the transmission potential of pandemic influenza",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Chowell",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Nishiura",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Physics of Life Reviews",
+            "volume": "5",
+            "issn": "1",
+            "pages": "50--77",
+            "other_ids": {}
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "Applications and limitations of the verhulst model for populations",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Hillen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Math Biol",
+            "volume": "6",
+            "issn": "",
+            "pages": "19--20",
+            "other_ids": {}
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Herd immunity for COVID-19. GAO Science & Tech Spotlight",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "A mathematical model reveals the influence of population heterogeneity on herd immunity to SARS-CoV-2",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Britton",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Ball",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Trapman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Science",
+            "volume": "369",
+            "issn": "6505",
+            "pages": "846--855",
+            "other_ids": {}
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "Vaccination and herd immunity to infectious diseases",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Anderson",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "May",
+                    "suffix": ""
+                }
+            ],
+            "year": 1985,
+            "venue": "Nature",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "Herd Immunity: Understanding COVID-19",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Randolph",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Barreiro",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Immunity",
+            "volume": "52",
+            "issn": "5",
+            "pages": "737--778",
+            "other_ids": {}
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "What could coronavirus teach us?",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Mitchell",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Br J Neurosurg",
+            "volume": "34",
+            "issn": "2",
+            "pages": "117--125",
+            "other_ids": {}
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "Textbook of Epidemiology. Houten: Bohn Stafleu van Loghum",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Bouter",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Zielhuis",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Zeegers",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "Modern Infectious Disease Epidemiology. Concepts, Methods, Mathematical Models, and Public Health",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kr\u00e4mer",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kretzschmar",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Krickeberg",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "Reactivation of COVID-19 in a neurosurgical patient with early neuropsychiatric presentation. Does seroconversion mean immunity?",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Bonomo",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Caldiroli",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Bonomo",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Pugliese",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Dimeco",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Zoia",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Surg Neurol Int",
+            "volume": "12",
+            "issn": "166",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.25259/SNI_831_2020"
+                ]
+            }
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "A course in mathematical biology: quantitative modeling with mathematical and computational methods",
+            "authors": [
+                {
+                    "first": "De",
+                    "middle": [],
+                    "last": "Vries",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Hillen",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Lewis",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "M\u00fcller",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Sch\u00f6nfisch",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Philadelphia: Society for Industrial and Applied Mathematics",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "Experimental methods in population dynamics: a critique",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Smith",
+                    "suffix": ""
+                }
+            ],
+            "year": 1952,
+            "venue": "Ecology",
+            "volume": "33",
+            "issn": "4",
+            "pages": "441--50",
+            "other_ids": {}
+        },
+        "BIBREF57": {
+            "ref_id": "b57",
+            "title": "Neurosurgery during the COVID-19 pandemic: update from Lombardy, northern Italy",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Zoia",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Bongetta",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Veiceschi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Cenzato",
+                    "suffix": ""
+                },
+                {
+                    "first": "Di",
+                    "middle": [],
+                    "last": "Meco",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Locatelli",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Acta Neurochir (Wien)",
+            "volume": "162",
+            "issn": "6",
+            "pages": "1221--1223",
+            "other_ids": {}
+        },
+        "BIBREF58": {
+            "ref_id": "b58",
+            "title": "COVID-19 and neurosurgical training and education: an Italian perspective",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Zoia",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Raffa",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Somma",
+                    "suffix": ""
+                },
+                {
+                    "first": "Della",
+                    "middle": [],
+                    "last": "Pepa",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "La",
+                    "middle": [],
+                    "last": "Rocca",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Zoli",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Acta Neurochir (Wien)",
+            "volume": "162",
+            "issn": "8",
+            "pages": "1789--94",
+            "other_ids": {}
+        },
+        "BIBREF59": {
+            "ref_id": "b59",
+            "title": "Ethics in contemporary health care management and medical education",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Balak",
+                    "suffix": ""
+                },
+                {
+                    "first": "Mld",
+                    "middle": [],
+                    "last": "Broekman",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Mathiesen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Eval Clin Pract",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF60": {
+            "ref_id": "b60",
+            "title": "Costs of disorders of the brain in Europe",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Balak",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Elmaci",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Eur J Neurol",
+            "volume": "14",
+            "issn": "2",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF61": {
+            "ref_id": "b61",
+            "title": "Healthcare Economics. In: Honeybul S",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Balak",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Tisell",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "2020",
+            "issn": "",
+            "pages": "73--84",
+            "other_ids": {}
+        },
+        "BIBREF62": {
+            "ref_id": "b62",
+            "title": "The Changing Health Care Landscape and Implications of",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Castlen",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Cote",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Moojen",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Robe",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Balak",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Brennum",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Organizational Ethics on Modern Medical Practice. World Neurosurg",
+            "volume": "102",
+            "issn": "",
+            "pages": "420--424",
+            "other_ids": {}
+        },
+        "BIBREF63": {
+            "ref_id": "b63",
+            "title": "Neurosurgical Practice",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Tisell",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Balak",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Training",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "2020",
+            "issn": "",
+            "pages": "54--63",
+            "other_ids": {}
+        },
+        "BIBREF64": {
+            "ref_id": "b64",
+            "title": "COVID-19 consequences on medical students interested in neurosurgery: an Italian perspective",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Zaed",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF66": {
+            "ref_id": "b66",
+            "title": "Letter: Length of Stay Beyond Medical Readiness in a Neurosurgical Patient Population and Associated Healthcare Costs",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Balak",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Neurosurgery",
+            "volume": "2021",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/neuros/nyab198"
+                ]
+            }
+        },
+        "BIBREF67": {
+            "ref_id": "b67",
+            "title": "Investigating the real impact of COVID-19 pandemic on the daily neurosurgical practice?",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Dannhoff",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Cebula",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Chibbaro",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ganau",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Todeschi",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Mallereau",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Neurochirurgie",
+            "volume": "67",
+            "issn": "2",
+            "pages": "99--103",
+            "other_ids": {}
+        },
+        "BIBREF68": {
+            "ref_id": "b68",
+            "title": "COVID-19: new challenges, risks, and the future provision of care in spinal services",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Minhas",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ganau",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Thakar",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Reynolds",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Rothenfluh",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bojanic",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Bone Joint J",
+            "volume": "102",
+            "issn": "6",
+            "pages": "655--662",
+            "other_ids": {}
+        },
+        "BIBREF69": {
+            "ref_id": "b69",
+            "title": "COVID-legal study: neurosurgeon experience in Britain during the first phase of the COVID-19 pandemic -medico-legal considerations",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Finn",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ganau",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Jenkinson",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Plaha",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Br J Neurosurg",
+            "volume": "2021",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/02688697.2021.1902475"
+                ]
+            }
+        },
+        "BIBREF70": {
+            "ref_id": "b70",
+            "title": "Technologies to Optimize the Care of Severe COVID-19 Patients for Health Care Providers Challenged by Limited Resources",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Rubulotta",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Soliman-Aboumarie",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Filbey",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Geldner",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Kuck",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ganau",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Anesth Analg",
+            "volume": "131",
+            "issn": "2",
+            "pages": "351--64",
+            "other_ids": {}
+        },
+        "BIBREF71": {
+            "ref_id": "b71",
+            "title": "Harlow: Pearson Education Limited",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Case",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Fair",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Oster",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "13",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "vaccination had begun or perhaps because of the assumptions of the model which may not fit well with the COVID-19 pandemic. Several other authors also reported using the Verhulst-Pearl logistic function in predicting cumulative case numbers from the COVID-19 pandemic. 13,34-36 Mahanty et al 36 compared two nonlinear growth models (Verhulst and Gompertz) and the susceptible-infectious-recovered model (SIR)to predict active COVID-19 cases in India, Pakistan, Italy, Germany, Brazil, and Myanmar, and found that the Verhulst model's fitting effect is better than that of the Gompertz and SIR models. Niazkar et al 37 used the three mathematical prediction models (a recursive-based method, the Boltzmann function-based model, and Beesham's prediction model) to forecast COVID-19 case and death numbers in Iran and Turkey. They concluded that these models failed to predict the first 10 to 20 days of data, although the recursive-based method was more effective than the others. Postnikov13 reported that the SIR model, being sequentially reduced to the Verhulst equation, could provide an accurate description of the COVID-19 epidemic for a period of about three months in various countries, including Italy, the U.S., China, and Russia.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "limit the ability to predict the long-term growth of the COVID-19 pandemic.38  First, the extent of protective immunity is still unclear. Second, the extent of transmission and immunity among individuals with no or minimal symptoms, as is common in children, is unknown. Second, the extent of transmission and immunity among individuals with no or minimal symptoms asymptomatic or minimally symptomatic individuals, as it is more common in children, is unknown. Third, it is nearly impossible to measure and model contact rates between susceptible and contagious individuals in various lockdown or reopening scenarios. It is possible that the Verhulst-Pearl model does not work in the longer term just because of its inherent assumptions, which may not fit with the COVID-19 pandemic. However, short-term forecasts of a few weeks based on the logistics growth model can give very reliable results. Due to changes in the external environment, such as modifications in government control policies and new treatment",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "does our investigation leave us in terms of the allocation of medical resources in general and neurosurgical planning in particular? The COVID-19 pandemic prompted the application of new priority guidelines for patients requiring neurosurgery interventions. As a result, most elective surgeries have been J o u r n a l P r e -p r o o f delayed. Furthermore, patients who need surgery have been avoiding admission to hospitals or have been delaying their treatment as much as possible because they are afraid of being infected by SARS-European survey from the EANS Ethico-Legal Committee highlighted how the COVID-19",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "The logistic function curveFigures 2 A, B, C: The distributions of the means of the estimated/actual cumulative case number ratios on July 15 (A), 22 (B), and 29 (C) Estimated and observed cumulative case numbers in selected 6 countries in short-and long-term.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "Global estimated and observed cumulative case numbers J o u r n a l P r e -p r o o f",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF3": {
+            "text": "The cumulative numbers of cases reported by WHO for India on the same dates are 56342, 81970 and 118447, respectively, and when we compare them with their respective estimates, we get 1.045, 0.996, and 0.869, respectively. In the other compared study, Arora et al.39  conducted a research on predicting the number of new coronavirus positive cases in India for one day to one week beforehand, using recurrent neural networks and long short-term memory based model. They reported that their model was quite",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF4": {
+            "text": "Ethical issues: The ethical issues for this study involving human subjects have been carefully considered in line with the Declaration of Helsinki (1964). support: None J o u r n a l P r e -p r o o f source/coronaviruse/situation-reports/20200715-covid-19-sitrep-177.pdf?sfvrsn=b1a193f3_2 Last accessed on 20.07.2021. 30. Coronavirus disease (COVID-19) Situation Report -184. Data as received by WHO from national authorities by 10:00 CEST, 22 July 2020. 2020. https://www.who.int/docs/defaultsource/coronaviruse/situation-reports/20200722-covid-19-sitrep-184.pdf?sfvrsn=7680210a_2 Last accessed on 20.07.2021. 31. Coronavirus disease (COVID-19) Situation Report -191. Data as received by WHO from national authorities by 10:00 CEST, 29 July 2020. 2020. https://www.who.int/docs/defaultsource/coronaviruse/situation-reports/20200729-covid-19-sitrep-191.pdf?sfvrsn=2c327e9e_2 Last accessed on 20.07.2021. 32. WHO-COVID-19-global-data. https://covid19.who.int/WHO-COVID-19-global-data.csv. 2021 Last accessed on 20.07.2021 2021. 33. Pianka E. Evolutionary Ecology. 7th ed. USA: Eric R. Pianka; 2011. 34. Abusam A, Abusam R, Al-Anzi B. Adequacy of Logistic models for describing the dynamics of COVID-19 pandemic. Infect Dis Model 2020; 5: 536-42. 35. Vandamme L, Rocha P. Analysis and Simulation of Epidemic COVID-19 Curves with the Verhulst Model Applied to Statistical Inhomogeneous Age Groups. Applied Sciences 2021; 11(4159): 1-16. 36. Mahanty C, Kumar R, Mishra B, Hemanth D, Gupta D, Khanna A. Prediction of COVID-19 active cases using exponential and non-linear growth models. Expert Systems 2020; (e12648): 1-22. 37. Niazkar M, Eryilmaz Turkkan G, Niazkar HR, Turkkan YA. Assessment of Three Mathematical Prediction Models for Forecasting the COVID-19 Outbreak in Iran and Turkey. Comput Math Methods Med 2020; 2020(7056285): 1-13 DOI: 0.1155/2020/7056285. 38. Holmdahl I, Buckee C. Wrong but Useful -What Covid-19 Epidemiologic Models Can and Cannot Tell Us. N Engl J Med 2020; 383(4): 303-5. 39. Arora P, Kumar H, Panigrahi BK. Prediction and analysis of COVID-19 positive cases using deep learning models: A descriptive case study of India. Chaos Solitons Fractals 2020; 139(110017): 1-9.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF5": {
+            "text": "Basic information for the calculations",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF6": {
+            "text": "The actual-estimate cumulative case numbers and their ratios in the 20 countries for July15, 2020",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF7": {
+            "text": "The actual-estimate cumulative case numbers and their ratios in the 20 countries for July22, 2020",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF8": {
+            "text": "The actual-estimate cumulative case numbers and their ratios in the 20 countries for July 29, 2020",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF9": {
+            "text": "The actual and estimated cumulative case numbers in the world in general",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF10": {
+            "text": "The actual-estimate cumulative case numbers and their ratios in the 20 countries forApril 7, 2021",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF11": {
+            "text": "Basic Information for the calculations",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "Densi ty/km 2 J o u r n a l P r e -p r o o f J o u r n a l P r e -p r o o f J o u r n a l P r e -p r o o f J o u r n a l P r e -p r o o f J o u r n a l P r e -p r o o f Table 7 : Forty-week estimated and observed cumulative case numbers of selected (as example) 6 countries, of which diagrammatic representations are shown in Figure 2 Week ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 169,
+                    "end": 176,
+                    "text": "Table 7",
+                    "ref_id": null
+                },
+                {
+                    "start": 326,
+                    "end": 334,
+                    "text": "Figure 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "Country Population"
+        }
+    ]
+}

@@ -1,0 +1,3840 @@
+{
+    "paper_id": "0a83fbebe68465bb2ed86a457af3f47d1a641d6f",
+    "metadata": {
+        "title": "Epitope-Based Potential Vaccine Candidate for Humoral and Cell- Mediated Immunity to Combat Severe Acute Respiratory Syndrome Coronavirus 2 Pandemic",
+        "authors": [
+            {
+                "first": "Bratin",
+                "middle": [
+                    "Kumar"
+                ],
+                "last": "Das",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Debashree",
+                "middle": [],
+                "last": "Chakraborty",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "The emergence of severe acute respiratory syndrome from novel Coronavirus (SARS-CoV-2) has put an immense pressure worldwide where vaccination is believed to be an efficient way for developing hard immunity. Herein, we employ immunoinformatic tools to identify B-cell, T-cell epitopes associated with the spike protein of SARS-CoV-2, which is important for genome release. The results showed that the highly immunogenic epitopes located at the stalk part are mostly conserved compared to the receptor binding domain (RDB). Further, two vaccine candidates were computationally modeled from the linear Bcell, T-cell epitopes. Molecular docking reveals the crucial interactions of the vaccines with immune-receptors, and their stability is assessed by MD simulation studies. The chimeric vaccines showed remarkable binding affinity toward the immune cell receptors computed by the MM/PBSA method. van der Waals and electrostatic interactions are found to be the dominant factors for the stability of the complexes. The molecular-level interaction obtained from this study may provide deeper insight into the process of vaccine development against the pandemic of COVID-19.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "and T cell epitopes from the highly conserved region in SARS-CoV-2 were identified, which may help in developing vaccine candidates. 32\u221234 However, very little is known about the dynamic stability and affinity of the predicted epitope toward the interacting domain of antibody and T-cell receptors (TCRs), which is crucial for validating and improving the efficacy of predicted vaccines. In this respect, we apply a combination of immuno-informatic 10, 35 approach to identify potent epitopes to design the vaccine candidates followed by computational chemistry analysis to check their effectiveness. With the help of molecular docking, MD simulations and freeenergy calculations, an analysis of all the important interactions necessary to give stability to the immuno-receptor complexes have been performed.",
+            "cite_spans": [
+                {
+                    "start": 133,
+                    "end": 138,
+                    "text": "32\u221234",
+                    "ref_id": null
+                },
+                {
+                    "start": 449,
+                    "end": 452,
+                    "text": "10,",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 453,
+                    "end": 455,
+                    "text": "35",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "T-cells are known to recognize and activate defense responses against viral infection; B-cells on the other hand can have antibody reactions which help in recovering extreme respiratory infection. Therefore, we have done a detailed analysis of the viral antigens to predict B-cell, T-cell linear epitopes located at the S-protein of SARS-CoV-2, evaluated their immunogenicity, and designed chimeric vaccines. The conservation of all B-and T-cell epitopes were assessed across most of the isolates and coronavirus species from different parts of the globe. Furthermore, we carried out in silico cloning of the linear vaccine construct to design a recombinant plasmid that can help in expressing the vaccines in E. coli expression system.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "The methodology of the exploration of potential epitopes from the S-protein, vaccine design and their validation are discussed in Supporting Information 1 (SI-1). All protein molecules are protonated at the biological pH of 7.0. Then the chimeric vaccine and peptide epitopes are docked at the antigen binding domain of respective immune-receptors by Hex software. We carried out atomistic MD simulations of all the systems using GROMACS-2016.5. 36\u221238 Amber 99-SB 39 force-field was employed due to its better balance in \u03b2-sheet and helicity propensity compared to other force fields. 40\u221242 SPC/E 43 water molecules were used to solvate the receptorpeptide systems because of their compatibility with AMBER force field. All the systems underwent a 50 000 step energy minimization by steepest-descent algorithm 44, 45 to remove the steric clash. Leapfrog integrator algorithm was used to integrate the equation of motions with a time step of 2 fs. LINCS 46 algorithm was applied to constrain all the bonds in the peptide molecule, and SETTLE algorithm was employed to constrain the geometry of water molecules. The systems were equilibrated in canonical ensemble (NVT) followed by isothermal\u2212isobaric ensemble (NPT) for 5 and 10 ns respectively by restraining the solute heavy atoms. Next, the restraints were removed, and the protein molecules were allowed to move freely during the production run for 100 ns. The temperature and pressure of the system was maintained employing Velocity rescale 47 (\u03c4 t = 0.1 ps) and Parrinello\u2212 Rahman coupling algorithm 48 (\u03c4 p = 0.2 ps). The cutoff for short-range electrostatic and van der Waals interactions was assigned to 1.2 nm for the particle-mesh Ewald method. 49, 50 The amino-acid sequences of the spike-proteins for twentysix different coronavirus species (SI-1) were considered for multiple sequence analysis (MSA) to figure out the conserved amino-acid region and the variable region which differentiate the SARS-CoV-2 from other classes of coronavirus. MSA reveals that the C-terminal end is highly conserved compared to the N-terminal end of the amino acid sequence of spike protein retrieved from different coronavirus species ( Figure  S1 ). This C-terminal perfusion or shaft domain (S2-domian) is thus common in all coronavirus spices for genome transfer while the receptor binding domain (RBD or S1-domain) is unique in SARS-CoVid2 ( Figure 1A ). The phylogenic tree constructed from MSA indicates that the spike protein of \u03b2coronavirus species (SARS-CoVid, MERS-CoVid) has maximum structural similarity with the \u03b3-coronavirus ( Figure S-2) . The antibody-mediated defense responses or humoral immunity against viral infection is believed to be guided by B-cell epitopes. 51 The linear B-cell epitopes of S-glycoprotein sequence (accession no: MT-415323) were predicted by a set of physicochemical parameters, such as the exposed surface propensity by Emini et al., 52 hydrophilicity by Parker et al., 53 flexibility by Karplus et al., 54 antigenic propensity by Kolaskar et al., 55 \u03b2-turn propensity by Chou et al., 56 and so on, implemented in the immune epitope database and analysis Tables S1\u2212S9 and in S10. The predicted B-cell and T-cell epitopes with high antigenicity scores are shown in Table 1 .",
+            "cite_spans": [
+                {
+                    "start": 446,
+                    "end": 451,
+                    "text": "36\u221238",
+                    "ref_id": null
+                },
+                {
+                    "start": 464,
+                    "end": 466,
+                    "text": "39",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 585,
+                    "end": 590,
+                    "text": "40\u221242",
+                    "ref_id": null
+                },
+                {
+                    "start": 810,
+                    "end": 813,
+                    "text": "44,",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 814,
+                    "end": 816,
+                    "text": "45",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 953,
+                    "end": 955,
+                    "text": "46",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 1705,
+                    "end": 1708,
+                    "text": "49,",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 1709,
+                    "end": 1711,
+                    "text": "50",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 2728,
+                    "end": 2730,
+                    "text": "51",
+                    "ref_id": "BIBREF48"
+                },
+                {
+                    "start": 2922,
+                    "end": 2924,
+                    "text": "52",
+                    "ref_id": "BIBREF49"
+                },
+                {
+                    "start": 2958,
+                    "end": 2960,
+                    "text": "53",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 2992,
+                    "end": 2994,
+                    "text": "54",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 3036,
+                    "end": 3038,
+                    "text": "55",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 3073,
+                    "end": 3075,
+                    "text": "56",
+                    "ref_id": "BIBREF53"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 2181,
+                    "end": 2191,
+                    "text": "Figure  S1",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 2390,
+                    "end": 2399,
+                    "text": "Figure 1A",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 2585,
+                    "end": 2596,
+                    "text": "Figure S-2)",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 3143,
+                    "end": 3155,
+                    "text": "Tables S1\u2212S9",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 3252,
+                    "end": 3259,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": ""
+        },
+        {
+            "text": "The size of the predicted linear B-cell epitopes is found to be varied between 7mer-15mer which is believed to be of optimum size. The hot-spot residues which are considered as the key to the antigenicity of the epitopes, are found to be mostly polar in nature which may contribute in stable hydrogen bonds to the residues present in the antigen binding region of the antibodies. In Figure 1B , we showed the location of linear B-cell epitopes on the single chain of SARS-CoV-2 spike protein. It is evident from Figure 1B that most of the epitopes are located at the RDB domain and the shaft region of the S-protein. The peptide 808 DPSKPSKRSF 817 and 600 PGTNTSNQ 607 are found to be common in Emini-surface accessibility, Bepipred linear epitope and Chou\u2212Fasman methods indicating their greater importance as linear B-cell epitopes.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 383,
+                    "end": 392,
+                    "text": "Figure 1B",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 512,
+                    "end": 521,
+                    "text": "Figure 1B",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": ""
+        },
+        {
+            "text": "The 3-D structure of the spike protein was generated by homology modeling implemented in Swiss Model 58 using PDB ID: 6VIB and 6VXX as template. The conformational epitopes of the spike protein of SARS-CoV-2 in their closed and open state were determined by Disctope 59,60 (V-1.1) server and are documented in Tables S11, S12. It can be seen that the conformational B-cell epitopes of spike protein are located almost in the same position (RDB region) in their both closed and open state ( Figure S3A ,B). The locations of the conformational epitopes on the tertiary structure of S-protein are mainly found at 405\u2212427 and 439\u2212505 residue stretches and shown in Figure 1C . Based on the location of the epitopes, the domains are marked as R1, R2, and R3. It can be noted that in both closed and open state, all antibody binding regions (R1, R2, and R3) have extended antiparallel \u03b2-sheet or \u03b2-barrel structure which is an important factor for antigenicity ( Figure  1-D) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 490,
+                    "end": 500,
+                    "text": "Figure S3A",
+                    "ref_id": null
+                },
+                {
+                    "start": 661,
+                    "end": 670,
+                    "text": "Figure 1C",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 957,
+                    "end": 969,
+                    "text": "Figure  1-D)",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": ""
+        },
+        {
+            "text": "The identification of CD8+ and CD4+ T-cell epitopes are known to be important for eliciting cell-mediated immunity or generation of memory B-cell against viral infections. 61 Such peptide epitopes are generally presented by the Major Histocompatibility complex (MHC) -class I and MHC-class II molecules expressed on the surface of helper T-cell (T H ). 61, 62 We employed IEDB server to identify and validate the T-cell peptide epitopes of the S-protein of SARS-CoV-2 which can bind with MHC-I and MHC-II receptors. All MHC-I and based epitope-peptides obtained from IEDB T-cell epitope prediction tools are documented in Tables S13\u2212S16 and that of MHC-II are documented in Tables S17 and S18. The peptides with highest antigenicity and high affinity are listed in Table 1 , and their location at the S-protein of SARS-CoV-2 is depicted in Figure 1E ,F. The size of the peptides for MHC binding are found to vary from 8mer to 15 mer. It is evident from Figure 1 that peptide epitope 781 VFAQVKQIY 789 corresponding to MHC-I and 960 NTLVKQLSSNFGA 972 associated with MHC-II are located at the stem part of the S-protein. Unlikely, the epitopes 567 RDIADTTDAV 576 , 76 TKRFDNPVLPF 86 , 747 VRFPNITNL 754 , (related to MHC-I), and 116 SLLIVNNATNVVIK 129 (related to MHC-II) are found to be located at the surface (i.e., the receptor binding domain (RBD) of S-protein). The location of this peptides shares the binding domain of Angiotensin-Converting Enzyme 2 (ACE2) receptor which make them more interesting. These selected peptides are used to design multiepitope vaccine for cell mediated immunity.",
+            "cite_spans": [
+                {
+                    "start": 172,
+                    "end": 174,
+                    "text": "61",
+                    "ref_id": null
+                },
+                {
+                    "start": 353,
+                    "end": 356,
+                    "text": "61,",
+                    "ref_id": null
+                },
+                {
+                    "start": 357,
+                    "end": 359,
+                    "text": "62",
+                    "ref_id": "BIBREF59"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 765,
+                    "end": 772,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 840,
+                    "end": 849,
+                    "text": "Figure 1E",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 953,
+                    "end": 961,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": ""
+        },
+        {
+            "text": "The knowledge regarding the linear-epitope-conservation is necessary to design vaccines capable of inducing adaptive immune response for all coronavirus species. It is found that all the epitopes considered here contain at least two conserved residues ( Figure S1 ). Epitopes with three identical or similar residues are considered to be highly conserved. Among all the selected B-cell epitopes in Table 1 Figure S1 ). In case of the Tcell epitope, 116 SLLIVNNATNVVIK 129 , 781 VFAQVKQIY 785 , and 960 NTLVKQLSSNFGA 972 are highly conserved. It is evident from Figure 1B that most of the highly conserved B- Table 1 , and named as Vac-COVID-B, Vac-COVID-T respectively, which can be used as a combination for both humoral and cell-mediated immunity. The linear B-cell epitopes and T-cell epitopes are linked by the GPGPG linker to avoid the formation of junctional epitope 34 and Cholera Toxin B (CTB) adjuvant linked by EAAAK linker for immune regulation. The total number of amino-acids of the vaccines are 133 and 111 amino acid (aa) long with molecular weight of 13.11 and 11.4 kDa, respectively. The 3D-models of the chimeric vaccine shown in Figure 2 are predicted to be nonallergenic by the AllerTOP server. 63 The structural quality of the vaccines is assessed by Z-score and Ramachandran plot ( Figure S4 ). The Z-score of the vaccines made of B-cell and T-cell epitopes are \u22123.43 and \u22124.85, respectively, which confirm the reliability of our model. Additionally, 95.42% and 92.7% amino acid residues are found to be in the favored region in the Ramachandran plot. Further, the antigenicity of the two vaccines are found to be 0.73 and 0.58 (score >0.4 is considered to be antigenic).",
+            "cite_spans": [
+                {
+                    "start": 873,
+                    "end": 875,
+                    "text": "34",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 1215,
+                    "end": 1217,
+                    "text": "63",
+                    "ref_id": "BIBREF60"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 254,
+                    "end": 263,
+                    "text": "Figure S1",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 398,
+                    "end": 405,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 406,
+                    "end": 415,
+                    "text": "Figure S1",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 561,
+                    "end": 570,
+                    "text": "Figure 1B",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 608,
+                    "end": 615,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 1148,
+                    "end": 1156,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 1304,
+                    "end": 1313,
+                    "text": "Figure S4",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": ""
+        },
+        {
+            "text": "Next, it will be interesting to study the interaction of the multiepitope vaccines designed with the immune-cell receptor for eliciting stable immune response. We considered the structure of the humanized antibody (7BZ5) as the immune receptor for B-cell epitope, where the antigen binding region of 7BZ5 is formed by a variable region of light chain (V L ) and heavy chain (V H ) ( Figure S6A ). The antigen binding pocket of the MHC-I molecule (2GTZ, 5WWJ, 6IEX, 5IM7) is formed by the interaction of \u03b11 and \u03b12 domain of \u03b1-chain ( Figure  S6B ), whereas the antigen presenting domain of MHC-II (2SEB, 6BIY) molecules is formed by the association of \u03b11 and \u03b21 domains ( Figure S6C ). However, the peptide presenting platform is similar for both the MHC class-I and class-II molecules. The detailed interaction of the chimeric vaccine with the variable region of 7BZ5 is depicted in Figure 3A by molecular docking. The linear vaccine from the B-cell epitope exhibited 12 hydrogen bond interactions with the variable region of the antibody. The residues Gly38, Gly 50, Glu 41, Gly76, Gly 54, Thr56, Tyr32, Ser31 of Vac-COVID-B exhibited hydrogen bond with Ser56, Tyr58, Tyr52, Ser53, Tyr33, Tyr94 of V H and Tyr97, Ala99, Ile59 and Lys58 of V L respectively. The interaction of conformational epitopes with the 7BZ5 at the molecular level is depicted in Figure 3B \u2212D. The conformational epitope R1 (Arg 102, Ser98, Phe140, and Leu242) was found to make hydrogen bond with Tyr100, Tyr32, Tyr 33, and Tyr94 of the antibody molecule ( Figure  3B) . Similarly, Gly28, Tyr32, Asn92, Tyr58, Tyr52, Tyr33 of 7BZ5 formed hydrogen bonds with Tyr449, Ser494, Tyr453, Arg403, Asp405, and Lys417 of R2 ( Figure 3C ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 383,
+                    "end": 393,
+                    "text": "Figure S6A",
+                    "ref_id": null
+                },
+                {
+                    "start": 533,
+                    "end": 544,
+                    "text": "Figure  S6B",
+                    "ref_id": null
+                },
+                {
+                    "start": 671,
+                    "end": 681,
+                    "text": "Figure S6C",
+                    "ref_id": null
+                },
+                {
+                    "start": 883,
+                    "end": 892,
+                    "text": "Figure 3A",
+                    "ref_id": null
+                },
+                {
+                    "start": 1353,
+                    "end": 1362,
+                    "text": "Figure 3B",
+                    "ref_id": null
+                },
+                {
+                    "start": 1531,
+                    "end": 1542,
+                    "text": "Figure  3B)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1691,
+                    "end": 1700,
+                    "text": "Figure 3C",
+                    "ref_id": null
+                }
+            ],
+            "section": ""
+        },
+        {
+            "text": "In addition, Tyr 94 of the antibody and Tyr 505 of R2 showed \u03c0\u2212\u03c0 interaction which is crucial for the antibodyepitope stabilization. In case of R3, no nonbonded interaction was found ( Figure 3D ) except one \u03c0\u2212\u03c0 stacking interaction between Tyr 32 and Phe562. The T-cell peptide epitopes were also found to be stabilized by the hydrogen bond formed with the peptide presenting groove of the MHC-receptors. The TCRs are known to recognize the antigens in pieces that are presented by MHC molecules. 61 Therefore, the interaction of full-length Vac-COVID-T with MHC molecules is scientifically not required. The epitope 567 RDIADTTDAV 576 formed hydrogen bonds with Thr80, Lys146, Trp147, Tyr116, Thr73, Arg97, Tyr7, and Glu63 of HLA-A*02:01 ( Figure  3E ). 76 TKRFDNPVLPF 86 was found to form hydrogen bonds with Arg83, Asn77, Thr73, Ala69, Thr163, Lys146, and Trp147 of the HLA-A*24:02 peptide presenting pocket ( Figure 3F) , and in the cases of HLA*40:01, Ala150, Tyr116, Asn114, Arg62, Glu58, and Trp167 were involved in hydrogen bond formation with the 327 VRFPNITNL 335 peptide ( Figure 3G ). The epitope 781 VFAQVKQIY 789 exhibited hydrogen bonds with Ala139, Thr 143, Trp147, Tyr74, Tyr159 of HLA-B*58:01 ( Figure 3H) . Further, the MHC-II based T-cell epitope 960 NTLVKQLSSNFGA 972 , 116 SLLIVN-NATNVVIK 129 were found to be involved in hydrogen bond formation with Phe48, His81, Gln70, Trp62 of DRB1*-04:01 ( Figure 3I) and Arg71, Ser53 of DRB1*07:01, respectively ( Figure 3J ). Figure 4A,B) . The RMSF profile of the designed vaccine is shown in Figure S7A . The residue stretches 39\u221248, 57\u221273 were found to highly fluctuate during the course of simulation because of the interaction with the antibody molecule. The RMSF value of the residues located at antigen binding domain of 7BZ5 is found to be less than 0.3, which helped the chimeric vaccine to get stabilized at the immune complex ( Figure S8 ). The average number of hydrogen bonds between the antibody and the vaccine is calculated to be 9 and remain intact throughout the simulation trajectory ( Figure 4E , Figure S9 ). The docking predicted residue pairs Gly54-Tyr97, Gly54-Tyr52, Thr56-Tyr33 have hydrogen bond occupancy values of 59.4%, 13.7%, 11.3%. The highest hydrogen bond occupancy of 69.7% is found between Tyr58 of the linear vaccine and Pro51 of 7BZ5, which newly evolved during the course of simulation (Table S20A ). The structural stability of the conformational epitopes located at R1, R2, R3 is assessed in Figure 4C ,D. The RMSD and rGyr profile of the conformational epitope located at R1 and R3 is found to be stable, whereas that of R2 is highly unstable which indicates the conformational change of the epitope during the course of the simulation. The C-terminal and the N-terminal end of all the epitopes have greater fluctuation because of solvent exposure ( Figure S7B\u2212D) . The average number of hydrogen bonds between the epitope located at R1, R2, and R3 are 2, 7, and 6, respectively. The docking predicted residues pairs were not found to make hydrogen bonds during the course of simulation; rather, the new hydrogen bonds evolved during the course of simulation with a lesser hydrogen bond (Table S20B ). In the case of R2, the docking predicted residue pair Asn92-Tyr453 showed the highest hydrogen bond occupancy of 99.9% (Table S20C ). The epitope located at R3 was found to make stable hydrogen bond with Asn32 and Asn92 with H-bond occupancy of 55.9% and 51.6%, respectively (Table S20D ). The number of hydrogen bond profile of R1 is fluctuating compared with other conformational epitopes, whereas the number of hydrogen bond is found to be increasing between the antibody and R3 with respect to simulation time to stabilize the immune complex ( Figure S9B\u2212D) . The conformational free-energy landscape of the antibody and antigen binding is depicted in Figure S10 to confirm the adequate sampling of the immune complexes. The solvent accessible surface and RMSD of the chimeric vaccine, B-cell conformational epitopes are considered as reaction coordinate. It is evident from FEL graphs that R1 is trapped in a deep minimum, which indicates the single binding conformation throughout the simulation. In the case of other antigens, two prominent binding conformations along with others are present, which evolved during the course of simulation.",
+            "cite_spans": [
+                {
+                    "start": 498,
+                    "end": 500,
+                    "text": "61",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 185,
+                    "end": 194,
+                    "text": "Figure 3D",
+                    "ref_id": null
+                },
+                {
+                    "start": 742,
+                    "end": 752,
+                    "text": "Figure  3E",
+                    "ref_id": null
+                },
+                {
+                    "start": 914,
+                    "end": 924,
+                    "text": "Figure 3F)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1085,
+                    "end": 1094,
+                    "text": "Figure 3G",
+                    "ref_id": null
+                },
+                {
+                    "start": 1214,
+                    "end": 1224,
+                    "text": "Figure 3H)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1418,
+                    "end": 1428,
+                    "text": "Figure 3I)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1476,
+                    "end": 1485,
+                    "text": "Figure 3J",
+                    "ref_id": null
+                },
+                {
+                    "start": 1489,
+                    "end": 1501,
+                    "text": "Figure 4A,B)",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 1557,
+                    "end": 1567,
+                    "text": "Figure S7A",
+                    "ref_id": null
+                },
+                {
+                    "start": 1902,
+                    "end": 1911,
+                    "text": "Figure S8",
+                    "ref_id": null
+                },
+                {
+                    "start": 2068,
+                    "end": 2077,
+                    "text": "Figure 4E",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 2080,
+                    "end": 2089,
+                    "text": "Figure S9",
+                    "ref_id": null
+                },
+                {
+                    "start": 2388,
+                    "end": 2399,
+                    "text": "(Table S20A",
+                    "ref_id": "TABREF2"
+                },
+                {
+                    "start": 2496,
+                    "end": 2505,
+                    "text": "Figure 4C",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 2855,
+                    "end": 2868,
+                    "text": "Figure S7B\u2212D)",
+                    "ref_id": null
+                },
+                {
+                    "start": 3192,
+                    "end": 3203,
+                    "text": "(Table S20B",
+                    "ref_id": "TABREF2"
+                },
+                {
+                    "start": 3326,
+                    "end": 3337,
+                    "text": "(Table S20C",
+                    "ref_id": "TABREF2"
+                },
+                {
+                    "start": 3482,
+                    "end": 3493,
+                    "text": "(Table S20D",
+                    "ref_id": "TABREF2"
+                },
+                {
+                    "start": 3755,
+                    "end": 3768,
+                    "text": "Figure S9B\u2212D)",
+                    "ref_id": null
+                },
+                {
+                    "start": 3863,
+                    "end": 3873,
+                    "text": "Figure S10",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": ""
+        },
+        {
+            "text": "We have done MD simulation of individual peptide epitopes with their corresponding HLA compounds. The dynamic nature of the T-cell epitopes with their respective HLAcomplex are assessed in the Figure 5 . The RMSD of the peptides correspond to MHC-I increased up \u223c20 ns and stabilized with an average value of 0.45 nm for the rest of the simulation. The peptide associated with MHC-II is found to be stable for the last 30 ns of simulation. Further, we calculated the time evolution of the distance between the peptide and the surface of the binding pocket of MHC molecules (as shown in Figure S11 ). The distance between the surface of the peptide epitope and the platform of antigen presenting domain was found to be stable throughout the simulation, indicating that the peptides did not diffuse from the peptide presenting grooves. The solvent assessible surface area of the peptide epitopes are found to be stabilized with their initial value, Figure 5C,D) . The RMSF profile of the binding domain of MHC-I and MHC-II molecules are below 0.3 which helps to stabilize the peptide epitopes inside the peptide presenting pocket ( Figure S13) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 193,
+                    "end": 201,
+                    "text": "Figure 5",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 586,
+                    "end": 596,
+                    "text": "Figure S11",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 947,
+                    "end": 959,
+                    "text": "Figure 5C,D)",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 1130,
+                    "end": 1141,
+                    "text": "Figure S13)",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": ""
+        },
+        {
+            "text": "The average numbers of hydrogen bonds formed between MHC-I based TCRs T-cell epitopes are 4, 8, 6, and 7, respectively, for the four alleles during a 100 ns simulation ( Figure 5E ). It is evident from Figure S14 that the number of hydrogen bonds was almost constant throughout the simulation time. Hydrogen bond occupancy of 41.2% is found between Ala5 and Thr73 of HLA-A*02:01-RDIADTT-DAV complex (Table S20E ). The residue pair Leu10-Trp147, Phe12-Tyr84 of HLA-A*24:02-TKRFDNPVLPF complex and Pro5-Tyr159, Arg3-Glu63 of HLA-B*40:01-VRFPNITNL has high hydrogen bond occupancy which stabilizes the peptideligand at the peptide presenting domain (Table S20F , G). The higher hydrogen bond occupancy of Gln8-Asn77 (87.8%), Tyr10-Tyr80 (89.9%) Tyr10-Thr143 (83.0%) residue pair stabilized the peptide VFAQVKQIY at the binding domain of HLA-B*58:01 (Table S20H) .MHC-II based peptides epitope were found to have higher number of hydrogen bond due to their higher size ( Figure 5E ). The residue pair Lys6-Asn82, Asn2-Ala52 showed hydrogen bond occupancy of 95.0%, 87.7% for the peptide associated with DRB1*04:01, whereas Leu4-Asn82, Ser2-His81, Leu3-Ser53 of DRB1*07:01-peptide complex showed high hydrogen bond occupancy (Table S20I , J). This above-mentioned hydrogen bond between the T-cell epitope peptide and HLA-molecules stabilized the complex to transduce stable immune response against SRAS-CoV-2.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 170,
+                    "end": 179,
+                    "text": "Figure 5E",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 202,
+                    "end": 212,
+                    "text": "Figure S14",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 399,
+                    "end": 410,
+                    "text": "(Table S20E",
+                    "ref_id": "TABREF2"
+                },
+                {
+                    "start": 646,
+                    "end": 657,
+                    "text": "(Table S20F",
+                    "ref_id": "TABREF2"
+                },
+                {
+                    "start": 846,
+                    "end": 858,
+                    "text": "(Table S20H)",
+                    "ref_id": "TABREF2"
+                },
+                {
+                    "start": 967,
+                    "end": 976,
+                    "text": "Figure 5E",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 1220,
+                    "end": 1231,
+                    "text": "(Table S20I",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": ""
+        },
+        {
+            "text": "The free-energy landscape of peptide epitope binding at the peptide presenting pocket of MHC molecules is shown in Figure S15 . It is evident that all the peptides crossed a higher free-energy barrier and stabilized at deep minima at the higher RMSD values.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 115,
+                    "end": 125,
+                    "text": "Figure S15",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": ""
+        },
+        {
+            "text": "Lastly, the dynamic stability of the designed chimeric vaccines at aqueous solvent were assessed by MD simulation studies ( Figure S16) . The time evolution of RMSD, radius of gyration, and number of native hydrogen bonds were calculated to check their conformation in motion. The RMSD of both the vaccines were found to be converged with an average value of 0.6 nm. It is evident from the gyration radius profile (rGyr) of Vac-COVID-B that compactness of the protein is decreased and stabilized with an average value of 1.5 nm. The compactness of Vac-COVID-T is found to be constant throughout the simulation. Further, the number of native hydrogen bond is found to be constant throughout the simulation trajectory which indicates the conformation stability of the vaccines in polar solvent.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 124,
+                    "end": 135,
+                    "text": "Figure S16)",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": ""
+        },
+        {
+            "text": "The free energy of binding (\u0394G bind ) is believed to be an important thermodynamic quantity to assess the favorable protein\u2212protein interaction as well as their affinity for accurate modeling of biological systems. In this regard, we calculated the binding free energy of the epitopes at the binding domain of immune cell receptors in implicit solvent model by the endpoint free-energy method such as MM/PBSA 67 and summarized in Table 2 . The designed linear vaccine showed remarkably high binding affinity of \u2212453.59 kJ/mol with the variable region of 7BZ5 which confirms the thermodynamic stability of the complex. The \u0394G elec term (\u2212469.00 kJ/mol) between the residues of vaccine and the humanized antibody was found to have important contribution toward the stability of the complex (Table2). The affinity of the epitope located at R1 is the lowest compared with other discontinuous epitopes because of favorable van der-Waals energy (\u2212198.54 kJ/mol). The lower affinity of R2 and R3 is due to higher \u0394G sol penalty and positive electrostatic interactions respectively. It is found t h a t b o t h t h e M H C -I I b a s e d p e p t i d e s 960 NTLVKQLSSNFGA 972 and 116 SLLIVNNATNVVIK 129 exhibit the lowest binding energy of \u2212493.66 kJ/mol and \u2212538.71 kJ/mol, respectively. Among the MHC-I peptide epitopes, 76 TKRFDNPVLPF 86 associated with HLA-A*24:02 has the lowest binding energy of \u2212430.3 kJ/mol. All the peptide epitopes related to MHC-molecules have considerably low Gibbs free energy, indicating the stable epitope-TCR complex. It is evident that the electrostatic and van der Waals free-energy terms of the T-cell peptide epitopes are crucial for their stability. The hydrogen bond observed during our MD study is mainly responsible for favorable electrostatic energy contribution, which is dominating the positive solvation freeenergy term for the stable interaction of the epitopes at the immune cell receptors.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 430,
+                    "end": 437,
+                    "text": "Table 2",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": ""
+        },
+        {
+            "text": "Further, we calculated the free-energy contribution of residues located at the antigen binding domain of immune cell receptors (Figures S17 and S18) . The docking predicted residues and residues with higher hydrogen bond occupancy percentage was found to contribute lower energies which stabilize the immune complexes. In the case of chimeric Figure S17 ). In the case of T-cell epitopes, the hydrophilic or polar amino acids located at the peptide presenting groove have higher contribution to stabilize the peptide epitopes ( Figure S18 ) In order to design a recombinant plasmid, we back translated the protein sequences of the vaccines and optimized the codons 68 Figure S19 .",
+            "cite_spans": [
+                {
+                    "start": 665,
+                    "end": 667,
+                    "text": "68",
+                    "ref_id": "BIBREF66"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 127,
+                    "end": 148,
+                    "text": "(Figures S17 and S18)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 343,
+                    "end": 353,
+                    "text": "Figure S17",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 528,
+                    "end": 538,
+                    "text": "Figure S18",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 668,
+                    "end": 678,
+                    "text": "Figure S19",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": ""
+        },
+        {
+            "text": "To conclude, in the present article we tried to design a vaccine based on B-cell and T-cell epitopes present in spike glycoprotein of highly infective SARS-CoV-2. With the help of immunoinformatic studies, we identified the most promising epitopes which are found to be scattered on the RBD and shaft region of the spike protein. The epitopes located in the shaft region are highly conserved. The hotspot residues that are considered as key to the antigenicity are mostly found to be polar in nature, which contributes to stable electrostatic interaction with respective immune receptors. Docking calculations showed the major interaction between the immune\u2212receptor complexes were hydrogen bond and \u03c0\u2212\u03c0 stacking interactions which were found to contribute maximum in the stability, as evident from free-energy decomposition studies. The hydrogen bond evolved during MD simulation studies between the antigen and receptors was found to be the main contributor of the electrostatic energy. Vaccines designed from linear B-cell epitopes were found to exhibit a higher number of hydrogen bonds at the binding domain of the antibody compared with the conformational epitopes. All peptide epitopes corresponding to MHC-I and MHC-II showed remarkable stability because of the van der Waals and the electrostatic energy terms. The present article therefore provides deeper biophysical insights toward the stabilization of predicted vaccine candidates with immune cell receptors which will be helpful in further experimental design of potential vaccine against SARS-CoV-2. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": ""
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "CoV-2: An Emerging Coronavirus That Causes a Global Threat",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Sars-",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Int. J. Biol. Sci",
+            "volume": "2020",
+            "issn": "10",
+            "pages": "1678--1685",
+            "other_ids": {
+                "DOI": [
+                    "10.7150/ijbs.45053"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "The Novel Coronavirus, 2019-NCoV, Is Highly Contagious and More Infectious Than Initially Estimated. medRxiv",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sanche",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Lin",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Romero-Severson",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Hengartner",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Ke",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.02.07.20021154?ref=pdf"
+                ]
+            }
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Identification of 2019-NCoV related coronaviruses in Malayan pangolins in southern China preprint. bioRxiv",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Lam",
+                    "suffix": ""
+                },
+                {
+                    "first": ".-Y",
+                    "middle": [],
+                    "last": "Shum",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": ".-H",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "H.-C",
+                    "middle": [],
+                    "last": "Tong",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y.-G",
+                    "middle": [],
+                    "last": "Ni",
+                    "suffix": ""
+                },
+                {
+                    "first": "X.-B",
+                    "middle": [],
+                    "last": "Liao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y.-S",
+                    "middle": [],
+                    "last": "Wei",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Cheung",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": ".-M",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "W.-J",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "L.-F",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.02.13.945485?ref=pdf"
+                ]
+            }
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Recent Insights into Emerging Coronaviruses",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "De Wit",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Van Doremalen",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Falzarano",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Munster",
+                    "suffix": ""
+                },
+                {
+                    "first": "Mers",
+                    "middle": [],
+                    "last": "Sars",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "",
+            "volume": "14",
+            "issn": "",
+            "pages": "523--534",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/nrmicro.2016.81"
+                ]
+            }
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Origin and Evolution of Pathogenic Coronaviruses",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Cui",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z.-L",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Nat. Rev. Microbiol",
+            "volume": "2019",
+            "issn": "3",
+            "pages": "181--192",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41579-018-0118-9"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "An Overview of Their Replication and Pathogenesis",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Fehr",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Perlman",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Coronaviruses",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Coronaviruses: Methods and Protocols",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Cryo-EM Structure of the 2019-NCoV Spike in the Prefusion Conformation",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Wrapp",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Corbett",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Goldsmith",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.-L",
+                    "middle": [],
+                    "last": "Hsieh",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Abiona",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Graham",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Mclellan",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Science",
+            "volume": "2020",
+            "issn": "6483",
+            "pages": "1260--1263",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.abb2507"
+                ]
+            }
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "The Coronavirus Spike Protein Is a Class I Virus Fusion Protein: Structural and Functional Characterization of the Fusion Core Complex",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Bosch",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Van Der Zee",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "A M"
+                    ],
+                    "last": "De Haan",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Rottier",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "J. Virol",
+            "volume": "77",
+            "issn": "16",
+            "pages": "8801--8811",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/JVI.77.16.8801-8811.2003"
+                ]
+            }
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Structure, Function, and Evolution of Coronavirus Spike Proteins",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Annu. Rev. Virol",
+            "volume": "2016",
+            "issn": "1",
+            "pages": "237--261",
+            "other_ids": {
+                "DOI": [
+                    "10.1146/annurev-virology-110615-042301"
+                ]
+            }
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Structure, Function, and Antigenicity of the SARS-CoV-2 Spike Glycoprotein",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Walls",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y.-J",
+                    "middle": [],
+                    "last": "Park",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Tortorici",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Wall",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Mcguire",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Veesler",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Cell",
+            "volume": "2020",
+            "issn": "2",
+            "pages": "281--292",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2020.02.058"
+                ]
+            }
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Structural Basis for the Recognition of SARS-CoV-2 by Full-Length Human ACE2",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Yan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Xia",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Guo",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Science",
+            "volume": "2020",
+            "issn": "6485",
+            "pages": "1444--1448",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.abb2762"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Structural Basis of Receptor Recognition by SARS-CoV-2",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Shang",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Ye",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wan",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Luo",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Aihara",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Geng",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Auerbach",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Nature",
+            "volume": "2020",
+            "issn": "7807",
+            "pages": "221--224",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41586-020-2179-y"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "A Highly Conserved Cryptic Epitope in the Receptor Binding Domains of SARS-CoV-2 and SARS-CoV",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Yuan",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.-C",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "T Y"
+                    ],
+                    "last": "So",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Lv",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "K P"
+                    ],
+                    "last": "Mok",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Wilson",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Science",
+            "volume": "2020",
+            "issn": "6491",
+            "pages": "630--633",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.abb7269"
+                ]
+            }
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Cryo-Electron Microscopy Structures of the SARS-CoV Spike Glycoprotein Reveal a Prerequisite Conformational State for Receptor Binding",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Gui",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Xiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Cell Res",
+            "volume": "27",
+            "issn": "1",
+            "pages": "119--129",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/cr.2016.152"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Evaluation of Green Tea Polyphenols as Novel Corona Virus (SARS CoV-2) Main Protease (Mpro) Inhibitors \u2212 an in Silico Docking and Molecular Dynamics Simulation Study",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zeng",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Gu",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Zou",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Ghosh",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Chakraborty",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Biswas",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Chowdhuri",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J. Biomol. Struct. Dyn",
+            "volume": "2020",
+            "issn": "2",
+            "pages": "1--13",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/07391102.2020.1779818"
+                ]
+            }
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Identification of Polyphenols from Broussonetia Papyrifera as SARS CoV-2 Main Protease Inhibitors Using in Silico Docking and Molecular Dynamics Simulation Approaches",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Ghosh",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Chakraborty",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Biswas",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Chowdhuri",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J. Biomol. Struct. Dyn",
+            "volume": "2020",
+            "issn": "",
+            "pages": "1--14",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/07391102.2020.1802347"
+                ]
+            }
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Computational Investigation of Potential Inhibitors of Novel Coronavirus 2019 through Structure-Based Virtual Screening, Molecular Dynamics and Density Functional Theory Studies",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Mishra",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ranjan",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Sharma",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Singh",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kalra",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Kumar",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J. Biomol. Struct. Dyn",
+            "volume": "2020",
+            "issn": "0",
+            "pages": "1--13",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/07391102.2020.1791957"
+                ]
+            }
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Alkamides and Piperamides as Potential Antivirals against the Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2)",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Torres",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Lo\u1e55ez",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Va\u017aquez-Mart\u00ednez",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J. Phys. Chem. Lett",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.jpclett.0c01685"
+                ]
+            }
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Peptide Vaccine against Chikungunya Virus: Immuno-Informatics Combined with Molecular Docking Approach",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Tahir Ul Qamar",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Bari",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Adeel",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Maryam",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Ashfaq",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Du",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Muneer",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Ahmad",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "W.-H",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Strych",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Hotez",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Bottazzi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Curr. Trop Med",
+            "volume": "16",
+            "issn": "21",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s40475-020-00201-6"
+                ]
+            }
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "From SARS to MERS, Thrusting Coronaviruses into the Spotlight",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Bao",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Qu",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Han",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Qin",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Viruses",
+            "volume": "2019",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/v11010059"
+                ]
+            }
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Recent Advances in the Vaccine Development Against Middle East Respiratory Syndrome-Coronavirus. Front. Microbiol. 2019, 10, 1781. (24) Schindewolf, C.; Menachery, V. D. Middle East Respiratory Syndrome Vaccine Candidates: Cautious Optimism",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Yong",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Ong",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Yeap",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Ho",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Tan",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Viruses",
+            "volume": "2019",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/v11010074"
+                ]
+            }
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Immune Responses in COVID-19 and Potential Vaccines: Lessons Learned from SARS and MERS Epidemic. Asian Pac",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Prompetchara",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Ketloy",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Palaga",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J. Allergy Immunol",
+            "volume": "2020",
+            "issn": "1",
+            "pages": "1--9",
+            "other_ids": {
+                "DOI": [
+                    "10.12932/AP-200220-0772"
+                ]
+            }
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "T-Cell Immunity of SARS-CoV: Implications for Vaccine Development against MERS-CoV",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Wong",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Tan",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Gao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Antiviral Res",
+            "volume": "137",
+            "issn": "",
+            "pages": "82--92",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.antiviral.2016.11.006"
+                ]
+            }
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Epitope-Based Vaccine Target Screening against Highly Pathogenic MERS-CoV: An In Silico Approach Applied to Emerging Infectious Diseases",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Teng",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "PLoS One",
+            "volume": "10",
+            "issn": "12",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/journal.pone.0144475"
+                ]
+            }
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Use of Peptide Synthesis to Probe Viral Antigens for Epitopes to a Resolution of a Single Amino Acid",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Geysen",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Meloen",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Barteling",
+                    "suffix": ""
+                }
+            ],
+            "year": 1984,
+            "venue": "Proc. Natl. Acad. Sci. U. S. A",
+            "volume": "81",
+            "issn": "13",
+            "pages": "3998--4002",
+            "other_ids": {
+                "DOI": [
+                    "10.1073/pnas.81.13.3998"
+                ]
+            }
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Identification, Characterization, and Synthesis of Peptide Epitopes and a Recombinant Six-Epitope Protein for Trichomonas Vaginalis Serodiagnosis",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Alderete",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Neace",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.2147/ITT.S46694"
+                ]
+            }
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "In Silico Design of a T-Cell Epitope Vaccine Candidate for Parasitic Helminth Infection",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Zawawi",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Forman",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Smith",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Mair",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Jibril",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Albaqshi",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Brass",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Derrick",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Else",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "PLoS Pathog",
+            "volume": "2020",
+            "issn": "3",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/journal.ppat.1008243"
+                ]
+            }
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Recent Progress in Adjuvant Discovery for Peptide-Based Subunit Vaccines. Hum. Vaccines Immunother",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Azmi",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "A H"
+                    ],
+                    "last": "Ahmad Fuaad",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Skwarczynski",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Toth",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "",
+            "volume": "10",
+            "issn": "",
+            "pages": "778--796",
+            "other_ids": {
+                "DOI": [
+                    "10.4161/hv.27332"
+                ]
+            }
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Epitope-Based Peptide Vaccines Predicted against Novel Coronavirus Disease Caused by SARS-CoV-2",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Lin",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ting",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Yufei",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Wendong",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Yubo",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Jing",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Virus Res",
+            "volume": "288",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.virusres.2020.198082"
+                ]
+            }
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Immunoinformatics Study to Search Epitopes of Spike Glycoprotein from SARS-CoV-2 as Potential Vaccine",
+            "authors": [],
+            "year": null,
+            "venue": "J. Biomol. Struct. Dyn",
+            "volume": "2020",
+            "issn": "",
+            "pages": "1--15",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/07391102.2020.1780944"
+                ]
+            }
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "A Candidate Multi-Epitope Vaccine against SARS-CoV-2",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Kar",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Narsaria",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Basak",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Deb",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Castiglione",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Mueller",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Srivastava",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nelapati",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Das",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Ponnan Ettiyappan",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Chakraborty",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Silico Epitope Identification and Design of Uricase Mutein with Reduced Immunogenicity",
+            "volume": "2020",
+            "issn": "",
+            "pages": "288--302",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.procbio.2020.01.022"
+                ]
+            }
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "GROMACS: Fast, Flexible, and Free",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Van Der Spoel",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Lindahl",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Hess",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Groenhof",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Mark",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Berendsen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "J. Comput. Chem",
+            "volume": "26",
+            "issn": "16",
+            "pages": "1701--1718",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/jcc.20291"
+                ]
+            }
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "High Performance Molecular Simulations through Multi-Level Parallelism from Laptops to Supercomputers",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Abraham",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Murtola",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Schulz",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Pa\u013al",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Smith",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Hess",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Lindahl",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Gromacs",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.softx.2015.06.001"
+                ]
+            }
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "GROMACS: A Message-Passing Parallel Molecular Dynamics Implementation",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [
+                        "J C"
+                    ],
+                    "last": "Berendsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Van Der Spoel",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Van Drunen",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "Comput. Phys. Commun",
+            "volume": "91",
+            "issn": "1",
+            "pages": "43--56",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/0010-4655(95)00042-E"
+                ]
+            }
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Definition and Testing of the GROMOS Force-Field Versions 54A7 and 54B7",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Schmid",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Eichenberger",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Choutko",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Riniker",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Winger",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Mark",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Van Gunsteren",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Eur. Biophys. J",
+            "volume": "40",
+            "issn": "7",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s00249-011-0700-9"
+                ]
+            }
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Effects of All-Atom Molecular Mechanics Force Fields on Amyloid Peptide Assembly: The Case of A\u03b216\u221222 Dimer",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Man",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "He",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Derreumaux",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Ji",
+                    "suffix": ""
+                },
+                {
+                    "first": "X.-Q",
+                    "middle": [],
+                    "last": "Xie",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Nguyen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "J. Chem. Theory Comput",
+            "volume": "15",
+            "issn": "2",
+            "pages": "1440--1452",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.jctc.8b01107"
+                ]
+            }
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Replica Exchange Molecular Dynamics Study of Dimerization in Prion Protein: Multiple Modes of Interaction and Stabilization",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Chamachi",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Chakrabarty",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "J. Phys. Chem. B",
+            "volume": "",
+            "issn": "30",
+            "pages": "7332--7345",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.jpcb.6b03690"
+                ]
+            }
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Are Current Molecular Dynamics Force Fields Too Helical?",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Best",
+                    "suffix": ""
+                },
+                {
+                    "first": "N.-V",
+                    "middle": [],
+                    "last": "Buchete",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Hummer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Biophys. J",
+            "volume": "95",
+            "issn": "1",
+            "pages": "7--09",
+            "other_ids": {
+                "DOI": [
+                    "10.1529/biophysj.108.132696"
+                ]
+            }
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Structure and Dynamics of the TIP3P, SPC, and SPC/E Water Models at 298 K",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Mark",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Nilsson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "J. Phys. Chem. A",
+            "volume": "",
+            "issn": "43",
+            "pages": "9954--9960",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/jp003020w"
+                ]
+            }
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Steepest-Descent Determination of Occupation Numbers and Energy Minimization in the Local-Density Approximation",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Averill",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Painter",
+                    "suffix": ""
+                }
+            ],
+            "year": 1992,
+            "venue": "Phys. Rev. B: Condens. Matter Mater. Phys",
+            "volume": "46",
+            "issn": "4",
+            "pages": "2498--2502",
+            "other_ids": {
+                "DOI": [
+                    "10.1103/PhysRevB.46.2498"
+                ]
+            }
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "Steepest Descent",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Meza",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "WIREs Computational Statistics",
+            "volume": "2010",
+            "issn": "6",
+            "pages": "719--722",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/wics.117"
+                ]
+            }
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "LINCS: A Linear Constraint Solver for Molecular Simulations",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Hess",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Bekker",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "J C"
+                    ],
+                    "last": "Berendsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "G E"
+                    ],
+                    "last": "Fraaije",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "J. Comput. Chem",
+            "volume": "18",
+            "issn": "12",
+            "pages": "1463--1472",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/(SICI)1096-987X(199709)18:12<1463::AID-JCC4>3.0.CO;2-H"
+                ]
+            }
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Polymorphic Transitions in Single Crystals: A New Molecular Dynamics Method",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Bussi",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Donadio",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Parrinello",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Parrinello",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Rahman",
+                    "suffix": ""
+                }
+            ],
+            "year": 1981,
+            "venue": "J. Chem. Phys",
+            "volume": "126",
+            "issn": "1",
+            "pages": "7182--7190",
+            "other_ids": {
+                "DOI": [
+                    "10.1063/1.328693"
+                ]
+            }
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "A Smooth Particle Mesh Ewald Method",
+            "authors": [
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Essmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Perera",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Berkowitz",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Darden",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Pedersen",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "J. Chem. Phys",
+            "volume": "",
+            "issn": "19",
+            "pages": "8577--8593",
+            "other_ids": {
+                "DOI": [
+                    "10.1063/1.470117"
+                ]
+            }
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Particle Mesh Ewald: An N\u00b7 log(N) Method for Ewald Sums in Large Systems",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Darden",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "York",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Pedersen",
+                    "suffix": ""
+                }
+            ],
+            "year": 1993,
+            "venue": "J. Chem. Phys",
+            "volume": "",
+            "issn": "12",
+            "pages": "10089--10092",
+            "other_ids": {
+                "DOI": [
+                    "10.1063/1.464397"
+                ]
+            }
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "The Humoral Immune Response. Immunobiology: The Immune System in Health and Disease",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Charles A Janeway",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Travers",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Walport",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Shlomchik",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "Induction of Hepatitis A Virus-Neutralizing Antibody by a Virus-Specific Synthetic Peptide",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Emini",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Hughes",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Perlow",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Boger",
+                    "suffix": ""
+                }
+            ],
+            "year": 1985,
+            "venue": "J. Virol",
+            "volume": "55",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/JVI.55.3.836-839.1985"
+                ]
+            }
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "New Hydrophilicity Scale Derived from High-Performance Liquid Chromatography Peptide Retention Data: Correlation of Predicted Surface Residues with Antigenicity and x-Ray-Derived Accessible Sites",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "M R"
+                    ],
+                    "last": "Parker",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Guo",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Hodges",
+                    "suffix": ""
+                }
+            ],
+            "year": 1986,
+            "venue": "Biochemistry",
+            "volume": "25",
+            "issn": "19",
+            "pages": "5425--5432",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/bi00367a013"
+                ]
+            }
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "Prediction of Chain Flexibility in Proteins",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Karplus",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Schulz",
+                    "suffix": ""
+                }
+            ],
+            "year": 1985,
+            "venue": "Naturwissenschaften",
+            "volume": "72",
+            "issn": "4",
+            "pages": "212--213",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/BF01195768"
+                ]
+            }
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "A Semi-Empirical Method for Prediction of Antigenic Determinants on Protein Antigens",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Kolaskar",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Tongaonkar",
+                    "suffix": ""
+                }
+            ],
+            "year": 1990,
+            "venue": "FEBS Lett",
+            "volume": "",
+            "issn": "1\u22122",
+            "pages": "172--174",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/0014-5793(90)80535-Q"
+                ]
+            }
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "Secondary Structural Prediction of Proteins from Their Amino Acid Sequence",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Chou",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Fasman",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Trends Biochem. Sci",
+            "volume": "1977",
+            "issn": "6",
+            "pages": "128--131",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/0968-0004(77)90440-6"
+                ]
+            }
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "The Immune Epitope Database and Analysis Resource: From Vision to Blueprint",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Peters",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Sidney",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Bourne",
+                    "suffix": ""
+                },
+                {
+                    "first": "H.-H",
+                    "middle": [],
+                    "last": "Bui",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Buus",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Doh",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Fleri",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kronenberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kubo",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Lund",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "PLoS Biol",
+            "volume": "3",
+            "issn": "3",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/journal.pbio.0030091"
+                ]
+            }
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "SWISS-MODEL: Homology Modelling of Protein Structures and Complexes",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Waterhouse",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Bertoni",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bienert",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Studer",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Tauriello",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Gumienny",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Heer",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "A P"
+                    ],
+                    "last": "De Beer",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Rempfer",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Bordoli",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Nucleic Acids Res",
+            "volume": "46",
+            "issn": "W1",
+            "pages": "296--303",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/nar/gky427"
+                ]
+            }
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "Prediction of Residues in Discontinuous B-Cell Epitopes Using Protein 3D Structures",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Haste Andersen",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Nielsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Lund",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Protein Sci",
+            "volume": "15",
+            "issn": "11",
+            "pages": "2558--2567",
+            "other_ids": {
+                "DOI": [
+                    "10.1110/ps.062405906"
+                ]
+            }
+        },
+        "BIBREF57": {
+            "ref_id": "b57",
+            "title": "Reliable B Cell Epitope Predictions: Impacts of Method Development and Improved Benchmarking",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Kringelum",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Lundegaard",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Lund",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Nielsen",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "PLoS Comput. Biol",
+            "volume": "2012",
+            "issn": "12",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/journal.pcbi.1002829"
+                ]
+            }
+        },
+        "BIBREF59": {
+            "ref_id": "b59",
+            "title": "Quantum Chemical Analysis of MHC-Peptide Interactions for Vaccine Design",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Agudelo",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Patarroyo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Mini-Rev. Med. Chem",
+            "volume": "",
+            "issn": "8",
+            "pages": "746--758",
+            "other_ids": {
+                "DOI": [
+                    "10.2174/138955710791572488"
+                ]
+            }
+        },
+        "BIBREF60": {
+            "ref_id": "b60",
+            "title": "AllerTOP v.2\ue0d5a Server for in Silico Prediction of Allergens",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Dimitrov",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Bangov",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Flower",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Doytchinova",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "J. Mol. Model",
+            "volume": "20",
+            "issn": "6",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s00894-014-2278-5"
+                ]
+            }
+        },
+        "BIBREF61": {
+            "ref_id": "b61",
+            "title": "Deciphering the Inhibition Mechanism of under Trial Hsp90 Inhibitors and Their Analogues: A Comparative Molecular Dynamics Simulation",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Nazar",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Abbas",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Azam",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J. Chem. Inf. Model",
+            "volume": "2020",
+            "issn": "8",
+            "pages": "3812--3830",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.jcim.9b01134"
+                ]
+            }
+        },
+        "BIBREF62": {
+            "ref_id": "b62",
+            "title": "Assessing the Stability of",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Lemkul",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Bevan",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/jp9110794"
+                ]
+            }
+        },
+        "BIBREF63": {
+            "ref_id": "b63",
+            "title": "Alzheimer's Amyloid Protofibrils Using Molecular Dynamics",
+            "authors": [],
+            "year": null,
+            "venue": "J. Phys. Chem. B",
+            "volume": "2010",
+            "issn": "4",
+            "pages": "1652--1660",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/jp9110794"
+                ]
+            }
+        },
+        "BIBREF64": {
+            "ref_id": "b64",
+            "title": "Computer Simulation of Protein\u2212Protein Interactions",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Elcock",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Sept",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Mccammon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "J. Phys. Chem. B",
+            "volume": "",
+            "issn": "8",
+            "pages": "1504--1518",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/jp003602d"
+                ]
+            }
+        },
+        "BIBREF65": {
+            "ref_id": "b65",
+            "title": "G_mmpbsa\ue0d5A GROMACS Tool for High-Throughput MM-PBSA Calculations",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kumari",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kumar",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Lynn",
+                    "suffix": ""
+                }
+            ],
+            "year": 1951,
+            "venue": "J. Chem. Inf. Model",
+            "volume": "54",
+            "issn": "7",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/ci500020m"
+                ]
+            }
+        },
+        "BIBREF66": {
+            "ref_id": "b66",
+            "title": "A Novel Tool to Adapt Codon Usage of a Target Gene to Its Potential Expression Host",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Grote",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Hiller",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Scheer",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Munch",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Nortemann",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Hempel",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Jahn",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "Nucleic Acids Res",
+            "volume": "33",
+            "issn": "",
+            "pages": "526--531",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/nar/gki376"
+                ]
+            }
+        },
+        "BIBREF67": {
+            "ref_id": "b67",
+            "title": "The Codon Adaptation Index-a Measure of Directional Synonymous Codon Usage Bias, and Its Potential Applications",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Sharp",
+                    "suffix": ""
+                },
+                {
+                    "first": "W.-H",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                }
+            ],
+            "year": 1987,
+            "venue": "Nucleic Acids Res",
+            "volume": "15",
+            "issn": "3",
+            "pages": "1281--1295",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/nar/15.3.1281"
+                ]
+            }
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "(A) The structure of spike glycoprotein in trimeric form. (B) The location of the linear B-cell epitope on the chain B of spike glycoprotein. The yellow, red, pink, green, orange, and firebrick colored regions are predicted by Emini surface accessibility, Parker hydrophilicity, Karplus and Schulz flexibility, Kolaskar and Tongaonkar antigenicity and Chou\u2212Fasman method, respectively. (C) The location of the conformational B-cell epitopes on the chain B of spike glycoprotein in their open state and closed state. The residues of conformational B-cell epitope are indicating in yellow color. (D) The R1, R2, and R3 are indicating the three different conformational epitope regions in the single chain of spike protein. The location of Tcell peptide epitopes corresponds to (E) MHC-I and (F) MHC-II. The brown, pink, olive, green, red, and orange color corresponds to the peptide associated with A*02:01, A*24:02, B*40:01, B*58:01, DRB1*04:01 and DRB1*07:01 respectively. resource (IEDB) tool 57 and are documented in",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Tertiary structure of chimeric vaccines made of (A) B-cell linear epitopes (B) T-cell linear epitopes. The amino acid sequence of the corresponding vaccines is shown below. The adjuvant is shown in red; the adjuvant linker is shown in green, and the epitope linkers are indicated in blue.The docking predicted interaction of the vaccine\u2212receptor complex in motion were assessed by all atom MD-simulation studies.64\u221266  In order to check the reproducibility of our MD results, we carried out another set of simulation and provided",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Nonbonded interaction of the vaccines and conformational epitopes with the immune receptor. (A) The residues of the linear vaccine involved in the formation of hydrogen bond with 7BZ5. The vaccine is shown in blue color. The interaction of (B) R1 (red), (C) R2 (green), and (D) R3 (brown) with the variable region of 7BZ5. The T-cell epitope peptide presented at the peptide presenting groove of (E) HLA-A*02:01, (F) HLA-A*24:01, (G) HLA-B*40:01, (H) HLA-B*58:01, (I) DRB1*04:01, (J) DRB1*07:01. The interacting residues of the receptor are shown in violet color, whereas the residues of the vaccine or the discontinuous epitope are marked in pink color. S21) and Supporting Information 3 (Table S21). The time evolution of the RMSD, RMSF, radius of gyration (rGyr) of B-cell linear vaccine and epitopes located at R1 R2, R3 region are illustrated in Figure 4. The RMSD of the linear vaccine (Vac-COVID-B) was found to increased approximately 0.7 nm up to initial 8 ns and remain stabilize until 40 ns. The RMSD fluctuation and rGyr profile of Vac-COVID-B near 60\u221290 ns fluctuation indicate minor secondary structure modification of Vac-COVID-B during the course of simulation (",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "(A) The RMSD profile of the chimeric vaccine (Vac-COVID-B) (B) The gyration radius (rGyr) profile of Vac-COVID-B throughout the simulation. (C) The time evolution of RMSD of epitopes located at R1, R2 and R3. (D) The gyration radius (rGyr) of the conformational epitope located at R1, R2, R3. (E) The average number of hydrogen bond between the antibody and vaccine molecules.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "RMSD profile of the T-cell epitopic peptides corresponding to (A) A*-02:01, A*-24:02, B*-40:01 and B*-58:01. (B) DRB1*04:01, DRB1*07:01. The RMSF profile of (C) MHC-I and (D) MHC-II based peptide epitopes. (E) The average number of hydrogen bond formed between the peptide epitope and MHC molecules during the simulation. the constant solvent exposure at the peptide presenting groove (Figure S12). The peptide associated with HLA-B*40:01 and DRB1*04:01 is found to have less fluctuation in MHC-I and MHC-II based epitopes, respectively. MHC-I based peptides mostly fluctuate at their N-terminal end whereas; MHC-II based peptides have higher fluctuation at the C-terminal end (",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "in the E. coli system for successful expression of linear B-cell (Vac-COVID-B) and T-cell (Vac-COVID-T) vaccines proposed in our immunoinformatic study. The size of c-DNA sequences of the vaccines made from linear B-cell, Tcell epitopes are 399 base pair (bp) and 333 bp long, respectively. The codon adaptation index (CAI) value for both the vaccines were computed to be 1.0 and the percentage of GC content for Vac-COVID-B, Vac-COVID-T are 60.65%, 56.75% respectively which are in the permissible range 69 and hence confirmed their proficient expression in the E-coli K-12 strain. Finally, the c-DNA sequences of the vaccines were inserted computationally at the multiple cloning site (MCS) of the pUC-19 plasmid vector. The restriction map of the recombinant vector is shown in",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "Information is available free of charge at https://pubs.acs.org/doi/10.1021/acs.jpclett.0c02846. Supporting Information 1: The detailed methodology of the epitope selection, Molecular docking, and MD simulation (PDF) Supporting Information 2: (A) The tables containing immunogenicity score of the SARS-CoVid2 S-protein resides for B and T-cell epitope identification; (from different corona virus species; (C) The graph for immunogenicity profile of S-protein; (D) The residue wise score for conformational B-cell epitopes; (E) The Z-score and Ramachandran plot for designed vaccines; (F) The structural illustration of immune receptor; (G) The RMSF profile of the B-cell chimeric vaccine and conformational epitopes; (H) The distance between the peptide epitope surface and the platform of peptide presenting groove of MHC-molecules; and (I) The restriction map of recombinant plasmid (PDF)",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF1": {
+            "text": "Highly Immunogenic Linear B-Cell and T-Cell Epitope from the Spike Glycoprotein of SARS-CoVid2The Journal of Physical Chemistry Letterspubs.acs.org/JPCL Letter cell epitopes are located at the stalk or shaft region of the Sprotein except 412 PGQTGKI 418 and 1057 PHGVVFLHVTYV-PA 1070 . Similarly, in the case of T-cell epitopes, highly conserved 116 SLLIVNNATNVVIK 129 , 781 VFAQVKQIY 785 epitopes are located at the shaft of the S-protein. The rest of the epitopes are less conserved and mostly located at the RBD region of S-protein. This indicates that amino-acid composition of RDB of SARS-CoV-2 S-protein is different from other coronavirus species. Further, we have designed two separate vaccines from the epitopes predicted in",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Binding Affinities (kJ/mol) of the Vaccines toward the Immune Cell Receptors by MM/PBSA Method a The \u0394G elec , \u0394G vdw , \u0394G sol , \u0394G SASA and are indicating the electrostatic, van der Waals, polar solvation, solvent accessible surface energies respectively. The Journal of Physical Chemistry Letters pubs.acs.org/JPCL Letter vaccine (Vac-COVID-B), Ile 51 of V H and Pro 51 of V L has maximum free-energy contribution. The amino acid residues with benzene ring (Phe 27, Tyr 32, Tyr 33, Tyr 58, Tyr 94, Tyr 100) have higher energy contribution because of stacking interactions (",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "The authors declare no competing financial interest.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Notes"
+        },
+        {
+            "text": "Funding from DST, SERB (CRG/2019/000578) is highly acknowledged. BKD acknowledges NIT K for SRF. The authors would like to thank Mr. Omkar Singh for his timely help and contribution in manuscript preparation. We would also like to thank Department of Chemistry, NITK Surathkal for their constant support.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "\u25a0 ACKNOWLEDGMENTS"
+        }
+    ]
+}

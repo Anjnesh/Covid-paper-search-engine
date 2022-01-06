@@ -1,0 +1,2252 @@
+{
+    "paper_id": "0a5e7650d8ff6d24c2ee42d666a3c46aeef596ae",
+    "metadata": {
+        "title": "Distribution equality as an optimal epidemic mitigation strategy",
+        "authors": [
+            {
+                "first": "Adar",
+                "middle": [],
+                "last": "Hacohen",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Reuven",
+                "middle": [],
+                "last": "Cohen",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Sol",
+                "middle": [],
+                "last": "Efroni",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Bar-Ilan University",
+                    "location": {
+                        "settlement": "Ramat-Gan",
+                        "country": "Israel"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Ido",
+                "middle": [],
+                "last": "Bachelet",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Baruch",
+                "middle": [],
+                "last": "Barzel",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Bar-Ilan University",
+                    "location": {
+                        "settlement": "Ramat-Gan",
+                        "country": "Israel"
+                    }
+                },
+                "email": "baruchbarzel@gmail.com"
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Upon the development of a drug or vaccine, a successful response to a global pandemic, such as COVID-19, requires the capacity for efficient distribution at a global scale. Considering constraints on production and shipping, most existing strategies seek to maximize the outflow of therapeutics, hence optimizing for rapid dissemination. Surprisingly, we find that this intuitive approach is counterproductive. The reason is that focusing strictly on the quantity of disseminated therapeutics, such strategies disregard their specific spreading patterns, most crucially -they overlook the interplay of these spreading patterns with those of the pathogens. This results in a discrepancy between supply and demand, that prohibits efficient mitigation even under optimal conditions of superfluous drug/vaccine flow. Therefore, here, we design a dissemination strategy that naturally follows the predicted spreading patterns of the epidemic, optimizing not just for supply volume, but also for its congruency with the anticipated demand. Specifically, we show that epidemics spread relatively uniformly across all destinations, and hence we introduce an equality constraint into our dissemination that prioritizes supply homogeneity. This strategy may, at times, slow down the supply rate in certain locations, however, thanks to its egalitarian nature, which mimics the flow of the viral spread, it provides a dramatic leap in overall mitigation efficiency, saving more lives with orders of magnitude less resources.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "As international mobility continues to grow, so does the threat of global pandemics 1-6 as clearly demonstrated in the worldwide inpact of COVID-19 7-12 . Originating in a random outbreak, the pathogens spread internationally though air-travel, then locally, at each destination via contagion dynamics 13,14 . When such scenario transpires, the challenge is to (i) develop ad hoc a drug or vaccine; then (ii) design an efficient strategy for its dissemination. The point is that even if a therapeutic is avalibale, eliminating challenge (i), we must still ship it to multiple destinations worldwidepotentially stretching our transportation resources to their maximal capacity. Hence, to outrun the epidemic, we crucially need optimal dissemination schemes, that achieve the most efficient mitigation, given the constraints imposed by our production/shipping limitations 15-19 .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "The common approach to this challenge treats the dissemination as a commodity flow problem 20-23 . The therapeutics (commodity) are shipped from one or few sources, propagating along transportation routes -each with a given shipping capacity -aiming to fill the demand of all network nodes. In this framework one seeks the shipping sequence that optimally utilizes the networknamely, allows for the maximal volume of commodity to flow through the network per unit time 24,25 (Fig. 1a) . This well-established approach, however, overlooks the interplay between the supply, i.e. the therapeutics, and the demand, here generated by the spreading pathogens. Indeed, our true goal is not just to generate the maximal outflow of commodities, but rather to obtain the optimal mitigation of the disease. This does not depend only on the volume of commodity flow, but also on the manner in which this volume is distributed across all potential destinations, i.e. its spreading pattern 26, 27 . Consequently, the most efficient shipping sequence might be one that compromises maximal flow, but generates the optimal spreading patterns, compatible with those of the pathogens 13,28-32 .",
+            "cite_spans": [
+                {
+                    "start": 976,
+                    "end": 979,
+                    "text": "26,",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 980,
+                    "end": 982,
+                    "text": "27",
+                    "ref_id": "BIBREF26"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 475,
+                    "end": 484,
+                    "text": "(Fig. 1a)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "With this in mind, we take here a network dynamics approach, and analyse the spatiotemporal propagation patterns of both the commodities and the pathogens (Fig. 1b) . We find that while the disease impacts the majority of nodes uniformly, maximum commodity flow optimization naturally yields a highly uneven spread, conflicting a concurrent and homogeneous global demand with an extremely heterogeneous supply pattern. As a result, not only does maximum flow not guarantee optimal mitigation, it is, in fact, counterproductive, indeed, generating a desirable volume of available therapeutics, but at the same time a highly undesirable spreading pattern. We, therefore, introduce an equality criterion to the optimization, that prioritizes dissemination sequences with homogeneous spreading patterns (Fig. 1c) . This ensures that the therapeutic flow is not just rapid, but also properly disseminated, generating supply patterns that are compatible with demand. The resulting dissemination, we find, is orders of magnitude more efficient, achieving higher mitigation levels even under extremely prohibitive shipping constraints.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 155,
+                    "end": 164,
+                    "text": "(Fig. 1b)",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 799,
+                    "end": 808,
+                    "text": "(Fig. 1c)",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": ""
+        },
+        {
+            "text": "To examine our response to a global epidemic, we consider different epidemiological scenarios, from mildly contagious to extremely virulent, in which a disease spreads globally via air-travel, under the susceptible-infected-recovered (SIR) epidemic model 13, 14, 33 (Box I). We used empirical data on human aviation to evaluate the flux of passengers between = 1,292 local populations (nodes), each with individuals ( = 1, \u2026 , ), and quantified the impact of the epidemic through its global coverage",
+            "cite_spans": [
+                {
+                    "start": 255,
+                    "end": 258,
+                    "text": "13,",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 259,
+                    "end": 262,
+                    "text": "14,",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 263,
+                    "end": 265,
+                    "text": "33",
+                    "ref_id": "BIBREF32"
+                }
+            ],
+            "ref_spans": [],
+            "section": "MITIGATION VIA MAXIMUM-FLOW"
+        },
+        {
+            "text": "where ( ) is the fraction of recovered individuals in and \u03a9 = \u2211 =1 represents the global population. Hence, ( ) in (1) captures the fraction of impacted individuals worldwide. In Fig. 2a we show the unmitigated ( ) under three different scenarios: extremely contagious, where ( \u2192 \u221e) \u2192 1 (dark red), medium ( ( \u2192 \u221e) \u2248 0.5, red) and mild ( ( \u2192 \u221e) \u2248 0.3, light red).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 179,
+                    "end": 186,
+                    "text": "Fig. 2a",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "MITIGATION VIA MAXIMUM-FLOW"
+        },
+        {
+            "text": "Following the initial outbreak at = 0, we define the response time R as the time required to begin the distribution of a therapy. This therapy can be in the form of a vaccine, designed to prevent the infection of susceptible individuals, or a drug, facilitating the recovery of infected individuals. As we consider a scenario in which the disease is rapidly spreading, and hence many individuals may already be infected, we focus below on the dissemination of drugs, which remain relevant at all stages of the spread 34, 35 .",
+            "cite_spans": [
+                {
+                    "start": 517,
+                    "end": 520,
+                    "text": "34,",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 521,
+                    "end": 523,
+                    "text": "35",
+                    "ref_id": "BIBREF34"
+                }
+            ],
+            "ref_spans": [],
+            "section": "MITIGATION VIA MAXIMUM-FLOW"
+        },
+        {
+            "text": "Examining the efficiency of dissemination, rather than production, we assume that the therapeutic is already stockpiled in sufficient quantities at a specific source node . Therefore, the main challenge is to optimally distribute it via the air-transportation network to all destinations. The network is characterized by the carrying capacities that quantify the daily volume of drugs that can be shipped through each air-route \u2192 , i.e. = \u2190 . The challenge is, therefore, to obtain the optimal shipping sequence from to all other nodes, under the constraints imposed by .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "MITIGATION VIA MAXIMUM-FLOW"
+        },
+        {
+            "text": "Max-flow mitigation (Fig. 2a-c) . In the maximum flow dissemination strategy we seek to maximize the daily volume of drug doses spreading from to the rest of the network. Denoting the number of doses shipped from to on day by ( ), our optimization translates to",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 20,
+                    "end": 31,
+                    "text": "(Fig. 2a-c)",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "MITIGATION VIA MAXIMUM-FLOW"
+        },
+        {
+            "text": "where . CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. (which was not certified by peer review) preprint The copyright holder for this this version posted September 18, 2020. . https://doi.org/10.1101/2020.09.15.20194506 doi: medRxiv preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "MITIGATION VIA MAXIMUM-FLOW"
+        },
+        {
+            "text": "captures the net daily outflow of drugs from . Hence, in Eq. (2), by maximizing \u2192 ( ), i.e. the outflow from the source, we seek to enhance the total volume of drugs introduced into the network in each day. This maximization is subject to two constraints:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "MITIGATION VIA MAXIMUM-FLOW"
+        },
+        {
+            "text": "The first constraint (4) ensures that the daily flux along each route \u2192 is within the bounds of the route carrying capacity . The second constraint (5) restricts nodes from accumulating doses in excess of their remaining demand at time . Hence 's net incoming flux \u2190 ( ) is bounded by 's current demand, ( ); note that \u2190 ( ) = \u2212 \u2192 ( ).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "MITIGATION VIA MAXIMUM-FLOW"
+        },
+        {
+            "text": "We consider three strategies for setting the demands: (i) Population based. At = 0 we set (0) to be proportional to each node's population , then update these demands daily according to 's supply, as ( + 1) = ( ) \u2212 \u2190 ( ) \u2022 (ii) Impact based. Setting (0) according to the projected number of infected individuals at \u2022 (iii) Urgency based. Updating ( + 1) dynamically based on 's supply gap at , such that highly impacted (or undersupplied) nodes are prioritized. While (i) is simplest, it is also inefficient, tending to over-estimate the actual demand at ; (iii), on the other hand, is highly complex, relying on real-time tracking and updating of the demands, but, in some cases, benefits, by design, from a high level of congruency with the spread of the pathogens. An expanded discussion of these three strategies appears in Supplementary Section 2.4.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "MITIGATION VIA MAXIMUM-FLOW"
+        },
+        {
+            "text": "Network capacity. Applying (2) -(5), the maximal dissemination rate one can achieve is restricted by the out-degree of the source node, = \u2211 =1",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "MITIGATION VIA MAXIMUM-FLOW"
+        },
+        {
+            "text": ", representing an upper-bound on the volume of drugs that can be introduced into the network per day. We, therefore, define the network's normalized capacity with respect to each source as In Fig. 2b ,c we present the evolution of the epidemic at four selected time-points. At = 0 we simulate an outbreak (red) at Burundi (BJM), emulating the 2013 Ebola, which originated in Africa 36, 37 , then track its spread through air-travel, setting \u211b 0 = 2. The node infection levels and the epidemic fluxes, i.e. the daily volume of infected passengers on each route, are represented by red color depth. Drug dissemination via max-flow optimization (blue) begins at R = 57 days in Osaka (ITM), using blue color depth to signify the availability/flux of drugs in each node/route. We set the network capacity in Eq. (6) to = 10 \u22122 , a dissemination capability of 1% of the global demand per day, and assign demands ( ) using the impact based strategy. We find, through the long-term prevalence of infections (Fig. 2c, red) , that under these conditions, mitigation falls short. Indeed, in Fig. 2e -g we observe that the coverage ( ) in (1) is only slightly affected by our max-flow mitigation (red vs. yellow), illustrating the failure to effectively suppress the epidemic.",
+            "cite_spans": [
+                {
+                    "start": 382,
+                    "end": 385,
+                    "text": "36,",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 386,
+                    "end": 388,
+                    "text": "37",
+                    "ref_id": "BIBREF36"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 192,
+                    "end": 199,
+                    "text": "Fig. 2b",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 999,
+                    "end": 1013,
+                    "text": "(Fig. 2c, red)",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 1080,
+                    "end": 1087,
+                    "text": "Fig. 2e",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "MITIGATION VIA MAXIMUM-FLOW"
+        },
+        {
+            "text": ". CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. (which was not certified by peer review) preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "MITIGATION VIA MAXIMUM-FLOW"
+        },
+        {
+            "text": "The copyright holder for this this version posted September 18, 2020. For a more systematic assessment of our dissemination strategy, we track the mitigation efficiency via 15",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "MITIGATION VIA MAXIMUM-FLOW"
+        },
+        {
+            "text": "where \u221e ( ) is the long term coverage, i.e. ( \u2192 \u221e), of the epidemic under mitigation with network capacity = . In case mitigation is effective we expect \u221e ( ) \u226a \u221e (0), a significant reduction in the disease coverage, which translates to \u2192 1. Conversely, a failed mitigation leaves infection levels almost unchanged, leading in (7) to \u2192 0. Testing vs. under maximum flow dissemination, we find that for a broad range of levels the epidemic is almost unaffected, a consistently inefficient mitigation in which \u226a 1 (Fig. 1h, yellow) . Effective mitigation is only achieved around \u2273 0.1, a limit in which is capable of shipping doses in the order of the entire global demand in few days. Such optimal conditions are not only unlikely, but mainly, they indicate the inefficiency of this dissemination strategy, requiring an extreme volume of therapeutics shipped in a highly constrained timeframe in order to achieve a measurable impact on the epidemic.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 512,
+                    "end": 529,
+                    "text": "(Fig. 1h, yellow)",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "MITIGATION VIA MAXIMUM-FLOW"
+        },
+        {
+            "text": "It seems, therefore, that the max-flow optimization strategy is inadequate for the containment of a globally spreading epidemic. In Supplementary Section 2 we analyze the population and urgency based strategies, observing similar challenges.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "MITIGATION VIA MAXIMUM-FLOW"
+        },
+        {
+            "text": "Our mitigation is, in its essence, a spreading competition between the therapeutics and the pathogens, both progressing along the same underlying network, i.e. air-transportation 19 . It seems, therefore, that winning this competition is a matter of shipping capacity: we must generate sufficient therapeutic fluxes to outrun the spread of the disease, namely we must increase . However, the analysis above indicates, that there is an intrinsic deficiency in the spread of therapeutics, that cannot be easily compensated by simply increasing shipping rates. Next, we show that the two competing processes -viruses vs. therapeutics -indeed, lead to fundamentally different spreading patterns, in which the viruses benefit from an intrinsic advantage. (Fig. 3a-c) . Viruses spread via diffusion coupled with local SIR dynamics, as captured by Eqs. (15) in Box I. In this process, upon penetration of node , the viruses reproduce locally through SIR, until reaching peak infection at = P . In a network environment, since the majority of nodes are at the mean distance from the initial outbreak, we find that after a limited propagation time, most nodes reach peak infection approximately simultaneously. We track this via the infection rate",
+            "cite_spans": [
+                {
+                    "start": 179,
+                    "end": 181,
+                    "text": "19",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 846,
+                    "end": 850,
+                    "text": "(15)",
+                    "ref_id": "BIBREF14"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 750,
+                    "end": 761,
+                    "text": "(Fig. 3a-c)",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "The roots of the max-flow inefficiency"
+        },
+        {
+            "text": "capturing the average speed by which the pathogens propagate to . In Fig. 3c we show ( ), the probability density for a randomly selected node to have \u2208 ( , + d ). Indeed, we find that follows a bounded distribution, where the majority of nodes are infected at a similar rate, and hence their peak infection occurs at roughly at the same time. Such uniform propagation patterns lead to a simultaneous global peak infection, and, as a consequence, to a concurrent global demand for therapeutics. (Fig. 3d-f, Supplementary Section 4) . The dynamics of commodity flow, as provided by Eqs. (2) -(5) are fundamentally different. The therapeutics flow from a single source node , and undergo dilution as they disperse across the exponentially growing number of . CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. (which was not certified by peer review) preprint",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 69,
+                    "end": 76,
+                    "text": "Fig. 3c",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 495,
+                    "end": 531,
+                    "text": "(Fig. 3d-f, Supplementary Section 4)",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Propagation of pathogens"
+        },
+        {
+            "text": "The copyright holder for this this version posted September 18, 2020. . https://doi.org/10.1101/2020.09.15.20194506 doi: medRxiv preprint pathways 38, 39 . Such flow patterns naturally lead to a highly heterogeneous supply pattern across all nodes. To observe this we consider the therapeutic supply time Th for node to fill its therapeutic demand, and its consequent supply rate",
+            "cite_spans": [
+                {
+                    "start": 147,
+                    "end": 150,
+                    "text": "38,",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 151,
+                    "end": 153,
+                    "text": "39",
+                    "ref_id": "BIBREF38"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Dissemination of therapeutics"
+        },
+        {
+            "text": "where \u0394 = Th \u2212 R , is the elapsed time from initial dissemination ( R ) to 's final supply ( Th ). This rate quantifies how rapidly receives treatment. In Supplementary Section 4 we show that under max-flow mitigation the probability density ( ) follows a power law of the form ( ) \u223c \u2212 , with = 2 (Fig. 3f) . Hence, in contrast to the homogeneity of the epidemic spread, supply is extremely heterogeneous, with a vast majority of undersupplied nodes (small , shaded 80%), and a selected privileged minority of well-treated destinations (large ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 297,
+                    "end": 306,
+                    "text": "(Fig. 3f)",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Dissemination of therapeutics"
+        },
+        {
+            "text": "Together, this combination of homogeneous demand and heterogeneous supply, a consequence of the naturally occurring spreading patterns of pathogens versus commodities, creates a crucial gap in our ability to effectively mitigate a global pandemic. To understand this, consider ideal flow conditions, where \u2329 \u232a > \u2329 \u232a, namely that, on average, dissemination is more rapid than the viral propagation. Still, the fat-tailed nature of ( ) vs. the bounded form of ( ) indicates that while most nodes have \u2248 \u2329 \u232a, when it comes to supply, the typical node has < \u2329 \u232a. Indeed, in a scale-free distribution the majority of entries are below the mean. This is illustrated in Fig. 3 , where we show that 80% of nodes are within a 20% margin of \u2329 \u232a, i.e. they are all impacted within a narrow time window around the mean (Fig. 3b, shaded) . Yet, in contrast, a similar 80% have a therapeutic rate below \u2329 \u232a, i.e. they witness supply deficiency (Fig. 3d , shaded). Hence we are confronted with a reality in which almost all nodes require treatment, and yet only a small minority receives sufficient, and at times, even superfluous, supply.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 663,
+                    "end": 669,
+                    "text": "Fig. 3",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 807,
+                    "end": 824,
+                    "text": "(Fig. 3b, shaded)",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 930,
+                    "end": 938,
+                    "text": "(Fig. 3d",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Dissemination of therapeutics"
+        },
+        {
+            "text": "This uneven distribution ( ) directly impacts our mitigation efficiency. To observe this, consider the local efficiency",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Dissemination of therapeutics"
+        },
+        {
+            "text": "where ,\u221e ( ) = ( \u2192 \u221e) under mitigation with capacity = . Hence, while in (7) captures the global mitigation efficiency, focuses specifically on the effect observed at . In Fig. 3e we show vs. . As predicted, we observe that is a crucial determinant of mitigation efficiency. Indeed, nodes with low (shaded), by far the majority of nodes according to the power-law structure of ( ), exhibit an almost vanishing . This illustrates, once again, the flaw of max-flow: most nodes, the deprived 80%, have \u2192 0, while a small minority benefit from \u2192 1.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 172,
+                    "end": 179,
+                    "text": "Fig. 3e",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Dissemination of therapeutics"
+        },
+        {
+            "text": "Taken together, our analysis shows that the common approach of maximizing flow is insufficient, as it treats the mean flow, but not its distribution. Most essentially, it disregards the interplay with the competing flow of the pathogens. When confronting these two spreading processes, we observe that the main challenge is rooted in equality ( ( )) rather than in quantity (\u2329 \u232a), namely not the volume of the outflux, \u2192 ( ), but rather the way this volume distributes across the network. Hence, below we complement our optimization for max-flow with an additional requirement, seeking supply homogeneity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Dissemination of therapeutics"
+        },
+        {
+            "text": "Egalitarian mitigation (Fig. 1c) . The optimization of Eqs. (2) -(5) is designed to increase the volume of drugs introduced into the network, but as we have shown, it leads to an extremely sub-. CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. (which was not certified by peer review) preprint",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 23,
+                    "end": 32,
+                    "text": "(Fig. 1c)",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "OPTIMIZING FOR HOMOGENEITY"
+        },
+        {
+            "text": "The copyright holder for this this version posted September 18, 2020. . https://doi.org/10.1101/2020.09.15.20194506 doi: medRxiv preprint optimal dispersion pattern. To remedy this, we introduce a homogeneity criterion, replacing the maximization in (2) by (Supplementary Section 2)",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "OPTIMIZING FOR HOMOGENEITY"
+        },
+        {
+            "text": "where the homogeneity coefficient determines the relative balance between our optimization for max-flow ( \u2192 ( )) vs. our demand for egalitarian spread ( ( )). In addition to constrains (4) and (5) above, we now also require",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "OPTIMIZING FOR HOMOGENEITY"
+        },
+        {
+            "text": "and",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "OPTIMIZING FOR HOMOGENEITY"
+        },
+        {
+            "text": "forcing, at each step, to supply, at the least, a fraction ( ) of every node's current demand. This strategy seeks to maximize flow, but at the same time favors solutions that supply all nodes simultaneously. Indeed, constraint (12) prohibits shipping sequences that at any step supply exclusively a subset of the nodes. This additional constraint may, in general, lead to a diminished net flow, however, thanks to its egalitarian nature, we find that it dramatically enhances mitigation efficiency.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "OPTIMIZING FOR HOMOGENEITY"
+        },
+        {
+            "text": "To observe this, we revisit the epidemic spread of Fig. 2 , leaving all conditions unchanged, except that now, instead of the max-flow optimization of (2) -(5) we mitigate the disease via the egalitarian strategy of (11) - (13) . The results are striking: egalitarian drug dissemination practically eliminates the epidemic, as observed by the dominance of blue nodes/links at > R (Fig. 2d) . Indeed, compared to the \u223c 30% reduction in ( \u2192 \u221e) afforded by max-flow, egalitarian achieves, under the same capacity , a \u223c 95% reduction, representing a practically perfect mitigation (Fig. 2g) .",
+            "cite_spans": [
+                {
+                    "start": 223,
+                    "end": 227,
+                    "text": "(13)",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 51,
+                    "end": 57,
+                    "text": "Fig. 2",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 380,
+                    "end": 389,
+                    "text": "(Fig. 2d)",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 577,
+                    "end": 586,
+                    "text": "(Fig. 2g)",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "OPTIMIZING FOR HOMOGENEITY"
+        },
+        {
+            "text": "A systematic comparison of the two mitigation strategies consistently supports the crucial role of dissemination homogeneity. In Fig. 2h we show the efficiency in (7) vs. under egalitarian dissemination (green). We find that approaches 80% already at \u223c 10 \u22123 , representing an extreme case of supply deficiency. A similar under max-flow was only observed for \u223c 10 \u22121 (yellow), a two order of magnitude advantage for egalitarian. A crucial factor impacting our mitigation efficiency, is the response time R , required to identify the threat and initiate a response. To observe this, in Fig.  2i we present vs. R for both max-flow (yellow) and egalitarian (green) mitigation. As expected, we find that declines with R , however, for the entire range of response times egalitarian consistently outperforms max-flow. In Fig. 2j we further show that the egalitarian advantage is consistently maintained for a range of contagion levels \u211b 0 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 129,
+                    "end": 136,
+                    "text": "Fig. 2h",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 585,
+                    "end": 593,
+                    "text": "Fig.  2i",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 816,
+                    "end": 823,
+                    "text": "Fig. 2j",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "OPTIMIZING FOR HOMOGENEITY"
+        },
+        {
+            "text": "Hence, examined against a series of potential challenges, from the disease parameters (\u211b 0 ) to the performance level of our response ( R , ), we find that egalitarian allows enhanced mitigation, in some cases, by a dramatic margin. This, again, is thanks to egalitarian's homogeneous dissemination patterns, which, under the price of a potentially diminished supply rate, afford us a more desirable supply distribution, and consequently, an optimized mitigation.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "OPTIMIZING FOR HOMOGENEITY"
+        },
+        {
+            "text": ". CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. (which was not certified by peer review) preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "OPTIMIZING FOR HOMOGENEITY"
+        },
+        {
+            "text": "The copyright holder for this this version posted September 18, 2020. . https://doi.org/10.1101/2020.09.15.20194506 doi: medRxiv preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "OPTIMIZING FOR HOMOGENEITY"
+        },
+        {
+            "text": "The efficiency of egalitarian mitigation may seem, at first glance, implausibly high. For example, Fig.  2h indicates that effective mitigation is already achieved with capacity as low as \u223c 10 \u22123 day -1 . This represents an extreme scenario, in which we require an order of 10 3 days to supply the global demand, a time scale that by far exceeds the final spread of the epidemic. Such extraordinary efficiency is rooted in the fact that even a tiny influx of drugs introduced at an early enough stage of the epidemic can dramatically impact its future development.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 99,
+                    "end": 107,
+                    "text": "Fig.  2h",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "The roots of the egalitarian advantage"
+        },
+        {
+            "text": "To understand this, consider a node at the early stage of the spread, when ( ) \u226a 1. As time advances, this small seed of infections reproduces until reaches its final infection levels ( \u2192 \u221e). Suppressing this seed when it is small is, therefore, the optimal strategy, allowing us, with a tiny supply of therapeutics, to eliminate not just the current ( ), but also terminate its potential future reproduction. Hence, maintaining a continuous influx of therapeutics, even at a very low rate, keeps ( ) subdued, never allowing the local infections to reach their potential coverage. Egalitarian mitigation is precisely designed to provide such supply patterns: instead of rapidly supplying a select group of nodes at a time, it favors a slow influx that is spread evenly across all nodes, starting from the get-go at = R .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The roots of the egalitarian advantage"
+        },
+        {
+            "text": "In contrast, max-flow generates a similar (or even higher) total flux, but spreads it out sequentiallyfew nodes receive all their supply early on, and are hence successfully treated, while the majority fill their demand at a much later time, when ( ) is already harder to contain. To observe this, we revisit the simulated mitigation of Fig. 2 , this time focusing on a pair of specific nodes (Fig. 4a) : SDJ which is among the few early supplied nodes ( SDJ = 0.2, red), and CGQ, a typical node, which represents the majority destinations, which receive their supply later on ( CGQ = 3 \u00d7 10 \u22123 , Color). In Fig. 4b,c we show the drug availability ( ) in both nodes (blue), together with their unmitigated (red) vs. mitigated (yellow) disease coverage. Indeed, we find that early supply is crucial, with SDJ benefiting from an almost perfect mitigation, and CGQ being almost unaffected by the late arriving drugs.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 337,
+                    "end": 343,
+                    "text": "Fig. 2",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 393,
+                    "end": 402,
+                    "text": "(Fig. 4a)",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 608,
+                    "end": 617,
+                    "text": "Fig. 4b,c",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "The roots of the egalitarian advantage"
+        },
+        {
+            "text": "Under egalitarian mitigation the supply pattern is fundamentally different: indeed, as per the equality constraint, both nodes settle for the slower rate SDJ \u2248 CGQ \u2248 10 \u22123 . Hence, egalitarian provides no overall rate advantage, and, in fact, disadvantages the high rate SDJ. However, now, instead of ( ) remaining idle and then, in due time, receiving a sharp supply boost, it is continuously supplied from the outset at R (Fig. 4 d,e) , a direct consequence of the homogeneity constraint of (11) -(13). The advantage is that now both SDJ and CGQ receive treatment early on, mitigating the disease while it is still small, and thus suppressing its potential to grow. Therefore, while egalitarian impedes the supply of the high rate minority, it still allows us to successfully treat both that minority and the low rate majority. This is because its simultaneous, even if slow, supply, affords early treatment for all nodes, overcoming ( ) while it is still at its embryonic stage.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 424,
+                    "end": 436,
+                    "text": "(Fig. 4 d,e)",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "The roots of the egalitarian advantage"
+        },
+        {
+            "text": "A crucial implication of the above analysis touches on the global resources required for mitigation 40, 41 . Clearly, running the max-flow/egalitarian algorithm until all demands are filled will inevitably cost a total of \u223c \u03a9 drug units, supplied at a time-scale of \u223c \u03a9/ days. However, since egalitarian begins supplying all nodes while ( ) is still small, it has the potential to overcome the pandemic even before all initial demands (0) are completely satiated. To observe this, we run both strategies -max-flow and egalitarian -for a limited time, from = 0 to . We then measured the efficiency (7), in function of the total resource consumption . CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [
+                {
+                    "start": 100,
+                    "end": 103,
+                    "text": "40,",
+                    "ref_id": "BIBREF39"
+                },
+                {
+                    "start": 104,
+                    "end": 106,
+                    "text": "41",
+                    "ref_id": "BIBREF40"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Mitigation under restricted supply"
+        },
+        {
+            "text": "The copyright holder for this this version posted September 18, 2020. . https://doi.org/10.1101/2020.09.15.20194506 doi: medRxiv preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review) preprint"
+        },
+        {
+            "text": "Equation (14) quantifies the total outflux of therapeutics from as a fraction of the global demand \u03a9, throughout the mitigation period, = 0 to . The greater is ( ), the more therapeutic resources that are consumed. As predicted we find in Fig. 4g that egalitarian, not only provides a higher mitigation efficiency, but achieves this in a fraction of the resources. For max-flow (green) we observe a linear gain with , reaching peak efficiency only around \u2192 1, i.e. when supply fills all demands. Egalitarian, in contrast, thanks to its simultaneous treatment of all nodes, suppresses the epidemic at an early stage, when it is still manageable, with limited supply, therefore enabling mitigation of above 90% (grey dashed line) with total consumption as low as \u223c 0.1, i.e. a mere 10% of the global demand.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 239,
+                    "end": 246,
+                    "text": "Fig. 4g",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "(which was not certified by peer review) preprint"
+        },
+        {
+            "text": "Commodity flow problems are at the heart of many crucial applications, from communications to supply chains, seeking to optimize a network's capacity to distribute information or goods [20] [21] [22] [23] [24] [25] [42] [43] [44] .",
+            "cite_spans": [
+                {
+                    "start": 185,
+                    "end": 189,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 190,
+                    "end": 194,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 195,
+                    "end": 199,
+                    "text": "[22]",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 200,
+                    "end": 204,
+                    "text": "[23]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 205,
+                    "end": 209,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 210,
+                    "end": 214,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 215,
+                    "end": 219,
+                    "text": "[42]",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 220,
+                    "end": 224,
+                    "text": "[43]",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 225,
+                    "end": 229,
+                    "text": "[44]",
+                    "ref_id": "BIBREF43"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "Most often the target optimization function, e.g., max-flow, arises naturally from the purpose of the distribution. However, in the context of disease mitigation, the optimization is a consequence not just of the dissemination scheme, but also of its interplay with the viral spread. Indeed, our true goal is not just distribution efficiency in and of itself, but rather mitigation efficiency. Hence, to assess a dissemination protocol we must couple it with the spread of the epidemic, and observe its effectiveness in terms of the actual observed reduction in infection levels. Here we have shown that the na\u00efve approach of maximizing the commodity flow fails this test, indeed, providing rapid supply, but at the same time a highly inefficient mitigation. On the other hand -optimizing for homogeneity dramatically improves mitigation efficiency.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "Our findings are relevant in case the epidemic spreads globally -a scenario averted in many recent pandemics, but experienced quite severely during COVID-19. In such scenario, the peak infection occurs approximately simultaneously at logarithmic time-scales, due to the short network paths 27, 45 . Our egalitarian protocol, by spreading simultaneously, albeit slowly, to all nodes outlines the most effective strategy, catching the disease at its early stage in all locations. To fully benefit from this advantage, it is crucial to activate the egalitarian dissemination as early as possible, to truly attack the epidemic at its seed. Otherwise, social distancing measures must be employed to delay the viral spread and keep it at manageable levels until egalitarian dissemination can be instigated [46] [47] [48] [49] [50] [51] [52] .",
+            "cite_spans": [
+                {
+                    "start": 290,
+                    "end": 293,
+                    "text": "27,",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 294,
+                    "end": 296,
+                    "text": "45",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 800,
+                    "end": 804,
+                    "text": "[46]",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 805,
+                    "end": 809,
+                    "text": "[47]",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 810,
+                    "end": 814,
+                    "text": "[48]",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 815,
+                    "end": 819,
+                    "text": "[49]",
+                    "ref_id": "BIBREF48"
+                },
+                {
+                    "start": 820,
+                    "end": 824,
+                    "text": "[50]",
+                    "ref_id": null
+                },
+                {
+                    "start": 825,
+                    "end": 829,
+                    "text": "[51]",
+                    "ref_id": null
+                },
+                {
+                    "start": 830,
+                    "end": 834,
+                    "text": "[52]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "In this regard, the recent successes in epidemic forecasting 53 are key: first, predict whether the pathogens will spread globally, then instigate egalitarian dissemination. Of course, a false alarm might result in a waste of resources, however our analysis indicates that early intervention allows mitigation with relatively small amount of doses, hence we believe that the potential gain by far outweighs the risk.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "Battling a global spread, it is crucial to appropriately set the demands ( ), which determine how much supply will be shipped to each node. On the side of caution, the natural tendency is to overestimate these demands, i.e. generate redundancy. However, in the face of a virulent epidemic, where the distribution network is stretched to its maximal capacity, such strategy may over-allocate resources to some destinations, while depriving others. On the other hand, fine-tuning the demands to meet the exact supply gap of each node, as we do, for example in our urgency-based strategy, is highly complex, not always practical, and, if inaccurate, may lead to undersupply in some destinations. Our egalitarian optimization addresses this trade-off quite naturally, by simultaneously supplying all nodes. To understand this consider two nodes and . Under max-flow, supply will be . CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "The copyright holder for this this version posted September 18, 2020. . https://doi.org/10.1101/2020.09.15.20194506 doi: medRxiv preprint typically sequential, e.g., and then . Under these conditions, overestimating ( ) will lead to the shipment of more drugs to , thus wrongly delaying the treatment of . In contrast, such discrepancy under egalitarian, will have no bearing on , as both nodes are simultaneously supplied from the start. This makes egalitarian highly robust against the specific assignment of ( ), allowing us to design a simple dissemination protocol, free of the need to accurately tailor and fine-tune all demands.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review) preprint"
+        },
+        {
+            "text": "Our analysis focuses solely on the mitigation efficiency, yet its conclusions touch upon the ethics of resource allocation -here, prioritizing the even distribution of drugs in a global emergency. While often one is confronted with a clash of values in such cases, here we find it encouraging that efficiency and equality are, in fact, compatible -representing a case in which scientific results go hand in hand with moral directives.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review) preprint"
+        },
+        {
+            "text": "Author contribution. All authors designed and conducted the research. AH analyzed the data and conducted the numerical simulations, AH, BB and RC lead the analytical derivations, and IB and SE advised on the biological applicability. BB was the lead writer.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review) preprint"
+        },
+        {
+            "text": "Data availability. Upon publication, the authors plan to make all datasets and numerical codes publicly available.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Competing interests. Authors declare no competing interests."
+        },
+        {
+            "text": ". CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Competing interests. Authors declare no competing interests."
+        },
+        {
+            "text": "The copyright holder for this this version posted September 18, 2020. . https://doi.org/10.1101/2020.09.15.20194506 doi: medRxiv preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "(which was not certified by peer review) preprint"
+        },
+        {
+            "text": "In a network of coupled nodes = 1, \u2026 , , each with a population of individuals, we use the SIR model to track the fraction of who are susceptible ( ), infected ( ) or removed ( ), where the infected are divided as = T + U , among the treated (T) individuals, who have been provided a therapeutic and the untreated (U) individuals, who have not yet gained access to it. The epidemic dynamics is driven by (Supp. Sec. 1)",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Box I. Modeling the mitigation of a global epidemic"
+        },
+        {
+            "text": "where is the infection rate, is the mortality/recovery rate of the untreated individuals and > is the recovery rate under treatment. The epidemic reproduction number \u211b 0 = / captures the level of contagion of the (untreated) disease. The therapeutic consumption rate ( ) depends on the availability of the therapeutic ( ) in , as",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Box I. Modeling the mitigation of a global epidemic"
+        },
+        {
+            "text": "Hence ( ) increases linearly with ( ) as long as the demand (denominator) exceeds the supply, and saturates to unity when has excess quantities of the therapeutic, avoiding over consumption (Supp. Sec. 1.2) . The availability ( ) is determined by our dissemination scheme, following either max-flow, as in Eq. (3), or egalitarian flow, as in Eq. (11) .",
+            "cite_spans": [
+                {
+                    "start": 346,
+                    "end": 350,
+                    "text": "(11)",
+                    "ref_id": "BIBREF10"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 197,
+                    "end": 206,
+                    "text": "Sec. 1.2)",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Box I. Modeling the mitigation of a global epidemic"
+        },
+        {
+            "text": "In (15) we introduce an invasion threshold through the sigmoidal function",
+            "cite_spans": [
+                {
+                    "start": 3,
+                    "end": 7,
+                    "text": "(15)",
+                    "ref_id": "BIBREF14"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Box I. Modeling the mitigation of a global epidemic"
+        },
+        {
+            "text": "which activates the local SIR dynamics only when the local infection levels = U + T exceed . The diffusion of individuals between nodes is mediated by , derived from the empirical international air-travel network (Supp. Sec. 2.1).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Box I. Modeling the mitigation of a global epidemic"
+        },
+        {
+            "text": ". CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. . CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. , and hence the rates by which all nodes are supplied. Demands are updated as therapeutics are supplied -for instance, at = 1 's demand 2 ( ) is updated to zero, as 's demand is filled. Under max-flow the goal is to achieve the highest net outflow of commodities from , i.e. maximize \u2192 ( ). Here, nodes were supplies within two days, a net flow \u2192 (1) = 9 in day 1 and \u2192 ( ) = 8, in day 2. (b) During an epidemic, however, the goal is to achieve optimal mitigation, not just optimal commodity flow. This requires us to consider the interplay between our dissemination and the spread of the epidemic. Each node's demand is determined by its infection levels ( ( ), red), leading us to seek the shipping sequence which best adresses the anticiated spread of infections -aiming for supply ( ( ), blue) that is most compatible with demand. (c) We find that the optimal strategy is to design an egalitarian flow, in which supply is homogeneously spread across all destinations. Using the same network as in (a), our egalitarian strategy yields an even shipping sequence, in which nodes are supplied concurrently at roughly equal rates. For example, instead of fully supplying node in = 1 and only then shipping to at = 2, as done under max-flow in panel (a), our egalitarian algorithm favors the shipping sequence where and are simulataneasly supplied at equal rates. Under global demand, we show, such egalitarian supply is orders of magnitude more effective in terms of mitigation and resource disposal.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Box I. Modeling the mitigation of a global epidemic"
+        },
+        {
+            "text": ". CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. . CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. (which was not certified by peer review) preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Box I. Modeling the mitigation of a global epidemic"
+        },
+        {
+            "text": "The copyright holder for this this version posted September 18, 2020. 8), and plot its distribution ( ). The bounded form of ( ) indicates the homogeneous nature of the pathogen spread. Indeed, we find that 80% of the nodes are impacted wthin a small margin around the average (shaded area). (c) Using max-flow we track the availability of the therapeutics ( ) at all destinations (node size/blue color depth). In contrast to the pathogens, the therapeutics naturally spread extremely unevenly, with a small minority of early supplied nodes (large, dark blue), coexisting alogside a majority of delayed destinations (small, light blue). (d) The supply rate distribution ( ) as obtained via maxflow (circles). As predicted ( ) can be approximated by a power-law ( ) \u223c \u2212 , with = 2 (solid line). This captures an extremely heterogeneous dissemination pattern, in which 80% of the nodes are supplied at a below average rate (shaded area). Hence, max-flow confronts a homogeneous demand ( ( ), red) with an extremely uneven supply ( ( ), blue). (e) The local efficiency vs. supply rate as obtained via max-flow dissemination. As expected we find that crucially impacts the mitgation effectiveness at . Therefore, the fat-tailed nature of ( ), in which the majority of nodes have a small (80%, shaded) creates an intrinsic mitigation defficiency, in which most destinations experience insufficient supply. The challenge, we emphasize, is not in the production/shipping capacities, as indeed we have \u2329 \u232a \u2248 \u2329 \u232a \u2248 10 \u22122 , namely, that on average, supply rate can meet the evolving demand. Rather, is is rooted in the patterns of spread of the existing supply, which are fundamentally incongruent with those of the pathogens.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Box I. Modeling the mitigation of a global epidemic"
+        },
+        {
+            "text": ". CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. ( ) vs. at CGQ (blue) as obtained under max-flow dissemination. Due to the sequential nature of this dissemination scheme, the therapeutic reaches CGQ too late, and consequently its infection level ( ) remains high, both without (red) and under the effect of max-flow mitigation (yellow). (c) In contrast, SDJ is among the first to fill its demand, hence the sharp rise in ( ) at an early stage (blue). As a result this node benefits from highly efficienct mitigation, with ( \u2192 \u221e) reduced dramatically from 80% (unmitigated, red) to a mere 15% (mitigated, yellow). The challenge is that while CGQ is representative of the majority of destinations, the highly benefited SDJ belongs to a select minoroty under the max-flow framework. (d)-(e) Egalitarian generates a homogeneous supply pattern, hence now both CGQ and SDJ share a similar (low) supply rate of \u223c 10 \u22123 . Despite that they both benefit from a near perfect mitigation (unmitigated -red; mitigated -green). This is thanks to the fact that despite their equal but slow supply, they now both begin to receive the therapeutic at an early stage ( ( ), blue). Indeed, even SDJ, who is now, under egalitarian, experiencing a dramtic drop in its supply rate, from 0.2 to 10 \u22123 , continues to benefit from highly efficient mitigation. Hence, the simulataneous, albeit uniformly slow, treatment afforded via egalitarian, not only benefits the max-flow deprived majority, but also continues to effectively treat its superflous minority. (f) The global consumption ( ) vs. , approaching unity, i.e. all demands are filled, when \u2192 \u221e. (g) Global mitigation efficiency vs. the volume of disseminated therapeutics . Under max-flow (yellow) efficient mitigation \u2192 1 requires \u2192 1 (yellow). In contrast, egalitarian has \u223c 1 already at \u223c 0.1, achieving, thanks to its concurrent supply patterns, an almost perfect mitigation with only 10% of the resources.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Box I. Modeling the mitigation of a global epidemic"
+        },
+        {
+            "text": ". CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. (which was not certified by peer review) preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Box I. Modeling the mitigation of a global epidemic"
+        },
+        {
+            "text": "The copyright holder for this this version posted September 18, 2020. . https://doi.org/10.1101/2020.09.15.20194506 doi: medRxiv preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Box I. Modeling the mitigation of a global epidemic"
+        },
+        {
+            "text": ". CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. . CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. . CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. . CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. . CC-BY-ND 4.0 International license It is made available under a is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. (which was not certified by peer review) preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "FIGURES -FULL SIZE"
+        },
+        {
+            "text": "The copyright holder for this this version posted September 18, 2020. . https://doi.org/10.1101/2020.09.15.20194506 doi: medRxiv preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "FIGURES -FULL SIZE"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Epidemic Spreading in Scale-Free Networks",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Pastor-Satorras",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Vespignani",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Phys. Rev. Lett",
+            "volume": "86",
+            "issn": "",
+            "pages": "3200--3203",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Epidemic processes in complex networks",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Pastor-Satorras",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Castellano",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Van Mieghem",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Vespignani",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Rev. Mod. Phys",
+            "volume": "87",
+            "issn": "",
+            "pages": "925--958",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Universality in network dynamics",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Barzel",
+                    "suffix": ""
+                },
+                {
+                    "first": "A.-L",
+                    "middle": [],
+                    "last": "Barab\u00e1si",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Nat. Phys",
+            "volume": "9",
+            "issn": "",
+            "pages": "673--681",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Epidemic modeling in metapopulation systems with heterogeneous coupling pattern: Theory and simulations",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Colizza",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Vespignani",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "J. Theor. Biol",
+            "volume": "251",
+            "issn": "",
+            "pages": "450--467",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Metapopulation epidemic models with heterogeneous mixing and travel behaviour",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Apolloni",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Poletto",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Ramasco",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Jensen",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Colizza",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Theor. Biol. Med. Model",
+            "volume": "11",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "On the Use of Human Mobility Proxies for Modeling Epidemics",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Tizzoni",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "PLoS Comput. Biol",
+            "volume": "10",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "A framework for identifying regional outbreak and spread of COVID-19 from one-minute populationwide surveys",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Rossman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature Medicine",
+            "volume": "26",
+            "issn": "",
+            "pages": "634--638",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "A new coronavirus associated with human respiratory disease in China",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature",
+            "volume": "579",
+            "issn": "",
+            "pages": "265--269",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "The effect of travel restrictions on the spread of the 2019 novel coronavirus (COVID-19) outbreak",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Chinazzi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Science",
+            "volume": "368",
+            "issn": "",
+            "pages": "395--400",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Epidemiological data from the COVID-19 outbreak, real-time case information",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Sci. Data",
+            "volume": "7",
+            "issn": "",
+            "pages": "1--6",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Evolving epidemiology and transmission dynamics of coronavirus disease 2019 outside Hubei province, China: a descriptive and modelling study",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Lancet Infect. Dis",
+            "volume": "20",
+            "issn": "",
+            "pages": "793--802",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "An interactive web-based dashboard to track COVID-19 in real time",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Dong",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Du",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Gardner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "The Lancet Infectious Diseases",
+            "volume": "20",
+            "issn": "",
+            "pages": "533--534",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "The Hidden Geometry of Complex, Network-Driven Contagion Phenomena",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Brockmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Helbing",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Science",
+            "volume": "342",
+            "issn": "",
+            "pages": "1337--1342",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "A structured epidemic model incorporating geographic-mobility among regions",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Sattenspiel",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Dietz",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "Math. Biosci",
+            "volume": "128",
+            "issn": "",
+            "pages": "71--91",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Digitizable therapeutics for decentralized mitigation of global pandemics",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Hacohen",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Cohen",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Efroni",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Barzel",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Bachelet",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Sci. Rep",
+            "volume": "9",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Immunization of complex networks",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Pastor-Satorras",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Vespignani",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Phys. Rev. E",
+            "volume": "65",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Understanding disease control: Influence of epidemiological and economic factors",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Oles",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Gudowska-Nowak",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kleczkowski",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "PLoS One",
+            "volume": "7",
+            "issn": "",
+            "pages": "1--9",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Antiviral treatment for the control of pandemic influenza: some logistical constraints",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Arinaminpathy",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Mclean",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "J. R. Soc. Interface",
+            "volume": "5",
+            "issn": "",
+            "pages": "545--553",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Complexity in human transportation networks: A comparative analysis of worldwide air transportation and global cargo-ship movements",
+            "authors": [
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Woolley-Meza",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "European Physical Journal B",
+            "volume": "84",
+            "issn": "",
+            "pages": "589--600",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Network flows : theory, algorithms, and applications",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Ahuja",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Magnanti",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Orlin",
+                    "suffix": ""
+                }
+            ],
+            "year": 1993,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "On solving multi-commodity flow problems: An experimental evaluation",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Dai",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Chinese J. Aeronaut",
+            "volume": "30",
+            "issn": "",
+            "pages": "1481--1492",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Multicommodity Flow Problems. in Encyclopedia of Optimization",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Barnhart",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Krishnan",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Vance",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "1583--1591",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Faster algorithms for the quickest transshipment problem",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Fleischer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "SIAM J. Optim",
+            "volume": "12",
+            "issn": "",
+            "pages": "18--35",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Maximal flow through a network",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Ford",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Fulkerson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Classic Papers in Combinatorics",
+            "volume": "",
+            "issn": "",
+            "pages": "243--248",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Efficient maximum flow algorithms",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Goldberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Tarjan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Commun. ACM",
+            "volume": "57",
+            "issn": "",
+            "pages": "82--89",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Dynamic patterns of information flow in complex networks",
+            "authors": [
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Harush",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Barzel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Nat. Commun",
+            "volume": "8",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Spatiotemporal signal propagation in complex networks",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Hens",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Harush",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Haber",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Cohen",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Barzel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Nat. Phys",
+            "volume": "15",
+            "issn": "",
+            "pages": "403--412",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "The scaling laws of human travel",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Brockmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Hufnagel",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Geisel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Nature",
+            "volume": "439",
+            "issn": "",
+            "pages": "462--465",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "The hidden geometry of complex, network-driven contagion phenomena",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Brockmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Helbing",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Science",
+            "volume": "342",
+            "issn": "",
+            "pages": "1337--1342",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Epidemic spreading under infection-reduced-recovery",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Ruan",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Zheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Barzel",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Boccaletti",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Chaos, Solitons and Fractals",
+            "volume": "140",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Differences in epidemic spread patterns of norovirus and influenza seasons of Germany: an application of optical flow analysis in epidemiology",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Stegmaier",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Oellingrath",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Himmel",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Fraas",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Sci. Rep",
+            "volume": "10",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Aggregated mobility data could help fight COVID-19",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Buckee",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Science",
+            "volume": "368",
+            "issn": "",
+            "pages": "145--146",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Dynamical Processes on Complex Networks",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Barrat",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Barthelemy",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Vespignani",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Designer antibodies could battle COVID-19 before vaccines arrive",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Cohen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Science",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Drug versus vaccine investment: A modelled comparison of economic incentives",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "R\u00e9gnier",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Huels",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Cost Eff. Resour. Alloc",
+            "volume": "11",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Ebola virus disease 2013-2014 outbreak in west Africa: an analysis of the epidemic spread and response",
+            "authors": [
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Cenciarelli",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Int. J. Microbiol",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "WHO | Statement on the 1st meeting of the IHR Emergency Committee on the 2014 Ebola outbreak in West Africa. WHO",
+            "authors": [],
+            "year": 2014,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Network link prediction by global silencing of indirect correlations",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Barzel",
+                    "suffix": ""
+                },
+                {
+                    "first": "A.-L",
+                    "middle": [],
+                    "last": "Barab\u00e1si",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Nat. Biotechnol",
+            "volume": "31",
+            "issn": "",
+            "pages": "720--725",
+            "other_ids": {}
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Quantifying the connectivity of a network: The network correlation function method",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Barzel",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Biham",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Phys. Rev. E",
+            "volume": "80",
+            "issn": "",
+            "pages": "46104--46115",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Fair allocation of scarce medical resources in the time of Covid-19",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Emanuel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "N. Engl. J. Med",
+            "volume": "382",
+            "issn": "",
+            "pages": "2049--2055",
+            "other_ids": {}
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "The ethics of creating a resource allocation strategy during the COVID-19 Pandemic",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Laventhal",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Pediatrics",
+            "volume": "146",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Constructing maximal dynamic flows from static flows",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Ford",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Fulkerson",
+                    "suffix": ""
+                }
+            ],
+            "year": 1958,
+            "venue": "Oper. Res",
+            "volume": "6",
+            "issn": "",
+            "pages": "419--433",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Quickest flows over time",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Fleischer",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Skutella",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "SIAM J. Comput",
+            "volume": "36",
+            "issn": "",
+            "pages": "1600--1630",
+            "other_ids": {}
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "A survey of dynamic network flows",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Aronson",
+                    "suffix": ""
+                }
+            ],
+            "year": 1989,
+            "venue": "Ann. Oper. Res",
+            "volume": "20",
+            "issn": "",
+            "pages": "1--66",
+            "other_ids": {}
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Scale-free networks are ultrasmall",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Cohen",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Havlin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Phys. Rev. Lett",
+            "volume": "90",
+            "issn": "",
+            "pages": "58701--58704",
+            "other_ids": {}
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Pulsating campaigns of human prophylaxis driven by risk perception palliate oscillations of direct contact transmitted diseases",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Steinegger",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Arenas",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "G\u00f3mez-Garde\u00f1es",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Granell",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Phys. Rev. Res",
+            "volume": "2",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "Impact of temporal scales and recurrent mobility patterns on the unfolding of epidemics",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Soriano-Pa\u00f1os",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Ghoshal",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Arenas",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "G\u00f3mez-Garde\u00f1es",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "J. Stat. Mech. Theory Exp",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Active and inactive quarantine in epidemic spreading on adaptive activity-driven networks",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mancastroppa",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Burioni",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Colizza",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Vezzani",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Phys. Rev. E",
+            "volume": "102",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "The Immediate Effect of COVID-19 Policies on Social Distancing Behavior in the United States",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Abouk",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Heydari",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "SSRN Electron. J",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": ", B. et al. Crowding and the epidemic intensity of COVID-19 transmission. medRxiv 2020.04.15.20064980 (2020). 51. Bianconi, G., Sun, H., Rapisardi, G. & Arenas, A. A message-passing approach to epidemic tracing and mitigation with apps. arXiv:2007.05277 (2020). 52. Meidan, D. et al. Alternating quarantine for sustainable mitigation of COVID-19. arXiv2004.01453 (2020). 53. Tizzoni, M. et al. Real-time numerical forecast of global epidemic spreading: case study of 2009 A/H1N1pdm. BMC Med. 10, 165 (2012).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Optmizing therapeutic dissemination for efficient mitigation. We treat the theraputic spread as a commodity flow problem. (a) Commodities flow from the source to fill the demands ( ) at all destinations through . The transportation network imposes constraints though the restricted shipping capacity of all links. For example, the route \u2192 can transport at most 5 units per day (edge labels). The shipping sequence determines the quotas shipped via each link",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Outrunning a contageuous epidemic using max-flow vs. egalitarian dissemination. (a) The global coverage ( ) vs. following an outbreak at Burundi (BJM) under three scenarios: severe (dark red \u211b 0 = 10), intermediate (red, \u211b 0 = 2) and mild (light red, \u211b 0 = 1.5). (b) The state of the epidemic at = 56 days, directly before drug dissemination begins. The local coverage ( ) in each node and the flux of infected individuals along each link (air-route) are represented by their red color depth. (c) Max-flow dissemination: starting at R = 56 we begin drug dissemination from Osaka (ITM) via max-flow; Eqs. (2)-(5). Drug fluxes ( ) (links) and drug availability ( ) (nodes circumference) are represented by blue color depth. We observe a race between the therapeutic and the disease, both spreading along similar routes, ending in a significant fraction of infected individuals, as indicated by the prevalence of red nodes at = 100. (d) Egalitarian dissemination: under the same scenario, the egalitarian strategy of Eqs. (11)-(13) achieves a much more efficient mitigation, where by = 100, the epidemic is almost eliminated. (e)-(g) ( ) at the three timepoints: unmitigated (red), under max-flow (yellow) and under egalitarian (green). By = 100 egalitarian has reduced the global coverage by a factor of \u223c 20, from ( ) = 0.65 to ( ) = 0.04, while max-flow has achieved a mere \u223c 1.5 factor reduction. Three crucial parameters may impact our mitigation: the global transportation capacity , our response time R and the severity of the contagion \u211b 0 . (h) Mitigation efficiency vs. under egalitarian (green) and max-flow (yellow). The former achieves higher efficiency with orders of magnitude less resources. For example, egalitarian provides = 0.8 under \u223c 10 \u22123 , as compared to \u223c 10 \u22121 , a two order of magnitude gap, required under max-flow for similar efficiency. (i) vs. . Again, we find that egalitarian shows a significantly higher performance in the face of a late response. (j) vs. \u211b 0 , confirming, again, the consistent advantage of egalitarian mitigation. In each panel we vary one parameter and list the set values of the other two.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Why max-flow provides sub-optimal mitigation. (a) Pathogens spread via contagion dynamics, reproducing in each desination independently via the SIR process. The result is a relatively homogeneous spread, in which the majority of destinations reach peak infection (red) at approximately the same time. Here this is observed by the almost uniform red shade and size of all nodes, capturing the instantaneuous infection level ( ) during the time of global peak infection. (b) To quantify this we measure the infection rate of all nodes as obtained from Eq. (",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "The roots of the egalitarian advantage. (a) We focus on two specific nodes, SDJ (right), who, under max-flow, is among the early supplied nodes ( SDJ = 0.2), and on CGQ (left), representing the majority of undersupplied destinations ( CGQ = 3 \u00d7 10 \u22123 ). (b) Therapeutic availability",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": "Optmizing therapeutic dissemination for efficient mitigation.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF8": {
+            "text": "Outrunning a contageuous epidemic using max-flow vs. egalitarian dissemination.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF10": {
+            "text": "Why max-flow provides sub-optimal mitigation.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF12": {
+            "text": "The roots of the egalitarian advantage.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "normalized to = 1 in case can disseminate sufficient doses to meet the entire global demand (\u03a9) in one day. The network capacity can be controlled by rescaling all individual carrying capacities , to describe affluent vs. restrictive dissemination scenarios(Supplementary Section 2.3).",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": ". https://doi.org/10.1101/2020.09.15.20194506 doi: medRxiv preprint",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": []
+}

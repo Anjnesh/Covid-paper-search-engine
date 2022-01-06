@@ -1,0 +1,1920 @@
+{
+    "paper_id": "0a3b84449e870e930c70ad99b5b38241c2459c23",
+    "metadata": {
+        "title": "A Novel Causal Risk-Based Decision-Making Methodology: The Case of Coronavirus",
+        "authors": [
+            {
+                "first": "Stavros",
+                "middle": [
+                    "K"
+                ],
+                "last": "Stavroglou",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Bilal",
+                "middle": [
+                    "M"
+                ],
+                "last": "Ayyub",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Vasileios",
+                "middle": [],
+                "last": "Kallinterakis",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Athanasios",
+                "middle": [
+                    "A"
+                ],
+                "last": "Pantelous",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "H",
+                "middle": [
+                    "Eugene"
+                ],
+                "last": "Stanley",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Either in the form of nature's wrath or a pandemic, catastrophes cause major destructions in societies, thus requiring policy and decisionmakers to take urgent action by evaluating a host of interdependent parameters, and possible scenarios. The primary purpose of this article is to propose a novel risk-based, decision-making methodology capable of unveiling causal relationships between pairs of variables. Motivated by the ongoing global emergency of the coronavirus pandemic, the article elaborates on this powerful quantitative framework drawing on data from the United States at the county level aiming at assisting policy and decision makers in taking timely action amid this emergency. This methodology offers a basis for identifying potential scenarios and consequences of the ongoing 2020 pandemic by drawing on weather variables to examine the causal impact of changing weather on the trend of daily coronavirus cases.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Decision making and risk analysis addresses a host of diverse real-world problems (Borgonovo, Cappelli, Maccheroni, & Marinacci, 2018; Howard, 1988; Kontosakos, Hwang, Kallinterakis, & Pantelous, 2020; McGill, Ayyub, & Kaminskiy, 2007; Pat\u00e9-Cornell, 2012 ) by traditionally drawing heavily on quantitative methodologies, which rely on interdisciplinary designs via the integration of several disciplines (Aven, 2012; Aven & Zio, 2014) . Despite the large number of risk-based decision-making frameworks developed in that respect, it is nevertheless interesting to note that they tend to only rarely incorporate causal arguments in the treatment of decisions, even though real-world practice decisions often depend heavily on causal knowledge and reasoning (Hagmayer & Fernbach, 2017) . Although the scope of decisions generally involves determining potential actions (e.g., identifying the location that must go into lockdown due to steadily increasing numbers of the 2019 Coronavirus, cases) or outcomes requiring actions (e.g., a healthcare system under strain) (Borasio, Gamondi, Obrist, & Jox, 2020; Hanna, Evans, & Booth, 2020) , it can be expanded to include risk-based criteria. For example, under the assumption of instituting and enforcing a lockdown in an area, decision and policymakers must examine a set of other actions (as they, jointly, help mitigate the COVID-19 spread); thus, allowing health systems to better cope with this disease and expedite the resumption of economic activity. The outcomes of such decisions largely depend on underlying causal mechanisms. Lockdowns, for instance, allow healthcare systems to better cope with this disease (as well as facilitating the smooth resumption of economic activities afterward); however, the outcomes depend on a complex system of factor interactions. Lockdowns may keep people at a physical distance, resulting in flattening an area's coronavirus curve of the number of new cases of hospitalizations or deaths; while also giving rise to increased mental health issues (thus, potentially, putting more strain onto the welfare system) (Kumar & Nayar, 2020) . Thus, causal knowledge about the system under consideration assists society in making adaptive decisions, therefore, enhancing risk management.",
+            "cite_spans": [
+                {
+                    "start": 82,
+                    "end": 134,
+                    "text": "(Borgonovo, Cappelli, Maccheroni, & Marinacci, 2018;",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 135,
+                    "end": 148,
+                    "text": "Howard, 1988;",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 149,
+                    "end": 201,
+                    "text": "Kontosakos, Hwang, Kallinterakis, & Pantelous, 2020;",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 202,
+                    "end": 235,
+                    "text": "McGill, Ayyub, & Kaminskiy, 2007;",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 236,
+                    "end": 254,
+                    "text": "Pat\u00e9-Cornell, 2012",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 404,
+                    "end": 416,
+                    "text": "(Aven, 2012;",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 417,
+                    "end": 434,
+                    "text": "Aven & Zio, 2014)",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 756,
+                    "end": 783,
+                    "text": "(Hagmayer & Fernbach, 2017)",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 986,
+                    "end": 992,
+                    "text": "cases)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1064,
+                    "end": 1103,
+                    "text": "(Borasio, Gamondi, Obrist, & Jox, 2020;",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 1104,
+                    "end": 1132,
+                    "text": "Hanna, Evans, & Booth, 2020)",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 2101,
+                    "end": 2122,
+                    "text": "(Kumar & Nayar, 2020)",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "In this article, a novel risk-based decisionmaking methodology is introduced for structuring the decision-making process with the COVID-19 pandemic as a case study. In this regard, the proposed methodology extends the risk triplet (Kaplan, 1997; Kaplan & Garrick, 1981) of scenarios, likelihoods, and consequences to accommodate an explicit treatment of causality that might be implicitly included in the decision making. Such an approach enables accounting for the performance of a complex system including likely outcomes, sensitivities, areas of importance, system interactions, and areas of uncertainty. The resulting risk quadruplet not only considers the set of the first three standard questions to define \"risk\" based on the standard risk triplet (What can go wrong? How likely is it? and What are the consequences?), but also addresses explicitly the fourth question (What are the causal relations?). The latter is key to risk assessment research, since deciphering the nature of causal interactions of different variables relevant to a complex system can aid us in assessing its evolution, and thus improve our decision-and policy-making abilities.",
+            "cite_spans": [
+                {
+                    "start": 231,
+                    "end": 245,
+                    "text": "(Kaplan, 1997;",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 246,
+                    "end": 269,
+                    "text": "Kaplan & Garrick, 1981)",
+                    "ref_id": "BIBREF15"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "The concept of causality permeated decision making since the antiquity, with people since then tending to interpret it across a continuum, ranging from arbitrary causality based on random observations to the identification of consistent patterns that separated random observations from truly causal observations (Cohen & Reeve, 2020; Cornblatt, 2020; Crawford & Sen, 1996; Gerber, Hunger, & Pingree, 2001) . In more recent times, research on causality has shifted toward extrapolating from consistent patterns in order to define governing principles of systems bearing varying degrees of complexity.",
+            "cite_spans": [
+                {
+                    "start": 312,
+                    "end": 333,
+                    "text": "(Cohen & Reeve, 2020;",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 334,
+                    "end": 350,
+                    "text": "Cornblatt, 2020;",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 351,
+                    "end": 372,
+                    "text": "Crawford & Sen, 1996;",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 373,
+                    "end": 405,
+                    "text": "Gerber, Hunger, & Pingree, 2001)",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION TO PATTERN CAUSALITY"
+        },
+        {
+            "text": "This abstraction allows us to formulate alternative scenarios and consequences of what to expect, based on the established causalities identified. This abstraction and the very principles that emerge from such a process provide the motivation to design this proposed causal risk-based decision-making methodology conceptualized in this section.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "INTRODUCTION TO PATTERN CAUSALITY"
+        },
+        {
+            "text": "To begin with, the crux of the argument for the methodology rests upon the enhanced volatility and interconnectivity of many challenges facing humanity that, increase complexity in decision making and force us to account for multiple risk factors; this, in turn, is prompting public discourse to acknowledge the importance of unveiling the structure of complex systems in order to improve the assessment of those risk factors.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "INTRODUCTION TO PATTERN CAUSALITY"
+        },
+        {
+            "text": "Recently, Zuev (2019, 2020) proposed the pattern causality (PC, hereafter) algorithm geared toward deciphering the nature of causality, drawing on theories of symbolic dynamics and attractor reconstruction. According to their treatment, each time series can be represented through patterns that account for one-step-ahead percentage changes. Symbolic dynamics allow the patterns to expose the nature of causality, yet not before a valid causal relationship is first identified. Time series belonging to the same dynamical system are parts of a common attractor, which corresponds to the states of that system. In the present article, the PC framework's steps are abstracted in a way that can be used for a wide spectrum of decision-making settings (hereafter, referred to abstractly as \"systems\"), such as in business, economy, weather, ecosystems, climate, pandemics, and more. This approach breaks down decision making into a series of basic steps. It can add value to almost any situation, especially where serious or catastrophic outcomes are of concern. These steps can be used at different levels of detail and with varying degrees of formality, depending on the situation. The key to using the process is in completing each step in the most simple, practical way to provide the information a decisionmaker or policymaker needs. Some situations are so complex that detailed causal assessments are needed, but most can be addressed with simpler causal assessments.",
+            "cite_spans": [
+                {
+                    "start": 10,
+                    "end": 27,
+                    "text": "Zuev (2019, 2020)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION TO PATTERN CAUSALITY"
+        },
+        {
+            "text": "The methodology provides guidance toward early stage or minor decisions, which at the end enables concluding or major decisions to be made in Fig 1. (a) A selection of time series variables with unknown interdependencies (denoted by grey links), with the focus being directed toward some critical variable(s) Y . (b) Various combinations of those selected variables (X 1 , X 2 , . . . , X N , Y ), are governed by the same attractor dynamics; however, in the right part of this figure, we illustrate only (X 1 , X 2 , Y ) in the attractor M. a transparent way. This is contrary to many \"black box\" methodologies that simply receive input and produce an output where the end product is based more on randomness, rather than causality. Thus, the purpose of the proposed methodology is to provide enough information to help inform decision or policy making practices. It focuses on organizing information for logical understanding in a highly structured fashion. However, it neither replaces the decisionmaker, nor does it lead into burdensome risk or inconclusive assessments involving gathering information that is irrelevant to the decision. On average, and over time, appropriate decisions made through this process should generate appropriate outcomes, while also offering logical explanations for decisions with unfavorable outcomes (Peysakhovich & Karmarkar, 2016) . The PC algorithm provides a rational basis for a causal risk-based decision-making methodology as developed in the subsequent section.",
+            "cite_spans": [
+                {
+                    "start": 1336,
+                    "end": 1368,
+                    "text": "(Peysakhovich & Karmarkar, 2016)",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 142,
+                    "end": 148,
+                    "text": "Fig 1.",
+                    "ref_id": null
+                }
+            ],
+            "section": "INTRODUCTION TO PATTERN CAUSALITY"
+        },
+        {
+            "text": "The purpose of developing this novel decisionmaking methodology is to unveil causal 1 relationships between pairs of variables. However, as is the case with many real-world problems, the available data sets might contain well over a few thousands of variables of any type (categorical, numerical, etc.). Such complexity might lead to ill-directed analysis, although in practice, anyone interested might be centered on particular variable(s), Y \u2208 R (see the red node in Figs. 1(a) and (b)), which can play a key role in some case-specific decision-making problem. In the proposed setting, the outcome of the decisionmaking process is expected to be a causality-enabled prediction of such critical variable(s). In what follows, the proposed causal decision-making methodology is presented with its five main steps, each outlined under a separate heading.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "CAUSAL RISK-BASED DECISION-MAKING METHODOLOGY"
+        },
+        {
+            "text": "The first step for any data-driven decisionmaking methodology is to describe the raw data collected. The data typically resonate with our 1 We specifically focus on a new measure of causality instead of the standard correlation measure as the causal relationships hold explanatory power (Stavroglou, Pantelous, Stanley, & Zuev, 2019 , 2020 .On the one hand, correlation looks for statistical linear coupling between two variables, and \u03c1(X, Y ) = \u03c1(Y, X ). Thus, correlation ignores whether X drives Y or the other way around. On the other hand, causality primes in the identification of whether X drives Y or Y drives X. This is very crucial for understanding the system's dynamics, for better formulating prediction tasks, and for better hedging against risk. The interested reader may consider (Stavroglou et al., 2019 (Stavroglou et al., , 2020 . understanding of causal relations among variables and contain implications for subsequent decisions. However, whether data becomes information or not, depends on what the decisionmaker expects to extract from them. In this regard, before proceeding further with the directed analysis, as a second step, filtering out some of the key variables is necessary. In this framework, exploring dependencies throughout a time horizon 2 retains only time series variables. Consequently, all other categories of data are removed. After completing the initial filtering, only time series variables, X 1 , X 2 , . . . , X N , Y \u2208 R, depicted as nodes in Fig. 1 4 are retained. These variables have some implied-yet currently unknowncausal structure. 5 In real-world applications, variables identified for a particular decision situation from different perspectives (X 1 , X 2 , . . . , X N , Y ) are not only subject to a causal network structure (see Fig. 1 (a)) but also are governed by the same attractor dynamics, that is, belong to the same manifold M \u2208 R E (see the orange manifold in Fig. 1(b) ). 6 These dynamics can approximately be observed by rendering scatterplots of combinations of two or three variables. For illustration purposes, Fig. 1(b) shows the Lorenz attractor which is built by taking the scatterplot of the three constituent variables that comprise the Lorenz differential equations (Lorenz, 2004) . In practice, it is often the case that such scatterplots, particularly when produced from real-world data, visually appear as nothing but noise, which does not help in a decisionmaking process. Therefore, since it is essential not to rely on visual techniques, our treatment algorithmically exploits the underlying attractor dynamics to perform causality-based predictions, which can be used in decision making.",
+            "cite_spans": [
+                {
+                    "start": 138,
+                    "end": 139,
+                    "text": "1",
+                    "ref_id": null
+                },
+                {
+                    "start": 287,
+                    "end": 332,
+                    "text": "(Stavroglou, Pantelous, Stanley, & Zuev, 2019",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 333,
+                    "end": 339,
+                    "text": ", 2020",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 796,
+                    "end": 820,
+                    "text": "(Stavroglou et al., 2019",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 821,
+                    "end": 847,
+                    "text": "(Stavroglou et al., , 2020",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 1587,
+                    "end": 1588,
+                    "text": "5",
+                    "ref_id": null
+                },
+                {
+                    "start": 2245,
+                    "end": 2259,
+                    "text": "(Lorenz, 2004)",
+                    "ref_id": "BIBREF18"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1491,
+                    "end": 1499,
+                    "text": "Fig. 1 4",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 1789,
+                    "end": 1795,
+                    "text": "Fig. 1",
+                    "ref_id": null
+                },
+                {
+                    "start": 1928,
+                    "end": 1937,
+                    "text": "Fig. 1(b)",
+                    "ref_id": null
+                },
+                {
+                    "start": 2084,
+                    "end": 2093,
+                    "text": "Fig. 1(b)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Formulate the Problem"
+        },
+        {
+            "text": "The proposed causal decision-making methodology with real time-series variables is robust to produce results in case of missing values in the data. In such cases, moving on to the next value works and is efficient for prediction purposes, especially when the 2 The time horizon is finite and depends on the length of the available time series data. In addition, it can be measured in lower (e.g., daily, monthly, quarterly, or annually) or higher (e.g., 1minute, 5-minute, or 1-hour) frequencies. The frequency preferred should be consistent for all the time series variables. 4 Among all the variable, X 1 , X 2 , . . . , X N , Y \u2208 R, in Fig. 1(b) , we illustrate only X 1 , X 2 , Y \u2208 R. 5 For instance, the black links in Fig. 1 (a) are used only symbolically here to suggest the yet unknown causal relations between the nodes. 6 E \u2208 N is the embedding dimension of the attractor, M. accuracy is high despite the missing values. However, when interpreting causality, caution must be exercised since the higher the percentage of missing values, the greater the uncertainty of interpretation. A decisionmaker should also exercise judgement about whether to remove variables with missing values at the cost of possibly losing some predictive power. Thus, the decisionmaker's choice on which variables to remove plays a decisive role on what the subsequent steps should be.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 639,
+                    "end": 648,
+                    "text": "Fig. 1(b)",
+                    "ref_id": null
+                },
+                {
+                    "start": 724,
+                    "end": 730,
+                    "text": "Fig. 1",
+                    "ref_id": null
+                }
+            ],
+            "section": "Formulate the Problem"
+        },
+        {
+            "text": "To establish decision-enabling causality for a pair of variables, X i causing Y , first the dynamics of the governing attractor need to be retrieved. In rare cases where the governing equations of the variables are known by physics or other means, such causal dynamics should be used, for example, as represented in Fig. 1 (b) with the Lorenz attractor. Frequently, however, the causal dynamics can be extracted without knowing the governing physics or equations of realworld systems. The approximation process starts with the phase of shadow attractor reconstruction, during which a shadow version of the original attractor is reconstructed ( Fig. 1(b) ). \u0391 shadow attractor M X can be plotted 7 by assuming the scatterplot of X (t ) and its lagged versions (see, Fig. 2 (a) from left to right,",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 316,
+                    "end": 322,
+                    "text": "Fig. 1",
+                    "ref_id": null
+                },
+                {
+                    "start": 644,
+                    "end": 653,
+                    "text": "Fig. 1(b)",
+                    "ref_id": null
+                },
+                {
+                    "start": 765,
+                    "end": 771,
+                    "text": "Fig. 2",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Construct the Dynamics"
+        },
+        {
+            "text": "For each pair, X i \u2192 Y , the optimal combination of embedding dimension (E \u2208 N) and time lag (\u03c4 \u2208 N) is identified in order to reconstruct their shadow attractors and retrieve any causal information that exists in the given pair. The optimal combination of E and \u03c4 is the one which produces the highest causality accuracy from X i to Y . However, in real-world applications, it is possible for decisionmakers to have to choose among different combinations of E and \u03c4 with very comparable levels of causality accuracy. In this regard, the time scales of the variables (which might be in minutes, hours, days, years, etc.) as well as the decisionmaker's knowledge or understanding of the overall system (i.e., some systems involve cyclical behavior, others are more stochastic) play a pivotal role on which of the optimal combinations of E and \u03c4 to pick. In particular, for short time series the 7 Limited for plotting to up to three dimensions. 8 Note that the shadow attractor reconstructed using time lags of X 1 (t ) and Y (t ) is denoted by M X 1 (t ), and M Y (t ) \u2208 R E , accordingly, in order to simplify the notation of the shadow attractor (time t is eliminated), except where indicated. decisionmaker needs to consider the first causality point (FCP) that reflects the minimum number of points in the shadow attractor. 9 Once a decisionmaker identifies the optimal combination of E and \u03c4 for each pair X i \u2192 Y , then the following two questions should be answered: \"Shall the optimal combination of E and \u03c4 for each pair separately be used (namely, choice A)?\" or \"shall the optimal combination over all pairs be used (namely, choice B)?\" The latter is calculated by getting the average accuracy over all pairs for each combination of E and \u03c4 . On the one hand, choice A may be better when dealing with few variables, that is, for small data sets, where getting into an analytical narrative of the various combinations of E and \u03c4 should not be a hurdle. However, another case for choice A would be when the accuracy variances over all pairs under the same E and \u03c4 combinations are intolerably high, which would suggest the loss of valuable causal information and predictive capacity for some neighborhood projection and the rationale behind it is that if X i \u2192 Y (causes), then topological information on M X should accurately predict topological information on M Y . At this stage, two important intermediate considerations require the attention of a decisionmaker. First, in order to identify the nearest neighbors, distances of points on the attractor need to be calculated. This can be achieved in many ways by implementing different metric distances. In general, someone may consider the Minkowski distance for some exponent p (for p = 2, the Euclidean distance yields). The higher the p, the more the distant points are penalized. If the decisionmaker decides to treat all the points equally, then p should equal 1, effectively yielding the Manhattan distance. 12 Second, the number of nearest neighbors to keep for the next step (see Fig. 2 (b)) should be set, which might vary due to the nature of the system studied. Theoretically, E + 1 nearest neighbors are sufficiently enough because they create a simplex of higher dimension around the current point's neighborhood, and thus contain all the topological information needed (Kantz & Schreiber, 2003) . However, the decisionmaker may decide to include more nearest neighbors to transfer a more representative assembly of topological information into the next step.",
+            "cite_spans": [
+                {
+                    "start": 1328,
+                    "end": 1329,
+                    "text": "9",
+                    "ref_id": null
+                },
+                {
+                    "start": 3345,
+                    "end": 3370,
+                    "text": "(Kantz & Schreiber, 2003)",
+                    "ref_id": "BIBREF13"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 3050,
+                    "end": 3056,
+                    "text": "Fig. 2",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Construct the Dynamics"
+        },
+        {
+            "text": "For every projected nearest neighbor M Y (t i + h), a weight w i is assigned, which is inversely proportional to the distance of its corresponding point on M X from the current point. Moreover, every point on a shadow attractor can be seen as a pattern which describes rates of change (Stavroglou et al, 2020) . Patterns' possible forms and complexity increase as the embedding dimension E increases. Using the weights of the projected nearest neighbors and their corresponding patterns, their signature (see Fig. 3 (a)) is calculated which is merely their weighted average pattern. If the signature coincides with the actual pattern of M Y , then it is marked in this time step as X i caused Y . This is called in-sample prediction and is used to assess causality. Similarly, one can do out-ofsample prediction h steps ahead of t. The only difference is, for the projected nearest neighbors on M Y (t ), taking the ones with time indices t i + h, and thus the predicted signature for M Y (t + h).",
+            "cite_spans": [
+                {
+                    "start": 285,
+                    "end": 309,
+                    "text": "(Stavroglou et al, 2020)",
+                    "ref_id": "BIBREF24"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 509,
+                    "end": 515,
+                    "text": "Fig. 3",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Identify the Causal Profile"
+        },
+        {
+            "text": "Identification of the pattern of M Y provides a basis to assess the nature of causality by finding how it relates to the pattern of the causal variable M X , according to the matrix in Fig. 3(b) . This matrix charts all possible combinations of causal and affected variables at each time step. In this way, a system of three types of causal interactions is established. Positive causality refers to cases when X 's pattern causes the same patterns on the critical variable. Negative causality refers to cases of opposite pattern changes. Every other case of mixed pattern combinations is collectively termed dark causality (Stavroglou et al., 2019) . This partition informs the decisionmaker about how each pair of variables of the specific problem interacts. Thus, there are variables which bolster the critical variable Y , others that act as inhibitors and some that influence Y in a more complicated way.",
+            "cite_spans": [
+                {
+                    "start": 623,
+                    "end": 648,
+                    "text": "(Stavroglou et al., 2019)",
+                    "ref_id": "BIBREF23"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 185,
+                    "end": 194,
+                    "text": "Fig. 3(b)",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Identify the Causal Profile"
+        },
+        {
+            "text": "Repeating this process for a given pair X i \u2192 Y , at each time step helps generate a certain pattern combination (depicted in slices for each t in Fig. 3(c) ). In order to have an overall view of the causal relationship X i \u2192 Y , the frequency distribution of each pattern combination is counted, thus revealing information on how much positive, negative, or dark each causal relationship is. This information is also summarized in the aggregate causality matrix which collects the aforementioned frequencies.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 147,
+                    "end": 156,
+                    "text": "Fig. 3(c)",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Identify the Causal Profile"
+        },
+        {
+            "text": "Finally, once the causal profile of all relationships that are of interest is obtained (as implied in Fig. 1(a) ), the initially hidden interactions of the data set can be unveiled. Keeping for each pair their highest causality type only (positive, dark, or negative) allows for a bird's eye view of the three possible aspects of our causal network (see Fig. 4 ). Therefore, it makes sense to just focus on the single or few critical variables, and the way they are influenced by the rest of the variables. Fig. 4 provides a bird's eye view of the three possible aspects of the causal network, and the previous section serves as a reconnaissance step, but our purpose is to exploit the causal relationships identified to perform risk analysis. In this regard, one very important perspective is the identification of causal chains (for each causal relationship). A causal chain is a successive accurate causality of the same type. The weights used are inversely proportional to the distance of the nearest neighbors. (b) From the predicted signature, the corresponding pattern is derived (as shown horizontally) and by seeing how it combines with the causal variable's pattern we can derive what type of causality holds (provided that the predicted signature's pattern is accurately predicted). (c) Repeating this process for each time step leads to the generation of the aggregate causality matrix which summarizes the combinations of patterns met. Therefore, three types of causal chains are possible: positive, dark, and negative ( Fig. 5(a) left) in correspondence with the three types of causality identified in the previous step. The repetitive observation of a relatively long chain type (\"long\" depends on the problem context) can be used to probabilistically expect the future movements of the critical variable(s).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 102,
+                    "end": 111,
+                    "text": "Fig. 1(a)",
+                    "ref_id": null
+                },
+                {
+                    "start": 354,
+                    "end": 360,
+                    "text": "Fig. 4",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 507,
+                    "end": 513,
+                    "text": "Fig. 4",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 1534,
+                    "end": 1543,
+                    "text": "Fig. 5(a)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Identify the Causal Profile"
+        },
+        {
+            "text": "From a risk analysis perspective, the critical variable(s) needs to be understood in terms of their consequences. The first step is to identify for the critical variable(s) their possible scenarios, which are entwined with them; in other words, for the critical variable(s) Y one needs to identify which values are: (1) Tolerable, (2) Risky and, (3) Catastrophic ( Fig. 5(a) right) . To decide the scenarios' thresholds, the decisionmaker should be either an expert or seek expert knowledge. Based on these scenarios, the decisionmaker is able to anticipate and reduce the overall impact of any events that might ensue, to evaluate whether the potential risks can be hedged, to plan for adequate actions, to understand the financial implications, and identify the impact of and prepare for changes in the evaluation process.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 365,
+                    "end": 381,
+                    "text": "Fig. 5(a) right)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Calculate the Causal Chains Frequency Distributions"
+        },
+        {
+            "text": "To aggregate the information included in the causal chains over all the relationships that target a specific critical variable, it is important to calculate their frequency distributions for each causal type (see Fig. 5(a) ). In this way, the decisionmaker can create a dashboard regarding the persistence of causal chains on the critical variable under consideration. Such information is very useful for a holistic risk analysis on which factors (variables) influence, and in what man-ner (causality type and chain lengths) according to the possible scenarios outlined beforehand. One can also build from here probabilistic models for each expected scenario.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 213,
+                    "end": 222,
+                    "text": "Fig. 5(a)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Calculate the Causal Chains Frequency Distributions"
+        },
+        {
+            "text": "As in any risk-informed decision-making framework, all of the identifiable factors that affect a decision must be considered. However, the factors may have different levels of importance in the final decision. Therefore, an orderly decision analysis structure that considers more than just risk is necessary to give decisionmakers the information needed to make smart choices. In that context our framework, and especially the causal chains it reveals, can enhance the risk triplet framework (scenarios, critical variable frequency distribution, consequences (Borgonovo et al., 2018; Kaplan & Garrick, 1981; Kumar & Nayar, 2020) , thus generating risk quadruplets (i.e., risk triplet plus causal factors). Fig 5. (a) Considering the type of causality at each time step we can collect the causal chains that influence the critical variable(s). The critical variable Y , partly influenced by the causal variables (X 1 , X 2 , . . . , X N ), takes roughly three ranges of values corresponding to tolerable, risky and catastrophic scenarios associated with the critical variable. (b) The totality of causality on the critical variable can be summarized via their respective frequency distributions in terms of their successive incidents (causal chains). Analytically, for a given system we collect: (1) The possible scenarios (S j ) for our problem settings, (2) the frequency distribution of the critical variable(s) (F j ) that determine which scenario occurs in the first place, (3) the consequences y j that emerge from each scenario, both beneficial and detrimental, and (4) the causal relationships A j that affect the critical variable(s) which can be summarized by their chains frequency distributions (as discussed in the previous section, see also Fig. 5(b) ). Collectively those four components comprise the risk quadruplet, R (see Fig. 6(a) ), which is a risk analytic mani-festation of our causal risk-based decision-making framework.",
+            "cite_spans": [
+                {
+                    "start": 559,
+                    "end": 583,
+                    "text": "(Borgonovo et al., 2018;",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 584,
+                    "end": 607,
+                    "text": "Kaplan & Garrick, 1981;",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 608,
+                    "end": 628,
+                    "text": "Kumar & Nayar, 2020)",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 706,
+                    "end": 712,
+                    "text": "Fig 5.",
+                    "ref_id": null
+                },
+                {
+                    "start": 1754,
+                    "end": 1763,
+                    "text": "Fig. 5(b)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1839,
+                    "end": 1848,
+                    "text": "Fig. 6(a)",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Produce Risk Quadruplets and Critical Variable(s) Prediction"
+        },
+        {
+            "text": "Ultimately, the crown result obtained is the assembly prediction of the critical variable(s). To do this we need to recall the out-of-sample prediction process for a single causal variable X i as described in a previous subsection. The assembly prediction ( Fig. 6(b) ) uses all the causal variables X i , X i+1 , . . . , X N and calculates the weighted average of their individual predictions (on the critical variable). The weights used should be proportional to the in-sample prediction accuracy a i performed before.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 258,
+                    "end": 267,
+                    "text": "Fig. 6(b)",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Produce Risk Quadruplets and Critical Variable(s) Prediction"
+        },
+        {
+            "text": "The out-of-sample assembly prediction then can be used to estimate what scenario to expect both in the short term and in the long term and thus formulate an educated decision making.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Produce Risk Quadruplets and Critical Variable(s) Prediction"
+        },
+        {
+            "text": "In this section, the novel causal risk-based decision-making framework developed in the previous section for the case of the COVID-19 pandemic is employed. On the one hand, the demonstrated application will be a step-by-step elaboration on how to use the risk quadruplets, from the very formulation of the problem at hand, to the risk assessment of the causal factors of the system at hand. On the other hand, our endeavor will be to provide useful implications for decision and policymakers, and thus a powerful causal-related decision tool on designing effectively, and therefore adjusting appropriately the measures to suppress the spread of COVID-19 in the country or area chosen, and simultaneously organize the actions needed to minimize the socioeconomic damage from the pandemic to several key sectors. Based then on the risk quadruplets, the appropriate decision-making path is selected, taking into account the decisionmaker's tolerance to uncertainty and pursuing (but not limited to) the consideration of the actions which will produce the final decision to be made.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "MAKING RISK-BASED, CAUSALITY-ENABLED DECISIONS ON THE COVID-19 PANDEMIC"
+        },
+        {
+            "text": "As it is expected for any real-world application, there are many influencing factors that can be fundamental sources of future change. In particular, examples of COVID-19 specific influencing factors include the numbers of COVID-19 cases, deaths, ages, severe travel restrictions, product suspensions, supply chain interruptions, among many others. Both epidemiological and laboratory studies have reported that weather might be an important factor in the transmission and survival of disease agents (Casanova, Jeon, Rutala, Weber, & Sobsey, 2010; Gupta, Raghuwanshi, & Chanda, 2020; Martens & McMichael, 2002) . 13 Recently, the stability of COVID-19 has been reported to be similar to that of SARS CoV-1 on various types of inanimate surfaces in specific weather conditions (van Doremalen et al., 2020) . Thus, in our case study, data only on temperature and precipitation are considered as approximate proxies for weather conditions, in order to investigate their causal interaction with the critical variable (Y ) which measures the daily number of COVID-19 cases for scenarios' formulation. 14 Historical data for the United States on the state and county level is collected from 23rd January till 31st May, 2020. 15 The state and county files contain FIPS 16 codes, which is a standard geographic identifier to facilitate our analysis as it permits the combination of this data with temperature and precipitation data retrieved from the National Oceanic and Atmospheric Administration (NOAA) of the United States. 17 The treatment proposed herein can be easily extended to include other factors once data on them become available.",
+            "cite_spans": [
+                {
+                    "start": 500,
+                    "end": 547,
+                    "text": "(Casanova, Jeon, Rutala, Weber, & Sobsey, 2010;",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 548,
+                    "end": 583,
+                    "text": "Gupta, Raghuwanshi, & Chanda, 2020;",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 584,
+                    "end": 610,
+                    "text": "Martens & McMichael, 2002)",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 613,
+                    "end": 615,
+                    "text": "13",
+                    "ref_id": null
+                },
+                {
+                    "start": 776,
+                    "end": 804,
+                    "text": "(van Doremalen et al., 2020)",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 1219,
+                    "end": 1221,
+                    "text": "15",
+                    "ref_id": null
+                },
+                {
+                    "start": 1520,
+                    "end": 1522,
+                    "text": "17",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "MAKING RISK-BASED, CAUSALITY-ENABLED DECISIONS ON THE COVID-19 PANDEMIC"
+        },
+        {
+            "text": "In order to determine what influencing factors are likely to effect, various scenarios of the pandemic are defined as appropriate and customizable as possible. This scenario planning is used as an important basis for robust strategic decision making, and as such to mitigate overwhelming uncertainty and create logical, consistent stories of how the pandemic situation might unfold. Further, the frequency distribution of Y, at the federal level is computed. As an example, our focus will be on the state-specific frequency distributions of the three most populous states, namely New York, California, and Illinois. Additionally, some expert sources are utilized in order to arrange the consequences connected to each scenario. Finally, a detailed map of how weather conditions influence the daily number of cases at the county level is presented, again focusing on these three states.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "MAKING RISK-BASED, CAUSALITY-ENABLED DECISIONS ON THE COVID-19 PANDEMIC"
+        },
+        {
+            "text": "A scenario is a succinct summary which describes what can possibly happen at a specific setup. 14 We are not able to consider other important factors as the required data are not available (i.e., deficient or missing data) to us. We should reiterate here that the proposed causal decisionmaking methodology with real time-series variables is robust enough to produce results in case of missing values in the data; see Section 3.1 for details. 15 Data was obtained from the New York Times Github repository: https://github.com/nytimes/covid-19-data 16 FIPS: Federal Information Processing Standards. 17 Weather data (daily precipitation and temperature per U.S. county) were retrieved from NOAA's National Climatic Data Center: http://www.ncdc.noaa.gov. In order to conduct our analysis, we had to match the daily COVID-19 cases to the daily temperature and precipitation for each county separately. The common reference point was the FIPS code which was readily available for the COVID-19 data.",
+            "cite_spans": [
+                {
+                    "start": 95,
+                    "end": 97,
+                    "text": "14",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Scenarios (S j )"
+        },
+        {
+            "text": "COVID-19 cases represent our critical variable which shapes the decision-making scenarios assessed.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Scenarios (S j )"
+        },
+        {
+            "text": "In the current absence of vaccines and effective drug treatments, the following five scenarios will be considered, where the critical variable (Y ) is the number of cases, and a i R + , i = 1, 2, . . . , 5 are predetermined thresholds.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Scenarios (S j )"
+        },
+        {
+            "text": "\u2022 Scenario 1 (Tolerable): < a 1 : The number of new cases is very manageable for the healthcare system, and the spread of the infection is either steady or slowing down. \u2022 Scenario 2 (Risky: Warning): a 1 \u2264 Y < a 2 : The number of new cases is manageable for the healthcare system; however, the spread of the infection is slightly increasing. \u2022 Scenario 3 (Risky: Alarming): a 2 \u2264 Y < a 3 : The number of new cases is manageable for the healthcare system; however, the spread of the infection is steadily increasing. \u2022 Scenario 4 (Risky: Critical): a 3 \u2264 Y < a 4 : The number of new cases is still manageable; however, the spread of the infection has increased significantly. \u2022 Scenario 5 (Catastrophic): Y \u2265 a 4 : The number of new cases is not manageable, and the spread of the infection is out of control.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Scenarios (S j )"
+        },
+        {
+            "text": "It is important to reiterate here that our methodology is very flexible and can accommodate many possible scenarios with a variety of predefined thresholds which might be most suitable for the instance. Also, it does not require those thresholds to be the same across state and county levels. In this regard, the relevant team of the decisionmakers will have the opportunity to design the scenarios and map them with their possible consequences. The proposed framework can simultaneously be employed at the county/state/federal level.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Scenarios (S j )"
+        },
+        {
+            "text": "An overview of the current problem is obtained by plotting the daily aggregate U.S. time series of COVID-19 cases (see Fig. 7(a) ). As the figure illustrates, there exists an exponential growth from March to April, followed by a fluctuating pattern lasting until the end of May. Nevertheless, the picture obtained when plotting the aggregate cases over the three states of New York, California, and Illinois dissolves the generic fluctuating pattern of Fig. 7(a) into distinct patterns for each state (see Fig. 7(b) ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 119,
+                    "end": 128,
+                    "text": "Fig. 7(a)",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 453,
+                    "end": 462,
+                    "text": "Fig. 7(a)",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 506,
+                    "end": 515,
+                    "text": "Fig. 7(b)",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Frequency (F j ) Distributions"
+        },
+        {
+            "text": "More specifically, New York follows an exponential growth until the beginning of April and then oscillates downwards (with the exception of the last week of April, which displays a surge in COVID-19 cases similar to the top of the previous exponential rally). A different picture is plotted for California, which displays no exponential growth; rather COVID-19 cases, starting from March, display a steady and oscillating rise. No spikes, or tendencies to drop are observed. Illinois reveals a picture similar to California's, with the difference being in May (whence COVID-19 cases seem to oscillate around a mean plateau).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Frequency (F j ) Distributions"
+        },
+        {
+            "text": "The second component of the risk quadruplet methodology corresponds to the frequency distribution F of the critical variable which in our case is the daily cases of COVID-19. Calculating the frequency distribution both U.S.-wide and state-wide is a first step toward understanding the current situation and planning ahead based on the other components of the risk quadruplet.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Frequency (F j ) Distributions"
+        },
+        {
+            "text": "Regarding the U.S.-wide daily COVID-19 cases (see Fig. 7 (c)), it is apparent that most cases are lying between 0 and 5,000 while there is also a significant \"fat-tail\" from 15,000 to 30,000 daily cases.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 50,
+                    "end": 56,
+                    "text": "Fig. 7",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Frequency (F j ) Distributions"
+        },
+        {
+            "text": "New York has a significant frequency of up to 1,000 daily cases with the rest of the frequencies being significantly lower (see Fig. 7(d) ). California displays a high frequency of up to 1,000 daily cases with a significant concentration between 2,000 and 5,000 daily cases (see Figure 7 (e)). Illinois has frequencies which decrease geometrically from up to 1,000 to up to 3,000 daily COVID-19 cases (see Fig. 7 (f)).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 128,
+                    "end": 137,
+                    "text": "Fig. 7(d)",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 279,
+                    "end": 287,
+                    "text": "Figure 7",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 406,
+                    "end": 412,
+                    "text": "Fig. 7",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Frequency (F j ) Distributions"
+        },
+        {
+            "text": "The spread of COVID-19 across the United States has motivated the introduction of unprecedented measures aiming at containing the epidemic. However, apart from the consequences on citizens' health, there are also other consequences impacting the society and the economy that need to be identified-and these need to be measured and mapped with the relevant scenarios. The consideration of the consequences, the measurement of their impact, and their mapping to the scenarios are all challenging tasks, highly related to both the decisionmakers and the aspects of the COVID-19 pandemic that they need to prepare to mitigate further. In our case, the following eight consequences are considered: Table I maps the consequences with the five scenarios, and due to lack of relevant data, their impact is measured as neutral/low, medium and high with gray, dark yellow, and red color, respectively.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 693,
+                    "end": 700,
+                    "text": "Table I",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "Consequences (y j )"
+        },
+        {
+            "text": "Each consequence is connected with every scenario and measured accordingly (see Table I ), and each scenario is connected with the critical variables' frequency (in our case COVID-19 daily cases as in Fig. 7) . However, what causes each critical variable (and, therefore what affects scenarios and, as a result, the culminating consequences) is reflected through the pattern causality analysis, from which the causal profile of the variables under study is obtained. In effect, knowledge of the causal interdependencies is the differentiating factor between risk triplets and risk quadruplets. Now, decisionmakers with a causal map, as in Figs. 8 and 9, have a top-level dashboard and can make informed decisions with deep knowledge about the bigger picture of the problem they face.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 80,
+                    "end": 87,
+                    "text": "Table I",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 201,
+                    "end": 208,
+                    "text": "Fig. 7)",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Causality (A j )"
+        },
+        {
+            "text": "Pattern causality allows us to calculate the impact of precipitation and temperature (the main proxies of the weather conditions) on the number of daily COVID-19 cases (see Figs. 8 and 9, respectively) for every county in the United States. The overall striking result is that weather conditions do affect the number of daily COVID-19 cases, however in a variety of ways. The aggregate causal impacts of precipitation and temperature on daily cases for each county are illustrated in Figs. 8 and 9 , respectively, for the states of New York, California, and Illinois.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 484,
+                    "end": 497,
+                    "text": "Figs. 8 and 9",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "Causality (A j )"
+        },
+        {
+            "text": "The precipitation causal map of California reveals a clear structure: In northern Californian counties precipitation drives COVID-19 cases in a mostly negative way (Fig. 8(j) ), i.e., increases (decreases) in precipitation cause decreases (increases) in COVID-19 cases. Some other counties on the periphery of California display positive causality of precipitation on COVID-19 cases ( Fig. 8(b) ), that is, increases (decreases) in precipitation cause increases (decreases) in COVID-19 cases. Moreover, some counties located in central California along with the Los Angeles area expose the dark causality of precipitation on COVID-19 cases (Fig. 8(f) ). This finding suggests that changes in precipitation cause mixed changes in daily COVID-19 cases.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 164,
+                    "end": 174,
+                    "text": "(Fig. 8(j)",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 385,
+                    "end": 394,
+                    "text": "Fig. 8(b)",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 640,
+                    "end": 650,
+                    "text": "(Fig. 8(f)",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "Impact of Precipitation on COVID-19 Cases"
+        },
+        {
+            "text": "As far as Illinois is concerned, distinct dark causality is observed in its northern counties ( Fig. 8(g) ), suggesting oscillations in COVID-19 cases which are intricately influenced by precipitation. The county of Chicago displays a dual (positive and dark) causality of precipitation on COVID-19 cases, suggesting a mixed influence with a tendency toward same-direction changes. Positive causality of precipitation is also found in central to west Illinois counties (Fig. 8(c) ). Furthermore, very few counties toward center-south Illinois exhibit some negative causality of precipitation on COVID-19 cases (Fig. 8(k) ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 96,
+                    "end": 105,
+                    "text": "Fig. 8(g)",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 469,
+                    "end": 479,
+                    "text": "(Fig. 8(c)",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 610,
+                    "end": 620,
+                    "text": "(Fig. 8(k)",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "Impact of Precipitation on COVID-19 Cases"
+        },
+        {
+            "text": "Lastly, in the state of New York, precipitation displays positive causality mostly in some central counties (Fig. 8(d) ). Negative causality of precipitation in the state of New York is more eminent compared to the other two states examined here ( Fig. 8(l) ), denoting that COVID-19 cases have been moving opposite to precipitation. Nevertheless, there is a significant number of counties where precipitation has dark causality as well (Fig. 8(h) ), most notably the county of Long Island. Aggregate impact of daily precipitation on COVID-19 cases per day, over the period from 23 January 2020 to 31 May 2020. The map detail is on the county-level for the states of California, Illinois and New York, the US' three most populous ones. To understand the way precipitation influences COVIDcases, a series of maps for each type of causality is presented. Namely, positive causality of precipitation on COVID-19 cases is presented in a-d; dark causality of precipitation on COVID-19 cases is presented in e-h; negative causality of precipitation on COVID-19 cases is presented in i-l.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 108,
+                    "end": 118,
+                    "text": "(Fig. 8(d)",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 248,
+                    "end": 257,
+                    "text": "Fig. 8(l)",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 437,
+                    "end": 447,
+                    "text": "(Fig. 8(h)",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "Impact of Precipitation on COVID-19 Cases"
+        },
+        {
+            "text": "The temperature causal map of California is more mixed than its precipitation counterpart. Negative causality is observed in very few counties and at very low levels ( Fig. 9(j) ), suggesting an insignificant opposite directional movement of cases driven by temperature. Some west-side California counties are characterized by positive causality of temperature on cases ( Fig. 9(b) ). Most California counties along with Los Angeles have dark causality of temperature over cases ( Fig. 9(f) ), implying a mixed oscillation.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 168,
+                    "end": 177,
+                    "text": "Fig. 9(j)",
+                    "ref_id": "FIGREF6"
+                },
+                {
+                    "start": 372,
+                    "end": 381,
+                    "text": "Fig. 9(b)",
+                    "ref_id": "FIGREF6"
+                },
+                {
+                    "start": 481,
+                    "end": 490,
+                    "text": "Fig. 9(f)",
+                    "ref_id": "FIGREF6"
+                }
+            ],
+            "section": "Impact of Temperature on COVID-19 Cases"
+        },
+        {
+            "text": "As far as Illinois is concerned, distinct dark causality is detected mostly in central to north-ern counties ( Fig. 9(g) ), suggesting oscillations in COVID-19 cases which are intricately influenced by temperature. The county of Chicago displays a dark causality of temperature on COVID-19 cases, suggesting mixed-direction changes. Positive causality of temperature is also found in very few (mostly central) Illinois counties (Fig. 9(c) ). Furthermore, even fewer counties exhibit negative causality of temperature on COVID-19 cases ( Fig. 9(k) ) and at very low levels.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 111,
+                    "end": 120,
+                    "text": "Fig. 9(g)",
+                    "ref_id": "FIGREF6"
+                },
+                {
+                    "start": 428,
+                    "end": 438,
+                    "text": "(Fig. 9(c)",
+                    "ref_id": "FIGREF6"
+                },
+                {
+                    "start": 537,
+                    "end": 546,
+                    "text": "Fig. 9(k)",
+                    "ref_id": "FIGREF6"
+                }
+            ],
+            "section": "Impact of Temperature on COVID-19 Cases"
+        },
+        {
+            "text": "Finally, in the state of New York, temperature displays a very similar causality profile to those of California and Illinois. Positive causality is observed mostly in some south New York counties ( Fig. 9(d) ). Aggregate impact of daily average temperature on COVID-19 cases per day, over the period from 23 January 2020 to 31 May 2020. The map detail is on the county-level for the states of California, Illinois and New York, the US's three most populous. To understand the way temperature influences COVID-cases, a series of maps for each type of causality is presented. Namely, positive causality of temperature on COVID-19 cases is presented in a, b, c, d; dark causality of temperature on COVID-19 cases is presented in e, f, g, h; negative causality of temperature on COVID-19 cases is presented in i, j, k, l.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 198,
+                    "end": 207,
+                    "text": "Fig. 9(d)",
+                    "ref_id": "FIGREF6"
+                }
+            ],
+            "section": "Impact of Temperature on COVID-19 Cases"
+        },
+        {
+            "text": "There, an increase in temperature suggests increases in COVID-19 cases. Negative causality of temperature in the state of New York is very sparse and low ( Fig. 9(l) ). Nevertheless, there is a significant number of counties where precipitation has dark causality as well ( Fig. 9(h) ), suggesting that temperature, overall, causes mixed oscillations in COVID-19 cases.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 156,
+                    "end": 165,
+                    "text": "Fig. 9(l)",
+                    "ref_id": "FIGREF6"
+                },
+                {
+                    "start": 274,
+                    "end": 283,
+                    "text": "Fig. 9(h)",
+                    "ref_id": "FIGREF6"
+                }
+            ],
+            "section": "Impact of Temperature on COVID-19 Cases"
+        },
+        {
+            "text": "The proposed framework establishes the causal factors of the critical variable (whose frequency distribution must be known) in order to understand both the current scenario at hand (and its corresponding consequences) as well as what scenario to expect based on the causalities from the influencing factors.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Risk Quadruplets (R) on the Coronavirus Pandemic"
+        },
+        {
+            "text": "The case of California: According to Fig. 7 , daily COVID cases are increasing at an almost steady rate. Setting a 2 = 2, 000 daily COVID-19 cases and a 3 = 4, 000 daily COVID-19 cases, as a result, California is as of May 31 under Scenario 3 which is alarming. Looking at the frequency distribution of COVID-19 cases in California, reveals a significant concentration between 1,000 and 2,500 cases per day, a fact which renders the situation risky. Being in scenario 3, one would expect, according to Table I , a high impact on physical distancing, medium impact on travel restrictions, face masks usage, lockdown, government support, supply chain interruption, reduced consumption, and working capital pressure. Of course, all this refers to the situation as of 31 May. However, in order to be able to better plan for the imminent future, the decisionmaker needs the fourth component of the risk quadruplet which is the causal impact on the critical variable of the daily COVID-19 cases. In California precipitation and temperature are influencing COVID-19 cases primarily in a dark way and then in a positive way. This means that depending on the county, local authorities should be aware of the weather forecasts and expect either a same-direction impact on the COVID-19 cases (positive causality) or most importantly mixed oscillations (dark causality). The case of Illinois: According to Fig. 7 , daily COVID cases have been increasing at an almost steady rate, before exhibiting a slowdown. Setting a 1 = 1, 000 daily COVID-19 cases and a 2 = 2, 000 daily COVID-19 cases, as a result, Illinois is as of May 31 under Scenario 2 (\"warning\"). Looking at the frequency distribution of COVID-19 cases in Illinois, reveals a significant concentration up to 3,000 cases per day a fact which renders the situation risky. Being in scenario 2, this suggests, according to Table I, a medium impact on physical distancing, face masks usage, government support, and low impact on travel restrictions, lockdown, supply chain interruption, reduced consumption, and working capital pressure. Of course, all this refers to the situation as of 31 May. However, to be able to better plan for the imminent future, the decisionmaker needs the fourth component of the risk quadruplet which is the causal impact on the critical variable of daily COVID-19 cases. In Illinois precipitation and temperature are influencing COVID-19 cases primarily in a dark way and then in a positive way, exactly like in California. This means that depending on the county, local authorities should be aware of the weather forecasts and expect either a same-direction impact on the COVID-19 cases (positive causality) or, alternatively, mixed oscillations (dark causality). The case of New York: According Fig. 7 , daily COVID cases had been increasing until April, dropping dramatically during May. Setting a 1 = 1, 000 daily COVID-19 cases, as a result, New York is, as of May 31, under Scenario 1 (\"tolerable\"). Looking at the frequency distribution of COVID-19 cases in New York reveals a significant concentration between up to 1,000 cases per day, a fact which renders the situation very manageable. Being in scenario 1, this suggests, according to Table I , a medium impact on physical distancing and low impact on travel restrictions, face masks usage, lockdown, government support, supply chain interruption, reduced consumption, and working capital pressure. Of course, all this refers to the situation as of 31 May. However, in order to be able to better plan for the imminent future, the decisionmaker needs the fourth component of the Risk Quadruplet which is the causal impact on the critical variable of daily COVID-19 cases. In New York precipitation is influencing COVID-19 cases in all possible ways, while temperature is motivating almost exclusively dark causality. This means that depending on the county, local authorities should be mostly alert on the precipitation due to its highly uncertain influence on the daily cases of COVID-19.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 37,
+                    "end": 43,
+                    "text": "Fig. 7",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 502,
+                    "end": 509,
+                    "text": "Table I",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 1394,
+                    "end": 1400,
+                    "text": "Fig. 7",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 2762,
+                    "end": 2778,
+                    "text": "According Fig. 7",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 3221,
+                    "end": 3228,
+                    "text": "Table I",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "Risk Quadruplets (R) on the Coronavirus Pandemic"
+        },
+        {
+            "text": "This study develops a novel causal risk-based decision-making methodology to assist policy and decisionmakers to take the causal structure underlying a decision problem into account and infer the causal consequences of choosing the available options. The proposed methodology requires five main steps to be performed to allow decision and policy makers to answer four key questions with the Risk Quadruplets: (1) What can go wrong? (2) How likely is it? (3) What are the consequences? and (4) What are the causal relations?",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "CONCLUSION"
+        },
+        {
+            "text": "To elaborate on the direct applicability and usefulness of our methodology, and in order to attempt to demonstrate the role of weather parameters on the formulation of the decision-making process in the United States, temperature and precipitation data as representative proxies of the weather conditions were used to apply the proposed methodology and identify the causal interaction with the daily number of COVID-19 cases for the scenarios' formulation; thereby not considering other factors where data are unavailable. The treatment proposed herein can be easily extended to including other factors once data on them become available.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "CONCLUSION"
+        },
+        {
+            "text": "This approach illustrates enabling the appropriate adjustment of measures to suppress the spread of COVID-19 at the county, state and country levels, and simultaneously identify the actions needed to minimize the socioeconomic damage from the pandemic to several key sectors. Finally, the populous states of New York, California, and Illinois have been considered in some detail to formulate the risk quadruplet, and thus, arrange the consequences connected to each scenario proposed. The results of the work are actionable and provide a basis for further research.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "CONCLUSION"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Foundational issues in risk assessment and risk management",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Aven",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Risk Analysis",
+            "volume": "32",
+            "issn": "10",
+            "pages": "1647--1656",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/j.1539-6924.2012.01798.x"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Foundational issues in risk assessment and risk management",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Aven",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Zio",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Risk Analysis",
+            "volume": "34",
+            "issn": "7",
+            "pages": "1164--1172",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/risa.12132"
+                ]
+            }
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "COVID-19: Decision making and palliative care",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Borasio",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Gamondi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Obrist",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Jox",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Swiss Medical Weekly",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.4414/smw.2020.20233"
+                ]
+            }
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Risk analysis and decision theory: A bridge",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Borgonovo",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Cappelli",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Maccheroni",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Marinacci",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "European Journal of Operational Research",
+            "volume": "264",
+            "issn": "1",
+            "pages": "280--293",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.ejor.2017.06.059"
+                ]
+            }
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Effects of air temperature and relative humidity on coronavirus survival on surfaces. Applied and Environmental Microbiology",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Casanova",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Jeon",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Rutala",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Weber",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Sobsey",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "",
+            "volume": "76",
+            "issn": "",
+            "pages": "2712--2717",
+            "other_ids": {
+                "DOI": [
+                    "10.1128/AEM.02291-09"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Aristotle's metaphysics In",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Cohen",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "D C"
+                    ],
+                    "last": "Reeve",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Guiguzi, China's first treatise on rhetoric: A critical translation and commentary",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Cornblatt",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Technical Communication Quarterly",
+            "volume": "29",
+            "issn": "1",
+            "pages": "110--113",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/10572252.2019.1669967"
+                ]
+            }
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Derivatives for decision makers: Strategic management issues",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Crawford",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Sen",
+                    "suffix": ""
+                }
+            ],
+            "year": 1996,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Astral sciences in Mesopotamia",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Gerber",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Hunger",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Pingree",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Journal of the American Oriental Society",
+            "volume": "121",
+            "issn": "2",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.2307/606596"
+                ]
+            }
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Effect of weather on COVID-19 spread in the US: A prediction model for India in 2020",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Gupta",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Raghuwanshi",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Chanda",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Science of The Total Environment",
+            "volume": "728",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.scitotenv.2020.138860"
+                ]
+            }
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Causality in decisionmaking",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Hagmayer",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Fernbach",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Oxford handbook of causal reasoning",
+            "volume": "1",
+            "issn": "",
+            "pages": "1--32",
+            "other_ids": {
+                "DOI": [
+                    "http:/oxfordhandbooks.com/view/10.1093/oxfordhb/9780199399550.001.0001/oxfordhb-9780199399550-e-27"
+                ]
+            }
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Cancer, COVID-19 and the precautionary principle: Prioritizing treatment during a global pandemic",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Hanna",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Evans",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Booth",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature Reviews Clinical Oncology",
+            "volume": "17",
+            "issn": "5",
+            "pages": "268--270",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41571-020-0362-6"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Decision analysis: Practice and promise",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Howard",
+                    "suffix": ""
+                }
+            ],
+            "year": 1988,
+            "venue": "Management Science",
+            "volume": "34",
+            "issn": "6",
+            "pages": "679--695",
+            "other_ids": {
+                "DOI": [
+                    "10.1287/mnsc.34.6.679"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Nonlinear time series analysis",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Kantz",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Schreiber",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1017/CBO9780511755798"
+                ]
+            }
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "The words of risk analysis",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kaplan",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "Risk Analysis",
+            "volume": "17",
+            "issn": "4",
+            "pages": "407--417",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/j.1539-6924.1997.tb00881.x"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "On the quantitative definition of risk",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kaplan",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Garrick",
+                    "suffix": ""
+                }
+            ],
+            "year": 1981,
+            "venue": "Risk Analysis",
+            "volume": "1",
+            "issn": "1",
+            "pages": "11--27",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/j.1539-6924.1981.tb01350.x"
+                ]
+            }
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Disappointment aversion and long-term dynamic asset allocation. Available at SSRN 3270686",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Kontosakos",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Hwang",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Kallinterakis",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Pantelous",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "2020",
+            "issn": "",
+            "pages": "1--75",
+            "other_ids": {
+                "DOI": [
+                    "10.2139/ssrn.3270686"
+                ]
+            }
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "COVID 19 and its mental health consequences",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kumar",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Nayar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Journal of Mental Health",
+            "volume": "",
+            "issn": "",
+            "pages": "1--2",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/09638237.2020.1757052"
+                ]
+            }
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Deterministic nonperiodic flow",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Lorenz",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "The theory of chaotic attractors",
+            "volume": "",
+            "issn": "",
+            "pages": "25--36",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/978-0-387-21830-4_2"
+                ]
+            }
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Environmental change, climate and health",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Martens",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Mcmichael",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Issues and research methods",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Risk analysis for critical asset protection",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Mcgill",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Ayyub",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kaminskiy",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Risk Analysis",
+            "volume": "27",
+            "issn": "5",
+            "pages": "1265--1281",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/j.1539-6924.2007.00955.x"
+                ]
+            }
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "On \"Black Swans\" and \"Perfect Storms\": Risk analysis and management when statistics are not enough",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Pat\u00e9-Cornell",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Risk Analysis",
+            "volume": "32",
+            "issn": "11",
+            "pages": "1823--1833",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/j.1539-6924.2011.01787.x"
+                ]
+            }
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Asymmetric effects of favorable and unfavorable information on decision making under ambiguity",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Peysakhovich",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Karmarkar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Management Science",
+            "volume": "62",
+            "issn": "8",
+            "pages": "2163--2178",
+            "other_ids": {
+                "DOI": [
+                    "10.1287/mnsc.2015.2233"
+                ]
+            }
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Hidden interactions in financial markets",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Stavroglou",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Pantelous",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Stanley",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Zuev",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Proceedings of the National Academy of Sciences",
+            "volume": "116",
+            "issn": "",
+            "pages": "10646--10651",
+            "other_ids": {
+                "DOI": [
+                    "10.1073/pnas.1819449116"
+                ]
+            }
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Unveiling causal interactions in complex systems",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Stavroglou",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Pantelous",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Stanley",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Zuev",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Proceedings of the National Academy of Sciences",
+            "volume": "117",
+            "issn": "14",
+            "pages": "7599--7605",
+            "other_ids": {
+                "DOI": [
+                    "10.1073/pnas.1918269117"
+                ]
+            }
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Aerosol and surface stability of SARS-CoV-2 as compared with SARS-CoV-1",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Van Doremalen",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Bushmaker",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Morris",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Holbrook",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Gamble",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Williamson",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Munster",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "New England Journal of Medicine",
+            "volume": "382",
+            "issn": "16",
+            "pages": "1564--1567",
+            "other_ids": {
+                "DOI": [
+                    "10.1056/NEJMc2004973"
+                ]
+            }
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "(a) Shadow attractor reconstruction technique: using lagged values of the same variable in order to approximate its original dynamics. Those original dynamics hold the causal information which is tapped in the next step. (b) Scanning for nearest neighbors in M X 1 and using their projected (by h) time indices on M Y . Those projections are used in the step of \"signature extraction\" in order to test for causality.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "(a) Schematic representation of signature extraction; signature is the weighted average of the projected points from the previous step.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Having repeated the process as described in the previous steps, the hidden interactions are unveiled, thus revealing the three different aspects of the causal network.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "(a) The chief contribution of the current study is the extension of the well-established Risk Triplet framework into what the \"Risk Quadruplets\" with the fourth component being that of the causal information retrieved. (b) We can predict the future values of the critical variable(s) by using an assembly of predictions from all the causal variables considered.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "(a) Time series of daily COVID-19 cases for all U.S. and (b) separately for the states of New York, California, and Illinois. Frequency distributions (F from risk quadruplet) for daily COVID-19 cases (c) for all U.S. and (d) for New York, (e) California, and (f) Illinois, separately from 23 rd January till 31 st May 2020.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "Fig 8. Aggregate impact of daily precipitation on COVID-19 cases per day, over the period from 23 January 2020 to 31 May 2020. The map detail is on the county-level for the states of California, Illinois and New York, the US' three most populous ones. To understand the way precipitation influences COVIDcases, a series of maps for each type of causality is presented. Namely, positive causality of precipitation on COVID-19 cases is presented in a-d; dark causality of precipitation on COVID-19 cases is presented in e-h; negative causality of precipitation on COVID-19 cases is presented in i-l.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "Fig 9. Aggregate impact of daily average temperature on COVID-19 cases per day, over the period from 23 January 2020 to 31 May 2020. The map detail is on the county-level for the states of California, Illinois and New York, the US's three most populous. To understand the way temperature influences COVID-cases, a series of maps for each type of causality is presented. Namely, positive causality of temperature on COVID-19 cases is presented in a, b, c, d; dark causality of temperature on COVID-19 cases is presented in e, f, g, h; negative causality of temperature on COVID-19 cases is presented in i, j, k, l.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "Consequences Per Scenario",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": []
+}

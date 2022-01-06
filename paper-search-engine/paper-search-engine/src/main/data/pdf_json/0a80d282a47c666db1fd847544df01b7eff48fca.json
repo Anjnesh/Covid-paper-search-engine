@@ -1,0 +1,557 @@
+{
+    "paper_id": "0a80d282a47c666db1fd847544df01b7eff48fca",
+    "metadata": {
+        "title": "Performance Evaluation of Strassen Matrix Multiplication Supporting Triple-Double Precision Floating-Point Arithmetic",
+        "authors": [
+            {
+                "first": "Tomonori",
+                "middle": [],
+                "last": "Kouya",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Shizuoka Institute of Science and Technology",
+                    "location": {
+                        "postCode": "2200-2, 437-8555",
+                        "settlement": "Toyosawa, Fukuroi",
+                        "country": "Japan"
+                    }
+                },
+                "email": "kouya.tomonori@sist.ac.jp"
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "The Strassen matrix multiplication can be categorized into divide-and-conquer algorithms, and they are known as the most efficient algorithms. We previously implemented them supporting multiple precision floating-point arithmetic using MPFR and Bailey's QD libraries and have shown their effectiveness in our papers and open-source codes. In preparation for a future release, we have introduced an optimized tripleword floating-point arithmetic proposed by Fabiano et al., and we found its utility in our implementation of multiple precision matrix multiplication. In this paper, we demonstrate the effectiveness of the Strassen triple-double precision matrix multiplication through performance evaluation compared to those based on QD and MPFR libraries.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "All types of scientific computations require precise numerical results that satisfy users owing to their performance levels. If the targeting problems are illconditioned and cannot be solved with the standard IEEE 754 double precision floating-point arithmetic (binary64), then multiple precision floating-point arithmetic with a longer mantissa than binary64 must be used for their precise solutions. In this case, a reliable and stable multiple precision library, such as QD [3] by Bailey et al. or MPFR [4] , should be chosen to solve the problems on the current computational environment. The QD library, which is one of the multicomponent models of multiple precision floating-point arithmetic, supports only two types of floating-point arithmetic: double-double (DD, 106 bits of mantissa) and quad-double (QD, 212 bits). The QD library performs better for the same mantissa lengths than the MPFR, which supports any length of mantissa, based on the optimized natural number kernels of GNU MP (GMP) [5] .",
+            "cite_spans": [
+                {
+                    "start": 477,
+                    "end": 480,
+                    "text": "[3]",
+                    "ref_id": null
+                },
+                {
+                    "start": 484,
+                    "end": 509,
+                    "text": "Bailey et al. or MPFR [4]",
+                    "ref_id": null
+                },
+                {
+                    "start": 1004,
+                    "end": 1007,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Triple-double (TD, 159 bits = 53 bits\u00d73), which is based on triple-word arithmetic proposed by Flippo et al., is a type of multi-component model including QD. They are expected to be faster than MPFR for the same length of mantissa and also offer a mid-level performance and accuracy when compared to DD and QD. Numerical experiments have shown a good performance TD computation compared with CAMPARY [2] , which supports any length of mantissa based on binary32 and binary64.",
+            "cite_spans": [
+                {
+                    "start": 401,
+                    "end": 404,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "We have already released multiple precision matrix multiplication library, BNCmatmul [10] using divide-and-conquer algorithms, including Strassen, and parallelized various precision matrix multiplication based on DD, QD, and MPFR libraries with OpenMP [7, 8] . In comparison with Rgemm in MPLA-PACK (MBLAS) [6] , it produces better performance for large-sized matrices. We introduced TD arithmetic to BNCmatmul and then confirmed that TD matrix multiplication requires approximately five times larger computational time than DD and about half the computational time of QD.",
+            "cite_spans": [
+                {
+                    "start": 85,
+                    "end": 89,
+                    "text": "[10]",
+                    "ref_id": null
+                },
+                {
+                    "start": 252,
+                    "end": 255,
+                    "text": "[7,",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 256,
+                    "end": 258,
+                    "text": "8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 307,
+                    "end": 310,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "In this paper, we describe the software layers of BNCmatmul and MBLAS, analyze how to parallelize the Strassen algorithm, compare the performance of BNCmatmul with Rgemm of MBLAS, and implement TD arithmetic based on triple-word arithmetic. Then, we carry out numerical experiments of TD Strassen matrix multiplication and compare their performance and accuracy with DD and QD on both Ryzen and Corei7 computational environments. Finally, we conclude our tasks and present our future works.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "We have already released BNCmatmul, which features parallelized Strassen and Winograd multiple precision matrix multiplication based on OpenMP, QD-based C inline functions and MPFR. By utilizing the divide-and-conquer algorithms to reduce the number of arithmetic algorithms, high efficiency for large size matrix multiplications has been achieved over Rgemm in MBLAS and MPLAPACK. In Fig. 1 , we illustrate the differences and similarities of the software structure between BNCmatmul and MPLAPACK. Both these libraries are based on QD or QD-based C inline functions for DD and QD accuracy and MPFR for arbitrary accuracy. MPLAPACK is completely written in C++ and its classes (QD and MPFR C++). In contrast, BNCmatmul is written in C-language, QD-based inline C functions (c dd qd.h), and original MPFR functions. Our implementation of the TD arithmetic is appended to c dd qd.h, reusing the same error-free transformation as incline C functions for the DD and QD arithmetic.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 385,
+                    "end": 391,
+                    "text": "Fig. 1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Structure of BNCmatmul and Its Performance"
+        },
+        {
+            "text": "In the remaining section, the parallelized Strassen algorithms are explained and the performance of matrix multiplication provided by BNCmatmul is compared with Rgemm of MBLAS.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Structure of BNCmatmul and Its Performance"
+        },
+        {
+            "text": "For given matrices A and B, the Strassen and Winograd algorithms for matrix multiplication C := AB, being categorized in the divide-and-conquer algorithms, can reduce the number of additions and multiplications compared to the normal matrix multiplication, particularly for large-sized matrices. Thus, these algorithms provide better performance when used together with large multiple precision floating-point arithmetic. We confirmed their efficiency through benchmark tests and applications of LU decomposition [7, 8] .",
+            "cite_spans": [
+                {
+                    "start": 513,
+                    "end": 516,
+                    "text": "[7,",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 517,
+                    "end": 519,
+                    "text": "8]",
+                    "ref_id": "BIBREF7"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Parallelized Strassen and Winograd Algorithms"
+        },
+        {
+            "text": "The algorithms we implemented in BNCmatmul and those in parallelization are illustrated in Fig. 2 The Strassen and Winograd matrix multiplications we implemented were parallelized in each parallelizable part of those constructed with groups of omp section. Although the Winograd matrix multiplication is less complex than the Strassen matrix multiplication, the part of recursive self-calls of both algorithms T. Kouya can be divided and executed on seven threads. When the size of the matrices does not fit the Strassen and Winograd algorithms, our implementation requires parallelized dynamic padding and peeling to produce user-defined size of matrix products. Although it is well known that the number of computations of the Winograd algorithm is lesser than that of Strassen, no significant difference in computational time or effectiveness of parallelization was observed among these algorithms in DD, QD, and MPFR arbitrary precision arithmetic. Therefore, we focus on the Strassen algorithm in the rest of this paper.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 91,
+                    "end": 97,
+                    "text": "Fig. 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "Parallelized Strassen and Winograd Algorithms"
+        },
+        {
+            "text": "Parallelization of the Strassen and Winograd matrix multiplication mentioned above can present effectiveness in DD and QD precision arithmetic, except in the case of MPFR, where our implementation produced lower performance than Rgemm.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Parallelized Strassen and Winograd Algorithms"
+        },
+        {
+            "text": "We depict our results by the performance comparison of the implemented parallelized Strassen multiple precision matrix multiplication with Rgemm of MBLAS. The two computational environments, Ryzen and Corei7, are prepared for those evaluations as follows: called until the number of rows or columns of divided matrices is less than or equal to 32. MBLAS of MPLAPACK provides the same type of functions and order of arguments as the original reference BLAS. The elements of matrix are supposed to be stored as column-major order. The Rgemm used in comparison, is one of the functions in MBLAS to calculate C := \u03b1AB + \u03b2C, so we set \u03b1 = 1 and \u03b2 = 0 to obtain the result of a simple matrix multiplication of C := AB. All the elements of the matrices are stored along with in column-major layout for the benefit of Rgemm.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Performance Comparison of Strassen Algorithms with MPLAPACK"
+        },
+        {
+            "text": "Aside from that, our implemented matrix multiplication functions are supposed to utilize matrices along with row-major layout and written in C-language, but we used common benchmark programs written in C++ to compare them with Rgemm.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Ryzen"
+        },
+        {
+            "text": "The square matrices A and B, used in our benchmark tests, are as follows:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Ryzen"
+        },
+        {
+            "text": ".",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Ryzen"
+        },
+        {
+            "text": "Due to all the positive real elements of A and B, precise elements of C can be derived through our benchmark tests of C := AB, and the lack of one or two significant decimal digits were found in all sizes and precision arithmetic. Figure 4 , illustrates the performance comparison of serial Strassen, DD and QD matrix multiplication with Rgemm. These graphs depict plots of the ratio of computational time with those of Rgemm/Strassen. Thus, the plotted number over 1 means that our Strassen matrix multiplication is faster than Rgemm. In these figures, we show the thresholds of dimension and ratio (\u2265 1) such as 767, 1.04 in DD matrix multiplication on Ryzen7, over which our Strassen matrix multiplication is faster than Rgemm. Currently, there is no existence of parallelized Rgemm with the QD library, and those figures illustrate the results of serial matrix multiplication. As per the graphs, we can understand that our Strassen matrix multiplication is faster for large-sized matrices in any cases of DD or QD. In Fig. 5 , we illustrate the efficiency of our parallelized Strassen matrix multiplication. These figures plot the performance improvement ratio of computational time with 2, 4, and 8 threads against serial computational time. According to these figures, our parallelized Strassen matrix multiplication can achieve expected efficiency for both DD and QD arithmetic.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 231,
+                    "end": 239,
+                    "text": "Figure 4",
+                    "ref_id": "FIGREF6"
+                },
+                {
+                    "start": 1022,
+                    "end": 1028,
+                    "text": "Fig. 5",
+                    "ref_id": null
+                }
+            ],
+            "section": "Ryzen"
+        },
+        {
+            "text": "Due to these results for both DD and QD computations, TD Strassen matrix multiplication can be expected to show similar efficiency and performance improvement. Primarily, MPFR-based 106-bits matrix multiplication is approximately 18 times slower than the DD-based one, and MPFR-based 212-bits one about two times slower than the QD-based one. For the 159-bits TD computation, we observed that MPFR-based matrix multiplication is seven times slower than our TD-implemented one. In the rest of this paper, the benchmark tests of the TD arithmetic compare only the evaluation of DD and QD computations.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "QD-Based Matrix Multiplication."
+        },
+        {
+            "text": "A well-optimized triple-word arithmetic was proposed by Fabiano et al. [1] , which is one of the multi-component models of the multiple precision floating-point arithmetic, and is based on the error-free transformation techniques commonly used in DD and QD arithmetic. The triple-word arithmetic can be implemented by using the existing floating-point arithmetic such as IEEE single precision (binary32) or binary64. We choose binary64 to implement TD arithmetic as the middle precision between DD and QD computations. The TD matrix multiplication we implemented utilizes TD addition (TDadd) and TD multiplication (TDmul) in which they proposed a set of TD arithmetic. In the remaining section, we describe the algorithms for TD and its related arithmetic.",
+            "cite_spans": [
+                {
+                    "start": 71,
+                    "end": 74,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Triple-Double Matrix Multiplication"
+        },
+        {
+            "text": "Error-free transformation algorithms: QuickTwoSum, TwoSum and TwoProd-FMA (Algorithm 1-3) are used as pieces to construct the TD arithmetic. In this paper, the entire floating-point variables are binary64, and \u2295, , \u2297 and FMA mean standard binary64 arithmetic. TwoProd functions are implemented in two ways: one with utilizing Split function of binary64 value and another with utilizing fused multiply-add (FMA) arithmetic. In our implementation of TD arithmetic, we choose TwoProd-FMA because it is the simplest and native FMA arithmetic that is available on both Ryzen and Core i7 computational environments. TDadd and TDmul are only required for matrix multiplication. For this, we implement the arithmetic with error-free transformation functions, which have been prepared in c dd qd.h. Therefore, we can compare the performance and accuracy of DD, QD, and TD matrix multiplications with common the single inline C library. The complexity of DD, TD, and QD arithmetic are shown in Table 1 . The addition and multiplication of DD and QD arithmetic are fast (sloppy) versions in the QD library. The total amount of computations shows that TDadd and TDmul require about 3.8 times more complexity compared to that of DDadd and DDmul, and they require about 0.3 times compared with QDadd and QDmul. We can expect a mid-level performance and accuracy between DD and QD arithmetic.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 984,
+                    "end": 991,
+                    "text": "Table 1",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "Triple-Double Matrix Multiplication"
+        },
+        {
+            "text": "The computational time (unit: second) obtained through our benchmark tests with 1023-1025 and 2047-2049 dimensional square matrix multiplications are shown in Fig. 7 . In these figures, we can see each seconds of DD, TD, and QD Strassen matrix multiplication. The Ryzen and Corei7 processors have 8 cores, and, thus, we depict serial and parallelized computational time with OpenMP with 8 threads. Table 2 shows maximum relative errors in all elements of C generated from computations of Fig. 7 , so we can confirm that our matrix multiplications obtained expected accuracy with DD, TD and QD arithmetic.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 159,
+                    "end": 165,
+                    "text": "Fig. 7",
+                    "ref_id": "FIGREF8"
+                },
+                {
+                    "start": 398,
+                    "end": 405,
+                    "text": "Table 2",
+                    "ref_id": "TABREF4"
+                },
+                {
+                    "start": 488,
+                    "end": 494,
+                    "text": "Fig. 7",
+                    "ref_id": "FIGREF8"
+                }
+            ],
+            "section": "Benchmark Tests for TD-Based Matrix Multiplication"
+        },
+        {
+            "text": "According to these figures, any dimensional TD matrix multiplication requires about five times of DD and approximately half of QD for serial and parallel cases. These ratios against DD and QD matrix multiplications are reasonable, as shown in Table 1 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 243,
+                    "end": 250,
+                    "text": "Table 1",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "Benchmark Tests for TD-Based Matrix Multiplication"
+        },
+        {
+            "text": "The performance improvement ratio of TD Strassen matrix multiplication is illustrated in Fig. 8 ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 89,
+                    "end": 95,
+                    "text": "Fig. 8",
+                    "ref_id": "FIGREF9"
+                }
+            ],
+            "section": "Benchmark Tests for TD-Based Matrix Multiplication"
+        },
+        {
+            "text": "We implemented TD arithmetic based on Fabiano et al.'s proposed triple-word floating-point arithmetic and demonstrated that we can obtain the expected performance and accuracy for TD Strassen matrix multiplication. They require approximately five times more computational time compared to DD matrix multiplication and about half computational time against QD. The parallelization improvement ratio with OpenMP can be achieved at the expected levels as compared with DD and QD computations. Currently, the QD library does not contain a TD class; thus, we cannot compare our TD matrix multiplication with MPLAPACK, but our TD matrix multiplication would be faster than Rgemm of MPLAPACK for larger sizes of matrices if TD class existed.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion and Future Works"
+        },
+        {
+            "text": "For future works, we will release a new BNCmatmul, including TD implementation, and verify the efficiency for TD of LU decomposition. We can also customize DD, TD, and QD arithmetic efficiently according to users' requirements and achieve accuracy under 212-bits mantissa.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion and Future Works"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Algorithms for triple-word arithmetic",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Fabiano",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.-M",
+                    "middle": [],
+                    "last": "Muller",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Picot",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "IEEE Trans. Comput",
+            "volume": "68",
+            "issn": "11",
+            "pages": "1573--1583",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "CAMPARY: cuda multiple precision arithmetic library and applications",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Joldes",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.-M",
+                    "middle": [],
+                    "last": "Muller",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Popescu",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Tucker",
+                    "suffix": ""
+                },
+                {
+                    "first": "G.-M",
+                    "middle": [],
+                    "last": "Greuel",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Koch",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Paule",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "ICMS 2016",
+            "volume": "9725",
+            "issn": "",
+            "pages": "232--240",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/978-3-319-42432-3_29"
+                ]
+            }
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "The MPFR library",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Mpfr Project",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "GMP development team: The GNU Multiple Precision arithmetic library",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Granlaud",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "MPLAPACK(MBLAS)",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Nakata",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Accelerated multiple precision matrix multiplication using Strassen's algorithm and Winograd's variant",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Kouya",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "JSIAM Lett",
+            "volume": "6",
+            "issn": "",
+            "pages": "81--84",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Performance evaluation of multiple precision matrix multiplications using parallelized Strassen and Winograd algorithms",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Kouya",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "JSIAM Lett",
+            "volume": "8",
+            "issn": "",
+            "pages": "21--24",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Software layers of BNCmatmul and MPLAPACK(MBLAS)",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Parallelized Winograd algorithms",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Matrix Multiplication. For comparison with MPFR-based matrix multiplication, we illustrate our MPFR-based Strassen matrix multiplication against Rgemm inFig. 6. MPFR Rgemm is parallelized with OpenMP and provides expected improvement. The Strassen implementation and Rgemm ratio",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Ratio of computational time of MPFR matrix multiplication: Rgemm/Strassen will become smaller when the number of threads increases for both 128-and 1024-bits MPFR arithmetic.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "(s, e) := QuickTwoSum(a, b) s := a \u2295 b e := b (s a) return (s, e) Algorithm 2 (s, e) := TwoSum(a, b) s := a \u2295 b v := s a e := (a (s v)) \u2295 (b v) return (s, e)",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "(p, e) := TwoProd(a, b) p := a \u2297 b e := FMA(a, b, \u2212p) (= a \u00d7 b \u2212 p) return (p, e) 4.1 Algorithms of TD Arithmetic Triple-word precision floating-point numbers are constructed by three pieces of existing floating-point numbers. We express each element of triple-word floatingpoint number as x := (x 0 , x 1 , x 2 ), in which all the pieces x i (i = 0, 1, 2) are expressed with binary64. Renormalization: VecSum and VSEB(k). All types of triple-word arithmetic require renormalization just before returning the results as correct triple-word floating-point number. For this process, Fabiano et al. proposed the combination of VecSum (Algorithm 4) and VSEB(k) (VecSumErrBlanch, Algorithm 5).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "(e 0 , ..., e n\u22121 ) := VecSum(x 0 , ..., x n\u22121 ) sn\u22121 := xn\u22121 for i = n \u2212 2 to 0 do (si, ei+1) := TwoSum(xi, si+1) end for e0 := s0 return (e0, ..., en\u22121) Algorithm 5 (y 0 , ..., y k\u22121 ) := VSEB(k)(e 0 , ..., e n\u22121 ) j := 0 0 := e0for i = 0 to k \u2212 3 do (ri, t i+1 ) := TwoSum( i, ei+1) if t i+1 = 0 then yj := ri i+1 := t i+1 j := j + 1 else i+1 := ri end if end for (yj, yj+1) := TwoSum( k\u22122 , e k\u22121 ) yj+2 := 0, ..., y k\u22121 := 0 return (y0, ..., y k\u22121 )TDadd and TDmul. TDadd (Algorithm 6), addition of two triple-word numbers, add x := (x 0 , x 1 , x 2 ) and y := (y 0 , y 1 , y 2 ), and then produce the sum r = (r 0 , r 1 , r 2 ) := x + y. At first, it merges x and y and then executes VecSum and VSEB(3) to renormalize and return r.Algorithm 6 r := TDadd(x, y) (z0, ..., z5) := Merge(x0, x1, x2, y0, y1, y2) (e0, ..., e5) := VecSum(z0, ..., z5) (r0, r1, r2) := VSEB(3)(e0, ..., e5) return (r0, r1, r2) Fabiano et al. proposed two types of triple-word multiplications, one is more accurate and the other one is faster. We choose the faster version of multiplication (Algorithm 7) due to the lesser number of computations.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": "c := FMA(x1, y1, b2) z31 := FMA(x0, y2, z lo 10 ) z32 := FMA(x2, y0, z lo 01 ) z3 := z31 \u2295 z32 s3 := c \u2295 z3 (e0, e1, e2, e3) := VecSum(z up 00 , b0, b1, s3) r0 := e0 (r1, r2) := VSEB(2)(e1, e2, e3) return (r0, r1, r2)",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF8": {
+            "text": "Computational time (unit: second) of TD Strassen matrix multiplication",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF9": {
+            "text": "Performance improvement ration of parallelized TD Strassen matrix multiplicationFor any dimensional square matrices, parallelized TD Strassen shows similar level of speedup ratio against the number of OpenMP threads compared withFig. 5.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "and Fig. 3, where A, B and C are divided as",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "Number of elementary arithmetic",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF4": {
+            "text": "Maximum relative error of elements of C arisen by Strassen algorithm",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF5": {
+            "text": ".Speed up ra\u019fo: Ryzen, Strassen, TD Speed up ra\u019fo: Strassen, Core i7, TD",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": []
+}

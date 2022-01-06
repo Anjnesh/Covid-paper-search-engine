@@ -1,0 +1,4026 @@
+{
+    "paper_id": "0a2c3a3c937325107551448c9758818842d0a3a2",
+    "metadata": {
+        "title": "Potential predictors of type-2 diabetes risk: machine learning, synthetic data and wearable health devices",
+        "authors": [
+            {
+                "first": "Paola",
+                "middle": [],
+                "last": "Stolfi",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Ilaria",
+                "middle": [],
+                "last": "Valentini",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Maria",
+                "middle": [
+                    "Concetta"
+                ],
+                "last": "Palumbo",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Paolo",
+                "middle": [],
+                "last": "Tieri",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Andrea",
+                "middle": [],
+                "last": "Grignolio",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Filippo",
+                "middle": [],
+                "last": "Castiglione",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Type 2 diabetes (i.e. non-insulin-dependent, T2D) is a chronic, multifactorial, metabolic disorder typical of late adulthood characterised by less effective hormone insulin efficiency at lowering blood sugar. The World Health Organization reports that type 2 diabetes accounts for 85-90% of all cases of diabetes in the World [1].",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "There are many different mechanisms that contribute to the onset of T2D [2], therefore research is focusing on the simultaneous observation of several factors such as Abstract Background: The aim of a recent research project was the investigation of the mechanisms involved in the onset of type 2 diabetes in the absence of familiarity. This has led to the development of a computational model that recapitulates the aetiology of the disease and simulates the immunological and metabolic alterations linked to type-2 diabetes subjected to clinical, physiological, and behavioural features of prototypical human individuals.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "We analysed the time course of 46,170 virtual subjects, experiencing different lifestyle conditions. We then set up a statistical model able to recapitulate the simulated outcomes.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "The resulting machine learning model adequately predicts the synthetic dataset and can, therefore, be used as a computationally-cheaper version of the detailed mathematical model, ready to be implemented on mobile devices to allow self-assessment by informed and aware individuals. The computational model used to generate the dataset of this work is available as a web-service at the following address: http://krake n.iac.rm.cnr.it/T2DM.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "metabolic, immunological, genetic, and nutritional drivers. A recent study had pointed out a specific state of inflammation, unique for its characteristics and distinct from the classic inflammatory state, which manifests itself in the presence of a high-calorie diet and \"susceptible\" lifestyles [3] . The term metaflammation well describes this kind of inflammation caused by a high caloric and sugar-rich diet which mainly originates in the visceral adipose tissue [4] . This inflammatory-eliciting insult triggers a cellular response consisting of the release of several intracellular signals and a low levels of cytokines such as Tumour Necrosis Factor-\u03b1 (TNF-\u03b1), and Interleukin-6 (IL-6) [5] . Moreover, experiments have shown a correlation of these triggers with the inhibition of the insulin signal by phosphorylation of a serine in the Insulin Receptor Substrate-1 (IRS-1) [6] . The result is a malfunctioning receptor unable to bind insulin, turning the cells as insulin-resistant. Summarising, the prolonged condition of a pro-inflammatory response alters the metabolic functions of the adipocytes [7] and, in the long term, causes hyperglycemia and eventually full-blown type 2 diabetes [8] .",
+            "cite_spans": [
+                {
+                    "start": 297,
+                    "end": 300,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 468,
+                    "end": 471,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 694,
+                    "end": 697,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 882,
+                    "end": 885,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 1109,
+                    "end": 1112,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 1199,
+                    "end": 1202,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "The scenario just depicted calls for a predictive approach aimed at identifying the metabolic and inflammatory \"driving factors\", possibly amenable to being implemented on selfmonitoring devices. This has been the main aim of the EU-funded project \"Multi-scale Immune System Simulator for the Onset of Type 2 Diabetes\" (MISSION-T2D) [9] which has led to the development of a validated multi-level patient-specific model able to integrate metabolic, nutritional and lifestyle data for the prediction of the metabolic and inflammatory processes underlying the development of type 2 diabetes in the absence of familiarity.",
+            "cite_spans": [
+                {
+                    "start": 333,
+                    "end": 336,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "The mentioned computational model (herein referred to as M-T2D) has been implemented to take into account a set of user input data and to subsequently provide an estimation of the risk to develop a T2D clinical picture.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Approach"
+        },
+        {
+            "text": "Setting a definition for the risk of T2D has not been a trivial task. After a few attempts, we decided to combine the level of insulin resistance, the level of inflammatory cytokines, and the pro-inflammatory cell counts. These observables are, among others, used in the introduced mathematical description of the complex interdependencies among metabolites and pancreatic control as well as among adipose tissue components and inflammation.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Approach"
+        },
+        {
+            "text": "Upon setting anthropometric parameters such as age, sex, body weight, height, and providing nutritional habits, fitness status and physical activity patterns by the user, the M-T2D calculates the risk of progressing toward a T2D-related state in a predefined time horizon.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Approach"
+        },
+        {
+            "text": "Due to the high level of sophistication, M-T2D is quite computationally expensive (a 6-month simulated period takes many hours to run on a current high-performance computing server) and is therefore not a viable solution to perform self-monitoring and assessment on mobile devices. Because of this limitation, we constructed an approximation, namely a surrogate model being able to forecast the output of the model M-T2D with a reduced computational effort. The need for reducing the computational burden of a simulation tool occurs in many research fields. For instance, [10] proposed a statistical model for computer output being interested in the assessment of the computer code and the identification of the most significant predictors to efficiently design experiments. The authors in [11] investigated the same issues considering a Bayesian approach based on Gaussian processes. The study in [12] proposed a spatio-temporal neural network as a surrogate model for a particular type of chemical process, namely the polymerization reactor. The Gaussian process has been applied in [13] to approximate spatio-temporal processes while [14] used a Gaussian process with a modified before approximate dynamic processes in hydrology. For an up to date review regarding approximated models and techniques for complex processes, the interested reader can refer to [15] .",
+            "cite_spans": [
+                {
+                    "start": 572,
+                    "end": 576,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 790,
+                    "end": 794,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 898,
+                    "end": 902,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 1085,
+                    "end": 1089,
+                    "text": "[13]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 1137,
+                    "end": 1141,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 1361,
+                    "end": 1365,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Approach"
+        },
+        {
+            "text": "The aim of this work is two-fold: (1) to provide an approximation of the final state of M-T2D via surrogate model at initial conditions out of the experimental design, and, (2) to analyze simulated data to assess the parameters' value of the simulator used to carry on simulations. To this end, we apply Random Forest, a powerful Machine Learning (ML) algorithm, with finest fitting performances when dealing with complex datagenerating processes.",
+            "cite_spans": [
+                {
+                    "start": 34,
+                    "end": 37,
+                    "text": "(1)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Approach"
+        },
+        {
+            "text": "ML is becoming a popular and efficient approach to evaluate multidimensional longitudinal health data in different fields of medical research. Examples of this kind of studies include the diagnosis of asymptomatic liver disease [16] , the prediction of opioid dependence [17] , the evaluation of sociodemographic determinants of health status in aging [18] , the prediction of the mobility of medical rescue-vehicles [19] , forecasting adverse perioperative outcomes [20] , the measure of caloric intake at the population level [21] , the personalisation of oncological treatment in radiogenomics [22] , the determination of features of systolic blood pressure variability [23] , the identification of clinical variables in bipolar disorder [24] and, interestingly, a specific interest in uncovering potential predictors of diabetes (type 1 and 2) using large set of data [25] [26] [27] [28] [29] [30] [31] [32] . ML can also support global efforts in various fields of epidemic outbreaks of infectious diseases, developing up-to-date text and data-mining techniques to assist COVID-19-related research, especially by developing drugs faster (screening and detecting antibody virus interactions and detect viral antigens), understanding viruses better, mapping where viruses come from, and hopefully predicting the next pandemic [33, 34] . ML may offer accurate results with fewer requirements if compared with traditional mathematical modeling and it is often used to extract harderto-detect knowledge from unstructured data. ML models are particularly useful in settings where the input is represented by the enormous amount of diagnostic data whereas the output consists in predictive therapeutic options. At variance with the classical application of ML methods, in the present work which deals with the prediction of the risk of T2D, we use Random Forest to \"approximate\" M-T2D. For this purpose, the training set consisted of a large number of virtual (i.e. simulated) subjects experiencing different lifestyle conditions. The ML-derived surrogate model can recapitulate the simulated outcomes, thus computing the risk index with a significantly smaller computational effort, therefore allowing, as anticipated, to be computed in real-time on mobile devices.",
+            "cite_spans": [
+                {
+                    "start": 228,
+                    "end": 232,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 271,
+                    "end": 275,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 352,
+                    "end": 356,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 417,
+                    "end": 421,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 467,
+                    "end": 471,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 528,
+                    "end": 532,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 597,
+                    "end": 601,
+                    "text": "[22]",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 673,
+                    "end": 677,
+                    "text": "[23]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 741,
+                    "end": 745,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 872,
+                    "end": 876,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 877,
+                    "end": 881,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 882,
+                    "end": 886,
+                    "text": "[27]",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 887,
+                    "end": 891,
+                    "text": "[28]",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 892,
+                    "end": 896,
+                    "text": "[29]",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 897,
+                    "end": 901,
+                    "text": "[30]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 902,
+                    "end": 906,
+                    "text": "[31]",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 907,
+                    "end": 911,
+                    "text": "[32]",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 1329,
+                    "end": 1333,
+                    "text": "[33,",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 1334,
+                    "end": 1337,
+                    "text": "34]",
+                    "ref_id": "BIBREF33"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Approach"
+        },
+        {
+            "text": "Advances in wearable devices, computational power, and safe communications are permitting the evolution of precision medicine that could facilitate the development of personalized treatment of diabetes risk of each patient on an individual basis [35] . The accomplishments presented here are thus better valued looking at the great development of self-monitoring systems nowadays embedded in portable communication devices which open up to the application of predictive tools in health care [35] . Such predictive tools integrated with wearable devices, could feed their model-predictive alarm set and control systems with monitored signal data to adapt to the in vivo changes of the metabolic state of the user. The computational cheapness of the surrogate model proposed would then allow using data coming from wearable devices, as soon as they are measured [36] , providing, therefore, a real-time calculation of health indicators, whose evaluation would otherwise be unfeasible.",
+            "cite_spans": [
+                {
+                    "start": 246,
+                    "end": 250,
+                    "text": "[35]",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 491,
+                    "end": 495,
+                    "text": "[35]",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 860,
+                    "end": 864,
+                    "text": "[36]",
+                    "ref_id": "BIBREF35"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Approach"
+        },
+        {
+            "text": "In this section we first describe the computational model M-T2D and then we detail the experimental design used to generate the data. Such description is necessary to understand the data analysis that is carried on in the next section.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Methods"
+        },
+        {
+            "text": "The whole-body multi-scale computational model for fuel homeostasis M-T2D [37] describes the metabolic, hormonal and inflammatory changes due to exercise sessions and food ingestion [38] . It consists of the combination of many ordinary differential equations and an agent-based model unified into a multi-scale simulation tool.",
+            "cite_spans": [
+                {
+                    "start": 74,
+                    "end": 78,
+                    "text": "[37]",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 182,
+                    "end": 186,
+                    "text": "[38]",
+                    "ref_id": "BIBREF37"
+                }
+            ],
+            "ref_spans": [],
+            "section": "The computational model"
+        },
+        {
+            "text": "The metabolic physiology-based sub-model of M-T2D consists of an extended formulation of [39] to describe fuel homeostasis in response to a session of physical exercise. It incorporates the hormonal model inspired by [40] in which both glucagon and insulin are represented and glucose regulation is achieved by altering the balance between the two. Concerning the original model in [39] and with the aim of achieving greater generalization and user-customization, M-T2D provides an enhanced description of the physical exercise similar to that in [41] and [42] . In particular, we used a \"relative\" (rather than fixed) exercise intensity as well as the estimation of functional capacity in relation to age, sex, anthropometric characteristics, and current fitness status [37] . Moreover, M-T2D includes oxygen consumption and the dynamics of epinephrine as directly dependent on the relative exercise intensity to modulate hormones and metabolites responses to different exercise modalities (e.g. cycling, walking, running, stepping). For what concerns the description of the physiological changes due to food ingestion, stomach emptying, and absorption of macronutrients monomers in the gut [38] we follow the work in [43] and [44] . The description of the dynamics of alanine and triglycerides from proteins and fats ingestion, respectively, needed the settings of proper parameters, since the model in [43] is limited to the description of glucose dynamics. Insulin resistance or insulin-deficient states leads to a reduced response of tissues, such as the skeletal muscle, liver, and adipose tissue, to insulin, therefore M-T2D also implements the effects of insulin resistance on the glucose uptake by peripheral organs [45] . Besides that, in modeling fasting plasma glucose concentration we took into consideration factors depending on dietary habits, physical activity, and inflammation. These factors contribute in different ways to increase or diminish the blood sugar level. The glycemia (i.e. presence of glucose in the blood) rises due to unhealthy eating habits, leading to inflammation. Also, it decreases if the patient does physical exercises.",
+            "cite_spans": [
+                {
+                    "start": 89,
+                    "end": 93,
+                    "text": "[39]",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 217,
+                    "end": 221,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                },
+                {
+                    "start": 382,
+                    "end": 386,
+                    "text": "[39]",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 547,
+                    "end": 551,
+                    "text": "[41]",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 556,
+                    "end": 560,
+                    "text": "[42]",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 771,
+                    "end": 775,
+                    "text": "[37]",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 1192,
+                    "end": 1196,
+                    "text": "[38]",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 1219,
+                    "end": 1223,
+                    "text": "[43]",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 1228,
+                    "end": 1232,
+                    "text": "[44]",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 1405,
+                    "end": 1409,
+                    "text": "[43]",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 1725,
+                    "end": 1729,
+                    "text": "[45]",
+                    "ref_id": "BIBREF44"
+                }
+            ],
+            "ref_spans": [],
+            "section": "The computational model"
+        },
+        {
+            "text": "All together, M-T2D includes several models: (1) a model of energy balance and weight gain/loss is added in [45] , based on the equations provided by [46] and [47] ; (2) the emergence of the inflammation is described as the result of adipose mass increase which, in turn, is a direct consequence of a prolonged excess of high-calorie intake [48] ;",
+            "cite_spans": [
+                {
+                    "start": 108,
+                    "end": 112,
+                    "text": "[45]",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 150,
+                    "end": 154,
+                    "text": "[46]",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 159,
+                    "end": 163,
+                    "text": "[47]",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 341,
+                    "end": 345,
+                    "text": "[48]",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "ref_spans": [],
+            "section": "The computational model"
+        },
+        {
+            "text": "(3) to better describe lifestyle, we include a previously published model of physical exercise [37] ; (4) to counteract the inflammatory scenario, the presence of anti-inflammatory mechanisms promoted during exercise by skeletal muscle has been considered, based on a previous published study [49] ; (5) finally, to describe the inflammatory status of the subject, M-T2D merges the metabolic model with a general-purpose simulator of the immune system [50] , a modeling framework used to study different human pathologies [51] [52] [53] , specific aspects of the immune response [54, 55] and also aspects of nonhuman immunity [56] .",
+            "cite_spans": [
+                {
+                    "start": 95,
+                    "end": 99,
+                    "text": "[37]",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 293,
+                    "end": 297,
+                    "text": "[49]",
+                    "ref_id": "BIBREF48"
+                },
+                {
+                    "start": 452,
+                    "end": 456,
+                    "text": "[50]",
+                    "ref_id": "BIBREF49"
+                },
+                {
+                    "start": 522,
+                    "end": 526,
+                    "text": "[51]",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 527,
+                    "end": 531,
+                    "text": "[52]",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 532,
+                    "end": 536,
+                    "text": "[53]",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 579,
+                    "end": 583,
+                    "text": "[54,",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 584,
+                    "end": 587,
+                    "text": "55]",
+                    "ref_id": "BIBREF54"
+                },
+                {
+                    "start": 626,
+                    "end": 630,
+                    "text": "[56]",
+                    "ref_id": "BIBREF55"
+                }
+            ],
+            "ref_spans": [],
+            "section": "The computational model"
+        },
+        {
+            "text": "Simulated trajectories of the dynamic metabolic model M-T2D starting from different initial conditions (i.e. anthropometric features, physical activity patterns and dietary habits) corresponding to different virtual subjects have been generated by varying the parameters in Table 1 . The total number m = 46,170 is thus the product of the following terms ( | \u00b7 | indicates the cardinality of the set):",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 274,
+                    "end": 281,
+                    "text": "Table 1",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "The generation of synthetic data"
+        },
+        {
+            "text": "Low/medium/high quantities of carbohydrates, proteins, and fats are computed taking into account the balance of calories between the meal and the total daily energy expenditure (TDEE) [45] . In details, TDEE is the result of the sum of Resting Energy Expenditure (REE), Activity Energy Expenditure (AEE) [57] and Thermic Effect of Food (TEF) [58] . We implemented the equations by Mifflin and coworkers in [46] to estimate the REE considering weight, height, age, and sex. We determine the AEE based on the intensity, duration, volume of oxygen consumed, and the number of sessions of the exercise as in [45] . Finally, the TEF is the amount of energy expenditure that occurs after eating, due to the cost of digesting and processing food and represents about 10% of the calories due to meal ingestion [58] . The resulting TDEE represents the number of calories that have to be ingested to have a balance among energy intake and expenditure. In our calculation, these calories are somehow arbitrarily yet realistically split between breakfast (25%TDEE), lunch (45%TDEE) and dinner (30%TDEE). Furthermore, for each meal, we (1) m = |S| \u00b7 |A| \u00b7 |W | \u00b7 |H | \u00b7 (1 + N PA \u00b7 |D PA | \u00b7 |I PA |) \u00b7 |C ME | \u00b7 |P ME | \u00b7 |F ME |. Carbohydrates (grams) C ME \u2208 {low, med, high} Proteins (grams) P ME \u2208 {low, med, high} Fats (grams) F ME \u2208 {low, med, high} divided the caloric content of the meal in calories from carbohydrates, proteins, and fats equal to 50%, 20%, and 30%, respectively. Finally, to convert calories to grams we used the Atwater general factor system [59] . These \"standards\" or average values of grams for carbohydrates, proteins, and fats are used as reference values (median or 'med' value). Simple multiplications to the constants 0.8 and 1.5 are used to fix 'low' and 'high' quantities of the food intake description given above. The complete patient specification of the initial condition of the simulation is thus given as a string vector. For instance, the initial condition specified by the string female 28 obese tall 2 60/40 low/high/ low corresponds to a 28 years old female subject, tall and obese, who exercises twice a week (sixty minutes each time with an intensity of 40%VO 2 max ) and who follows a diet consisting in a low amount of carbohydrates and fats but rich in proteins. So in general we indicate the vector corresponding to the initial condition as follows:",
+            "cite_spans": [
+                {
+                    "start": 184,
+                    "end": 188,
+                    "text": "[45]",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 304,
+                    "end": 308,
+                    "text": "[57]",
+                    "ref_id": "BIBREF56"
+                },
+                {
+                    "start": 342,
+                    "end": 346,
+                    "text": "[58]",
+                    "ref_id": "BIBREF57"
+                },
+                {
+                    "start": 406,
+                    "end": 410,
+                    "text": "[46]",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 604,
+                    "end": 608,
+                    "text": "[45]",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 802,
+                    "end": 806,
+                    "text": "[58]",
+                    "ref_id": "BIBREF57"
+                },
+                {
+                    "start": 1556,
+                    "end": 1560,
+                    "text": "[59]",
+                    "ref_id": "BIBREF58"
+                }
+            ],
+            "ref_spans": [],
+            "section": "The generation of synthetic data"
+        },
+        {
+            "text": "Simulations' outputs were analyzed based on the following variables which are deemed the most significant to calculate the risk of developing T2D: Glucose BaseLine (GBL, namely the fasting glucose concentration), Body Mass Index (BMI), and Tumor Necrosis Factor-\u03b1 (TNF) as measured in the adipose tissue compartment. The execution of M-T2D starting from the initial condition x generated a complete trajectory of these variables with a time resolution of ten seconds. However, since we are interested in analysing the condition of the virtual subject only at the end of a specified period of 6 months, these measures are taken after 6 months of routinely and uninterrupted physical activity and diet patterns as specified (among the other things) in x . Formally, where t is 6 months. The set {(x (k) , y (k) ) : k = 1, . . . , m} is used as a training set for the development of a statistical model able to recapitulate, given x , the dynamics of the computational model and to predict the risk of developing T2D over a time horizon of 6 months. In other words, our goal was to find a statistical/ML model (which should not be confused with the computational model M-T2D) able to predict the dependent variables, namely y given a set of regressors/predictors x , that is, the initial conditions defining the virtual subject and her/his lifestyle. The new statistical model is, therefore, a surrogate model of M-T2D whose role is only to forecast the T2D risk after 6 months for given initial conditions that were not considered for the construction of the synthetic data. The main reason for finding such ML model is that the complexity of M-T2D requires a significant computational effort to run, whereas a statistical model, once trained, provides a real time solution of computing y (i) given x (i) allowing a fast generalisation to cases other than those in the training set x (k) , y (k) k=1,...,m .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The generation of synthetic data"
+        },
+        {
+            "text": "In order to be a viable solution to the given time and computational restriction, the model should have the following characteristics: good fitting performance in predicting the expected behaviour at time t of the output variables given the input variables at time t 0 < t , where t \u2212 t 0 = 6 months; usability of the results in analysing the impact of each regressor on the output; computational inexpensiveness in order to (2) be implemented on wearable devices. To this end, we adopted a data driven approach over the simulated patterns, in particular, using the notation introduced in the previous section, the ML model has been constructed and validated by using the initial conditions x of the regressors as input variables and the dependent variables y as output variables.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Results"
+        },
+        {
+            "text": "In this section, we first carry on a preliminary analysis to understand the quantitative characteristics of the data and the need to choose Random Forest as ML algorithm among many others. Figure 1 shows the correlations among variables. In particular, the dots in the boxes represent the sample Pearson Correlation Coefficients \u03c1 ij between x i and x j , namely, where s i , s j are the standard deviations and \u00b5 i , \u00b5 j are the mean of variables x i and x j respectively. Their significance is indicated by both the size of the dot (larger means higher significance) and the color (the actual value).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 189,
+                    "end": 197,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Results"
+        },
+        {
+            "text": "In Fig. 2 we report the scatter plots of the regressors and the dependent variables together with the fit (in orange; note: a poor fit, that is, a lack of dependence between the two variables appears as a horizontal or vertical orange line). We noticed that there are non-linear dependencies between the output variables and the regressors (e.g. scatter plot of BMI 0 = W 0 /H 2 in the third row). This observation was expected and, given the high level of complexity of the process generating the data, it suggests that a non-linear ML model should be considered rather than a linear one. Moreover, the variables related to the diet ( C ME , P ME , F ME , cfr. correlation plot in the middleboxes next to diagonal) do appear strongly correlated. However, these correlations are \"spurious\" because the corresponding variables depend linearly on another variable indicating the amount of calorie intake (already discussed in the previous section and [45] ). Lastly, the correlation plot shows that the output variables BMI, GBL and TNF are correlated, see for instance the dot in position TNF \u2212 BMI.",
+            "cite_spans": [
+                {
+                    "start": 949,
+                    "end": 953,
+                    "text": "[45]",
+                    "ref_id": "BIBREF44"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 3,
+                    "end": 9,
+                    "text": "Fig. 2",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Preliminary analysis"
+        },
+        {
+            "text": "All of above observations strongly suggest that a multivariate model is the appropriate choice in the attempt to construct a ML model recapitulating the data. Specifically, we are looking for a statistical model defined as where x and y are the vectors of regressors and dependent variables respectively, N 3 is a Gaussian in R 3 with zero mean and covariance matrix , and \u03c8(\u00b7) is a function to be determined. We tested several statistical models and compared their forecasting performance. We started from the simplest, namely, the linear regression model. Even though preliminary results already prove its unfit, it is interesting to quantify the error made by the linear model. Successively, we tested a few non-linear models, specifically, polynomial regression models of orders 2, 3, and 4. Finally, we tested the random forest algorithm [60] . To investigate the performances of each of the above models, we divided the dataset into a train set consisting of 2m/3 data points used to estimate the parameters of the models and the remaining m/3 data points in the test set used to assess the predictive performance of the model.",
+            "cite_spans": [
+                {
+                    "start": 843,
+                    "end": 847,
+                    "text": "[60]",
+                    "ref_id": "BIBREF59"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Preliminary analysis"
+        },
+        {
+            "text": "Results are shown in Fig. 3 . Each row, corresponding to one of the models considered shows the out-of-sample (i.e. computed on the test set) scatter plot of the true versus the predicted values. The linear regression model obtained by defining \u03c8 in Eq. (4) as a linear combination of the regressors, was not able to describe the behavior of none of the dependent variables. Indeed, all scatter plots in Fig. 3a are far from the y = x line. Interestingly, the scatter plots of BMI (leftmost panel) and of the TNF (rightmost panel) suggests that the linear model does partially capture these variables' dynamics, indeed despite an unwanted very large variability in the predicted value, a positive correlation between predicted and true values is observed. Conversely, results shown in the middle panel in Fig. 3a pertaining the GBL suggest that the linear regression model fails in this case because there is no evident correlation between the true and the fitted values. The result confirms that there is a non-linear structure among x and y and hints to the use of non-linear models. Figure 3b -d are related to the polynomial regression models of degree d = 2 , 3 and 4 respectively, obtained by defining \u03c8 in Eq. (4) as a polynomial of order d. From the plots, it is clear that BMI (leftmost panel) and TNF (rightmost panel) are only partially described by these models because the scatter plots show large variation in the predicted value hence the use of polynomial models does not improve significantly when increasing d. Likewise the linear model, the middle panels in Fig. 3b -d of true versus predicted GBL fails to show a clear correlation hence leading to the conclusion that the polynomial structure is also not appropriate.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 21,
+                    "end": 27,
+                    "text": "Fig. 3",
+                    "ref_id": "FIGREF6"
+                },
+                {
+                    "start": 404,
+                    "end": 411,
+                    "text": "Fig. 3a",
+                    "ref_id": "FIGREF6"
+                },
+                {
+                    "start": 805,
+                    "end": 812,
+                    "text": "Fig. 3a",
+                    "ref_id": "FIGREF6"
+                },
+                {
+                    "start": 1086,
+                    "end": 1095,
+                    "text": "Figure 3b",
+                    "ref_id": "FIGREF6"
+                },
+                {
+                    "start": 1577,
+                    "end": 1584,
+                    "text": "Fig. 3b",
+                    "ref_id": "FIGREF6"
+                }
+            ],
+            "section": "Preliminary analysis"
+        },
+        {
+            "text": "We then decided to assess other ML approaches, namely decision trees and random forest, based on a tradeoff among forecasting performance, the usability of the results and computational effort required.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Preliminary analysis"
+        },
+        {
+            "text": "In statistics/ML, decision trees are powerful tools when dealing with data coming from a complex process with a large number of degrees of freedom, both for regression and classification purposes. The main idea of such tools is to find binary splits, of the form X i \u2264 c and X i > c , called splitting rules, to divide the dataset into hyperrectangles being as homogeneous as possible in terms of dependent variables. Homogeneity is measured as the mean square error in the case of regression trees or as Gini index in the case of classification trees. The first node of a decision tree is called root, the internal nodes generated by splits are simply called nodes and the terminal unsplit are called leaves. Each node k including the root, is associated to the splitting rule parameters \u03b8 k = (X i , c) where X i is the splitting predictor and c is the splitting value; each leaf l is instead associated to dependent variables' data points \u00b5 l as their mean values in case of regression trees and the most observed value in the case of classification trees [61] . The structure of the tree T is intended to be the whole set of parameters \u03b8 k and \u00b5 l , for k = 1, . . . , K and l = 1, . . . , L where K and L are the total numbers of nodes and leaves respectively.",
+            "cite_spans": [
+                {
+                    "start": 1059,
+                    "end": 1063,
+                    "text": "[61]",
+                    "ref_id": "BIBREF60"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Decision trees and random forest"
+        },
+        {
+            "text": "The major drawback of this regression/classification tool is the high variability characterizing the output, meaning that several trees constructed over the same dataset could produce significantly different outputs. Research has addressed this issue by considering ensemble methods. These are methods that generate multiple outputs using the same algorithm but starting from different random initializations.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Decision trees and random forest"
+        },
+        {
+            "text": "Random forest introduced in [60] is one of the most well-known and powerful regression/classification ensemble method. The general idea of this algorithm is to construct a forest of decision trees and to define the output to be either the mean of all the outputs In detail, the application of the random forest algorithm to predict y from x with respect to Eq. (4), provides the following formula where N is the number of decision trees that have been build up and T i is the structure of the i-th tree that is the whole set of parameters \u03b8 k,i for k = 1, . . . , K and \u00b5 l,i for l = 1, . . . , L as detailed above.",
+            "cite_spans": [
+                {
+                    "start": 28,
+                    "end": 32,
+                    "text": "[60]",
+                    "ref_id": "BIBREF59"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Decision trees and random forest"
+        },
+        {
+            "text": "The random forest algorithm has been trained and tested using the scheme adopted for the previous models; the obtained results are shown in Fig. 3e . As clearly shown by the three panels, the multivariate random forest outperforms the previous ones in predicting y . Indeed the scatter plots of all three variables are aligned on the y = x line indicating a fairly good correlation. Just, a bit of variability is still observed for small values of GBL and TNF. Looking more in detail, the virtual individuals showing unfit for small values of GBL are those having extreme features. An example is given by the virtual individual defined by the following initial conditions x = [male, 28, tall, underweight, 1, 60/60, low/low/low] that corresponds to a 28 years old male subject, tall (1.91 m) and underweight (65.66 kg), who exercises once a week (sixty minutes each time with an intensity of 60%VO 2max ) and who follows a diet consisting in a low amount of carbohydrates, fats and proteins, this subject is bordering on anorexia. The lack of knowledge regarding metabolic processes in case of anorexia generates higher variability in simulation's output that is reflected into a higher unfit of the machine learning algorithm. We focused on the core distribution of the simulation output that is clearly caught up by the random forest algorithm, however, if the interest is toward extreme events quantile regression forest could be a valuable algorithm to analyse the tails of the distribution.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 140,
+                    "end": 147,
+                    "text": "Fig. 3e",
+                    "ref_id": "FIGREF6"
+                }
+            ],
+            "section": "Learning the parameters of the random forest from synthetic data to predict the risk of T2D"
+        },
+        {
+            "text": "In Table 2 we quantify the error produced by each model as the mean square error (MSE) in measuring the goodness of the fit, in particular, MSE In has been computed over the train set (i.e. in sample) while the MSE Out has been computed over the test set (i.e. Fig. 3 continued out of sample). As expected, the highest error corresponds to the linear model and it slightly decreases in polynomial regression models when using a higher degree polynomials. Finally, the multivariate random forest regression shows to outperform all other regression methods bringing down the MSE to more than one order of magnitude compared to the polynomial regression. Also to note that the small increase of the MSE Out compared to the MSE In denotes the absence of overfitting of data.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 3,
+                    "end": 10,
+                    "text": "Table 2",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 261,
+                    "end": 267,
+                    "text": "Fig. 3",
+                    "ref_id": "FIGREF6"
+                }
+            ],
+            "section": "Learning the parameters of the random forest from synthetic data to predict the risk of T2D"
+        },
+        {
+            "text": "Random forest algorithm showed good fitting performance and it provided a relatively easy interpretation of the data analysis' results allowing for interesting clinical hints. As first results, we looked at the variables' importance using a method already described in [62] . In a few words, we measured the impact of each variable on the predictive power of the model, as the difference between the prediction error computed when some noise is added to the predictors and the prediction error computed on the original predictors. Such impact is shown in Fig. 4 , where the variables' importance for each of the elements of y are plotted. The impact of some variables appears to be the same for the three variables BMI, GBL, and TNF. Indeed, we observed that the variables related to the physical activity (i.e. N PA , D PA , and I PA ) appear as the less important. This fact points out that better accounting for the physical activity on anti-inflammatory factors as well as on the reduction of glucose baseline already on time horizons smaller than 6 months is required in M-T2D. This is a task that is already ongoing and will be reported in due time [45] . The most important variable for both the BMI (grey bar in Fig. 4 ) and the GBL (black bar) is the initial value of the body mass index ( BMI 0 ). This means that weight plays an important role in determining the glucose baseline thus in the determination of the risk of T2D. As for the remaining variables, we observed that they have a comparable impact on the BMI. This is not the same for the glucose baseline or GBL index, for which the second most important dependence is with the number of carbohydrates in the diet ( C ME ). For what concerns the inflammation represented by the level of TNF-\u03b1 (i.e. TNF index, white bar in Fig. 4 ) the most important dependence is, as expected, the age (A) followed in order of importance by C ME and BMI 0 . This is interesting as it goes along the recently defined concept of Inflammaging [63] which joins immune-metabolic processes with age-related diseases in a single, integrated, clinical framework.",
+            "cite_spans": [
+                {
+                    "start": 269,
+                    "end": 273,
+                    "text": "[62]",
+                    "ref_id": "BIBREF61"
+                },
+                {
+                    "start": 1155,
+                    "end": 1159,
+                    "text": "[45]",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 1994,
+                    "end": 1998,
+                    "text": "[63]",
+                    "ref_id": "BIBREF62"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 555,
+                    "end": 561,
+                    "text": "Fig. 4",
+                    "ref_id": "FIGREF7"
+                },
+                {
+                    "start": 1220,
+                    "end": 1226,
+                    "text": "Fig. 4",
+                    "ref_id": "FIGREF7"
+                },
+                {
+                    "start": 1792,
+                    "end": 1798,
+                    "text": "Fig. 4",
+                    "ref_id": "FIGREF7"
+                }
+            ],
+            "section": "Discussion"
+        },
+        {
+            "text": "To carry on with the analysis of the relative importance of each input variable, we calculated their influence when taken in pairs. Again, we measure the impact of the couple x i , x j as the difference between prediction error when to x i , x j some noise is added versus the prediction error calculated in the unmodified case [62] . Looking at the pairwise co-influence on y in Fig. 5 , we noted that the most common of them involve BMI 0 . This is somehow expected since BMI 0 is the most or among the most important variables for all the output variables and both importance analyses are computed using the same methodology.",
+            "cite_spans": [
+                {
+                    "start": 328,
+                    "end": 332,
+                    "text": "[62]",
+                    "ref_id": "BIBREF61"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 380,
+                    "end": 386,
+                    "text": "Fig. 5",
+                    "ref_id": null
+                }
+            ],
+            "section": "Discussion"
+        },
+        {
+            "text": "To overcome any bias coming from this procedure, we considered another method to investigate the variables' co-influence on y , namely the maximal subtree method [62, 64, 65] . This method is based on the idea that variables that split close to the root play an important role in prediction error, while variables that split next to the leaves do not influence that much the prediction error. To have quantitative method for the idea just explained we need to introduce two concepts [62] : the maximal \u03bd-subtrees and the Fig. 5 Top twelve pairwise co-influence on y calculated by method in [62] minimal depth. Given a tree T , a \u03bd-subtrees T \u03bd is a subtree of T whose root is split using \u03bd ; a maximal \u03bd-subtrees is a \u03bd-subtrees that is not a subtree of a larger \u03bd-subtrees. The minimal depth D \u03bd is the distance from the root of T to the root of the closest maximal \u03bd -subtrees, that is D \u03bd measures the distance from the root of the first split on \u03bd . The idea explained above can be expressed in terms of the minimal depth as follows: the smaller D \u03bd the higher the impact of \u03bd on the prediction error.",
+            "cite_spans": [
+                {
+                    "start": 162,
+                    "end": 166,
+                    "text": "[62,",
+                    "ref_id": "BIBREF61"
+                },
+                {
+                    "start": 167,
+                    "end": 170,
+                    "text": "64,",
+                    "ref_id": "BIBREF63"
+                },
+                {
+                    "start": 171,
+                    "end": 174,
+                    "text": "65]",
+                    "ref_id": "BIBREF64"
+                },
+                {
+                    "start": 483,
+                    "end": 487,
+                    "text": "[62]",
+                    "ref_id": "BIBREF61"
+                },
+                {
+                    "start": 590,
+                    "end": 594,
+                    "text": "[62]",
+                    "ref_id": "BIBREF61"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 521,
+                    "end": 527,
+                    "text": "Fig. 5",
+                    "ref_id": null
+                }
+            ],
+            "section": "Discussion"
+        },
+        {
+            "text": "We apply this method whose result is shown in Table 3 , which reports a matrix where the diagonal element (i, i) represents the normalised (to have a number in the interval (0, 1) ) minimal depth D i of variable i, and the off-diagonal element i, j indicates the normalised minimal depth D i j of variable j with respect to the maximal i-subtree T i , that is D i j measures the distance from the root of T i of the first split on j. Variables having smaller values on the diagonal are more predictive. Small value on the diagonal element (i, i) together with small value on the off diagonal element i, j is a sign of significant co-influence on y between variables x i and x j . This method provides similar results to the one based on the pairwise importance, indeed smaller values of both diagonal and off-diagonal elements correspond to initial BMI 0 , C ME , A, P ME , F ME and S while the variables related to the physical activity shows higher values.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 46,
+                    "end": 53,
+                    "text": "Table 3",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "Discussion"
+        },
+        {
+            "text": "As shown in Table 3 , we noted that age and diet, taken together, play a significant influence on the outcome y , that is, on the overall risk of progressing to T2D. The same can be said for gender and diet. Conclusions on the effect of physical activity can not be appreciated at least on a time horizon of 6 months, as we already pointed out when discussing the variables' importance, while the co-influence of either gender or age with the number of physical activities performed per week has an impact on the risk of T2D larger than the impact of the duration and the intensities of the bouts of exercises.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 12,
+                    "end": 19,
+                    "text": "Table 3",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "Discussion"
+        },
+        {
+            "text": "Effective prevention of type 2 diabetes onset in the population can be helped by close and regular checks for early detection of signs of progression into the disease. A tool which allows self-assessment based on lifestyle parameters, however approximate, remains a very valuable and beneficial means to increase awareness of the risk of T2D. Nowadays, tools of this kind are within technological reach thanks to the wide-spread use of monitoring devices able to keep track of exercise and dietary patterns and, at the same time, the coming into view of computational methods which estimate the risk of progressing from the healthy (i.e. pre-diabetic) to the disease condition. The present study shows that it is possible to positively exploit these technologies. Smartphones, tablets, wristwatches and wearable devices are, and increasingly will be, used in everyday life as tools with the potential to foster a proper and healthy life, creating a positive impact on users with an improved effect on the quality of life. Today, the ability to estimate an individual patient's trajectory risk in real-time remains poor. Knowledge of a patient's dynamic risk profile may allow physicians to modify targeted and step by step changes in the T2D care plan that will alter the patient's outcome trajectory [20] . At present, computational tools which exploit the availability of massive data collected by personal assistant devices employing ML techniques are the focus of a great deal of research efforts. Considering recent improvements in healthcare delivery technologies like smartphone applications, device connectivity, artificial intelligence and machine-learning technology there is strong opportunity to reach better efficiency in pre-diabetes and diabetes care, and ameliorate patient involvement in diabetes self-management, which can decrease the surge of diabetes-related healthcare expenditures, paving the way to the future scenario of patient-driven diabetes care in the technology era [66] . Also, this new approach has great potential as a lowcost monitoring tool for nutritional habits and physical activity of different segments of the population, permitting their users to achieve knowledge hardly comprehensible by even the best expert.",
+            "cite_spans": [
+                {
+                    "start": 1301,
+                    "end": 1305,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 1997,
+                    "end": 2001,
+                    "text": "[66]",
+                    "ref_id": "BIBREF65"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "In this work, we have shown how a computational model running very complex simulations of realistic multivariate scenarios can be used to feed a machine learning method which demonstrated to perform satisfactorily to predict the risk of T2D using notably less time and computational resources, making it compliant for mobile devices use and for customized and immediate responses to the users. Here we focused on the prediction of the final state of the simulator has given some initial conditions, therefore in the current implementation the ML model provides a 6 months ahead risk of T2D to the users; this time horizon will be extended to predict the whole dynamic of the simulator. This extension, that will be presented in due time [45] , will provide the complete dynamic of the variables related to T2D risk, thus becoming a powerful instrument for users as a short-and mid-term assessment tool. In perspective, the ability to link the subject's parameters with measuring devices such as those in portable communication systems (smartphones and wristwatches) enables the development of health care systems linked in real-time to issue alerts, warnings or simple recommendations to the patient [35] . In the near future, the \"realtime\" execution of the model, with completely customizable input parameters can be envisaged as a dedicated bioinformatics service, able to provide increasingly personalized healthcare and facilitating self-monitoring.",
+            "cite_spans": [
+                {
+                    "start": 737,
+                    "end": 741,
+                    "text": "[45]",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 1200,
+                    "end": 1204,
+                    "text": "[35]",
+                    "ref_id": "BIBREF34"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "We conclude by looking at the near future, where we envision at least two avenues of research. A new era of medicine is opening up by combining traditional data from randomised clinical trials with new real-world data, collected from registries, electronic health records, social media, and wearable devices which produce real-world evidence, which can both uncover potential predictors of diabetes or challenge several RCTs data so far collected [32] .",
+            "cite_spans": [
+                {
+                    "start": 447,
+                    "end": 451,
+                    "text": "[32]",
+                    "ref_id": "BIBREF31"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "A final word should be spent to mention how needed is to open a bioethical debate (beyond, and in respect to, the EU General Data Protection Regulation or any other national regulations) on how to use and secure sensitive health data obtained by wearable devices, at stake, there are ethical questions about practices aimed at monetizing the patients' data rather than therapeutic quality improvement [67] . ",
+            "cite_spans": [
+                {
+                    "start": 401,
+                    "end": 405,
+                    "text": "[67]",
+                    "ref_id": "BIBREF66"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Islet inflammation in type 2 diabetes",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Donath",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Schumann",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Faulenbach",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Ellingsgaard",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Perren",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Ehses",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Diabetes Care",
+            "volume": "31",
+            "issn": "",
+            "pages": "161--165",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Type 2 diabetes as an inflammatory disease",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Donath",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Shoelson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Nat Rev Immunol",
+            "volume": "11",
+            "issn": "2",
+            "pages": "98--107",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Inflammatory mechanisms in obesity",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Gregor",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Hotamisligil",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Annu Rev Immunol",
+            "volume": "29",
+            "issn": "1",
+            "pages": "415--460",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Role of inflammatory mechanisms in pathogenesis of type 2 diabetes mellitus",
+            "authors": [
+                {
+                    "first": "Msh",
+                    "middle": [],
+                    "last": "Akash",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Rehman",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "J Cell Biochem",
+            "volume": "114",
+            "issn": "3",
+            "pages": "525--556",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Inflammation and metabolic disorders",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Hotamisligil",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Nature",
+            "volume": "444",
+            "issn": "7121",
+            "pages": "860--867",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Nutrient sensing and inflammation in metabolic diseases",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Hotamisligil",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Erbay",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Nat Rev Immunol",
+            "volume": "8",
+            "issn": "12",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Inflammation in obesity and diabetes: islet dysfunction and therapeutic opportunity",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Donath",
+                    "suffix": ""
+                },
+                {
+                    "first": "\u00c9",
+                    "middle": [],
+                    "last": "Dalmas",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Sauter",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "B\u00e9ni-Schnetzler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Cell Metab",
+            "volume": "17",
+            "issn": "6",
+            "pages": "860--72",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "The onset of type 2 diabetes: proposal for a multi-scale model",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Castiglione",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Tieri",
+                    "suffix": ""
+                },
+                {
+                    "first": "De",
+                    "middle": [],
+                    "last": "Graaf",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Franceschi",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Li\u00f2",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Van Ommen",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Mazz\u00e0",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Tuchel",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Bernaschi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Samson",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Colombo",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Castellani",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Capri",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Garagnani",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Salvioli",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Nguyen",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Bobeldijk-Pastorova",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Krishnan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Cappozzo",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sacchetti",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Morettini",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ernst",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "JMIR Res Protoc",
+            "volume": "2",
+            "issn": "2",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Design and analysis of computer experiments",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Sacks",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Welch",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Mitchell",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Wynn",
+                    "suffix": ""
+                }
+            ],
+            "year": 1989,
+            "venue": "Stat Sci",
+            "volume": "4",
+            "issn": "4",
+            "pages": "409--432",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Bayesian prediction of deterministic functions, with applications to the design and analysis of computer experiments",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Currin",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Mitchell",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Morris",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Ylvisaker",
+                    "suffix": ""
+                }
+            ],
+            "year": 1991,
+            "venue": "J Am Stat Assoc",
+            "volume": "86",
+            "issn": "416",
+            "pages": "953--63",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Intelligent modelling in the chemical process industry with neural networks: a case study",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Meert",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Rijckaert",
+                    "suffix": ""
+                }
+            ],
+            "year": 1998,
+            "venue": "Comput Chem Eng",
+            "volume": "22",
+            "issn": "",
+            "pages": "587--93",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Gaussian predictive process models for large spatial data sets",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Banerjee",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Gelfand",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Finley",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Sang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "J R Stat Soc Ser B (Stat Methodol)",
+            "volume": "70",
+            "issn": "4",
+            "pages": "825--873",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Mechanism-based emulation of dynamic simulation models: concept and application in hydrology",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Reichert",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "White",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Bayarri",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Pitman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Comput Stat Data Anal",
+            "volume": "55",
+            "issn": "4",
+            "pages": "1638--55",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Advances in surrogate based modeling, feasibility analysis, and optimization: a review",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Bhosekar",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ierapetritou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Comput Chem Eng",
+            "volume": "108",
+            "issn": "",
+            "pages": "250--67",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Machine learning to support diagnostics in the domain of asymptomatic liver disease",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Babic",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Bodemar",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Mathiesen",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Ahlfeldt",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Franzen",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Wigertz",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "Medinfo. MEDINFO",
+            "volume": "8",
+            "issn": "",
+            "pages": "809--822",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Predicting opioid dependence from electronic health records with machine learning",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Ellis",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Genes",
+                    "suffix": ""
+                },
+                {
+                    "first": "Ma",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "BioData Min",
+            "volume": "12",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Sociodemographic indicators of health status using a machine learning approach and data from the English longitudinal study of aging (ELSA)",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Engchuan",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Dimopoulos",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Tyrovolas",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Caballero",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sanchez-Niubo",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Arndt",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Ayuso-Mateos",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Haro",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Chatterji",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Panagiotakos",
+                    "suffix": ""
+                }
+            ],
+            "year": 1994,
+            "venue": "Med Sci Monit Int Med J Exp Clin Res",
+            "volume": "25",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "A new approach to predict user mobility using semantic analysis and machine learning",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Fernandes",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Rd",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "J Med Syst",
+            "volume": "41",
+            "issn": "12",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Using machine learning techniques to develop forecasting algorithms for postoperative complications: protocol for a retrospective study",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Fritz",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Murray-Torres",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Gregory",
+                    "suffix": ""
+                },
+                {
+                    "first": "Ben",
+                    "middle": [],
+                    "last": "Abdallah",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kronzer",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Mckinnon",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Budelier",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Helsten",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Wildes",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Sharma",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Avidan",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "BMJ Open",
+            "volume": "8",
+            "issn": "4",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Measuring caloric intake at the population level (notion): protocol for an experimental study",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Fusc\u00e0",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Bolzon",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Buratin",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ruffolo",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Berchialla",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Gregori",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Perissinotto",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Baldi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "JMIR Res Protoc",
+            "volume": "8",
+            "issn": "3",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Machine learning and radiogenomics: lessons learned and future directions",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Kang",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Rancati",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Oh",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Kerns",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Scott",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Schwartz",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Rosenstein",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Front Oncol",
+            "volume": "8",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Eduardo: use of machine-learning algorithms to determine features of systolic blood pressure variability that predict poor outcomes in hypertensive patients",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Lacson",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Baker",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Suresh",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Andriole",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Szolovits",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Lacson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Clin Kidney J",
+            "volume": "12",
+            "issn": "2",
+            "pages": "206--218",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Predominant polarity classification and associated clinical variables in bipolar disorder: a machine learning approach",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Belizario",
+                    "suffix": ""
+                },
+                {
+                    "first": "Rgb",
+                    "middle": [],
+                    "last": "Junior",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Salvini",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Lafer",
+                    "suffix": ""
+                },
+                {
+                    "first": "Silva",
+                    "middle": [],
+                    "last": "Da",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Dias",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "J Affect Disord",
+            "volume": "245",
+            "issn": "",
+            "pages": "279--82",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Machine-learning-based prediction of a missed scheduled clinical appointment by patients with diabetes",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Kurasawa",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Hayashi",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Fujino",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Takasugi",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Haga",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Waki",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Noguchi",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Ohe",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "J Diabetes Sci Technol",
+            "volume": "10",
+            "issn": "3",
+            "pages": "730--736",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Prediction of incident diabetes in the jackson heart study using high-dimensional machine learning",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Casanova",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Saldana",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Simpson",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Lacy",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Subauste",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Blackshear",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Wagenknecht",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Bertoni",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "PLoS ONE",
+            "volume": "11",
+            "issn": "10",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Predicting diabetes mellitus using smote and ensemble machine learning approach: the henry ford exercise testing (fit) project",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Alghamdi",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Al-Mallah",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Keteyian",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Brawner",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ehrman",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sakr",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "PLoS ONE",
+            "volume": "12",
+            "issn": "7",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Machine learning for the prediction of new-onset diabetes mellitus during 5-year follow-up in non-diabetic patients with cardiovascular risks",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Choi",
+                    "suffix": ""
+                },
+                {
+                    "first": "S-W",
+                    "middle": [],
+                    "last": "Rha",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Kang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Park",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y-K",
+                    "middle": [],
+                    "last": "Noh",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Yonsei Med J",
+            "volume": "60",
+            "issn": "2",
+            "pages": "191--200",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Multivariable adaptive artificial pancreas system in type 1 diabetes",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Cinar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Curr Diabetes Rep",
+            "volume": "17",
+            "issn": "10",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Characteristics associated with decreased or increased mortality risk from glycemic therapy among patients with type 2 diabetes and high cardiovascular risk: Machine learning analysis of the accord trial",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Basu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Raghavan",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Wexler",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Berkowitz",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Diabetes Care",
+            "volume": "41",
+            "issn": "3",
+            "pages": "604--616",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Use of non-invasive parameters and machine-learning algorithms for predicting future risk of type 2 diabetes: a retrospective cohort study of health data from kuwait",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Farran",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Alwotayan",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Alkandari",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Al-Abdulrazzaq",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Channanath",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Thanaraj",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Front Endocrinol",
+            "volume": "10",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Real-world evidence should be used in regulatory decisions about new pharmaceutical and medical device products for diabetes",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Klonoff",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Gutierrez",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Fleming",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Kerr",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Artificial intelligence and machine learning to fight covid-19",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Alimadadi",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Aryal",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Manandhar",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Munroe",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Joe",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Cheng",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Physiol Genom",
+            "volume": "52",
+            "issn": "4",
+            "pages": "200--202",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Machine learning, covid-19 (2019-ncov), and multi-omics",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "T\u00e1rnok",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cytometry Part A",
+            "volume": "97",
+            "issn": "3",
+            "pages": "215--221",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Physio-environmental sensing and live modeling",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Castiglione",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Diaz",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Gaggioli",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Li\u00f2",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Mazz\u00e0",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Merelli",
+                    "suffix": ""
+                },
+                {
+                    "first": "Cgm",
+                    "middle": [],
+                    "last": "Meskers",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Pappalardo",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Von Ammon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Interact J Med Res",
+            "volume": "2",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Translational systems biology of inflammation",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Yoram",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Csete",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bartels",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Chang",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "An",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "PLoS Comput Biol",
+            "volume": "4",
+            "issn": "4",
+            "pages": "1--6",
+            "other_ids": {}
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Personalizing physical exercise in a computational model of fuel homeostasis",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Palumbo",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Morettini",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Tieri",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Diele",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Sacchetti",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Castiglione",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "PLoS Comput Biol",
+            "volume": "14",
+            "issn": "4",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Modeling meal consumption and physical exercise for fuel homeostasis",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Palumbo",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Morettini",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Tieri",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "De Graaf",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Krishnan",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Castiglione",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Multi-scale computational model of fuel homeostasis during exercise: effect of hormonal control",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Saidel",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Cabrera",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Ann Biomed Eng",
+            "volume": "35",
+            "issn": "1",
+            "pages": "69--90",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Integral rein control in physiology",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Saunders",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Koeslag",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Wessels",
+                    "suffix": ""
+                }
+            ],
+            "year": 1998,
+            "venue": "J Theore Biol",
+            "volume": "194",
+            "issn": "2",
+            "pages": "163--73",
+            "other_ids": {}
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Dynamic modeling of exercise effects on plasma glucose and insulin levels",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Roy",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Parker",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "IFAC Proc",
+            "volume": "39",
+            "issn": "2",
+            "pages": "509--523",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Modeling the effect of blood glucose and physical exercise on plasma adrenaline in people with type 1 diabetes",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Kildegaard",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Christensen",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Johansen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Randl\u00f8v",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Hejlesen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Diabetes Technol Therapeut",
+            "volume": "9",
+            "issn": "6",
+            "pages": "501--509",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "A system model of oral glucose absorption: validation on gold standard data",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Dalla Man",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Camilleri",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Cobelli",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "IEEE Trans Biomed Eng",
+            "volume": "53",
+            "issn": "12",
+            "pages": "2472--2480",
+            "other_ids": {}
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "Analysis of gastric emptying data",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Elashoff",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Reedy",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Meyer",
+                    "suffix": ""
+                }
+            ],
+            "year": 1982,
+            "venue": "Gastroenterology",
+            "volume": "83",
+            "issn": "6",
+            "pages": "1306--1318",
+            "other_ids": {}
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "An integrated multi-scale model for the simulation and prediction of metabolic and inflammatory processes in the onset and progress of type 2 diabetes",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Palumbo",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Morettini",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Tieri",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "De Graaf",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Li\u00f2",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Diele",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Castiglione",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "A new predictive equation for resting energy expenditure in healthy individuals",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Mifflin",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "St Jeor",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Hill",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Scott",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Daugherty",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Koh",
+                    "suffix": ""
+                }
+            ],
+            "year": 1990,
+            "venue": "Am J Clin Nutr",
+            "volume": "51",
+            "issn": "2",
+            "pages": "241--248",
+            "other_ids": {}
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "Energy intake, physical activity and body weight: a simulation model",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Westerterp",
+                    "suffix": ""
+                },
+                {
+                    "first": "Jhhlm",
+                    "middle": [],
+                    "last": "Donkers",
+                    "suffix": ""
+                },
+                {
+                    "first": "Ewhm",
+                    "middle": [],
+                    "last": "Fredrix",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Oekhoudt",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "Br J Nutr",
+            "volume": "73",
+            "issn": "3",
+            "pages": "337--384",
+            "other_ids": {}
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Modeling the effect of high calorie diet on the interplay between adipose tissue, inflammation, and diabetes",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Prana",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Tieri",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Palumbo",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Mancini",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Castiglione",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Comput Math Methods Med",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "A system model of the effects of exercise on plasma interleukin-6 dynamics in healthy individuals: role of skeletal muscle and adipose tissue",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Morettini",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Palumbo",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Sacchetti",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Castiglione",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Mazza",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "PLoS ONE",
+            "volume": "12",
+            "issn": "7",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "Design and implementation of an immune system simulator",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Bernaschi",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Castiglione",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Comput Biol Med",
+            "volume": "31",
+            "issn": "5",
+            "pages": "303--334",
+            "other_ids": {}
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "Simulating Epstein-Barr virus infection with C-ImmSim",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Castiglione",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Duca",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Jarrah",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Laubenbacher",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Hochberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Thorley-Lawson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Bioinformatics",
+            "volume": "23",
+            "issn": "11",
+            "pages": "1371--1378",
+            "other_ids": {}
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "Modeling and simulation of cancer immunoprevention vaccine",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Pappalardo",
+                    "suffix": ""
+                },
+                {
+                    "first": "P-L",
+                    "middle": [],
+                    "last": "Lollini",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Castiglione",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Motta",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "Bioinformatics",
+            "volume": "21",
+            "issn": "12",
+            "pages": "2891--2898",
+            "other_ids": {}
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "A study on the dynamics of temporary hiv treatment to assess the controversial outcomes of clinical trials: an in-silico approach",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Mancini",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Quax",
+                    "suffix": ""
+                },
+                {
+                    "first": "De",
+                    "middle": [],
+                    "last": "Luca",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Fidler",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Stohr",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Sloot",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "PLoS ONE",
+            "volume": "13",
+            "issn": "7",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "Modeling lymphocyte homing and encounters in lymph nodes",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Baldazzi",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Paci",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Bernaschi",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Castiglione",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "BMC Bioinform",
+            "volume": "10",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "Statistical ensemble of gene regulatory networks of macrophage differentiation",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Castiglione",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Tieri",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Palma",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Jarrah",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "BMC Bioinform",
+            "volume": "17",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "Computational modeling of immune system of the fish for a more effective vaccination in aquaculture",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Madonia",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Melchiorri",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bonamano",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Marcelli",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Bulfon",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Castiglione",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Galeotti",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Volpatti",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Mosca",
+                    "suffix": ""
+                },
+                {
+                    "first": "P-G",
+                    "middle": [],
+                    "last": "Tiscar",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Romano",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Bioinformatics",
+            "volume": "33",
+            "issn": "",
+            "pages": "3065--71",
+            "other_ids": {}
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "Resistance to exercise-induced weight loss: compensatory behavioral adaptations",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Melanson",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Keadle",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Donnelly",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Braun",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "King",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Med Sci Sports Exerc",
+            "volume": "45",
+            "issn": "8",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF57": {
+            "ref_id": "b57",
+            "title": "Diet induced thermogenesis",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Westerterp",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "Nutr Metab",
+            "volume": "1",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF58": {
+            "ref_id": "b58",
+            "title": "The chemical composition of American food materials",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Atwater",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Bryant",
+                    "suffix": ""
+                }
+            ],
+            "year": 1906,
+            "venue": "",
+            "volume": "28",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF59": {
+            "ref_id": "b59",
+            "title": "Random forests",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Breiman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Mach Learn",
+            "volume": "45",
+            "issn": "1",
+            "pages": "5--32",
+            "other_ids": {}
+        },
+        "BIBREF60": {
+            "ref_id": "b60",
+            "title": "The elements of statistical learning",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Friedman",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Hastie",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Tibshirani",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "",
+            "volume": "1",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF61": {
+            "ref_id": "b61",
+            "title": "Variable importance in binary regression trees and forests",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Ishwaran",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Electron J Stat",
+            "volume": "1",
+            "issn": "",
+            "pages": "519--556",
+            "other_ids": {}
+        },
+        "BIBREF62": {
+            "ref_id": "b62",
+            "title": "Inflammaging: a new immune-metabolic viewpoint for age-related diseases",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Franceschi",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Garagnani",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Parini",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Giuliani",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Santoro",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Nat Rev Endocrinol",
+            "volume": "14",
+            "issn": "10",
+            "pages": "576--90",
+            "other_ids": {}
+        },
+        "BIBREF63": {
+            "ref_id": "b63",
+            "title": "High-dimensional variable selection for survival data",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Ishwaran",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Kogalur",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "Z"
+                    ],
+                    "last": "Gorodeski",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Minn",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Lauer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "J Am Stat Assoc",
+            "volume": "105",
+            "issn": "489",
+            "pages": "205--222",
+            "other_ids": {}
+        },
+        "BIBREF64": {
+            "ref_id": "b64",
+            "title": "Random survival forests for high-dimensional data",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Ishwaran",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Kogalur",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Minn",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Stat Anal Data Min ASA Data Sci J",
+            "volume": "4",
+            "issn": "1",
+            "pages": "115--147",
+            "other_ids": {}
+        },
+        "BIBREF65": {
+            "ref_id": "b65",
+            "title": "Patient-driven diabetes care of the future in the technology era",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ashrafzadeh",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Hamdy",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Cell Metab",
+            "volume": "29",
+            "issn": "3",
+            "pages": "564--75",
+            "other_ids": {}
+        },
+        "BIBREF66": {
+            "ref_id": "b66",
+            "title": "The evolving uses of \"real-world\" data",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Basch",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Schrag",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "JAMA",
+            "volume": "321",
+            "issn": "",
+            "pages": "1359--60",
+            "other_ids": {}
+        },
+        "BIBREF67": {
+            "ref_id": "b67",
+            "title": "Potential predictors of type-2 diabetes risk: machine learning, synthetic data and wearable health devices",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Stolfi",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Valentini",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Palumbo",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Tieri",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Grignolio",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Castiglione",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "2019 IEEE international conference on bioinformatics and biomedicine (BIBM)",
+            "volume": "",
+            "issn": "",
+            "pages": "2214--2221",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "sessions per week N PA \u2208 {0, 1, 2, 3} Duration (mins) D PA \u2208 {low = 30, medium = 60, high = 90} Intensity (% of VO 2max ) I PA \u2208 {low = 40, high = 60} Food intake (3 meals per day, breakfast, lunch, dinner)",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "x = [S, A, W , H , (N PA , D PA , I PA ), (C ME , P ME , F ME )].",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "= [BMI(t), GBL(t), TNF (t)]",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "The dots represent the correlations between each couple of variables: the bigger the dots the higher the correlation in absolute value. Numerical value follows the color code in the bar.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "Scatter plots of the independent versus the dependent variables, together with a polynomial fit in orangeFigures 1 and 2 allow identifying critical key features of the dataset.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "Fig. 2 continued",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "Each row shows the out-of-sample (i.e. in the test set) scatter plots of the true and fitted (i.e. predicted) values of the variables specified in each panel's caption (from left to right, BMI, GBL and TNF). Inset plots show the histogram of the out-of-sample residues' (i.e. the prediction error). The last row shows that multivariate random forest performs better predictions when compared to the linear or polynomial regression in the case of regression trees or the result of a majority rule on the output in the case of classification trees.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": "Impact of each input variable x on the output y . Inset plot shows the same data in y-log scale to increase readability (y-scale is in arbitrary units). This plot offers a one-sight readout of the impact of subjects anthropometric measures and lifestyle patterns on the likelihood to progress toward a state of higher risk of development of diabetes",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF8": {
+            "text": "Type 2 diabetes; TNF-\u03b1: Tumor Necrosis Factor-\u03b1; IL-6: Interleukin-6; IRS-1: Insulin Receptor Substrate-1; M-T2D: Multi-scale Immune System Simulator for the Onset of Type 2 Diabetes; ML: Machine Learning; TDEE: Total daily energy expenditure; REE: Resting energy expenditure; TEF: Thermic effect of food; AEE: Activity energy expenditure; S: Sex; A: Age; W: Weight; H: Height; N PA : Number of physical activity sessions per week; D PA : Duration of physical activity sessions in minutes; I PA : Intensity of physical activity sessions; C ME : Mean carbohydrates intake per day; F ME : Mean fat intake per day; P ME : Mean protein intake per day; GBL: Glucose Base Line; BMI: Body Mass Index; BMI 0 : Body Mass Index at time 0; MSE: Mean square error; MSE In : In-sample mean square error; MSE Out : Out-of-sample mean square error.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "The different virtual subjects have been generated by varying the parameters in this table and corresponding to 46,170 different initial conditions Weight W \u2208 {underweight, normal, overweight} Height H \u2208 {short, average, tall}",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "In-sample and out-of-sample MSE of all tested models",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Pairwise co-influence obtained through maximal subtrees methods. Smaller numbers in the matrix (e.g. < 10 \u22121 ) indicate higher influence on y of the corresponding pair of variables",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "A preliminary version of this paper has been presented at the 2019 IEEE International Conference on Bioinformatics and Biomedicine (BIBM) [68] . 1 ",
+            "cite_spans": [
+                {
+                    "start": 138,
+                    "end": 142,
+                    "text": "[68]",
+                    "ref_id": "BIBREF67"
+                },
+                {
+                    "start": 145,
+                    "end": 146,
+                    "text": "1",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Acknowledgements"
+        },
+        {
+            "text": "This article has been published as part of BMC Bioinformatics Volume 21 Supplement 17 2020: Selected papers from the 3rd International Workshop on Computational Methods for the Immune System Function (CMISF 2019). The full contents of the supplement are available at https ://bmcbi oinfo rmati cs.biome dcent ral.com/artic les/suppl ement s/volum e21-suppl ement -17.Authors' contributions P.S., designed the work, performed the data analysis and helped in the writing, I.V., designed the work and helped in the writing, M-C.P., provided the data and helped in the writing, P.T., helped in the writing, A.G., helped in writing and F.C., supervised the project, provided the data, helped in data analysis and helped in writing the manuscript. All authors read and approved the final manuscript. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "About this supplement"
+        },
+        {
+            "text": "The datasets generated and/or analysed during the current study are available as a web-service at the following address: http://krake n.iac.rm.cnr.it/T2DM.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Availability of data and materials"
+        },
+        {
+            "text": "Not Applicable.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Ethics approval and consent to participate"
+        },
+        {
+            "text": "Not Applicable.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Consent for publication"
+        },
+        {
+            "text": "The authors declare that they have no competing interests.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Competing interests"
+        },
+        {
+            "text": "Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Publisher's Note"
+        }
+    ]
+}

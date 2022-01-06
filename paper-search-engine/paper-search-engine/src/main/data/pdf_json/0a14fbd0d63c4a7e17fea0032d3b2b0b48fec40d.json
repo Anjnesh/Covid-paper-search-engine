@@ -1,0 +1,2905 @@
+{
+    "paper_id": "0a14fbd0d63c4a7e17fea0032d3b2b0b48fec40d",
+    "metadata": {
+        "title": "On the data-driven generation of new service idea: integrated approach of morphological analysis and text mining",
+        "authors": [
+            {
+                "first": "Mingyu",
+                "middle": [],
+                "last": "Park",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Youngjung",
+                "middle": [],
+                "last": "Geum",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Data-driven new idea generation becomes imperative in recent business environment where big data analytics becomes an excellent remedy for innovation. Textmining, therefore, has been popular for developing new ideas. However, previous studies relied on using all keywords, neglecting a systematic extraction of servicespecific keywords. Therefore, this study suggests a new method for developing new service ideas-a data-driven morphological analysis for service ideation. The service-specific keyword extraction and filtering process are suggested to the datadriven morphological analysis. This study is expected to help managers to generate more service-specific and creative ideas for new services.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "The explosive rise of mobile platforms and diversified customer needs have led to new service development (NSD) becoming a central part of innovation (Kelly and Storey 2000; Aurich et al. 2010) . Especially, the rise of COVID-19 pandemic has also led the rise of contactless services. For example, the interest in healthcare wearables and relevant services has increased tremendously, due to the rise of the COVID-19 pandemic crisis (Phaneuf 2020; Lee and Lee 2020) . Many contactless services for social distancing have been developed and effectively utilized, including tracing apps, informative apps, and automatic robot-based services (Joo and Shin 2020; Chiang and Trimi 2020) . Therefore, companies seek innovation opportunities around marketplaces, since the dominant issue in NSD is to identify new and innovative service ideas (Alam 2007; Geum et al. 2016a ). Generally, the success of a new innovation is mainly dependent on its creativity (Chang 2011) .",
+            "cite_spans": [
+                {
+                    "start": 150,
+                    "end": 173,
+                    "text": "(Kelly and Storey 2000;",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 174,
+                    "end": 193,
+                    "text": "Aurich et al. 2010)",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 433,
+                    "end": 447,
+                    "text": "(Phaneuf 2020;",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 448,
+                    "end": 465,
+                    "text": "Lee and Lee 2020)",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 639,
+                    "end": 658,
+                    "text": "(Joo and Shin 2020;",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 659,
+                    "end": 681,
+                    "text": "Chiang and Trimi 2020)",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 836,
+                    "end": 847,
+                    "text": "(Alam 2007;",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 848,
+                    "end": 865,
+                    "text": "Geum et al. 2016a",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 950,
+                    "end": 962,
+                    "text": "(Chang 2011)",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Despite its importance, identifying new service ideas has faced great challenges. The ideation process is often called the fuzzy front end because of its unknowable and uncontrollable factors (Brem and Voigt 2009; Oliveira and Rozenfeld 2010; Geum and Park 2016) . Naturally, this necessitates a systematic process and tool for new service ideation. Many scholars have argued that successful new services can grow from well-designed structures and orchestrated processes (Edvardsson et al. 1995) . In line with this discussion, many processes and techniques have been suggested in the literature, including theory of inventive problem solving (TRIZ) (Chai et al. 2005) , case-based reasoning (CBR) (Wu et al. 2006; Geum et al. 2016b ), morphological analysis (Lee et al. 2017) , or convergence-divergence model (Liu and Bligh 2003) .",
+            "cite_spans": [
+                {
+                    "start": 192,
+                    "end": 213,
+                    "text": "(Brem and Voigt 2009;",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 214,
+                    "end": 242,
+                    "text": "Oliveira and Rozenfeld 2010;",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 243,
+                    "end": 262,
+                    "text": "Geum and Park 2016)",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 471,
+                    "end": 495,
+                    "text": "(Edvardsson et al. 1995)",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 650,
+                    "end": 668,
+                    "text": "(Chai et al. 2005)",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 698,
+                    "end": 714,
+                    "text": "(Wu et al. 2006;",
+                    "ref_id": "BIBREF49"
+                },
+                {
+                    "start": 715,
+                    "end": 732,
+                    "text": "Geum et al. 2016b",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 759,
+                    "end": 776,
+                    "text": "(Lee et al. 2017)",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 811,
+                    "end": 831,
+                    "text": "(Liu and Bligh 2003)",
+                    "ref_id": "BIBREF31"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Among many techniques, the core is the morphological analysis, which is a structured invention technique that finds all possible combinations based on problem decomposition (Zwicky 1969; Wissema 1976; Yoon and Park 2005; Moehrle 2010; Ritchey 2013; Geum and Park 2016) . Morphological analysis has two strong advantages in idea generation. First, in terms of its inventive characteristic, it tries to find all possible values for each dimension. Second, in terms of its combinative characteristics, it combines all values of each dimension and tries to identify innovative and creative ideas (Geum and Park 2016) . Therefore, it has been extensively used in new service generation (Geum et al. 2016a, b; Lee et al. 2017 ). Many scholars have employed morphological analysis to policy analysis and future research planning, extending the application area of morphological analysis to computer-based morphological analysis in order to deal with complex environments (Ritchey 2013) .",
+            "cite_spans": [
+                {
+                    "start": 173,
+                    "end": 186,
+                    "text": "(Zwicky 1969;",
+                    "ref_id": "BIBREF56"
+                },
+                {
+                    "start": 187,
+                    "end": 200,
+                    "text": "Wissema 1976;",
+                    "ref_id": "BIBREF48"
+                },
+                {
+                    "start": 201,
+                    "end": 220,
+                    "text": "Yoon and Park 2005;",
+                    "ref_id": null
+                },
+                {
+                    "start": 221,
+                    "end": 234,
+                    "text": "Moehrle 2010;",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 235,
+                    "end": 248,
+                    "text": "Ritchey 2013;",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 249,
+                    "end": 268,
+                    "text": "Geum and Park 2016)",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 592,
+                    "end": 612,
+                    "text": "(Geum and Park 2016)",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 681,
+                    "end": 703,
+                    "text": "(Geum et al. 2016a, b;",
+                    "ref_id": null
+                },
+                {
+                    "start": 704,
+                    "end": 719,
+                    "text": "Lee et al. 2017",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 964,
+                    "end": 978,
+                    "text": "(Ritchey 2013)",
+                    "ref_id": "BIBREF41"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "However, despite its gravity, there is a limitation in the use of morphological analysis. A prominent problem is the subjectivity problem. The morphological matrix is built based on expert judgment, which can possibly lead to bias and subjectivity (Zec et al. 2015) . The qualitative judgment during the morphological building is critical, but this can lead to a negative effect on idea generation in NSD processes (Lee et al. 2009 ). Therefore, researchers have tried to develop a more objective and analytic way of building the morphological matrix to minimize the risk of subjectivity based on expert judgment.",
+            "cite_spans": [
+                {
+                    "start": 248,
+                    "end": 265,
+                    "text": "(Zec et al. 2015)",
+                    "ref_id": "BIBREF55"
+                },
+                {
+                    "start": 415,
+                    "end": 431,
+                    "text": "(Lee et al. 2009",
+                    "ref_id": "BIBREF27"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Data-driven morphological analysis is core to the above trend. Recently, owing to the explosive rise of available data related to the development of new services, the use of data-driven approaches has gained great attention. Yoon and Park (2005) employed patents to build morphology, using keyword-based morphological analysis. Similar approaches have been used to employ patent information in NSD processes (Yoon and Park 2007; Feng and Fuhai 2012; Yoon et al. 2014) . Another approach to the automatic generation of morphological matrix mainly uses a dictionary-based approach. Geum and Park (2016) employed WordNet, which is a large lexical database of English. Because WordNet provides relationships among words including hypernym/hyponym and meronym/holonym, it can be effectively used for building dimensions and values in the morphological analysis. To address the limitation of the rigidity problem of WordNet, Wikipedia information has also been used to provide more practical and innovative ideas (Kwon et al. 2018) .",
+            "cite_spans": [
+                {
+                    "start": 225,
+                    "end": 245,
+                    "text": "Yoon and Park (2005)",
+                    "ref_id": null
+                },
+                {
+                    "start": 408,
+                    "end": 428,
+                    "text": "(Yoon and Park 2007;",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 429,
+                    "end": 449,
+                    "text": "Feng and Fuhai 2012;",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 450,
+                    "end": 467,
+                    "text": "Yoon et al. 2014)",
+                    "ref_id": "BIBREF54"
+                },
+                {
+                    "start": 580,
+                    "end": 600,
+                    "text": "Geum and Park (2016)",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 1007,
+                    "end": 1025,
+                    "text": "(Kwon et al. 2018)",
+                    "ref_id": "BIBREF25"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Recent studies have focused on more service-specific databases, such as mobile application services. Lee et al. (2017) also employed a CBR approach using textmining techniques for mobile service applications, and applied this to the morphological analysis. They employed network analysis to obtain values for the morphological matrix. Yoon et al. (2014) also generated both technology morphology and product morphology from the patent database, and tried to measure the link with two morphologies to generate new technological opportunities.",
+            "cite_spans": [
+                {
+                    "start": 101,
+                    "end": 118,
+                    "text": "Lee et al. (2017)",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 335,
+                    "end": 353,
+                    "text": "Yoon et al. (2014)",
+                    "ref_id": "BIBREF54"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Despite the contribution of previous works, previous studies have common limitations, which is related with the lack of service-specific considerations in NSD. First, from the perspective of data, previous studies mainly employed patents or dictionary-based data (Yoon and Park 2007; Feng and Fuhai 2012; Yoon et al. 2014) , which lack the service-specific context and service-dominant logic. Patents can consider only the technological perspective, which lacks detailed descriptions of service scenarios. Even if technology plays a key role in new service development, consideration of service-specific characteristics is in need.",
+            "cite_spans": [
+                {
+                    "start": 263,
+                    "end": 283,
+                    "text": "(Yoon and Park 2007;",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 284,
+                    "end": 304,
+                    "text": "Feng and Fuhai 2012;",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 305,
+                    "end": 322,
+                    "text": "Yoon et al. 2014)",
+                    "ref_id": "BIBREF54"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Second, from the perspective of the framework, previous studies have common limitations in terms of neglecting the service-oriented framework, which is critical to the development of new services. Although some studies (Lee et al. 2017; Geum et al. 2016a, b) have employed mobile service descriptions, the morphological matrix was simply developed without any consideration of the service context. Generally, previous studies on developing data-driven morphological analysis extracted all keywords from the text, and used all the extracted keywords into the morphological matrix (Yoon and Park 2007; Feng and Fuhai 2012; Yoon et al. 2014; Lee et al. 2017; Geum et al. 2016a, b) , which lacks how services should be prepared and delivered within a concrete framework. To prepare data-driven morphological analysis, it is required to systematically prepare the structures and dimensions from service-specific perspective, and fill the values based on the predefined framework that can properly explain the service scenarios.",
+            "cite_spans": [
+                {
+                    "start": 219,
+                    "end": 236,
+                    "text": "(Lee et al. 2017;",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 237,
+                    "end": 258,
+                    "text": "Geum et al. 2016a, b)",
+                    "ref_id": null
+                },
+                {
+                    "start": 579,
+                    "end": 599,
+                    "text": "(Yoon and Park 2007;",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 600,
+                    "end": 620,
+                    "text": "Feng and Fuhai 2012;",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 621,
+                    "end": 638,
+                    "text": "Yoon et al. 2014;",
+                    "ref_id": "BIBREF54"
+                },
+                {
+                    "start": 639,
+                    "end": 655,
+                    "text": "Lee et al. 2017;",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 656,
+                    "end": 677,
+                    "text": "Geum et al. 2016a, b)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "In response, this paper suggests a new method for developing new service ideas, which deals with the service-specific procedures for the data-driven morphological analysis. From the data perspective, we avoid using patent database which has been prominent. Instead, we employed service-specific database to reflect the current service trends. From the process perspective, we define three dimensions which are critical to the new service development: people, system, and technology, and extract only relevant keywords for each dimension to reflect service-specific characteristics.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "For this purpose, this study first defines the frameworks for NSD, which includes the critical dimensions for new service ideation. Next, data are collected from the service-specific website and preprocessed to represent each dimension of service ideation, which is the service element. Next, we defined the keyword extraction processes which extract service-relevant keywords only. Based on this process, essential and underlying keywords for each service element are collected. Then, unimportant keywords are filtered using a structural hole. A clustering analysis is conducted to generate possible service actions and objects. Based on the final keywords for each element, a morphological analysis helps generate a new service idea.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Because of the severe competition in the recent business environment, many companies are trying to develop new and innovative services. New service ideation has been a central part of innovation, since new service ideas can be considered significant in determining the success and failure of a firm. New services must be systematically planned to guarantee the success of innovation (Aurich et al. 2010) .",
+            "cite_spans": [
+                {
+                    "start": 383,
+                    "end": 403,
+                    "text": "(Aurich et al. 2010)",
+                    "ref_id": "BIBREF3"
+                }
+            ],
+            "ref_spans": [],
+            "section": "New service development"
+        },
+        {
+            "text": "Therefore, many studies have been conducted on NSD. Previous studies can be categorized into qualitative and quantitative approaches. Traditionally, the literature has focused on the prevalence of qualitative approaches that prioritize theory and processes (Tax and Stuart 1997) . Recently, scholars have studied the critical factors of NSDs or service typology analysis, which can provide good implications for NSD. Jaakkola et al. (2017) identified four different service types, namely, routine-intensive, technology-intensive, contact-intensive, and knowledge-intensive services, together with the prominent resources, practices, methods, and results. Kitsios and Kamariotou (2020) mentioned that the critical success factor for NSD can be manifold. In particular, a structured NSD plan can be an important success factor, together with market analysis and market knowledge. Biemans et al. (2016) collected and analyzed 230 articles on NSD for 30 years and identified research patterns on NSD. Thus, the authors identified that topics related to NSD have recently diversified across the boundaries. In particular, collecting customer information to design new services is considered an important issue, integrating big data and social media (Biemans et al. 2016) . focused on information-intensive service (IIS), and tried to identify key factors to characterize IIS: data source, data collection, data, data analysis, information on the data source, information delivery, customer (information user), value in information use, and provider network. Kitsios and Kamariotou (2020) also analyzed 178 papers on NSD and categorized those papers by discipline and method, thus implementing a structured methodological framework to identify existing knowledge on NSD.",
+            "cite_spans": [
+                {
+                    "start": 257,
+                    "end": 278,
+                    "text": "(Tax and Stuart 1997)",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 417,
+                    "end": 439,
+                    "text": "Jaakkola et al. (2017)",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 655,
+                    "end": 684,
+                    "text": "Kitsios and Kamariotou (2020)",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 878,
+                    "end": 899,
+                    "text": "Biemans et al. (2016)",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 1244,
+                    "end": 1265,
+                    "text": "(Biemans et al. 2016)",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 1553,
+                    "end": 1582,
+                    "text": "Kitsios and Kamariotou (2020)",
+                    "ref_id": "BIBREF24"
+                }
+            ],
+            "ref_spans": [],
+            "section": "New service development"
+        },
+        {
+            "text": "For the systematic development of new service, morphological analysis has played a key role in generating new and innovative service ideas. This is because service innovation is defined as a \"new or considerably changed service concept, client interaction channel, service delivery system or technological concept that individually, but most likely in combination, leads to one or more new service functions\" (Van Ark et al. 2003, p. 16 ). Since service innovation stems from the combination of one or more new functions, methodological fitness of morphological analysis seems to be excellent, considering the core essence of morphological analysis stems from the inventive and creative characteristics (Geum and Park 2016) .",
+            "cite_spans": [
+                {
+                    "start": 409,
+                    "end": 436,
+                    "text": "(Van Ark et al. 2003, p. 16",
+                    "ref_id": null
+                },
+                {
+                    "start": 703,
+                    "end": 723,
+                    "text": "(Geum and Park 2016)",
+                    "ref_id": "BIBREF13"
+                }
+            ],
+            "ref_spans": [],
+            "section": "New service development"
+        },
+        {
+            "text": "Among many techniques and tools, our primary concern is morphological analysis. Morphological analysis is a structured invention method that finds all possible combinations for solving problems (Moehrle, 2010; Geum and Park 2016) . Table 1 shows an example of the morphological matrix. As shown in this table, the morphological matrix consists of dimensions and values. Morphological analysis can provide a strong advantage in systematically structuring the problem by breaking the subject down into a number of dimensions and values (Yoon et al. 2008) . The inventive and combinative characteristics of morphological analysis make managers structure the problem and identify possible ideas for new innovation.",
+            "cite_spans": [
+                {
+                    "start": 194,
+                    "end": 209,
+                    "text": "(Moehrle, 2010;",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 210,
+                    "end": 229,
+                    "text": "Geum and Park 2016)",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 534,
+                    "end": 552,
+                    "text": "(Yoon et al. 2008)",
+                    "ref_id": "BIBREF53"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 232,
+                    "end": 239,
+                    "text": "Table 1",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "Morphological analysis for identifying new opportunities"
+        },
+        {
+            "text": "Since its popularity for new idea generation, many studies have employed morphological analysis to identify new innovative ideas. Yoon et al. (2014) developed a keyword-based morphological analysis, supporting the selection of a more appropriate value based on keyword frequency. Geum et al. (2016a) suggested an integrated morphological analysis that integrated two extreme perspectives of market-pull innovation and technology-push innovation. Geum et al. (2016b) suggested a hybrid tool for service ideation, considering the functional heterogeneity of service functions. They analyzed the characteristics of service functions using Kano analysis, and applied a differentiated approach according to the service functions: CBR for core functions and revised zigzagging for peripheral functions. Kwon et al. (2018) extended the application of morphological analysis to Wikipedia, suggesting both basic and extended models to incorporate Wikipedia data to idea generation. Jeong et al. (2016) also suggested a systematic process of generating new ideas of 5G mobile communication technology, combining morphological analysis, buyer-utility map, and the Eliminate-Reduce-Raise-Create framework. Figure 1 shows the overall process of this study. First, data are collected from a database that represents the service or market trends. To extract meaningful information to develop new service ideas, the following two processes are conducted: The first step is to clarify the main elements of new services. In this study, the main elements are defined as people, a system, and technology. The next step is to define rules for data preprocessing in order to extract relevant people, a system, and technology from the text. Next, keywords are extracted from the collected documents using POS tagging. To filter unrealistic and unnecessary keywords, a structural hole is employed. Then, a clustering analysis is conducted to downsize the number of keywords into representative types. After developing values from the text, a morphological matrix is developed, and new service opportunities are identified from the creative combination of the values.",
+            "cite_spans": [
+                {
+                    "start": 130,
+                    "end": 148,
+                    "text": "Yoon et al. (2014)",
+                    "ref_id": "BIBREF54"
+                },
+                {
+                    "start": 280,
+                    "end": 299,
+                    "text": "Geum et al. (2016a)",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 446,
+                    "end": 465,
+                    "text": "Geum et al. (2016b)",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 797,
+                    "end": 815,
+                    "text": "Kwon et al. (2018)",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 973,
+                    "end": 992,
+                    "text": "Jeong et al. (2016)",
+                    "ref_id": "BIBREF18"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1194,
+                    "end": 1202,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Morphological analysis for identifying new opportunities"
+        },
+        {
+            "text": "The first step is to define and clarify the elements of NSD. According to the servicedominant logic, the service-centered view is based on the idea that the service is the basis of all exchanges (Vargo and Lusch 2008; Vargo and Akaka 2009 ). This should be fully reflected in the data-driven morphological analysis in order to reflect service-specific characteristics. For NSD, Fitzsimmons and Fitzsimmons (2006) mentioned that the NSD process cycle is based on the development, analysis, design, and full launch process, with the service product consisting of the product, people, a system, and technology. Maglio et al. (2009) also suggested an Interact-Serve-Propose-Agree-Realize model, which is a normative model to cover the possible interactions between service Maglio and Spohrer (2013) mentioned that service system entities dynamically configure four types of resources, including people, technologies, organizations, and information (Maglio and Spohrer 2013, p. 667) . They argued that looking for adaptive advantages based on such resource types is required for innovation. Not directly related to the service context, some scholars have characterized the value, which is the main outcome in the NSD. Scholars such as Kim et al. (2013) and Geum et al. (2016a) suggested the concept of service dimensions and highlighted user, spatial, temporal, eventual, and value as key dimensions. Jeong et al. (2016) also summarized the hierarchy of values-economic, emotional, epistemic, social, and functional values (\u0160kudien\u0117 et al. 2012; Jeong et al. 2016) .",
+            "cite_spans": [
+                {
+                    "start": 195,
+                    "end": 217,
+                    "text": "(Vargo and Lusch 2008;",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 218,
+                    "end": 238,
+                    "text": "Vargo and Akaka 2009",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 378,
+                    "end": 412,
+                    "text": "Fitzsimmons and Fitzsimmons (2006)",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 608,
+                    "end": 628,
+                    "text": "Maglio et al. (2009)",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 769,
+                    "end": 794,
+                    "text": "Maglio and Spohrer (2013)",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 944,
+                    "end": 977,
+                    "text": "(Maglio and Spohrer 2013, p. 667)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1230,
+                    "end": 1247,
+                    "text": "Kim et al. (2013)",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 1252,
+                    "end": 1271,
+                    "text": "Geum et al. (2016a)",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 1396,
+                    "end": 1415,
+                    "text": "Jeong et al. (2016)",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 1518,
+                    "end": 1540,
+                    "text": "(\u0160kudien\u0117 et al. 2012;",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 1541,
+                    "end": 1559,
+                    "text": "Jeong et al. 2016)",
+                    "ref_id": "BIBREF18"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Clarifying elements of new services"
+        },
+        {
+            "text": "Summarizing the previous literature, we defined three main elements to be considered in new service ideation: adapting Fitzsimmons and Fitzsimmons (2006) and Maglio and Spohrer's (2013) work, namely, people, technology, and systems. These three dimensions can represent the \"what\" and \"how\" of new service innovation, which are the main constituents of new service design .",
+            "cite_spans": [
+                {
+                    "start": 119,
+                    "end": 153,
+                    "text": "Fitzsimmons and Fitzsimmons (2006)",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 158,
+                    "end": 185,
+                    "text": "Maglio and Spohrer's (2013)",
+                    "ref_id": "BIBREF33"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Clarifying elements of new services"
+        },
+        {
+            "text": "First, we define people as the primary elements. The main characteristic of NSD is customer-employee interaction, with customer participation as the critical factor. Therefore, people are defined as targets including customers, groups, and any kinds of stakeholders involved in the service.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Clarifying elements of new services"
+        },
+        {
+            "text": "Second, technology has been a central part of service innovation and has significantly influenced customer experience (Froehle and Roth 2004; Fitzsimmons and Fitzsimmons 2006; Lee et al. 2017) . How technology interacts within a service is manifold, including the customization process, customer-service interactions, and productivity increases. This is especially true in recent environments where most new services are generated via information and communication technology platforms. Third, the system is also determined as an important element. The service system can be considered as \"a configuration of people, technologies, and other resources that interact with other service systems to create mutual value\" (Maglio et al. 2009, p. 395 ). The service system is a dynamic configuration of resources to create value (Spohrer et al. 2007) . At the core of the service system, service systems interact to co-create value (Maglio et al. 2009 ).",
+            "cite_spans": [
+                {
+                    "start": 118,
+                    "end": 141,
+                    "text": "(Froehle and Roth 2004;",
+                    "ref_id": null
+                },
+                {
+                    "start": 142,
+                    "end": 175,
+                    "text": "Fitzsimmons and Fitzsimmons 2006;",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 176,
+                    "end": 192,
+                    "text": "Lee et al. 2017)",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 716,
+                    "end": 743,
+                    "text": "(Maglio et al. 2009, p. 395",
+                    "ref_id": null
+                },
+                {
+                    "start": 822,
+                    "end": 843,
+                    "text": "(Spohrer et al. 2007)",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 925,
+                    "end": 944,
+                    "text": "(Maglio et al. 2009",
+                    "ref_id": "BIBREF34"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Clarifying elements of new services"
+        },
+        {
+            "text": "After collecting data, keywords were extracted from each document. To extract relevant keywords based on the predefined rule in the previous section, natural language processing was used. More specifically, we used a spaCy library in Python for tokenization, lemmatization, and POS tagging. POS tagging is the process of marking up a word in a text corresponding to a particular POS, considering the role of keywords in the entire sentence. To extract service-focused keywords, POS tagging is conducted for the people, system, and technology elements, respectively.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Collecting base keywords for each element"
+        },
+        {
+            "text": "To define \"people\" in NSD, we have to define the types of subjects that can work in the service processes. According to previous literature, many things can be viewed as elements of service systems. People, corporations, foundations, non-governmental organizations, non-profits, government agencies, departments in an organization, cities, nations, and even families can reasonably be viewed as service systems\" (Maglio et al. 2009, p. 396) . We consider the following Named Entity Recognition (NER) types of spaCy as a proxy for the \"people\" element, that is, we extract words whose POS information include NORP, ORG, and PRODUCT. Other than these, PERSON, FAC, GPE, LOC, EVENT, LAW, and TIME also exist in NER types. NORP, ORG, and PRODUCT are only selected because others cannot generally be considered as a subject of service. Table 2 shows the preprocessing rules for extracting people elements.",
+            "cite_spans": [
+                {
+                    "start": 412,
+                    "end": 440,
+                    "text": "(Maglio et al. 2009, p. 396)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 831,
+                    "end": 838,
+                    "text": "Table 2",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "People"
+        },
+        {
+            "text": "To extract relevant keywords for the system, another rule is defined. In the service system, the key behavior is that service systems interact to co-create value, which is value-generating activities (Maglio et al. 2009 ). As noted, system can represent the \"what\" and \"how\" of new service innovation. In addition, the general term smart service system places the technology and people in the context of value creation . Therefore, the term \"system\" essentially implicates the concept of value generating activities. Therefore, we defined that words representing the system should encompass the concept of valuegenerating activities. In the service system, value co-creation generally takes place in complex and dynamic network structures (Jaakkola and Alexander 2014) .",
+            "cite_spans": [
+                {
+                    "start": 200,
+                    "end": 219,
+                    "text": "(Maglio et al. 2009",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 739,
+                    "end": 768,
+                    "text": "(Jaakkola and Alexander 2014)",
+                    "ref_id": "BIBREF16"
+                }
+            ],
+            "ref_spans": [],
+            "section": "System"
+        },
+        {
+            "text": "Considering the syntax structures in most sentences, words following right after specified indicators such as \"to,\" or \"for\" can be considered specific actions or tasks within a system. Therefore, we define it as follows:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "System"
+        },
+        {
+            "text": "Specified Indicator to extract system-related words = [\"to,\" \"for\"] After extracting verb words prior to those specified indicators, these words are lemmatized to obtain the original forms of words.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "System"
+        },
+        {
+            "text": "The final element is technology. Technology has enabled value co-creation in service systems. Technology-enabled interactions have replaced the physical contact, which has been very important previously (Maglio and Spohrer 2008; Breidbach et al. 2013) . This means that technology can alter how traditional services have been working, and technology can drive new types of service innovation.",
+            "cite_spans": [
+                {
+                    "start": 203,
+                    "end": 228,
+                    "text": "(Maglio and Spohrer 2008;",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 229,
+                    "end": 251,
+                    "text": "Breidbach et al. 2013)",
+                    "ref_id": "BIBREF5"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Technology"
+        },
+        {
+            "text": "Therefore, what is at the core is to extract keywords related to technology. We assume that words right after certain specified indicator such as \"by,\" \"with,\" and \"using\" are closely related with technology, because those words can illustrate means and ways of how services are delivered. Therefore, we define it as follows:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Technology"
+        },
+        {
+            "text": "Specified Indicator to extract technology-related words = [\"by,\" \"with,\" \"using\"]",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Technology"
+        },
+        {
+            "text": "To ensure credibility, when the words right after those specified indicators are stopwords, the next words are considered as candidates for technology keywords. Note that we used only nouns keywords.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Technology"
+        },
+        {
+            "text": "When extracting keywords, the number of keywords is generally too large to be directly used in the morphological matrix. Therefore, it is necessary to eliminate unnecessary or unrealistic keywords to obtain practical implications. For this reason, we employed network analysis. When developing a network, one can find dominant and prevalent patterns can be found from the network. At the same time, unnecessary or unimportant patterns or elements can be eliminated based on the network structure. For this reason, a network analysis was conducted.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Filtering unimportant keywords"
+        },
+        {
+            "text": "To conduct a network analysis, a document-term matrix is prepared, where rows indicate documents and columns indicate keywords. Based on the document-term matrix, the dot product is obtained from the following keywords.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Filtering unimportant keywords"
+        },
+        {
+            "text": "Based on this formula, a term-term matrix is prepared to illustrate the relationships among keywords. From this matrix, a network analysis is conducted. Because our purpose is to eliminate unimportant keywords, a structural hole is calculated for each node. A structure hole is defined when there is a lack of direct contact between two or more entities in the network (Burt 1992) . It differs from weak tie in that it is not related to the strength of a relationship in the network, but to the \"chasm\" in the network (Burt 1992) .",
+            "cite_spans": [
+                {
+                    "start": 369,
+                    "end": 380,
+                    "text": "(Burt 1992)",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 518,
+                    "end": 529,
+                    "text": "(Burt 1992)",
+                    "ref_id": "BIBREF7"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Filtering unimportant keywords"
+        },
+        {
+            "text": "There are two methods to denote the structural hole of the matrix: redundancy and constraint. Redundancy aims to estimate the extent to which contact j is redundant with other contacts of node i . Constraint refers to how much room it has to negotiate or exploit potential structural holes in the network. We use constraints instead of redundancy to filter less used keywords. To calculate the constraint, nodes with low structural hole values are deleted from the keyword database.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Filtering unimportant keywords"
+        },
+        {
+            "text": "In the above equation, p ij refers to percentage i invested in j and q refers to all nodes except i and j.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Filtering unimportant keywords"
+        },
+        {
+            "text": "After filtering irrelevant words, these words should be considered inputs for the morphological matrix. However, because the number of keywords is high, documents generally contain countless words. This necessitates grouping keywords that are used in a similar context through clustering analysis. In this analysis, we make clusters based on the similarity or distance of each element by maximizing the differences between groups. Clustering analysis has two basic types: hierarchical clustering and nonhierarchical clustering. Hierarchical clustering is conducted through a series of steps to build a tree-like structure using an agglomerative or divisive approach (Ketchen and Shook 1996) . On the other hand, nonhierarchical clustering does not build a treelike structure. It divides the dataset into a predefined number of clusters (Ketchen and Shook 1996) . When initial centroids are selected, each point is assigned to the cluster with the nearest centroid. Subsequently, the cluster centers are recomputed. This process is repeated until no change occurs for the cluster centroids (Ketchen and Shook 1996) .",
+            "cite_spans": [
+                {
+                    "start": 666,
+                    "end": 690,
+                    "text": "(Ketchen and Shook 1996)",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 836,
+                    "end": 860,
+                    "text": "(Ketchen and Shook 1996)",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 1089,
+                    "end": 1113,
+                    "text": "(Ketchen and Shook 1996)",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Generating possible service action and object: clustering analysis"
+        },
+        {
+            "text": "In this study, we employed k-means clustering, which is a representative and popular method for nonhierarchical clustering. To prepare inputs for clustering analysis, each keyword is represented as a keyword vector. To provide more practical and meaningful information, we employed the Word2vec model for keyword embedding. Word2Vec is an architecture that generates a distributed representation of words and phrases in a shared high-dimensional vector space (Mikolov et al. 2013 ). We used a pretrained Google News model that contains 300 dimensions vectors for 3 million words and phrases.",
+            "cite_spans": [
+                {
+                    "start": 459,
+                    "end": 479,
+                    "text": "(Mikolov et al. 2013",
+                    "ref_id": "BIBREF35"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Generating possible service action and object: clustering analysis"
+        },
+        {
+            "text": "After all values are defined in the morphological matrix, new service opportunities are identified based on the creative combination of morphological analysis. Since we summarized the entire document into three dimensions-people, a system, and technology-the creative combination of these three elements can provide meaningful seeds for NSD.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Finding new service opportunities"
+        },
+        {
+            "text": "To illustrate how our suggested approach contributes to the development of morphological analysis, we conducted two case studies. According to Yin (2003) , single-case designs are sometimes vulnerable. Because the benefits from analyzing two cases may be more substantial (Yin 2003) , we chose two representative industries that new service development is prominent and important. First, we selected a healthcare-focused IT service to illustrate the working of proposed approach. Secondly, a case study for a fintech industry is also prepared to show that our approach is robust and applicable for the general industry. We further compared the results of two industries.",
+            "cite_spans": [
+                {
+                    "start": 143,
+                    "end": 153,
+                    "text": "Yin (2003)",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 272,
+                    "end": 282,
+                    "text": "(Yin 2003)",
+                    "ref_id": "BIBREF51"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Case overview"
+        },
+        {
+            "text": "We selected those two industries for various reasons. First, for the healthcare industry, it is facing great innovation opportunities because of the recent shift toward \"8-P healthcare\" or \"preventive, predictive, participatory, patient-centered, personalized, precision, preemptive, and pervasive healthcare\" ). Thus, many new services are generated in combination with physical healthcare systems and IT-based data processing systems such as sensing, actuating, and communication technologies (Pang et al. 2018) .",
+            "cite_spans": [
+                {
+                    "start": 495,
+                    "end": 513,
+                    "text": "(Pang et al. 2018)",
+                    "ref_id": "BIBREF38"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Case overview"
+        },
+        {
+            "text": "For the fin-tech industries, it has grown rapidly under the circumstances of the fourth industrial revolution. With the rise of IT technologies, many services such as digital wallets, peer-to-peer lending, and e-insurances have been extensively developed and used (Jiao et al. 2021 ). In addition, fintech is related with many disruptive innovation and its innovations are closely associated with the business ecosystem (Palmi\u00e9 et al. 2020) . Therefore, generating new service is considered to be very important in fintech industry, which demonstrates the rationale for the case study.",
+            "cite_spans": [
+                {
+                    "start": 264,
+                    "end": 281,
+                    "text": "(Jiao et al. 2021",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 420,
+                    "end": 440,
+                    "text": "(Palmi\u00e9 et al. 2020)",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Case overview"
+        },
+        {
+            "text": "Further, the healthcare industry and the fin-tech industry are both representative industries, wherein many technologies converge; its services are complex and difficult to analyze at a glance. This leads to the necessity of systematic processes and frameworks for NSD.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Case overview"
+        },
+        {
+            "text": "Data were collected from two different websites that focused on healthcare IT services: www. healt hcare itnews. com and www. healt hcare techn ology report. com. From these two websites, 2816 documents that contain \"healthcare\" keywords either in their contents or title from March 2018 to March 2020 were collected. Next, data preprocessing was conducted, including tokenization, stopwords/number removal, and lemmatization. All special characters and numbers were deleted from the text.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data collection and preprocessing"
+        },
+        {
+            "text": "For extracting base keywords, POS tagging is used. For the first element \"People,\" we removed stopwords and extracted only noun from the dataset using NLTK POS tagging. After lemmatization, NORP, ORG, and PRODUCT words were drawn out by the Spacy NER pretrained model. A total of 8943 words were extracted, including NOPR, ORG, and PRODUCT.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Collecting base keywords for each element"
+        },
+        {
+            "text": "For the second element \"system,\" we used the special indicators \"for\" and \"to\" and pulled out two words right after each indicator. The customized dictionary was used for eliminating domain-specific stopwords such as \"healthcare,\" \"say,\" and \"be.\" Since the system is related to the tasks and processes, only verbs were extracted and lemmatized. A total of 1011 words for the system were extracted. Finally, to extract the third element, \"technology,\" indicators such as \"by,\" \"with,\" and \"using\" were used. Thus, 3444 words were collected for the \"technology\" element. Table 3 shows the data preprocessing results.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 570,
+                    "end": 577,
+                    "text": "Table 3",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "Collecting base keywords for each element"
+        },
+        {
+            "text": "The number of extracted keywords from the previous step is 13,398, which is too large to be directly used in the morphological matrix. Therefore, keyword filtering is required to eliminate unnecessary words. For this reason, network analysis and structural holes were employed.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Filtering unimportant keywords"
+        },
+        {
+            "text": "For the network analysis, we prepared a 2816 \u00d7 5306 matrix for the term-document matrix, and obtained a 5306 \u00d7 5306 matrix for the keyword similarity matrix. Based on this matrix, a network analysis was conducted using Gephi ver 0.9.2, and the value of the structural hole of each keyword was calculated.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Filtering unimportant keywords"
+        },
+        {
+            "text": "To obtain meaningful keywords only, the cutoff value is determined by considering the number of remaining keywords and their implications. As a result, we extracted 2004 keywords (102, 1257, and 645, respectively, with the cutoff as 0.033) representing people (NORP, ORG, PRODUCT), 814 words representing system (cutoff: 0.04), and 1572 words representing technology (cutoff: 0.038).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Filtering unimportant keywords"
+        },
+        {
+            "text": "Next, we conducted a clustering analysis to make a cluster for numerous words because the number of keywords is too large to be used directly in the morphological matrix. For the clustering process, each keyword should be represented in vector form; thus, pretrained Google News Word2vec models were used to map embedded vectors. Words not included in the pretrained Word2vec model were eliminated, resulting in total keywords for people, system, technology being 1578 (83 for NORP, 962 for ORG, 533 for PRODUCT, respectively), 560, and 824, respectively.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Generating possible actions & object clusters: clustering analysis"
+        },
+        {
+            "text": "Subsequently, clustering was performed using the k-means algorithm to combine similar words and express them in a single meaning. We determined the number of clusters that split the most with up to 5-12 words. Silhouette, one of the processes of deducing k values in k-means clustering, was not included in this case. It was difficult for the naked eye to set a suitable k value because of the significant number of clusters. The number of clusters for NORP was set at 24, ORG at 215 clusters, PRODUCT at 70, system at 134, and technology at 240. If there are more words Table 4 . Each cluster is then named according to the characteristics of the keywords included in each cluster. For example, for the technology element, the words \"venture,\" \"startup,\" \"entrepreneur,\" \"firm,\" and \"developer\" could be represented by the name \"venture.\" This process was conducted based on expert judgment.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 571,
+                    "end": 578,
+                    "text": "Table 4",
+                    "ref_id": null
+                }
+            ],
+            "section": "Generating possible actions & object clusters: clustering analysis"
+        },
+        {
+            "text": "Then, the final morphological matrix was developed using the name of clusters as the value of the morphological matrix (5 clusters for NORP, 50 for ORG, 12 for PRODUCT, 43 for system, and 48 for technology), as shown in Table 5 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 220,
+                    "end": 227,
+                    "text": "Table 5",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "Generating possible actions & object clusters: clustering analysis"
+        },
+        {
+            "text": "The final step is to generate a creative combination of new service ideas based on the morphological matrix. Since our morphological matrix consists of three different elements-people, a system, and technology-a creative combination of these elements can indicate how new service innovation happens in practice. Therefore, combining each dimension can generate possible new service scenarios. Table 6 shows the illustrative results of the case study, indicating five healthcare IT service ideas based on the creative combination of the morphological matrix.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 393,
+                    "end": 400,
+                    "text": "Table 6",
+                    "ref_id": "TABREF5"
+                }
+            ],
+            "section": "New scenarios for new service ideas"
+        },
+        {
+            "text": "First, in the \"P42-S5-T21\" scenario, individual health data is submitted from a car to an ambulance when a car accident occurs. If the victim's identity is unclear in a traffic accident, the risk of first aid increases. For example, if you have a basal disease, a certain first aid can cause fatal damage to the patient. Hence, it is important to check the patient's historical health data in a short time. If the car already has stored and sent the data to the ambulance in the event of an accident, first aid workers will be able to provide prompt and accurate first aid. In addition, if a car can submit the data of the damage at the moment of the accident, it can be transmitted to ambulances and hospitals to fully recognize the accident situation.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "New scenarios for new service ideas"
+        },
+        {
+            "text": "In the \"P52-S1-T26\" scenario, an effective scheduling hub accommodates patients using telehealth when global pandemics occur. At the end of February 2020, Daegu Hospital in Korea was inundated with patients, causing a confirmed patient to die without being admitted to the hospital. In the event of mass hospitalization during a natural disaster, the service or technology to manage a schedule for patient acceptance is needed. This would enable diagnosis or treatment using telehealth wherein patient information is shared with another hospital (hub) closest to a hospital that has no capacity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "New scenarios for new service ideas"
+        },
+        {
+            "text": "In the \"P34-S7-T32\" scenario, smart farms and hospitals would form a partnership to discover services or technologies that invest in organic products that can be introduced and sold to patients. The partnership expects to introduce it as a combined service to customers who use hospital services and to have a positive effect on marketing and advertising effects.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "New scenarios for new service ideas"
+        },
+        {
+            "text": "In the \"P57-S41-T30\" scenario, a national disaster ecosystem is established to fully prevent the virus. The Middle East respiratory syndrome-related coronavirus, or MERS, outbreak has raised the risk of viruses, but it is difficult to conclusive claim that the current government in Korea has sufficiently responded to System Technology the COVID-19 pandemic. However, owing to Korea's excellent medical technology, rapid diagnosis and treatment are being carried out. However, critics state the initial response to the global virus was insufficient. Thus, it is necessary to create a national disaster ecosystem to fully prevent viruses. If this ecosystem is enacted into law, any government will have the same timing and system for a response, reducing unnecessary party fights and media manipulation in the disaster crisis, and more effectively blocking the virus. Lastly, the \"P10-S31-T35\" scenario can be used to accurately analyze X-ray and verify patient-specific treatments accurately using AI. The standards for dental care and treatment of cavities in Korea vary among dentists. This often causes patients to receive excessive treatment rather than treatment suitable for each dental condition. Accordingly, it is considered necessary to use AI to analyze X-rays and dental photographs and to provide useful treatment to patients. Thus, if the morphology matrix is created with the process presented in this paper for each industry, decision makers would yield effective results in conducting idea generation. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "New scenarios for new service ideas"
+        },
+        {
+            "text": "To show that our approach is also applicable for other industries, we conducted another case study for the fintech industry. Data was collected from a website that focused on Fintech: www. thefi ntech times. com. From this website, 2585 documents in the Fintech category from April 2018 to April 2020 were collected. Then, data preprocessing was conducted as the same way with the previous case study.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data collection and preprocessing"
+        },
+        {
+            "text": "Following the same procedure with the healthcare case, a total of 5747 words were extracted, including NOPR, ORG, and PRODUCT. For the second element \"system,\" we used the special indicators \"for\" and \"to\" and pulled out two words right after each indicator. Similar to the healthcare case study, only verbs were extracted and lemmatized. A total of 797 words for the system were extracted. Finally, for the \"technology\" element, 2859 keywords were collected. Table 7 shows the data preprocessing result.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 460,
+                    "end": 467,
+                    "text": "Table 7",
+                    "ref_id": "TABREF6"
+                }
+            ],
+            "section": "Collecting base keywords for each element"
+        },
+        {
+            "text": "Total 9403 keywords were extracted, which is too large for the morphological matrix. This leads the necessities of keyword filtering process, which was the same procedure in the healthcare case study. Two matrices were prepared: a 2887 \u00d7 6991 matrix for the term-document matrix, and a 6991 \u00d7 6991 matrix for the keyword similarity matrix. As a result of filtering process, 2470 keywords were extracted for people (cutoff 0.035). Similarly, 530 keywords for the system (cutoff 0.06), and 1373 keywords (cutoff 0.04) for the technology were extracted.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Filtering unimportant keywords"
+        },
+        {
+            "text": "The clustering analysis was conducted to reduce the number of words for the morphological matrix. For each words, we used pretrained Word2vec model for word Each cluster was named based on the expert judgement. Then, the morphological matrix for the fintech industry was built using the name of clusters as the value of the morphological matrix (5 clusters for NORP, 48 for ORG, 9 for PRODUCT, 37 for system, and 40 for technology), as shown in Table 8 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 445,
+                    "end": 452,
+                    "text": "Table 8",
+                    "ref_id": "TABREF7"
+                }
+            ],
+            "section": "Generating possible actions &object clusters: clustering analysis"
+        },
+        {
+            "text": "As shown in the previous healthcare case study, the combination of the three elements-people, a system, and technology-can create an innovative scenario for the new service development. Table 9 shows the result of the case study for the fintech service.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 186,
+                    "end": 193,
+                    "text": "Table 9",
+                    "ref_id": null
+                }
+            ],
+            "section": "New scenarios for new service ideas"
+        },
+        {
+            "text": "In the \"P22-S28-T25\" scenario, synchronizing encryption of bank accounts and cryptocurrency exchange accounts can save time, efforts, and transfer fees of customers. In general, when money is deposited from a bank to the cryptocurrency exchange, there is a fee and it takes time to confirm it. Considering the cryptocurrency market's volatility is very high, synchronizing accounts might be an idea for enhancing customer experience. Note that this action should be done through a careful review by financial authorities.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "New scenarios for new service ideas"
+        },
+        {
+            "text": "In the \"P31-S25-T22\" scenario, customers can get an integrated account to invest their money at once. There are many financial products like gold, cryptocurrency, stock, bonds, and others, but they do not have an integrated account to manage their investments. A service that can develop an integrated portfolio reflecting customers' preference would a great new service.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "New scenarios for new service ideas"
+        },
+        {
+            "text": "This study conducted two different types of case studies to illustrate the working of the proposed approach. As a result, it was confirmed that service-specific keywords specialized for each industry are well derived and used for generating new ideas. Therefore, it is expected that this study can be used effectively in general industries.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Implication"
+        },
+        {
+            "text": "In this study, morphological analysis was performed independently for two industries. However, independent two matrices can be integrated and combined for deriving more diversified and innovative services. For example, we can develop current morphological matrix using keywords that are frequently used in existing services, and also develop potential morphological matrix using keywords that are not yet frequently used but have potential for future innovation. It is also possible to develop morphological matrix for each industry, and combine two or more morphological matrices developed from different industries. This can contribute to supporting industry convergence and creating innovative and convergent services. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Implication"
+        },
+        {
+            "text": "This study suggests how market documents can be effectively used for generating new service ideas, especially for data-driven morphological analysis. We suggest a service-specific preprocessing rule, suggesting people, a system, and technology as the core elements for new services. Several techniques have been used, such as text-mining techniques (POS tagging), Word2vec, structural hole, and clustering analysis. Rules for extracting relevant information were provided by considering the semantic structures of massive documents. The constraints of the structural holes in network analysis are applied to filter relatively unimportant words. Then, the pretrained Word2vec and k-means algorithms are used to cluster similar words. The completed morphological matrix provides significant implications for exploring inspiration for NSD. As a result, we suggest a concrete framework for applying data-driven morphological analysis. We contribute to the field in that it first suggests a systematic and generic process for building data-driven morphological analysis. The systemization of the people, system, and technology combinations can help managers understand how new services should be explored. These elements are used as dimensions of the morphology matrix, which is a critical part of new services. Most importantly, how to extract people, a system, and technology from massive databases with the help of natural language processing and data mining techniques is suggested. study filled the void of previous literature-subjective and expert-based development of morphology-by providing systematic, automatic, and simple procedures to create a morphological matrix. In particular, our approach Offering entry records(COVID-19 policy) of people to government using payment records of constructing a data-driven morphology matrix can be easily applied to any business area, which can possibly extend the application area of morphological analysis. Despite its contributions, this study is still subject to some limitations of this study. In every element, words that do not belong to the pretrained Word2vec model are excluded, and it can cause information loss. In addition, the k-means clustering method was used in this study, but k-means clustering has an innate shortcoming in terms of setting the k value. It is also believed that the use of other algorithms for more effective clustering could be an alternative. Another limitation lies in the naming process, which has been conducted based on expert judgment. Moreover, although the dimensions of the morphological matrix have clear characteristics, the use of other dimensions, such as more specific dimensions or extended dimensions, can be a fruitful avenue for future research. From the NSD point of view, the elements of the morphological matrix are quite broad, which can help experts to think of new ideas right away in a way of building a structure of the idea, but it is hard to create a specific detail of the service. To solve this issue, an advanced morphological matrix can be constructed using data that reflects detailed technology such as patents.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "New service development process",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Alam",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "J Glob Market",
+            "volume": "20",
+            "issn": "",
+            "pages": "43--55",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "How to design and offer services successfully",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Aurich",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Mannweiler",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Schweitzer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "CIRP J Manuf Sci Eng",
+            "volume": "2",
+            "issn": "",
+            "pages": "136--143",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Perspective: new service development: how the field developed, its current status and recommendations for moving the field forward",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Biemans",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Griffin",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Moenaert",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "J Prod Innov Manage",
+            "volume": "33",
+            "issn": "",
+            "pages": "382--397",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Connectivity in service systems: does technology-enablement impact the ability of a service system to co-create value?",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Breidbach",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Kolb",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Srinivasan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "J Serv Res",
+            "volume": "16",
+            "issn": "",
+            "pages": "428--441",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Integration of market pull and technology push in the corporate front end and innovation management-insights from the German software industry",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Brem",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Voigt",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Technovation",
+            "volume": "29",
+            "issn": "",
+            "pages": "351--367",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Structural holes: the social structure of competition",
+            "authors": [
+                {
+                    "first": "R ;",
+                    "middle": [],
+                    "last": "Burt",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Chai",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Tan",
+                    "suffix": ""
+                }
+            ],
+            "year": 1992,
+            "venue": "J Serv Res",
+            "volume": "8",
+            "issn": "1",
+            "pages": "48--66",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "New organizational designs for promoting creativity: a case study of virtual teams with anonymity and structured interactions",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Chang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "J Eng Tech Manage",
+            "volume": "28",
+            "issn": "",
+            "pages": "268--282",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Impacts of service robots on service quality",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Chiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Trimi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Serv Bus",
+            "volume": "14",
+            "issn": "3",
+            "pages": "439--459",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Analysis, planning, improvisation and control in the development of new services",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Edvardsson",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Haglund",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Mattsson",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "Int J Serv Ind Manage",
+            "volume": "6",
+            "issn": "",
+            "pages": "24--35",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Patent text mining and informetric-based patent technology morphological analysis: an empirical study",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Feng",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Fuhai",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Technol Anal Strat Manage",
+            "volume": "24",
+            "issn": "",
+            "pages": "467--479",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "New measurement scales for evaluating perceptions of the technologymediated customer service experience",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Fitzsimmons",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Fitzsimmons",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "J Oper Manag",
+            "volume": "22",
+            "issn": "1",
+            "pages": "1--21",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "How to generate creative ideas for innovation: a hybrid approach of WordNet and morphological analysis",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Geum",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Park",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Technol Forecast Soc Change",
+            "volume": "111",
+            "issn": "",
+            "pages": "176--187",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Developing new smart services using integrated morphological analysis: integration of the market-pull and technology-push approach",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Geum",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Jeon",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Serv Bus",
+            "volume": "10",
+            "issn": "3",
+            "pages": "531--555",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Generating new service ideas: the use of hybrid innovation tools to reflect functional heterogeneity of services",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Geum",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Noh",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Park",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "R&D Manage",
+            "volume": "46",
+            "issn": "",
+            "pages": "736--748",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "The role of customer engagement behavior in value co-creation: a service system perspective",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Jaakkola",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Alexander",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "J Serv Res",
+            "volume": "17",
+            "issn": "",
+            "pages": "247--261",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Does one size fit all? New service development across different types of services",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Jaakkola",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Meiren",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Witell",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Edvardsson",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sch\u00e4fer",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Reynoso",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Weitlaner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "J Serv Manage",
+            "volume": "28",
+            "issn": "",
+            "pages": "329--347",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Technology-based new service idea generation for smart spaces: application of 5g mobile communication technology",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Jeong",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Jeong",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Yoon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "",
+            "volume": "8",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Should the fourth industrial revolution be widespread or confined geographically? A country-level analysis of fintech economies",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Jiao",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Shahid",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Mirza",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Tan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Technol Forecast Soc Change",
+            "volume": "163",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Resolving the tension between full utilization of contact tracing app services and user stress as an effort to control the COVID-19 pandemic",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Joo",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Shin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Serv Bus",
+            "volume": "14",
+            "issn": "4",
+            "pages": "461--478",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "New service development: initiation strategies",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Kelly",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Storey",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "Int J Serv Ind Manage",
+            "volume": "11",
+            "issn": "",
+            "pages": "45--63",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "The application of cluster analysis in strategic management research: an analysis and critique",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Ketchen",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Shook",
+                    "suffix": ""
+                }
+            ],
+            "year": 1996,
+            "venue": "Strat Manage J",
+            "volume": "17",
+            "issn": "",
+            "pages": "441--458",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "User-centric service map for identifying new service opportunities from potential needs: a case of app store applications",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Park",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Creativ Innovat Manage",
+            "volume": "22",
+            "issn": "",
+            "pages": "241--264",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Mapping new service development: a review and synthesis of literature",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Kitsios",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kamariotou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Serv Ind J",
+            "volume": "40",
+            "issn": "",
+            "pages": "682--704",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Toward data-driven idea generation: application of Wikipedia to morphological analysis",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Kwon",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Park",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Geum",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Technol Forecast Soc Change",
+            "volume": "132",
+            "issn": "",
+            "pages": "56--80",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Healthcare wearable devices: an analysis of key factors for continuous use intention",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Serv Bus",
+            "volume": "14",
+            "issn": "4",
+            "pages": "503--531",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Generation of new service concepts: a morphology analysis and genetic algorithm approach",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Park",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Expert Syst Appl",
+            "volume": "36",
+            "issn": "",
+            "pages": "12454--12460",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "The identification of new service opportunities: a case-based morphological analysis",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Seol",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Min",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Geum",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Serv Bus",
+            "volume": "11",
+            "issn": "1",
+            "pages": "191--206",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "From data to value: a nine-factor framework for data-based value creation in information-intensive services",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Lim",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Heo",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Maglio",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Int J Informat Manage",
+            "volume": "39",
+            "issn": "",
+            "pages": "121--135",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Data-driven understanding of smart service systems through text mining",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Lim",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Maglio",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Serv Sci",
+            "volume": "10",
+            "issn": "2",
+            "pages": "154--180",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Towards an \"ideal\" approach for concept generation",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Bligh",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Des Stud",
+            "volume": "24",
+            "issn": "",
+            "pages": "341--355",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Fundamentals of service science",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Maglio",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Spohrer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "J Acad Mark Sci",
+            "volume": "36",
+            "issn": "1",
+            "pages": "18--20",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "A service science perspective on business model innovation",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Maglio",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Spohrer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Ind Market Manage",
+            "volume": "42",
+            "issn": "",
+            "pages": "665--670",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "The service system is the basic abstraction of service science",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Maglio",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Vargo",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Caswell",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Spohrer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Inf Syst E",
+            "volume": "7",
+            "issn": "",
+            "pages": "395--406",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Efficient estimation of word representations in vector space",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Mikolov",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Corrado",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Dean",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:1301.3781"
+                ]
+            }
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "MorphoTRIZ-solving technical problems with a demand for multi-smart solutions",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Moehrle",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Creativ Innovat Manage",
+            "volume": "19",
+            "issn": "",
+            "pages": "373--384",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Integrating technology roadmapping and portfolio management at the front-end of new product development",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Oliveira",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Rozenfeld",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Technol Forecast Soc Change",
+            "volume": "77",
+            "issn": "",
+            "pages": "1339--1354",
+            "other_ids": {}
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Introduction to the special section: convergence of automation technology, biomedical engineering, and health informatics toward the healthcare 4.0",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Pang",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Khedri",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "IEEE Rev Biomed Eng",
+            "volume": "11",
+            "issn": "",
+            "pages": "249--259",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "The evolution of the financial technology ecosystem: an introduction and agenda for future research on disruptive innovations in ecosystems",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Palmi\u00e9",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wincent",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Parida",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Caglar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Technol Forecast Soc Change",
+            "volume": "151",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Latest trends in medical monitoring devices and wearable health technology. Bus,iness Insider",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Phaneuf",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "General morphological analysis * A general method for nonquantified modelling",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Ritchey",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Swedish Morphological Society. Corpus ID",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Customer perceptions of value: Case of retail banking",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "\u0160kudien\u0117",
+                    "suffix": ""
+                },
+                {
+                    "first": "\u0160",
+                    "middle": [],
+                    "last": "Nedzinskas",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Ivanauskiene\u0307",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Aurus\u030ckevic\u030ciene\u0307",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Organ Mark Emerg Econ",
+            "volume": "3",
+            "issn": "",
+            "pages": "75--88",
+            "other_ids": {}
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "Steps toward a science of service systems",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Spohrer",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Maglio",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bailey",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Gruhl",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Computer",
+            "volume": "40",
+            "issn": "1",
+            "pages": "71--77",
+            "other_ids": {}
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Designing and implementing new services: the challenges of integrating service systems",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Tax",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Stuart",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "J Retail",
+            "volume": "73",
+            "issn": "1",
+            "pages": "105--134",
+            "other_ids": {}
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Services innovation, performance and policy: a review",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Van Ark",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Broersma",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Den Hertog",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Res Series",
+            "volume": "6",
+            "issn": "",
+            "pages": "1--63",
+            "other_ids": {}
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "Service-dominant logic: continuing the evolution",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Vargo",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Lusch",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "J Acad Market Sci",
+            "volume": "36",
+            "issn": "",
+            "pages": "1--10",
+            "other_ids": {}
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Service-dominant logic as a foundation for service science",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Vargo",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Akaka",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "clarifications. Serv Sci",
+            "volume": "1",
+            "issn": "",
+            "pages": "32--41",
+            "other_ids": {}
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "Morphological analysis: its application to a company TF investigation",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Wissema",
+                    "suffix": ""
+                }
+            ],
+            "year": 1976,
+            "venue": "Futures",
+            "volume": "8",
+            "issn": "",
+            "pages": "146--153",
+            "other_ids": {}
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "A case-based reasoning approach to generating new product ideas, International",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Lo",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Hs",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "J Adv Manuf Technol",
+            "volume": "30",
+            "issn": "2",
+            "pages": "166--173",
+            "other_ids": {}
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "A health-IoT platform based on the integration of intelligent packaging, unobtrusive bio-sensor, and intelligent medicine box",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Xie",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "M\u00e4ntysalo",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Pang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kao-Walter",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Zheng",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "IEEE Trans Ind Inform",
+            "volume": "10",
+            "issn": "",
+            "pages": "2180--2191",
+            "other_ids": {}
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "A systematic approach for identifying technology opportunities: keyword-based morphology analysis",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Yin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Case study research: design and methods",
+            "volume": "72",
+            "issn": "",
+            "pages": "145--160",
+            "other_ids": {}
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "Development of new technology forecasting algorithm: hybrid approach for morphology analysis and conjoint analysis of patent information",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Yoon",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Park",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "IEEE Transact Eng Manage",
+            "volume": "54",
+            "issn": "",
+            "pages": "588--599",
+            "other_ids": {}
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "Morphology analysis for technology roadmapping: application of text mining",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Yoon",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Phaal",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Probert",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "R D Manage",
+            "volume": "38",
+            "issn": "",
+            "pages": "51--68",
+            "other_ids": {}
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "Exploring technological opportunities by linking technology and products: application of morphology analysis and text mining",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Yoon",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Park",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Coh",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Technol Forecast Soc Change",
+            "volume": "86",
+            "issn": "",
+            "pages": "287--303",
+            "other_ids": {}
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "Towards a process model for computer-supported collaborative morphological analysis",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Zec",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Schneider",
+                    "suffix": ""
+                },
+                {
+                    "first": "F ;",
+                    "middle": [],
+                    "last": "Matthes",
+                    "suffix": ""
+                },
+                {
+                    "first": "Puerto",
+                    "middle": [],
+                    "last": "Rico Zheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Ding",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Poon",
+                    "suffix": ""
+                },
+                {
+                    "first": "Ccy",
+                    "middle": [],
+                    "last": "Lo",
+                    "suffix": ""
+                },
+                {
+                    "first": "Bpl",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "Z"
+                    ],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Proceedings of the twenty-first Americas conference on information systems",
+            "volume": "61",
+            "issn": "",
+            "pages": "1538--1554",
+            "other_ids": {}
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "Discovery, invention, research-through the morphological approach",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Zwicky",
+                    "suffix": ""
+                }
+            ],
+            "year": 1969,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Overall process systems and outcomes.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Data preprocessing results",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "Morphology matrix for healthcare IT service",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF4": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF5": {
+            "text": "Examples of new idea from the morphological matrix",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF6": {
+            "text": "Data preprocessing results embedding. Afterwards, clustering was conducted twice using the k-means algorithm as it had done in the previous case study. As the result, 36 clusters for NORP, 230 for ORG, 52 for PRODUCT, 168 for system, and 247 for technology were derived.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF7": {
+            "text": "Morphology matrix for Fintech People (NORP) People (ORG) People (PRODUCT) System Technology",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF8": {
+            "text": "People (NORP) People (ORG)People (PRODUCT) System Technology",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "Publisher's Note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "annex"
+        }
+    ]
+}

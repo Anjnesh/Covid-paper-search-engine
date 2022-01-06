@@ -1,0 +1,3290 @@
+{
+    "paper_id": "0a08bd40a369d0d2f3797bef90ae4087157d67b4",
+    "metadata": {
+        "title": "Personalization of Electric Vehicle Accelerating Behavior Based on Motor Torque Adjustment to Improve Individual Driving Satisfaction Citation: Kim, H. Personalization of Electric Vehicle Accelerating Behavior Based on Motor Torque Adjustment to Improve Individual Driving",
+        "authors": [
+            {
+                "first": "Haksu",
+                "middle": [],
+                "last": "Kim",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "ControlWorks",
+                    "location": {
+                        "postCode": "06222",
+                        "settlement": "Seoul",
+                        "country": "Korea"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Adam",
+                "middle": [],
+                "last": "Wojciechowski",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "ControlWorks",
+                    "location": {
+                        "postCode": "06222",
+                        "settlement": "Seoul",
+                        "country": "Korea"
+                    }
+                },
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [],
+    "body_text": [
+        {
+            "text": "In recent years, a central concern for the automotive industry has been the fact that CO 2 emission regulations are becoming more stringent worldwide [1, 2] . Figure 1 plots several car manufacturers' average CO 2 emissions in 2019 compared to 2015, as well as the 2020/2021 target values [3] . While the target emissions have decreased by 27% over the five-year period, the emission performance of actual passenger cars in 2019 is far below the upcoming target regulations. Moreover, in 2019, the European Council agreed on CO 2 emission standards for new vehicles produced after 2020 [4] . In 2030, the average CO 2 emissions of new passenger cars should be 37.5% lower than in 2021.",
+            "cite_spans": [
+                {
+                    "start": 150,
+                    "end": 153,
+                    "text": "[1,",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 154,
+                    "end": 156,
+                    "text": "2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 289,
+                    "end": 292,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 586,
+                    "end": 589,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 159,
+                    "end": 167,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Research Background and Motivation"
+        },
+        {
+            "text": "The ever-intensifying regulations pertaining to emissions and fuel economy have resulted in the recent growth of the Electric Vehicle (EV) market [5] [6] [7] [8] [9] . To reduce emissions, automakers have spurred the development of eco-friendly vehicles that provide cleaner, more efficient, and safer performance, such as Battery-powered Electric Vehicles (BEVs), Hybrid Electric Vehicles (HEVs), and Fuel-Cell Vehicles (FCVs) [10] [11] [12] . As shown in Figure 2 , the EV share has increased in the global passenger car and light-duty vehicle market over the past ten years [13] . The EV market share is eventually expected to account for more than 25% of the market by 2030. Currently, BEVs already surpass HEVs' global sales, and are predicted to account for 81% of all new EVs sold by 2030. In addition, due more than 25% of the market by 2030. Currently, BEVs already surpass HEVs' global sales, and are predicted to account for 81% of all new EVs sold by 2030. In addition, due to the EV development having a lower barrier to entry compared to internal combustion engine technologies, the number of EV startups has increased. Currently, the success of Tesla, which now accounts for the majority of EV sales, is accelerating the growth of EV startups [14] . The relatively large number of early adopters of EVs makes it a suitable topic for personalization research. There are various factors that affect consumers' adoption of EVs [15] [16] [17] [18] [19] [20] . In studies on consumer EV adoption, factors affecting the adoption of EVs included consumer perceptions of the environment, fuel efficiency, and the fact that new types of vehicles-especially EVs-can influence decisions to buy EVs. Such research pro- more than 25% of the market by 2030. Currently, BEVs already surpass HEVs' global sales, and are predicted to account for 81% of all new EVs sold by 2030. In addition, due to the EV development having a lower barrier to entry compared to internal combustion engine technologies, the number of EV startups has increased. Currently, the success of Tesla, which now accounts for the majority of EV sales, is accelerating the growth of EV startups [14] . The relatively large number of early adopters of EVs makes it a suitable topic for personalization research. There are various factors that affect consumers' adoption of EVs [15] [16] [17] [18] [19] [20] . In studies on consumer EV adoption, factors affecting the adoption of EVs included consumer perceptions of the environment, fuel efficiency, and the fact that new types of vehicles-especially EVs-can influence decisions to buy EVs. Such research pro- The relatively large number of early adopters of EVs makes it a suitable topic for personalization research. There are various factors that affect consumers' adoption of EVs [15] [16] [17] [18] [19] [20] . In studies on consumer EV adoption, factors affecting the adoption of EVs included consumer perceptions of the environment, fuel efficiency, and the fact that new types of vehicles-especially EVs-can influence decisions to buy EVs. Such research provided some understanding of individuals' perceptions of EVs and the personal requirements needed to adopt a new type of car. Notably, other potential customers have resisted purchasing EVs due to the difference in longitudinal driving feel caused by the differences in the powertrain structure of EVs and Internal Combustion Engine Vehicles (ICEVs). As a result, the study of EVs needs to include an investigation of the driver's personal satisfaction, not just research on how to enhance performance.",
+            "cite_spans": [
+                {
+                    "start": 146,
+                    "end": 149,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 150,
+                    "end": 153,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 154,
+                    "end": 157,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 158,
+                    "end": 161,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 162,
+                    "end": 165,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 428,
+                    "end": 432,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 433,
+                    "end": 437,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 438,
+                    "end": 442,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 577,
+                    "end": 581,
+                    "text": "[13]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 1258,
+                    "end": 1262,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 1439,
+                    "end": 1443,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 1444,
+                    "end": 1448,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 1449,
+                    "end": 1453,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 1454,
+                    "end": 1458,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 1459,
+                    "end": 1463,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 1464,
+                    "end": 1468,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 2166,
+                    "end": 2170,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 2347,
+                    "end": 2351,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 2352,
+                    "end": 2356,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 2357,
+                    "end": 2361,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 2362,
+                    "end": 2366,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 2367,
+                    "end": 2371,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 2372,
+                    "end": 2376,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 2804,
+                    "end": 2808,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 2809,
+                    "end": 2813,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 2814,
+                    "end": 2818,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 2819,
+                    "end": 2823,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 2824,
+                    "end": 2828,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 2829,
+                    "end": 2833,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 457,
+                    "end": 465,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Research Background and Motivation"
+        },
+        {
+            "text": "Personalization in the automobile field is still a relatively recent research issue. Customization of the automobile exterior, as well as personalization of the position of the driver's seat and side mirrors are common issues. Currently, EVs have two main application areas of personalization: the personalization of driving performance and the personalization of driver assistance systems [21] [22] [23] [24] [25] [26] [27] [28] .",
+            "cite_spans": [
+                {
+                    "start": 390,
+                    "end": 394,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 395,
+                    "end": 399,
+                    "text": "[22]",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 400,
+                    "end": 404,
+                    "text": "[23]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 405,
+                    "end": 409,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 410,
+                    "end": 414,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 415,
+                    "end": 419,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 420,
+                    "end": 424,
+                    "text": "[27]",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 425,
+                    "end": 429,
+                    "text": "[28]",
+                    "ref_id": "BIBREF27"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Personalization in the Automotive Field"
+        },
+        {
+            "text": "Personalization of products, which means changing something or designing a component for someone specific, is not a new concept, but advances in information and web technologies have generated considerable interest in various fields over the past 20 years. It allows service and product providers to extend personalization from one-on-one personal relationships with individual customers or users to automated services based on the analysis of data collected according to the personal tastes and behaviors of numerous users [29] .",
+            "cite_spans": [
+                {
+                    "start": 524,
+                    "end": 528,
+                    "text": "[29]",
+                    "ref_id": "BIBREF28"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Personalization in the Automotive Field"
+        },
+        {
+            "text": "The general concept of personalization is intuitive, but the understanding and goals of personalization vary among different disciplines and researchers. Here, we will focus on personalization in terms of human-machine interaction and see this interaction as a means of making skills more acceptable and useful for people. This is particularly important in the field of advanced driver assistance systems, where the goal is not only to improve the driving experience, but also to improve driving safety and prevent accidents caused by human error. Since such a system can only be effective when used in practice, it becomes necessary to gain the driver's confidence, meet expectations for driving behavior, and not annoy the driver with irrelevant recommendations and precautions. However, driver expectations vary from driver to driver and within individual drivers, depending on the driver's condition and the driving situation. Therefore, driver assistance and related systems appear to be particularly suitable for personalization.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Personalization in the Automotive Field"
+        },
+        {
+            "text": "In general, personalization is classified as either explicit or implicit personalization. Explicit personalization requires users to explicitly change their system by specifying their preferences and choosing the specific system settings that work best for them. Such an adaptive system limits the user's choices to the system's suggestions, but allows direct control. The main drawback of these systems includes limitations in the number of settings that the user can intuitively understand. For more complex support functions, it is very difficult to design settings, for example, as potential stings can go far beyond simple sporty and comfortable driving modes. In addition, the combined effect of setting several parameters at the same time is very opaque to the user. Conversely, implicit personalization observes a user's behavior without directly requesting preferences from the user and derives a user model for predicting user preferences or behaviors based on these user data.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Personalization in the Automotive Field"
+        },
+        {
+            "text": "Over the years, most of the implicit personalization research in the automotive field has been conducted to improve the Advanced Driver Assistance System (ADAS). ADAS was conventionally designed to guarantee a level of general performance that satisfies unspecified individuals. However, an assistance system that is optionally used by a specific user, such as Adaptive Cruise Control (ACC), must satisfy a user's personal preferences [30] [31] [32] [33] [34] . As a result, the personalization of ADAS has been researched to consider the driver's specific personalities and to ensure a better use experience.",
+            "cite_spans": [
+                {
+                    "start": 435,
+                    "end": 439,
+                    "text": "[30]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 440,
+                    "end": 444,
+                    "text": "[31]",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 445,
+                    "end": 449,
+                    "text": "[32]",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 450,
+                    "end": 454,
+                    "text": "[33]",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 455,
+                    "end": 459,
+                    "text": "[34]",
+                    "ref_id": "BIBREF33"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Personalization in the Automotive Field"
+        },
+        {
+            "text": "Most previous studies pertaining to practical applications of personalization have proposed a set of predefined values by categorizing drivers into several groups [35] [36] [37] [38] . For example, three predefined clusters for acceleration profile parameters were proposed. According to the driver, one of the three clusters is selected in order to change the target acceleration profile characteristics. Furthering this selection, Rosenfeld et al. [36] classified drivers into the three groups through a large data set and using a regression model and a decision tree. However, it is difficult to reflect the group-based predefined sets of driving styles for each driver due to the great diversity of individual preferences and the fact that drivers might change their driving styles depending on the driving conditions. Therefore, several studies have proposed driver models that directly map vehicle states through deterministic equations into control inputs, such as speed, acceleration, and pedal operation, based on an individual's driving style [26, [39] [40] [41] . In recent years, with the growth of computing devices and the rise of big data research, many researchers have applied data-driven learning models to driver behavior predictions. Markov models stochastically predict driving states for the uncertainties of real-driving situations [42] [43] [44] . Deep neural network models [45] [46] [47] [48] have also been popular because they can provide accurate prediction performance and handle a large amount of data. However, neither of these methods are suitable for use in real-time embedded systems. This paper primarily focuses on approaches for personalizing EV driving performance, which belongs to the category of implicit personalization, in order to model users through driver behavior observations.",
+            "cite_spans": [
+                {
+                    "start": 163,
+                    "end": 167,
+                    "text": "[35]",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 168,
+                    "end": 172,
+                    "text": "[36]",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 173,
+                    "end": 177,
+                    "text": "[37]",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 178,
+                    "end": 182,
+                    "text": "[38]",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 450,
+                    "end": 454,
+                    "text": "[36]",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 1053,
+                    "end": 1057,
+                    "text": "[26,",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 1058,
+                    "end": 1062,
+                    "text": "[39]",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 1063,
+                    "end": 1067,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                },
+                {
+                    "start": 1068,
+                    "end": 1072,
+                    "text": "[41]",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 1355,
+                    "end": 1359,
+                    "text": "[42]",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 1360,
+                    "end": 1364,
+                    "text": "[43]",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 1365,
+                    "end": 1369,
+                    "text": "[44]",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 1399,
+                    "end": 1403,
+                    "text": "[45]",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 1404,
+                    "end": 1408,
+                    "text": "[46]",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 1409,
+                    "end": 1413,
+                    "text": "[47]",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 1414,
+                    "end": 1418,
+                    "text": "[48]",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Personalization in the Automotive Field"
+        },
+        {
+            "text": "Compared to conventional ICEVs, it is relatively easy to personalize the performance of EVs. In particular, there are distinct differences in terms of longitudinal behavior. The longitudinal movement can be roughly divided into acceleration and deceleration. In the case of acceleration, it is easier to secure a higher performance in EVs than ICEVs. EVs consist of a much simpler powertrain and have an inherent advantage, as they use an electric motor instead of a standard engine. The electric drive motor has a wide range of performance coverages, with a fast response and high torque at low speed. In addition, as the transmission becomes unnecessary, linear control is possible, so performance adjustments are easier to apply. In the case of deceleration, a regenerative braking system can be used in addition to hydraulic brakes in EVs. The regenerative braking system is capable of adjusting its strength, enabling various deceleration performances to be realized.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Personalization of EV Driving Performance"
+        },
+        {
+            "text": "In general, driving mode functions are offered in mass-production EVs. These functions typically have three or more options, and the EV's deceleration performance is adjusted according to the option selected by the driver. The options are determined within the range of vehicle performance and are individually tuned by the developer during development. However, because the number of options is limited, they cannot reflect all the preferences for all drivers.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Personalization of EV Driving Performance"
+        },
+        {
+            "text": "To add variety to these options, a new technology was proposed to allow drivers to customize the vehicle's performance themselves [49, 50] . The adjustable factors include seven performance features: the maximum torque output of the motor, ignition, acceleration and deceleration abilities, regenerative braking capacity, maximum speed limit, responsiveness, and energy use on climate control. The reasons for adjusting the degrees of acceleration and deceleration are diverse, and the fact that the levels can be subdivided further increases the degree of freedom in reflecting drivers' characteristics. However, this system also belongs to an explicit form of personalization and requires the direct selection of the driver. In addition, the selection process for the all factors can become a more difficult problem for drivers to resolve, especially as the options become more and more complex.",
+            "cite_spans": [
+                {
+                    "start": 130,
+                    "end": 134,
+                    "text": "[49,",
+                    "ref_id": "BIBREF48"
+                },
+                {
+                    "start": 135,
+                    "end": 138,
+                    "text": "50]",
+                    "ref_id": "BIBREF49"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Personalization of EV Driving Performance"
+        },
+        {
+            "text": "This paper proposes the personalization of the accelerating performance of EVs in a driver's manual driving condition. The fundamental process for personalization is to model the driving behaviors based on driver-specific data [51] [52] [53] [54] . The individual driving data is then applied to change the driving style difference among multiple drivers. Therefore, real-driving data were analyzed to quantify individual driving behaviors. Since the target application of this research is to tune the EV's acceleration performance according to only driver characteristics, data analysis was conducted in free-driving scenarios that the driver can drive at his own will without any interruption.",
+            "cite_spans": [
+                {
+                    "start": 227,
+                    "end": 231,
+                    "text": "[51]",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 232,
+                    "end": 236,
+                    "text": "[52]",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 237,
+                    "end": 241,
+                    "text": "[53]",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 242,
+                    "end": 246,
+                    "text": "[54]",
+                    "ref_id": "BIBREF53"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Research Objectives and Scope"
+        },
+        {
+            "text": "The EV powertrain control system is personalized based on driver characteristics. General EV powertrain control systems utilize look-up tables for the target torque, which have been calibrated through propulsion motor experiments. The values of the look-up tables are commonly designed to guarantee the stable acceleration of EVs. Notably, these values can change the acceleration performance of the vehicle through corrections. As such, if the correction is performed according to an individual driver's needs, driving satisfaction for each driver can be increased [55] [56] [57] . The proposed personalization algorithm for the EV powertrain control system determines the correction factors according to the driver's characteristics. These characteristics are quantified through the real driving data of individual drivers and then correlated to the correction factors. As a result, the compensated target torque provides a different acceleration performance for each driver. The proposed personalized powertrain control system was subsequently validated through simulations using IPG CarMaker, which provides a reliable environment for automotive research. The simulation results were then compared with actual driving data to show their similarities with actual driver behavior.",
+            "cite_spans": [
+                {
+                    "start": 566,
+                    "end": 570,
+                    "text": "[55]",
+                    "ref_id": "BIBREF54"
+                },
+                {
+                    "start": 571,
+                    "end": 575,
+                    "text": "[56]",
+                    "ref_id": "BIBREF55"
+                },
+                {
+                    "start": 576,
+                    "end": 580,
+                    "text": "[57]",
+                    "ref_id": "BIBREF56"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Research Objectives and Scope"
+        },
+        {
+            "text": "To clarify the contribution of this study, the featured aspects of this study are summarized as follows. We propose a correction method for the target torque calculated using the look-up table of the motor rotation speed and the accelerator pedal position under the condition of manual driving. The target torque table was calibrated through repetitive experiments to provide standard acceleration performance; previous studies added correction look-up tables based on vehicle specifications to compensate for the target torque. The limitations of these approaches were that the correction look-up tables consider only the target motor's own operation range and provide discrete correction results. To overcome these limitations, the proposed method determines correction factors based on personal driving features, such as the target driver's preferred maximum acceleration and maximum jerk. To ensure stability, the proposed correction factor can reflect various driver preferences at a high degree of freedom, while limiting the range of each factor according to the target motor specifications.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Research Objectives and Scope"
+        },
+        {
+            "text": "The remainder of this paper is organized as follows: Section 2 describes the quantification process of individual driving styles through an analysis of real driving data. In Section 3, a personalization algorithm regulating the performance of EV acceleration under manual driving conditions is proposed based on the quantified driving behaviors derived from the analysis of personal driving data. Section 4 presents the simulation results to validate the proposed algorithm. Finally, Section 5 concludes this paper and states the plans for future work.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Research Objectives and Scope"
+        },
+        {
+            "text": "In order to design the personalization algorithm, drivers' personal driving data were analyzed. The real driving data for driver modeling were collected through vehicle tests with various in-vehicle sensors. Figure 3 shows an overall structure of the in-vehicle data flow. The On-Board Diagnostics II (OBD II) was connected to the arbitrator using an Infineon TC237 through a CAN protocol. The arbitrator parsed the in-vehicle sensors' data and transferred the data to the Vector tool. The measured data were logged using the Vector tool. The real-time acquisition was synchronized and recorded at 100 Hz. and transferred the data to the Vector tool. The measured data were logged using the Vector tool. The real-time acquisition was synchronized and recorded at 100 Hz. A free-driving scenario refers to a situation in which the ego-vehicle runs freely without obstacles around it. In the free-driving scenario, since there is no disturbance affecting the speed of the ego-vehicle, the driver can operate the vehicle as they wish. Therefore, by analyzing the vehicle behavior in the free-driving scenario, it is possible to investigate the A free-driving scenario refers to a situation in which the ego-vehicle runs freely without obstacles around it. In the free-driving scenario, since there is no disturbance affecting the speed of the ego-vehicle, the driver can operate the vehicle as they wish. Therefore, by analyzing the vehicle behavior in the free-driving scenario, it is possible to investigate the driver's preferred driving style. However, even if there are no obstacles around the vehicle, driving behavior may be affected according to information pertaining to traffic or other external influences on the road. For example, the vehicle may start after being stopped by a stop signal from a traffic light, or it may accelerate again after decelerating during a right turn at an intersection. In such a situation, the driver's propensity for acceleration, deceleration, and stopping can change.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 208,
+                    "end": 216,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF7"
+                }
+            ],
+            "section": "Driving Data Acquisition"
+        },
+        {
+            "text": "In this paper, we focus on the situation when the vehicle accelerates from a stopped position under free-driving conditions. Individual driver characteristics during acceleration are then used to personalize the acceleration behavior of the EVs through quantification in Section 3. When the vehicle accelerates under these conditions, the situation in which the driver feels the acceleration most is when the vehicle starts from a standstill. In fact, when the vehicle starts from a standstill, the driver may momentarily feel uncomfortable due to the inertia of the vehicle and the traction force of the motor. In addition, there are differences in individual driver preferences for such a feeling of acceleration.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Driving Data Acquisition"
+        },
+        {
+            "text": "The driving route was set, as shown in Figure 4 , and the driving data were acquired to investigate the characteristics of the starting from a stop states of each driver. The target route is located at a planned city in Incheon, South Korea, and the number of moving vehicles is very small, so the driving experiment constraints can be freely set. A total of five drivers performed data acquisition through the same scenario. Each driver repeatedly stopped and started while following the route. There were three intersections, and by continuing to turn right, the drivers could travel the same route indefinitely. The stopping point was each time a vehicle crosses an intersection on the target route. At that time, the driver faced a straight path and was able to accelerate freely. Furthermore, since there were no obstacles in front, the individual driving characteristics of the driver appear through the behavior of the vehicle. The reason why the data acquisition was not performed on a public road but proceeded under a restricted condition is that the driver's behavior can change even if the driving scenario changes only slightly. Therefore, if the driving environment changed, the variability of the driver's driving style increases, and it makes no sense to compare it from driver to driver. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 39,
+                    "end": 47,
+                    "text": "Figure 4",
+                    "ref_id": "FIGREF10"
+                }
+            ],
+            "section": "Driving Data Acquisition"
+        },
+        {
+            "text": "To effectively analyze the driving data acquired when the vehicle starts from a standstill in a free driving scenario, specific conditions are defined. The acceleration section and ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Initial Acceleration Section"
+        },
+        {
+            "text": "To effectively analyze the driving data acquired when the vehicle starts from a standstill in a free driving scenario, specific conditions are defined. The acceleration section and initial acceleration section are defined in all driving data. Figure 5 highlights the acceleration section for six physical vehicle states. The acceleration section is defined based on the driver's APS operation. The acceleration section refers to the section from when the driver starts to operate the APS until it is finished. This definition is used to filter out acceleration situations that do not reflect the driver's intention, such as vehicle inertia or acceleration due to driving downhill. Within this defined section, the motor generates propulsion torque through the driver's APS operation, thereby causing the vehicle to accelerate. The situation in which the feeling of acceleration felt by the driver in the acceleration section is dominant is during the initial acceleration. Therefore, we defined the initial acceleration section as the section in which the slope of the APS is positive. The initial acceleration section is considered as a transition period for obtaining the desired acceleration by the driver. In this section, the driving torque gradually increases until reaching a peak, and the vehicle acceleration also reaches a peak. During this process, the driver feels a great sense of acceleration and jerk that is not felt in other acceleration scenarios.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 243,
+                    "end": 251,
+                    "text": "Figure 5",
+                    "ref_id": "FIGREF12"
+                }
+            ],
+            "section": ". Initial Acceleration Section"
+        },
+        {
+            "text": "Based on data from the initial acceleration section, the driving features were defined. The driving features include physical values that can effectively express the initial acceleration tendencies of the vehicle. Three driving features were defined: maximum acceleration, maximum jerk, and initial jerk, as shown in Table 1 . The maximum acceleration determines the driving feel in a situation where the speed is continuously increasing, and the value related to jerk determines the driving feeling during the initial period. The maximum acceleration is the peak value of acceleration that is maintained until the desired speed is reached. The maximum jerk is the maximum slope of acceleration. The initial jerk refers to the average jerk in the initial acceleration section. Figure 6 presents graphs of the driving features. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 317,
+                    "end": 324,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 777,
+                    "end": 785,
+                    "text": "Figure 6",
+                    "ref_id": "FIGREF13"
+                }
+            ],
+            "section": "Driving Features in the Initial Acceleration Section"
+        },
+        {
+            "text": "Maximum acceleration Maximum acceleration maintained until the desired speed is reached Maximum jerk Maximum jerk during initial acceleration section Initial jerk Average jerk during initial acceleration section Figure 5 . Definition of the initial acceleration section. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 212,
+                    "end": 220,
+                    "text": "Figure 5",
+                    "ref_id": "FIGREF12"
+                }
+            ],
+            "section": "Driving Feature Description"
+        },
+        {
+            "text": "The determined driving features were statistically analyzed for each driver. To effectively compare the actual driving data for each driver, a non-parametric density estimation method, Kernel Density Estimation (KDE), was used. Due to the nature of the driving data, based on the driver's simple change of mind, there is a lot of uncertainty that needs to be expressed parametrically. One driver characteristic, the kernel density function of the maximum acceleration, appears differently for the five drivers, as seen in the first ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Quantification of the Individual Driving Features"
+        },
+        {
+            "text": "The determined driving features were statistically analyzed for each driver. To effectively compare the actual driving data for each driver, a non-parametric density estimation method, Kernel Density Estimation (KDE), was used. Due to the nature of the driving data, based on the driver's simple change of mind, there is a lot of uncertainty that needs to be expressed parametrically. One driver characteristic, the kernel density function of the maximum acceleration, appears differently for the five drivers, as seen in the first graph in Figure 7 . The fact that the distribution for each driver is in different locations means that the preferred values for each driver are different.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 541,
+                    "end": 549,
+                    "text": "Figure 7",
+                    "ref_id": "FIGREF17"
+                }
+            ],
+            "section": "Quantification of the Individual Driving Features"
+        },
+        {
+            "text": "To express the distribution of the driving feature as one quantitative value, we used the median of the data distribution. The median value of the data has the advantage of minimizing the influence of the extreme values, compared to the commonly used arithmetic mean. In addition, to determine the standard of distribution of each driving feature, we checked the feature distribution of all the drivers and defined its median value as the reference value, as shown in the second graph of Figure 7 . The median values of maximum acceleration for each driver and the reference value of the maximum acceleration are listed in Table 2 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 488,
+                    "end": 496,
+                    "text": "Figure 7",
+                    "ref_id": "FIGREF17"
+                },
+                {
+                    "start": 623,
+                    "end": 630,
+                    "text": "Table 2",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "Quantification of the Individual Driving Features"
+        },
+        {
+            "text": "For each driver, a relative driving tendency may be estimated based on the reference value. For example, the 3rd driver has a characteristic value most similar to all drivers, whereas the 5th driver prefers an exceptionally high maximum acceleration. Figure 8 presents the KDE distribution for each driving feature and each driver. For all driving features, drivers show similar trends and differences. The 5th driver shows the largest value for all driving features, and the 1st driver shows the smallest value.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 251,
+                    "end": 259,
+                    "text": "Figure 8",
+                    "ref_id": "FIGREF18"
+                }
+            ],
+            "section": "Quantification of the Individual Driving Features"
+        },
+        {
+            "text": "For each driver, a relative driving tendency may be estimated based on the reference value. For example, the 3rd driver has a characteristic value most similar to all drivers, whereas the 5th driver prefers an exceptionally high maximum acceleration. Figure 8 presents the KDE distribution for each driving feature and each driver. For all driving features, drivers show similar trends and differences. The 5th driver shows the largest value for all driving features, and the 1st driver shows the smallest value. To express the distribution of the driving feature as one quantitative value, we used the median of the data distribution. The median value of the data has the advantage of minimizing the influence of the extreme values, compared to the commonly used arithmetic mean. In addition, to determine the standard of distribution of each driving feature, we checked the feature distribution of all the drivers and defined its median value as the reference value, as shown in the second graph of Figure 7 . The median values of maximum acceleration for each driver and the reference value of the maximum acceleration are listed in Table 2 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 251,
+                    "end": 259,
+                    "text": "Figure 8",
+                    "ref_id": "FIGREF18"
+                },
+                {
+                    "start": 1001,
+                    "end": 1009,
+                    "text": "Figure 7",
+                    "ref_id": "FIGREF17"
+                },
+                {
+                    "start": 1136,
+                    "end": 1143,
+                    "text": "Table 2",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "Quantification of the Individual Driving Features"
+        },
+        {
+            "text": "For each driver, a relative driving tendency may be estimated based on the reference value. For example, the 3rd driver has a characteristic value most similar to all drivers, whereas the 5th driver prefers an exceptionally high maximum acceleration. Figure 8 presents the KDE distribution for each driving feature and each driver. For all driving features, drivers show similar trends and differences. The 5th driver shows the largest value for all driving features, and the 1st driver shows the smallest value. To effectively express the differences in propensity between drivers, the features were relatively compared. Figure 9 shows differences in the maximum acceleration for three drivers. The 3rd driver has the same tendency as the reference and can be considered a reference driver, whereas the 1st and 5th drivers show a distinct difference. If this difference in propensity is expressed as an absolute value, it is difficult to analyze it accurately, and as such it is not suitable for use in future applications. three drivers. The 3rd driver has the same tendency as the reference and can be considered a reference driver, whereas the 1st and 5th drivers show a distinct difference. If this difference in propensity is expressed as an absolute value, it is difficult to analyze it accurately, and as such it is not suitable for use in future applications.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 251,
+                    "end": 259,
+                    "text": "Figure 8",
+                    "ref_id": "FIGREF18"
+                },
+                {
+                    "start": 622,
+                    "end": 630,
+                    "text": "Figure 9",
+                    "ref_id": "FIGREF24"
+                }
+            ],
+            "section": "Quantification of the Individual Driving Features"
+        },
+        {
+            "text": "The driving feature deviation is defined as each driver's median value over the total driver's reference value, based on the following equation:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Quantification of the Individual Driving Features"
+        },
+        {
+            "text": "(1) All driving feature deviations calculated using this equation are shown in Table 3 . When evaluating the driving tendency of each driver based on the maximum acceleration, it can be said that the 1st driver has a tendency 0.84 times that of the total driver value. The driving feature deviation is defined as each driver's median value over the total driver's reference value, based on the following equation:",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 79,
+                    "end": 86,
+                    "text": "Table 3",
+                    "ref_id": "TABREF4"
+                }
+            ],
+            "section": "Quantification of the Individual Driving Features"
+        },
+        {
+            "text": "All driving feature deviations calculated using this equation are shown in Table 3 . When evaluating the driving tendency of each driver based on the maximum acceleration, it can be said that the 1st driver has a tendency 0.84 times that of the total driver value. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 75,
+                    "end": 82,
+                    "text": "Table 3",
+                    "ref_id": "TABREF4"
+                }
+            ],
+            "section": "Quantification of the Individual Driving Features"
+        },
+        {
+            "text": "The longitudinal behavior of EVs is a result of traction control and braking control, according to human-drivers' pedal operations [58] . In particular, acceleration behavior is dependent on traction control, which is related to the accelerator pedal. The accelerator pedal is controlled according to the driver's intention according to the situation, and as a result, the longitudinal behavior of the vehicle appears. Therefore, when the acceleration tendency of the vehicle was analyzed in Section 2, the situation was defined according to the accelerator pedal.",
+            "cite_spans": [
+                {
+                    "start": 131,
+                    "end": 135,
+                    "text": "[58]",
+                    "ref_id": "BIBREF57"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Accelerator Pedal Operation"
+        },
+        {
+            "text": "In this study, the accelerator pedal is assumed to be the control input that the driver manipulates to achieve the desired longitudinal behavior of the vehicle. In other words, the driving style appears only through the behavior of the vehicle, and the accelerator pedal is only a variable that varies depending on the style.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Accelerator Pedal Operation"
+        },
+        {
+            "text": "The accelerator pedal has a decisive influence on setting the target torque within the motor controller. The simplified calculation process of the target motor torque is shown in Figure 10 . The initial target torque is determined by LUTs using the vehicle state and Accelerator Pedal Sensor (APS) as inputs. Since the APS is directly adjusted by the driver, it can be said that the initial target torque reflects the driver's intention. The initial target torque is used for motor control after a correction is made using a rate limiter and filter to ensure the driving stability of the EV. In this process, if the driver's tendencies can be reflected in more detail, it would be possible to improve the driving comfort of an individual driver. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 179,
+                    "end": 188,
+                    "text": "Figure 10",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Target Motor Torque Calculation"
+        },
+        {
+            "text": "The longitudinal behavior of EVs is a result of traction control and braking control according to human-drivers' pedal operations [58] . In particular, acceleration behavior is dependent on traction control, which is related to the accelerator pedal. The accelerator pedal is controlled according to the driver's intention according to the situation, and as a result, the longitudinal behavior of the vehicle appears. Therefore, when the acceleration tendency of the vehicle was analyzed in Chapter 2, the situation was defined according to the accelerator pedal.",
+            "cite_spans": [
+                {
+                    "start": 130,
+                    "end": 134,
+                    "text": "[58]",
+                    "ref_id": "BIBREF57"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Accelerator Pedal Operation"
+        },
+        {
+            "text": "In this study, the accelerator pedal is assumed to be the control input that the driver manipulates to achieve the desired longitudinal behavior of the vehicle. In other words the driving style appears only through the behavior of the vehicle, and the accelerator pedal is only a variable that varies depending on the style.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Accelerator Pedal Operation"
+        },
+        {
+            "text": "The accelerator pedal has a decisive influence on setting the target torque within the motor controller. The simplified calculation process of the target motor torque is shown in Figure 10 . The initial target torque is determined by LUTs using the vehicle state and Accelerator Pedal Sensor (APS) as inputs. Since the APS is directly adjusted by the driver it can be said that the initial target torque reflects the driver's intention. The initial target torque is used for motor control after a correction is made using a rate limiter and filter to ensure the driving stability of the EV. In this process, if the driver's tendencies can be reflected in more detail, it would be possible to improve the driving comfort of an individual driver. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 179,
+                    "end": 188,
+                    "text": "Figure 10",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Target Motor Torque Calculation"
+        },
+        {
+            "text": "We designed the personalization algorithm of the target motor torque to be used between the LUT of the initial target torque and the rate limiter. The algorithm consists of set-point scaling and the feedback controller. The set-point scaling factor primarily corrects the magnitude of the target torque according to the driver. The feedback controller then manipulates the transient behavior of the target torque by adjusting the reactivity of the controller.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Personalization of the Target Motor Torque"
+        },
+        {
+            "text": "The set-point scaling factor is calculated based on the vehicle's acceleration and the feature deviation of each driving feature, as in the following equation.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Set-Point Scaling Factor"
+        },
+        {
+            "text": "The scaling factor takes the role of modulating the initial target torque according to the driver's preference. The maximum acceleration is the dominant limiting factor used to determine the value of the scaling factor, as they are both related to APS sensitivity. The APS sensitivity refers to how the absolute value of the APS affects the target torque. As shown in Figure 11 , the scaling factor is affected by the vehicle's acceleration and the predefined driving features. The range of the scaling factor values for each driver is summarized in the figure. The deviations for each driving feature are predefined values, so the current acceleration affects the change in value within a set range. Similar to the results of the driver data analysis, the scaling factor for the 5th driver is the largest because the 5th driver prefers more aggressive acceleration.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 368,
+                    "end": 377,
+                    "text": "Figure 11",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Set-Point Scaling Factor"
+        },
+        {
+            "text": "We designed the personalization algorithm of the target motor torque to be used between the LUT of the initial target torque and the rate limiter. The algorithm consists of set-point scaling and the feedback controller. The set-point scaling factor primarily corrects the magnitude of the target torque according to the driver. The feedback controller then manipulates the transient behavior of the target torque by adjusting the reactivity of the controller.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Personalization of the Target Motor Torque"
+        },
+        {
+            "text": "The set-point scaling factor is calculated based on the vehicle's acceleration and the feature deviation of each driving feature, as in the following equation.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Set-Point Scaling Factor"
+        },
+        {
+            "text": ",",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Set-Point Scaling Factor"
+        },
+        {
+            "text": "The scaling factor takes the role of modulating the initial target torque according to the driver's preference. The maximum acceleration is the dominant limiting factor used to determine the value of the scaling factor, as they are both related to APS sensitivity. The APS sensitivity refers to how the absolute value of the APS affects the target torque. As shown in Figure 11 , the scaling factor is affected by the vehicle's acceleration and the predefined driving features. The range of the scaling factor values for each driver is summarized in the figure. The deviations for each driving feature are predefined values, so the current acceleration affects the change in value within a set range. Similar to the results of the driver data analysis, the scaling factor for the 5th driver is the largest because the 5th driver prefers more aggressive acceleration. Figure 11 . Configuration of the scaling factor model.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 368,
+                    "end": 377,
+                    "text": "Figure 11",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 867,
+                    "end": 876,
+                    "text": "Figure 11",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Set-Point Scaling Factor"
+        },
+        {
+            "text": "The feedback controller ultimately affects the jerk by adjusting the dynamics of the required torque. The feedback controller was designed as a PI controller, and each P gain and I gain are scheduled according to the driver. In the case of a driver who wants more aggressive acceleration, the two gains become larger, and for a slightly milder driver, the gains decrease. Specifically, the scaling factor of the 1st driver is reduced compared to the general driver, and as the dynamics are slowed by the feedback controller the vehicle's response to the acceleration input is slowed. Figure 11 . Configuration of the scaling factor model.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 584,
+                    "end": 593,
+                    "text": "Figure 11",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Feedback Controller"
+        },
+        {
+            "text": "The feedback controller ultimately affects the jerk by adjusting the dynamics of the required torque. The feedback controller was designed as a PI controller, and each P gain and I gain are scheduled according to the driver. In the case of a driver who wants more aggressive acceleration, the two gains become larger, and for a slightly milder driver, the gains decrease. Specifically, the scaling factor of the 1st driver is reduced compared to the general driver, and as the dynamics are slowed by the feedback controller the vehicle's response to the acceleration input is slowed.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Feedback Controller"
+        },
+        {
+            "text": "To validate the personalized motor controller, a simulation environment including an ego-vehicle was modeled based on the target vehicle, a Hyundai KONA EV, using the vehicle simulation software IPG CarMaker. IPG CarMaker enables detailed model configurations at the vehicle powertrain level, as shown in Table 4 . A model was built in this simulation environment using all the specifications of the target vehicle, and a torque map was implemented. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 305,
+                    "end": 312,
+                    "text": "Table 4",
+                    "ref_id": "TABREF6"
+                }
+            ],
+            "section": "Simulation Environment"
+        },
+        {
+            "text": "The IPG CarMaker-based simulation environment was integrated with the actual driving data to validate the personalized target torque of the traction motor controller. The purpose of this simulation was to prove that when the same APS profile was used as an input, the behavior of the vehicle changed according to the driver due to personalization of the target torque, as shown in Figure 12 . ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 381,
+                    "end": 390,
+                    "text": "Figure 12",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Simulation Process"
+        },
+        {
+            "text": "The proposed algorithm was confirmed to reproduce different vehicle behaviors through the scaling factor and the feedback controller, as shown in Figure 12 . This figure presents the simulation results for the five driver settings for the algorithm in the acceleration section, as defined in Chapter 2. As explained in the simulation process, the APS profile is identical for the five simulation results. However, due to the influence of the personalization algorithm, the motor torque results display different behaviors. In the case of the 5th driver, who preferred a large acceleration in real life, the algorithm produces a significantly higher acceleration and jerk compared to the results of the other drivers.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 146,
+                    "end": 155,
+                    "text": "Figure 12",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Results of Motor Torque Personalization"
+        },
+        {
+            "text": "The difference in the results of each driver is similar to the driving feature deviation values determined through the quantification of driving behavior. In the case of maximum acceleration, the feature deviation of the 5th driver is 1.43. The feature deviation of the 5th driver derived from the case shown in Figure 13 is 1.51, and the error is small. As a result, through target torque personalization, it was confirmed that various initial acceleration behaviors could be replicated from an identical APS profile. In the case of a general EV with no personalization algorithm, the driver controls the APS feedback to achieve the desired longitudinal behavior. As a result of the APS feedback, the aggressive drivers need more dynamic pedal operation than the milder drivers. However, if the performance of the EV motor controller is automatically set to suit a specific driver, even an aggressive driver should be able to obtain their desired vehicle behavior using only normal pedal operation. To verify this assumption, the most average driver's APS profile was used as the input for these simulations. Here, we use the 3rd driver's profile as the average driver, based on the results of the driving data analysis.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 312,
+                    "end": 321,
+                    "text": "Figure 13",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Results of Motor Torque Personalization"
+        },
+        {
+            "text": "For an identical APS profile, the personalization algorithm corrects the torque using the scaling factor and feedback controller set for each driver. The result is then compared to the actual driving data of the corresponding driver to evaluate the torque correction performance. For example, the personalization algorithm configured to the mildest 1st driver and the APS profile of the normal 3rd driver are integrated in order to replicate the driving behavior of the 1st driver's actual data.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Results of Motor Torque Personalization"
+        },
+        {
+            "text": "The proposed algorithm was confirmed to reproduce different vehicle behaviors through the scaling factor and the feedback controller, as shown in Figure 12 . This figure presents the simulation results for the five driver settings for the algorithm in the acceleration section, as defined in Section 2. As explained in the simulation process, the APS profile is identical for the five simulation results. However, due to the influence of the personalization algorithm, the motor torque results display different behaviors. In the case of the 5th driver, who preferred a large acceleration in real life, the algorithm produces a significantly higher acceleration and jerk compared to the results of the other drivers.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 146,
+                    "end": 155,
+                    "text": "Figure 12",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Results of Motor Torque Personalization"
+        },
+        {
+            "text": "The difference in the results of each driver is similar to the driving feature deviation values determined through the quantification of driving behavior. In the case of maximum acceleration, the feature deviation of the 5th driver is 1.43. The feature deviation of the 5th driver derived from the case shown in Figure 13 is 1.51, and the error is small. As a result, through target torque personalization, it was confirmed that various initial acceleration behaviors could be replicated from an identical APS profile. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 312,
+                    "end": 321,
+                    "text": "Figure 13",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Results of Motor Torque Personalization"
+        },
+        {
+            "text": "The proposed algorithm was confirmed to reproduce different vehicle behaviors through the scaling factor and the feedback controller, as shown in Figure 12 . This figure presents the simulation results for the five driver settings for the algorithm in the acceler ation section, as defined in Chapter 2. As explained in the simulation process, the APS profile is identical for the five simulation results. However, due to the influence of the personalization algorithm, the motor torque results display different behaviors. In the case of the 5th driver, who preferred a large acceleration in real life, the algorithm pro duces a significantly higher acceleration and jerk compared to the results of the other driv ers.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 146,
+                    "end": 155,
+                    "text": "Figure 12",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Results of Motor Torque Personalization"
+        },
+        {
+            "text": "The difference in the results of each driver is similar to the driving feature deviation values determined through the quantification of driving behavior. In the case of maxi mum acceleration, the feature deviation of the 5th driver is 1.43. The feature deviation o the 5th driver derived from the case shown in Figure 13 is 1.51, and the error is small. As a result, through target torque personalization, it was confirmed that various initial accel eration behaviors could be replicated from an identical APS profile. Figure 14 compares the experimental data acquired by human driving and the simulation results to validate the proposed algorithm. The experimental data refers to the actual driving results of the 1st driver, driving a target vehicle that is not personalized. On the other hand, the simulation data refers to the results of the motor control that was personalized for the 1st driver using the 3rd driver's APS profile. Therefore, each APS profile shows different behaviors.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 312,
+                    "end": 321,
+                    "text": "Figure 13",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 520,
+                    "end": 529,
+                    "text": "Figure 14",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Results of Motor Torque Personalization"
+        },
+        {
+            "text": "Since there are two APS profiles in which different drivers drove under similar driving conditions, not only the magnitude but also the overall behavior are different. For example, there is a difference in both the period maintaining the maximum jerk in the initial acceleration section, and in the period maintaining the maximum acceleration. Despite the different APS profiles, the acceleration in the simulation results that was corrected through the personalization algorithm is similar to that of the experimental results. The acceleration behavior in the initial acceleration section is particularly well replicated, though the speed of the vehicle and the torque of the drive motor also appear very similar. Figure 15 represents the validation results for the 5th driver's case. As with the previous analysis, the effectiveness of the personalization algorithm is well revealed. One difference from the previous results is that the APS profile of the experiment appears more intense due to a difference in the driver's disposition. Although the behavior of the APS displays a larger difference than for the 1st driver, the acceleration of the initial acceleration section is still well replicated. The difference in behavior after the initial acceleration period is due to a change in the APS and is not related to the proposed algorithm. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 715,
+                    "end": 724,
+                    "text": "Figure 15",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Comparison with Experimental Data"
+        },
+        {
+            "text": "To quantitatively evaluate the acceleration behavior in the simulations regarding the performance of the proposed algorithm, a statistical analysis was performed in the same manner as for the driving behavior quantification process. The personalization algorithm for each driver was simulated for all acceleration scenarios under which the actual drivers were driving, and the KDE was applied to the results. Figure 16 represents the KDE distribution and the median of the driving results of the maximum acceleration and maximum jerk for three drivers. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 409,
+                    "end": 418,
+                    "text": "Figure 16",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Statistical Evaluation"
+        },
+        {
+            "text": "This paper quantitatively characterized individual drivers' features and implemented a personalization algorithm of the EV's accelerating performance under a driver's manual driving. The driver characteristics quantification algorithm derives the expected statistical value for each driving feature. This approach focuses on determining one representative value for one driving feature representing a driver's personal preference. The driving features are physical values that can express longitudinal driving behaviors among vehicle states, and display different tendencies depending on the driving pattern. In order to personalize longitudinal vehicle behavior, the quantified driving features are applied to the traction motor controller of the EVs. The traction motor controller calculates Table 5 summarizes the personalization accuracy results of the maximum acceleration and maximum jerk for all drivers. The personalization accuracy was evaluated based on the absolute error and percentage error of the medians. First, in the case of the 3rd driver, since they are the standard driver, the results were not affected by the APS or personalization algorithms, so the median of the maximum acceleration was the same in both the experimental and simulation results. Note that though a very small error of 0.17% occurred, it was due to modeling errors.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 794,
+                    "end": 801,
+                    "text": "Table 5",
+                    "ref_id": "TABREF7"
+                }
+            ],
+            "section": "Conclusions"
+        },
+        {
+            "text": "The maximum acceleration of the 1st driver was correctly replicated by the proposed algorithm, though there was a small error of 2.18% between the two medians. Finally, in the result of the 5th driver, the driver's preference was exceptionally different, so the replication performance was slightly lower than the other two drivers, but still displayed a high accuracy (error of 2.81%). ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "This paper quantitatively characterized individual drivers' features and implemented a personalization algorithm of the EV's accelerating performance under a driver's manual driving. The driver characteristics quantification algorithm derives the expected statistical value for each driving feature. This approach focuses on determining one representative value for one driving feature representing a driver's personal preference. The driving features are physical values that can express longitudinal driving behaviors among vehicle states, and display different tendencies depending on the driving pattern. In order to personalize longitudinal vehicle behavior, the quantified driving features are applied to the traction motor controller of the EVs. The traction motor controller calculates the target torque based on the accelerator pedal position in order to reflect the driver's intentions. In this process, we utilized the quantified driving features to calculate the correction factors of the target torque. This driver-specific correction provided satisfactory propulsion performance for each driver. The proposed algorithm was then validated through simulation studies consisting of a precise EV model. The validation results confirmed that the proposed motor controller could reproduce different acceleration behaviors for identical accelerator pedal inputs. Through a comparison between the experimental and simulation data, the distributions of each driving feature displayed a high similarity. In the case of the maximum acceleration, errors in the distribution medians were lower than 3%.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "The proposed target torque personalization satisfactory improves individual driving. The target torque table is generally calibrated through experiments to satisfy standard acceleration performance. The previous research introduced look-up tables of the correction factors to adjust the torque within a range of motor specifications. The limitations of the previous research were that the correction look-up tables depended on the motor's operation range and showed discrete correction results. To overcome these limitations, the proposed algorithm automatically calculates the correction factors through personal driving data analysis. Furthermore, to prevent stability problems, the proposed correction factor is limited according to the target motor specifications. The adjustment of the EV's output torque greatly affects not only vehicle performance but also driving safety. For example, if the driving tendency a driver selected as a personalization target is excessively aggressive, it is not necessary to compensate for the driver unconditionally, but to offer support within the range that guarantees driving safety. Even if it is possible to tune the motor to achieve higher acceleration according to the specifications of the EV, safety must be ensured with a certain margin, and a service that recommends improving driving style rather than personalization to drivers outside the range must be provided. In addition to the acceleration performance discussed in this paper, personalization in the ADAS field has safety as the top priority, and research is being conducted to provide a personalized function for each driver within the possible range. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusions"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Recommendations for the New WLTP Cycle Based on an Analysis of Vehicle Emission Measurements on NEDC and CADC",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Demuynck",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Bosteels",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "De Paepe",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Favre",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "May",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Verhelst",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Energy Policy",
+            "volume": "49",
+            "issn": "",
+            "pages": "234--242",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.enpol.2012.05.081"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Comparison of Tailpipe Gaseous Emissions for RDE and WLTC Using SI Passenger Cars",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Thomas",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Ge",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Ropkins",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Proceedings of the SAE Powertrain Fuels and Lubricants Meeting",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "CO 2 Emissions from New Passenger Cars in Europe: Car Manufacturers' Performance in 2019; Briefing; 2020 International Council on Clean Transportation",
+            "authors": [
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Tietge",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "European Environment Agency",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Clean Mobility: New CO2 Emission Standards for Cars and Vans Adopted",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Cabuzel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Review of Hybrid, Plug-in Hybrid, and Electric Vehicle Market Modeling Studies",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Al-Alawi",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Bradley",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Renew. Sustain. Energy Rev",
+            "volume": "21",
+            "issn": "",
+            "pages": "190--203",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.rser.2012.12.048"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "COVID-19 Impact Analysis. Markets and Markets",
+            "authors": [],
+            "year": 2020,
+            "venue": "Electric Vehicle Market Growth, Industry Trends, and Statistics by 2030",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "The Electric Vehicle World Sales Database",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Global EV Outlook 2020-Analysis",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Electric Vehicle Index: Electric Vehicle Trends",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Mckinsey",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Mckinsey",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Modern Electric, Hybrid Electric, and Fuel Cell Vehicles",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ehsani",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Longo",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Ebrahimi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Electric Powertrain; Energy Systems, Power Electronics and Drives for Hybrid, Electric and Fuel Cell Vehicles",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Hayes",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Goodarzi",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Electric and Hybrid Vehicles: Design Fundamentals",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Husain",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Electric Vehicle Trends Deloitte Insights",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "These Electric Car Startups Are Looking to Take on Tesla",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mcfarland",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Valdes-Dapena",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Advances in Consumer Electric Vehicle Adoption Research: A Review and Research Agenda",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Rezvani",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Jansson",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bodin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Transp. Res. Part D Transp. Environ",
+            "volume": "34",
+            "issn": "",
+            "pages": "122--136",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.trd.2014.10.010"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Responses to Battery Electric Vehicles: UK Consumer Attitudes and Attributions of Symbolic Meaning Following Direct Experience to Reduce Psychological Distance",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Skippon",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Garwood",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Transp. Res. Part D Transp. Environ",
+            "volume": "16",
+            "issn": "",
+            "pages": "525--531",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.trd.2011.05.005"
+                ]
+            }
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Analyzing Public Awareness and Acceptance of Alternative Fuel Vehicles in China: The Case of EV",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Zou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Energy Policy",
+            "volume": "39",
+            "issn": "",
+            "pages": "7015--7024",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.enpol.2011.07.055"
+                ]
+            }
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Electric Vehicle drivers' Reported Interactions with the Public: Driving Stereotype Change?",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Burgess",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "King",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Harris",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Lewis",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Transp. Res. Part F Traffic Psychol. Behav",
+            "volume": "17",
+            "issn": "",
+            "pages": "33--44",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.trf.2012.09.003"
+                ]
+            }
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "On the Stability of Preferences and Attitudes before and After Experiencing an Electric Vehicle",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Jensen",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Cherchi",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Mabit",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Transp. Res. Part D Transp. Environ",
+            "volume": "25",
+            "issn": "",
+            "pages": "24--32",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.trd.2013.07.006"
+                ]
+            }
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Experiencing Range in an Electric Vehicle: Understanding Psychological Barriers",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Franke",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Neumann",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "B\u00fchler",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Cocron",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Krems",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Online Library. Appl. Psychol",
+            "volume": "61",
+            "issn": "",
+            "pages": "368--391",
+            "other_ids": {
+                "DOI": [
+                    "10.1111/j.1464-0597.2011.00474.x"
+                ]
+            }
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "A survey of intelligent vehicle applications worldwide",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Bishop",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "Proceedings of the IEEE Intelligent Vehicles Symposium",
+            "volume": "",
+            "issn": "",
+            "pages": "25--30",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "A Comprehensive Review of the Development of Adaptive Cruise Control Systems",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Xiao",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Veh. Syst. Dyn",
+            "volume": "48",
+            "issn": "",
+            "pages": "1167--1192",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/00423110903365910"
+                ]
+            }
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Personalization of Acc Stop and Go Task Based on Human Driver Behaviour Analysis",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Canale",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Malan",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Murdocco",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "IFAC Proc",
+            "volume": "35",
+            "issn": "",
+            "pages": "357--362",
+            "other_ids": {
+                "DOI": [
+                    "10.3182/20020721-6-ES-1901.01613"
+                ]
+            }
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Experiments toward an Human-Like Adaptive Cruise Control",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Bifulco",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Simonelli",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Di Pace",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Proceedings of the 2008 IEEE Intelligent Vehicles Symposium",
+            "volume": "",
+            "issn": "",
+            "pages": "919--924",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Stochastic Model Predictive Control With Driver Behavior Learning for Improved Powertrain Control",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Bichi",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Ripaccioli",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Di Cairano",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Bernardini",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Bemporad",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Kolmanovsky",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Proceedings of the 49th IEEE Conference on Decision and Control (CDC)",
+            "volume": "21",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "An Adaptive Longitudinal Driving Assistance System Based on Driver Characteristics",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "IEEE Trans. Intell. Transp. Syst",
+            "volume": "14",
+            "issn": "",
+            "pages": "1--12",
+            "other_ids": {
+                "DOI": [
+                    "10.1109/TITS.2012.2205143"
+                ]
+            }
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Development and Testing of a Fully Adaptive Cruise Control System",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Bifulco",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Pariota",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Simonelli",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Di Pace",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Transp. Res. Part C Emerg. Technol",
+            "volume": "29",
+            "issn": "",
+            "pages": "156--170",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.trc.2011.07.001"
+                ]
+            }
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Driver Characteristics Oriented Autonomous Longitudinal Driving System in Car-Following Situation",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Min",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Sunwoo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Sensors",
+            "volume": "20",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/s20216376"
+                ]
+            }
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Personalization in advanced driver assistance systems and autonomous vehicles: A review",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Hasenjager",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Wersing",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Proceedings of the 2017 IEEE 20th International Conference on Intelligent Transportation Systems (ITSC)",
+            "volume": "",
+            "issn": "",
+            "pages": "1--7",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Driver Models for Personalised Driving Assistance",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Lef\u00e8vre",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Carvalho",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Tseng",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Borrelli",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Veh. Syst. Dyn",
+            "volume": "53",
+            "issn": "",
+            "pages": "1705--1720",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/00423114.2015.1062899"
+                ]
+            }
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "A Learning-Based Framework for Velocity Control in Autonomous Driving",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Lefevre",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Carvalho",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Borrelli",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "IEEE Trans. Autom. Sci. Eng",
+            "volume": "13",
+            "issn": "",
+            "pages": "32--42",
+            "other_ids": {
+                "DOI": [
+                    "10.1109/TASE.2015.2498192"
+                ]
+            }
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "A Learning Model for Personalized Adaptive Cruise Control",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhai",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Lu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Gong",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Proceedings of the 2017 IEEE Intelligent Vehicles Symposium (IV)",
+            "volume": "",
+            "issn": "",
+            "pages": "379--384",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "A Stochastic Driver Pedal Behavior Model Incorporating Road Information",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Zeng",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "IEEE Trans. Human Mach. Syst",
+            "volume": "47",
+            "issn": "",
+            "pages": "614--624",
+            "other_ids": {
+                "DOI": [
+                    "10.1109/THMS.2017.2674301"
+                ]
+            }
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "The Impact of Cooperative Adaptive Cruise Control on Traffic-Flow Characteristics",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Van Arem",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "J G"
+                    ],
+                    "last": "Van Driel",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Visser",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "IEEE Trans. Intell. Transp. Syst",
+            "volume": "7",
+            "issn": "",
+            "pages": "429--436",
+            "other_ids": {
+                "DOI": [
+                    "10.1109/TITS.2006.884615"
+                ]
+            }
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Towards personalised automated driving: Prediction of preferred ACC behaviour based on manual driving",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "De Gelder",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Cara",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Uittenbogaard",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Kroon",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Van Iersel",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Hogema",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Proceedings of the 2016 IEEE Intelligent Vehicles Symposium (IV)",
+            "volume": "",
+            "issn": "",
+            "pages": "1211--1216",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Learning Drivers' Behavior to Improve Adaptive Cruise Control",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Rosenfeld",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Bareket",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Goldman",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Leblanc",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Tsimhoni",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "J. Intell. Transp. Syst",
+            "volume": "19",
+            "issn": "",
+            "pages": "18--31",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/15472450.2014.889960"
+                ]
+            }
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Typical-Driving-Style-Oriented Personalized Adaptive Cruise Control Design Based on Human Driving Data",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Jiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "He",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Bian",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Deng",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Transp. Res. Part C Emerg. Technol",
+            "volume": "100",
+            "issn": "",
+            "pages": "274--288",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.trc.2019.01.025"
+                ]
+            }
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Estimation of Driving Style in Naturalistic Highway Traffic Using Maneuver Transition Probabilities",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Cheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Green",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Transp. Res. Part C Emerg. Technol",
+            "volume": "74",
+            "issn": "",
+            "pages": "113--125",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.trc.2016.11.011"
+                ]
+            }
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Model predictive assisting control of vehicle following task based on driver model",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Mikami",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Okuda",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Taguchi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Tazaki",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Suzuki",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Proceedings of the 2010 IEEE International Conference on Control Applications",
+            "volume": "",
+            "issn": "",
+            "pages": "890--895",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Driver intent inference at urban intersections using the intelligent driver model",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Liebner",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Baumann",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Klanner",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Stiller",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Proceedings of the 2012 IEEE Intelligent Vehicles Symposium",
+            "volume": "",
+            "issn": "",
+            "pages": "1162--1167",
+            "other_ids": {}
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Driving Autopilot with Personalization Feature for Improved Safety and Comfort",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Butakov",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Ioannou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Proceedings of the 2015 IEEE 18th International Conference on Intelligent Transportation Systems",
+            "volume": "",
+            "issn": "",
+            "pages": "15--18",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "A Driver Behavior Recognition Method Based on a Driver Model Framework",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Kuge",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Yamamura",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Shimoyama",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "SAE Tech. Pap. Ser",
+            "volume": "109",
+            "issn": "",
+            "pages": "469--476",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Driver Behavior Recognition and Prediction in a SmartCar",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Oliver",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Pentland",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "AeroSense",
+            "volume": "4023",
+            "issn": "",
+            "pages": "280--290",
+            "other_ids": {}
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "Extraction of Descriptive Driving Patterns from Driving Data Using Unsupervised Algorithms",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Cao",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Qu",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Cheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Mech. Syst. Signal Process",
+            "volume": "156",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.ymssp.2020.107589"
+                ]
+            }
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Analysis of Recurrent Neural Networks for Probabilistic Modeling of Driver Behavior",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Morton",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Wheeler",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Kochenderfer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "IEEE Trans. Intell. Transp. Syst",
+            "volume": "18",
+            "issn": "",
+            "pages": "1289--1298",
+            "other_ids": {
+                "DOI": [
+                    "10.1109/TITS.2016.2603007"
+                ]
+            }
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Spatiotemporal Recurrent Convolutional Networks for Traffic Prediction in Transportation Networks",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Ma",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "17",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/s17071501"
+                ]
+            }
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "A Car-Following Model Considering Asymmetric Driving Behavior Based on Long Short-Term Memory Neural Networks",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Transp. Res. Part C Emerg. Technol",
+            "volume": "95",
+            "issn": "",
+            "pages": "346--362",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.trc.2018.07.022"
+                ]
+            }
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Advanced Planning for Autonomous Vehicles Using Reinforcement Learning and Deep Inverse Reinforcement Learning",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "You",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Lu",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Filev",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Tsiotras",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Robot. Auton. Syst",
+            "volume": "114",
+            "issn": "",
+            "pages": "1--18",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.robot.2019.01.003"
+                ]
+            }
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "Can you Control the Performance of an Electric Vehicle with a Smartphone? Available online",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "Hyundai Motor Group Introduces Smartphone Based EV Performance Control Technology",
+            "authors": [],
+            "year": 2021,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "Understanding and Modeling the Human Driver",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Macadam",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Veh. Syst. Dyn",
+            "volume": "40",
+            "issn": "",
+            "pages": "101--134",
+            "other_ids": {
+                "DOI": [
+                    "10.1076/vesd.40.1.101.15875"
+                ]
+            }
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "Impact of Driving Characteristics on Electric Vehicle Energy Consumption and Range",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Bingham",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Walsh",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Carroll",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "IET Intell. Transp. Syst",
+            "volume": "6",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1049/iet-its.2010.0137"
+                ]
+            }
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "Behavior Classification Model Based on an Intelligent Driving Diagnosis System",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "C G"
+                    ],
+                    "last": "Quintero",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Lopez",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C C"
+                    ],
+                    "last": "Pinilla",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Driver",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Proceedings of the 2012 15th International IEEE Conference on Intelligent Transportation Systems",
+            "volume": "",
+            "issn": "",
+            "pages": "894--899",
+            "other_ids": {}
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "The Learning of Longitudinal Human Driving Behavior and Driver Assistance Strategies",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Eilers",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "M\u00f6bus",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Tango",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Pietquin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Transp. Res. Part F Traffic Psychol. Behav",
+            "volume": "21",
+            "issn": "",
+            "pages": "295--314",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.trf.2013.09.021"
+                ]
+            }
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "Enhancement of Driving Strategy of Electric Vehicle by Consideration of Individual Driver Intention",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "K.-F",
+                    "middle": [],
+                    "last": "Storm",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Rausch",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Proceedings of the 30th International Electric Vehicle Symposium & Exhibition",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "On the Optimal Speed Profile for Eco-Driving on Curved Roads",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Ding",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Jin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "IEEE Trans. Intell. Transp. Syst",
+            "volume": "19",
+            "issn": "",
+            "pages": "4000--4010",
+            "other_ids": {
+                "DOI": [
+                    "10.1109/TITS.2018.2795602"
+                ]
+            }
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "Driving-Style-Based Codesign Optimization of an Automated Electric Vehicle: A Cyber-Physical System Approach",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Lv",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sangiovanni-Vincentelli",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Martinez",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Cao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "IEEE Trans. Ind. Electron",
+            "volume": "66",
+            "issn": "",
+            "pages": "2965--2975",
+            "other_ids": {
+                "DOI": [
+                    "10.1109/TIE.2018.2850031"
+                ]
+            }
+        },
+        "BIBREF57": {
+            "ref_id": "b57",
+            "title": "Longitudinal Driving Behavior: Theory and Empirics",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ossen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Performance of top-selling EU passenger car manufacturers in 2019 compared to 2015, and the 2020/2021 emissions target compliance curves.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Outlook for annual global passenger-car and light-duty vehicle sales, up to 2030.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Performance of top-selling EU passenger car manufacturers in 2019 compared to 2015, and the 2020/2021 emissions target compliance curves.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Performance of top-selling EU passenger car manufacturers in 2019 compared to 2015, and the 2020/2021 emissions target compliance curves.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "Outlook for annual global passenger-car and light-duty vehicle sales, up to 2030.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "Outlook for annual global passenger-car and light-duty vehicle sales, up to 2030.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "21, x FOR PEER REVIEW 6 of 20",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": "Vehicle configuration.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF8": {
+            "text": "Vehicle",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF9": {
+            "text": "21, x FOR PEER REVIEW 7 of 20",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF10": {
+            "text": "Driving scenario for the free-driving scenarios.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF11": {
+            "text": "Driving scenario for the free-driving scenarios.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF12": {
+            "text": "Definition of the initial acceleration section.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF13": {
+            "text": "Driving feature distribution according to ego-vehicle velocity.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF14": {
+            "text": "Definition of the initial acceleration section.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF15": {
+            "text": "Driving feature distribution according to ego-vehicle velocity.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF16": {
+            "text": "Driving feature distribution according to ego-vehicle velocity.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF17": {
+            "text": "KDE of the maximum acceleration for each driver and the total number of drivers.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF18": {
+            "text": "KDE of maximum jerk and initial jerk during the initial acceleration section.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF19": {
+            "text": "KDE of the maximum acceleration for each driver and the total number of drivers.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF20": {
+            "text": "KDE of the maximum acceleration for each driver and the total number of drivers.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF21": {
+            "text": "KDE of maximum jerk and initial jerk during the initial acceleration section.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF22": {
+            "text": "KDE of maximum jerk and initial jerk during the initial acceleration section.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF24": {
+            "text": "Feature deviation of maximum acceleration.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF25": {
+            "text": "Feature deviation of maximum acceleration.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF26": {
+            "text": "Target torque adjustment according to the feature deviation model.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF27": {
+            "text": "Target torque adjustment according to the feature deviation model.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF28": {
+            "text": "Simulation environment for the automated tune-up system.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF29": {
+            "text": "Simulation environment for the automated tune-up system.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF30": {
+            "text": "Simulation environment for the automated tune-up system.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF31": {
+            "text": "Acceleration behavior by target torque personalization for identical APS profiles.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF32": {
+            "text": "Acceleration behavior by target torque personalization for identical APS profiles.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF33": {
+            "text": "Comparison of the acceleration behavior between the experiments and simulations of the 1st driver.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF34": {
+            "text": "Comparison of acceleration behavior between the experiments and simulations of the 5th driver.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF35": {
+            "text": "Comparison of the acceleration behavior between the experiments and simulations of the 1st driver.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF36": {
+            "text": "21, x FOR PEER REVIEW 16 of Comparison of the acceleration behavior between the experiments and simulations of the 1st driver.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF37": {
+            "text": "Comparison of acceleration behavior between the experiments and simulations of the 5th driver.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF38": {
+            "text": "Comparison of acceleration behavior between the experiments and simulations of the 5th driver.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF39": {
+            "text": "Comparison of the MaxAcc and MaxJerk distributions between the experiments and simulations.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF40": {
+            "text": "Comparison of the MaxAcc and MaxJerk distributions between the experiments and simulations.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF41": {
+            "text": "This work was financially supported by the BK21 plus program (22A20130000045) under the Ministry of Education, Republic of Korea; by the Industrial Strategy Technology Development Program (No. 10039673, 10060068, and 10079961); by the International Collaborative Research and Development Program (N0001992) under the Ministry of Trade, Industry, and Energy (MOTIE Korea); and by the National Research Foundation of Korea (NRF) grant funded by the Korean government (MEST) (No. 2011-0017495).",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF1": {
+            "text": "Specification of the vehicle (Hyundai KONA).",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Specification of the vehicle (Hyundai KONA).",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "Median values of the driving features.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF4": {
+            "text": "Feature deviation values of the driving features.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF6": {
+            "text": "Specification of the vehicle (Hyundai KONA).",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF7": {
+            "text": "Evaluation of the feature similarities between the experiments and simulations.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF8": {
+            "text": "Evaluation of the feature similarities between the experiments and simulations.",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "Informed Consent Statement: Informed consent was obtained from all subjects involved in the study.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Institutional Review Board Statement: Not applicable."
+        },
+        {
+            "text": "The author declares no conflict of interest.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conflicts of Interest:"
+        }
+    ]
+}

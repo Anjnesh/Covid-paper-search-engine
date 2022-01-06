@@ -1,0 +1,2704 @@
+{
+    "paper_id": "00d74d2f64617c9945d112da9d359904ec4eb270",
+    "metadata": {
+        "title": "Multi-Layer SIS Model with an Infrastructure Network",
+        "authors": [
+            {
+                "first": "Philip",
+                "middle": [
+                    "E"
+                ],
+                "last": "Par\u00e9",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Axel",
+                "middle": [],
+                "last": "Janson",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Sebin",
+                "middle": [],
+                "last": "Gracy",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Ji",
+                "middle": [],
+                "last": "Liu",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Henrik",
+                "middle": [],
+                "last": "Sandberg",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Karl",
+                "middle": [
+                    "H"
+                ],
+                "last": "Johansson",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "This paper deals with the spread of diseases over both a population network and an infrastructure network. We develop a layered networked spread model for a susceptibleinfected-susceptible (SIS) pathogen-borne disease spreading over a human contact network and an infrastructure network, and refer to it as a layered networked susceptible-infected-watersusceptible (SIWS) model. The \"W\" in SIWS represents any infrastructure network contamination, not necessarily restricted to a water distribution network. We say that the SIWS network is in the healthy state (also referred to as the diseasefree equilibrium) if none of the individuals in the population are infected nor is the infrastructure network contaminated; otherwise, we say that the network is in the endemic state (also referred to as the endemic equilibrium). First, we establish sufficient conditions for local exponential stability and global asymptotic stability (GAS) of the healthy state. Second, we provide sufficient conditions for existence, uniqueness, and GAS of the endemic state. Building off of these results, we provide a necessary, and sufficient, condition for the healthy state to be the unique equilibrium of our model. Third, we show that the endemic equilibrium of the SIWS model is worse than that of the networked SIS model without any infrastructure network, in the sense that at least one subpopulation has strictly larger infection proportion at the endemic equilibrium in the former model than that in the latter. Fourth, we study an observability problem, and, assuming that the measurements of the sickness-levels of the human contact network are available, provide a necessary and sufficient condition for estimation of the pathogen levels in the infrastructure network. Furthermore, we provide another sufficient, but not necessary, condition for estimation of pathogen levels in the infrastructure network. By leveraging the sufficient condition we finally provide insights in to how the measurement matrix could be designed so that the system is locally weakly observable.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "The spread of diseases has been a prominent feature of human civilization. The devastation that epidemics can bring worldwide, both from loss of life, and, less importantly, from hindrance to economic activity, has been brought into stark relief by the ongoing Covid-19 crisis. Consequently, understanding the causes of spread of diseases, and, as a result, possibly mitigating (or eradicating) the spread have been questions of longstanding interest for the scientific community. The earliest work in this area can be traced back to [1] . In recent times, modeling and analysis of spreading processes has attracted the attention of researchers across a wide spectrum ranging from mathematical epidemiology [1, 2] and physics [3] to the social sciences [4] .",
+            "cite_spans": [
+                {
+                    "start": 534,
+                    "end": 537,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 707,
+                    "end": 710,
+                    "text": "[1,",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 711,
+                    "end": 713,
+                    "text": "2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 726,
+                    "end": 729,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 753,
+                    "end": 756,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                }
+            ],
+            "ref_spans": [],
+            "section": "I. INTRODUCTION"
+        },
+        {
+            "text": "Various models have been proposed in the literature for studying spreading processes, and, in particular, epidemics, viz. susceptible-exposed-infected-recovered (SEIR), susceptible-infected-susceptible (SIS), susceptible-infectedrecovered (SIR), susceptible-infected (SI), and susceptibleinfected-recovered-infected (SIRI). An overview of these models is provided in [5] , and [6] , respectively. The present paper relies on the SIS model, which was first introduced in [7] . In an SIS model, an agent (resp. node), which can be interpreted as either an individual or, equivalently, a community, is either in the infected state or in the susceptible state. Assuming there is a non-trivial disease-spread in a population, an agent that is in the susceptible state, as a consequence of interactions with its neighbors, and depending on its infection rate, transitions to the infected state; an agent that is in the infected state recovers from the infections based on its healing rate.",
+            "cite_spans": [
+                {
+                    "start": 367,
+                    "end": 370,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 377,
+                    "end": 380,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 470,
+                    "end": 473,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": "I. INTRODUCTION"
+        },
+        {
+            "text": "SIS networked models have been studied extensively in the literature, both for continuous-time and discrete-time settings; see, for instance, [3, 8] - [10] and [11] - [13] , respectively. However, [3, 8, 9, 12, 13] only account for time-invariant interconnections among the agents. Overcoming this drawback, SIS networked models with time-varying topologies have been developed and analysed in [14] - [16] . Nonetheless, the bulk of the existing literature on SIS models factors in only person-toperson interaction. However, diseases can spread also through other medium, such as water [17] (or infected surfaces, e.g., in hospitals [18] , public transit vehicles [19] , etc). Water-borne pathogens could spread through infrastructure networks, water distribution systems (e.g., rivers, groundwater, and reservoirs) [20] . Moreover, while water quality issues are very prevalent in developing countries with less advanced plumbing and sewage infrastructure, such issues occasionally affect more prosperous countries as well. Notably, Sweden has had a number of water contamination incidents which have affected thousands of residents. For example, in\u00d6stersund in Northern Sweden, approximately 27, 000 people (\u223c45% of the population) became ill and had a water-boil order for over two months as the result of Cryptosporidium contamination of the drinking water [21] . Hence, there is a need for SIS networked models that also account for the spread of diseases through water distribution networks.",
+            "cite_spans": [
+                {
+                    "start": 142,
+                    "end": 145,
+                    "text": "[3,",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 146,
+                    "end": 148,
+                    "text": "8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 151,
+                    "end": 155,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 160,
+                    "end": 164,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 167,
+                    "end": 171,
+                    "text": "[13]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 197,
+                    "end": 200,
+                    "text": "[3,",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 201,
+                    "end": 203,
+                    "text": "8,",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 204,
+                    "end": 206,
+                    "text": "9,",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 207,
+                    "end": 210,
+                    "text": "12,",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 211,
+                    "end": 214,
+                    "text": "13]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 394,
+                    "end": 398,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 401,
+                    "end": 405,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 586,
+                    "end": 590,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 633,
+                    "end": 637,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 664,
+                    "end": 668,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 816,
+                    "end": 820,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 1361,
+                    "end": 1365,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                }
+            ],
+            "ref_spans": [],
+            "section": "I. INTRODUCTION"
+        },
+        {
+            "text": "Based on the aforementioned motivation, the so-called Susceptible-Infected-Water-Recovered (SIWR) model had been proposed in [22] - [24] by adding a water compartment to the classical SIR model. More recently, a variant of the SIS model called the Susceptible-Infected-Water-Susceptible (SIWS) model has been recently developed in [25] , and a multi-virus single resource SIWS model in [26] . The paper [25] provides sufficient conditions for GAS of the healthy state (see [25, Theorem 1] ), but it does not provide any theoretical guarantees regarding endemic behavior. More recently, sufficient conditions for GAS of the healthy state, and also for the existence, uniqueness, and GAS of the endemic state have been provided in [26] ; see [26, Theorem 2] , and [26, Theorem 3] , respectively. However, both [25] and [26] consider only the presence of a single resource. Notice that if there are multiple water resources being accessed by the population, then the spread of virus could be due to not only node-to-node interaction and node-to-resource interactions, but also due to resource-to-resource interaction. The present paper aims to develop such a model (called the layered networked SIWS model), and provide an in-depth analysis of its various equilibria viz. existence, uniqueness, and stability. Based on the aforementioned analysis, we would also focus on understanding the effect on the endemic level of the population nodes in the presence of shared resource(s) as compared to the absence of the same.",
+            "cite_spans": [
+                {
+                    "start": 125,
+                    "end": 129,
+                    "text": "[22]",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 132,
+                    "end": 136,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 331,
+                    "end": 335,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 386,
+                    "end": 390,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 403,
+                    "end": 407,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 473,
+                    "end": 477,
+                    "text": "[25,",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 478,
+                    "end": 488,
+                    "text": "Theorem 1]",
+                    "ref_id": null
+                },
+                {
+                    "start": 729,
+                    "end": 733,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 740,
+                    "end": 744,
+                    "text": "[26,",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 745,
+                    "end": 755,
+                    "text": "Theorem 2]",
+                    "ref_id": null
+                },
+                {
+                    "start": 762,
+                    "end": 766,
+                    "text": "[26,",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 767,
+                    "end": 777,
+                    "text": "Theorem 3]",
+                    "ref_id": null
+                },
+                {
+                    "start": 808,
+                    "end": 812,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 817,
+                    "end": 821,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                }
+            ],
+            "ref_spans": [],
+            "section": "I. INTRODUCTION"
+        },
+        {
+            "text": "While the discussion insofar has been centered around modeling and analysis, another pressing challenge that health administration officials face is to estimate the contamination levels in the infrastructure network. In particular, for largescale infrastructure networks (as is the case with modern societies), it is not economically viable to install sensors everywhere. However, by employing system-theoretic notions such as observability 1 , one could address the aforementioned challenge by deploying as few sensors as possible. One of the earliest works in this direction is [27] , where the problem of which subset of nodes in a network should be measured so as to improve observability of a SIS network is addressed; the condition therein involves checking the determinant of the inverse of the observability Grammian. Inspired by the work in [27] , we aim to address the following question: under what conditions can we estimate the contamination levels in the infrastructure network by only measuring the infection levels of individuals in the population? Furthermore, given knowledge of such conditions, can we glean any insights into how the measurement matrix might be designed so that the contamination levels in the infrastructure network can be recovered purely by measuring the infection levels of individuals in the population? The key theoretical tool that we would be using to answer these questions is the notion of local weak observability of non-linear systems 2 .",
+            "cite_spans": [
+                {
+                    "start": 580,
+                    "end": 584,
+                    "text": "[27]",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 850,
+                    "end": 854,
+                    "text": "[27]",
+                    "ref_id": "BIBREF26"
+                }
+            ],
+            "ref_spans": [],
+            "section": "I. INTRODUCTION"
+        },
+        {
+            "text": "Paper Contributions: For the layered networked SIWS model that accounts for the presence of multiple resources, our main contributions are as follows:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "I. INTRODUCTION"
+        },
+        {
+            "text": "(i) We identify conditions such that regardless of whether or not an agent (resp. infrastructure resource) is infected or healthy, the model converges to the healthy state, i.e., conditions for global asymptotic stability (GAS) of the healthy state; see Theorem 1. (ii) We provide conditions that guarantee the existence, uniqueness, and GAS of the endemic equilibrium; see Theorem 2. (iii) We show that the endemic equilibrium in the population nodes for the layered networked SIWS model is greater than or equal to the endemic equilibrium of the population nodes in the networked SIS model, with at least one of the population nodes in the former having a strictly greater endemic level than in the latter; see Proposition 5. (iv) Assuming all nodes in the human contact network are initially healthy, we provide a necessary and sufficient condition for local weak observability of the layered networked SIWS model; see Theorem 3. Additionally, we also have the following auxiliary contributions: a necessary, and sufficient, condition for the healthy state to be the unique equilibrium of the model; see Corollary 1. A sufficient (but not necessary) condition for local weak observability of the layered networked SIWS model, and, based off of this sufficient condition, we present a design of the observability matrix that results in the layered networked SIWS model being locally weakly observable; see Proposition 6 and Corollary 2, respectively.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "I. INTRODUCTION"
+        },
+        {
+            "text": "A preliminary version of this paper appeared in [29] . The present paper involves a more comprehensive treatment by providing theoretical guarantees for the endemic behavior, novel sufficient conditions for local weak observability, complete proofs of all assertions, and, finally, an in-depth set of simulations.",
+            "cite_spans": [
+                {
+                    "start": 48,
+                    "end": 52,
+                    "text": "[29]",
+                    "ref_id": "BIBREF28"
+                }
+            ],
+            "ref_spans": [],
+            "section": "I. INTRODUCTION"
+        },
+        {
+            "text": "Paper Organization: The paper unfolds as follows. We conclude the present section by collecting all the notation used in the rest of the paper. The layered networked SIWS model is developed in Section II, where, we subsequently, also state the problems of interest. The analysis of the various equilibria of the model, namely stability of the healthy state and existence, uniqueness, and stability of the endemic state, is given in Section III. The observability problem is studied in Section IV. Simulations illustrating our theoretical findings are provided in Section V. Finally, some concluding remarks, together with some research directions of possible interest to the wider community, are provided in Section VI.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "I. INTRODUCTION"
+        },
+        {
+            "text": "Notation: For any positive integer n, we use [n] to denote the set {1, 2, . . . , n}. The ith entry of a vector x will be denoted by x i . We use 0 and 1 to denote the vectors whose entries all equal 0 and 1, respectively, and use I to denote the identity matrix. For any vector x \u2208 IR n , we use diag(x) to denote the n \u00d7 n diagonal matrix whose ith diagonal entry equals x i . For any two sets A and B, we use A \\ B to denote the set of elements in A but not in B. For any two real vectors a, b \u2208 IR n , we write a \u2265 b if a i \u2265 b i for all i \u2208 Given a matrix A, A \u227a 0 (resp. A 0) indicates that A is negative definite (resp. negative semidefinite), whereas A 0 (resp. A 0) indicates that A is positive definite (resp. positive semidefinite).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "I. INTRODUCTION"
+        },
+        {
+            "text": "In this section, we develop a distributed continuous-time pathogen model. This model will be hereafter referred to as the layered networked SIWS model; see Figure 1 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 156,
+                    "end": 164,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "II. THE MODEL"
+        },
+        {
+            "text": "A. The layered networked SIWS model Consider a pathogen spreading over a two-layer network consisting of n > 1 groups of individuals and m > 1 infrastructure compartments. The individuals in a group could become contaminated as a consequence of their interactions with other infected individuals and/or as a consequence of their interactions with infected infrastructure compartments.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "II. THE MODEL"
+        },
+        {
+            "text": "We denote by I i (t) and S i (t) the number of infected and susceptible individuals, respectively, in group i at time t \u2265 0. We denote by N i the total number of individuals in group i, and assume that N i does not change over time, i.e., S i (t) + I i (t) = N i for all i \u2208 [n] and t \u2265 0, This assumption implies that the birth and death rates for each group are equal. Thus, it simplifies the model. The healing rate of each group i is denoted by \u03b3 i , the birth rate by \u00b5 i , the death rate by\u03bc i (which equals \u00b5 i ), the person-to-person infection rates by a ij and the infrastructure-to-person infection rates by a w ij . In the rest of this paper, we will assume that all of the aforementioned parameters are nonnegative. We assume that the individuals are susceptible at birth regardless of whether (or not) their parents are infected. The evolution of the numbers of infected and susceptible individuals in each group i is, consistent with the ideas in [30, 31] , as follows:",
+            "cite_spans": [
+                {
+                    "start": 961,
+                    "end": 965,
+                    "text": "[30,",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 966,
+                    "end": 969,
+                    "text": "31]",
+                    "ref_id": "BIBREF30"
+                }
+            ],
+            "ref_spans": [],
+            "section": "II. THE MODEL"
+        },
+        {
+            "text": "where w j (t) denotes the pathogen concentration in the jth infrastructure compartment and evolves a\u1e61",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "II. THE MODEL"
+        },
+        {
+            "text": "where \u03b4 w j denotes the decay rate of the pathogen, \u03b6 w jk denotes the person-infrastructure contact rate of group k to infrastructure node j, and \u03b1 kj represents the flow of the pathogen from node k to node j in the infrastructure network. It is clear from (1) and (2), that\u1e60 i (t) +\u0130 i (t) = 0, which is consistent with our assumption that N i is a constant.",
+            "cite_spans": [
+                {
+                    "start": 258,
+                    "end": 261,
+                    "text": "(1)",
+                    "ref_id": "BIBREF0"
+                }
+            ],
+            "ref_spans": [],
+            "section": "II. THE MODEL"
+        },
+        {
+            "text": "We simplify the model further by defining the fraction of infected individuals in each group i as",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "II. THE MODEL"
+        },
+        {
+            "text": "Water Network By defining the following parameters (1), (2) , and (3), it follows tha\u1e6b",
+            "cite_spans": [
+                {
+                    "start": 56,
+                    "end": 59,
+                    "text": "(2)",
+                    "ref_id": "BIBREF1"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Human Contact Network"
+        },
+        {
+            "text": "Note that, we also allow for the healing rate of an infrastructure compartment j, \u03b4 w j , to be zero. The model from (4)-(5) in vector form becomes:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Human Contact Network"
+        },
+        {
+            "text": "where B = [\u03b2 ij ] n\u00d7n , X = diag(x), B w = [\u03b2 w ij ] n\u00d7m , A w has off-diagonal entries equal to \u03b1 kj and diagonal entries equal to \u2212 k \u03b1 kj , and C w = [c w jk ] m\u00d7n . Therefore, the columns of A w sum to zero. System (6)-(7) could be written more compactly using",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Human Contact Network"
+        },
+        {
+            "text": ", and (8)",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Human Contact Network"
+        },
+        {
+            "text": ".",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Human Contact Network"
+        },
+        {
+            "text": "With the new notations in place, (6)- (7) can be rewritten as:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Human Contact Network"
+        },
+        {
+            "text": "Remark 1. We highlight how the model considered in the present paper is connected with similar models in the existing literature i) If m = 1, (9) coincides with the model in [25] , and with the multi-virus model in [26] , when the latter is particularized for the single-virus case. ii) If w j (t) = 0 for all t and all j \u2208 [m], or equivalently, there is no coupled infrastructure network, (9) reduces to the regular networked SIS model in [32] .",
+            "cite_spans": [
+                {
+                    "start": 174,
+                    "end": 178,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 215,
+                    "end": 219,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 440,
+                    "end": 444,
+                    "text": "[32]",
+                    "ref_id": "BIBREF31"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Human Contact Network"
+        },
+        {
+            "text": "In the sequel, for the model in (9), we will be interested in addressing the following problems:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. Problem Statements"
+        },
+        {
+            "text": "(i) Identify a condition such that z(t) converges asymptotically to the healthy state, i.e., z = 0. (ii) Under what conditions does there exist an endemic equilibrium\u1e91 > 0, and under such conditions, does the system converge asymptotically to\u1e91 from any non-zero initial condition? (iii) Let\u1e91 = x\u0175 , wherex (resp.\u0175) denotes the endemic equilibrium of the population nodes (resp. the shared resources). Letx denote the unique endemic equilibrium of the SIS model without a shared resource. What is the relation betweenx andx? (iv) Identify a necessary, and sufficient, condition such that, given x(t), z(0) can be uniquely recovered.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. Problem Statements"
+        },
+        {
+            "text": "We impose the following assumptions on the parameters.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "C. Positivity Assumptions"
+        },
+        {
+            "text": ", and \u03b2 ij > 0 whenever group j is a neighbor of group i.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "C. Positivity Assumptions"
+        },
+        {
+            "text": "Since each x i represents the fraction of infected individuals in group i, it is immediate that the initial value of x i is in [0, 1], because otherwise the value of x i will lack physical meaning for the epidemic model considered here. Similarly, it is also natural to assume that the initial value of w j (measured, for instance, in milligrams per litre) is nonnegative. Hence, we can restrict our analysis to the set:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "C. Positivity Assumptions"
+        },
+        {
+            "text": "The following lemma establishes that the set D is positively invariant.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "C. Positivity Assumptions"
+        },
+        {
+            "text": "Lemma 1. Suppose that Assumption 1 holds. Suppose that",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "C. Positivity Assumptions"
+        },
+        {
+            "text": ". If w j (\u03c4 ) = 0, then from (5) and Assumption 1,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "C. Positivity Assumptions"
+        },
+        {
+            "text": ". If x i (\u03c4 ) = 0, then from (4) and Assumption 1,\u1e8b i (\u03c4 ) \u2265 0. If x i (\u03c4 ) = 1, then again from (4) and Assumption 1,\u1e8b i (\u03c4 ) < 0. Therefore, x i (t) will be in [0, 1] for all times t \u2265 \u03c4 .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "C. Positivity Assumptions"
+        },
+        {
+            "text": "Since the above arguments hold for any i \u2208 [n] and any j \u2208",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "C. Positivity Assumptions"
+        },
+        {
+            "text": "for all i \u2208 [n] and w j (0) \u2265 0 for all j \u2208 [m], the lemma follows by setting \u03c4 = 0.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "C. Positivity Assumptions"
+        },
+        {
+            "text": "In this section, we analyze the equilibria of the proposed model and their stability both locally and globally.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "III. STABILITY ANALYSIS OF THE EQUILIBRIA"
+        },
+        {
+            "text": "Consider (x,w), an equilibrium of (6)- (7) . The Jacobian matrix of the equilibrium, denoted by J(x,w), is",
+            "cite_spans": [
+                {
+                    "start": 39,
+                    "end": 42,
+                    "text": "(7)",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": "A. Local Stability of the Healthy State"
+        },
+        {
+            "text": "whereX, F 1 , F 2 are diagonal matrices given b\u1ef9",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. Local Stability of the Healthy State"
+        },
+        {
+            "text": "In the case whenx = 0 andw = 0, i.e., at the healthy state (also referred to as the disease-free equilibrium),",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. Local Stability of the Healthy State"
+        },
+        {
+            "text": "If either B w = 0 or C w = 0, i.e., the pathogen does not affect the population or humans can not contaminate the infrastructure network by using it, we have the following result.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. Local Stability of the Healthy State"
+        },
+        {
+            "text": "and B w = 0 or C w = 0, then the healthy state (0, 0) of (6)- (7) is locally exponentially stable.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. Local Stability of the Healthy State"
+        },
+        {
+            "text": "Proof: If B w = 0 or C w = 0 then J(0, 0) is a triangular matrix (lower or upper, respectively), and therefore the spectrum of the matrix is equal to the union of the spectrum of the two block matrices on the diagonal. Consequently, if s 1 (B \u2212 D) < 0 and s 1 (A w \u2212 D w ) < 0 then J(0, 0) is Hurwitz and by Lyapunov's indirect method [33] the healthy state (0, 0) of (6)- (7) is locally exponentially stable.",
+            "cite_spans": [
+                {
+                    "start": 335,
+                    "end": 339,
+                    "text": "[33]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "A. Local Stability of the Healthy State"
+        },
+        {
+            "text": "For nonzero B w and C w , we have the following result. (7) is locally exponentially stable.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. Local Stability of the Healthy State"
+        },
+        {
+            "text": "Proof : See Appendix.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. Local Stability of the Healthy State"
+        },
+        {
+            "text": "To state our first main result, we need the following concept. Consider an autonomous system\u1e8b(t) = f (x(t)), where f : D \u2192 IR n is a locally Lipschitz map from a domain D \u2282 IR n into IR n . Letx be an equilibrium of the system and E \u2282 D be a domain containingx. The equilibriumx is called asymptotically stable with the domain of attraction E if for any",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. Global Stability of the Healthy State"
+        },
+        {
+            "text": "The global stability of the healthy state is characterized by the following theorem.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. Global Stability of the Healthy State"
+        },
+        {
+            "text": "1 and B f is irreducible, then the healthy state of (6)- (7) is asymptotically stable with the domain of attraction D, with D given in (10) .",
+            "cite_spans": [
+                {
+                    "start": 135,
+                    "end": 139,
+                    "text": "(10)",
+                    "ref_id": "BIBREF9"
+                }
+            ],
+            "ref_spans": [],
+            "section": "B. Global Stability of the Healthy State"
+        },
+        {
+            "text": "Proof: See Appendix. Theorem 1 addresses Question (i) in Section II-B.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. Global Stability of the Healthy State"
+        },
+        {
+            "text": "In epidemiology the reproduction number, R 0 , is the average number of people that become infected from one infected individual. If R 0 > 1 the disease will lead to an outbreak; if R 0 \u2264 1 the disease will die out. For the networked SIS model with no water compartments, it has been shown that \u03c1(D \u22121 B) is the reproduction number, and that if \u03c1(D \u22121 B) \u2264 1, the model will asymptotically converge to the healthy state for all initial conditions, and if \u03c1(D \u22121 B) > 1, the model will asymptotically converge to a unique epidemic state for all initial conditions except for the healthy state [30] .",
+            "cite_spans": [
+                {
+                    "start": 592,
+                    "end": 596,
+                    "text": "[30]",
+                    "ref_id": "BIBREF29"
+                }
+            ],
+            "ref_spans": [],
+            "section": "C. Reproduction Number"
+        },
+        {
+            "text": "For the layered networked SIWS model (6)-(7), Theorem 1 implies that when \u03c1(D \u22121 f B f ) \u2264 1, the model will asymptotically converge to the healthy state for all initial conditions, which implies that the healthy state is the unique equilibrium. We call \u03c1(D \u22121 f B f ) the basic reproduction number of the layered networked SIWS model (6)-(7), and compare its value with that of the networked SIS model, \u03c1(D \u22121 B), to illustrate the effect of the water distribution network. Note that",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "C. Reproduction Number"
+        },
+        {
+            "text": "We need the following lemma. Since D \u22121 f B f is an irreducible nonnegative matrix by Assumption 1, and since D \u22121 B is a principal square submatrix",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "C. Reproduction Number"
+        },
+        {
+            "text": ". Therefore we have the following result.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "C. Reproduction Number"
+        },
+        {
+            "text": "Proposition 3. Suppose that Assumption 1 holds. Then, the basic reproduction number of the layered networked SIWS model (6)-(7) is greater than that of the networked SIS model. Proposition 3 implies that eradication of the disease in the population in itself does not guarantee that the system is disease-free. That is, the presence of infrastructure network makes the system more vulnerable to SIS-type diseases than otherwise.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "C. Reproduction Number"
+        },
+        {
+            "text": "It turns out that the condition in Proposition 1 being violated results in the instability of the healthy state (0, 0) of (6)- (7), as we show in the following proposition. Proof: Since by assumption, B w = 0 (resp. C w = 0), it follows that the Jacobian matrix of the equilibrium evaluated at the healthy state, i.e., J(0, 0), is a block lower triangular (resp. upper triangular) matrix. Hence, the eigenvalues of J(0, 0) are same as those of matrices B \u2212 D and A w \u2212 D w . Consequently, if s(B \u2212 D) > 0 and/or s(A w \u2212 D w ) > 0, then s(J(0, 0)) > 0. Hence, the healthy state (0, 0) of (6)- (7) is unstable.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "D. Analysis of the endemic behavior"
+        },
+        {
+            "text": "Simulations indicate the existence of an endemic state (also referred to as the endemic equilibrium) when the eigenvalue condition in Theorem 1 is violated (see Figure 4 in Section V), a rigorous result, however, remains missing. Therefore, we consider the following variant of Assumption 1.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 161,
+                    "end": 169,
+                    "text": "Figure 4",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "D. Analysis of the endemic behavior"
+        },
+        {
+            "text": "Assumption 2 states that the system parameters, with the exception of the rate of flow of pathogen within a resource node, are nonnegative. It is easy to show that Assumption 2 implies Assumption 1, and, is, thus, more restrictive. Hence, we only need Assumption 2 in the sequel. Proof: See Appendix. Theorem 2 says that as long as the reproduction number of the layered SIWS network is greater than one, then, assuming that there is at least one node (population or infrastructure) that is infected initially, the spreading process converges to a unique proportion in each population node, and a unique infection level in each infrastructure node. Thus, Theorem 2 addresses Question (ii) in Section II-B. Note that Theorem 2 improves upon [26, Theorem 3] since it also accounts for multiple shared resources.",
+            "cite_spans": [
+                {
+                    "start": 740,
+                    "end": 744,
+                    "text": "[26,",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 745,
+                    "end": 755,
+                    "text": "Theorem 3]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "D. Analysis of the endemic behavior"
+        },
+        {
+            "text": "Combining Theorems 1 and 2 yields a necessary, and sufficient, condition for the healthy state to be the unique equilibrium of (6)- (7) . Hence, we have the following result: Proposition 1] tells us that insofar the linearized state matrix of system (9) (linearized around the healthy state) is Hurwitz, the healthy state is the only equilibrium of system (9) .",
+            "cite_spans": [
+                {
+                    "start": 132,
+                    "end": 135,
+                    "text": "(7)",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 356,
+                    "end": 359,
+                    "text": "(9)",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "D. Analysis of the endemic behavior"
+        },
+        {
+            "text": "A very pertinent question that could arise at this point is as follows: focusing solely on the population, is there a relation between the endemic equilibrium of the layered networked SIWS model, and that of the networked SIS model. In order to answer this, we recall the latter:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "D. Analysis of the endemic behavior"
+        },
+        {
+            "text": "In order to ensure that the model in (15) is well-defined, we need to particularize Assumption 2, for the setting without shared resource(s). This is given as follows:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "D. Analysis of the endemic behavior"
+        },
+        {
+            "text": "Letx denote the unique endemic equilibrium of (15) and z = x w denote the unique endemic equilibrium of (9). With this notation and Assumption 3 in place, we present the following result. Proof : See Appendix.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "D. Analysis of the endemic behavior"
+        },
+        {
+            "text": "Proposition 5 says that the endemic level in each of the population nodes for the layered networked SIWS model is greater than or equal to the endemic level of the population nodes in the absence of shared resource(s). As such, it addresses Question (iii) in Section II-B.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "D. Analysis of the endemic behavior"
+        },
+        {
+            "text": "In this section, we aim to address the following question: Assuming enough sensors to detect waterborne pathogens are not available, can measurements of the sickness level of people, or households, who drink the water be used to estimate the contamination level of the water, or the source of the contamination (the initial condition of the water pathogen levels). We introduce the following notation:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IV. OBSERVABILITY PROBLEM"
+        },
+        {
+            "text": "where C \u2208 R q\u00d7n is a measurement matrix, with q \u2208 Z + denoting the number of measurements needed. The problem posed in Question (iv) could be re-written as follows: Given B, D, A w , B w , C w , D w , C, and measurements y, find conditions for when w(0) can be recovered.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IV. OBSERVABILITY PROBLEM"
+        },
+        {
+            "text": "We derive conditions such that, given measurements of sickness levels of households, it is possible to uniquely recover the initial state of the water pathogen levels. Towards this end, we appeal to the rank of the Jacobian of the Lie derivatives, and apply the results from [28] . Consequently, the Lie derivative calculations are as follows:",
+            "cite_spans": [
+                {
+                    "start": 275,
+                    "end": 279,
+                    "text": "[28]",
+                    "ref_id": "BIBREF27"
+                }
+            ],
+            "ref_spans": [],
+            "section": "IV. OBSERVABILITY PROBLEM"
+        },
+        {
+            "text": "where\u1e8b and\u1e87 are defined in (6) and (7),",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IV. OBSERVABILITY PROBLEM"
+        },
+        {
+            "text": "We explore the case when we assume that all nodes in the human contact network are initially healthy, that is, x(0) = 0. Therefore, we explore the Jacobian of the above Lie derivatives evaluated at",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IV. OBSERVABILITY PROBLEM"
+        },
+        {
+            "text": "Furthermore, O has q(n + m) rows, and n + m columns. Therefore, from [28, Theorems 3.1 and 3.12], and since the system is analytic, we have the following theorem. (17), has full rank.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IV. OBSERVABILITY PROBLEM"
+        },
+        {
+            "text": "Observe that Theorem 3 provides a necessary and sufficient condition for checking whether (or not) the layered networked SIWS model is locally weakly observable at x(0) = 0, and thus answers Question (iv) in Section II-B. However, the condition therein involves checking the rank of the O matrix, which in turn, involves too many computations, since O has q(n+m) rows.. This drawback motivates us to seek a simpler, easier to check, sufficient condition for the layered networked SIWS model to be locally weakly observable at x(0) = 0, and is presented next. Proposition 6. Suppose that the matrices C and CB w have full column rank. Then the layered networked SIWS model in (6)- (7) with measurements in (16) is locally weakly observable at x(0) = 0.",
+            "cite_spans": [
+                {
+                    "start": 680,
+                    "end": 683,
+                    "text": "(7)",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": "IV. OBSERVABILITY PROBLEM"
+        },
+        {
+            "text": "Proof: Define the matrix",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IV. OBSERVABILITY PROBLEM"
+        },
+        {
+            "text": "Observe that F is a block lower triangular matrix. Hence, rank(F) \u2265 rank(C) + rank(CB w ). By assumption, matrices C and CB w have full column rank, which implies that rank(F) \u2265 n + m. Observe also that the total number of columns in F equals n + m. Therefore, it follows that rank(F) \u2264 n + m. Hence, rank(F) = n + m, i.e., F has full column rank. Now note that F is a submatrix of O, that has the same number of columns as O. Also observe that adding more rows to F does not lead to matrix F becoming rank deficient. This implies that matrix O has full column rank, and therefore, from Theorem 3, we conclude that the layered networked SIWS model in (6)-(7) with measurements in (16) is locally weakly observable at x(0) = 0. Given that both Proposition 6 and Theorem 3 provide sufficient conditions for local weak observability, it is natural to ask how the two conditions are related. The following remark addresses this question. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IV. OBSERVABILITY PROBLEM"
+        },
+        {
+            "text": "it is clear that CB w does not have full column rank, so the conditions for Proposition 6 are not met. However, allowing w = (w 1 , w 2 ) to be free, we obtain",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IV. OBSERVABILITY PROBLEM"
+        },
+        {
+            "text": "Therefore, independent of the value of w, the rightmost column of O is linearly independent of the other three columns of O, that is, O has full column rank. Thus, the condition in Theorem 3 is met.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IV. OBSERVABILITY PROBLEM"
+        },
+        {
+            "text": "We now highlight an interesting consequence of Proposition 6.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IV. OBSERVABILITY PROBLEM"
+        },
+        {
+            "text": "Corollary 2. Let n \u2265 m. If C = I n\u00d7n and B w has full column rank, then the layered networked SIWS model in (6)- (7) with measurements in (16) is locally weakly observable at x(0) = 0.",
+            "cite_spans": [
+                {
+                    "start": 113,
+                    "end": 116,
+                    "text": "(7)",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": "IV. OBSERVABILITY PROBLEM"
+        },
+        {
+            "text": "Proof: Suppose that, by assumption, C = I n\u00d7n . Consequently, rank(C) = n. Moreover, CB w = B w , and hence rank(CB w ) = rank(B w ). Since, by assumption, rank(B w ) = m, it follows that the conditions in Proposition 6 are satisfied, Fig. 2 : The contact network of population and resource nodes used for simulations, represented by squares and circles, respectively. and hence the result follows. Observe that the result in Corollary 2 could potentially inform sensor placement (in the population) strategies for detecting contamination levels of water resources in the layered networked SIWS model.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 235,
+                    "end": 241,
+                    "text": "Fig. 2",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "IV. OBSERVABILITY PROBLEM"
+        },
+        {
+            "text": "The condition in Proposition 6 requires the observation matrix, C, to have full column rank. This implies that q \u2265 n. That is, the number of observations should at least be equivalent to the size of the population. Clearly, for a large population, this condition is quite restrictive. Hence, it is perhaps more appealing to establish conditions for local weak observability under partial measurements, which is beyond the scope of the present paper.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IV. OBSERVABILITY PROBLEM"
+        },
+        {
+            "text": "For all simulations, we consider a network of 10 population nodes and 15 resource nodes. This network is depicted in Fig. 2 , with population nodes as squares and resource nodes as circles. We denote the average infection proportion of the virus across the population nodes byx(t), and the average contamination across the resource nodes byw(t). The terms \u03b2 ij , \u03b2 w ij , and \u03b1 ij are all binary, i.e. equal to one whenever nodes i and j are neighbors, for all simulations. For the simulations in Fig. 3 and Fig. 4 we set c w ij to be binary which results in the network being irreducible. By choosing D = 5I, D w = 5I, we see that \u03c1(D \u22121 f B f ) < 1. Consequently, consistent with the result in Theorem 1, the virus is asymptotically eradicated across the network; see Fig. 3a .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 117,
+                    "end": 123,
+                    "text": "Fig. 2",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 497,
+                    "end": 503,
+                    "text": "Fig. 3",
+                    "ref_id": "FIGREF6"
+                },
+                {
+                    "start": 508,
+                    "end": 514,
+                    "text": "Fig. 4",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 770,
+                    "end": 777,
+                    "text": "Fig. 3a",
+                    "ref_id": "FIGREF6"
+                }
+            ],
+            "section": "V. SIMULATIONS"
+        },
+        {
+            "text": "Therefore, consistent with the result in Theorem 2, the virus becomes endemic across all population and resource nodes, asymptotically approaching some positive equilibrium; see Fig. 3b . Choosing D = 4I and D w equal to a zero matrix, except for one diagonal entry equal to 100, Assumption 1 is fulfilled but Assumption 2 is violated. Therefore Theorem 2 does not apply, despite \u03c1(D \u22121 f B f ) > 1, yet the virus still appears to converge to some positive equilibrium; see Fig. 4 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 178,
+                    "end": 185,
+                    "text": "Fig. 3b",
+                    "ref_id": "FIGREF6"
+                },
+                {
+                    "start": 474,
+                    "end": 480,
+                    "text": "Fig. 4",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "V. SIMULATIONS"
+        },
+        {
+            "text": "For the simulations depicted in Fig. 5 we chose D = 3I, D w = 0.2I. Since D w is a positive diagonal matrix, the resource network requires some non-zero c w ij to sustain a positive level of contamination. Choosing c w ij = 0 for all i, j ensures that the contamination across all resource nodes decays to zero; see the blue curve in Fig. 5a. However, B is an irreducible matrix, and we still have \u03c1(D \u22121 B) > 1. Therefore, the infection levels in the population network converge to an Here D w has some zero entries, in violation of Assumption 2. Nonetheless, the simulation converges to some endemic equilibrium.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 32,
+                    "end": 38,
+                    "text": "Fig. 5",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 334,
+                    "end": 353,
+                    "text": "Fig. 5a. However, B",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "V. SIMULATIONS"
+        },
+        {
+            "text": "endemic equilibrium, consistent with the results in [10, 30] ; see the red curve in Fig. 5a . Setting c w ij to be binary as before results in the contamination of the resource network converging to a positive equilibrium; see the blue curve in Fig. 5b . Consistent with the result in Proposition 5, it can be seen that in the absence of contamination in the resources, the endemic state in the population is smaller, whereas if the resources are also contaminated then the endemic state in the population is larger; see Fig. 5a and 5b, respectively.",
+            "cite_spans": [
+                {
+                    "start": 52,
+                    "end": 56,
+                    "text": "[10,",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 57,
+                    "end": 60,
+                    "text": "30]",
+                    "ref_id": "BIBREF29"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 84,
+                    "end": 91,
+                    "text": "Fig. 5a",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 245,
+                    "end": 252,
+                    "text": "Fig. 5b",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 521,
+                    "end": 528,
+                    "text": "Fig. 5a",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "V. SIMULATIONS"
+        },
+        {
+            "text": "In this paper, we have developed a multi-networkdependent, continuous-time SIWS epidemic model, also referred to as a layered networked SIWS model. This model captures a networked system, which can be interpreted as individual people or multiple groups of individuals, coupled with an infrastructure network, which can be understood as a contaminated water (or some other utility) distribution network. We have analyzed the stability of the healthy state, both locally and globally. We compared the basic reproduction number of the model with the standard networked SIS model without a pathogen. We have established conditions for the existence, uniqueness, and stability of an endemic equilibrium. We have also provided a necessary and sufficient condition for the healthy state to be the only equilibrium of this model. Lastly, we have established conditions under which the initial infection levels of the shared resources could be recovered based on the measurements of the infection levels of the population.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "VI. CONCLUSION"
+        },
+        {
+            "text": "One line of future investigation could focus on understanding the spread of diseases in infrastructure networks with timevarying topologies. Another problem of interest would be to develop control algorithms that exploit the topology of the infrastructure network for virus mitigation. Still on the topic of control of epidemics, it would be interesting to mitigate (resp. eradicate) epidemics subject to constraints on the availability of healing resources. Fig. 5 : Simulations without and with population-to-resource contact. In (a) C w = 0, so the contamination of the resource nodes decays to zero. In (b) C w is non-zero, and therefore the virus becomes endemic in the resource nodes as well.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 459,
+                    "end": 465,
+                    "text": "Fig. 5",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "VI. CONCLUSION"
+        },
+        {
+            "text": "To prove Proposition 2, we need the following lemma. Proof of Proposition 2: By Assumption 1, \u03b4 w j + k \u03b1 kj > 0 for all j \u2208 [m], D f is invertible. From Lemma 3, the condition \u03c1(D \u22121 f B f ) < 1 is equivalent to s(B f \u2212 D f ) < 0, which implies that J(0, 0) is a continuous-time stable matrix. Thus, by Lyapunov's indirect method the healthy state (0, 0) of (6)-(7) is locally exponentially stable.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Prosition 2"
+        },
+        {
+            "text": "To prove the claim in Theorem 1, we need the following lemmas. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 1"
+        },
+        {
+            "text": "Consider the Lyapunov function V (z(t)) = z(t) P z(t). Then, from (6)-(9), when z(t) = 0, we hav\u0117",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 1"
+        },
+        {
+            "text": "where the strict inequality holds by Lemma 5 since",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 1"
+        },
+        {
+            "text": "Thus, in this case,V (z(t)) < 0 if z(t) = 0. From Lemma 1 and Lemma 7, the healthy state is asymptotically stable with domain of attraction D, with D given in (10) . Next we consider the case when \u03c1(D \u22121",
+            "cite_spans": [
+                {
+                    "start": 159,
+                    "end": 163,
+                    "text": "(10)",
+                    "ref_id": "BIBREF9"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Proof of Theorem 1"
+        },
+        {
+            "text": "is negative semi-definite. Consider the Lyapunov function V (z(t)) = z(t) Qz(t). Then, from (6)-(9), we hav\u0117",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 1"
+        },
+        {
+            "text": "where Q 1 is the nth principal subarray of Q, which is an n \u00d7 n positive diagonal matrix, and Q 2 is the m \u00d7 m positive diagonal matrix that is composed of the rest of the block diagonal entries of Q. We claim thatV (z(t)) < 0 if z(t) = 0. To establish this claim, we first consider the case when z(t) 0. Since B f is irreducible and non-negative we have B f z(t) 0. As such, Bx(t) + B w w(t) 0, and due to Q 1 being a positive diagonal matrix, it follows that",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 1"
+        },
+        {
+            "text": "Next we consider the case when z(t) > 0 and z(t) has at least one zero entry.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 1"
+        },
+        {
+            "text": "and it has a unique (up to scalar multiple) strictly positive eigenvector corresponding to the eigenvalue zero. Thus,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 1"
+        },
+        {
+            "text": "0 and z(t) has at least one zero entry (because the only vector for which it equals zero is the strictly positive eigenvector). Therefore,V (z(t)) < 0 if z(t) = 0. From Lemma 1 and Lemma 7, the healthy state is asymptotically stable with domain of attraction D, with D given in (10) .",
+            "cite_spans": [
+                {
+                    "start": 278,
+                    "end": 282,
+                    "text": "(10)",
+                    "ref_id": "BIBREF9"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Proof of Theorem 1"
+        },
+        {
+            "text": "To prove the claim in Theorem 2, we will be making use of the following variants of the Perron-Frobenius theorem for irreducible matrices. (ii) There is an eigenvector \u03b6 0 corresponding to the eigenvalue r. (iii) x > 0 is an eigenvector only if N x = rx and x 0.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 2"
+        },
+        {
+            "text": "Proof of Theorem 2: The proof is split in three parts: First we show existence of an endemic equilibrium provided the conditions in Theorem 2 are satisfied. Subsequently, we show that this equilibrium is unique, and that for all non-zero initial conditions the dynamics converge asymptotically to this equilibrium.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 2"
+        },
+        {
+            "text": "is a nonnegative diagonal matrix, and therefore the inverse of (I + diag(D \u22121 f B f z)) exists. Define a map T (z) : R n+m",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 2"
+        },
+        {
+            "text": "Observe that the components of T (y) are",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 2"
+        },
+        {
+            "text": "Note that the scalar function s/(1 + s) is increasing in s, and ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 2"
+        },
+        {
+            "text": "Recall that the definition of X(z) means that subtracting (21) yields",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 2"
+        },
+        {
+            "text": "Since X(z) and D \u22121 f are diagonal matrices, they commute. Furthermore, by pre-multiplying (22) with D f , and suitably rearranging terms, we obtain",
+            "cite_spans": [
+                {
+                    "start": 91,
+                    "end": 95,
+                    "text": "(22)",
+                    "ref_id": "BIBREF21"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Proof of Theorem 2"
+        },
+        {
+            "text": "A solution of equation (23) is clearly an equilibrium of (9). As such, it suffices to show that T (z) has a fixed pointz 0. We will now show that at least one such fixed point exists.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 2"
+        },
+        {
+            "text": "We have \u03c1(D \u22121 f B f ) > 1. Note that D \u22121 f B f is an irreducible nonnegative matrix. Hence, by Lemma 4, \u03bb * = \u03c1(D \u22121 f B f ) is a simple eigenvalue of D \u22121 f B f and the eigenspace of \u03bb * is spanned by a vector y * 0. Then, since \u03bb * > 1, there",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 2"
+        },
+        {
+            "text": "Observe that, sincez 1, I \u2212X(z) is a positive diagonal matrix. Since, by assumption, B f is irreducible, and by Assumption 2 B f is nonnegative, it follows that (I \u2212 X(z))D \u22121 f B f is nonnegative irreducible. Sincez 0, item iii) in Lemma 8 yields \u03c1((I \u2212 X(z))D \u22121 f B f ) = 1, which, from Lemma 3, further implies that s(\u2212D f + (I \u2212 X(z))B f ) = 0. Therefore, since the matrix (\u2212D f +(I \u2212X(z))B f ) is irreducible Metzler, by Lemma 6 there exists a positive diagonal matrix Q such that \u03a8 :",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 2"
+        },
+        {
+            "text": "0. Define the Lyapunov function candidate V (\u2206z(t)) = \u2206z(t) T Q\u2206z(t), with z(t) \u2208 D \\ {0} as the domain. Since Q is a positive diagonal matrix, V (\u2206z(t)) 0. Differentiating V (\u2206z(t)) with respect to t yields:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Theorem 2"
+        },
+        {
+            "text": "V (\u2206z(t)) = \u2206z T \u03a8\u2206z \u2212 2\u2206z T QX(B f z)\u2206z (38) where (38) makes use of (35) . The rest of the proof consists of showing thatV (\u2206z(t)) < 0 for all z(t) \u2208 D \\ {0} such that \u2206z(t) = z(t) \u2212z = 0. First, consider all z(t) \u2208 D \\ {0} such that z(t) 0. Since \u03a8 0, it is immediate tha\u1e6b V (\u2206z(t)) \u2264 \u22122\u2206z(t) T QX(B f z(t))\u2206z(t).",
+            "cite_spans": [
+                {
+                    "start": 41,
+                    "end": 45,
+                    "text": "(38)",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 70,
+                    "end": 74,
+                    "text": "(35)",
+                    "ref_id": "BIBREF34"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Proof of Theorem 2"
+        },
+        {
+            "text": "(39) Since z(t) 0, QX(B f z(t)) is a positive diagonal matrix, and thus QX(B w y(t)) 0. Therefore, from (39) it is clear thatV (\u2206z(t)) < 0 for all z(t) \u2208 D \\ {0} such that z(t) 0, \u2206z(t) = z(t) \u2212z = 0. Now, consider all z(t) \u2208 D \\ {0} such that z(t) > 0, z i (t) = 0 for some i \u2208 [n + m]. Since z(t) > 0, QX(B w y(t)) is a nonnegative diagonal matrix. Then (38) can be bounded byV (\u2206z(t)) \u2264 \u2206z(t) T \u03a8\u2206z(t).",
+            "cite_spans": [
+                {
+                    "start": 356,
+                    "end": 360,
+                    "text": "(38)",
+                    "ref_id": "BIBREF37"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Proof of Theorem 2"
+        },
+        {
+            "text": "(40) Since (\u2212D f +(I \u2212X(z))B f ) is an irreducible Metzler matrix and Q is a positive diagonal matrix, \u03a8 is an irreducible Metzler matrix. Employing (36) , we see that z T \u03a8z = 0.",
+            "cite_spans": [
+                {
+                    "start": 149,
+                    "end": 153,
+                    "text": "(36)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Proof of Theorem 2"
+        },
+        {
+            "text": "(41) Lemma 4 stipulates that r := s(\u03a8) is a simple eigenvalue of \u03a8. Due to \u03a8 0 and the Rayleigh-Ritz Theorem [37, Theorem 4.2.2], it follows from (41) that r = 0, and thatz spans the eigenspace of r. Hence, due toz 0, and z(t) > 0 with z i (t) = 0 for some i \u2208 [n + m], z(t) can not be parallel toz. Consequently, \u2206z(t) can not be parallel toz. By the Rayleigh-Ritz Theorem [37, Theorem 4.2.2], x T \u03a8x = rx T x only if x is parallel toz, and x T \u03a8x < rx T x otherwise. Therefore, r = 0 together with (40) gives usV (\u2206z(t)) < 0 for all z(t) \u2208 D \\ {0} such that z(t) 0 and z(t) \u2212z = 0. Thus, we haveV (\u2206z(t)) < 0 for all z(t) \u2208 D\\{0} such that \u2206z(t) = z(t)\u2212z = 0, and it is clear thatV (0) = 0. Therefore, V (\u2206y(t)) \u227a 0 for y(t) \u2208 D \\ {0}. Finally, for reasons similar to that in [26, Lemma 7] , we have that D \\ {0} is a positively invariant set with respect to (9) . Thus, we see that V (\u2206z(t)) meets the conditions for [38, Theorem 4.1] with respect to the shifted coordinates \u2206z(t) = z(t) \u2212z, for all z(t) \u2208 D \\ {0}. Hence, the unique endemic equilibriumz is asymptotically stable, with domain of attraction containing D \\ {0}.",
+            "cite_spans": [
+                {
+                    "start": 778,
+                    "end": 782,
+                    "text": "[26,",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 783,
+                    "end": 791,
+                    "text": "Lemma 7]",
+                    "ref_id": null
+                },
+                {
+                    "start": 861,
+                    "end": 864,
+                    "text": "(9)",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 920,
+                    "end": 924,
+                    "text": "[38,",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 925,
+                    "end": 937,
+                    "text": "Theorem 4.1]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Proof of Theorem 2"
+        },
+        {
+            "text": "In order to prove Proposition 5, we need the following result.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Proposition 5"
+        },
+        {
+            "text": "Lemma 9. Consider system (15) under Assumption 3. If \u03c1(D \u22121 B) > 1, then there exists a unique endemic equilibrium x such that 0 x 1.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Proposition 5"
+        },
+        {
+            "text": "Proof: The result follows by particularizing [26, Theorem 3] for the networked SIS model.",
+            "cite_spans": [
+                {
+                    "start": 45,
+                    "end": 49,
+                    "text": "[26,",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 50,
+                    "end": 60,
+                    "text": "Theorem 3]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Proof of Proposition 5"
+        },
+        {
+            "text": "Proof of Proposition 5: By assumption, the matrices B f and B are irreducible. Moreover, \u03c1(D \u22121 f B f ) > 1, and \u03c1(D \u22121 B) > 1. Therefore, from Theorem 2, and from Lemma 9, we know that there exists a unique endemic equilibrium\u1e91 = [x w ] for (9) , and a unique endemic equilibrium x for (15), respectively. Moreover, 0",
+            "cite_spans": [
+                {
+                    "start": 242,
+                    "end": 245,
+                    "text": "(9)",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Proof of Proposition 5"
+        },
+        {
+            "text": "x 1. Note that sincex is an equilibrium of (15), we have",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Proposition 5"
+        },
+        {
+            "text": "Consider a solution z(t) = (x(t), w(t)) to (9) for t \u2265 0, with x i (0) \u2208 [0, 1] and w j (0) \u2265 0 for all i \u2208 [n], j \u2208 [m]. By Lemma 1 we have x i (t) \u2208 [0, 1] and w j (t) \u2265 0 for all i \u2208 [n], j \u2208 [m] and t \u2265 0. Suppose that, for some t \u2265 0, x(t) \u2265x, with x i (t) =x i for some i \u2208 [n]. The\u1e45",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Proposition 5"
+        },
+        {
+            "text": "where (43) follows from D \u22121 B w w(t) \u2265 0, and (44) follows from (42). Since the same argument holds for any t and i \u2208 [n]",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Proposition 5"
+        },
+        {
+            "text": "we have x(t) \u2265x for all t \u2265 0 if x(0) \u2265x. Furthermore, due to (a):x 1, and (b):\u1e91 being the unique equilibrium of (9) with a region of attraction including {z = (x, w) : 1 \u2265 x \u2265 x}, we must havex \u2265x. In order to showx =x, assume by way of contradiction thatx =x. Note that",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Proposition 5"
+        },
+        {
+            "text": "With the assumption thatx =x, (45) is equivalent t\u00f5",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Proposition 5"
+        },
+        {
+            "text": "where (46) ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof of Proposition 5"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Essai d'une nouvelle analyse de la mortalit\u00e9 caus\u00e9e par la petite v\u00e9role, et des avantages de l'inoculation pour la pr\u00e9venir",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Bernoulli",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Histoire de l'Acad",
+            "volume": "",
+            "issn": "",
+            "pages": "1--45",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "The mathematics of infectious diseases",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Hethcote",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "SIAM Review",
+            "volume": "42",
+            "issn": "4",
+            "pages": "599--653",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Virus spread in networks",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Van Mieghem",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Omic",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kooij",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "IEEE/ACM Transactions on Networking (TON)",
+            "volume": "17",
+            "issn": "1",
+            "pages": "1--14",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Networks, Crowds, and Markets",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Easley",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Kleinberg",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "",
+            "volume": "8",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "On the dynamics of deterministic epidemic propagation over networks",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Mei",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mohagheghi",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Zampieri",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Bullo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Annual Reviews in Control",
+            "volume": "44",
+            "issn": "",
+            "pages": "116--128",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Bistability and resurgent epidemics in reinfection models",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Pagliara",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Dey",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Leonard",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "IEEE Control Systems Letters",
+            "volume": "2",
+            "issn": "2",
+            "pages": "290--295",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Contributions to the mathematical theory of epidemics. ii.-the problem of endemicity",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Kermack",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Mckendrick",
+                    "suffix": ""
+                }
+            ],
+            "year": 1932,
+            "venue": "Proceedings of the Royal Society of London. Series A",
+            "volume": "138",
+            "issn": "834",
+            "pages": "55--83",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "A deterministic model for gonorrhea in a nonhomogeneous population",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Lajmanovich",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Yorke",
+                    "suffix": ""
+                }
+            ],
+            "year": 1976,
+            "venue": "Mathematical Biosciences",
+            "volume": "28",
+            "issn": "3-4",
+            "pages": "221--236",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Stability of epidemic models over directed graphs: A positive systems approach",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Khanafer",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Ba\u015far",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Gharesifard",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Automatica",
+            "volume": "74",
+            "issn": "",
+            "pages": "126--134",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Analysis and control of a continuous-time bi-virus model",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Par\u00e9",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Nedi\u0107",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Tang",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Beck",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Ba\u015far",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "IEEE Transactions on Automatic Control",
+            "volume": "64",
+            "issn": "12",
+            "pages": "4891--4906",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Epidemic threshold and immunization on generalized networks",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Peng",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Jin",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Physica A: Statistical Mechanics and its Applications",
+            "volume": "389",
+            "issn": "3",
+            "pages": "549--560",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Global dynamics of epidemic spread over complex networks",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Ahn",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Hassibi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Proceedings of the 52nd IEEE Conference on Decision and Control",
+            "volume": "",
+            "issn": "",
+            "pages": "4579--4585",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Analysis, estimation, and validation of discrete-time epidemic processes",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Par\u00e9",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Beck",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Kirwan",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Ba\u015far",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "IEEE Transactions on Control Systems Technology",
+            "volume": "28",
+            "issn": "1",
+            "pages": "79--93",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Virus propagation on time-varying networks: Theory and immunization algorithms",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Prakash",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Tong",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Valler",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Faloutsos",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Faloutsos",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Proceedings of the Joint European Conference on Machine Learning and Knowledge Discovery in Databases",
+            "volume": "",
+            "issn": "",
+            "pages": "99--114",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Stability criteria for SIS epidemiological models under switching policies",
+            "authors": [
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Mason",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Wirth",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Rami",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Bokharaie",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Discrete and Continuous Dynamical Systems Ser",
+            "volume": "19",
+            "issn": "9",
+            "pages": "2865--2887",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Stability of spreading processes over time-varying large-scale networks",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ogura",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Preciado",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "IEEE Transactions on Network Science and Engineering",
+            "volume": "3",
+            "issn": "1",
+            "pages": "44--57",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Advancing waterborne pathogen modelling: Lessons from global nutrient export models",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Vermeulen",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Hofstra",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Kroeze",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Medema",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Current Opinion in Enviromental Sustainability",
+            "volume": "14",
+            "issn": "",
+            "pages": "109--120",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Contamination, disinfection, and crosscolonization: Are hospital surfaces reservoirs for nosocomial infection?",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Weinstein",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Hota",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "Clinical Infectious Diseases",
+            "volume": "39",
+            "issn": "8",
+            "pages": "1182--1189",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Behaviors, movements, and transmission of droplet-mediated respiratory diseases during transcontinental airline flights",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Hertzberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Weiss",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Elon",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Si",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Norris",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Team",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Proceedings of the National Academy of Sciences",
+            "volume": "115",
+            "issn": "14",
+            "pages": "3623--3627",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Modelling the spread and connectivity of waterborne marine pathogens: The case of PaV1 in the Caribbean",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kough",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Paris",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Behinger",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Butler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "ICES Journal of Marine Science",
+            "volume": "72",
+            "issn": "",
+            "pages": "139--146",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Large outbreak of Cryptosporidium hominis infection transmitted through the public water supply",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Widerstr\u00f6m",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Sch\u00f6nning",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Lilja",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Lebbad",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Ljung",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Allestam",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ferm",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Bj\u00f6rkholm",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Hansen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Hiltula",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Emerging Infectious Diseases",
+            "volume": "20",
+            "issn": "4",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Multiple transmission pathways and disease dynamics in a waterborne pathogen model",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Tien",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Earn",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Bulletin of Mathematical Biology",
+            "volume": "72",
+            "issn": "6",
+            "pages": "1506--1533",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Herald waves of cholera in nineteenth century London",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Tien",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Poinar",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Fisman",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Earn",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Journal of the Royal Society Interface",
+            "volume": "8",
+            "issn": "58",
+            "pages": "756--760",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Heterogeneity in multiple transmission pathways: Modelling the spread of cholera and other waterborne disease in networks with a common water source",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Robertson",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Eisenberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Tien",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Journal of Biological Dynamics",
+            "volume": "7",
+            "issn": "1",
+            "pages": "254--275",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "A networked SIS disease dynamics model with a waterborne pathogen",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Par\u00e9",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Du",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Proceedings of the American Control Conference (ACC)",
+            "volume": "",
+            "issn": "",
+            "pages": "2735--2740",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Networked multi-virus spread with a shared resource: Analysis and mitigation strategies",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Janson",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Gracy",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Par\u00e9",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Sandberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Johansson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "IEEE Transactions on Automatic Control",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Optimal disease outbreak detection in a community using network observability",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Alaeddini",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Morgansen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Proceedings of the American Control Conference (ACC)",
+            "volume": "",
+            "issn": "",
+            "pages": "7352--7357",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Nonlinear controllability and observability",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Hermann",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Krener",
+                    "suffix": ""
+                }
+            ],
+            "year": 1977,
+            "venue": "IEEE Transactions on Automatic Control",
+            "volume": "22",
+            "issn": "5",
+            "pages": "728--740",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Multi-layer disease spread model with a water distribution network",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Par\u00e9",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Sandberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Johansson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Proceedings of the 58th Conference on Decision and Control (CDC)",
+            "volume": "",
+            "issn": "",
+            "pages": "8335--8340",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Epidemiological models and Lyapunov functions",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Fall",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Iggidr",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Sallet",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Tewa",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "Mathematical Modelling of Natural Phenomena",
+            "volume": "2",
+            "issn": "1",
+            "pages": "55--73",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Multiple transmission pathways and disease dynamics in a waterborne pathogen model",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Tien",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "J D"
+                    ],
+                    "last": "Earn",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Bulletin of Mathematical Biology",
+            "volume": "72",
+            "issn": "",
+            "pages": "1506--1533",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Analysis and control of epidemics: A survey of spreading processes on complex networks",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Nowzari",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Preciado",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Pappas",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "IEEE Control Systems Magazine",
+            "volume": "36",
+            "issn": "1",
+            "pages": "26--46",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Matrix Iterative Analysis",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Varga",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Distributed control of positive systems",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Rantzer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Proceedings of the 50th IEEE Conference on Decision and Control",
+            "volume": "",
+            "issn": "",
+            "pages": "6608--6611",
+            "other_ids": {}
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Matrix Analysis",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Horn",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Johnson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Nonlinear Systems, ser. Pearson Education",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Khalil",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "[n], a > b if a \u2265 b and a = b, and a b if a i > b i for all i \u2208 [n]. For a square matrix M , we use \u03c3(M ) to denote the spectrum of M , use \u03c1(M ) to denote the spectral radius of M , and s(M ) to denote the largest real part among the eigenvalues of M , i.e., s(M ) = max {Re(\u03bb) : \u03bb \u2208 \u03c3(M )}.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "[34, Lemma 2.6 ]  Suppose that N is an irreducible nonnegative matrix. If M is a principal square submatrix of N , then \u03c1(M ) < \u03c1(N ).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Suppose that B w = 0 or C w = 0. If s(B \u2212 D) > 0 or s(A w \u2212 D w ) > 0, then the healthy state (0, 0) of (6)-(7) is unstable.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Consider (9) under Assumption 2. Suppose that B f is irreducible and \u03c1(D \u22121 f B f ) > 1.Then there exists a unique endemic equilibriumz 0. Furthermore,z is asymptotically stable with the domain of attraction D \\ {0}, with D given in(10).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "Consider the layered networked SIWS model in (6)-(7) under Assumption 2. Suppose that B f is irreducible. Then the healthy state is the unique equilibrium in the domain D if, and only if, \u03c1(D \u22121 f B f ) \u2264 1. Rewriting the condition in Corollary 1 in view of [10,",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "Consider (9) under Assumption 2, and (15) under Assumption 3. Suppose that B f and B are irreducible, and that \u03c1(D \u22121 f B f ) > 1, and \u03c1(D \u22121 B) > 1. Thenx >x.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "The layered networked SIWS model in (6)-(7) with measurements in (16) is locally weakly observable at x(0) = 0 if and only if O, as defined in",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": "Proposition 6 implies Theorem 3. The converse, however, is not true. To see this, consider the following example: Let n = 2, m = 2. With C = I, D = I, D w =",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF8": {
+            "text": "Simulations with different outcomes. In (a) we have \u03c1(D \u22121 f B f ) < 1, eradicating the virus asymptotically. In (b) we have \u03c1(D \u22121 f B f ) > 1, so the virus becomes endemic.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF9": {
+            "text": "Simulation employing Assumption 1.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF11": {
+            "text": "[10, Proposition 1] Suppose that N is an irreducible nonnegative matrix in IR n\u00d7n and \u039b is a negative diagonal matrix in IR n\u00d7n . Let M = N + \u039b. Then, s(M ) < 0 if and only if \u03c1(\u2212\u039b \u22121 N ) < 1, s(M )",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF12": {
+            "text": "[34, Lemma 2.3] Suppose that M is an irreducible Metzler matrix. Then, s(M ) is a simple eigenvalue of M and there exists a unique (up to scalar multiple) vector x 0 such that M x = s(M )x. Lemma 5. [35, Proposition 2] Suppose that M is an irreducible Metzler matrix such that s(M ) < 0. Then, there exists a positive diagonal matrix P such that M P + P M \u227a 0. Lemma 6. [9, Lemma A.1] Suppose that M is an irreducible Metzler matrix such that s(M ) = 0. Then, there exists a positive diagonal matrix P such that M P + P M 0. Lemma 7. [33] Letx be an equilibrium of\u1e8b(t) = f (x(t)) and E \u2282 D be a bounded domain containingx. Let V : E \u2192 IR be a continuously differentiable function such that V (x) = 0, V (x) > 0 in E \\ {x},V (x) = 0, andV (x) < 0 in E \\ {x}. If E is an invariant set, then the equilibriumx is asymptotically stable with the domain of attraction E. Proof of Theorem 1: Recalling the notation in (8), we first consider the case when \u03c1(D \u22121 f B f ) < 1. By Lemma 3, in this case, s(B f \u2212 D f ) < 0. Since (B f \u2212 D f ) is an irreducible Metzler matrix, by Lemma 5, there exists a positive diagonal matrix P such that",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF13": {
+            "text": "[36, Chapter 8.3]  [34, Theorem 2.7]Suppose that N is an irreducible nonnegative matrix. Then, (i) r = \u03c1(N ) is a simple eigenvalue of N .",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF14": {
+            "text": "is due to the following: (i): D \u22121 f B f is an irreducible Metzler matrix, (ii):\u0175 0, and (iii):x 1, so we have (I \u2212X)D \u22121 B w\u0175 > 0. Moreover, (47) follows from (42). Clearly, (47) is a contradiction, and thereforex >x.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF1": {
+            "text": "Multiplying (19) by (I + diag(D \u22121 f B f z)) gives us",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "exists some > 0 such that, for all i \u2208 [n + m], we have z * i \u2264 (\u03bb * \u2212 1)/\u03bb * , which implies that 1 \u2264 \u03bb * /(1 + \u03bb * z * i ). Hence, z * i \u2264 \u03bb * z * i /(1 + \u03bb * z * i ), and thusNoting that (D \u22121 f B f z * ) j z * j > 0 for all j \u2208 [n + m]\\[n], we also havefor all j \u2208 [n + m]\\[n]. Due to the inequalities (24) and (25),while noting that s/(1 + s) is bounded from above by 1 for any positive s. ThenBefore considering T j (z) for j \u2208 [n + m]\\[n], first note thatDue to (26) and (27),In conclusion, the map T (z) has at least one fixed point in the domain {z : z * \u2264 z z}, and therefore (9) has at least one equilibriumz 0.",
+            "cite_spans": [
+                {
+                    "start": 306,
+                    "end": 310,
+                    "text": "(24)",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 469,
+                    "end": 473,
+                    "text": "(26)",
+                    "ref_id": "BIBREF25"
+                }
+            ],
+            "ref_spans": [],
+            "section": "annex"
+        },
+        {
+            "text": "We will now prove that the endemic equilibrium is unique. Suppose that there are two endemic equilibria,z andz. Note that, by similar arguments as in [26, Lemma 6],z 0 andz 0. Let \u03ba = max i\u2208[n+m]zi /z i . It turns out that \u03ba is given byTo see this, assume by way of contradiction that \u03ba = z n+j /z n+j for some j \u2208 [m], and thus \u03ba >z i /z i , for all i \u2208 [n]. Since bothz andz are equilibria of system (9) , it follows that, for each j \u2208 [m]Since we have that \u03ba >z i /z i , for all i \u2208 [n], then \u03baz i >z i , for all i \u2208 [n]. Since by assumption \u03ba =z n+j /z n+j for some j \u2208 [m], it follows that, for each k \u2208 [m],z n+k \u2264 \u03baz n+k . Then, (29) yieldsHence, for all j \u2208 [m], \u03ba >z n+j /z n+j , which contradicts the assumption that \u03ba =z n+j /z n+j , for some j \u2208 [m]. Therefore, \u03ba must be given by (28) . Now, by (28) we know thatz \u2264 \u03baz. For some j \u2208 [n] we havez j = \u03baz j . Assume, by way of contradiction, that \u03ba > 1. Then, since an equilibrium of (9) also constitutes a fixed point of T (z), we hav\u1ebdwhere (30) follows fromz \u2264 \u03baz and that T (v) \u2265 T (w) whenever v \u2265 w, (31) follows from the assumption \u03ba > 1, and (32) follows from the fact thatz is an equilibrium of (9). Note that (33) is a contradiction, following from our assumption that \u03ba > 1. Hence, \u03ba \u2264 1, meaning thatz \u2264z. Switching the roles ofz andz, we see thatz \u2264z. Therefore, z =z, and thus the equilibrium is unique.Part 3: Proof of asymptotic convergence Let \u2206z(t) = z(t) \u2212z, for z(t) \u2208 D. Also let, X(\u2206z(t)) = X(z(t)) \u2212 X(z). Therefore, it follows that:where (34) is obtained by noting that sincez is the unique endemic equilibrium of system (9) in D,Equation (35) follows by noting that, for any two vectors u and v, X(u)v = X(v)u. By Assumption 2, it is immediate that D and D w are positive diagonal matrices. Since diag (A w ) = \u2212 k \u03b1 kj , it follows that \u2212 diag (A w ) = k \u03b1 kj . Hence Assumption 2 also ensures that \u2212 diag (A w ) is nonnegative, and as a consequence, D w \u2212 diag (A w ) is a positive diagonal matrix. Therefore, D f is a positive diagonal matrix, and, hence, is invertible. Consequently, (36) can be rewritten as:",
+            "cite_spans": [
+                {
+                    "start": 402,
+                    "end": 405,
+                    "text": "(9)",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 636,
+                    "end": 640,
+                    "text": "(29)",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 793,
+                    "end": 797,
+                    "text": "(28)",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 808,
+                    "end": 812,
+                    "text": "(28)",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 1605,
+                    "end": 1608,
+                    "text": "(9)",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 1623,
+                    "end": 1627,
+                    "text": "(35)",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 2073,
+                    "end": 2077,
+                    "text": "(36)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Part 2 -Proof of uniqueness"
+        }
+    ]
+}

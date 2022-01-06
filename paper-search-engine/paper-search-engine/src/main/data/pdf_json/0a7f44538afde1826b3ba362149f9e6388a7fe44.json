@@ -1,0 +1,1727 @@
+{
+    "paper_id": "0a7f44538afde1826b3ba362149f9e6388a7fe44",
+    "metadata": {
+        "title": "Modeling and Forecasting of COVID-19 Spreading by Delayed Stochastic Differential Equations",
+        "authors": [
+            {
+                "first": "Marouane",
+                "middle": [],
+                "last": "Mahrouf",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "Laboratory of Analysis, Modeling and Simulation (LAMS)",
+                    "institution": "Hassan II University of Casablanca",
+                    "location": {
+                        "postCode": "P.B. 7955",
+                        "settlement": "Sidi Othman, Casablanca",
+                        "country": "Morocco"
+                    }
+                },
+                "email": "marouane.mahrouf@gmail.comm.m."
+            },
+            {
+                "first": "Adnane",
+                "middle": [],
+                "last": "Boukhouima",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "Laboratory of Analysis, Modeling and Simulation (LAMS)",
+                    "institution": "Hassan II University of Casablanca",
+                    "location": {
+                        "postCode": "P.B. 7955",
+                        "settlement": "Sidi Othman, Casablanca",
+                        "country": "Morocco"
+                    }
+                },
+                "email": "adnaneboukhouima@gmail.coma.b."
+            },
+            {
+                "first": "Houssine",
+                "middle": [],
+                "last": "Zine",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "Center for Research and Development in Mathematics and Applications (CIDMA)",
+                    "institution": "University of Aveiro",
+                    "location": {
+                        "postCode": "3810-193",
+                        "settlement": "Aveiro",
+                        "country": "Portugal"
+                    }
+                },
+                "email": "zinehoussine@ua.pt*correspondence:delfim@ua.pt"
+            },
+            {
+                "first": "El",
+                "middle": [
+                    "Mehdi"
+                ],
+                "last": "Lotfi",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "Laboratory of Analysis, Modeling and Simulation (LAMS)",
+                    "institution": "Hassan II University of Casablanca",
+                    "location": {
+                        "postCode": "P.B. 7955",
+                        "settlement": "Sidi Othman, Casablanca",
+                        "country": "Morocco"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "F",
+                "middle": [
+                    "M"
+                ],
+                "last": "Delfim",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "",
+                "middle": [],
+                "last": "Torres",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "Center for Research and Development in Mathematics and Applications (CIDMA)",
+                    "institution": "University of Aveiro",
+                    "location": {
+                        "postCode": "3810-193",
+                        "settlement": "Aveiro",
+                        "country": "Portugal"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Noura",
+                "middle": [],
+                "last": "Yousfi",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "Laboratory of Analysis, Modeling and Simulation (LAMS)",
+                    "institution": "Hassan II University of Casablanca",
+                    "location": {
+                        "postCode": "P.B. 7955",
+                        "settlement": "Sidi Othman, Casablanca",
+                        "country": "Morocco"
+                    }
+                },
+                "email": "nourayousfi.fsb@gmail.comn.y."
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "The novel coronavirus disease (COVID-19) pneumonia has posed a great threat to the world recent months by causing many deaths and enormous economic damage worldwide. The first case of COVID-19 in Morocco was reported on 2 March 2020, and the number of reported cases has increased day by day. In this work, we extend the well-known SIR compartmental model to deterministic and stochastic time-delayed models in order to predict the epidemiological trend of COVID-19 in Morocco and to assess the potential role of multiple preventive measures and strategies imposed by Moroccan authorities. The main features of the work include the well-posedness of the models and conditions under which the COVID-19 may become extinct or persist in the population. Parameter values have been estimated from real data and numerical simulations are presented for forecasting the COVID-19 spreading as well as verification of theoretical results.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Coronaviruses are a large family of viruses that cause illnesses, ranging from the common cold to more serious illnesses such as Middle Eastern Respiratory Syndrome (MERS-CoV) and Severe Acute Respiratory Syndrome (SARS-CoV). The new coronavirus COVID-19 corresponds to a new strain that has not previously been identified in humans. On 11 March 2020, COVID-19 was reclassified as a pandemic by the World Health Organization (WHO). The disease has spread rapidly from country to country, causing enormous economic damage and many deaths around the world, prompting governments to issue a dramatic decree, ordering the lockdown of entire countries.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Since the confirmation of the first case of COVID-19 in Morocco on 2 March 2020 in the city of Casablanca, numerous preventive measures and strategies to control the spread of diseases have been imposed by the Moroccan authorities. In addition, Morocco declared a health emergency during the period from 20 March to 20 April 2020 and gradually extended it until 10 June 2020 in order to control the spread of the disease. In this paper, we report the assessment of the evolution of COVID-19 outbreak in Morocco. Besides shedding light on the dynamics of the pandemic, the practical intent of our analysis is to provide officials with the tendency of COVID-19 spreading, as well as gauge the effects of preventives measures using mathematical tools. Several other papers developed mathematical models for COVID-19 for particular regions in the globe and particular intervals of time, e.g., in [1] a Susceptible-Infectious-Quarantined-Recovered (SIQR) model to the analysis of data from the Brazilian Department of Health, obtained from 26 February 2020 to 25 March 2020 is proposed to better understand the early evolution of COVID-19 in Brazil; in [2] , a new COVID-19 epidemic model with media coverage and quarantine is constructed on the basis of the total confirmed new cases in the UK from 1 February 2020 to 23 March 2020; arXiv:2102.04260v1 [q-bio.PE] 4 Feb 2021",
+            "cite_spans": [
+                {
+                    "start": 892,
+                    "end": 895,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 1055,
+                    "end": 1057,
+                    "text": "25",
+                    "ref_id": null
+                },
+                {
+                    "start": 1148,
+                    "end": 1151,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Based on the epidemiological feature of COVID-19 and the several strategies imposed by the government, with different degrees, to fight against this pandemic, we extend the classical SIR model to describe the transmission of COVID-19 in the Kingdom of Morocco. In particular, we divide the population into eight classes, denoted by S, I s , I a , F b , F g , F c , R and M, where S represents the susceptible individuals; I s the symptomatic infected individuals, which have not yet been treated; I a the asymptomatic infected individuals who are infected but do not transmit the disease; F b , F g and F c denote the patients diagnosed, supported by the Moroccan health system and under quarantine, and subdivided into three categories: benign, severe and critical forms, respectively. Finally, R and M are the recovered and fatality classes. This model satisfies the following assumptions:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Models Formulation and Well-Posedness"
+        },
+        {
+            "text": "(1) all coefficients involved in the model are positive constants;",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Models Formulation and Well-Posedness"
+        },
+        {
+            "text": "(2) natural birth and death rate are not factors; (3) true asymptomatic patients will stay asymptomatic until recovery and do not spread the virus; (4) patients who are temporarily asymptomatic are included on symptomatic ones; (5) the second infection is not considered in the model; (6) the Moroccan health system is not overwhelmed.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Models Formulation and Well-Posedness"
+        },
+        {
+            "text": "According to the above assumptions and the actual strategies imposed by the Moroccan authorities, the spread of COVID-19 in the population is modeled by the following system of delayed differential equations (DDEs):",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Models Formulation and Well-Posedness"
+        },
+        {
+            "text": "where t \u2208 R + , N represents the total population size and u \u2208 [0, 1] denotes the level of the preventive strategies on the susceptible population. The parameter \u03b2 indicates the transmission rate and \u2208 [0, 1] is the proportion for the symptomatic individuals. The parameter \u03b1 denotes the proportion of the diagnosed symptomatic infected population that moves to the three forms: F b , F g and F c , by the rates \u03b3 b , \u03b3 g and \u03b3 c , respectively. The mean recovery period of these forms are denoted by 1/r b , 1/r g and 1/r c , respectively. The latter forms die also with the rates \u00b5 b , \u00b5 g and \u00b5 c , respectively. Asymptomatic infected population, which are not diagnosed, recover with rate \u03b7 a and the symptomatic infected ones recover or die with rates \u03b7 s and \u00b5 s , respectively. The time delays \u03c4 1 , \u03c4 2 , \u03c4 3 and \u03c4 4 denote the incubation period, the period of time needed before the charge by the health system, the time required before the death of individuals coming from the compartments I s , F b , F g , and F c , respectively. At each instant of time,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Models Formulation and Well-Posedness"
+        },
+        {
+            "text": "population is here assumed to be constant, that is, N(t) \u2261 N during the period under study. This assumption is also reinforced by the fact that the Moroccan authorities have closed geographic borders.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Models Formulation and Well-Posedness"
+        },
+        {
+            "text": "The initial conditions of system (1) are",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Models Formulation and Well-Posedness"
+        },
+        {
+            "text": "where \u03c4 = max{\u03c4 1 , \u03c4 2 , \u03c4 3 , \u03c4 4 }. Let C = C([\u2212\u03c4, 0], R 8 ) be the Banach space of continuous functions from the interval [\u2212\u03c4, 0] into R 8 equipped with the uniform topology. It follows from the theory of functional differential equations [16] that system (1) with initial conditions (\u03d5 1 , \u03d5 2 , \u03d5 3 , \u03d5 4 , \u03d5 5 , \u03d5 6 , \u03d5 7 , \u03d5 8 ) \u2208 C has a unique solution. On the other hand, due to continuous fluctuation in the environment, the parameters of the system are actually not absolute constants and always fluctuate randomly around some average value. Hence, using delayed stochastic differential equations (DSDEs) to model the epidemic provide some additional degree of realism compared to their deterministic counterparts. The parameters \u03b2 and \u03b1 play an important role in controlling and preventing COVID-19 spreading and they are not completely known, but subject to some random environmental effects. We introduce randomness into system (1) by applying the technique of parameter perturbation, which has been used by many researchers (see, e.g., [17] [18] [19] ). In agreement, we replace the parameters \u03b2 and \u03b1 by \u03b2 \u2192 \u03b2 + \u03c3 1\u1e021 (t) and \u03b1 \u2192 \u03b1 + \u03c3 2\u1e022 (t), where B 1 (t) and B 2 (t) are independent standard Brownian motions defined on a complete probability space (\u2126, F , P) with a filtration {F t } t\u22650 satisfying the usual conditions (i.e., it is increasing and right continuous while F 0 contains all P-null sets) and \u03c3 i represents the intensity of B i for i = 1, 2. Therefore, we obtain the following model governed by delayed stochastic differential equations:",
+            "cite_spans": [
+                {
+                    "start": 243,
+                    "end": 247,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 1053,
+                    "end": 1057,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 1058,
+                    "end": 1062,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 1063,
+                    "end": 1067,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Models Formulation and Well-Posedness"
+        },
+        {
+            "text": "where the coefficients are locally Lipshitz with respect to all the variables, for all t \u2208 R + . Let us denote R 8",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Models Formulation and Well-Posedness"
+        },
+        {
+            "text": "We have the following result. (3), there is a unique solution",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Models Formulation and Well-Posedness"
+        },
+        {
+            "text": "to the COVID-19 stochastic model (4) that remains in R 8 + with a probability of one.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Theorem 1. For any initial value satisfying condition"
+        },
+        {
+            "text": "Proof. Since the coefficients of the stochastic differential equations with several delays (4) are locally Lipschitz continuous, it follows from [20] that for any square integrable initial value x(0) \u2208 R 8 + , which is independent of the considered standard Brownian motion B, there exists a unique local solution x(t) on t \u2208 [0, \u03c4 e ), where \u03c4 e is the explosion time. For showing that this solution is global, knowing that the linear growth condition is not verified, we need to prove that",
+            "cite_spans": [
+                {
+                    "start": 145,
+                    "end": 149,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Theorem 1. For any initial value satisfying condition"
+        },
+        {
+            "text": "For each integer k \u2265 k 0 , we define the stopping time",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Theorem 1. For any initial value satisfying condition"
+        },
+        {
+            "text": "Define the twice differentiable function W on R * 3 + \u2192 R + as follows:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Theorem 1. For any initial value satisfying condition"
+        },
+        {
+            "text": "T with the superscript \"T \" representing transposition, and L is the differential operator of function W defined by",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Theorem 1. For any initial value satisfying condition"
+        },
+        {
+            "text": "Thus,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Theorem 1. For any initial value satisfying condition"
+        },
+        {
+            "text": "We now apply the elementary inequality 2xy \u2264 x 2 + y 2 , valid for any x, y \u2208 R, by firstly taking x = \u03b2 (1 \u2212 u) and y = S(t) + I s (t) + I a (t) and, secondly,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Theorem 1. For any initial value satisfying condition"
+        },
+        {
+            "text": "In this way, we easily increase the right-hand side of inequality (5) to obtain that",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Theorem 1. For any initial value satisfying condition"
+        },
+        {
+            "text": "between t 0 and t \u2227 \u03c4 k and acting the expectation, which eliminates the martingale part, we get",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Theorem 1. For any initial value satisfying condition"
+        },
+        {
+            "text": "EW(x(s)))ds and Gronwall's inequality implies that",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Theorem 1. For any initial value satisfying condition"
+        },
+        {
+            "text": "For \u03c9 \u2208 {\u03c4 k \u2264 T}, x i (\u03c4 k ) equals k or 1 k for some i = 1, 2, 3. Hence,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Theorem 1. For any initial value satisfying condition"
+        },
+        {
+            "text": "It follows that",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Theorem 1. For any initial value satisfying condition"
+        },
+        {
+            "text": "Letting k \u2192 \u221e, we get P(\u03c4 e \u2264 T) = 0. Since T is arbitrary, we obtain P(\u03c4 e = \u221e) = 1. By defining the stopping",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Theorem 1. For any initial value satisfying condition"
+        },
+        {
+            "text": ", k for some i = 4, . . . , 8 , and considering the twice differentiable functionW on",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Theorem 1. For any initial value satisfying condition"
+        },
+        {
+            "text": "we deduce, with the same technique, that all the variables of the system are positive on [0, \u221e).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Theorem 1. For any initial value satisfying condition"
+        },
+        {
+            "text": "The basic reproduction number, as a measure for disease spread in a population, plays an important role in the course and control of an ongoing outbreak [21] . This number is defined as the expected number of secondary cases produced, in a completely susceptible population, by a typical infective individual. Note that the calculation of the basic reproduction number R 0 does not depend on the variables of the system but depends on its parameters. In addition, the R 0 of our model does not depend on the time delays. For this reason, we use the next-generation matrix approach outlined in [22] to compute R 0 . Precisely, the basic reproduction number R 0 of system (1) is given by",
+            "cite_spans": [
+                {
+                    "start": 153,
+                    "end": 157,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 593,
+                    "end": 597,
+                    "text": "[22]",
+                    "ref_id": "BIBREF21"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Qualitative Analysis of the Models"
+        },
+        {
+            "text": "where \u03c1 is the spectral radius of the next-generation matrix FV \u22121 with",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Qualitative Analysis of the Models"
+        },
+        {
+            "text": "Noting that the classes that are directly involved in the spread of disease are only I s , I a , F b , F g and F c , we can reduce the local stability of system (1) to the local stability of",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Qualitative Analysis of the Models"
+        },
+        {
+            "text": "The other classes are uncoupled to the equations of system (1) and the total population size N is constant. Then, we can easily obtain the following analytical results:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Qualitative Analysis of the Models"
+        },
+        {
+            "text": "Let E = (I s , I a , F b , F g , F c ) be an arbitrary equilibrium, and consider into system (7), the following change of unknowns:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Qualitative Analysis of the Models"
+        },
+        {
+            "text": "By substituting U i (t), i = 1, 2, . . . , 5, into system (7) and linearizing around the free equilibrium, we get a new system that is equivalent to",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Qualitative Analysis of the Models"
+        },
+        {
+            "text": "where X(t) = (U 1 (t), U 2 (t), U 3 (t), U 4 (t), U 5 (t)) T and A, B, C are the Jacobian matrix of (7) given by",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Qualitative Analysis of the Models"
+        },
+        {
+            "text": "The characteristic equation of system (7) is given by P(\u03bb) = (\u03bb \u2212 a 1 (R 0 e \u2212\u03bb\u03c4 1 \u2212 1))(\u03bb + \u03b7 a )(\u03bb + (\u00b5 b + r b ))(\u03bb + (\u00b5 g + r g ))(\u03bb + (\u00b5 c + r c )),",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Qualitative Analysis of the Models"
+        },
+        {
+            "text": "where",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Qualitative Analysis of the Models"
+        },
+        {
+            "text": "Clearly, the characteristic Equation (10) has the roots \u03bb 1 = \u2212\u03b7 a , \u03bb 2 = \u2212(\u00b5 b + r b ), \u03bb 3 = \u2212(\u00b5 g + r g ), \u03bb 4 = \u2212(\u00b5 c + r c ) and the root of the equation",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Qualitative Analysis of the Models"
+        },
+        {
+            "text": "We suppose Re(\u03bb) \u2265 0. From (11), we get",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Qualitative Analysis of the Models"
+        },
+        {
+            "text": "On the other hand, we show that (11) has a real positive root when R 0 > 1. Indeed, we put",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Qualitative Analysis of the Models"
+        },
+        {
+            "text": "We have that \u03a6(0) = \u2212a 1 (R 0 \u2212 1) < 0, lim \u03bb\u2192+\u221e \u03a6(\u03bb) = +\u221e and function \u03a6 is continuous on (0, +\u221e). Consequently, \u03a6 has a positive root and the following result holds. Theorem 2. The disease free equilibrium of system (1), that is, (N, 0, 0, 0, 0, 0, 0, 0) , is locally asymptotically stable if R 0 < 1 and unstable if R 0 > 1.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 232,
+                    "end": 256,
+                    "text": "(N, 0, 0, 0, 0, 0, 0, 0)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Qualitative Analysis of the Models"
+        },
+        {
+            "text": "Knowing the value of the deterministic threshold R 0 characterizes the dynamical behavior of system (1) and guarantees persistence or extinction of the disease. Similarly, now we characterize the dynamical behavior of system (4) by a sufficient condition for extinction of the disease.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Qualitative Analysis of the Models"
+        },
+        {
+            "text": "Then,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Theorem 3. Let x(t) = S(t), I s (t), I a (t), F b (t), F g (t), F c (t), R(t), M(t) be the solution of the COVID-19 stochastic model (4) with initial value x(0) defined in (3). Assume that"
+        },
+        {
+            "text": "Namely, I s (t) tends to zero exponentially almost surely, that is, the disease dies out with a probability of one.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Theorem 3. Let x(t) = S(t), I s (t), I a (t), F b (t), F g (t), F c (t), R(t), M(t) be the solution of the COVID-19 stochastic model (4) with initial value x(0) defined in (3). Assume that"
+        },
+        {
+            "text": "Let",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof."
+        },
+        {
+            "text": "To simplify, we set",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof."
+        },
+        {
+            "text": "Then, we get",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof."
+        },
+        {
+            "text": "Integrating both sides of the above inequality between 0 and t, one has",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof."
+        },
+        {
+            "text": "where",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof."
+        },
+        {
+            "text": "We have",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof."
+        },
+        {
+            "text": "Then,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof."
+        },
+        {
+            "text": "From the large number theorem for martingales [23] , we deduce that",
+            "cite_spans": [
+                {
+                    "start": 46,
+                    "end": 50,
+                    "text": "[23]",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Proof."
+        },
+        {
+            "text": "We also have",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof."
+        },
+        {
+            "text": "Then,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof."
+        },
+        {
+            "text": "We conclude that if \u03b2 2 2\u03c3 2 1 \u2212 \u03b1 \u2212 (1 \u2212 \u03b1)(\u00b5 s + \u03b7 s ) < 0, then lim I(t) t\u2192\u221e = 0. This completes the proof.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Proof."
+        },
+        {
+            "text": "Estimating the model parameters poses a big challenge because the COVID-19 situation changes rapidly and from one country to another. The parameters are likely to vary over time as new policies are introduced on a day-to-day basis. For this reason, in order to simulate the COVID-19 models (1) and (4), we consider some parameter values from the literature, while the remaining ones are estimated or fitted.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Assessment of Parameters"
+        },
+        {
+            "text": "As the transmission rate \u03b2 is unknown, we carry out the least-square method [10] to estimate this parameter, based on the actual official reported confirmed cases from 2 March to 20 March, 2020 [24] . Through this method, we estimated \u03b2 as 0.4517 (95%CI, 0.4484-0.455). Since the life expectancy for symptomatic individuals is 21 days on average and the crude mortality ratio is between 3% to 4% [25] , we estimated \u00b5 s = 0.01/21 per day and \u03b7 s = 0.8/21 per day. Furthermore, since the hospitals are not yet saturated and the epidemic situation is under control, we assume that mortality comes mainly from critical forms with a percentage of 40% for an average period of 13.5 days [25] . Then, we choose \u00b5 c = 0.4/13.5 per day and r c = 0.6/13.5 per day. According to [26] , the proportion of asymptomatic individuals varies from 20.6% to 39.9% and of symptomatic individuals from 60.1% and 79.4% of the infected population. The progression rates \u03b3 b , \u03b3 g and \u03b3 c , from symptomatic infected individuals to the three forms, are assumed to be 80% of diagnosed cases for benign form, 15% of diagnosed cases for severe form, and 5% of diagnosed cases for critical form, respectively [25] . The incubation period is estimated to be 5.5 days [27, 28] while the time needed before hospitalization is to be 7.5 days [29] [30] [31] . Following a clinical observation related to the situation of COVID-19 in Morocco, an evolution of symptomatic individuals is estimated towards recovery or death after 21 days without any clinical intervention. In the case when clinical intervention is applied, we estimate the evolution of the critical forms towards recovery or death after 13.3 days. The rest of the parameter values are shown in Table 1 . ",
+            "cite_spans": [
+                {
+                    "start": 76,
+                    "end": 80,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 194,
+                    "end": 198,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 396,
+                    "end": 400,
+                    "text": "[25]",
+                    "ref_id": null
+                },
+                {
+                    "start": 682,
+                    "end": 686,
+                    "text": "[25]",
+                    "ref_id": null
+                },
+                {
+                    "start": 769,
+                    "end": 773,
+                    "text": "[26]",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 1182,
+                    "end": 1186,
+                    "text": "[25]",
+                    "ref_id": null
+                },
+                {
+                    "start": 1239,
+                    "end": 1243,
+                    "text": "[27,",
+                    "ref_id": null
+                },
+                {
+                    "start": 1244,
+                    "end": 1247,
+                    "text": "28]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 1311,
+                    "end": 1315,
+                    "text": "[29]",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 1316,
+                    "end": 1320,
+                    "text": "[30]",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 1321,
+                    "end": 1325,
+                    "text": "[31]",
+                    "ref_id": "BIBREF32"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1726,
+                    "end": 1733,
+                    "text": "Table 1",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "Assessment of Parameters"
+        },
+        {
+            "text": "In this section, we present the forecasts of COVID-19 in Morocco related to different strategies implemented by Moroccan authorities.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Numerical Simulation of Moroccan COVID-19 Evolution"
+        },
+        {
+            "text": "Taking into account the four levels of measures attached to containment, the effectiveness level of the applied Moroccan preventive measures is estimated to be In Figure 1 , we see that the plots and the clinical data are globally homogeneous. In addition, the last daily reported cases in Morocco [32], confirm the biological tendency of our model. Thus, our models are efficient to describe the spread of COVID-19 in Morocco. However, we note that some clinical data are far from the values of the models due to certain foci that appeared in some large areas or at the level of certain industrial areas. We conclude also that the stochastic behavior of COVID-19 presents certain particularities contrary to the deterministic one, namely the magnitude of its peak is higher and the convergence to eradication is faster. On the other hand, the conditions in Theorems 2 and 3 are verified. More precisely, the basic reproduction number R 0 = 0.5230 is less than one from 12 May 2020 and \u03c3 2 1 = 1.0609 > 1.0598 =",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 163,
+                    "end": 171,
+                    "text": "Figure 1",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Numerical Simulation of Moroccan COVID-19 Evolution"
+        },
+        {
+            "text": ", which means that the eradication of disease is ensured.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Numerical Simulation of Moroccan COVID-19 Evolution"
+        },
+        {
+            "text": "To prove the biological importance of delay parameters, we give the graphical results of Figure 2 , which describe the evolution of diagnosed positive cases with and without delays. We observe in Figure 2 , a high impact of delays on the number of diagnosed positive cases, thereby the plot of model (4) without delays (\u03c4 i = 0, i = 1, 2, 3, 4) is very different to that of the clinical data. Thus, we conclude that delays play an important role in the study of the dynamic behavior of COVID-19 worldwide, especially in Morocco, and allow us to better understand the reality.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 89,
+                    "end": 97,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 196,
+                    "end": 204,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Numerical Simulation of Moroccan COVID-19 Evolution"
+        },
+        {
+            "text": "In Figure 3 , we present the forecast of susceptible, severe forms of deaths and critical forms, from which we deduce that COVID-19 will not attack the total population. In addition, the number of hospitalization beds or artificial respiration apparatus required can be estimated by the number of different clinical forms. Moreover, we see that the number of deaths given by the model is less than those declared in other countries [33] , which shows that Morocco has avoided a dramatic epidemic situation by imposing the described strategies.",
+            "cite_spans": [
+                {
+                    "start": 432,
+                    "end": 436,
+                    "text": "[33]",
+                    "ref_id": "BIBREF33"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 3,
+                    "end": 11,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Numerical Simulation of Moroccan COVID-19 Evolution"
+        },
+        {
+            "text": "Finally, we present in Figure 4 , the cumulative diagnosed cases, severe forms, deaths and critical forms 240 days from the start of the pandemic in Morocco. We summarize some important numbers in Table 2 , which gives us some information about the future epidemic situation in Morocco. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 23,
+                    "end": 31,
+                    "text": "Figure 4",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 197,
+                    "end": 204,
+                    "text": "Table 2",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "Numerical Simulation of Moroccan COVID-19 Evolution"
+        },
+        {
+            "text": "In this study, we proposed a new deterministic model with delay and its corresponding stochastic model to describe the dynamic behavior of COVID-19 in Morocco. These models provide us with the evolution and prediction of important categories of individuals to be monitored, namely, the positive diagnosed cases, which can help to examine the efficiency of the measures implemented in Morocco, and the different developed forms, which can quantify the capacity of the public health system as well as the number of new deaths. Firstly, we have shown that our models are mathematically and biologically well posed by proving global existence and uniqueness of positive solutions. Secondly, the extinction of the disease was established. By analyzing the characteristic equation, we proved that if R 0 < 1, then the disease free equilibrium of the deterministic model is locally asymptotically stable (Theorem 2). Based on the Lyapunov analysis method, a sufficient condition for the extinction was obtained in the stochastic case (Theorem 3). Thirdly, and since there is a substantial interest in estimating the parameters, we applied the least square method to determine the confidence interval of the transmission rate \u03b2 as 0.4517 (95%CI, 0.4484-0.455). In addition, the rest of the parameters were either assumed, based on some daily observations, or taken from the available literature. Finally, some numerical simulations were performed to gather information in order to be able to fight against the propagation of the new coronavirus. In 12 May 2020, the basic reproduction number was less than one (R 0 = 0.5230), which means that the epidemic was tending toward eradication, which is conditional on strict compliance with the implemented measures. Currently, the consequences of the measures taken against COVID-19 in Morocco encourage their maintenance to control the spread of the epidemic and quickly move towards extinction.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusions"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Modeling the early evolution of the COVID-19 in Brazil: Results from a susceptible-infectious-quarantined-recovered (SIQR) model, Internat. J. Modern Phys. C 2020",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Crokidakis",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Modelling the effects of media coverage and quarantine on the COVID-19 infections in the UK",
+            "authors": [
+                {
+                    "first": "L.-X",
+                    "middle": [],
+                    "last": "Feng",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.-L",
+                    "middle": [],
+                    "last": "Jing",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.-K",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "D.-F",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H.-F",
+                    "middle": [],
+                    "last": "Huo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Math. Biosci. Eng",
+            "volume": "17",
+            "issn": "",
+            "pages": "3618--3636",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Prediction of confinement effects on the number of Covid-19 outbreak in Algeria",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Moussaoui",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Auger",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Math. Model. Nat. Phenom",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Blow-up in a parabolic-elliptic Keller-Segel system with density-dependent sublinear sensitivity and logistic source",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Tanaka",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Yokota",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Math. Methods Appl. Sci",
+            "volume": "2020",
+            "issn": "",
+            "pages": "7372--7396",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "A singular elliptic problem related to the membrane equilibrium equations",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Viglialoro",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Murcia",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Int. J. Comput. Math",
+            "volume": "90",
+            "issn": "",
+            "pages": "2185--2196",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Properties of solutions to porous medium problems with different sources and boundary conditions",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Pintus",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Viglialoro",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Z. Angew. Math. Phys",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Analysis and explicit solvability of degenerate tensorial problems",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Viglialoro",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Bound. Value Probl",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Estimation of the Transmission Risk of the 2019-nCoV and Its Implication for Public Health Interventions",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Tang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Bragazzi",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Tang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Xiao",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J. Clin. Med",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Nowcasting and forecasting the potential domestic and international spread of the 2019-nCoV outbreak originating in Wuhan, China: a modelling study",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Leung",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Leung",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Lancet",
+            "volume": "395",
+            "issn": "",
+            "pages": "689--697",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Prediction of the Epidemic Peak of Coronavirus Disease in Japan, 2020",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Kuniya",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J. Clin. Med",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Analysis and forecast of COVID-19 spreading in China, Italy and France",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Fanelli",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Piazza",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Chaos Solitons Fractals",
+            "volume": "134",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Mathematical modeling of COVID-19 transmission dynamics with a case study of Wuhan",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Nda\u00efrou",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Area",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Nieto",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Torres",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Chaos Solitons Fractals",
+            "volume": "135",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "A simple stochastic SIR model for COVID 19 infection dynamics for Karnataka: Learning from Europe",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Simha",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Prasad",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Narayana",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2003.11920"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "A discrete stochastic model of the COVID-19 outbreak: Forecast and control",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "He",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Tang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Rong",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Math. Biosci. Eng",
+            "volume": "17",
+            "issn": "",
+            "pages": "2792--2804",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "A stochastic epidemic model of COVID-19 disease",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Bardina",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ferrante",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Rovira",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "arXiv": [
+                    "arXiv:2005.02859"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Introduction to Functional Differential Equations",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Hale",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Lunel",
+                    "suffix": ""
+                }
+            ],
+            "year": 1993,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Dynamics of a stochastic viral infection model with immune response",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mahrouf",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Hattaf",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Yousfi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Math. Model. Nat. Phenom",
+            "volume": "12",
+            "issn": "",
+            "pages": "15--32",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Qualitative analysis of a stochastic epidemic model with specific functional response and temporary immunity",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Hattaf",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mahrouf",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Adnani",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Yousfi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Phys. A Stat. Mech. Appl",
+            "volume": "490",
+            "issn": "",
+            "pages": "591--600",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "A stochastic model of AIDS and condom use",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Dalal",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Greenhalgh",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Mao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "J. Math. Anal. Appl",
+            "volume": "325",
+            "issn": "",
+            "pages": "36--53",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Stochastic Differential Equations and Applications",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Mao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "On the definition and the computation of the basic reproduction ratio R 0 in models for infectious diseases in heterogeneous populations",
+            "authors": [
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Diekmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A P"
+                    ],
+                    "last": "Heesterbeek",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A J"
+                    ],
+                    "last": "Metz",
+                    "suffix": ""
+                }
+            ],
+            "year": 1990,
+            "venue": "J. Math. Biol",
+            "volume": "28",
+            "issn": "",
+            "pages": "365--382",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Driessche",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Watmough",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Math. Biosci",
+            "volume": "180",
+            "issn": "",
+            "pages": "29--48",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "A stochastic differential equations SIS epidemic model",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Grai",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Greenhalgh",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Mao",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Pan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "SIAM J. Appl. Math",
+            "volume": "71",
+            "issn": "",
+            "pages": "876--902",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Department of Epidemiology and Disease Control",
+            "authors": [
+                {
+                    "first": "Morocco",
+                    "middle": [],
+                    "last": "Ministry Of Health",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Estimating the asymptomatic proportion of coronavirus disease 2019 (COVID-19) cases on board the Diamond Princess cruise ship",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Mizumoto",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Kagaya",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Zarebski",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Chowell",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Euro Surveill",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "COVID-19 Incubation Period: An Update",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Baum",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Clinical features of patients infected with 2019 novel coronavirus in Wuhan",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Ren",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Fan",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Gu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Cheng",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "China. Lancet",
+            "volume": "395",
+            "issn": "",
+            "pages": "497--506",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Clinical Characteristics of 138 Hospitalized Patients with 2019 Novel Coronavirus-Infected Pneumonia in Wuhan",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Xiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Cheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Xiong",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "China. J. Am. Med. Assoc",
+            "volume": "2020",
+            "issn": "",
+            "pages": "1061--1069",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Ministry of Health of Morocco. The Official Portal of Corona Virus in Morocco",
+            "authors": [],
+            "year": 2020,
+            "venue": "Haut Conseil de la sant\u00e9 publique. Avis relatif aux recommandations th\u00e9rapeutiques dans la prise en charge du COVID-19",
+            "volume": "23",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "COVID-19 Coronavirus Pandemic, View by Country",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "March, 10 March]; 0.3, on (10 March, 20 March]; 0.4, on (20 March, 6 April]; 0.8, after 6 April.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Comparison of the deterministic and the stochastic dynamical behavior with the daily reported cases of COVID-19 in Morocco.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Effect of delays on the diagnosed confirmed cases.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "The evolution of susceptible, deaths, severe and critical forms from 2 March 2020.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "Cumulative diagnosed cases, severe forms, critical forms and deaths 240 days from the start of the COVID-19 pandemic in Morocco.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "Parameter values of models (1) and(4).",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Estimated peaks and cumulative of diagnosed cases, severe forms, critical forms and deaths.",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "As future work, we intend to study the regional evolution of COVID-19 in Morocco. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "acknowledgement"
+        },
+        {
+            "text": "The data used in this study is available from the Government of Morocco, being given in Figure 1 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 88,
+                    "end": 96,
+                    "text": "Figure 1",
+                    "ref_id": null
+                }
+            ],
+            "section": "Data Availability Statement:"
+        },
+        {
+            "text": "We would like to express our gratitude to the editor and the anonymous reviewers, for their constructive comments and suggestions, which helped us to enrich the paper.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Acknowledgments:"
+        },
+        {
+            "text": "The authors declare no conflict of interest. The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript, or in the decision to publish the results.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conflicts of Interest:"
+        }
+    ]
+}

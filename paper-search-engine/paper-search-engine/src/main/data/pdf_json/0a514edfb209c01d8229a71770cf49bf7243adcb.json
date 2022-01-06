@@ -1,0 +1,2920 @@
+{
+    "paper_id": "0a514edfb209c01d8229a71770cf49bf7243adcb",
+    "metadata": {
+        "title": "Economic Crises in a Model with Capital Scarcity and Self-Reflexive Confidence",
+        "authors": [
+            {
+                "first": "Federico",
+                "middle": [
+                    "Guglielmo"
+                ],
+                "last": "Morelli",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "UMR CNRS 7600",
+                    "institution": "Sorbonne Universit\u00e9",
+                    "location": {
+                        "postCode": "75005",
+                        "settlement": "Paris",
+                        "country": "France"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Karl",
+                "middle": [],
+                "last": "Naumann-Woleske",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "UMR CNRS 7646",
+                    "institution": "Ecole Polytechnique",
+                    "location": {
+                        "postCode": "91128",
+                        "settlement": "Palaiseau",
+                        "country": "France"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Michael",
+                "middle": [],
+                "last": "Benzaquen",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "UMR CNRS 7646",
+                    "institution": "Ecole Polytechnique",
+                    "location": {
+                        "postCode": "91128",
+                        "settlement": "Palaiseau",
+                        "country": "France"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Marco",
+                "middle": [],
+                "last": "Tarzia",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "UMR CNRS 7600",
+                    "institution": "Sorbonne Universit\u00e9",
+                    "location": {
+                        "postCode": "75005",
+                        "settlement": "Paris",
+                        "country": "France"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Jean-Philippe",
+                "middle": [],
+                "last": "Bouchaud",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "In the General Theory, Keynes remarked that the economy's state depends on expectations, and that these expectations can be subject to sudden swings. In this work, we develop a multiple equilibria behavioural business cycle model that can account for demand or supply collapses due to abrupt drops in consumer confidence, which affect both consumption propensity and investment. We show that, depending on the model parameters, four qualitatively different outcomes can emerge, characterised by the frequency of capital scarcity and/or demand crises. In the absence of policy measures, the duration of such crises can increase by orders of magnitude when parameters are varied, as a result of the \"paradox of thrift\". Our model suggests policy recommendations that prevent the economy from getting trapped in extended stretches of low output, low investment and high unemployment.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "1 See the extensive discussions in [3] [4] [5] [6] [7] [8] , with a recent review in [9] arXiv:2109.09386v1 [econ.GN] ",
+            "cite_spans": [
+                {
+                    "start": 35,
+                    "end": 38,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 39,
+                    "end": 42,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 43,
+                    "end": 46,
+                    "text": "[5]",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 47,
+                    "end": 50,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 51,
+                    "end": 54,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 55,
+                    "end": 58,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 85,
+                    "end": 88,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "The theory can be summed up by saying that, given the psychology of the public, the level of output and employment as a whole depends on the amount of investment. I put it in this way, not because this is the only factor on which aggregate output depends, but because it is usual in a complex system to regard as the \"causa causans\" that factor which is most prone to sudden and wide fluctuation. More comprehensively, aggregate output depends on the propensity to hoard, on the policy of the monetary authority as it affects the quantity of money, on the state of confidence concerning the prospective yield of capital assets, on the propensity to spend and on the social factors which influence the level of the money wage. Keynes [1] I. INTRODUCTION The years following 2008 were marked by the great financial crisis, and with it a crisis for economic theory [2] . As for the great depression of the 1930s, there was a failure to predict the crisis amongst economic orthodoxy. 1 Despite its failures in predicting the recession [10] or the sluggish recovery [11] , the mainstream Dynamic Stochastic General Equilibrium (DSGE) class of models have remained the core macroeconomic framework and workhorse tool of policy [12] . While calls to reform these models have been made [8, 13, 14] , the basic framework with a single rational representative agent often remains a baseline assumption when studying business cycles, although heterogeneous agents new Keynesian models (HANK) have recently been considered as well. 2 The decisions of such a representative agent, which include capital investment decisions, determine the trajectory of the economy and are based on the optimisation of a utility function with static parameters, with no space for \"animal spirits\" or confidence effects (although see [18] and the discussion below). In such models, \"dark corners\" are absent and crises can only be the result of major exogenous shocks. 3 This must be contrasted with Keynes' intuition, which, as rephrased by Minsky [20] , was that the subjective evaluation of prospects over a time horizon is the major proximate basis for investment and portfolio decisions, and these subjective estimates are changeable. Expectations can indeed be subject to rapid changes, disagreement and irrationality, as reflected in the high volatility of investment [21] , and the abrupt nature of expansions and recessions. The investor behaviour behind these swings are indeed often referred to as animal spirits or irrational exuberance [22, 23] . There is now a rich literature on irrational behaviour across economics (see [24] for a recent review). However, it has not been fully dovetailed into more traditional business cycle models. One can find some boundedly rational components in DSGE models, 4 such as [26] [27] [28] that focus on learning in expectations formation in a single-actor model, as well as [29, 30] that use various different utility specifications in DSGE. But apart from Refs. [18, 31, 32] , there is surprisingly little work attempting to factor confidence or sentiment into the DSGE framework as an explicit variable. This is despite some empirical work suggesting that consumer confidence contains important information for forecasting personal spending and consumption [33] [34] [35] .",
+            "cite_spans": [
+                {
+                    "start": 733,
+                    "end": 736,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 740,
+                    "end": 752,
+                    "text": "INTRODUCTION",
+                    "ref_id": null
+                },
+                {
+                    "start": 862,
+                    "end": 865,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 1031,
+                    "end": 1035,
+                    "text": "[10]",
+                    "ref_id": null
+                },
+                {
+                    "start": 1061,
+                    "end": 1065,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 1221,
+                    "end": 1225,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 1278,
+                    "end": 1281,
+                    "text": "[8,",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 1282,
+                    "end": 1285,
+                    "text": "13,",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 1286,
+                    "end": 1289,
+                    "text": "14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 1803,
+                    "end": 1807,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 2018,
+                    "end": 2022,
+                    "text": "[20]",
+                    "ref_id": null
+                },
+                {
+                    "start": 2344,
+                    "end": 2348,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 2518,
+                    "end": 2522,
+                    "text": "[22,",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 2523,
+                    "end": 2526,
+                    "text": "23]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 2606,
+                    "end": 2610,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 2794,
+                    "end": 2798,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 2799,
+                    "end": 2803,
+                    "text": "[27]",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 2804,
+                    "end": 2808,
+                    "text": "[28]",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 2894,
+                    "end": 2898,
+                    "text": "[29,",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 2899,
+                    "end": 2902,
+                    "text": "30]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 2983,
+                    "end": 2987,
+                    "text": "[18,",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 2988,
+                    "end": 2991,
+                    "text": "31,",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 2992,
+                    "end": 2995,
+                    "text": "32]",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 3279,
+                    "end": 3283,
+                    "text": "[33]",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 3284,
+                    "end": 3288,
+                    "text": "[34]",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 3289,
+                    "end": 3293,
+                    "text": "[35]",
+                    "ref_id": "BIBREF34"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "Whereas the adapted New Keynesian model of Barsky and Sims [18, 32] conflates confidence with forecasting with imperfect signals, or private news about future technological states, we rather want to focus here on Keynes' animal spirit, self-reflexive facet of confidence, which can be subject lead to abrupt shifts like in 1929 or 2008. 5 As a first step to incorporate such effects and assess their impact on the economy, some of us [40] recently proposed a generalisation of a simple monetary model in which the household's propensity to consume depends on the prior state of the economy, which generates either optimism or anxiety. This feedback can amplify productivity shocks, and lead to the appearance of a second equilibrium characterised by low consumption and high unemployment, and crises resulting from self-induced confidence collapse. The existence of two very different macroeconomic equilibria has also been recently suggested in another context 2 For a non-exhaustive list of prominent examples see [15] [16] [17] . 3 \"Dark corners\" refers to a particularly insightful piece by O.",
+            "cite_spans": [
+                {
+                    "start": 59,
+                    "end": 63,
+                    "text": "[18,",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 64,
+                    "end": 67,
+                    "text": "32]",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 434,
+                    "end": 438,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                },
+                {
+                    "start": 1016,
+                    "end": 1020,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 1021,
+                    "end": 1025,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 1026,
+                    "end": 1030,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "Blanchard in 2014 entitled \"Where Danger Lurks\", see [19] 4 See [25] for an early review of animal spirits in macroeconomic models. 5 More recently [36, 37] consider sentiments as uncertainty about the beliefs of others. For another strand of the literature on sudden breakdown of confidence, see [38, 39] and references therein. in [41] .",
+            "cite_spans": [
+                {
+                    "start": 53,
+                    "end": 57,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 64,
+                    "end": 68,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 148,
+                    "end": 152,
+                    "text": "[36,",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 153,
+                    "end": 156,
+                    "text": "37]",
+                    "ref_id": null
+                },
+                {
+                    "start": 297,
+                    "end": 301,
+                    "text": "[38,",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 302,
+                    "end": 305,
+                    "text": "39]",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 333,
+                    "end": 337,
+                    "text": "[41]",
+                    "ref_id": "BIBREF40"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "In the present paper, our aim is to significantly extend the work of [40] by including capital investment as a factor determining the trajectory of the economy. We assume that capital and labour are essentially nonsubstitutable, and posit a behavioural rule for investment that accounts for both consumer confidence and for the quality of the returns generated by risky capital investment. This expanded framework allows us to investigate the joint dynamics of confidence, capital availability and output. In a nutshell, our model attempts to capture many of the ideas so clearly expressed by Keynes in the opening quote above, while keeping part of the scaffolding of standard business cycle models.",
+            "cite_spans": [
+                {
+                    "start": 69,
+                    "end": 73,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "In fact, one of our motivations for building such behavioural business cycle models stems from the Great Recession, sparked by Lehman's bankruptcy that led to a sudden collapse in the confidence of both households and investors. This was followed by an almost immediate downfall of both investment and consumption. These stylized facts can be observed in Figure 1 . It took six years to recover to prior confidence levels, even as investment and consumption grew in the medium-term. It is difficult to believe that the Great Recession was the result of a major exogenous shock. 6 Rather, Keynes' story assigning the abruptness of the crisis to a shift in investment decisions is much more plausible. Indeed, anecdotal evidence reported by prominent actors at the time 6 [42] notes that there is no consensus narrative of the causes for the crisis. In addition, from a DSGE model perspective, [43] recently ruled out many of the common exogenous DSGE shocks as explanatory candidates for business cycles strongly suggests that confidence collapse played an essential role in the unfolding of the crisis -see the riveting account of Ben Bernanke et al. in [44] . The consumption and investment trajectories generated by our model can be grouped into four distinct categories differentiated by the prevalence of crises in consumption and the scarcity of capital for production. We recover the bi-stable behaviour obtained in Ref. [40] , alternating between enduring spells of high and low confidence. In addition, the household's investment behaviour can lead to capital scarcity, i.e. periods where capital is the limiting factor to output. During these instances there is an increased risk of a confidence collapse and an ensuing low-consumption depression where the household consumes a small fraction of disposable income and invests cautiously.",
+            "cite_spans": [
+                {
+                    "start": 770,
+                    "end": 774,
+                    "text": "[42]",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 892,
+                    "end": 896,
+                    "text": "[43]",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 1154,
+                    "end": 1158,
+                    "text": "[44]",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 1427,
+                    "end": 1431,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 355,
+                    "end": 363,
+                    "text": "Figure 1",
+                    "ref_id": null
+                }
+            ],
+            "section": ""
+        },
+        {
+            "text": "Furthermore, when compared with the results of our previous version of the model where capital is absent (or rather, assumed to be so abundant that keeping track of it is unnecessary), we find that low output periods can last orders of magnitude longer. This is because, in the absence of suitable policy measures, investment remains low and capital scarcity prevents the economy from recovering.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "This multiple equilibria scenario is an attempt to move away from the over-simplified, but still dominant single equilibrium paradigm, following recent calls to that effect [14, 45] . Note that the coexistence of different equilibria is also the hallmark of recent agent based models, see e.g. [46, 47] and refs. therein.",
+            "cite_spans": [
+                {
+                    "start": 173,
+                    "end": 177,
+                    "text": "[14,",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 178,
+                    "end": 181,
+                    "text": "45]",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 294,
+                    "end": 298,
+                    "text": "[46,",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 299,
+                    "end": 302,
+                    "text": "47]",
+                    "ref_id": "BIBREF46"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "The qualitative results of our behavioural business cycle model suggests various policy measures, in terms of narratives [48] that may change the perception of the future of the economy and the attractiveness of investment in productive capital. In particular, we emphasise the crucial need to maintain capital investment at a sufficiently high level throughout crisis periods, in order to allow for a quick recovery when the economic conditions improve.",
+            "cite_spans": [
+                {
+                    "start": 121,
+                    "end": 125,
+                    "text": "[48]",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "The manuscript is organised as follows. In Section II we build up our business cycle model based on [40] , and outline our two novel additions. We then show the various dynamics the model can generate an reveal its phase diagram in Section III. We discuss in particular how capital scarcity increases the probability of consumption crises, and lead to a multifold increase of the recovery time (see Section III G). Section IV concludes by discussing the policy implications of our findings, and the avenues for possible extensions of the model.",
+            "cite_spans": [
+                {
+                    "start": 100,
+                    "end": 104,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "The framework presented here hybridises some standard assumptions used in the New Keynesian Dynamic Stochastic General Equilibrium (DSGE) model (see [49] ) with plausible behavioural assumptions about consump-tion propensity and investment strategies. The environment is based on two blocks: the representative consumer and the representative firm. At this point, we neglect inter-temporal effects and do not attempt to model inflation dynamics and monetary policy, although these features could be included at a later stage. Nonetheless, the phenomenology of our model is already quite rich and needs to be streamlined before exploring further the dynamics of prices. All variables and notations are reported in Table I .",
+            "cite_spans": [
+                {
+                    "start": 149,
+                    "end": 153,
+                    "text": "[49]",
+                    "ref_id": "BIBREF48"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 713,
+                    "end": 720,
+                    "text": "Table I",
+                    "ref_id": "TABREF2"
+                }
+            ],
+            "section": "II. A BEHAVIOURAL BUSINESS CYCLE MODEL"
+        },
+        {
+            "text": "The household sector derives utility from a composite consumption good and provides labour services to the firm. At each time t, the representative household maximises its instantaneous utility,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. The Household"
+        },
+        {
+            "text": "where c t and n t denote respectively the level of aggregate consumption and the aggregate amount of working hours the household provides to the firm, G t is the (time dependent) propensity to consume out of income, and \u03b3 is the disutility of labour (which we fix to 1 for the numerical analysis). Each period, the household faces a budget constraint given by its real income I t ,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. The Household"
+        },
+        {
+            "text": "which is funded by three sources: (i) the real wage rate w t paid by the firm for a unit of labour n t , (ii) the real value of the maturating single-period bonds b t\u22121 , purchased at time t \u2212 1 at the price (1 + r t\u22121 ) \u22121 and paying (1 + \u03c0 t ) \u22121 at time t, where r t is the interest rate and \u03c0 t is the inflation rate, and (iii) the realised yield q t\u22121 per unit of real capital k t that the firm pays to the household in return for investment. We henceforth assume a constant interest rate r = 0.15% and inflation \u03c0 = 0.1%, keeping in mind a unit time scale corresponding to a month or quarter. Total spending, correspondingly, consists in good consumption (with the price of good set to unity), purchases of new bonds and topping up the firm's capital. Maximisation of the household's utility (Eq. (1)) leads to the familiar state equation",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. The Household"
+        },
+        {
+            "text": "describing the trade-off between consumption and labour in the current period t. Interestingly, Eq. (3) can also be interpreted in a way that lends itself to a natural generalisation for investment decisions. Suppose one starts with a time independent utility function, Eq. (1) with G t \u2261 1, which is now optimised under the constraint that the total budget devoted to consumption is a fixed fraction G t \u2208 [0, 1] of the income I t , i.e.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. The Household"
+        },
+        {
+            "text": "It is easy to show that the very same equation Eq. (3) immediately follows. We posit that the remaining fraction 1 \u2212 G t of income is invested in bonds and capital, i.e.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. The Household"
+        },
+        {
+            "text": "where a fraction F t \u00b7 i t (with F t \u2208 [0, 1]) is allocated to productive capital, and the remainder (1 \u2212 F t ) \u00b7 i t is invested in bonds -see Fig. 2 for a pie chart summarising the household spending and investment decision. The capital level available to the firm thus evolves as",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 144,
+                    "end": 150,
+                    "text": "Fig. 2",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "A. The Household"
+        },
+        {
+            "text": "where \u03b4 is the capital depreciation rate. The remaining investment is allocated to bonds at price (1 + r) \u22121 , so",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. The Household"
+        },
+        {
+            "text": "The quantities G t and F t aim to capture confidence effects and the attractiveness of risky capital investment, respectively, and are specified in section II E below.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. The Household"
+        },
+        {
+            "text": "The economy's productive sector is made up of a single representative firm, which transforms labour n t and capital k t into a composite good y t consumed by the representative household. The firm's production technology is given by a Constant Elasticity of Substitution (CES) function with constant returns to scale, 7",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. The Firm"
+        },
+        {
+            "text": "where \u03b1 = 1/3 is the capital share in production, 1/(1 + \u03c1) is the elasticity of substitution between capital and labour with \u03c1 > 0, and z t > 0 is a stationary exogenous technological process. It is given by z t = z 0 e zt , where z t follows an AR(1) process:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. The Firm"
+        },
+        {
+            "text": "with first-order autocorrelation \u03b7, which affects the correlation time of the technology shocks. (In the following we will fix \u03b7 = 0.5, corresponding to a correlation time of a few months). The base level z 0 corresponds to the most probable value of productivity. Note, importantly, that z 0 has units of [Time] \u22121 , i.e. the amount of goods that can be produced per unit time for a given level of capital and labour. As our focus is on economic fluctuations, we abstract from production growth in the present model, i.e. the secular dependence of z 0 on time.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. The Firm"
+        },
+        {
+            "text": "The CES production function nests two important limits that affect economic dynamics. As \u03c1 \u2192 0 + , the production function becomes perfectly elastic and recovers the Cobb-Douglas form (y CD t = z t n 1\u2212\u03b1 t k \u03b1 t ), whereas in the limit \u03c1 \u2192 +\u221e the firm produces via an inelastic Leontief function (y L t = z t min(n t , k t )). 8 Throughout the following, we choose \u03c1 = 7, corresponding to a near Leontief limit, i.e. a very small amount of substitutability between capital and labour. We will briefly comment in section III G the impact of higher substitutability.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. The Firm"
+        },
+        {
+            "text": "The firm maximises its target profit P t",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. The Firm"
+        },
+        {
+            "text": "with respect to the labour supply n t and the capital level k t , where p t is set to unity and correspondingly w t is the real wage and q * t is the real rent on capital. Under the assumption that the market clears, i.e.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. The Firm"
+        },
+        {
+            "text": "one findsw",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. The Firm"
+        },
+        {
+            "text": "7 In full generality, the CES function should be written as",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. The Firm"
+        },
+        {
+            "text": "where \u03ba is another parameter.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. The Firm"
+        },
+        {
+            "text": "However one can always set \u03ba = 1 at the expense of rescaling the disutility of labour parameter according to \u03b3 \u2192 \u03ba\u03b3. 8 Keeping the parameter \u03ba free (see previous footnote), the Leontief function would read y L t = zt min(\u03bant, kt), i.e. \u03ba \u22121 measures the amount of labour equivalent to one unit of capital.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. The Firm"
+        },
+        {
+            "text": "FIG. 3. The figure shows the behaviour of rescaled consumptionct, wageswt, and rent on capitalq * t as a function of kt, in the Leontief limit, i.e. \u03c1 \u2192 +\u221e. Note the qualitative change of behaviour between kt > Gt/2\u03b3 and kt < Gt/2\u03b3.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. The Firm"
+        },
+        {
+            "text": "where, generically,x := x/z. Note that, as it should be, wages, consumption and rent on capital are all in units of z, i.e. unit time scale (e.g. a month or a quarter).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. The Firm"
+        },
+        {
+            "text": "Combining the household's state equation, Eq. (3) and the equation for the real wage, Eq. (12), the consumption level c t must satisf\u1ef9",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. The Firm"
+        },
+        {
+            "text": "As both sides of Eq. (14) are monotonous, this ensures a unique solution for any given level of capital k t and consumption rate G t . As expected, the consumption at time t increases if the capital k t is increased and/or the consumption rate G t is increased.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "B. The Firm"
+        },
+        {
+            "text": "In this section we discuss in detail the Leontief limit of the equations derived in the previous section. Such an analysis will greatly help understanding the dynamics of the model that will be described below.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "C. The Leontief Limit"
+        },
+        {
+            "text": "Assume first thatc t < k t and \u03c1 \u2192 \u221e. Then (c t /k t ) \u03c1 \u2192 0 and one findsc",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abundant Capital"
+        },
+        {
+            "text": "This is only consistent with our working hypothesis when",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abundant Capital"
+        },
+        {
+            "text": "In this regime one finds, using Equation (3):",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abundant Capital"
+        },
+        {
+            "text": "which once plugged back in Equation (12) leads t\u00f5",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abundant Capital"
+        },
+        {
+            "text": "Sincec t < k t , one concludes from Eq. (13) that the rent on capitalq * t is exponentially small. Intuitively, as labour is the limiting factor, consumption is directly proportional to how much the household chooses to work and the productivity at that time, while capital has no distinct effects on the economy.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abundant Capital"
+        },
+        {
+            "text": "Now let us look at the regime",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Scarce Capital"
+        },
+        {
+            "text": "We introduce the notation \u03b2 t := 2k 2 t \u03b3/G t for further use. We hypothesise that the solution forc t in this regime is of the formc",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Scarce Capital"
+        },
+        {
+            "text": "where x t = O(1) is to be determined. Plugging in Eq. (14), we find:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Scarce Capital"
+        },
+        {
+            "text": "or, for \u03c1 \u2192 +\u221e,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Scarce Capital"
+        },
+        {
+            "text": "The equation forq * t then leads t\u00f5",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Scarce Capital"
+        },
+        {
+            "text": "which indeed vanishes when \u03b2 t = 1, correctly matching the regime where capital is plentiful, whereasq * t tends to unity when \u03b2 t \u2192 0, i.e. where k t \u2192 0.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Scarce Capital"
+        },
+        {
+            "text": "Withc t = k t e \u2212xt/\u03c1 , one finds from Equation (3)",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Scarce Capital"
+        },
+        {
+            "text": "Finally, plugging into the equation for wages,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Scarce Capital"
+        },
+        {
+            "text": "or in the limit \u03c1 \u2192 \u221e,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Scarce Capital"
+        },
+        {
+            "text": "and hence n t = k t +O(\u03c1 \u22121 ). Again, this solution matches with the resultw t = 1 obtained for \u03b2 t \u2265 1.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Scarce Capital"
+        },
+        {
+            "text": "A summary sketch of the above results is provided in Fig. 3 , as available capital k t is varied. Part of the dynamical properties of our model can be inferred from this figure: when capital is lush, return on capital is small and investment decreases (i.e. F t decreases). If investment falls below the level of capital depreciation \u03b4, then k t will fall until the level G t /2\u03b3 is reached. At this point, return on capital q * t increases, promoting investment. When consumption propensity G t increases, k t may fall behind, again leading to an increase of q * t . Hence we expect a regime where the economy stabilises close to the point where k t \u2248 G t /2\u03b3, where capital and labour are tracking each other, and interest on capital and wages are neither very small, nor saturated to their maximum value w max = q * max = z.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 53,
+                    "end": 59,
+                    "text": "Fig. 3",
+                    "ref_id": null
+                }
+            ],
+            "section": "Discussion"
+        },
+        {
+            "text": "Rigidity and costs to capital usage are typically introduced through adjustment costs to capital utilisation (e.g. see [50] ). In this paper we take a different route. Rather than empowering the household to choose the firm's utilisation rate, we suppose the household invests in capital and gives operational control of capital to the firm. In exchange it is promised a return q * per unit capital and per unit time scale (month or quarter). However, as the volatility of the stock-market attests to, such a return is not assured. Hence, we introduce an intrinsic state-dependent risk to the returns on capital 9 \u03be \u2208 [0, 1] as a modifier, such that the rate actually paid by the firm is:",
+            "cite_spans": [
+                {
+                    "start": 119,
+                    "end": 123,
+                    "text": "[50]",
+                    "ref_id": "BIBREF49"
+                }
+            ],
+            "ref_spans": [],
+            "section": "D. The Risk of Investment"
+        },
+        {
+            "text": "where \u03be is distributed as",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "D. The Risk of Investment"
+        },
+        {
+            "text": "where parameter a controls the intensity of the risk. Note indeed that E[\u03be] = a/(1 + a) and",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "D. The Risk of Investment"
+        },
+        {
+            "text": "Hence the larger the value of a, the more p(\u03be) is concentrated around \u03be = 1 (full payment). This formulation of risk implies that the representative firm pays out at most the marginal productivity of capital, but more likely only pays a fraction of this, corresponding to an effective description of financial distress and bankruptcy within a representative firm setup. In most simulations we set a = 15, such that the return is on average 93.75% of the promised return. In an extended version of the model, the parameter a could itself be a function of the state of the economy (in particular of the availability of capital), but we will not consider this possibility here.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "D. The Risk of Investment"
+        },
+        {
+            "text": "The model laid out in Sections II A-II D contains two dynamic variables, the consumption rate G t in Eq. (4) and the investment allocation rate F t in Eq. (5), which have not been specified yet. These two variables are responsible for the feedback mechanisms which are at the core of the dynamical evolution of our model economy.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "D. The Risk of Investment"
+        },
+        {
+            "text": "Here we elaborate on these mechanisms and provide the economic intuition behind them.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "D. The Risk of Investment"
+        },
+        {
+            "text": "As in Refs. [31, 40] , we postulate that the consumption rate G t (or propensity, see section II A) is a function of the consumer confidence index C t , that we model as a real variable \u2208 [\u22121, 1] and, possibly, on the difference between the expected inflation rate \u03c0 t := E t [\u03c0] and the bond rate r t :",
+            "cite_spans": [
+                {
+                    "start": 12,
+                    "end": 16,
+                    "text": "[31,",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 17,
+                    "end": 20,
+                    "text": "40]",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [],
+            "section": "The Consumption Rate"
+        },
+        {
+            "text": "where the dependence on the second variable is a way to effectively encode the content of the standard Euler equation without explicitly introducing an inter-temporal optimisation of utility, and where the . . . leaves room to possible additional variables. But since in the present paper we assume both inflation and interest rates to be constant, the second variable will be dropped altogether.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The Consumption Rate"
+        },
+        {
+            "text": "As far as the first variable is concerned, we follow our previous work in [40] , where we postulated that confidence of a given household is impacted by the level of consumption of other households in the previous time step. In a mean-field limit, this self-reflexive mechanism writes",
+            "cite_spans": [
+                {
+                    "start": 74,
+                    "end": 78,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [],
+            "section": "The Consumption Rate"
+        },
+        {
+            "text": "The parameter c 0 is a \"confidence threshold\" where the",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The Consumption Rate"
+        },
+        {
+            "text": ". Parameter \u03b8 c > 0 sets the width of the consumption interval over which the transition from low confidence to high confidence takes place. One could introduce, as in e.g. [51] [52] [53] , the impact of macroeconomic news as an extra contribution to the argument of the tanh function. This would describe how the consumer confidence index is further modulated by some exogenous shocks, but we leave such an extension for future work. Back to the consumption rate G t , we write",
+            "cite_spans": [
+                {
+                    "start": 173,
+                    "end": 177,
+                    "text": "[51]",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 178,
+                    "end": 182,
+                    "text": "[52]",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 183,
+                    "end": 187,
+                    "text": "[53]",
+                    "ref_id": "BIBREF52"
+                }
+            ],
+            "ref_spans": [],
+            "section": "The Consumption Rate"
+        },
+        {
+            "text": "where 0 \u2264 G min < G max \u2264 1 are the minimum and maximum proportions of income the household will consume. We fix G min = 0.05 to ensure the household will consume whenever its income is positive (necessary consumption). Similarly, we set G max = 0.95 to account for a minimal form of precautionary savings in response to some uncertainty regarding the future.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The Consumption Rate"
+        },
+        {
+            "text": "The intuition behind Eqs. (30) and (31) is that when consumption is above the threshold, c > c 0 , there is high confidence in the future of the economy, thereby a large fraction of income, G t \u2192 G max , is consumed. High confidence represents the belief that future income will be sufficient to maintain high consumption with a minimal amount of savings to sustain capital levels. Conversely, when consumption is below the threshold, c < c 0 , the consumption rate collapses, G t \u2192 G min . Following a shock or deterioration in consumption to below the confidence threshold, there is uncertainty about the future economy and whether future consumption is assured. This induces the household to save more for the future, effectively reducing the current demand. Economically, c 0 is thus similar to minimal consumption: it defines the threshold beyond which there is a panic where the household's \"survival\" is in question.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The Consumption Rate"
+        },
+        {
+            "text": "The parameter \u03b8 c modulates the households reaction to a breach of necessary consumption, and can be described as the household's panic polarity. For high \u03b8 c , the household requires only a relatively small shock below c 0 to reduce the consumption rate to its minimum. This leads to a bi-stable savings behaviour with sharp transitions. Conversely, as \u03b8 c \u2192 0 the household becomes unresponsive to the state of the economy, consuming half its income regardless of high or low preceding consumption. The intermediate levels of \u03b8 c describe the smoothness of the adjustment to consumption shocks.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The Consumption Rate"
+        },
+        {
+            "text": "According to [40] there are four distinct \"phases\", i.e. regions of qualitatively comparable dynamics, that are distinguished by the bi-stability of G t . We can observe in particular a phase of high persistent consumption with no crises, high consumption with short downward spikes, or a phase with alternating periods of high consumption (booms) and low consumption (busts).",
+            "cite_spans": [
+                {
+                    "start": 13,
+                    "end": 17,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [],
+            "section": "The Consumption Rate"
+        },
+        {
+            "text": "In each period, the household must allocate its savings between one-period bonds and capital. It does so through an allocation decision F t based on the household's observation of the economy, and its beliefs about future risk and return. The novelty of our model lies in the behavioural foundation that determines the proportion of new investment dedicated to bonds, F t . Investment beliefs are shaped by two factors: (i) an estimate of the expected risk-adjusted excess returns to capital investment, given by a Sharpe ratio S t [54] , and (ii) the current confidence level C t about the future state of the economy.",
+            "cite_spans": [
+                {
+                    "start": 532,
+                    "end": 536,
+                    "text": "[54]",
+                    "ref_id": "BIBREF53"
+                }
+            ],
+            "ref_spans": [],
+            "section": "The Investment Allocation"
+        },
+        {
+            "text": "The Sharpe ratio S t is an estimate of the risk-adjusted real return, q t \u2212 \u03b4, of investing capital in the firm versus holding risk-free bonds (b t ) paying r. It increases as the returns to capital increase or become less volatile. We assume that estimates of the future Sharpe ratio are only based on exponential moving averages of past (observable) realised returns, which is a form of extrapolative beliefs. 10 In other words, i.e. the mean \u00b5 q and standard deviation \u03c3 q of the return stream are computed as",
+            "cite_spans": [
+                {
+                    "start": 412,
+                    "end": 414,
+                    "text": "10",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "The Investment Allocation"
+        },
+        {
+            "text": "with an exponential moving average defined by a gain parameter \u03bb \u2208 (0, 1), corresponding to a memory time scale equal to T \u03bb := 1/| log \u03bb|: a larger \u03bb implies that a higher weight is given to recent observations. The factor N \u2248 1/4 is quite arbitrary, but chosen such that, when compared to the confidence in Eq. (35) below, the two terms are of similar magnitude. (Note that this choice is in fact immaterial, since changing N is equivalent to rescaling the parameter \u03bd defined in Eq. (35) below.) The interpretation of the Sharpe ratio is as follows: a positive signal S t > 0 suggests that the expected real return to capital investment exceeds the returns to risk-free bonds. The magnitude of S t is inversely proportional to the risk of capital investment, as measured by the estimated volatility \u03c3 q t . Thus in a high-volatility environment the signal might be positive but weak.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The Investment Allocation"
+        },
+        {
+            "text": "The second indicator potentially influencing the household investment decision is the confidence index, C t , as previously defined. In periods where the household has low confidence, there is a reduced impetus to invest in risky assets because households wish to guarantee nextperiod income. These are often periods of crisis with a higher volatility in returns. Since bonds are risk-free, this leads to a higher allocation of funds to bonds, ceteris paribus. Conversely, higher confidence about the future means more appetite for risk, and hence a higher fraction of the savings invested in the capital of firms and a lower fraction invested in bonds.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The Investment Allocation"
+        },
+        {
+            "text": "We postulate that the propensity, F t , to make risky bets is a function of the overall sentiment \u03a3 t , computed as a linear combination of the Sharpe ratio and of the confidence:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The Investment Allocation"
+        },
+        {
+            "text": "where \u03bd \u2208 [0, 1] is the weight the household gives to its estimates of risk-adjusted return S t and its confidence level C t . When \u03bd = 1, the household's confidence plays no role in the investment rule. For positive Sharpe ratio and confidence indicator, the sentiment is positive, \u03a3 t > 0, indicating a willingness to invest in risky capital. But if \u03bd < 1 sentiment can turn negative even when the Sharpe ratio is high, because of a high level of anxiety about the future state of the economy, encoded as a negative value of C t .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The Investment Allocation"
+        },
+        {
+            "text": "Finally, the unbounded sentiment \u03a3 t is transformed into a portfolio allocation to capital F t \u2208 [0, 1] via,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The Investment Allocation"
+        },
+        {
+            "text": "where F max and F min represent the maximum and the minimum proportion of total investment i t invested into capital. In the following, the allocation decision is bounded between F min = 0 and F max = 1, which precludes any divestment (or short-selling) of capital or bonds. 11 The parameter \u03b8 k represents the sensitivity of the portfolio allocation to the agent's sentiment and sets the width of the sentiment interval over which the capital allocation goes from F min to F max , that is how polar the investment decision is. For \u03b8 k \u2192 \u221e, the allocation becomes binary, leading to either F t = F min when sentiment is negative or F t = F max when sentiment is positive.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The Investment Allocation"
+        },
+        {
+            "text": "In the following part, we fix the sensitivities to a rather high value \u03b8 k = \u03b8 c = 15, such that the transitions between different regimes are sharp.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "The Investment Allocation"
+        },
+        {
+            "text": "In this section we have set up a business cycle model incorporating two behavioural mechanisms: a self-reflexive consumption rate decision, already advocated in Ref. [40] , and an investment allocation decision. The novelty of this paper lies in the behavioural foundation that determines the proportion of new risky investment F t , which depends directly on three key parameters, \u03bb, \u03bd, \u03b8 k , describing the \"sentiment\" of the household, i.e. its risk aversion. F t also indirectly depends on the risk intensity parameter a and the capital depreciation rate \u03b4. The consumption decision depends on two parameters c 0 and \u03b8 c that define the household confidence about its future welfare.",
+            "cite_spans": [
+                {
+                    "start": 166,
+                    "end": 170,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [],
+            "section": "F. Summary & Orders of Magnitude"
+        },
+        {
+            "text": "In the following we discuss how the parameters of these two feedback mechanisms strongly affect the model's dynamics. Note that a very important parameter of the model is the baseline productivity z 0 , which fixes the scale of the consumption, wages and rent on capital (all per unit time scale). In the following, we choose z 0 = 0.05, corresponding to an annual productivity of capital of 20% if the unit time step is a quarter and 60% if it is a month. 12 Among all the parameters of the model, three have an interpretation in terms of time scales:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "F. Summary & Orders of Magnitude"
+        },
+        {
+            "text": "\u2022 \u03b7, which appears in the dynamics of the productivity shocks, that we have fixed to 0.5 thoughout this study, corresponding to a time scale T \u03b7 = 1/| log \u03b7| of a few months ;",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "F. Summary & Orders of Magnitude"
+        },
+        {
+            "text": "\u2022 \u03bb, which is the gain parameter used by investors to estimate the Sharpe ratio of risky investments, corresponding to a time scale T \u03bb = 1/| log \u03bb|. Our default value will be \u03bb = 0.95, corresponding to T \u03bb \u2248 20 or 5 years if the unit time is a quarter or a month respectively;",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "F. Summary & Orders of Magnitude"
+        },
+        {
+            "text": "\u2022 \u03b4, the capital depreciation rate, which we choose in the range 0.001 -0.02, corresponding to a typical replacement time of capital T \u03b4 = 1/| log(1 \u2212 \u03b4)| \u2248 12 -250 years when the unit time is a quarter, and three times less if it is a month. Hence \u03b4 = 0.001 means essentially no depreciation of capital.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "F. Summary & Orders of Magnitude"
+        },
+        {
+            "text": "The role and the effect of varying these timescales is studied in detail in Section III G. An important remark, at this stage is that, while our choice of one quarter as the unit time step is quite arbitrary, a combination of parameters that is crucial for the properties of the model is the dimensionless product z 0 \u00b7 T \u03b4 \u2248 z 0 /\u03b4, i.e. how much goods can be produced (per unit capital) over the life-cycle of capital.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "F. Summary & Orders of Magnitude"
+        },
+        {
+            "text": "In this section we first investigate numerically the phase diagram of our self-reflexive business cycle model and highlight the different dynamical features that the model can generate. We choose as control parameters those which govern the behaviour of our two feedback mechanisms: the consumption propensity G t and the risky investment decision F t . In order to navigate through the following paragraphs, let us explain in a nutshell what is expected to happen in the model.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "III. CRISES & PHASE DIAGRAMS"
+        },
+        {
+            "text": "If a productivity shock causes confidence to drop, consumption propensity G t and consumption both drop as well, whereas the saving rate 1 \u2212 G t increases. Because consumption drops, unemployment rises and capital becomes superfluous, leading to a decrease of the rent on capital q * . Because the fraction of savings invested in capital F t depends both on q * (through the Sharpe ratio) and on the level of confidence (with a weight 1 \u2212 \u03bd), the amount invested in risky capital, given by (1 \u2212 G t ) \u00b7 F t \u00b7 I t can either increase (if the factor 1 \u2212 G t dominates) or decrease (if the factor F t dominates), depending on parameters and conditions. In the second situation, and if capital depreciation is fast, one may face a situation where consumption is impaired and capital becomes scarce at the same time, making recovery more difficult and leading to long periods where the economy is trapped in a low output state. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "III. CRISES & PHASE DIAGRAMS"
+        },
+        {
+            "text": "We focus on two distinct phenomena exhibited by our model: consumption crises and capital scarcity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. Crises Indicators"
+        },
+        {
+            "text": "\u2022 Consumption crises occur in periods where the household's consumption, c t , falls below its threshold, c 0 . In other words, we have a low demand for consumption which leads the economy into a stagnating low-output state. The severity of such consumption crises is measured as",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. Crises Indicators"
+        },
+        {
+            "text": "where \u0398(x \u2265 0) = 1 and \u0398(x < 0) = 0 and T is the total simulation time. This indicator counts the fraction of time consumption c t is low, weighted by the relative distance between c t and c 0 .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. Crises Indicators"
+        },
+        {
+            "text": "\u2022 Since we are considering an economy defined by low substitutability between capital and labour (i.e. \u03c1 1 in the CES production function), we define capital scarcity as the periods where production is determined by capital levels, i.e. k t \u2264 n t . The severity of capital crises is similarly measured as",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. Crises Indicators"
+        },
+        {
+            "text": "In a sense, one can consider these two phenomena as demand and supply crises.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. Crises Indicators"
+        },
+        {
+            "text": "\u2022 In the consumption crisis state the household does not wish to spend on consumption, hence we see a low aggregate demand. Provided capital depreciation is low, this is also a state of excess capital (k > n) and low returns on capital.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. Crises Indicators"
+        },
+        {
+            "text": "\u2022 In the capital scarcity state, the firm is bound in its production by the supply of capital, hence it can be viewed as a form of supply crisis.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. Crises Indicators"
+        },
+        {
+            "text": "Both phenomena can be more or less frequent, and at first glance unrelated, but closer scrutiny reveals that in some regions of parameters, these two types of crises interact with one another. To differentiate between characteristic behaviours we distinguish between four different phases in the space of the parameters defined by the values that the indicators \u039e k and \u039e c take: (L k , L c ), (L k , H c ), (H k , L c ), (H k , H c ), where L and H represent the \"low prevalence\" and \"high prevalence\" of each phenomena c or k, respectively. There is however no strict definition of the boundary between high and low prevalence regimes. As a convention, we consider that the crisis prevalence is high when \u039e 10 \u22122 .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "A. Crises Indicators"
+        },
+        {
+            "text": "Given this setup, we first focus on the effects of three key parameters: the depreciation rate \u03b4, the weight \u03bd of the Sharpe ratio in the investment decision, and the consumption threshold c 0 . Other parameters are fixed to z 0 = 0.05, \u03bb = 0.95 (i.e. T \u03bb = 20), a = 15 and \u03c3 z = 0.15. Figure 4 presents heat-maps of the severity of capital crises log 10 \u039e k (top) and consumption crises log 10 \u039e c (bottom) across parameter combinations, where red indicates high prevalence. We show two representative sections of the parameter space: the planes (c 0 , \u03bd) (left) and (\u03c3 z , a) (right). Since we present the logarithms of \u039e k,c , the crossovers between high and low prevalence of different phases are rapid but smooth, i.e. there are no sharp phase transitions that characterise the system's behaviour. From each phase we study a point of the line \u03bd = 1 and different values of c 0 (marked by points in Figure 4) , with all other parameters fixed and plot the dynamics of consumption c t , labour n t , capital k t , and the measured Sharpe ratio S t in Figure 5 . Note that changing the value of parameters (including \u03bd) while staying in the same phase leads to qualitatively similar trajectories.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 286,
+                    "end": 294,
+                    "text": "Figure 4",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 903,
+                    "end": 912,
+                    "text": "Figure 4)",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 1054,
+                    "end": 1062,
+                    "text": "Figure 5",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "A. Crises Indicators"
+        },
+        {
+            "text": "As shown in Figure 5 , leftmost column, the L k L c phase is characterised by a stable capital surplus, low interest on capital and rare consumption crises. The depreciation of capital \u03b4 is so small that even with a puny level of investment, capital is always in excess and labour is the limiting factor. The stable capital surplus, in combination with a low confidence threshold c 0 , means that productivity shocks z t hardly ever reach the required magnitude to trigger a consumption crisis, and if it does, recovery is almost immediate.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 12,
+                    "end": 20,
+                    "text": "Figure 5",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "B. Prosperous Stability"
+        },
+        {
+            "text": "The corresponding bottom panel of Figure 5 , shows that the consumption level has normal fluctuations, entirely due to exogenous productivity shocks z t , around a single high-consumption equilibrium. A corollary of the large capital excess is that the labour supply is nearly constant (extremely narrow-distribution in the L k L c panel of Figure 5 ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 34,
+                    "end": 42,
+                    "text": "Figure 5",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 341,
+                    "end": 349,
+                    "text": "Figure 5",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "B. Prosperous Stability"
+        },
+        {
+            "text": "As the depreciation rate \u03b4 increases, the average excess of capital supply over labour shrinks, increasing the prevalence of capital scarcity. Accordingly, the phase L k quickly disappears upon increasing \u03b4, leading to a pervasive H k L c phase (see e.g. Fig. 4 , third column, which shows that capital is always scarce when \u03b4 = 0.02). As \u03b4 is further increased, the L c phase is more and more confined to small values of c 0 , i.e. when confidence is intrinsically robust.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 255,
+                    "end": 261,
+                    "text": "Fig. 4",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "B. Prosperous Stability"
+        },
+        {
+            "text": "The H k L c phase is characterised by persistent capital scarcity with rare consumption crises, and is confined within a low c 0 \"band\" in the (c 0 , \u03bd) plane when \u03b4 is large enough. Since c 0 is low, confidence of is generally high and therefore the household systematically consumes a large proportion G t of its income, leaving only a small share for investment. Because of capital depreciation, the economy settles in a regime where k t < G t /2\u03b3, meaning that production is limited by capital, wages are low and rent on capital is high (i.e. the left region in Fig. 3) . Hence, the average consumption level is lower than the maximal consumption level reached in the L k L c phase -see Figure 5 , second column.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 566,
+                    "end": 573,
+                    "text": "Fig. 3)",
+                    "ref_id": null
+                },
+                {
+                    "start": 691,
+                    "end": 699,
+                    "text": "Figure 5",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "C. Prevalent Capital Scarcity"
+        },
+        {
+            "text": "But since c t is now closer to c 0 , consumption crises are lurking around and the economy can flip into the H k H c if c 0 increases and/or if productivity shocks are stronger (higher \u03c3 z ). This is clearly confirmed by the phase diagram of Fig. 4 . In fact, comparing the phase diagrams for \u03b4 = 0.005 and \u03b4 = 0.02, we see that faster depreciation of capital converts large swaths of H k L c phase into H k H c . Hence, in this case, investment crises (i.e. the supply side) do trigger consumption crises (i.e. the demand side) by reducing the difference between c t and c 0 -see also the discussion in section III E.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 242,
+                    "end": 248,
+                    "text": "Fig. 4",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "C. Prevalent Capital Scarcity"
+        },
+        {
+            "text": "When the depreciation rate is sufficiently small but the confidence threshold increases, capital remains abundant but self-reflexive confidence crises can hurl the system into a low consumption, low employment regime as a result of random productivity shocks. This is the L k H c phase. Since capital is high, its level does not impact the level of production, and interest on capital is small. Hence the model becomes completely equivalent, in this regime, to the one studied in [40] , where the dynamics is characterised entirely by the consumption propensity G t and is dominated by frequent consumption crises, induced by breakdown of collective confidence.",
+            "cite_spans": [
+                {
+                    "start": 480,
+                    "end": 484,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [],
+            "section": "D. Prevalent Consumption Crisis"
+        },
+        {
+            "text": "As argued in [40] and shown in Figure 5 , third column, consumption then displays bi-stable dynamics, where high and low consumption regimes alternate. Correspondingly, the distributions of consumption and labour reveal a secondary peak centred around the lowconsumption equilibrium.",
+            "cite_spans": [
+                {
+                    "start": 13,
+                    "end": 17,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 31,
+                    "end": 39,
+                    "text": "Figure 5",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "D. Prevalent Consumption Crisis"
+        },
+        {
+            "text": "Note that during consumption crises (i.e. G t ) capital becomes even more abundant relative to labour (recall that one needs to compare k t with G t /2\u03b3) and therefore return on capital and Sharpe ratio both fall, as can be seen in the pink shaded region of Fig. 5 , third column. If we are in a region where consumption crises are short enough compared to both the time T \u03bb over which the Sharpe ratio is estimated and the capital depreciation time T \u03b4 , then one can avoid a capital crisis when confidence comes back. Otherwise, the economy enters a turbulent H k H c phase with both capital and consumption crises.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 258,
+                    "end": 264,
+                    "text": "Fig. 5",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "D. Prevalent Consumption Crisis"
+        },
+        {
+            "text": "This final H k H c phase has both persistent capital scarcity and consumption crises. As anticipated above, capital crises can trigger consumption crises, because capital scarcity drives consumption closer to the confidence threshold c 0 , below which consumption drops and precautionary savings increase. One can then enter a doom loop (similar to Keynes' famous paradox of thrift) where now capital is too high and leads to a reduction of incentive to invest away from bonds. Hence, as shown in the fourth column of Fig. 5 , capital and labour fluctuate around low levels, with intertwined periods of capital scarcity (grey regions) and high unemployment (pink regions). The Sharpe ratio gyrates rather strongly between negative values and values close to unity, with a significant negative skewness. The economy is unstable and always far from its optimal state.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 518,
+                    "end": 524,
+                    "text": "Fig. 5",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "E. Capital and Consumption Crises"
+        },
+        {
+            "text": "Recall that we have fixed the interest rate on bonds to a constant value. But with a massive demand for bonds, as expected in the H k H c phase, one should expect the government to borrow at low rates and prop up the economy with public investment, a feature not modelled in the current framework, but certainly worth accounting for in a later version of the model.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "E. Capital and Consumption Crises"
+        },
+        {
+            "text": "To summarise, we have identified four qualitatively different phases of the dynamics. Possibly the most interesting (and novel) one is H k H c , where capital scarcity is persistent, thereby triggering consumption crises. In this phase the economy is unstable, as capital becomes scarce the likelihood of a consumption crisis increases, and vice versa, low consumption drives rent on capital down and increases the risk aversion of investors.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "F. Summary"
+        },
+        {
+            "text": "We have underlined the role of the capital depreciation rate \u03b4 in determining the fate of our model economy. In fact, when capital and infrastructure are sufficiently long-lived such that z 0 \u00b7 T \u03b4 is large, the economy reaches a stable and prosperous state L k L c , provided self-induced confidence crises are rare enough (i.e. c 0 small). Conversely, when z 0 \u00b7 T \u03b4 is low, capital depreciates too quickly and this dents the rents that can be expected by investors. The economy quickly becomes under-capitalised and inefficient, especially because the dearth of capital makes confidence crises more probable, paving the way for the existence of a dysfunctional H k H c region in the phase diagram.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "F. Summary"
+        },
+        {
+            "text": "In the previous section, we have explained how capital depreciation can cause instabilities, and the appearance of a H k H c phase where both capital and consumption undergo regular crises. In this section, we want to explore the influence of the memory timescale T \u03bb , which is the history span over which investors assess the Sharpe ratio of capital investment, and of the sentiment parameter \u03bd on the time needed for recovery when in a crisis period. We focus on this turbulent phase of the economy. We will fix the other two timescales T \u03b4 , T \u03b7 defined in section II F to, respectively, 200 and 2.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "G. Investment and Crisis Recovery"
+        },
+        {
+            "text": "Our benchmark will thus be the H k H c point in Fig. 4 , corresponding to \u03bb = 0.95, \u03b4 = 0.005, \u03bd = 1 and c 0 = 0.017 (with a and \u03c3 z also fixed at their baseline values). Looking at the statistics of the high consumption periods and of the low consumption periods, we conclude that the prosperous periods last a time T > of the order of T \u03b4 = 200 (data not shown), whereas crises are rather short, of the order of T < \u2248 10, see Fig. 6 , plain vertical lines in the third graph of the bottom row, which corresponds to T \u03bb = 20, i.e. \u03bb = 0.95. The full distribution of T < and of the Sharpe ratio S for \u03bd = 1 are shown in light grey, and reveals that whereas its time averaged value of S is clearly positive and equal to S t \u2248 0.71, its full distribution is uni-modal but quite broad and negatively skewed. Fig. 6 , left graphs shows the consumption crisis prevalence \u039e c and the average Sharpe ratio S as 1\u2212\u03bd (weighing confidence in the investment allocation decision) and T \u03bb are varied. One sees that decreasing \u03bd or increasing T \u03bb leads to an increase of \u039e c , at least in the range shown, T \u03bb 300. The evolution of the average Sharpe ratio is more complex, reflecting the non-trivial shape of its distribution function (bi-modal and skewed, see below). But certainly as agents pay less attention to the actual return on capital and are more affected by the level of confidence, the average Sharpe becomes strongly negative (red region of the diagram) and the economy gets trapped forever in a low consumption, low investment regime where \u03b8 k \u03a3 is negative (see Eq. (36)). Now, let us look at a cut along the direction \u03bd = 0.75, corresponding to a 25% weight given to confidence in the allocation decision, as T \u03bb is varied. For this particular value of \u03bd, the average Sharpe ratio is close to zero and only weakly depends on T \u03bb (Fig. 6, bottom left graph) . But from the bottom row of Fig. 6 , we see that when T \u03bb 10, the distribution of Sharpe ratios becomes bimodal and with a skewness that decreases as T \u03bb increases. This can be rationalised as follows:",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 48,
+                    "end": 54,
+                    "text": "Fig. 4",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 428,
+                    "end": 434,
+                    "text": "Fig. 6",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 805,
+                    "end": 811,
+                    "text": "Fig. 6",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 1832,
+                    "end": 1859,
+                    "text": "(Fig. 6, bottom left graph)",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 1889,
+                    "end": 1895,
+                    "text": "Fig. 6",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "G. Investment and Crisis Recovery"
+        },
+        {
+            "text": "\u2022 The peak corresponding to positive Sharpe ratios comes from prosperous periods, where consumption is high and capital relatively scarce, leading to a positive return on capital q * : see Fig. 6 , top right graphs: in the high consumption phase, the orange line (capital) is below the green line (labour).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 189,
+                    "end": 195,
+                    "text": "Fig. 6",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "G. Investment and Crisis Recovery"
+        },
+        {
+            "text": "\u2022 The peak corresponding to zero Sharpe comes from crises periods, where capital is in slight excess of labour, leading to a small return on capital (see again Fig. 6 , top right graphs, and section II C).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 160,
+                    "end": 166,
+                    "text": "Fig. 6",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "G. Investment and Crisis Recovery"
+        },
+        {
+            "text": "\u2022 The fat left tail corresponding to negative Sharpes comes from the transitory periods between high confidence and low confidence, when consumption and labour collapse but capital depreciates much more slowly. In this case, return on capital plummets and the Sharpe ratio becomes negative.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "G. Investment and Crisis Recovery"
+        },
+        {
+            "text": "\u2022 As T \u03bb increases, the weight of these transitory regimes in the estimate of the Sharpe ratio becomes small, and the fat left tail disappears, as crises become less frequent and much longer. 13 Whereas the length of the prosperous periods T > is unchanged compared to the benchmark \u03bd = 1 case for all values of T \u03bb 10, the length of the crisis periods T < increases by more than a 100 times as \u03bd is decreased from 1 to 0.75 (compare the grey line and the coloured points in bottom row in Fig. 6 ). The first observation is due to the fact that the Sharpe ratio estimated when in a high output period is clearly in positive territory and quite insensitive to T \u03bb (see the histograms in Fig. 6 ). This means that capital supply is also independent of T \u03bb and that the confidence collapse mechanism must be identical to the one described in our previous work [40] and not triggered by a lack of investment. 14 13 For very large T \u03bb , the situation changes again, see below. 14 This is not to say that the crisis frequency is not related to capital abundance. As already noted in section III E, as capital depreciation \u03b4 increases, available capital decreases, which leads to a lowering of output ct. Since the distance between ct and the threshold c 0 is a crucial determinant of the probability of a confidence crisis, the region H k Hc becomes pervasive as \u03b4 increases, see again Fig. 4 . On the contrary, the mechanism by which confidence is restored is strongly impacted by the value of the memory time T \u03bb . When the economy is in a consumption crisis, the returns on capital are very small. Thus, averaged over a sufficiently long time period, the Sharpe ratio is well defined and also small (see the narrow peaks in the Sharpe ratio distribution in Figure 6 ). Combined with the low confidence dampener on sentiment (1\u2212\u03bd)\u00b7C t , this leads to a negligible investment flow. So whereas positive productivity shocks should put the economy back on an even keel, the level of capital is lagging, which creates a ceiling that prevents consumption (and hence confidence) from increasing substantially and returning to the high consumption case.",
+            "cite_spans": [
+                {
+                    "start": 857,
+                    "end": 861,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 489,
+                    "end": 495,
+                    "text": "Fig. 6",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 686,
+                    "end": 692,
+                    "text": "Fig. 6",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 1380,
+                    "end": 1386,
+                    "text": "Fig. 4",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 1754,
+                    "end": 1762,
+                    "text": "Figure 6",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "G. Investment and Crisis Recovery"
+        },
+        {
+            "text": "Interestingly, the dependence of T < on T \u03bb is in fact non-monotonic. For very large T \u03bb 1000, the memory of prosperous periods persists even during the crises, so that the Sharpe ratio and investment always remain high. In such cases, T < abruptly drops back to small values 5 (data not shown). With extremely small probability, however, the system remains trapped in a crisis forever.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "G. Investment and Crisis Recovery"
+        },
+        {
+            "text": "In the opposite case of a small enough T \u03bb , the short periods where consumption increases due to productivity shocks allow sufficiently rapid increases in capital rent to encourage immediate investment. This is enough to prop up capital and allows confidence to be fully restored as labour and consumption will grow with the limiting factor k t . For an example of these positive spikes of consumption, see top centre panel in Fig. 6 . The same effect takes place if \u03bd is increased back to 1, where only realised Sharpe affects investment. In this case, the drag on capital due to low confidence levels is absent, and the system is able to pull itself out of the rut much more efficiently, leading to shorter crisis periods. But for lower values of \u03bd (higher impact of household confidence on the investment propensity), the dearth of capital in crisis periods is such that the economy is unable to ever recover, i.e. T < = +\u221e for all purposes.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 428,
+                    "end": 434,
+                    "text": "Fig. 6",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "G. Investment and Crisis Recovery"
+        },
+        {
+            "text": "From a policy point of view, reducing interest rates has the direct effect of increasing the Sharpe ratio and reducing the return to bonds, thus promoting investment and making the transition back to the high consumption state easier. However, this may require the central bank to set interest rates r to negative values, as r which might already be close to zero due to prior crises. Besides monetary policy, other measures that improve confidence (e.g. central bank messaging) and/or promote investment into productive capital would have a similar impact (for instance if the government decides on strong fiscal measures that include investment into productive capital, such as through mission-oriented policies or infrastructure spending).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "G. Investment and Crisis Recovery"
+        },
+        {
+            "text": "Finally, let us mention that while the existence of consumption crisis is independent of the substitutability parameter \u03c1, the duration of the low investment, low consumption periods is also highly sensitive to substitutability effects. We have indeed found that when \u03c1 is sufficiently small, i.e. for production functions closer to Cobb-Douglas than to Leontief, recovery is much faster (data not shown). This could have been expected: lack of capital can now be compensated by labour, expediting the transition back to a prosperous state of affairs.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "G. Investment and Crisis Recovery"
+        },
+        {
+            "text": "We have constructed a behavioural real business cycle model in which labour and capital are nearly unsubstitutable. In the model, consumption and investment are controlled by (a) the confidence of households, which is self-reflexive (i.e. agents take cues from the consumption of other agents to determine their consumption budget) and (b) the quality of the excess real return to capital, as measured by the Sharpe ratio. As we have shown in our previous work [40] , the self-referential nature of confidence amplifies the effect of productivity shocks on output, and can lead to crises where consumption abruptly jumps from a high equilibrium level to a low equilibrium level. Depending on the parameters of the model, these crises can be more or less frequent, and the low consumption periods can be of various duration: short spikes (\"V-shaped crises\") or long drawn-out phases (\"L-shaped crises\").",
+            "cite_spans": [
+                {
+                    "start": 461,
+                    "end": 465,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [],
+            "section": "IV. DISCUSSION AND CONCLUSIONS"
+        },
+        {
+            "text": "In the present study we investigate how the introduction of capital affects these dynamical patterns. In our model, capital can either be abundant (in which case labour is the limiting factor to production) or scarce. The main factors determining the quantity of working capital are the depreciation rate and the propensity of the households to save and invest, which itself depends on the return on capital. The resulting phenomenology of the model is quite rich. Our analysis reveals the following main takeaways:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IV. DISCUSSION AND CONCLUSIONS"
+        },
+        {
+            "text": "1. Higher capital depreciation rates, ceteris paribus, lead to capital scarcity and limit production. This makes the economy more prone to confidence crises, increasing their prevalence;",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IV. DISCUSSION AND CONCLUSIONS"
+        },
+        {
+            "text": "2. Increasing the influence of the level of confidence in capital allocation decisions creates a feedback loop similar to Keynes' paradox of thrift, destabilising and trapping the economy into a non-optimal low consumption state;",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IV. DISCUSSION AND CONCLUSIONS"
+        },
+        {
+            "text": "3. The time during which the economy remains in a low output state is highly sensitive to the time span over which investors compute the Sharpe ratio. Increasing this memory timescale leads to sluggish adjustments of investment. 15 Consequently, instantaneous increase of capital returns due to productivity upticks are not sufficient to boost the investment propensity. This leads to a persistence of capital scarcity, and prevents the economy from escaping the low output trap.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IV. DISCUSSION AND CONCLUSIONS"
+        },
+        {
+            "text": "Our findings have different policy implications. As already emphasised in our previous paper [40] , if selfreflexive feedback loops exist, then governments and monetary authorities should not only manage inflation expectations but more broadly confidence in the future prospects of the economy. Although confidence indices are routinely measured by polling institutes (see e.g. Fig.  1 in Section I), the inclusion of such indices in macroeconomic DSGE models and the importance of narratives [48] have never really been considered seriously beyond the impact of news shocks on productivity. 16 Beyond communication and narratives, our model suggests that monetary authorities should also directly promote investment, in particular during recessions. This is needed to prevent the economy being trapped in a low output, low confidence environment. Although this conclusion looks perfectly intuitive, our model reveals that a lack of capital can prolong crisis periods by orders of magnitude, and convert V-shaped crises into L-shaped crises. Boosting investment in working capital can be done through traditional channels, by lowering the riskfree interest rate (possibly making it negative) or by direct Keynesian investments in infrastructure and in innovation, which have the double effect of increasing the productivity of capital and propping up household confidence.",
+            "cite_spans": [
+                {
+                    "start": 93,
+                    "end": 97,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                },
+                {
+                    "start": 493,
+                    "end": 497,
+                    "text": "[48]",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 378,
+                    "end": 385,
+                    "text": "Fig.  1",
+                    "ref_id": null
+                }
+            ],
+            "section": "IV. DISCUSSION AND CONCLUSIONS"
+        },
+        {
+            "text": "There are of course many directions in which our model should be extended and improved. The first obvious one is to allow interest rates and inflation to be dynamical variables, and to introduce an explicit monetary policy with the central bank monitoring inflation and confidence. A fully developed DSGE model building upon the framework proposed here would be welcome. Other relevant extensions could be to include a feedback mechanism between confidence and the time scale T \u03bb or the 15 Note however, as reported in the previous section, that extremely long memory timescales allow the Sharpe ratio to stick to high values. 16 e.g. the work of [53] reflecting interactions and complementarity.",
+            "cite_spans": [
+                {
+                    "start": 647,
+                    "end": 651,
+                    "text": "[53]",
+                    "ref_id": "BIBREF52"
+                }
+            ],
+            "ref_spans": [],
+            "section": "IV. DISCUSSION AND CONCLUSIONS"
+        },
+        {
+            "text": "Also [43] showed that single news shocks (confidence shocks) are sufficient to fit empirically the effects of business cycles. See also [31] . sentiment parameter \u03bd. This would allow potentially relevant panic effects to set in the model, and capture what happened in 2008, for example. Another possible extension is to allow the parameter a which describes the default risk on capital to depend on the state of the economy, since bankruptcies are more frequent when the economy is in a low output, low investment regime.",
+            "cite_spans": [
+                {
+                    "start": 5,
+                    "end": 9,
+                    "text": "[43]",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 136,
+                    "end": 140,
+                    "text": "[31]",
+                    "ref_id": "BIBREF30"
+                }
+            ],
+            "ref_spans": [],
+            "section": "IV. DISCUSSION AND CONCLUSIONS"
+        },
+        {
+            "text": "Last, but not least, we have assumed that confidence is only a function of past realised output, but other factors should obviously be taken into account to model the dynamics of the confidence index, in particular financial news (like in 2008) or geopolitical news. Our framework would lead to scenarios where a shock like Lehman's bankruptcy simultaneously affects both consumption and investment, leading to a deep and prolonged recession, even in the absence of any \"true\" productivity shock. Conversely, good news about the future (e.g. technology shocks) could help recovering faster from the low output trap.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "IV. DISCUSSION AND CONCLUSIONS"
+        },
+        {
+            "text": "It would also be interesting to look for a \"grand unification\" between the type of behavioural business cycle/DSGE models considered in this paper and heterogeneous agent based models studied in the recent literature, which generically give rise to similar crises and bi-stable dynamics between high output and low output regimes of the economy (see e.g. [46, 47] ). ",
+            "cite_spans": [
+                {
+                    "start": 355,
+                    "end": 359,
+                    "text": "[46,",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 360,
+                    "end": 363,
+                    "text": "47]",
+                    "ref_id": "BIBREF46"
+                }
+            ],
+            "ref_spans": [],
+            "section": "IV. DISCUSSION AND CONCLUSIONS"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "The General Theory of Employment, Interest, and Money",
+            "authors": [
+                {
+                    "first": "John",
+                    "middle": [],
+                    "last": "Maynard",
+                    "suffix": ""
+                },
+                {
+                    "first": "Keynes",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 1936,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "The Economic Crisis is a Crisis for Economic Theory",
+            "authors": [
+                {
+                    "first": "Alan",
+                    "middle": [],
+                    "last": "Kirman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "CESifo Economic Studies",
+            "volume": "56",
+            "issn": "4",
+            "pages": "498--535",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "The unfortunate uselessness of most 'state of the art' academic monetary economics",
+            "authors": [
+                {
+                    "first": "Willem",
+                    "middle": [],
+                    "last": "Buiter",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "On the future of macroeconomic models",
+            "authors": [
+                {
+                    "first": "Olivier",
+                    "middle": [],
+                    "last": "Blanchard",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Oxford Review of Economic Policy",
+            "volume": "34",
+            "issn": "1-2",
+            "pages": "43--54",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "More is different ... and complex! the case for agent-based macroeconomics",
+            "authors": [
+                {
+                    "first": "Giovanni",
+                    "middle": [],
+                    "last": "Dosi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Andrea",
+                    "middle": [],
+                    "last": "Roventini",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Journal of Evolutionary Economics",
+            "volume": "29",
+            "issn": "1",
+            "pages": "1--37",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Thoughts on DSGE macroeconomics: Matching the moment, but missing the point?",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Korinek",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Economic Theory and Public Policies: Joseph Stiglitz and the Teaching of Economics",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "The Trouble With Macroeconomics",
+            "authors": [
+                {
+                    "first": "Paul",
+                    "middle": [],
+                    "last": "Romer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Where modern macroeconomics went wrong",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Joseph",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Stiglitz",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Oxford Review of Economic Policy",
+            "volume": "34",
+            "issn": "1-2",
+            "pages": "70--106",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Oxford Review of Economic Policy",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Ray",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Fair",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "36",
+            "issn": "",
+            "pages": "556--578",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Challenges for Central Banks' Macro Models",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Lind\u00e9",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Smets",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Wouters",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Handbook of Macroeconomics",
+            "volume": "2",
+            "issn": "",
+            "pages": "2185--2262",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Microeconomic Heterogeneity and Macroeconomic Shocks",
+            "authors": [
+                {
+                    "first": "Greg",
+                    "middle": [],
+                    "last": "Kaplan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Giovanni",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Violante",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Journal of Economic Perspectives",
+            "volume": "32",
+            "issn": "3",
+            "pages": "167--194",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "The rebuilding macroeconomic theory project: An analytical assessment",
+            "authors": [
+                {
+                    "first": "David",
+                    "middle": [],
+                    "last": "Vines",
+                    "suffix": ""
+                },
+                {
+                    "first": "Samuel",
+                    "middle": [],
+                    "last": "Wills",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Oxford Review of Economic Policy",
+            "volume": "34",
+            "issn": "1-2",
+            "pages": "1--42",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "The rebuilding macroeconomic theory project part II: Multiple equilibria, toy models, and policy models in a new macroeconomic paradigm",
+            "authors": [
+                {
+                    "first": "David",
+                    "middle": [],
+                    "last": "Vines",
+                    "suffix": ""
+                },
+                {
+                    "first": "Samuel",
+                    "middle": [],
+                    "last": "Wills",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Oxford Review of Economic Policy",
+            "volume": "36",
+            "issn": "3",
+            "pages": "427--497",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Monetary Policy According to HANK",
+            "authors": [
+                {
+                    "first": "Greg",
+                    "middle": [],
+                    "last": "Kaplan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Benjamin",
+                    "middle": [],
+                    "last": "Moll",
+                    "suffix": ""
+                },
+                {
+                    "first": "Giovanni",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Violante",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "American Economic Review",
+            "volume": "108",
+            "issn": "3",
+            "pages": "697--743",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "A model of the consumption response to fiscal stimulus payments",
+            "authors": [
+                {
+                    "first": "Greg",
+                    "middle": [],
+                    "last": "Kaplan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Giovanni",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Violante",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Econometrica",
+            "volume": "82",
+            "issn": "4",
+            "pages": "1199--1239",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "The Role of Automatic Stabilizers in the U",
+            "authors": [
+                {
+                    "first": "Alisdair",
+                    "middle": [],
+                    "last": "Mckay",
+                    "suffix": ""
+                },
+                {
+                    "first": "Ricardo",
+                    "middle": [],
+                    "last": "Reis",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "S. Business Cycle. Econometrica",
+            "volume": "84",
+            "issn": "1",
+            "pages": "141--194",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Information, Animal Spirits, and the Meaning of Innovations in Consumer Confidence",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Robert",
+                    "suffix": ""
+                },
+                {
+                    "first": "Eric",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Barsky",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Sims",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "American Economic Review",
+            "volume": "102",
+            "issn": "4",
+            "pages": "1343--1377",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Where Danger Lurks. Finance and Development (IMF)",
+            "authors": [
+                {
+                    "first": "Olivier",
+                    "middle": [],
+                    "last": "Blanchard",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Business Cycle Fluctuations in U.S. Macroeconomic Time Series",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "James",
+                    "suffix": ""
+                },
+                {
+                    "first": "Mark",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Stock",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Watson",
+                    "suffix": ""
+                }
+            ],
+            "year": 1999,
+            "venue": "",
+            "volume": "1",
+            "issn": "",
+            "pages": "3--64",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Irrational Exuberance. Currency/Doubleday",
+            "authors": [
+                {
+                    "first": "Robert",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Shiller",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Animal Spirits",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "George",
+                    "suffix": ""
+                },
+                {
+                    "first": "Robert",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Akerlof",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Shiller",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Behavioral and Experimental Macroeconomics and Policy Analysis: A Complex Systems Approach",
+            "authors": [],
+            "year": 2021,
+            "venue": "Cars Hommes",
+            "volume": "59",
+            "issn": "",
+            "pages": "149--219",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Taking Stock: A Rigorous Modelling of Animal Spirits in Macroeconomics",
+            "authors": [
+                {
+                    "first": "Reiner",
+                    "middle": [],
+                    "last": "Franke",
+                    "suffix": ""
+                },
+                {
+                    "first": "Frank",
+                    "middle": [],
+                    "last": "Westerhoff",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Journal of Economic Surveys",
+            "volume": "31",
+            "issn": "5",
+            "pages": "1152--1182",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Behavioral heterogeneity in U.S. inflation dynamics",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Cornea",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Cars",
+                    "suffix": ""
+                },
+                {
+                    "first": "Domenico",
+                    "middle": [],
+                    "last": "Hommes",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Massaro",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Journal of Business & Economic Statistics",
+            "volume": "37",
+            "issn": "2",
+            "pages": "288--300",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Managing Unanchored, Heterogeneous Expectations and Liquidity Traps",
+            "authors": [
+                {
+                    "first": "Cars",
+                    "middle": [],
+                    "last": "Hommes",
+                    "suffix": ""
+                },
+                {
+                    "first": "Joep",
+                    "middle": [],
+                    "last": "Lustenhouwer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Journal of Economic Dynamics and Control",
+            "volume": "101",
+            "issn": "",
+            "pages": "1--16",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Heterogeneous Expectations and the Business Cycle at the Effective Lower Bound",
+            "authors": [
+                {
+                    "first": "Tolga",
+                    "middle": [],
+                    "last": "Ozden",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Behavioural New Keynesian models",
+            "authors": [
+                {
+                    "first": "Robert",
+                    "middle": [],
+                    "last": "Calvert",
+                    "suffix": ""
+                },
+                {
+                    "first": "Jump",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "Paul",
+                    "middle": [],
+                    "last": "Levine",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Journal of Macroeconomics",
+            "volume": "59",
+            "issn": "",
+            "pages": "59--77",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "A Behavioral New Keynesian Model",
+            "authors": [
+                {
+                    "first": "Xavier",
+                    "middle": [],
+                    "last": "Gabaix",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "American Economic Review",
+            "volume": "110",
+            "issn": "8",
+            "pages": "2271--2327",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Consumer Confidence in a DSGE Model for Turkey",
+            "authors": [
+                {
+                    "first": "Pinar",
+                    "middle": [],
+                    "last": "Deniz",
+                    "suffix": ""
+                },
+                {
+                    "first": "Erhan",
+                    "middle": [],
+                    "last": "Aslanoglu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Allied Social Science Associations Annual Meeting",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Monetary policy under imperfect information and consumer confidence",
+            "authors": [
+                {
+                    "first": "Jan-Niklas",
+                    "middle": [],
+                    "last": "Brenneisen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Consumption and the Recession of 1990-1991",
+            "authors": [
+                {
+                    "first": "Olivier",
+                    "middle": [],
+                    "last": "Blanchard",
+                    "suffix": ""
+                }
+            ],
+            "year": 1993,
+            "venue": "The American Economic Review",
+            "volume": "83",
+            "issn": "2",
+            "pages": "270--274",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Does Consumer Sentiment Forecast Household Spending? If So, Why? The American Economic Review",
+            "authors": [
+                {
+                    "first": "Christopher",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Carroll",
+                    "suffix": ""
+                },
+                {
+                    "first": "Jeffrey",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Fuhrer",
+                    "suffix": ""
+                },
+                {
+                    "first": "David",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Wilcox",
+                    "suffix": ""
+                }
+            ],
+            "year": 1994,
+            "venue": "",
+            "volume": "84",
+            "issn": "",
+            "pages": "1397--1408",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Consumer Confidence and Economic Fluctuations",
+            "authors": [
+                {
+                    "first": "John",
+                    "middle": [],
+                    "last": "Matsusaka",
+                    "suffix": ""
+                },
+                {
+                    "first": "Argia",
+                    "middle": [],
+                    "last": "Sbordone",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "Economic Inquiry",
+            "volume": "33",
+            "issn": "2",
+            "pages": "296--318",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Fabrice Collard, and Harris Dellas. Quantifying Confidence",
+            "authors": [
+                {
+                    "first": "George-Marios",
+                    "middle": [],
+                    "last": "Angeletos",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "86",
+            "issn": "",
+            "pages": "1689--1726",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Crises and Collective Socio-Economic Phenomena: Simple Models and Challenges",
+            "authors": [
+                {
+                    "first": "Jean-Philippe",
+                    "middle": [],
+                    "last": "Bouchaud",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Journal of Statistical Physics",
+            "volume": "151",
+            "issn": "3-4",
+            "pages": "567--606",
+            "other_ids": {}
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Sudden Trust Collapse in Networked Societies",
+            "authors": [
+                {
+                    "first": "Joao",
+                    "middle": [
+                        "Gama"
+                    ],
+                    "last": "Batista",
+                    "suffix": ""
+                },
+                {
+                    "first": "Jean-Philippe",
+                    "middle": [],
+                    "last": "Bouchaud",
+                    "suffix": ""
+                },
+                {
+                    "first": "Damien",
+                    "middle": [],
+                    "last": "Challet",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Eur. Phys. J. B",
+            "volume": "88",
+            "issn": "3",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Confidence Collapse in a Multi-Household, Self-Reflexive DSGE Model",
+            "authors": [
+                {
+                    "first": "Federico",
+                    "middle": [],
+                    "last": "Morelli",
+                    "suffix": ""
+                },
+                {
+                    "first": "Michael",
+                    "middle": [],
+                    "last": "Benzaquen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Marco",
+                    "middle": [],
+                    "last": "Tarzia",
+                    "suffix": ""
+                },
+                {
+                    "first": "Jean-Philippe",
+                    "middle": [],
+                    "last": "Bouchaud",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Stagnant productivity and low unemployment: Stuck in a Keynesian equilibrium",
+            "authors": [
+                {
+                    "first": "Wendy",
+                    "middle": [],
+                    "last": "Carlin",
+                    "suffix": ""
+                },
+                {
+                    "first": "David",
+                    "middle": [],
+                    "last": "Soskice",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Oxford Review of Economic Policy",
+            "volume": "34",
+            "issn": "1-2",
+            "pages": "169--194",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Reading about the Financial Crisis: A Twenty-One-Book Review",
+            "authors": [
+                {
+                    "first": "Andrew",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Lo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Journal of Economic Literature",
+            "volume": "50",
+            "issn": "1",
+            "pages": "151--178",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Business-Cycle Anatomy",
+            "authors": [
+                {
+                    "first": "George-Marios",
+                    "middle": [],
+                    "last": "Angeletos",
+                    "suffix": ""
+                },
+                {
+                    "first": "Fabrice",
+                    "middle": [],
+                    "last": "Collard",
+                    "suffix": ""
+                },
+                {
+                    "first": "Harris",
+                    "middle": [],
+                    "last": "Dellas",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "American Economic Review",
+            "volume": "110",
+            "issn": "10",
+            "pages": "3030--3070",
+            "other_ids": {}
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "The Financial Crisis and Its Lessons",
+            "authors": [
+                {
+                    "first": "Ben",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Bernanke",
+                    "suffix": ""
+                },
+                {
+                    "first": "Timothy",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Geithner",
+                    "suffix": ""
+                },
+                {
+                    "first": "Henry",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Paulson",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Firefighting",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Joe Biden's experiment could revolutionise economic thinking",
+            "authors": [
+                {
+                    "first": "Megan",
+                    "middle": [],
+                    "last": "Greene",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Financial Times",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Tipping points in macroeconomic agent-based models",
+            "authors": [
+                {
+                    "first": "Stanislao",
+                    "middle": [],
+                    "last": "Gualdi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Marco",
+                    "middle": [],
+                    "last": "Tarzia",
+                    "suffix": ""
+                },
+                {
+                    "first": "Francesco",
+                    "middle": [],
+                    "last": "Zamponi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Jean-Philippe",
+                    "middle": [],
+                    "last": "Bouchaud",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Journal of Economic Dynamics and Control",
+            "volume": "50",
+            "issn": "",
+            "pages": "29--61",
+            "other_ids": {}
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "or W-shaped recovery after COVID? Insights from an Agent Based Model",
+            "authors": [
+                {
+                    "first": "Dhruv",
+                    "middle": [],
+                    "last": "Sharma",
+                    "suffix": ""
+                },
+                {
+                    "first": "Jean-Philippe",
+                    "middle": [],
+                    "last": "Bouchaud",
+                    "suffix": ""
+                },
+                {
+                    "first": "Stanislao",
+                    "middle": [],
+                    "last": "Gualdi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Marco",
+                    "middle": [],
+                    "last": "Tarzia",
+                    "suffix": ""
+                },
+                {
+                    "first": "Francesco Zamponi. V-",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "U-",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "PLoS One",
+            "volume": "16",
+            "issn": "3",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Narrative Economics",
+            "authors": [
+                {
+                    "first": "Robert",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Shiller",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "Jordi Gal\u00ed. Monetary Policy, Inflation, and the Business Cycle: An Introduction to the New Keynesian Framework",
+            "authors": [],
+            "year": 2015,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "Shocks and frictions in US business cycles: A Bayesian DSGE approach",
+            "authors": [
+                {
+                    "first": "Frank",
+                    "middle": [],
+                    "last": "Smets",
+                    "suffix": ""
+                },
+                {
+                    "first": "Rafael",
+                    "middle": [],
+                    "last": "Wouters",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "",
+            "volume": "97",
+            "issn": "",
+            "pages": "586--606",
+            "other_ids": {}
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "News-Driven Business Cycles: Insights and Challenges",
+            "authors": [
+                {
+                    "first": "Paul",
+                    "middle": [],
+                    "last": "Beaudry",
+                    "suffix": ""
+                },
+                {
+                    "first": "Franck",
+                    "middle": [],
+                    "last": "Portier",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Journal of Economic Literature",
+            "volume": "52",
+            "issn": "4",
+            "pages": "993--1074",
+            "other_ids": {}
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "An endogenous mechanism of business cycles",
+            "authors": [
+                {
+                    "first": "Dimitri",
+                    "middle": [],
+                    "last": "Kroujiline",
+                    "suffix": ""
+                },
+                {
+                    "first": "Maxim",
+                    "middle": [],
+                    "last": "Gusev",
+                    "suffix": ""
+                },
+                {
+                    "first": "Dmitry",
+                    "middle": [],
+                    "last": "Ushanov",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Sergey",
+                    "suffix": ""
+                },
+                {
+                    "first": "Boris",
+                    "middle": [],
+                    "last": "Sharov",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Govorkov",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "1--22",
+            "other_ids": {}
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "Putting the Cycle Back into Business Cycle Analysis",
+            "authors": [
+                {
+                    "first": "Paul",
+                    "middle": [],
+                    "last": "Beaudry",
+                    "suffix": ""
+                },
+                {
+                    "first": "Dana",
+                    "middle": [],
+                    "last": "Galizia",
+                    "suffix": ""
+                },
+                {
+                    "first": "Franck",
+                    "middle": [],
+                    "last": "Portier",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "American Economic Review",
+            "volume": "110",
+            "issn": "1",
+            "pages": "1--47",
+            "other_ids": {}
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "Mutual Fund Performance. The Journal of Business",
+            "authors": [
+                {
+                    "first": "William",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Sharpe",
+                    "suffix": ""
+                }
+            ],
+            "year": 1966,
+            "venue": "",
+            "volume": "39",
+            "issn": "",
+            "pages": "119--138",
+            "other_ids": {}
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "Extrapolative beliefs in the cross-section: What can we learn from the crowds?",
+            "authors": [
+                {
+                    "first": "Zhi",
+                    "middle": [],
+                    "last": "Da",
+                    "suffix": ""
+                },
+                {
+                    "first": "Xing",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Lawrence",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Jin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Journal of Financial Economics",
+            "volume": "140",
+            "issn": "1",
+            "pages": "175--196",
+            "other_ids": {}
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "Personal Experiences and Expectations about Aggregate Outcomes. The Journal of Finance",
+            "authors": [
+                {
+                    "first": "Theresa",
+                    "middle": [],
+                    "last": "Kuchler",
+                    "suffix": ""
+                },
+                {
+                    "first": "Basit",
+                    "middle": [],
+                    "last": "Zafar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "74",
+            "issn": "",
+            "pages": "2491--2542",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF1": {
+            "text": "A schematic representation illustrating the division of income, i.e. the budget constraint, by the household.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "This figure shows different sections of the phase space. The three rightmost upper panels display the log 10 probability of capital shortage \u039e k as a function of the Sharpe ratio weight \u03bd and of the confidence threshold c0. The bottom row display the log 10 probability of consumption crises \u039ec as a function of the same parameters. The dark red zones correspond to the regions where \u039e k/c > 0.99, where crises are permanent. Each column corresponds to a different choice of the capital depreciation, from \u03b4 = 0.001 to \u03b4 = 0.02. We set a = 15 and \u03c3z = 0.15. As \u03b4 increases, the (H k , Hc) regimes becomes widespread. In each panel we have marked the points chosen to illustrate the different phases of the model, together with their label (see text). The dynamics trajectories and the corresponding histograms are reported inFig. 5. The two leftmost panels show another section of the phase space, varying log a and \u03c3z, with c0 = 0.017, \u03bd = 1 and \u03b4 = 0.005 fixed (the two solid dots there correspond to the same solid dots of the middle panels, in the H k Hc phase).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "The upper panels show sample dynamics trajectories for each phase presented inFig. 4(marked by circles). In the topmost panels the solid black line corresponds to the consumption ct, while the dashed red and blue horizontal lines show, respectively, the confidence threshold c0 and the average consumption in the \u03b4 = 0 scenario. Grey (resp. pink) background indicate capital scarcity (resp. consumption crisis). The middle row presents the dynamics of capital kt (solid orange), labour nt (solid green) and Sharpe ratio St (solid grey, with levels shown on the right y-axis). The lower panels show the histograms of consumption (black dots) and labour (green crosses) in a log \u2212 log scale. The green (resp. grey) dashed curve corresponds to the \u03b4 = 0 baseline value for labour (resp. consumption), with c0 indicated as a vertical red line. In the Hc phase, the histograms of consumption and labour become bi-modal, corresponding to high output and low output regimes. For all simulations \u03bd = 1, a = 15, \u03c3z = 0.15. Specific parameters are L k Lc: \u03b4 = 0.001, c0 = 0.001, L k Hc: \u03b4 = 0.001, c0 = 0.019, H k Lc: \u03b4 = 0.02, c0 = 0.001, H k Hc: \u03b4 = 0.005, c0 = 0.017.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "The upper (resp. lower) left heat-map shows log 10 \u039ec (resp. average Sharpe ratio) as a function of the memory time scale T \u03bb and the weight parameter \u03bd.The dark red zones correspond to the regions where \u039ec > 0.99, where crises are permanent. The right set of panels shows snapshots of the dynamics of ct, kt and nt, corresponding to recovery (left) and crisis formation (right), both for T \u03bb = 20 and \u03bd = 0.75. The two bottom rows show the histograms of Sharpe ratio S and crisis duration T< for four values of T \u03bb : 2, 10, 20 and 50, all for the same value of \u03bd (shown as symbols in the two heat-maps on the left). The faded grey lines show the same histograms in the benchmark case \u03bd = 1 that correspond to the H k Hc point in Fig. 4. Other parameters used are: \u03b4 = 0.005, c0 = 0.017, \u03c3z = 0.15 and a = 15.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF2": {
+            "text": "Notation used in the model Sec. II A Eq. (1) nt Labour Sec. II A Eq. (1) Gt Propensity to consume from Income Sec. II A Eq. (31) [Gmin, Gmax] It Income in period t Sec. II A Eq. (2) wt Real wage Sec. II A Eq. (12) bt Real income from one-period bond purchased in t Sec. II A Eq. (7) Memory kernel for the Sharpe ratio Sec. II E Eq. (32) 0.607, 0.905, 0.951, 0.98 \u03bd Interpolation between St and Ct Sec. II E Eq. (35) 0.75, 1.0 L k , H k ] Low/High frequency \u039e k Sec. III [Lc, Hc] Low/High frequency \u039ec Sec. III T \u03bb Timescale of allocation St Sec. II F 1/| log(\u03bb)| T\u03b7 Timescale of TFP shock zt Sec. II F 1/| log(\u03b7)| T \u03b4 Timescale of capital kt Sec. II F 1/| log(1 \u2212 \u03b4)| T< Average duration of consumption crises Sec. III G T> Average duration of high output periods Sec. III G",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "Acknowledgements We deeply thank Davide Luzzati who contributed to the early stages of this work, and Francesco Zamponi for many insightful discussions. This research was conducted within the Econophysics & Complex Systems Research Chair, under the aegis of the Fondation du Risque, the Fondation de l'Ecole polytechnique, the Ecole polytechnique and Capital Fund Management. Karl Naumann-Woleske also acknowledges the support from the New Approaches to Economic Challenges Unit at the Organization for Economic Cooperation and Development (OECD).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "acknowledgement"
+        }
+    ]
+}

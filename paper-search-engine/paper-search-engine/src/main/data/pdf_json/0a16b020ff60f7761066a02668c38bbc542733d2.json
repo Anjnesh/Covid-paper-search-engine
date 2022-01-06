@@ -1,0 +1,4475 @@
+{
+    "paper_id": "0a16b020ff60f7761066a02668c38bbc542733d2",
+    "metadata": {
+        "title": "Demystifying pollution haven hypothesis: Role of FDI",
+        "authors": [
+            {
+                "first": "Monica",
+                "middle": [],
+                "last": "Singhania",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "India A R T I C L E I N F O",
+                    "location": {}
+                },
+                "email": ""
+            },
+            {
+                "first": "Neha",
+                "middle": [],
+                "last": "Saini",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "India A R T I C L E I N F O",
+                    "location": {}
+                },
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "This study explores the interrelationship between FDI, institutional factors, financial development and sustainability by revisiting the pollution haven (or halo) hypotheses. The data is sourced from the World Development Indicators (WDI) database over the period of 1990-2016, covering 21 developed and developing countries with high carbon emissions. The study uses dynamic panel data estimations by applying the generalized method of moments (GMM) and system-generalized methods of moments (Sys-GMM) over sample countries. The results indicate that FDI has a significant positive impact on environmental degradation. There is evidence of pollution haven hypotheses, especially in developing countries. We contribute to existing literature by revisiting the Environment Kuznets Curve (EKC) hypothesis and presenting the effect of FDI on carbon intensity in the light of institutional factors and financial development. The findings relating to FDI, institutional factors and financial development may cause researchers and policymakers to reiterate the sustainability dimension of foreign capital inflows in both developed and developing countries. We propose the policy framework to include a mandatory Statement of Environmental Disclosures for both listed and unlisted home and host companies at the time of their origin, expansion and fund raising in order to achieve sustainable business goals (SBGs).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "The economic 1 , social 2 and the environmental impact of globalization has been the subject of extensive debate among academicians, researchers and policymakers for over four decades (Blonigen, 2005; Werner, 2002; Paul & Singh, 2017) . The nexus between economic growth, environmental pollution and FDI inflows has been extensively dealt in economic modelling literature with sometimes controversial and ambiguous results (Fetscherin, Voss, & Gugler, 2010; Klier, Schwens, Zapkau, & Dikova, 2017; Paul & Benito, 2018) . Though globalization has led to vast development (Buckley & Casson, 2009; Chan, Makino, & Isobe, 2006; Meyer, 2004; Blonigen, 2005) , but it has also brought forth significant challenges (Hoffmann, Lee, Ramasamy, & Yeung, 2005; Jorgenson, 2007) such as the coronavirus pandemic in 2020, perhaps the most damaging global event since World War II. As environmental sustainability is a major challenge, a debate on environmental dimensions of globalization has engulfed the entire world since the beginning of 21st century (Christmann & Taylor, 2001; Mann & Sauvant, 2017) .",
+            "cite_spans": [
+                {
+                    "start": 184,
+                    "end": 200,
+                    "text": "(Blonigen, 2005;",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 201,
+                    "end": 214,
+                    "text": "Werner, 2002;",
+                    "ref_id": "BIBREF114"
+                },
+                {
+                    "start": 215,
+                    "end": 234,
+                    "text": "Paul & Singh, 2017)",
+                    "ref_id": "BIBREF90"
+                },
+                {
+                    "start": 423,
+                    "end": 457,
+                    "text": "(Fetscherin, Voss, & Gugler, 2010;",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 458,
+                    "end": 497,
+                    "text": "Klier, Schwens, Zapkau, & Dikova, 2017;",
+                    "ref_id": "BIBREF67"
+                },
+                {
+                    "start": 498,
+                    "end": 518,
+                    "text": "Paul & Benito, 2018)",
+                    "ref_id": "BIBREF89"
+                },
+                {
+                    "start": 570,
+                    "end": 594,
+                    "text": "(Buckley & Casson, 2009;",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 595,
+                    "end": 623,
+                    "text": "Chan, Makino, & Isobe, 2006;",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 624,
+                    "end": 636,
+                    "text": "Meyer, 2004;",
+                    "ref_id": "BIBREF82"
+                },
+                {
+                    "start": 637,
+                    "end": 652,
+                    "text": "Blonigen, 2005)",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 708,
+                    "end": 748,
+                    "text": "(Hoffmann, Lee, Ramasamy, & Yeung, 2005;",
+                    "ref_id": "BIBREF59"
+                },
+                {
+                    "start": 749,
+                    "end": 765,
+                    "text": "Jorgenson, 2007)",
+                    "ref_id": "BIBREF62"
+                },
+                {
+                    "start": 1041,
+                    "end": 1068,
+                    "text": "(Christmann & Taylor, 2001;",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 1069,
+                    "end": 1090,
+                    "text": "Mann & Sauvant, 2017)",
+                    "ref_id": "BIBREF78"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The Climate and Energy Framework Agreement 3 (2018), highlights three broad objectives, namely, reduction in greenhouse gas emissions, usage of renewable energy sources and energy efficiency for attaining environmental sustainability though innovation and capital inflows. While research supports pollution halo hypothesis 4 as a means to accelerate the development and production process in a low carbon economy though FDI (Gray, 2002; Perkins & Neumayer, 2008; Talukdar & Meisner, 2001; Wheeler, 2001) , there is contrary evidence in the form of pollution haven hypothesis 5 being applicable where foreign capital significantly increases the carbon emissions level in host countries (Acharyya, 2009; Grimes & Kentor, 2003; Hoffmann et al., 2005; Jorgenson, 2007) . Implicitly, in order to address this issue, policy reforms need to emphasize on sustainable FDI.",
+            "cite_spans": [
+                {
+                    "start": 424,
+                    "end": 436,
+                    "text": "(Gray, 2002;",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 437,
+                    "end": 462,
+                    "text": "Perkins & Neumayer, 2008;",
+                    "ref_id": "BIBREF92"
+                },
+                {
+                    "start": 463,
+                    "end": 488,
+                    "text": "Talukdar & Meisner, 2001;",
+                    "ref_id": "BIBREF109"
+                },
+                {
+                    "start": 489,
+                    "end": 503,
+                    "text": "Wheeler, 2001)",
+                    "ref_id": "BIBREF115"
+                },
+                {
+                    "start": 685,
+                    "end": 701,
+                    "text": "(Acharyya, 2009;",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 702,
+                    "end": 724,
+                    "text": "Grimes & Kentor, 2003;",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 725,
+                    "end": 747,
+                    "text": "Hoffmann et al., 2005;",
+                    "ref_id": "BIBREF59"
+                },
+                {
+                    "start": 748,
+                    "end": 764,
+                    "text": "Jorgenson, 2007)",
+                    "ref_id": "BIBREF62"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Economic and sustainable FDI determinants are governed by the quality of institutional framework and financial development of host country (Tamazian & Rao, 2010; Mann & Sauvant, 2017) . In such backdrop, it becomes imperative to study financial development, institutional framework and foreign capital inflows to achieve sustainable development. This paper highlights the complex interactions between environmental pollution, FDI inflows, institutional factors and economic growth in light of the pollution halo or pollution haven hypothesis. Financial development and a robust institutional framework are essential for attracting foreign capital inflows leading to higher economic growth coupled with environmental sustainability through introducing clean and innovative mechanisms in the business value chain (Frankel & Romer, 1999) . Torras and Boyce (1998) and Panayotou (1997) find institutional factors as critical elements of Environmental Kuznets Curve 6 (EKC), expediting the environmental improvements through qualifying the policies and institutions, thereby flattening the curve. Financial development provides motives and opportunities to use new technology to facilitate a clean and environmental friendly production process (Frankel & Rose, 2002) . We study, the impact of FDI on carbon intensity while controlling the presence of institutional framework and financial development with respect to scale, technique and combined effects and thereby address a significant research gap in literature.",
+            "cite_spans": [
+                {
+                    "start": 139,
+                    "end": 161,
+                    "text": "(Tamazian & Rao, 2010;",
+                    "ref_id": "BIBREF110"
+                },
+                {
+                    "start": 162,
+                    "end": 183,
+                    "text": "Mann & Sauvant, 2017)",
+                    "ref_id": "BIBREF78"
+                },
+                {
+                    "start": 811,
+                    "end": 834,
+                    "text": "(Frankel & Romer, 1999)",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 837,
+                    "end": 860,
+                    "text": "Torras and Boyce (1998)",
+                    "ref_id": "BIBREF112"
+                },
+                {
+                    "start": 865,
+                    "end": 881,
+                    "text": "Panayotou (1997)",
+                    "ref_id": "BIBREF87"
+                },
+                {
+                    "start": 1239,
+                    "end": 1261,
+                    "text": "(Frankel & Rose, 2002)",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "An effort towards energy innovation (through research and development) tends to have a direct and positive relationship with environmental sustainability through the technique effect (Cole, Elliott, & Strobl, 2008; Eskeland & Harrison, 2003) . A change in production structure of economy may also lead to environmental sustainability but in specific stages such as, when the economic structure changes from agriculture to more energy-intensive in first stage, it leads to higher levels of pollution. But in later stages, pollution decreases as the structure of economy moves towards service and light manufacturing industries through the composite effect (Liang, 2006; Grossman & Krueger, 1995; Pao & Tsai, 2010) . The implementation of technique effect (through innovative techniques by FDI policy) and composite effect (though stringent institutional framework) cycle leads to sustainable development (Gradus & Smulders, 1993; van den Bergh & Nijkamp, 1994; Stokey, 1998) . As per scale effect even if the structure of economy and level of technology does not change, an increase in the scale of production adversely affects environmental quality, and therefore in this stage of economic development, economic growth impacts environmental degradation positively (\u00c1lvarez-Herr\u00e1nz, Balsalobre, Cantos, & Shahbaz, 2017) . Linking these three dimensions in international business so as to attain sustainability, the study tries to present how FDI and country-level policies may be used to facilitate sustainable development. To the best of our knowledge, only two studies, namely Perkins and Neumayer (2009) and Shao (2018) consider the FDI, trade and sustainability nexus in developed and developing countries. While Perkins and Neumayer (2009) studies only developing countries, Shao (2018) considers a large sample of developed and developing countries over a period of 24 years. We employ the FDI-carbon intensity nexus in presence of institutional factors and financial development as a control variable to unravell the technique, composite and scale effects, which remains largely unexplored in literature.",
+            "cite_spans": [
+                {
+                    "start": 183,
+                    "end": 214,
+                    "text": "(Cole, Elliott, & Strobl, 2008;",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 215,
+                    "end": 241,
+                    "text": "Eskeland & Harrison, 2003)",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 655,
+                    "end": 668,
+                    "text": "(Liang, 2006;",
+                    "ref_id": "BIBREF76"
+                },
+                {
+                    "start": 669,
+                    "end": 694,
+                    "text": "Grossman & Krueger, 1995;",
+                    "ref_id": "BIBREF54"
+                },
+                {
+                    "start": 695,
+                    "end": 712,
+                    "text": "Pao & Tsai, 2010)",
+                    "ref_id": "BIBREF88"
+                },
+                {
+                    "start": 903,
+                    "end": 928,
+                    "text": "(Gradus & Smulders, 1993;",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 929,
+                    "end": 959,
+                    "text": "van den Bergh & Nijkamp, 1994;",
+                    "ref_id": null
+                },
+                {
+                    "start": 960,
+                    "end": 973,
+                    "text": "Stokey, 1998)",
+                    "ref_id": "BIBREF108"
+                },
+                {
+                    "start": 1282,
+                    "end": 1318,
+                    "text": "Balsalobre, Cantos, & Shahbaz, 2017)",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 1578,
+                    "end": 1605,
+                    "text": "Perkins and Neumayer (2009)",
+                    "ref_id": "BIBREF93"
+                },
+                {
+                    "start": 1610,
+                    "end": 1621,
+                    "text": "Shao (2018)",
+                    "ref_id": "BIBREF104"
+                },
+                {
+                    "start": 1716,
+                    "end": 1743,
+                    "text": "Perkins and Neumayer (2009)",
+                    "ref_id": "BIBREF93"
+                },
+                {
+                    "start": 1779,
+                    "end": 1790,
+                    "text": "Shao (2018)",
+                    "ref_id": "BIBREF104"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Empirical shreds confirm the relationship between income levels and environmental pollution to exhibit EKC effect (Copeland & Taylor, 2004; Dasgupta, Laplante, Wang, & Wheeler, 2002; Dinda, 2004) . But this hypothesis has been questioned by Stern (2004) for not being backed by strong econometric footing and not considering heteroskedasticity, and for omitted variable bias and other critical dimensions relating to cointegration analysis. We extend Kathuria (2018) suggestion to consider FDI and environmental pollution as an endogenous variable in case pollution haven hypothesis is being applied. We suggest the usage of instrumental regressors to take care of potential simultaneous biasness and obtain consistent and unbiased estimates. We incorporate this aspect on methodological grounds also since the dynamic specifications using a lag of dependent variables have been largely unexplored. With carbon intensity being cumulative and present emissions most likely linked with prior emissions, dynamic panel data model can overcome the issue of endogeneity. To the best of our knowledge, ours is the only study that considers 2SLS, GMM (one-step, two-step) and System GMM (one-step, two-step) estimators to study the effect of FDI on carbon emissions using worldwide panel data. We cover a large set of explanatory variables within a framework of static and dynamic panel modelling. We employ system GMM method of estimation as suggested by Arellano and Bover (1995) and Blundell and Bond (1998) . System GMM exploits the stationary restrictions and gives more robust results than differenced GLS and GMM estimations as it is based on significant finite sample biases due to weak sample instruments (Bond, Hoeffler, & Temple, 2001) .",
+            "cite_spans": [
+                {
+                    "start": 114,
+                    "end": 139,
+                    "text": "(Copeland & Taylor, 2004;",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 140,
+                    "end": 182,
+                    "text": "Dasgupta, Laplante, Wang, & Wheeler, 2002;",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 183,
+                    "end": 195,
+                    "text": "Dinda, 2004)",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 241,
+                    "end": 253,
+                    "text": "Stern (2004)",
+                    "ref_id": "BIBREF107"
+                },
+                {
+                    "start": 451,
+                    "end": 466,
+                    "text": "Kathuria (2018)",
+                    "ref_id": "BIBREF64"
+                },
+                {
+                    "start": 1448,
+                    "end": 1473,
+                    "text": "Arellano and Bover (1995)",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 1478,
+                    "end": 1502,
+                    "text": "Blundell and Bond (1998)",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 1706,
+                    "end": 1738,
+                    "text": "(Bond, Hoeffler, & Temple, 2001)",
+                    "ref_id": "BIBREF20"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "The rest of the paper is organized as follows: Section 2 presents a review of literature. Section 3 describes research design including methodology of the empirical model vis-\u00e0-vis static and dynamic panel data regressions. Section 4 presents the analysis and findings, Section 5 lists the policy implications of research followed by the summary and conclusions of the study.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Facets of foreign capital inflows have been studied by numerous academicians and policymakers. Theories such as OLI, LLL, Network and eclectic theory consider FDI as a channel of development for host countries in different growth phases. Dunning (2014) describes the economics of exploiting natural and global dimensions through foreign investment using \"OLI\" framework (Ownership, Location and Internationalisation). FDI inflows are observed when ownership-specific advantages (e.g. proprietary technology) are coupled with locational advantages (e.g. low factor costs) and potential benefits of internationalization through production processes abroad. Mathews (2006) provides LLL (Local, Leverage and Learn) theory for developing specific capabilities via interlinkage with local partners as well as leveraging available resources and learning to adapt to the local environment. Network theory of FDI is gaining momentum as global companies increasingly engage with production networks of host countries to gain scale and strategic benefits. Implicitly, from ownership advantage (Dunning, 2014) to production network expansion (Network theory), FDI continues to play a significant role in different stages of host country's development. The standard economic models attribute cross border capital movements primarily to relative factor endowment, market size, transportation costs and trading costs. According to the eclectic theory of FDI (Dunning 1988 (Dunning , 1992 , multinational corporations are born to exploit the benefit of internationalizing firm-level advantages such as technical skills, advertising, brand name, etc. with economic motives for capital transfer. Beyond economic dimensions, as per World Economic Forum 7 , 2017, focus is on sustainable FDI, wherein the motive has changed from economic growth to sustainable development with \"responsible investment\" being termed as green capital inflows (Mann & Sauvant, 2017) . 6 The coefficients of GDP >0 and GDP 2 < 0 determine the inverted U shape of the EKC. EKC hypothesis postulates an inverted-U-shaped relationship between different pollutants and per capita income, i.e., environmental pressure increases up to a certain level as income goes up and thereafter it decreases.",
+            "cite_spans": [
+                {
+                    "start": 238,
+                    "end": 252,
+                    "text": "Dunning (2014)",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 655,
+                    "end": 669,
+                    "text": "Mathews (2006)",
+                    "ref_id": "BIBREF81"
+                },
+                {
+                    "start": 1082,
+                    "end": 1097,
+                    "text": "(Dunning, 2014)",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 1443,
+                    "end": 1456,
+                    "text": "(Dunning 1988",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 1457,
+                    "end": 1472,
+                    "text": "(Dunning , 1992",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 1920,
+                    "end": 1942,
+                    "text": "(Mann & Sauvant, 2017)",
+                    "ref_id": "BIBREF78"
+                },
+                {
+                    "start": 1945,
+                    "end": 1946,
+                    "text": "6",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Review of literature"
+        },
+        {
+            "text": "Studies on globalization highlight important issues related to quality of FDI and INDC 8 commitments on climate change with respect to future sustainable goals. FDI inflow is a significant contributor towards achieving such goals with sustainable investment. Sustainable FDI is defined as an investment that contributes to social, environmental and economic development of host country, within a fair governance mechanism (Mann & Sauvant, 2017) . Host countries have potential to attract FDI inflow in major infrastructural areas such as energy, water resource management, transportation and build a low carbon emission economy through foreign investment in renewable energy and sustainable supply chain management. Such an approach needs to be rooted at company level first, then transformed to domestic firms through a contagious effect (Kolk, 2008; Kolk & Van Tulder, 2010; Saini & Singhania, 2019 .",
+            "cite_spans": [
+                {
+                    "start": 422,
+                    "end": 444,
+                    "text": "(Mann & Sauvant, 2017)",
+                    "ref_id": "BIBREF78"
+                },
+                {
+                    "start": 839,
+                    "end": 851,
+                    "text": "(Kolk, 2008;",
+                    "ref_id": "BIBREF69"
+                },
+                {
+                    "start": 852,
+                    "end": 876,
+                    "text": "Kolk & Van Tulder, 2010;",
+                    "ref_id": "BIBREF70"
+                },
+                {
+                    "start": 877,
+                    "end": 900,
+                    "text": "Saini & Singhania, 2019",
+                    "ref_id": "BIBREF101"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Review of literature"
+        },
+        {
+            "text": "Foreign capital inflows need to be aligned with firm-level and country-level institutional policies and reporting mechanisms to get maximum benefit. For instance, Kolk (2008) , Kolk and Van Tulder (2010) , Saini and Singhania (2019) consider firm-level value disclosures in terms of social and environmental disclosures to achieve sustainability. The macro-level framework of foreign capital inflows has shifted from economic and social dimensions to ecological development (Tamazian & Rao, 2010) . However, owing to contradictory results on FDI-energy-sustainability nexus, academicians and researchers attempt to revisit the hypothesis by using diverse sample of countries and time periods.",
+            "cite_spans": [
+                {
+                    "start": 163,
+                    "end": 174,
+                    "text": "Kolk (2008)",
+                    "ref_id": "BIBREF69"
+                },
+                {
+                    "start": 177,
+                    "end": 203,
+                    "text": "Kolk and Van Tulder (2010)",
+                    "ref_id": "BIBREF70"
+                },
+                {
+                    "start": 206,
+                    "end": 232,
+                    "text": "Saini and Singhania (2019)",
+                    "ref_id": "BIBREF101"
+                },
+                {
+                    "start": 474,
+                    "end": 496,
+                    "text": "(Tamazian & Rao, 2010)",
+                    "ref_id": "BIBREF110"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Review of literature"
+        },
+        {
+            "text": "Hypothesis 1. Institutional environmental laws and standards of host countries are significantly related to quality of environment.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Review of literature"
+        },
+        {
+            "text": "FDI and environment degradation nexus are divided into two categories, namely the pollution halo hypothesis or the pollution haven hypothesis. Pollution halo hypothesis exist when multinational companies with advanced technology and management skills encounter strict environmental laws and standards in host countries (Dean, 1992; Zarsky, 1999) . Investment by multinationals should not only be governed by economic growth dimensions, but also by environmental protection laws of host countries via knowledge diffusion, technology spillover and transfer of funds. Zhu, Duan, Guo, and Yu (2016) found a significant negative impact of FDI on carbon emission in middle and high emission countries of ASEAN due to the lack of innovative green practices. Perkins and Neumayer (2008) , on the other hand, showed how high carbon emitting countries need to improve their environment by adopting environmentally sound technologies and policies similar to cleaner countries. Birdsall and Wheeler (1993) consider trade openness as an encouragement towards green technology to eliminate the barriers of environmental standards laid in host countries.",
+            "cite_spans": [
+                {
+                    "start": 319,
+                    "end": 331,
+                    "text": "(Dean, 1992;",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 332,
+                    "end": 345,
+                    "text": "Zarsky, 1999)",
+                    "ref_id": "BIBREF118"
+                },
+                {
+                    "start": 565,
+                    "end": 594,
+                    "text": "Zhu, Duan, Guo, and Yu (2016)",
+                    "ref_id": "BIBREF120"
+                },
+                {
+                    "start": 751,
+                    "end": 778,
+                    "text": "Perkins and Neumayer (2008)",
+                    "ref_id": "BIBREF92"
+                },
+                {
+                    "start": 966,
+                    "end": 993,
+                    "text": "Birdsall and Wheeler (1993)",
+                    "ref_id": "BIBREF15"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Review of literature"
+        },
+        {
+            "text": "In contrast, as per the pollution haven hypothesis, FDI significantly increases carbon emissions in host countries through usage of obsolete and non-eco-friendly technologies (Gray, 2002; Perkins & Neumayer, 2008; Talukdar & Meisner, 2001) . Further, high implementation cost and carbon tax/fee source in case of strict environmental standards tends to shift polluting industries from developed to developing countries. Developing countries usually have low environmental standards and thereby worsens their environment in quest of higher economic growth. Chichilnisky (1994) and Copeland and Taylor (1994) proposed this scenario as classical \"pollution haven hypothesis\" wherein developing countries may have lenient environmental regulations as a strategy to compete against low infrastructure availability in comparison to developed countries. Grimes and Kentor (2003) identified the impact of FDI in LDCs with high concentration of energy-consuming industries leading to significant positive effects on environmental degradation in presence of weak environmental protocols (Gray, 2002) or \"regulatory chills\" in absence of strict environmental laws for inward FDI (Kentor & Grimes, 2006; Perkins & Neumayer, 2009 ).",
+            "cite_spans": [
+                {
+                    "start": 175,
+                    "end": 187,
+                    "text": "(Gray, 2002;",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 188,
+                    "end": 213,
+                    "text": "Perkins & Neumayer, 2008;",
+                    "ref_id": "BIBREF92"
+                },
+                {
+                    "start": 214,
+                    "end": 239,
+                    "text": "Talukdar & Meisner, 2001)",
+                    "ref_id": "BIBREF109"
+                },
+                {
+                    "start": 556,
+                    "end": 575,
+                    "text": "Chichilnisky (1994)",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 580,
+                    "end": 606,
+                    "text": "Copeland and Taylor (1994)",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 847,
+                    "end": 871,
+                    "text": "Grimes and Kentor (2003)",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 1077,
+                    "end": 1089,
+                    "text": "(Gray, 2002)",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 1168,
+                    "end": 1191,
+                    "text": "(Kentor & Grimes, 2006;",
+                    "ref_id": "BIBREF66"
+                },
+                {
+                    "start": 1192,
+                    "end": 1216,
+                    "text": "Perkins & Neumayer, 2009",
+                    "ref_id": "BIBREF93"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Review of literature"
+        },
+        {
+            "text": "There exists a significant relationship between Income-FDI-energy nexus and environmental degradation. Grimes and Kentor (2003) , Hoffmann et al. (2005) find pollution haven hypothesis valid only for low-income countries. High-income economies have higher regulatory environmental standards as compared to those in developing countries. Developing countries with lower infrastructural standards compromise with the infusion of dirtier technology as proposed by Chichilnisky (1994) . Shao (2018) identified the reason as the absence of FDI attracting factors such as infrastructure and skilled labour. To cover up, low-income countries use relaxed environmental regulations to compete for FDI, leading to pollution haven hypothesis (Sapkota & Bastola, 2017; Shao, 2018) . FDI becomes the framework for multinational companies of developed economies to transfer polluted units to developing countries with lower environmental standards to reduce their implementation costs. Kathuria (2018) and Pazienza (2015) decomposed the Income-FDIenergy nexus into (i) scale effect (moving from a small to global scale), (ii) technique effect (adoption of cleaner technology), and (iii) composition effect (a shift in preferences to cleaner products and greater environmental protections with increases in income). The net effect of these three effects reflected in terms of ultimate impact on environment. The scale effect includes phases with constant structure and technology accompanied by an increase in production impeding environmental quality. Technique effect captures the improvement in technology and adoption of cleaner technologies which might increase the environmental quality. Composition effect measures the change in structure of economy as it moves from agricultural sector to industry and then to service sector (Balsalobre, \u00c1 lvarez, & Cantos, 2015) . While scale effect is the outcome of economic activity and consumption, technique and composition effect are outcomes of cleaner technology and shift to a greener environment. In Environmental Kuznets Curve 9 , the composition and technique effect outweigh the scale effects, making trade, FDI and financial liberalization more favourable than harmful to environment (Sadorsky, 2009; Antweiler et al., 2001; Grossman and Krueger, 1995) if institutional practices and regulations are oriented towards environmental sustainability (Boutabba, 2014; Gray, 2002; Tamazian & Rao, 2010) .",
+            "cite_spans": [
+                {
+                    "start": 103,
+                    "end": 127,
+                    "text": "Grimes and Kentor (2003)",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 130,
+                    "end": 152,
+                    "text": "Hoffmann et al. (2005)",
+                    "ref_id": "BIBREF59"
+                },
+                {
+                    "start": 461,
+                    "end": 480,
+                    "text": "Chichilnisky (1994)",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 483,
+                    "end": 494,
+                    "text": "Shao (2018)",
+                    "ref_id": "BIBREF104"
+                },
+                {
+                    "start": 731,
+                    "end": 756,
+                    "text": "(Sapkota & Bastola, 2017;",
+                    "ref_id": "BIBREF102"
+                },
+                {
+                    "start": 757,
+                    "end": 768,
+                    "text": "Shao, 2018)",
+                    "ref_id": "BIBREF104"
+                },
+                {
+                    "start": 972,
+                    "end": 987,
+                    "text": "Kathuria (2018)",
+                    "ref_id": "BIBREF64"
+                },
+                {
+                    "start": 992,
+                    "end": 1007,
+                    "text": "Pazienza (2015)",
+                    "ref_id": "BIBREF91"
+                },
+                {
+                    "start": 1818,
+                    "end": 1856,
+                    "text": "(Balsalobre, \u00c1 lvarez, & Cantos, 2015)",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 2226,
+                    "end": 2242,
+                    "text": "(Sadorsky, 2009;",
+                    "ref_id": null
+                },
+                {
+                    "start": 2243,
+                    "end": 2266,
+                    "text": "Antweiler et al., 2001;",
+                    "ref_id": null
+                },
+                {
+                    "start": 2267,
+                    "end": 2294,
+                    "text": "Grossman and Krueger, 1995)",
+                    "ref_id": "BIBREF54"
+                },
+                {
+                    "start": 2388,
+                    "end": 2404,
+                    "text": "(Boutabba, 2014;",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 2405,
+                    "end": 2416,
+                    "text": "Gray, 2002;",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 2417,
+                    "end": 2438,
+                    "text": "Tamazian & Rao, 2010)",
+                    "ref_id": "BIBREF110"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Hypothesis 2."
+        },
+        {
+            "text": "There exists a significant relationship between financial development of host country and reduced environmental degradation.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Hypothesis 3."
+        },
+        {
+            "text": "A good financial structure facilitates low cost financing of investments in environmentally friendly projects across all levels namely local, national and international. Apart from this, the capital market of the host country also plays an important role in addressing environmental challenges. Capital markets are particularly efficient in allocation of capital for determining the appropriate prices for goods and services. Along with efficient allocation, capital markets provide incentives towards the development of new technology leading to a less carbon-intensive economy.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Hypothesis 3."
+        },
+        {
+            "text": "In such backdrop, Claessens and Feijen (2007) , Kumbaroglu, Karali, and Ar\u0131kan (2008) and Lanoie, Laplante, and Roy (1998) argue that improved governance and financial sector development through technological changes in energy supply leads to environmental improvement. A well-developed financial system provides enough incentives to local firms as well as multinationals to lower their carbon emissions. Besides, for successful economic and financial development, there is an 8 Intended Nationally Determined Contributions are voluntary national targets adopted by nations to meet the objectives set by UNFCCC under Paris Agreement in 2015, to hold the increase in global average temperature to below 2 \u2022 Celsius. 9 Environmental Kuznets Curve (EKC) hypothesis postulates an inverted-Ushaped relationship between different pollutants and per capita income, i.e., environmental pressure increases up to a certain level as income goes up; after that, it decreases. emergent need for a strong regulatory framework. Companies with strict environmental laws are in better position to mitigate harmful emissions by using efficient/less polluting technologies and best practices in environmental management (Cropper & Griffiths, 1994; Jones & Manuelli, 2001) . Table 1 provides the chronological listing of various studies undertaken in this area. Grossman and Krueger 10 (1995) links the relationship between environmental pollution and income levels to inverted U shape hypothesis along with other endogenous and control variables. The EKC's inverted U shape relationship is expressed in Eq. (1). We use panel data methodology to control for individual heterogeneity and thereby eliminate the risk of biased results. To address country-specific unobserved heterogeneity, we use static panel data modelling by estimating fixed and random effects 11 and to control for endogeneity problems and remove variable biasness, we look for valid and relevant instruments in regression, thus using 2SLS 12 model. To address individual heterogeneity, we use dynamic panel data methodology with differenced GMM and system GMM. The specifications used for static model are as follow:",
+            "cite_spans": [
+                {
+                    "start": 18,
+                    "end": 45,
+                    "text": "Claessens and Feijen (2007)",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 48,
+                    "end": 85,
+                    "text": "Kumbaroglu, Karali, and Ar\u0131kan (2008)",
+                    "ref_id": "BIBREF72"
+                },
+                {
+                    "start": 90,
+                    "end": 122,
+                    "text": "Lanoie, Laplante, and Roy (1998)",
+                    "ref_id": "BIBREF73"
+                },
+                {
+                    "start": 715,
+                    "end": 716,
+                    "text": "9",
+                    "ref_id": null
+                },
+                {
+                    "start": 1201,
+                    "end": 1228,
+                    "text": "(Cropper & Griffiths, 1994;",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 1229,
+                    "end": 1252,
+                    "text": "Jones & Manuelli, 2001)",
+                    "ref_id": "BIBREF61"
+                },
+                {
+                    "start": 1342,
+                    "end": 1372,
+                    "text": "Grossman and Krueger 10 (1995)",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1255,
+                    "end": 1262,
+                    "text": "Table 1",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "Hypothesis 3."
+        },
+        {
+            "text": "where:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Econometric modelling"
+        },
+        {
+            "text": "CO 2t is Carbon Emission per capita in county i for time t. Y t is GDP per capita in country i for time t. E t is Energy Consumption per capita in country i for time t. T t is Trade Openness in country i for time t. FDI t is Foreign Direct Investment in country i for time t. FD t is Financial Development in country i for time t. IF t is Institutional Framework in country i for time t.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Econometric modelling"
+        },
+        {
+            "text": "v i and \u03b5 it are country-specific effects and error terms respectively.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Econometric modelling"
+        },
+        {
+            "text": "To arrive at Eq. (1), numerous existing models prescribe the specifications. The simple pooled OLS model yields inconsistent and biased results if the time-invariant variables covariates were omitted from the model because unobserved error terms are highly correlated with the error term. If the omitted time-invariant variables are correlated with dependent variable, then the fixed effect model yields consistent and unbiased parameters whereas if the omitted variable is not covariate with the dependent variable then, the random effect model provides consistent and unbiased estimates. The validity of these assumptions are tested by Hausman Specification tests. However, to consider estimates more robustly and efficiently, we use the tests of heteroscedasticity, autocorrelation and endogeneity and instrument variability. Our main model expresses FDI as a function of carbon emission with the assumption that the pollution haven hypothesis does take this into consideration, causing an endogeneity problem (Kathuria, 2018) . To allow for this potential endogeneity, we consider FDI as an instrumental variable using two-stage least square (2SLS). For an instrument to be suitable, we must use a variable which should be highly correlated with FDI and strictly exogenous to dependent variable. To control for endogeneity, we use a set of instruments that capture the degree of infrastructural development in host country namely gross fixed capital formation GFCF and openness policy in host country (Trade openness). These two instruments capture the degree of infrastructural development and policy openness in host country and thus act as a factor influencing foreign capital inflows. We use Sargan test of overidentifying restrictions to assess the validity of our instruments and also report F-tests of joint instrument significance and Durbin Wu-Hausman for capturing endogeneity (Cole, Elliott, & Fredriksson, 2006) . One of the assumptions in a multiple linear regression model is that the explanatory variable must be uncorrelated with error term. If this assumption holds, then all explanatory variables are exogenous. However, if any explanatory variable is correlated with the error term, then such a variable is endogenous. Due to endogeneity, the estimates obtained from multiple equation models using ordinary least square method are biased and introducing the IV (instrumental variables) method provides a solution in such cases. We may also have more than one instrumental variable over an endogenous variable. In case of identically identified equations, the assumption that the instrument is uncorrelated with error term cannot be tested. When the number of instruments is greater than the number of endogenous variables, then the equation is said to be over identified. In case of over-identified models, the Hansen Sargan test statistic may be used to test the second assumption (Greene, 2008) .",
+            "cite_spans": [
+                {
+                    "start": 1013,
+                    "end": 1029,
+                    "text": "(Kathuria, 2018)",
+                    "ref_id": "BIBREF64"
+                },
+                {
+                    "start": 1891,
+                    "end": 1927,
+                    "text": "(Cole, Elliott, & Fredriksson, 2006)",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 2905,
+                    "end": 2919,
+                    "text": "(Greene, 2008)",
+                    "ref_id": "BIBREF52"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Econometric modelling"
+        },
+        {
+            "text": "Another potential problem of our study is endogeneity of some explanatory variables from simultaneity bias, measurement errors and risk of omitted variables. To address the issue of endogeneity, we need to introduce instrumental variables with the characteristics for instrument relevance condition (corr (IV, X i ) \u2215 = 0) and instrument exogeneity condition (corr (IV, \u00b5 i ) = 0). After controlling for endogeneity and valid instrument, we further proceed with GMM methodology. The coefficients of our estimates are biased due to the existence of a correlation between the lagged variable (y i;t_1 ) and the error term (\u03b5 it ), or between (y i:t_1 ) and (\u03b5 it ) or also between (y i:t_1 ) and (\u03b5 it ) that leads to a lagged endogenous variable. To correct this biasness, we apply GMM in the second stage which instrumentalizes the explanatory variables by lagged values in level and first differences. Besides heterogeneity, endogeneity also affects the estimates, it is also very difficult to assume strict exogeneity for all explanatory variables. GMM estimations are applied to control for potential endogeneity of all explanatory variables. Arellano and Bond (1991) , suggest instrumental variables as the lagged values (twice or more) of all right-hand side variables.",
+            "cite_spans": [
+                {
+                    "start": 1146,
+                    "end": 1170,
+                    "text": "Arellano and Bond (1991)",
+                    "ref_id": "BIBREF3"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Econometric modelling"
+        },
+        {
+            "text": "De Andres and Vallelado (2008) found the results of OLS and fixed effect inconsistent and biased when unobserved effect is correlated with independent variable. The estimation procedure consists of the following steps: (1) specify the model, (2) include individual effect in the model by using differencing, (3) specify instruments (often lagged values of all variables in the model), (4) choose a method for adjusting standard errors to overcome heteroscedasticity, (5) use the Sargan test to determine if the instruments are suitable (test for over-identification restrictions). This methodology is suitable when number of years (considered in the study) is few and number of firms are large. In the dynamic panel data framework, the lagged dependent variable is highly correlated with panel-level effects and therefore it makes standard error estimation highly inconsistent and hence the OLS method of estimation cannot be used. Therefore, Arellano and Bond estimator is used. In this estimation, the equation is using first differencing in order to remove the unobserved fixed effects from the estimated models and then use instruments to form moment conditions. According to Blundell and Bond (1998) , lagged level instruments used in Arellano and Bond estimator become weak if variance in panel-level effects to variance in idiosyncratic effect becomes large.",
+            "cite_spans": [
+                {
+                    "start": 1180,
+                    "end": 1204,
+                    "text": "Blundell and Bond (1998)",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Econometric modelling"
+        },
+        {
+            "text": "System GMM is the augmented version of GMM. According to Blundell and Bond (1998) lagged levels are often poor instruments for first differences, especially for variables that are close to random walk 13 . In this way, the original equations in levels can be added to the system, and additional moment conditions increase efficiency. In these equations, predetermined and endogenous variables in levels are instruments with suitable lags of their own first differences. The system GMM estimator improves precision and also reduces the finite sample bias problem.",
+            "cite_spans": [
+                {
+                    "start": 57,
+                    "end": 81,
+                    "text": "Blundell and Bond (1998)",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Econometric modelling"
+        },
+        {
+            "text": "Thus initially, the empirical model estimates the effect of FDI and other financial factors on carbon emissions using Eq. (2):",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Econometric modelling"
+        },
+        {
+            "text": "where Y, is carbon emission and X is vector of independent variables and Z is vector of control variables and \u03b7represents an unobserved firm effect. In next step, dynamic model equation can be re-written in the following differenced form by eliminating constant term and individual effect:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Econometric modelling"
+        },
+        {
+            "text": "First difference helps in eliminating biasness arising from time invariant unobserved heterogeneity and omitted variable biasness. The approach allows us to use explanatory variable as endogenous and uses lagged value (past value) of all variables as instruments. Thus the past/ lagged values of independent variables, carbon emission and controlled variables are used as instruments. Following Wintoki, Linck, and Netter (2012) , the use of historical values of explanatory variables as instrument, is an important aspect of dynamic panel estimator. Therefore the instrument will be drawn from dependent and explanatory variables that is Y t-k , X t-k , Z t-k . And the assumption for valid instrument criteria is discussed in 2SLS section.",
+            "cite_spans": [
+                {
+                    "start": 395,
+                    "end": 428,
+                    "text": "Wintoki, Linck, and Netter (2012)",
+                    "ref_id": "BIBREF116"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Econometric modelling"
+        },
+        {
+            "text": "After the first differencing the lagged variable must be exogenous i.e. the lagged variable must be uncorrelated with the error term in performance (Wintoki et al., 2012) . This is done by using lags of dependent variable, and we believe that the countries' historical information does not affect the current governance system and firm characteristics. Thus, beyond the given period, the country's history should be exogenous regardless of any shocks to the dependent variable in the current or future time period. Hence, GMM enables us to deal with endogeneity and unobserved heterogeneity that is associated with each firm and correlated with the rest of the explanatory variables. The model is tested on two critical specification tests. Both first-order (AR(1)) and secondorder (AR(2)) autocorrelation are used. This test enables us to check whether enough lags have been used to control the dynamics of the empirical relationship. The residuals of the country difference (AR(1)) may be correlated but there should be no serial correlation in the second difference (AR (2)). This test assures the historical value of firm performance beyond those lags is strictly exogenous to current performance shocks. Hansen/Sargan test of overidentification of restrictions is the second test used for a dynamic panel GMM. It enables us to test the validity of the multiple lags in instrument. In the end, the Wald test for the overall significance of the model is also used Arellano and Bond (1991) proposed the use of a lagged variable as an instrument in estimation of equation at first difference. Blundell and Bond (1998) and Arellano and Bover (1995) showed that lagged value of explanatory variables are weak instruments leading to biased results when the sample size is limited. They propose usage of system GMM which is more efficient than differenced GMM. Also, the validity of lagged instruments may be checked using Sargan's over-identification test and we suggest also performing autocorrelation test for second-13 when the past movement or trend of a price or market cannot be used to predict its future movement.",
+            "cite_spans": [
+                {
+                    "start": 148,
+                    "end": 170,
+                    "text": "(Wintoki et al., 2012)",
+                    "ref_id": "BIBREF116"
+                },
+                {
+                    "start": 1467,
+                    "end": 1491,
+                    "text": "Arellano and Bond (1991)",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 1594,
+                    "end": 1618,
+                    "text": "Blundell and Bond (1998)",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 1623,
+                    "end": 1648,
+                    "text": "Arellano and Bover (1995)",
+                    "ref_id": "BIBREF10"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Econometric modelling"
+        },
+        {
+            "text": "GMM and System GMM results All Countries (Developed and Developing). ***, **, * significant at 1%, 5% and 10% respectively #No. of Observations included in the models are 301. Table 3 GMM and System GMM results (Developed one-step). ***, **, * significant at 1%, 5% and 10% respectively. order errors. In this paper, we examine causality between CO 2 emission, FDI inflows, economic growth, financial effectiveness and governance indicators using static and dynamic panel data estimations. Persson, Azar, and Lindgren (2006) highlight minimization of the economic cost of stabilizing the atmospheric concentration of CO 2 by strict policy framework in the early and expansion stages of development of a country. At the initial level, we allow dynamic specifications where one period lagged levels of dependent variables may affect their current levels. As perusing Arellano and Bond (1991) and Arellano and Bover (1995) approach, we use instrumental variables to solve the endogeneity problem of the regressor and this avoids the estimation biases that arise due to the correlation between lagged dependent variable and error term when the ordinary least square method is used.",
+            "cite_spans": [
+                {
+                    "start": 490,
+                    "end": 524,
+                    "text": "Persson, Azar, and Lindgren (2006)",
+                    "ref_id": "BIBREF94"
+                },
+                {
+                    "start": 865,
+                    "end": 889,
+                    "text": "Arellano and Bond (1991)",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 894,
+                    "end": 919,
+                    "text": "Arellano and Bover (1995)",
+                    "ref_id": "BIBREF10"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 176,
+                    "end": 183,
+                    "text": "Table 3",
+                    "ref_id": null
+                }
+            ],
+            "section": "Table 2"
+        },
+        {
+            "text": "This section summarizes the result and discussions based on econometric models as suggested in Eq. (1). Tables 2-4 report GMM and system GMM results. This study estimates the Static 14,15 and dynamic panel data models using differenced GMM and system GMM on overall samples. We use one lag value of dependent variable, reflecting the idea that countries with high emissions in past years would continue to have high emissions over time. Besides, the significance of lag helps the model to account for the dynamics of data over time and hence improves the consistency of other variables (Bond, 2002) . For determining the applicability of EKC hypothesis, linear and quadratic term of GDP is used to determine the presence or absence of EKC hypothesis. Energy use is an important variable for carbon emissions and this variable has been extensively used in literature. Carbon emissions arise out of high energy usage and this supports Hypothesis 2 of income-FDI-energy nexus. Through VIF statistics, it was found that energy use and carbon emissions were highly correlated and shows the direct link between energy consumption and carbon emissions. Energy use has been included as a proxy of economic development activities where positive sign denotes environmental degradation due to highly polluting carbon emitter fossil fuels (used in manufacturing sector) and negative sign suggests the emergence of cleaner resources and upgraded technological resources (through supportive service sector) including wind, solar, nuclear and other clean energy options (the structural change in the economy via composite effect). Many studies on EKC hypothesis, consider government regulation and a strong institutional framework as basic requirements for ensuring environmental protection (Marconi & Sanna-Randaccio, 2014; Rezza, 2013; Tamazian & Rao, 2010; Tamazian, Chousa, & Vadlamannati, 2009) . In light of this, we use institutional factors to study the influence of governmental regulations on environmental degradation, a positive sign of institutional factor indicating the presence of liberal environmental policies in host countries and supporting Hypothesis 1 (relating to liberal institutional factors vs. carbon emissions). The negative sign of research and development coefficient directing towards the urgent need for high innovative and green policy implementation in production process to minimize carbon emissions (Xie, Huo, & Zou, 2019) . The positive sign of the FDI coefficient indicates environmental degradation and high carbon emissions, supporting the pollution haven hypothesis (Hypothesis 2) (Grimes & Kentor, 2003; Zhang, 2008; Baek & Koo, 2009 , Tamazian & Rao, 2010 . While FDI is considered as a growth engine of economic development, especially in developing countries, the focus needs to be on attracting clean and energy-efficient industries through FDI. Such type of policy Table 4 GMM and System GMM results (Developing one-step). ***, **, * significant at 1%, 5% and 10% respectively.",
+            "cite_spans": [
+                {
+                    "start": 586,
+                    "end": 598,
+                    "text": "(Bond, 2002)",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 1776,
+                    "end": 1809,
+                    "text": "(Marconi & Sanna-Randaccio, 2014;",
+                    "ref_id": "BIBREF79"
+                },
+                {
+                    "start": 1810,
+                    "end": 1822,
+                    "text": "Rezza, 2013;",
+                    "ref_id": "BIBREF98"
+                },
+                {
+                    "start": 1823,
+                    "end": 1844,
+                    "text": "Tamazian & Rao, 2010;",
+                    "ref_id": "BIBREF110"
+                },
+                {
+                    "start": 1845,
+                    "end": 1884,
+                    "text": "Tamazian, Chousa, & Vadlamannati, 2009)",
+                    "ref_id": "BIBREF111"
+                },
+                {
+                    "start": 2420,
+                    "end": 2443,
+                    "text": "(Xie, Huo, & Zou, 2019)",
+                    "ref_id": "BIBREF117"
+                },
+                {
+                    "start": 2607,
+                    "end": 2630,
+                    "text": "(Grimes & Kentor, 2003;",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 2631,
+                    "end": 2643,
+                    "text": "Zhang, 2008;",
+                    "ref_id": "BIBREF119"
+                },
+                {
+                    "start": 2644,
+                    "end": 2660,
+                    "text": "Baek & Koo, 2009",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 2661,
+                    "end": 2683,
+                    "text": ", Tamazian & Rao, 2010",
+                    "ref_id": "BIBREF110"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 2897,
+                    "end": 2904,
+                    "text": "Table 4",
+                    "ref_id": null
+                }
+            ],
+            "section": "Analysis and findings"
+        },
+        {
+            "text": "14 Static model results including Fixed effect and Random effect (for overall sample, developed country and developing country), and these results may be provided at request. 15 2SLS results (for overall sample, developed country and developing country) may be provided on request.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Analysis and findings"
+        },
+        {
+            "text": "has the potential to improve environmental health while enhancing the economic growth of the host country. If the estimated coefficient of energy is found to be positive and significant, it indicates the detrimental impact of energy-intensive production to environmental health (Lee, 2009; Omri, 2013; Tamazian & Rao, 2010) . The magnitude of the coefficient of energy consumption suggests that increased levels of pollution are attributable to higher consumption of energy. Hence, the findings suggest the need for countries to focus on adopting energysaving and environment friendly skills. The findings of the study are divided into three sub-sections namely all countries sample, findings of developed countries and finally of developing countries. The study started with static panel data modelling having six different models. We find the existence of EKC hypothesis for all models where GDP is positive and significant while the square term of GDP is found to be negative and significant to carbon emissions (Rashid, 2009; Liang, 2008; Panayotou, 1997; He & Richard, 2010) . The positive coefficient of FDI supports the pollution haven hypothesis and, the interaction term of institutional framework with FDI inflows is negative and significant, implying countries with a high institutional framework have fewer carbon emissions due to the presence of strict regulatory norms which support the pollution halo hypothesis (Tamazian et al., 2009; Aliyu, 2005; Hoffmann et al., 2005) . Similar type of behaviour was observed in trade openness as well, which signifies that FDI and trade intensity is more sensitive towards the institutional policy framework of the host country. However, panel OLS provides significantly better results if the model is free from endogeneity and simultaneous biasness. The introduction of instrumental variables may reduce the problem of endogeneity. Hence, 2SLS panel regression is used where Durbin-Wu-Hausman statistics states that there exists endogeneity and the J-test fails to reject the null hypothesis of over-identification of restrictions in instrumental variables. The results of 2SLS are quite similar to static model results in terms of accepting EKC hypothesis. The FDI, FD and trade openness are major determinants of carbon emissions, but interaction term of institutional framework with FDI and trade openness respectively shows a negative association with carbon emissions (Baek & Koo, 2009; Ren, Yuan, Ma, & Chen, 2014a , 2014b Tamazian et al., 2009) . Table 2 , represents the result of GMM and system GMM. The first lag of dependent variable is found to be significant and positive, which shows the presence of persistence effect in carbon emissions. In other words, current year emissions are significantly related to past year emissions and thus EKC hypothesis holds true. FDI, FD and trade openness are found to be negative and significantly related to environmental degradations. The post estimation tests of AR (1) and AR (2) signify the absence of first order and second-order autocorrelation. The Hansan J test is the test of overidentification of restrictions of instruments used in the model, where we fail to reject the null hypothesis that instruments under these models are correctly specified.",
+            "cite_spans": [
+                {
+                    "start": 278,
+                    "end": 289,
+                    "text": "(Lee, 2009;",
+                    "ref_id": "BIBREF74"
+                },
+                {
+                    "start": 290,
+                    "end": 301,
+                    "text": "Omri, 2013;",
+                    "ref_id": null
+                },
+                {
+                    "start": 302,
+                    "end": 323,
+                    "text": "Tamazian & Rao, 2010)",
+                    "ref_id": "BIBREF110"
+                },
+                {
+                    "start": 1015,
+                    "end": 1029,
+                    "text": "(Rashid, 2009;",
+                    "ref_id": "BIBREF95"
+                },
+                {
+                    "start": 1030,
+                    "end": 1042,
+                    "text": "Liang, 2008;",
+                    "ref_id": "BIBREF75"
+                },
+                {
+                    "start": 1043,
+                    "end": 1059,
+                    "text": "Panayotou, 1997;",
+                    "ref_id": "BIBREF87"
+                },
+                {
+                    "start": 1060,
+                    "end": 1079,
+                    "text": "He & Richard, 2010)",
+                    "ref_id": "BIBREF58"
+                },
+                {
+                    "start": 1427,
+                    "end": 1450,
+                    "text": "(Tamazian et al., 2009;",
+                    "ref_id": "BIBREF111"
+                },
+                {
+                    "start": 1451,
+                    "end": 1463,
+                    "text": "Aliyu, 2005;",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 1464,
+                    "end": 1486,
+                    "text": "Hoffmann et al., 2005)",
+                    "ref_id": "BIBREF59"
+                },
+                {
+                    "start": 2427,
+                    "end": 2445,
+                    "text": "(Baek & Koo, 2009;",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 2446,
+                    "end": 2474,
+                    "text": "Ren, Yuan, Ma, & Chen, 2014a",
+                    "ref_id": "BIBREF96"
+                },
+                {
+                    "start": 2475,
+                    "end": 2482,
+                    "text": ", 2014b",
+                    "ref_id": "BIBREF97"
+                },
+                {
+                    "start": 2483,
+                    "end": 2505,
+                    "text": "Tamazian et al., 2009)",
+                    "ref_id": "BIBREF111"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 2508,
+                    "end": 2515,
+                    "text": "Table 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "Analysis and findings"
+        },
+        {
+            "text": "In case of developed countries, we failed to find the presence of EKC hypothesis; rather we found a U-shape relationship between income and carbon emissions. High research and development expenditure and financial development lower the carbon emissions. The results of 2SLS are presented, which are almost similar to findings of static model. Research and development expenditure, trade intensity and institutional framework show a negative association. This shows that developed countries are more inclined to research and development towards innovative and green products, supporting export and imports of such products and also aspire for strict environmental norms through institutional framework policies. The strict environmental institutional policies control carbon emissions and trade policies are also aligned to the same objective. The post hoc 16 analysis supports the presence of endogeneity in the model. To overcome this, we introduced the instrumental variables. The Hansen J-test supports the introduced instruments as valid instruments. The results of GMM and system GMM are presented in Table 2 , where the lag of dependent variables is found to be significant. EKC hypothesis holds true only in system GMM models. The results for financial development and institutional framework showed a negative association with environmental degradations in dynamic panel data models.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 1106,
+                    "end": 1113,
+                    "text": "Table 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "Analysis and findings"
+        },
+        {
+            "text": "We found evidence of EKC hypothesis being accepted in all models (Tables 2 and 4 ). The institutional framework has a significant positive coefficient, implying that the lack of institutional framework policies in developing countries leads to the pollution haven hypothesis (Table 4) . However, we do not find the effect of FDI on environmental sustainability in case of developed countries (Table 3 ). The results of 2SLS model showed EKC hypothesis as an inverted U-shape. Financial development and financial assistance lead to lower carbon emissions due to green credits on consumer goods (Tables 2 and 3) . The institutional policy framework leads to high environmental degradation (rejecting hypothesis 3) due to positive and significant association with carbon emissions (Tables 2 and 4 ), but in case of developed countries, it seems to have negative impact on environmental degradation (Table 2 , Model 3 and 4). Contrary to developed countries, research and development expenditure, in case of developing countries, does not have a significant negative impact on carbon emissions. It can unfold to have high research activities in developing countries for green and environmentally friendly products. FDI with a significant positive impact on carbon emissions follows pollution haven hypothesis due to liberal institutional framework in developing countries (Table 4 ). Trade intensity is found to be positive towards carbon emissions, giving legitimacy to Government's sustainable development efforts in promoting green technology products and regulations in developed countries (Table 3 , Model 5, 6, and 8). The lag of dependent variable is found to be statistically significant and shows that persistence effect is present (Tables 2-4) . The EKC hypothesis is found to be true in dynamic panel models as well. In developing countries, sample institutional framework and FDI are positively related to environmental degradations in favour of pollution haven hypothesis (Table 4 ). However, the interaction term of the institutional policy framework and FDI have a significant negative impact on carbon emissions, signifying strict environmental laws that lead to green foreign capital inflows in host countries (Table 4) . Narayan, Saboori, and Soleymani (2016) suggest two alternative approaches to estimate EKC hypothesis (without the inclusion of squared term of income) in the given data set by comparing short-run and long-run income elasticity and cross-correlation estimates to understand how economic growth and carbon emissions are related to each other. Future studies must validate the effectiveness of EKC hypothesis by using the aforementioned approaches suggested by the elasticity method mentioned in Narayan, Narayan, and Popp (2010) and crosscorrelation method mentioned in Narayan et al. (2016) .",
+            "cite_spans": [
+                {
+                    "start": 2235,
+                    "end": 2273,
+                    "text": "Narayan, Saboori, and Soleymani (2016)",
+                    "ref_id": "BIBREF84"
+                },
+                {
+                    "start": 2728,
+                    "end": 2761,
+                    "text": "Narayan, Narayan, and Popp (2010)",
+                    "ref_id": "BIBREF83"
+                },
+                {
+                    "start": 2803,
+                    "end": 2824,
+                    "text": "Narayan et al. (2016)",
+                    "ref_id": "BIBREF84"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 65,
+                    "end": 80,
+                    "text": "(Tables 2 and 4",
+                    "ref_id": null
+                },
+                {
+                    "start": 275,
+                    "end": 284,
+                    "text": "(Table 4)",
+                    "ref_id": null
+                },
+                {
+                    "start": 392,
+                    "end": 400,
+                    "text": "(Table 3",
+                    "ref_id": null
+                },
+                {
+                    "start": 593,
+                    "end": 609,
+                    "text": "(Tables 2 and 3)",
+                    "ref_id": null
+                },
+                {
+                    "start": 778,
+                    "end": 793,
+                    "text": "(Tables 2 and 4",
+                    "ref_id": null
+                },
+                {
+                    "start": 895,
+                    "end": 903,
+                    "text": "(Table 2",
+                    "ref_id": null
+                },
+                {
+                    "start": 1368,
+                    "end": 1376,
+                    "text": "(Table 4",
+                    "ref_id": null
+                },
+                {
+                    "start": 1590,
+                    "end": 1598,
+                    "text": "(Table 3",
+                    "ref_id": null
+                },
+                {
+                    "start": 1737,
+                    "end": 1749,
+                    "text": "(Tables 2-4)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1981,
+                    "end": 1989,
+                    "text": "(Table 4",
+                    "ref_id": null
+                },
+                {
+                    "start": 2223,
+                    "end": 2232,
+                    "text": "(Table 4)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Analysis and findings"
+        },
+        {
+            "text": "The Pollution Haven hypothesis is investigated, which though widely researched in economics, has considerable gaps in international business literature. Our contribution to existing literature includes the nexus between foreign capital inflows, institutional framework and financial development of host countries within pollution haven hypothesis. The theoretical framework we employ has rarely been used in previous researches in international business, to the best of our knowledge. Also, financial development plays an important role in environmental disclosures of developing countries. Higher levels of FDI help achieve lower per capita carbon emission provided there is a strong institutional framework in place. Government and policymakers may assist in environmental disclosures by establishing stringent policies and institutional structures and thereby reducing greenhouse gas emissions. They may incentivize developing projects involving the adoption of new technology leading to a less carbon-intensive economy.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Policy implications of research"
+        },
+        {
+            "text": "A mandatory policy development is proposed at macro and micro levels whereby four main stakeholders namely government, multinational companies, public finance system and energy sector countries take the lead in promoting environmental sustainability (Fig. 1) . The government needs to propose legal and non-legal barriers by introducing carbon taxation on polluting units and tax exemption on cleaner units. Government intervention is recommended in production process of domestic and foreign entities by encompassing the legal and non-legal barriers towards heavy polluters and to encourage technical, social and financial linkages through pollution control measures. (Zhu et al., 2016) . Further, population size needs to be reduced for maintaining environmental health in developing countries. A tailor-made carbon emissions policy needs to be built across low emissions and high emissions countries. Our insights may be used as an impetus to existing studies and future studies in linking corporate governance (traditional reporting structural aspects) with environmental reporting (Kolk, 2005; Halme & Huse, 1997) .",
+            "cite_spans": [
+                {
+                    "start": 669,
+                    "end": 687,
+                    "text": "(Zhu et al., 2016)",
+                    "ref_id": "BIBREF120"
+                },
+                {
+                    "start": 1086,
+                    "end": 1098,
+                    "text": "(Kolk, 2005;",
+                    "ref_id": "BIBREF68"
+                },
+                {
+                    "start": 1099,
+                    "end": 1118,
+                    "text": "Halme & Huse, 1997)",
+                    "ref_id": "BIBREF55"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 250,
+                    "end": 258,
+                    "text": "(Fig. 1)",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Policy implications of research"
+        },
+        {
+            "text": "Multinational companies should be required to adopt a strict disclosure index on environmental and social dimensions. Many developing countries like Brazil, South Africa, Argentina and Indonesia have adopted numerous environment and social practices as mandatory disclosures for companies within their geographical boundaries (Robeco SAM, 2019). With a stringent institutional framework, foreign investors usually export clean technology to host countries, resulting in a pollution-free environment. High FDI in industrial and production sector with public-private partnership (PPP) encourages environment-friendly process and green supply chain management to an effective and efficient public finance system (Ansari, Khan, & Ganaie, 2019) . Apart from this, we propose tapping of alternative sources of cleaner energy. Countries rich in renewable energy resources are encouraged to adopt clean technology using biofuel, wind energy and solar energy in their production process. Investigating renewable resources may offer opportunities to reduce usage of fossil fuel energy (Charfeddine & Kahia, 2019) . Increasing public awareness of hazardous waste and polluting industries is imperative for sustainable development. The use of suggestive performa in the form of Statement of Environmental Disclosures while looking for entry, expansion and financial assistance in host/home country is also proposed ( Table 5 ). It will help in the implementation of mandatory stakeholders' policy development. Further, selective mandatory propositions are considered in determining role of greenhouse gas emissions in host/home country environments, which have never been tested in empirical literature. The itemized instrument for measuring implementation of environmental disclosure index may be used as a benchmark by companies to improve their mandatory disclosures. This may also be used by accounting and regulatory bodies to develop specific guidelines/standards for reporting such items as well.",
+            "cite_spans": [
+                {
+                    "start": 709,
+                    "end": 739,
+                    "text": "(Ansari, Khan, & Ganaie, 2019)",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 1075,
+                    "end": 1102,
+                    "text": "(Charfeddine & Kahia, 2019)",
+                    "ref_id": "BIBREF25"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1405,
+                    "end": 1412,
+                    "text": "Table 5",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "Policy implications of research"
+        },
+        {
+            "text": "The role of financial development, FDI and institutional framework on environmental degradation is examined. Additionally, the validity of EKC hypothesis is investigated in sample countries. We contribute to literature by considering FDI as a tool to develop a mechanism for sustainable development which may be further decomposed into scale, technique and composition effects. Also, value is added to the methodology part by considering endogeneity and unobserved heterogeneity in the model. Differenced and system GMM is used to study the impact of foreign capital inflows on environmental sustainability and used to capture unobserved effect and endogeneity in data. The existing literature is largely unexplored for lagged implications of carbon emission (dependent variable). The selected dataset comprised of 20 countries (developed and developing countries) over the period of 1990 to 2016. The study started with pooled panel data regression, which then moved to fixed and random effect model, thereafter 2SLS model and finally control endogeneity and unobserved heterogeneity by difference and system GMM approach.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Summary and conclusion"
+        },
+        {
+            "text": "The existence of EKC hypothesis is found in developing countries with evidence of pollution haven hypothesis. The FDI support to sustainability is explained by providing green finance. While traditionally capital flows moved in search of arbitrage process and interest rate differential, in the twenty-first century, capital flows from developed to developing countries in search of environmental, social and governance sustainability to achieve sustainable business goals. Though, trade intensity and carbon emissions have significant positive impact in developed countries, a positive impact of scale effect 17 on environmental degradation is also found for all sample countries. In developing countries too, the scale effect is found to be positively associated with environmental degradation indicating absence of a strict institutional framework. Technique effect suggests research and development and improvements in technology have a negative effect on environmental degradation and thus high research and development activity is an effective mechanism for reducing pollution (Bruvoll & Medin, 2003; Dinda, 2004; Ahangari & Moradi, 2014) . The institutional framework has a significant positive impact on interaction with trade openness, financial development and foreign capital inflows respectively on environmental quality. Globalization has become an integral part of sustainability because capital inflows have become relevant to EKC hypothesis. Financial development and institutional framework provide opportunity to use new technology with a clean and environmentfriendly production process (Birdsall & Wheeler, 1993; Frankel & Rose, 2002) following technique effect framework 18 . It assists policymakers in framing decisions related to FDI, such governments focus sustainable FDI inflows on service sector or cleaner technology (Sapkota & Bastola, 2017) .",
+            "cite_spans": [
+                {
+                    "start": 1083,
+                    "end": 1106,
+                    "text": "(Bruvoll & Medin, 2003;",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 1107,
+                    "end": 1119,
+                    "text": "Dinda, 2004;",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 1120,
+                    "end": 1144,
+                    "text": "Ahangari & Moradi, 2014)",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 1606,
+                    "end": 1632,
+                    "text": "(Birdsall & Wheeler, 1993;",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 1633,
+                    "end": 1654,
+                    "text": "Frankel & Rose, 2002)",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 1845,
+                    "end": 1870,
+                    "text": "(Sapkota & Bastola, 2017)",
+                    "ref_id": "BIBREF102"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Summary and conclusion"
+        },
+        {
+            "text": "Since FDI inflows improve economic performance and enable further access to foreign capital, countries must engage such capital in energy efficient and green production processes. Policymakers should aim to facilitate the transfer of efficient and latest technology for a speedy transfer of environmentally friendly technologies to reduce their level of emission and achieve a cleaner environment. Environmental collaboration is an indispensable dimension and the foundation of economic and civil advancement leading to environmental sustainability (G\u00f6lgeci, Gligor, Tatoglu, & Arda, 2019; Shahbaz, Nasreen, Abbas, & Anis, 2015) .",
+            "cite_spans": [
+                {
+                    "start": 549,
+                    "end": 589,
+                    "text": "(G\u00f6lgeci, Gligor, Tatoglu, & Arda, 2019;",
+                    "ref_id": "BIBREF49"
+                },
+                {
+                    "start": 590,
+                    "end": 628,
+                    "text": "Shahbaz, Nasreen, Abbas, & Anis, 2015)",
+                    "ref_id": "BIBREF103"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Summary and conclusion"
+        },
+        {
+            "text": "Countries should adopt existing scientific research systems and advancements in science, and technology should focus more on the development and utilization of new technologies to enhance industrial energy efficiency in reducing carbon emissions. Carbon tax may be applied on industries using obsolete methods of production leading to higher carbon emissions. Also, countries need to explore carbonreducing technology that lead to zero-carbon intensity and efforts should be made to develop a value-added and low carbon-intensive service sector. Policy interventions are needed to change the quality of trade intensity from high to low carbon industry through extensive steps for innovative, technology-led and environmentally friendly industries.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Summary and conclusion"
+        },
+        {
+            "text": "Policymakers of developing countries need to enhance institutional infrastructure in short term to achieve green growth in future. The inverted U-shape relationship (of EKC hypothesis) materializes with a combination of other factors such as trade openness, financial development, FDI and institutional framework. To encourage high production and employment, developing countries strongly encourage FDI and attract polluting industries. However, EU industries are based on clean FDI inflows for home companies and follow pollution haven hypothesis while investing in other countries. Therefore, pollution decreases in developed countries and increases in developing countries. The positive effect of institutional quality shows that good institutions affect not only economic development but also environmental degradation. We suggest policy measures must be taken to mitigate the adverse effect of carbon emissions in environment by increasing use of biodiesel fuel, investing in alternative energy resources such as solar and wind energy and encouraging green investments (Apergis & Payne, 2014) . FDI spillovers were found to have a positive effect on carbon emissions in all countries. Countries attracting FDI should focus on high technology innovation systems for preserving the environmental dimensions of host countries. This requires a strict environmental access system and preventing resource-intensive and pollution-intensive investment through foreign capital inflows. We propose a mandatory adoption and disclosures of environmental measures adopted by host companies where foreign funds are being infused to enable sustainable development. Developing countries should focus not only on the number of foreign capital inflows but also on the quality of foreign capital inflows and encourage domestic companies to learn progressive technology. Finally, policymakers must strengthen their supervisory and management responsibilities towards the implementation of low carbon-intensive led investment development.",
+            "cite_spans": [
+                {
+                    "start": 1074,
+                    "end": 1097,
+                    "text": "(Apergis & Payne, 2014)",
+                    "ref_id": "BIBREF9"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Summary and conclusion"
+        },
+        {
+            "text": "Correlation matrix of the Variables under study. lCO 2 lGDP lFD lFDI lT lE lIF lR&D lCO 2 1 lGDP 0.73*** 1 (0.00) lFD 0.39*** 0.42*** 1 (0.00) (0.00) lFDI 0.1** 0.2*** 0.2*** 1 (0.04) (0.00) (0.00) lT 0.21*** 0.2*** 0.11*** \u2212 0.15*** 1 (0.00) (0.00) (0.03) (0.00) lE 0.95*** 0.86*** 0.36*** 0.12** 0.25*** 1 (0.00) (0.00) (0.00) (0.01) (0.00) lIF 0.52*** 0.82*** 0.56*** 0.11** 0.21*** 0.62*** 1 (0.00) (0.00) (0.00) (0.02) (0.00) (0.00) lR&D 0.54*** 0.7*** 0.34*** 0.41*** \u2212 0.12** 0.62*** 0.57*** 1 (0.00) (0.00) (0.00) (0.00) (0.04) (0.00) (0.00) Source: Author calculations. Probability values in parentheses, *** p < 0.01, ** p < 0.05, * p < 0.1. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Table A2"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "RobecoSAM publishes The Sustainability Yearbook",
+            "authors": [
+                {
+                    "first": "\u2026",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Economic growth, FDI inflows and their impact on the environment: An empirical study for the MENA countries",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Abdouli",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Hammami",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Quality & Quantity",
+            "volume": "51",
+            "issn": "1",
+            "pages": "121--146",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "FDI, growth and the environment: Evidence from India on CO2 emission during the last two decades",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Acharyya",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Journal of economic development",
+            "volume": "34",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Some tests of specification for panel data: Monte Carlo evidence and an application to employment equations",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Arellano",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bond",
+                    "suffix": ""
+                }
+            ],
+            "year": 1991,
+            "venue": "The Review of Economic Studies",
+            "volume": "58",
+            "issn": "2",
+            "pages": "277--297",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "The possibility of environmental Kuznets curve for CO2 emission",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ahangari",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Moradi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Journal of Economics and Sustainable Development",
+            "volume": "5",
+            "issn": "27",
+            "pages": "277--282",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Foreign direct investment and the environment: Pollution haven hypothesis revisited",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Aliyu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "Eight Annual Conference on Global Economic Analysis",
+            "volume": "",
+            "issn": "",
+            "pages": "9--11",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Energy innovations-GHG emissions nexus: Fresh empirical evidence from OECD countries",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "\u00c1 Lvarez-Herr\u00e1nz",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Balsalobre",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Cantos",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Shahbaz",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Energy Policy",
+            "volume": "101",
+            "issn": "",
+            "pages": "90--100",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Does foreign direct investment impede environmental quality in Asian countries? A panel data analysis",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Ansari",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Khan",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Ganaie",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "OPEC Energy Review",
+            "volume": "43",
+            "issn": "2",
+            "pages": "109--135",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Financial development, foreign investment and economic growth in Malaysia",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Anwar",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Journal of Asian Economics",
+            "volume": "22",
+            "issn": "4",
+            "pages": "335--342",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "The oil curse, institutional quality, and growth in MENA countries: Evidence from time-varying cointegration",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Apergis",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Payne",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Energy Economics",
+            "volume": "46",
+            "issn": "",
+            "pages": "1--9",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Another look at the instrumental variable estimation of error-components models",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Arellano",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Bover",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "Journal of Econometrics",
+            "volume": "68",
+            "issn": "1",
+            "pages": "29--51",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Carbon emissions, trade liberalization, and the Japan-ASEAN interaction: A group-wise examination",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Atici",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Journal of the Japanese and International Economies",
+            "volume": "26",
+            "issn": "1",
+            "pages": "167--178",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "A dynamic approach to the FDI-environment nexus: The case of China and India",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Baek",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Koo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "East Asian Economic Review",
+            "volume": "13",
+            "issn": "2",
+            "pages": "87--106",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Economic growth, CO2 emissions, renewable waste and FDI relation in Pakistan: New evidences from 3SLS",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Bakhsh",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Rose",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Ali",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Ahmad",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Shahbaz",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Journal of environmental management",
+            "volume": "196",
+            "issn": "",
+            "pages": "627--632",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Public budgets for energy RD&D and the effects on energy intensity and pollution levels",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Balsalobre",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Lvarez",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Cantos",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Environmental Science and Pollution Research",
+            "volume": "22",
+            "issn": "7",
+            "pages": "4881--4892",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Trade policy and industrial pollution in Latin America: Where are the pollution havens?",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Birdsall",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Wheeler",
+                    "suffix": ""
+                }
+            ],
+            "year": 1993,
+            "venue": "The Journal of Environment & Development",
+            "volume": "2",
+            "issn": "1",
+            "pages": "137--149",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "A review of the empirical determinants of FDI",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Blonigen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "Atlantic Economic Journal",
+            "volume": "33",
+            "issn": "1",
+            "pages": "383--403",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Initial conditions and moment restrictions in dynamic panel data models",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Blundell",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bond",
+                    "suffix": ""
+                }
+            ],
+            "year": 1998,
+            "venue": "Journal of Econometrics",
+            "volume": "87",
+            "issn": "1",
+            "pages": "115--143",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Foreign direct investment and environmental sustainability in Africa: The role of institutions and governance",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Bokpin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Research in International Business and Finance",
+            "volume": "39",
+            "issn": "",
+            "pages": "239--247",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Dynamic panel data models: A guide to micro data methods and practice",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Bond",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Portuguese Economic Journal",
+            "volume": "1",
+            "issn": "2",
+            "pages": "141--162",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "CEPR Discussion Papers/Centre for Economic Policy Research Discussion Papers",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Bond",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Hoeffler",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Temple",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "The impact of financial development, income, energy and trade on carbon emissions: Evidence from the Indian economy",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Boutabba",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Economic Modelling",
+            "volume": "40",
+            "issn": "",
+            "pages": "33--41",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Factors behind the environmental Kuznets curve. A decomposition of the changes in air pollution",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Bruvoll",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Medin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Environmental and resource economics",
+            "volume": "24",
+            "issn": "1",
+            "pages": "27--48",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "The internalization theory of the multinational enterprise: A review of the progress and a research agenda after 30 years",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Buckley",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Casson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Journal of International Business Studies",
+            "volume": "40",
+            "issn": "9",
+            "pages": "1563--1580",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Interdependent behavior in foreign direct investment: The multi-level effects of prior entry and prior exit on foreign market entry",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Chan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Makino",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Isobe",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Journal of International Business Studies",
+            "volume": "37",
+            "issn": "5",
+            "pages": "642--665",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Impact of renewable energy consumption and financial development on CO2 emissions and economic growth in the MENA region: A panel vector autoregressive (PVAR) analysis. Renewable energy",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Charfeddine",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kahia",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "139",
+            "issn": "",
+            "pages": "198--213",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "North-south trade and the global environment",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Chichilnisky",
+                    "suffix": ""
+                }
+            ],
+            "year": 1994,
+            "venue": "The American Economic Review",
+            "volume": "84",
+            "issn": "4",
+            "pages": "851--874",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Globalization and the environment: Determinants of firm self-regulation in China",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Christmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Taylor",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Journal of international business studies",
+            "volume": "32",
+            "issn": "3",
+            "pages": "439--458",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Financial sector development and the millennium development goals",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Claessens",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Feijen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2007,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Endogenous pollution havens: Does FDI influence environmental regulations?",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Cole",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Elliott",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Fredriksson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Scandinavian Journal of Economics",
+            "volume": "108",
+            "issn": "1",
+            "pages": "157--178",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "The environmental performance of firms: The role of foreign ownership, training, and experience",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Cole",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Elliott",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Strobl",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Ecological Economics",
+            "volume": "65",
+            "issn": "3",
+            "pages": "538--546",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Growth, foreign direct investment, and the environment: Evidence from Chinese cities",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Cole",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Elliott",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Journal of Regional Science",
+            "volume": "51",
+            "issn": "1",
+            "pages": "121--138",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "North-South trade and the environment",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Copeland",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Taylor",
+                    "suffix": ""
+                }
+            ],
+            "year": 1994,
+            "venue": "The quarterly journal of Economics",
+            "volume": "109",
+            "issn": "3",
+            "pages": "755--787",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "Trade, growth, and the environment",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Copeland",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Taylor",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "Journal of Economic literature",
+            "volume": "42",
+            "issn": "1",
+            "pages": "7--71",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "The interaction of populations, growth, and environmental quality",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Cropper",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Griffiths",
+                    "suffix": ""
+                }
+            ],
+            "year": 1994,
+            "venue": "American Economic Review",
+            "volume": "84",
+            "issn": "2",
+            "pages": "250--254",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Confronting the environmental Kuznets curve",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Dasgupta",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Laplante",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Wheeler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Journal of economic perspectives",
+            "volume": "16",
+            "issn": "1",
+            "pages": "147--168",
+            "other_ids": {}
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Corporate governance in banking: The role of the board of directors",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "De Andres",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Vallelado",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Journal of banking & finance",
+            "volume": "32",
+            "issn": "12",
+            "pages": "2570--2580",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Policy Research Working Papers",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Dean",
+                    "suffix": ""
+                }
+            ],
+            "year": 1992,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Environmental Kuznets curve hypothesis: A survey",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Dinda",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "Ecological economics",
+            "volume": "49",
+            "issn": "4",
+            "pages": "431--455",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Economic development and carbon dioxide emissions in China: Provincial panel data analysis",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Du",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Wei",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Cai",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "China Economic Review",
+            "volume": "23",
+            "issn": "2",
+            "pages": "371--384",
+            "other_ids": {}
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "The competitive advantage of countries and the activities of transnational corporations",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Dunning",
+                    "suffix": ""
+                }
+            ],
+            "year": 1992,
+            "venue": "Transnational Corporations",
+            "volume": "1",
+            "issn": "1",
+            "pages": "135--168",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "The theory of international production",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Dunning",
+                    "suffix": ""
+                }
+            ],
+            "year": 1988,
+            "venue": "The International Trade Journal",
+            "volume": "3",
+            "issn": "1",
+            "pages": "21--66",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Location and the multinational enterprise: A neglected factor",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Dunning",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Location of international business activities",
+            "volume": "",
+            "issn": "",
+            "pages": "35--62",
+            "other_ids": {}
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "Moving to greener pastures? Multinationals and the pollution haven hypothesis",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Eskeland",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Harrison",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Journal of development economics",
+            "volume": "70",
+            "issn": "1",
+            "pages": "1--23",
+            "other_ids": {}
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Impact of trade liberalization on the environment in developing countries: The case of Nigeria",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Feridun",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Ayadi",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Balouga",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Journal of developing societies",
+            "volume": "22",
+            "issn": "1",
+            "pages": "39--56",
+            "other_ids": {}
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "30 years of foreign direct investment to China: An interdisciplinary literature review",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Fetscherin",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Voss",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Gugler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "International Business Review",
+            "volume": "19",
+            "issn": "3",
+            "pages": "235--246",
+            "other_ids": {}
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "Does trade cause growth? American economic review",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Frankel",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Romer",
+                    "suffix": ""
+                }
+            ],
+            "year": 1999,
+            "venue": "",
+            "volume": "89",
+            "issn": "",
+            "pages": "379--399",
+            "other_ids": {}
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "An estimate of the effect of common currencies on trade and income",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Frankel",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Rose",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "The Quarterly Journal of Economics",
+            "volume": "117",
+            "issn": "2",
+            "pages": "437--466",
+            "other_ids": {}
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "Foreign direct investments in real estate sector and CO2 emission: Evidence from emerging economies",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Gholipour Fereidouni",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Management of Environmental Quality: An International Journal",
+            "volume": "24",
+            "issn": "4",
+            "pages": "463--476",
+            "other_ids": {}
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "A relational view of environmental performance: What role do environmental collaboration and crossfunctional alignment play",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "G\u00f6lgeci",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Gligor",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Tatoglu",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Arda",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Journal of Business Research",
+            "volume": "96",
+            "issn": "",
+            "pages": "35--46",
+            "other_ids": {}
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "The trade-off between environmental care and longterm growth-pollution in three prototype growth models",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Gradus",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Smulders",
+                    "suffix": ""
+                }
+            ],
+            "year": 1993,
+            "venue": "Journal of Economics",
+            "volume": "58",
+            "issn": "1",
+            "pages": "25--51",
+            "other_ids": {}
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "Foreign direct investment and environmental impacts-is the debate over? Review of",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Gray",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "European Community & International Environmental Law",
+            "volume": "11",
+            "issn": "3",
+            "pages": "306--313",
+            "other_ids": {}
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "The econometric approach to efficiency analysis. The measurement of productive efficiency and productivity growth",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Greene",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "",
+            "volume": "1",
+            "issn": "",
+            "pages": "92--250",
+            "other_ids": {}
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "Exporting the greenhouse: Foreign capital penetration and CO? Emissions",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Grimes",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Kentor",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Journal of world-systems research",
+            "volume": "9",
+            "issn": "2",
+            "pages": "261--275",
+            "other_ids": {}
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "Economic growth and the environment",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Grossman",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Krueger",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "The Quarterly Journal of Economics",
+            "volume": "110",
+            "issn": "2",
+            "pages": "353--377",
+            "other_ids": {}
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "The influence of corporate governance, industry and country factors on environmental reporting",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Halme",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Huse",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "Scandinavian Journal of Management",
+            "volume": "13",
+            "issn": "2",
+            "pages": "137--157",
+            "other_ids": {}
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "Has the development of FDI and foreign trade contributed to China's CO 2 emissions? An empirical study with provincial panel data",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Hao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Natural Hazards",
+            "volume": "76",
+            "issn": "2",
+            "pages": "1079--1091",
+            "other_ids": {}
+        },
+        "BIBREF57": {
+            "ref_id": "b57",
+            "title": "Pollution haven hypothesis and environmental impacts of foreign direct investment: The case of industrial emission of sulphur dioxide (SO2) in Chinese provinces",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "He",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Ecological economics",
+            "volume": "60",
+            "issn": "1",
+            "pages": "228--245",
+            "other_ids": {}
+        },
+        "BIBREF58": {
+            "ref_id": "b58",
+            "title": "Environmental Kuznets curve for CO2 in Canada",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "He",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Richard",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Ecological Economics",
+            "volume": "69",
+            "issn": "5",
+            "pages": "1083--1093",
+            "other_ids": {}
+        },
+        "BIBREF59": {
+            "ref_id": "b59",
+            "title": "FDI and pollution: A granger causality test using panel data",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Hoffmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Ramasamy",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Yeung",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "Journal of International Development: The Journal of the Development Studies Association",
+            "volume": "17",
+            "issn": "3",
+            "pages": "311--317",
+            "other_ids": {}
+        },
+        "BIBREF60": {
+            "ref_id": "b60",
+            "title": "Trade openness, financial liberalization, economic growth, and environment effects in the North-South: New static and dynamic panel data evidence. Beyond the UN global compact: Institutions and regulations",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Hua",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Boateng",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "",
+            "volume": "17",
+            "issn": "",
+            "pages": "253--289",
+            "other_ids": {}
+        },
+        "BIBREF61": {
+            "ref_id": "b61",
+            "title": "Endogenous policy choice: The case of pollution and growth",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Jones",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Manuelli",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Review of Economic Dynamics",
+            "volume": "4",
+            "issn": "2",
+            "pages": "369--405",
+            "other_ids": {}
+        },
+        "BIBREF62": {
+            "ref_id": "b62",
+            "title": "Does foreign investment harm the air we breathe and the water we drink? A cross-national study of carbon dioxide emissions and organic water pollution in less-developed countries",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Jorgenson",
+                    "suffix": ""
+                }
+            ],
+            "year": 1975,
+            "venue": "Organization & Environment",
+            "volume": "20",
+            "issn": "2",
+            "pages": "137--156",
+            "other_ids": {}
+        },
+        "BIBREF63": {
+            "ref_id": "b63",
+            "title": "MFN Tariff Rates and Carbon Emission: Evidence from Lower-Middle-Income Countries",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kar",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Majumdar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Environmental and Resource Economics",
+            "volume": "64",
+            "issn": "3",
+            "pages": "493--510",
+            "other_ids": {}
+        },
+        "BIBREF64": {
+            "ref_id": "b64",
+            "title": "Does Environmental Governance Matter for Foreign Direct Investment? Testing the Pollution Haven Hypothesis for Indian States",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Kathuria",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Asian Development Review",
+            "volume": "35",
+            "issn": "1",
+            "pages": "81--107",
+            "other_ids": {}
+        },
+        "BIBREF65": {
+            "ref_id": "b65",
+            "title": "Pollution abatement costs and foreign direct investment inflows to US states",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Keller",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Levinson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Review of Economics and Statistics",
+            "volume": "84",
+            "issn": "4",
+            "pages": "691--703",
+            "other_ids": {}
+        },
+        "BIBREF66": {
+            "ref_id": "b66",
+            "title": "Foreign investment dependence and the environment: A global perspective. Globalization and the Environment",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Kentor",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Grimes",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "61--78",
+            "other_ids": {}
+        },
+        "BIBREF67": {
+            "ref_id": "b67",
+            "title": "Which resources matter how and where? A meta-analysis on firms' foreign establishment mode choice",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Klier",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Schwens",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Zapkau",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Dikova",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Journal of Management Studies",
+            "volume": "54",
+            "issn": "3",
+            "pages": "304--339",
+            "other_ids": {}
+        },
+        "BIBREF68": {
+            "ref_id": "b68",
+            "title": "Environmental reporting by multinationals from the Triad: convergence or divergence?",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kolk",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "Management International Review",
+            "volume": "45",
+            "issn": "1",
+            "pages": "145--166",
+            "other_ids": {}
+        },
+        "BIBREF69": {
+            "ref_id": "b69",
+            "title": "Sustainability, accountability and corporate governance: Exploring multinationals' reporting practices. Business strategy and the environment",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kolk",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "",
+            "volume": "17",
+            "issn": "",
+            "pages": "1--15",
+            "other_ids": {}
+        },
+        "BIBREF70": {
+            "ref_id": "b70",
+            "title": "International business, corporate social responsibility and sustainable development. International business review",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kolk",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Van Tulder",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "",
+            "volume": "19",
+            "issn": "",
+            "pages": "119--125",
+            "other_ids": {}
+        },
+        "BIBREF71": {
+            "ref_id": "b71",
+            "title": "Does foreign aid reduce energy and carbon intensities of developing economies",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Kretschmer",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "H\u00fcbler",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Nunnenkamp",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Journal of International Development",
+            "volume": "25",
+            "issn": "1",
+            "pages": "67--91",
+            "other_ids": {}
+        },
+        "BIBREF72": {
+            "ref_id": "b72",
+            "title": "CO2, GDP and RET: An aggregate economic equilibrium analysis for Turkey",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Kumbaroglu",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Karali",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Ar\u0131kan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "Energy Policy",
+            "volume": "36",
+            "issn": "7",
+            "pages": "2694--2708",
+            "other_ids": {}
+        },
+        "BIBREF73": {
+            "ref_id": "b73",
+            "title": "Can capital markets create incentives for pollution control?",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Lanoie",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Laplante",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Roy",
+                    "suffix": ""
+                }
+            ],
+            "year": 1998,
+            "venue": "Ecological Economics",
+            "volume": "26",
+            "issn": "1",
+            "pages": "31--41",
+            "other_ids": {}
+        },
+        "BIBREF74": {
+            "ref_id": "b74",
+            "title": "Foreign direct investment, pollution and economic growth: Evidence from Malaysia",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Lee",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Applied Economics",
+            "volume": "",
+            "issn": "13",
+            "pages": "1709--1716",
+            "other_ids": {}
+        },
+        "BIBREF75": {
+            "ref_id": "b75",
+            "title": "Does foreign investment harm the host country's environment? Evidence from China",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Liang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF76": {
+            "ref_id": "b76",
+            "title": "Does Foreign Direct Investment Harm the Host Country's Environment? Evidence from China",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Liang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF77": {
+            "ref_id": "b77",
+            "title": "The effect of carbon tax on per capita CO2 emissions",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Lin",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Energy policy",
+            "volume": "39",
+            "issn": "9",
+            "pages": "5137--5146",
+            "other_ids": {}
+        },
+        "BIBREF78": {
+            "ref_id": "b78",
+            "title": "Strengthening the global trade and investment system for sustainable development",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Mann",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Sauvant",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "World Economic Forum",
+            "volume": "",
+            "issn": "",
+            "pages": "1--38",
+            "other_ids": {}
+        },
+        "BIBREF79": {
+            "ref_id": "b79",
+            "title": "The clean development mechanism and technology transfer to China",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Marconi",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Sanna-Randaccio",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "International Business and Sustainable Development",
+            "volume": "8",
+            "issn": "1",
+            "pages": "351--389",
+            "other_ids": {}
+        },
+        "BIBREF80": {
+            "ref_id": "b80",
+            "title": "The impact of urbanization on CO2 emissions: Evidence from developing countries",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Mart\u00ednez-Zarzoso",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Maruotti",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Ecological Economics",
+            "volume": "70",
+            "issn": "7",
+            "pages": "1344--1353",
+            "other_ids": {}
+        },
+        "BIBREF81": {
+            "ref_id": "b81",
+            "title": "Dragon multinationals: New players in 21st century globalization",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Mathews",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Asia Pacific journal of management",
+            "volume": "23",
+            "issn": "1",
+            "pages": "5--27",
+            "other_ids": {}
+        },
+        "BIBREF82": {
+            "ref_id": "b82",
+            "title": "Perspectives on multinational enterprises in emerging economies",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Meyer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "Journal of International Business Studies",
+            "volume": "35",
+            "issn": "4",
+            "pages": "259--276",
+            "other_ids": {}
+        },
+        "BIBREF83": {
+            "ref_id": "b83",
+            "title": "Does electricity consumption panel Granger cause GDP? A new global evidence",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Narayan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Narayan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Popp",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Applied Energy",
+            "volume": "87",
+            "issn": "10",
+            "pages": "3294--3298",
+            "other_ids": {}
+        },
+        "BIBREF84": {
+            "ref_id": "b84",
+            "title": "Economic growth and carbon emissions",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Narayan",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Saboori",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Soleymani",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Economic Modelling",
+            "volume": "53",
+            "issn": "",
+            "pages": "388--397",
+            "other_ids": {}
+        },
+        "BIBREF85": {
+            "ref_id": "b85",
+            "title": "CO2 emissions, energy consumption and economic growth nexus in MENA countries: Evidence from simultaneous equations models",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Oecd",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Energy economics",
+            "volume": "40",
+            "issn": "",
+            "pages": "657--664",
+            "other_ids": {}
+        },
+        "BIBREF86": {
+            "ref_id": "b86",
+            "title": "Causal interactions between CO2 emissions, FDI, and economic growth: Evidence from dynamic simultaneous-equation models",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Omri",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Nguyen",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Rault",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Economic Modelling",
+            "volume": "42",
+            "issn": "",
+            "pages": "382--389",
+            "other_ids": {}
+        },
+        "BIBREF87": {
+            "ref_id": "b87",
+            "title": "Demystifying the environmental Kuznets curve: Turning a black box into a policy tool",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Panayotou",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "Environment and Development Economics",
+            "volume": "2",
+            "issn": "4",
+            "pages": "465--484",
+            "other_ids": {}
+        },
+        "BIBREF88": {
+            "ref_id": "b88",
+            "title": "CO2 emissions, energy consumption and economic growth in BRIC countries",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Pao",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Tsai",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Energy Policy",
+            "volume": "38",
+            "issn": "",
+            "pages": "7850--7860",
+            "other_ids": {}
+        },
+        "BIBREF89": {
+            "ref_id": "b89",
+            "title": "A review of research on outward foreign direct investment from emerging countries including China: What do we know? How do we know? and Where should we be heading?",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Paul",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Benito",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Asia Pacific Business Review",
+            "volume": "24",
+            "issn": "1",
+            "pages": "90--115",
+            "other_ids": {}
+        },
+        "BIBREF90": {
+            "ref_id": "b90",
+            "title": "The 45 years of foreign direct investment research: Approaches, advances, and analytical areas",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Paul",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Singh",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "The World Economy",
+            "volume": "40",
+            "issn": "11",
+            "pages": "2512--2527",
+            "other_ids": {}
+        },
+        "BIBREF91": {
+            "ref_id": "b91",
+            "title": "The relationship between CO2 and Foreign Direct Investment in the agriculture and fishing sector of OECD countries: Evidence and policy considerations",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Pazienza",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Intelektin\u0117 Ekonomika",
+            "volume": "9",
+            "issn": "1",
+            "pages": "55--66",
+            "other_ids": {}
+        },
+        "BIBREF92": {
+            "ref_id": "b92",
+            "title": "Fostering environment efficiency through transnational linkages? Trajectories of CO2 and SO2",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Perkins",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Neumayer",
+                    "suffix": ""
+                }
+            ],
+            "year": 1980,
+            "venue": "Environment and Planning A",
+            "volume": "40",
+            "issn": "12",
+            "pages": "2970--2989",
+            "other_ids": {}
+        },
+        "BIBREF93": {
+            "ref_id": "b93",
+            "title": "Transnational linkages and the spillover of environment-efficiency into developing countries",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Perkins",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Neumayer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Global Environmental Change",
+            "volume": "19",
+            "issn": "3",
+            "pages": "375--383",
+            "other_ids": {}
+        },
+        "BIBREF94": {
+            "ref_id": "b94",
+            "title": "Allocation of CO2 emission permits-economic incentives for emission reductions in developing countries",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Persson",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Azar",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Lindgren",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Energy Policy",
+            "volume": "34",
+            "issn": "14",
+            "pages": "1889--1899",
+            "other_ids": {}
+        },
+        "BIBREF95": {
+            "ref_id": "b95",
+            "title": "The Environmental Kuznets Curve Case for the USA and the BRIC Countries. (Master's thesis). Georgia Institute of Technology",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Rashid",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF96": {
+            "ref_id": "b96",
+            "title": "International trade, FDI (foreign direct investment) and embodied CO2 emissions: A case study of Chinas industrial sectors",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ren",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Yuan",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Ma",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "China Economic Review",
+            "volume": "28",
+            "issn": "",
+            "pages": "123--134",
+            "other_ids": {}
+        },
+        "BIBREF97": {
+            "ref_id": "b97",
+            "title": "The impact of international trade on China\u202b\u05f3\u202c s industrial carbon emissions since its entry into WTO",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ren",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Yuan",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Ma",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Energy policy",
+            "volume": "69",
+            "issn": "",
+            "pages": "624--634",
+            "other_ids": {}
+        },
+        "BIBREF98": {
+            "ref_id": "b98",
+            "title": "FDI and pollution havens: Evidence from the Norwegian manufacturing sector",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Rezza",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Ecological Economics",
+            "volume": "90",
+            "issn": "",
+            "pages": "140--149",
+            "other_ids": {}
+        },
+        "BIBREF99": {
+            "ref_id": "b99",
+            "title": "Children's independent mobility",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Riazi",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Faulkner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Children's active transportation",
+            "volume": "",
+            "issn": "",
+            "pages": "77--91",
+            "other_ids": {}
+        },
+        "BIBREF100": {
+            "ref_id": "b100",
+            "title": "Corporate governance, globalization and firm performance in emerging economies",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Saini",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Singhania",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "International Journal of Productivity and Performance Management",
+            "volume": "67",
+            "issn": "8",
+            "pages": "1310--1333",
+            "other_ids": {}
+        },
+        "BIBREF101": {
+            "ref_id": "b101",
+            "title": "Performance relevance of environmental and social disclosures: The role of foreign ownership",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Saini",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Singhania",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Benchmarking: An International Journal",
+            "volume": "26",
+            "issn": "6",
+            "pages": "1845--1873",
+            "other_ids": {}
+        },
+        "BIBREF102": {
+            "ref_id": "b102",
+            "title": "Foreign direct investment, income, and environmental pollution in developing countries: Panel data analysis of Latin America",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Sapkota",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Bastola",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Energy Economics",
+            "volume": "64",
+            "issn": "",
+            "pages": "206--212",
+            "other_ids": {}
+        },
+        "BIBREF103": {
+            "ref_id": "b103",
+            "title": "Does foreign direct investment impede environmental quality in high-, middle-, and low-income countries?",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Shahbaz",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Nasreen",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Abbas",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Anis",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Energy Economics",
+            "volume": "51",
+            "issn": "",
+            "pages": "275--287",
+            "other_ids": {}
+        },
+        "BIBREF104": {
+            "ref_id": "b104",
+            "title": "Does FDI affect carbon intensity? New evidence from dynamic panel analysis",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Shao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "International Journal of Climate Change Strategies and Management",
+            "volume": "10",
+            "issn": "1",
+            "pages": "27--42",
+            "other_ids": {}
+        },
+        "BIBREF105": {
+            "ref_id": "b105",
+            "title": "Determinants of carbon dioxide emissions: Empirical evidence from 69 countries",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Sharma",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Applied Energy",
+            "volume": "88",
+            "issn": "1",
+            "pages": "376--382",
+            "other_ids": {}
+        },
+        "BIBREF106": {
+            "ref_id": "b106",
+            "title": "Foreign ownership and Indian firm performance: A dynamic panel approach",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Singhania",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Saini",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Gupta",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "The Journal of Private Equity",
+            "volume": "19",
+            "issn": "1",
+            "pages": "77--85",
+            "other_ids": {}
+        },
+        "BIBREF107": {
+            "ref_id": "b107",
+            "title": "Cheltenham: Modelling in Ecological Economics",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Stern",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "173--202",
+            "other_ids": {}
+        },
+        "BIBREF108": {
+            "ref_id": "b108",
+            "title": "Are there limits to growth? International economic review",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Stokey",
+                    "suffix": ""
+                }
+            ],
+            "year": 1998,
+            "venue": "",
+            "volume": "39",
+            "issn": "",
+            "pages": "1--31",
+            "other_ids": {}
+        },
+        "BIBREF109": {
+            "ref_id": "b109",
+            "title": "Does the private sector help or hurt the environment? Evidence from carbon dioxide pollution in developing countries",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Talukdar",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Meisner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "World development",
+            "volume": "29",
+            "issn": "5",
+            "pages": "827--840",
+            "other_ids": {}
+        },
+        "BIBREF110": {
+            "ref_id": "b110",
+            "title": "Do economic, financial and institutional developments matter for environmental degradation? Evidence from transitional economies",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Tamazian",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Rao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Energy Economics",
+            "volume": "32",
+            "issn": "1",
+            "pages": "137--145",
+            "other_ids": {}
+        },
+        "BIBREF111": {
+            "ref_id": "b111",
+            "title": "Does higher economic and financial development lead to environmental degradation: Evidence from BRIC countries",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Tamazian",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Chousa",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Vadlamannati",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Energy Policy",
+            "volume": "37",
+            "issn": "1",
+            "pages": "246--253",
+            "other_ids": {}
+        },
+        "BIBREF112": {
+            "ref_id": "b112",
+            "title": "Dynamic macro modelling and materials balance: Economic-environmental integration for sustainable development",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Torras",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Boyce",
+                    "suffix": ""
+                }
+            ],
+            "year": 1994,
+            "venue": "Ecological economics",
+            "volume": "25",
+            "issn": "2",
+            "pages": "283--307",
+            "other_ids": {}
+        },
+        "BIBREF113": {
+            "ref_id": "b113",
+            "title": "Foreign direct investment, institutional development, and environmental externalities: Evidence from China",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Chen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "Journal of environmental management",
+            "volume": "135",
+            "issn": "",
+            "pages": "81--90",
+            "other_ids": {}
+        },
+        "BIBREF114": {
+            "ref_id": "b114",
+            "title": "Recent developments in international management research: A review of 20 top management journals",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Werner",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Journal of Management",
+            "volume": "28",
+            "issn": "3",
+            "pages": "277--305",
+            "other_ids": {}
+        },
+        "BIBREF115": {
+            "ref_id": "b115",
+            "title": "Racing to the bottom? Foreign investment and air pollution in developing countries",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Wheeler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "The Journal of Environment & Development",
+            "volume": "10",
+            "issn": "3",
+            "pages": "225--245",
+            "other_ids": {}
+        },
+        "BIBREF116": {
+            "ref_id": "b116",
+            "title": "Endogeneity and the dynamics of internal corporate governance",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Wintoki",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Linck",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Netter",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Journal of Financial Economics",
+            "volume": "105",
+            "issn": "3",
+            "pages": "581--606",
+            "other_ids": {}
+        },
+        "BIBREF117": {
+            "ref_id": "b117",
+            "title": "Green process innovation, green product innovation, and corporate financial performance: A content analysis method",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Xie",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Huo",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Journal of Business Research",
+            "volume": "101",
+            "issn": "",
+            "pages": "697--706",
+            "other_ids": {}
+        },
+        "BIBREF118": {
+            "ref_id": "b118",
+            "title": "Havens, halos and spaghetti: Untangling the evidence about foreign direct investment and the environment. Foreign direct Investment and the Environment",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zarsky",
+                    "suffix": ""
+                }
+            ],
+            "year": 1999,
+            "venue": "",
+            "volume": "13",
+            "issn": "",
+            "pages": "47--74",
+            "other_ids": {}
+        },
+        "BIBREF119": {
+            "ref_id": "b119",
+            "title": "Foreign direct investment, governance, and the environment in China: Regional dimensions (Doctoral dissertation",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2008,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF120": {
+            "ref_id": "b120",
+            "title": "The effects of FDI, economic growth and energy consumption on carbon emissions in ASEAN-5: Evidence from panel quantile regression",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Duan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Guo",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Economic Modelling",
+            "volume": "58",
+            "issn": "",
+            "pages": "237--248",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF4": {
+            "text": "Perspective on Stakeholders' Policy Development at Macro and Micro Level.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "Chronological review of literature based on carbon intensity and factors affecting environmental degradations. Their study hypothesized the relationship between economic growth and environmental quality.11  Fixed and Random effect model results may be provided on request. 12 Results of 2SLS model and test of endogeneity may be provided on request.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "Statement of Environmental Disclosures and Green Practices (Sample Performa). Environmental Disclosures Indicators at firm level granting them entry and providing financial benefits Opportunity in Renewable Energy i. Wind Energy ii. Solar Energy iii. Hydro-Energy b. Opportunities in Clean Tech Opportunities in Green Building i. Energy efficiency ii. Innovative methods of clean production 7 Eco-Design Strategies a. Products for reduced consumption of material/energy b. Design of products for reuse, recycle, recovery of material, component parts c. Design of processes for minimization of waste",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF4": {
+            "text": "Descriptive statistics of Variables under study.17  Increase in the level of production process leads to higher carbon emission, i.e. high GDP leads to high environmental degradation.18  Use of green and advanced technology towards environmental sustainability.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF5": {
+            "text": "VIF matrix of Variables Under study.",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "See Table A1-A3. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 4,
+                    "end": 16,
+                    "text": "Table A1-A3.",
+                    "ref_id": null
+                }
+            ],
+            "section": "Appendix A"
+        }
+    ]
+}

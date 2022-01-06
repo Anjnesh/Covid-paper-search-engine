@@ -1,0 +1,999 @@
+{
+    "paper_id": "0a9a3d800b22c3547ea179f10b9c18d85ec21c94",
+    "metadata": {
+        "title": "A Data Driven Change-point Epidemic Model for Assessing the Impact of Large Gathering and Subsequent Movement Control Order on COVID-19 Spread in Malaysia",
+        "authors": [
+            {
+                "first": "Sarat",
+                "middle": [
+                    "C"
+                ],
+                "last": "Dass",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Heriot-Watt University",
+                    "location": {
+                        "country": "Malaysia"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Wai",
+                "middle": [
+                    "M"
+                ],
+                "last": "Kwok",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Heriot-Watt University",
+                    "location": {
+                        "country": "Malaysia"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Gavin",
+                "middle": [
+                    "J"
+                ],
+                "last": "Gibson",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Heriot-Watt University Edinburgh",
+                    "location": {
+                        "country": "UK"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Balvinder",
+                "middle": [
+                    "S"
+                ],
+                "last": "Gill",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Ministry of Health",
+                    "location": {
+                        "country": "Malaysia"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Bala",
+                "middle": [
+                    "M"
+                ],
+                "last": "Sundram",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Ministry of Health",
+                    "location": {
+                        "country": "Malaysia"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Sarbhan",
+                "middle": [],
+                "last": "Singh",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Ministry of Health",
+                    "location": {
+                        "country": "Malaysia"
+                    }
+                },
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "The second wave of COVID-19 in Malaysia is largely attributed to a mass gathering held in Sri Petaling between February 27, 2020 and March 1, 2020, which contributed to an exponential rise of COVID-19 cases in the country. Starting March 18, 2020, the Malaysian government introduced four consecutive phases of a Movement Control Order (MCO) to stem the spread of COVID-19. The MCO was implemented through various non-pharmaceutical interventions (NPIs). The reported number of cases reached its peak by the first week of April and then started to reduce, hence proving the effectiveness of the MCO. To gain a quantitative understanding of the effect of MCO on the dynamics of COVID-19, this paper develops a class of mathematical models to capture the disease spread before and after MCO implementation in Malaysia. A heterogeneous variant of the Susceptible-Exposed-Infected-Recovered (SEIR) model is developed with additional compartments for asymptomatic transmission. Further, a change-point is incorporated to model the before and after disease dynamics, and is inferred based on data. Related statistical analyses for inference are developed in a Bayesian framework and are able to provide quantitative assessments of (1) the impact of the Sri Petaling gathering, and (2) the extent of decreasing transmission during the MCO period. The analysis here also quantitatively demonstrates how quickly transmission rates fall under effective NPI implemention within a short time period.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "where S(t), E(t), I(t) and R(t) represents, respectively, the susceptible, exposed, infected and recovered compartments representing the total number of individuals in each compartment at time t (here,\u1e8b(t) denotes the derivative of x(t) with respect to time t for x \u2208 {S, E, I, R}), N is the total population size, and h(S, I) = \u03b2 S(t) N I(t) is the rate of new infections (or, the number of new cases in the population). The parameters that govern the trajectory of the SEIR model are \u03b8 \u2261 (\u03b2, \u03b4, \u03b3, i 0 , e 0 ) which are, respectively, the transmission rate (i.e., number of individuals in the population an infected person comes in contact with and successfully transmits the disease per unit time), the rate of incubation of the disease, the rate of infectiousness, the initial number of infectives and the initial number of exposed individuals. Since\u1e60(t) +\u0116(t) +\u0130(t) +\u1e58(t) = 0, it follows that S(t) + E(t) + I(t) + R(t) = N for all t. In (1)-(4), the incubation period, 1/\u03b4, is inversely proportional to the incubation rate \u03b4, 148 and similarly, the infectious period 1/\u03b3 is inversely proportional to the infectious rate \u03b3.",
+            "cite_spans": [
+                {
+                    "start": 1031,
+                    "end": 1034,
+                    "text": "148",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": ""
+        },
+        {
+            "text": "The correspondence between rates and exponential sojourn times is only approximately so 150 since it is not so straightforward to establish this correspondence with an individual-based 151 stochastic model given the non-linear nature of the process.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "149"
+        },
+        {
+            "text": "Modifications to typical SEIR formulation (1) preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. at least on the timescales over which the epidemic is observed; see, for example, [19, 20] 177",
+            "cite_spans": [
+                {
+                    "start": 273,
+                    "end": 277,
+                    "text": "[19,",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 278,
+                    "end": 281,
+                    "text": "20]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "152"
+        },
+        {
+            "text": "In order to provide a quantitative assessment of the impact of the MCO, we modify",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "152"
+        },
+        {
+            "text": "(1)- (4) preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "178"
+        },
+        {
+            "text": "The copyright holder for this this version posted November 23, 2020. ; https://doi.org/10.1101/2020.11.20.20233890 doi: medRxiv preprint observed infectiousness is given by the following system of ODEs:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "178"
+        },
+        {
+            "text": "where the rate of new infections is now given by ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "178"
+        },
+        {
+            "text": "T * , is chosen so that observed daily cases fall either to the left or right of T * . We denote the observation window to the left of T * by W L which consists of dates from March 1st up to and including T * . The window to the right of T * is denoted by W R which consists of dates after T * up to and including April 28th, 2020. The change-point date T * is inferred from data; it is not taken as March 18th, 2020, the date of the start of MCO. Choosing T * in this data-driven way is justified as the impact of MCO on observed cases may not be realized immediately. The modified SEIR model with change-point T * is governed by the ODE system (6)-(12) for all time points t \u2208 W L . For t \u2208 W R , the same ODE system (6)-(12) is considered but now with a different set of parameter values in W R compared to W L , and with a new \u03b2 o expressed as a function of t, The basic reproduction number, R 0 , is defined as the number of secondary infections caused by one primary individual during his/her infectious period. It is the most important quantitative indicator reported to assess whether the disease is in control or not. It is well-known that the threshold value of 1 for R 0 distinguishes between the situations 10 All rights reserved. No reuse allowed without permission. preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "The copyright holder for this this version posted November 23, 2020. ;",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "where a major epidemic occurs versus the disease dying out eventually in the population. In fact, several studies in the literature report a gradual decrease in R 0 after lockdown [22, 23, 24] . For the SEIR model in (1) -(4), R 0 is given by the well-known formula R 0 = \u03b2/\u03b3. Time-varying measures of secondary infections per primary infected, R t , are also available in the literature. However, for the modified SEIR model presented in Section 2.3, R 0 and R t cannot be computed. Therefore, we resort to an alternative quantitative assessement of disease spread -the total number of infections (i.e., generational) caused by the introduction of one additional infectious individual into the infection process at time point t. This procedure is illustrated using the I o compartment. Based on (6)-(12), new values for the ODE system are calculated from time point t onwards with current state values serving as initializations of the ODE system for all except one compartment: For the I o -compartment, the current value I o (t) is replaced by I o (t) + 1/N as the initial value. The new rate of incidence is given by h(S * , I * o , I * c ) over the infectious period of the individual when the ODE system is propagated using (6)",
+            "cite_spans": [
+                {
+                    "start": 180,
+                    "end": 184,
+                    "text": "[22,",
+                    "ref_id": null
+                },
+                {
+                    "start": 185,
+                    "end": 188,
+                    "text": "23,",
+                    "ref_id": null
+                },
+                {
+                    "start": 189,
+                    "end": 192,
+                    "text": "24]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "The increase in the rate of incidence by the introduction of this individual in the I o compartment is given by",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "Similarly, the increase in the rate of incidence by the introduction of one infectious individual into the I c compartment at time point t can be calculated. This is denoted by \u2206 t (I c ). The final increase in the incidence is the mixture",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "where p is the proportion of exposed individuals who enter the I o compartment in (8). The likelihood relating components of the R o -compartment to the total number of daily cases, D t , t \u2208 W L \u222a W R , is taken to be the negative binomial probability function, that is,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "11 All rights reserved. No reuse allowed without permission.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "The copyright holder for this this version posted November 23, 2020. ; https://doi.org/10.1101/2020.11.20.20233890 doi: medRxiv preprint",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "has mean \u03bd \u2261 q r/(1 \u2212 q) and variance qr/(1 \u2212 q) 2 \u2261 \u03bd + \u03c4 \u03bd 2 ; in (17) instead. More discussion on this aspect is presented later.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "eters of the ODE system (6)-(12) for t \u2208 W L and t \u2208 W R , respectively. The collection 251 of all parameters is denoted by ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "220"
+        },
+        {
+            "text": "The prior on \u03c4 is taken to be U (a \u03c4 , b \u03c4 ) for the entire observation window W L \u222a W R .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "271"
+        },
+        {
+            "text": "The prior on \u03b2 o is elicited indirectly via a reparametrization: For W L , we take \u03b2 o = 273 All rights reserved. No reuse allowed without permission.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "272"
+        },
+        {
+            "text": "preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "272"
+        },
+        {
+            "text": "The copyright holder for this this version posted November 23, 2020. ; https://doi.org/10.1101/2020.11.20.20233890 doi: medRxiv preprint 13 All rights reserved. No reuse allowed without permission.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "272"
+        },
+        {
+            "text": "preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "272"
+        },
+        {
+            "text": "The copyright holder for this this version posted November 23, 2020. ; https://doi.org/10.1101/2020.11.20.20233890 doi: medRxiv preprint preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "272"
+        },
+        {
+            "text": "The copyright holder for this this version posted November 23, 2020. ; https://doi.org/10.1101/2020.11.20.20233890 doi: medRxiv preprint respectively, the posterior of \u0398 can be derived using Bayes theorem as",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "272"
+        },
+        {
+            "text": "15 All rights reserved. No reuse allowed without permission. preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "272"
+        },
+        {
+            "text": "The copyright holder for this this version posted November 23, 2020. ; https://doi.org/10.1101/2020.11.20.20233890 doi: medRxiv preprint where D = {D t : t \u2208 W L \u222a W R } is the collection of observed daily cases from March 1st until April 28, 2020, L(\u0398) is the entire likelihood for D and \u03c0(\u0398) is the prior on \u0398 as described in Section 2.5.2. Bayesian inference is carried out using Monte Carlo importance sampling. A total of M samples, \u0398 i for i = 1, 2, \u00b7 \u00b7 \u00b7 , M , are generated from the prior specification \u03c0(\u0398). The likelihood, L(\u0398 i ), is computed for each \u0398 i and normalized to obtain weights",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "272"
+        },
+        {
+            "text": "for i = 1, 2, \u00b7 \u00b7 \u00b7 , M . To compute L(\u0398 i ), one requires to numerically evaluate the solution of the ODE system (6)-(12). This is achieved using the deSolve package in R. The Bayesian computational algorithm described here is developed using R and the RStudio R user interface. Through this importance sampling step, an approximation to the Maximum-a-Posteriori (MAP) estimator of \u0398 is given b\u0177",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "272"
+        },
+        {
+            "text": "with the approximation becoming more accurate as M \u2192 \u221e. Resampling \u0398 i s with preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. 17 All rights reserved. No reuse allowed without permission. preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "272"
+        },
+        {
+            "text": "The copyright holder for this this version posted November 23, 2020. ; https://doi.org/10.1101/2020.11.20.20233890 doi: medRxiv preprint that they first increase for time points t \u2264 T * followed by a significant drop for t > T * .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "272"
+        },
+        {
+            "text": "Hence, we conclude that an exponential rise in cases occurred right after the completion 22 All rights reserved. No reuse allowed without permission. preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity. preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "272"
+        },
+        {
+            "text": "The copyright holder for this this version posted November 23, 2020. ; https://doi.org/10.1101/2020.11.20.20233890 doi: medRxiv preprint authors would also like to thank the Director General of Health Malaysia for his permission 457 to publish this article.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "272"
+        },
+        {
+            "text": "Appendix: Prior Elicitation on Remaining Parameters 459 We describe the prior elicitation for the initial number of infectious and exposed individ- preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [
+                {
+                    "start": 52,
+                    "end": 55,
+                    "text": "459",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "458"
+        },
+        {
+            "text": "The copyright holder for this this version posted November 23, 2020. preprint (which was not certified by peer review) is the author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "458"
+        },
+        {
+            "text": "The copyright holder for this this version posted November 23, 2020. ; https://doi.org/10.1101/2020.11.20.20233890 doi: medRxiv preprint ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "458"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "-Detection 488 of A New Case Infected by The 2019 Novel Coronavirus (2019-nCoV) in Malaysia",
+            "authors": [
+                {
+                    "first": "Malaysia",
+                    "middle": [],
+                    "last": "Kementerian Kesihatan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Latest Situation of the Coronavirus Disease 2019 (COVID-19) Infection in Malaysia",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Latest Situation of the Coronavirus Disease 2019 (COVID-19) Infection in Malaysia",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "501",
+            "issn": "",
+            "pages": "2020--2022",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Sri Petaling Tabligh gathering remains Msia's largest",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Babulal",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "Z"
+                    ],
+                    "last": "Othman",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Covid-19 cluster",
+            "authors": [],
+            "year": 2020,
+            "venue": "New Straits Times",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "On the spread of epidemics in a closed heterogeneous population",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Novozhilov",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Epidemiological Models with Parametric Heterogeneity",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Novozhilov",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "377--381",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "An introduction to compartmental modeling for the 583 budding infectious disease modeler",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Blackwood",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Childs",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Letters in Biomathematics",
+            "volume": "5",
+            "issn": "1",
+            "pages": "195--221",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "A contribution to the mathematical theory of 587 epidemics",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "O"
+                    ],
+                    "last": "Kermack",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Mckendrick",
+                    "suffix": ""
+                }
+            ],
+            "year": 1927,
+            "venue": "Proceedings of the Royal Society of London Series A",
+            "volume": "115",
+            "issn": "772",
+            "pages": "700--721",
+            "other_ids": {
+                "DOI": [
+                    "https:/royalsocietypublishing.org/doi/pdf/10.1098/rspa.1927.0118"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Robust qualitative estimation of time-591 varying contact rates in uncertain epidemics",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Anguloa",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "X"
+                    ],
+                    "last": "Velasco-Hernandez",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Epidemics",
+            "volume": "24",
+            "issn": "",
+            "pages": "98--104",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.epidem.2018.03.001"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Using Mathematical Models to Assess Responses to an Outbreak of an 595",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wood",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Emerged Viral Respiratory Disease, Final Report to the Australian Government De-596 partment of Health and Ageing",
+            "authors": [],
+            "year": null,
+            "venue": "National Centre for Epidemiology and Population",
+            "volume": "597",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Content/mathematical-models",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Basic and effective reproduction 601 numbers of COVID-19 cases in South Korea excluding Sincheonji cases",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Hwang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Park",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Jung",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.-H",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "medRxiv",
+            "volume": "602",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Report of the WHO-China Joint Mission on Coronavirus 606 Disease 2019 (COVID-19)",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Organization",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "16--24",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Bayesian inference in an extended SEIR model with nonpara-610 metric disease transmission rate: an application to the ebola epidemic in sierra leone",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Frasso",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Lambert",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/biostatistics/kxw027"
+                ]
+            }
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Bayesian non-parametric inference for stochastic 614 epidemic models using Gaussian Processes",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Kypraios",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "O&apos;neill",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Biostatistics",
+            "volume": "17",
+            "issn": "4",
+            "pages": "619--633",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/biostatistics/kxw011"
+                ]
+            }
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "World Health Organization, Coronavirus disease 2019 (COVID-19) Situation",
+            "authors": [],
+            "year": 2020,
+            "venue": "Report",
+            "volume": "617",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Comparing SARS-CoV-2 with SARS-CoV 622 and influenza pandemics",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Storgaard",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Khalili",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Simonsen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "The Lancet infectious diseases",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Malaysia to boost virus testing with S Korean test kits",
+            "authors": [
+                {
+                    "first": "Emil",
+                    "middle": [],
+                    "last": "Zainul",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "2020--626",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Incubation period of 2019 novel coron-630 avirus (2019-nCoV) infections among travellers from Wuhan, China",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Backer",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Klinkenberg",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wallinga",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Eurosurveillance",
+            "volume": "25",
+            "issn": "5",
+            "pages": "20--28",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": ", and hence, isolated and removed; the individual is assumed to be unable to infect other susceptibles in the population, and hence \"removed\" from further 129 modelling steps. This study did not consider transmission from positive isolated COVID-130 19 patients to health personnel as there was no evidence of this type of transmission 131 occurring in the COVID-19 designated hospitals in Malaysia. and well-known SEIR compartmental model consists of four compartments 134 (Susceptible, Exposed, Infected and Recovered) representing different stages of evolution 135 of an infectious disease, such as COVID-19, in a population. Susceptible individuals come 136 in contact with one or more infected individuals in the population, and subsequently, 137 become exposed to the virus. The virus then incubates within these individuals for some 138 time. At the end of the incubation period, the exposed person becomes infectious and 139 transmits the disease to other susceptibles in the population who come in close contact 140to him/her. The infected person is assumed to be infectious for a certain period (called 141 the infectious period) after which the person recovers, dies or becomes immune. The 142 deterministic SEIR model is given by a set of nonlinear ordinary differential equations ODEs",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Reparametrizing S(t) = S(t)/N , E(t) = E(t)/N , I(t) = I(t)/N and R(t) = R(t)/N , the renormalized versions of S, E, I and R represent the proportion, rather than the total number of individuals, in each compartment. In the renormalized SEIR model, S(t) + E(t) + I(t) + R(t) = 1 and the rate of new infections become h(S, I) = \u03b2 S I. (5) Based on initial values of S(0) \u2261 s 0 = 1 \u2212 i 0 N \u2212 e 0 N , E(0) = e 0 N , I(0) = i 0 N , and R(0) = 0 145 at time T 0 = 0, the SEIR ODE system can be solved numerically to yield the values 146 of S(t), E(t), I(t) and R(t) for every t \u2208 [T 0 , T 1 ] where T 1 denotes the final time-point.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Salient periods in the evolution of COVID-19 and their connection to durations in the SEIR model.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "as opposed to \u03b2 S(t) I(t) in (5) for the SEIR model. A key difference of the model 199 formulation in (6) -(12) is the power transmission dynamics used to model heterogeneity 200 in the population; see [5, 6]. In [6], a gamma distribution is elicited on the varying 201 disease transmission parameters within the population which gives rise to the powers w s , 202 w i,o and w i,c on S(t), I o (t) and I c (t), respectively, with w s \u2265 1, w i,o \u2265 1 and w i,c \u2265 1.203 The lower bounds on w s , w i,o and w i,c recover the original SEIR model dynamics with 204 no heterogeneity. The remaining parameters have the following interpretation: (1) \u03b1 205 represents a small yet significant force of infection that starts the local infection process 206 but is eventually overwhelmed by it. In our context, \u03b1 represents the initial force of 207 infection arising from, say, foreign infectious individuals attending the large gathering 208 at Sri Petaling starting February 27th. (2) The parameters \u03b3 o and \u03b3 c have the same 209 interpretation as \u03b3 in (3), that is, they are rates of infectiousness but for the observed and 210 cryptic compartments, respectively. (3) The parameter \u03b4 is the same as before, namely, it 211 is the rate of incubation associated with the exposed compartment. (4) The parameters 212 \u03b2 o and \u03b2 c are transmission rates for the observed and cryptic compartments, respectively, 213 in the modified SEIR model with \u03b2 c = \u00b5 \u03b2 0 and \u00b5 \u2208 [0, 1]. In other words, we assume that 214 the transmission rate for asymptomatic individuals is smaller than that of symptomatic 215 individuals; this is a plausible assumption to make as asymptomatic individuals generally 216 possess a lower viral load which leads to lower chances of a successful transmission. On 217 the other hand, a longer asymptomatic infectious period may compensate for the lower 218 transmission rates for an asymptomatic individual, and this possibility is captured by the 219 model via the parameter \u03b3 c .",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "to model possible changes in disease transmission over time. The functional form of \u03b2 o (t) 221 in (13) has an initial value of \u03b3 o e a 0 at t = T * after which it decreases (provided a 1 < 0) 222 to the asymptotic value of c\u03b3 o as t \u2192 \u221e. Thus, c\u03b3 o represents the residual disease 223 transmission that may be present even during the MCO period, for example, due to close 224 contact between family members in the same household. The general functional form of 225 \u03b2 o (t) subsumes the constant disease transmission rate model as a special case by taking 226 a 1 = c = 0 in (13). The constant rate submodel has the advantage of not explicitly 227 assuming any functional form for the change in disease transmission over time. On the 228 other hand, it can only ascertain if there is an overall change (increase or decrease) in 229 transmission after the change point T * . Similar to the relationship \u03b2 c = \u00b5\u03b2 o in W L , we 230 assume \u03b2 c (t) = \u00b5 \u03b2 o (t) for the window W R based on a different \u00b5 value. In Section 3, the 231 submodel is used first followed by the full model to fit to observed data. 232 In the model formulation of (6)-(11), only the R o compartment is modelled directly 233 using a likelihood function based on daily observed cases. The other compartments of the 234 modified SEIR model remain latent and do not have any direct observation processes for 235 modelling based on likelihoods; see Section 2.5 for further details.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": "and inference is carried out in a Bayesian framework.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF9": {
+            "text": "u\u22121 e \u2212s ds evaluated for u > 0. Thus, r need not be integer-valued 243 in (17). The parameter \u03c4 measures overdispersion with respect to the Poisson likelihood 244 recovered when \u03c4 = 1; see, for example, [25, 26]. The observed data on daily cases in 245 Malaysia exhibited significant overdispersion in the order of the mean. As a result, the 246 Poisson likelihood did not fit well and we resorted to the negative binomial likelihood247",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF10": {
+            "text": "the overdispersion 252 parameter of the negative binomial likelihood and T * is the change-point. The uncer-253 tainty in \u03b8 is elicited via prior distributions in the Bayesian inferential framework. In 254 what follows, we describe the priors used on the generic parameter \u03b8 after which the 255 discussion on prior elicitation can be extended to \u03b8 (L) and \u03b8 (R) in a straightforward man-256 ner. It is important to note that the priors on \u03b8 depend on hyperparameters. Here, 257 we only elicit the forms of the priors; the discussion on the exact choice of the corre-258 sponding hyperparameters is relegated to the next few paragraphs. Independent uniform 259 priors U (a \u03be 1 , b \u03be 1 ) are chosen for each \u03be 1 \u2208 {\u00b5, p, w i,o , w i,c , w s , \u03b1} with corresponding hy-260 perparameters a \u03be 1 and b \u03be 1 . The prior on (\u03b3 o , \u03b4) is chosen independently in the following 261 way: For \u03be 2 \u2208 {\u03b3 o , \u03b4}, 1/\u03be 2 \u223c U (a \u03be 2 , b \u03be 2 ). The reciprocal transformation is used for prior 262 elicitation since these parameters have a rate interpretation, and hence, their reciprocals 263 represent the corresponding duration (either incubation or infectious periods) with bench-264 mark values reported in the literature [16, 17, 18, 27]. The cryptic infectious period 1/\u03b3 c 265 is generally longer than the observed infectious period 1/\u03b3 o (since the former remains 266 undetected). Hence, it follows that 1/\u03b3 o < 1/\u03b3 c . This restriction can be incorporated into 267 the prior elicitation for 1/\u03b3 o and 1/\u03b3 c by first generating 1/\u03b3 o \u223c U (a \u03b3o , b \u03b3o ) as above and 268 then setting 1/\u03b3 c = 1/\u03b3 o + \u03be 3 where \u03be 3 \u223c U (a \u03be 3 \u2261 0, b \u03be 3 > 0). The prior on the change 269 point T * is taken to be uniform on dates from March 18th 2020 to March 31st 2020 both 270 inclusive. Since we define T * as the number of days after March 1st 2020, T * \u223c U (17, 30).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF11": {
+            "text": "Reported daily cases (red line), and overlay plots of \u2206R o (t) (blue line) and \u03b3 o I o (t) (green line) based on\u0398 M AP for the constant rate submodel for (a) Malaysia, (b) Selangor and (c) Sarawak.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF12": {
+            "text": "Plots of \u2206 t versus t for the constant rate submodel for (a) Malaysia, (b) Selangor and (c) Sarawak.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF13": {
+            "text": "Reported daily cases (red line), and overlay plots of \u2206R o (t) (blue line) and \u03b3 o I o (t) (green line) based on\u0398 M AP for (a) Malaysia, (b) Selangor and (c) Sarawak. e a 0 \u03b3 o and consider a uniform prior on a 0 , independent of \u03b3 o . Our prior elicitation adopts 274 this reparametrization for the following reason: For \u03b2 o = e a 0 \u03b3 o , the basic reproduction 275 number R 0 \u2261 e a 0 is the more fundamental quantity for simpler models, such as the SIR 276 and SEIR models, compared to \u03b2 o . Thus, R 0 for these models can be benchmarked based 277 on similar flu-like epidemics in the past which, in turn, provide a suggested range of 278 values for the prior elicitation of a 0 in W L ; see [28]. Note that \u03b2 o which represents the 279 contact rate of the target population cannot be determined by direct observation. Hence, 280 putting a prior directly on \u03b2 o is difficult. Similarly, since 1/\u03b3 o is the observed infectious 281 period, benchmark values can be obtained from the literature for its prior elicitation. To 282 summarize, we put direct priors on parameters that have an epidemiological interpretation 283 and which can be benchmarked from reported literature for eliciting the appropriate prior.284For W R , \u03b2 o (t) has the form in (13) for coefficients a 0 , a 1 and c. For a 0 , we consider two 285 cases: When using the submodel to determine whether an overall reduction in transmission 286 occurs or not, we take a 0 \u223c U (L a 0 , U a 0 ) with L a 0 < 0 and U a 0 > 0. If the full model of (13) 287 is considered, a 0 is chosen deterministically to ensure continuity of the infection process 288 before and after the change-point. More specifically, a 0 in W R is chosen so that the rate289 of incidence h(S(t), I o (t), I c (t)) in W L and W R coincide at t = T * . For the full model, a 1 290 is given a uniform prior with support on [L a 1 , U a 1 ]. We take L a 1 < 0 and U a 1 = 0 if such 291 a reduction in disease transmission is established by the submodel.292 Prior elicitation on parameters in W R is based on convenience and ease of interpreta-293 tion. It is easier to elicit priors on the components of \u03b2 o (t) in (13) compared to the entire 294 function itself. Further, the component parameters of \u03b2 o (t) satisfy restrictions that are 295 easy to understand; for example, c \u2264 e a 0 since c and e a 0 are the lower and upper bounds of 296 14 All rights reserved. No reuse allowed without permission.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF14": {
+            "text": "Reported cumulative cases (red line), and overlay plots of R o (t) (green line) based on the MAP estimate for (a) Malaysia, (b) Selangor and (c) Sarawak. Illustration of the variability of \u03b3 o I o (t) from the posterior: Reported cumulative cases (red line), and overlay plots of \u03b3 o I o (t) for (a) Malaysia, (b) Selangor and (c) Sarawak.the decay curve, respectively. Hence, a reasonable prior to put on c is U (0, e a 0 ). The prior 297 elicitation on remaining unknown parameters are explained in detail in the Appendix.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF16": {
+            "text": "Plots of \u2206 t versus t: Malaysia (a), Selangor (b) and Sarawak (c).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF17": {
+            "text": "weights w i in (20) gives a ensemble of size M , {\u0398 * i } M i=1 , from the target posterior \u03c0(\u0398 | D) 303 which can be used to provide a quantification of uncertainty around\u0398 M AP . study period is from March 1, 2020 until April 28, 2020 with T 0 = 0 and T 1 = 59. The 306 impacts of the Sri Petaling gathering and MCO implementation are analyzed here using 307 the proposed model described in Section 2.3. Reported daily cases at the national level 308 16 All rights reserved. No reuse allowed without permission.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF18": {
+            "text": "Note that all states in Malaysia implemented MCO Phases 1-3 using the same guidelines310    and protocols. Thus, one can gauge the impact of the Sri Petaling gathering on COVID-311 19 spread in Malaysia based on a comparison between states and the national experience.312 Here, Selangor and Sarawak are chosen as two such representative states with high and 313 low population densities, respectively. 314 First, we investigate if the MCO implementation had an overall effect of reducing 315 COVID-19 transmission rates. For this purpose, the constant rate submodel of (13) is 316 used and the prior on a 0 in W R is chosen to be uniform with support on both positive 317 and negative values. The Bayesian inference methodology of Section 2.5 is carried out 318 with M * = 50, 000 to obtain\u0398 M AP and samples \u0398 * i from the posterior of \u0398 in (19). The 319 curves of \u03b3 o I o (t) and \u2206R o (t) \u2261 R o (t) \u2212 R o (t \u2212 1) for each day t are obtained based on 320\u0398 M AP and are displayed in Figure 3. This submodel captures broad features (increasing 321 and decreasing trends) of the reported cases trajectories in all three panels for Malaysia, 322 Selangor and Sarawak. To quantify the overall change in transmission before and after 323 MCO implmentation, \u2206 t (see (15)) is obtained for t in W L and W R . The plots of \u2206 t 324 versus t are shown in Figure 4. A consistent feature of the plots in all three panels is 325 18 All rights reserved. No reuse allowed without permission.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF19": {
+            "text": "327of the Sri Petaling gathering on March 1st 2020, and the implementation of the MCO 328 successfully stemmed the exponential rise at the national level, Selangor and Sarawak.329    With reduced disease transmission established in W R , we next proceed to utilize the 330 functional form (13) of \u03b2 o (t) as a quantitative model for transmission decay in W R .331The Bayesian inference methodology of Section 2.5 is applied to the full model with 332 M * = 50, 000 to obtain\u0398 M AP and samples \u0398 * i from the posterior of \u0398 in(19). The333 curves of \u03b3 o I o (t) and \u2206R o (t) \u2261 R o (t) \u2212 R o (t \u2212 1) for each day t are obtained based 334 on\u0398 M AP and are displayed in Figure 5. Daily cumulative cases and the curve of R o (t) 335 are displayed in Figure 6. We note from these figures that the proposed model captures 336 broad features of the observed data and is an improvement over the constant rate sub-337 model. Uncertainty estimates are obtained for all unknown parameters in \u0398 based on the 338 ensemble {\u0398 * i } M * i=1 . Variabilility estimates can be obtained for all parameters and their 339 functions. As an illustration, we demonstrate the extent of variability inherent in the 340 posterior visually for the expected R o (t) curve given by \u03b3 o I o (t) (see (16)) for t \u2208 [T 0 , T 1 ]. 341 This is displayed in Figure 7 which shows that most of the reported case numbers are 342 well within the limits of variability of the posterior. Hence, the proposed model together 343 with the negative binomial likelihood are able to explain the variability in the reported 344 case numbers. However, there are a few exceptions, the most notable being the reported 345 case number on Day 14 for Malaysia in Figure 7(a). We present an explanation for this 346 outlying case later in the Discussion section. 347 Further results from the Bayesian analyses are summarized in Tables 1, 2 and 3. These 348 tables give the MAP estimates of parameters and their corresponding 95% credible in-349 tervals for Malaysia, Selangor and Sarawak, respectively. We provide a summary of the 350 salient findings here. The symptomatic and asymptomatic infectious periods as well as the 351 incubation periods are found to be around 6-8 days for Malaysia, Selangor and Sarawak. 352 These findings are similar to values reported in the literature for other countries; see, 353 for example, [16, 17, 18, 27]. Change-points T * are estimated not too far away from the 354 date of MCO implementation, March 18th 2020. For Malaysia, T * = 18 is the MAP es-355 timate which corresponds to March 19th, 2020, and the associated 95% credible interval 356 is (17, 21). For Selangor, the MAP estimate of T * is T * = 22 with (17.5, 25) being the 357 95% credible interval. For Sarawak, the transition date is less precise. The MAP estimate 358 is T * = 25 (March 26th 2020) but the 95% credible interval (18, 32.5) is much larger 359 indicating higher uncertainty in T * . This can be attributed to the fact that the trajectory 360 of reported case numbers for Sarawak shows a slower and more gradual increase, then 361 Country/State Window Parameter MAP 95% Credible Interval Malaysia W L",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF20": {
+            "text": "Effect of redistribution: Panel (a) shows the redistributed daily cases and the corresponding best fit curves of \u03b3 o I o (t) (blue line) and \u2206R o (t) (green line) based on\u0398 M AP . Panel (b) shows the variability of the fit based on the ensemble set {\u0398 * i } M i=1 .",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF21": {
+            "text": "models and assessment of the impacts of the Sri Petaling gathering and im-432 plementation of MCO on COVID-19 spread in Malaysia are developed in this paper. The 433 MCO implementation is found to be highly effective in containing (an exponential rise 434 of) the COVID-19 outbreak in Malaysia. The analysis here quantitatively demonstrates 435 how quickly transmission rates fall under effective NPI implemention within a short time 436 period. Higher disease transmission is found in Selangor (a state with higher population 437 density) compared to Sarawak. We also found that under MCO, the decline in transmis-438 sion was faster in Selangor compared to Sarawak. The rise and fall of disease transmission 439 in Selangor mirrored the national level whereas Sarawak showed a more gradual increase 440 and decrease in COVID-19 transmission. The change points were mostly found to be 441 close to the date of MCO implementation (18th March 2020) although Sarawak exhib-442 ited a larger uncertainty around that date due to its gradual and slower increasing and 443 decreasing trends of reported case numbers. Our study developed a new model to rep-444 resent COVID-19 spread in Malaysia that accounts for heterogeneity and asymptomatic 445 transmissions. We found that reported case numbers in Malaysia exhibited large vari-446 abilities which can possibly be attributed to a delay in reporting, particularly during the 447 early stages of the pandemic as the experience with handling COVID-19 was new to the 448 country. Nevertheless, the model developed here together with the overdispersed negative 449 binomial likelihood are able to capture salient features of COVID-19 spread in Malaysia 450 and provide reliable quantitative assessments even under the challenges of limited and 451 delayed data. 452 23 All rights reserved. No reuse allowed without permission.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF22": {
+            "text": "460 uals, i 0 and e 0 , respectively, relevant only for W L . Conditional on \u03b4 and \u03b3 o , i 0 (corre-461 sponding to observed, not cryptic) is given the prior elicitation \u03c0(i 0 | \u03b3 o , \u03b4) = U (m i 0 \u2212 462 \u2206 i 0 , m i 0 + \u2206 i 0 ) for some m i 0 and \u2206 i 0 . This prior, \u03c0(i 0 | \u03b3 o , \u03b4), on i 0 is motivated from463 (9) based on the differential equation for the R o compartment. Note that\u1e58 o (t) = \u03b3 o I o (t) 464 from (9), and hence, i 0 =\u1e58 o (0)/\u03b3 o . To obtain an estimate of\u1e58 o (0), a second order 465 polynomial is fitted using least squares to the trajectory of cumulative cases in a window 466 of m \u2265 3 days starting from T 0 \u2261 0.\u1e58 o (0) is then estimated by\u1e56 (0) where\u1e56 (t) is the 467 first derivative of the fitted polynomial, P (t). The mean of the uniform distribution on i 0 468 is taken to be m i 0 =\u1e56 (0)/\u03b3 o . The initial number of exposed individuals, e 0 , is given the 469 prior elicitation \u03c0(e 0 | \u03b3 o , \u03b4, p) = U (m e 0 \u2212 \u2206 e 0 , m e 0 + \u2206 e 0 ) for some m e 0 and \u2206 e 0 . To find 470 an expression for m e 0 , we rewrite (8) and note that e 0 = (\u0130 o (0) + \u03b3 o I o (0))/(p \u03b4). Next, 471 substituting\u1e56 (0)/\u03b3 o for I o (0), the mean of the uniform distribution on e 0 is taken as 472 m e 0 = (P (0) + \u03b3 o\u1e56 (0))/(\u03b3 o p \u03b4) whereP (t) is the second derivative of P (t) with respect 473 to t. The half-widths for both priors on i 0 and e 0 are taken as \u2206 i 0 = \u2206 e 0 = 5. Thus, the 474 initial prior distributions on i 0 and e 0 are based on the number of infectives and exposed 475 in the original population; so they are un-normalized. This is because their estimates 476 are calculated from reported case data. But these estimates are later normalized by the 477 population size for input into the SIER and modified SEIR models.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF23": {
+            "text": "The hyperparameters a \u03be and b \u03be for \u03be \u2208 {\u00b5, \u03b3 o , \u03b3 c , \u03b4, p, w i,o , w i,c , w s , \u03b1} are chosen based479 on values reported in previous studies where available. For example, the incubation 480 period, defined as the period from being infected by COVID-19 to the onset of symptoms, 481 is typically reported to be between 6 and 8 days on average [30]. Hence, we take a \u03b4 = 6 482 and b \u03b4 = 8 for the prior elicitation of 1/\u03b4. For the infectious period, we consider a \u03b3o = 6 483 and b \u03b3o = 8 to encompass corresponding values available from the literature; see, for 484 example, [16, 17, 18, 27]. The values of parameters reported in the literature are only 485 taken as starting points. terministic Theory for Closed Populations, Mathematical Modelling of Natural 512 Phenomena 7 (3) (2012) 147-167. 513 URL https://www.cambridge.org/core/journals/mathematical-modelling-514 of-natural-phenomena/article/epidemiological-models-with-parametric-515 25 All rights reserved. No reuse allowed without permission.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF24": {
+            "text": "N. Banholzera, E. van Weenena, B. Kratzwalda, A. Seeligera, D. Tschernuttera, 518 P. Bottrighia, A. Cenedesea, J. P. Sallesa, W. Vachy, S. Feuerriegely, The estimated 519 impact of non-pharmaceutical interventions on documented cases ofCOVID-19: A 520 cross-country analysis, medRxiv (2020). 521 URL https://www.medrxiv.org/content/10.1101/2020.04.16.20062141v3 522 [8] B. J. Cowling, S. T. Ali, T. W. Y. Ng, T. K. Tsang, J. C. M. Li, M. W. Fong, Q. Liao, 523 M. Y. Kwan, S. L. Lee, S. S. Chiu, J. T. Wu, P. Wu, G. M. Leung, Impact assessment 524 of non-pharmaceutical interventions against coronavirus disease 2019 and influenza 525 in Hong Kong: an observational study, Lancet Public Health 5 (2020) 279-88. 526 URL https://doi.org/10.1016/S2468-2667(20)30090-6 527 [9] C. N. Ngonghala, E. Iboi, S. Eikenberry, M. Scotch, C. R. MacIntyre, M. H. 528 Bonds, A. B. Gumel, Mathematical assessment of the impact of non-pharmaceutical 529 interventions on curtailing the 2019 novel Coronavirus, ] N. Imai, K. A. Gaythorpe, S. Abbott, S. Bhatia, S. van Elslandand Kiesha Prem, 534 Y. Liu, N. M. Ferguson, Adoption and impact of non-pharmaceutical interventions 535 for COVID-19, Wellcome Open Research (2020). 536 URL https://doi.org/10.12688/wellcomeopenres.15808.1 537 [11] M. de Figueiredo, D. Codina, M. M. Figueiredo, S. M, C. Le\u00f3n, Impact of lockdown 538 on COVID-19 incidence and mortality in China: an interrupted time series study, 539 Bull World Health Organ [Submitted] (2020). 540 URL http://dx.doi.org/10.2471/BLT.20.256701 541 [12] R. Thompsona, J. Stockwind, R. van Gaalene, J. Polonskyf, Z. Kamvarg, P. De-542 marshh, E. Dahlqwist, S. Lij, E. Miguelk, T. Jombartg, J. Lesslerm, S. Cauchemezn, 543 A. Corig, Improved inference of time-varying reproduction numbers during infectious 544 disease outbreaks, Epidemics 29 (2019).545URLhttps : / / www.sciencedirect.com / science / article / pii /",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF25": {
+            "text": "] G. Giordano, F. Blanchini, R. Bruno, P. Colaneri, A. Di Filippo, A. Di Matteo, 555 M. Colaneri, Modelling the COVID-19 epidemic and implementation of population-556 wide interventions in Italy, Nature Medicine (2020) 1-6. 557 URL https : / / www.nature.com / articles / s41591 -020 -0883 -7?fbclid = 558 IwAR156AOapdnJ9R8QG4s5odlVrQgA9nhbQV7OU1KDttNw4Pq7Y860hRd54B4 559 [15] F.-C. Hu, The Estimated Time-Varying Reproduction Numbers during the Ongoing 560 Pandemic of the Coronavirus Disease 2019 (COVID-19) in 12 Selected Countries 561 outside China, medRxiv (2020). 562 URL https : / / www.medrxiv.org / content / 10.1101 / 563 2020.05.10.20097154v1.full.pdf 564 [16] P. Yu, J. Zhu, Z. Zhang, Y. Han, A Familial Cluster of Infection Associated With the 565 2019 Novel Coronavirus Indicating Possible Person-to-Person Transmission During 566 the Incubation Period, The Journal of Infectious Diseases 221 (11) (2020) 1757-1761. 567 URL https://academic.oup.com/jid/article/221/11/1757/5739751 568 [17] W. E. Wei, Z. Li, C. J. Chiew, S. E. Yong, M. P. Toh, V. J. Lee, Presymptomatic 569 Transmission of SARS-CoV-2 -Singapore, January 23 -March 16, 2020, MMWR 570 Morb Mortal Wkly Rep 2020 69 (2020) 411-415. 571 URL https : / / www.cdc.gov / mmwr / volumes / 69 / wr / mm6914e1.htm?] A. Kimball, K. Hatfield, M. Arons, A. James, J. Taylor, K. Spicer, A. C. Bardossy,",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "-(4) are made to adapt it to the local Malaysian context. Here, the last compartment of the SEIR model is not \"Recovered\" but \"Removed\", representing all infectious individuals who are effectively isolated following a positive test result. In Malaysia, such patients are isolated in hospital wards to avoid 156 further contacts with susceptibles. For COVID-19 in particular, the onset of symptoms does not necessarily indicate the start of infectiousness; in fact, the onset of infectiousness may be somewhat earlier. Thus, the infectious period 1/\u03b3 represents the period of effective infectiousness, that is, the period from the start of infectiousness (asymptomatic or symptomatic) until the individual is isolated and then can no longer infect others. Based on this understanding, 1/\u03b4 represents the incubation period, which is the period starting 162 from getting infected until the onset of infectiousness. The connection between the SEIR modelling formulation and actual evolution stages of COVID-19 in patients is shown in Observed data in Malaysia consists of the total number of confirmed daily cases as reported by outbreak.my and CPRC (i.e., the number of cases that were tested positive, and hence, effectively isolated). Hence, only the R compartment of the SEIR model can be related to observed data while other compartments of the SEIR model remain made is that individuals from the R compartment do not return to the S compartment -",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "to incorporate an instantaneous time-varying transmission rate, \u03b2 \u2261 \u03b2(t) (see [21], for example) which is able to quantify the extent of disease transmission at time t. The MCO can be deemed effective if the function \u03b2(t) shows a decay reflecting an increasing 181 effectiveness in reducing transmission among individuals over time due to implementation The aforementioned SEIR model does not account for heterogeneity, asymptomatic transmission and change points. To this end, we propose models with power transmission dy-",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "Country/State Window Parameter MAP 95% Credible Interval",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF4": {
+            "text": "MAP estimates and associated credible intervals for Malaysia.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF5": {
+            "text": "MAP estimates and associated credible intervals for Selangor.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF6": {
+            "text": "Country/State Window Parameter MAP 95% Credible Interval",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF7": {
+            "text": "MAP estimates and associated credible intervals for Sarawak. as well as for Selangor and Sarawak are used for model fitting and parameter estimation.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF9": {
+            "text": "Summary results for Malaysia (with redistributed cases).",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF11": {
+            "text": "Loglikelhood values of the NB and Poisson likelihoods.",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "The authors would like to acknowledge the Global Challenges Research Fund (GCRF)",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "453"
+        }
+    ]
+}

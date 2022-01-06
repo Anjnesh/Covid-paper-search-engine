@@ -1,0 +1,1677 @@
+{
+    "paper_id": "0a8f8c397b631e90f2de5fe607ba2e1c5ab7a8d9",
+    "metadata": {
+        "title": "A Retrospective Study of COVID-19-Related Urgent Medical Visits and Hospitalizations After Outpatient COVID-19 Diagnosis in the US",
+        "authors": [
+            {
+                "first": "Wenhui",
+                "middle": [
+                    "Wei"
+                ],
+                "last": "Sumathi",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Sivapalasingam",
+                "middle": [],
+                "last": "Scott",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Mellis",
+                "middle": [],
+                "last": "Gregory",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "P",
+                "middle": [],
+                "last": "Geba",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "J",
+                "middle": [],
+                "last": "Jessica",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "",
+                "middle": [],
+                "last": "Jalbert",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Introduction: Identifying risk factors for progression to severe COVID-19 requiring urgent medical visits and hospitalizations (UMVs) among patients initially diagnosed in the outpatient setting may help inform patient management. The objective of this study was to estimate the incidence of and risk factors for COVID-19-related UMVs after outpatient COVID-19 diagnosis or positive SARS-CoV-2 test. Methods: Data for this retrospective cohort study were from the Optum \u00d2 de-identified COVID-19 Electronic Health Record database from June 1 to December 9, 2020. Adults with first COVID-19 diagnosis or positive SARS-CoV-2 test in outpatient settings were identified. Cumulative incidence function analysis stratified by risk factors was used to estimate the 30-day incidence of COVID-19-related UMVs. Competing risk regression models were used to derive adjusted hazard ratios (aHR) and 95% confidence intervals (95% CI) for factors associated with UMVs. Results: Among 206,741 patients [58.8% female, 77.5% non-Hispanic Caucasian, mean (SD) age: 46.7 (17.8) years], the 30-day incidence was 9.4% (95% CI 9.3-9.6) for COVID-19related emergency room (ER)/urgent care (UC)/ hospitalizations and 3.8% (95% CI 3.7-3.9) for COVID-19-related hospitalizations. Likelihood of hospitalization increased with age and body mass index, with age the strongest risk factor (aHR 5.61; 95% CI 4.90-6.32 for patients C 85 years). Increased likelihood of hospitalization was observed for first presentation in the ER/UC vs. non-ER/UC outpatient settings (aHR 2.35; 95% CI 2.22-2.47) and prior all-cause hospitalization (aHR 1.90; 95% CI 1.79-2.00). Clinical risk factors of hospitalizations included pregnancy, uncontrolled diabetes, chronic obstructive pulmonary disease, chronic kidney disease, and autoimmune disease. A study limitation is that data on COVID-19 severity and symptoms were not captured. Conclusion: Predictors of COVID-19-related UMVs include older age, obesity, and several comorbidities. These findings may inform patient management and resource allocation following outpatient COVID-19 diagnosis.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "The ongoing COVID-19 pandemic, with increasing hospitalizations and deaths in the US [1], has led to focused efforts to reduce inpatient mortality, and several therapeutic agents have been found effective [2, 3] . However, with expanded testing, most patients who develop COVID-19 are likely to be initially diagnosed in the outpatient setting. The uncertain natural history of COVID-19 in outpatients presents challenges to health care providers for predicting which patients will subsequently need additional care. Estimating the incidence of COVID-related urgent medical visits (UMVs) to the emergency room (ER), urgent care (UC), or hospital settings and identifying factors associated with these return visits may inform patient management and resource allocation. Such information may be relevant given the initially positive results of trials of monoclonal antibodies for preventing severe COVID-19 among patients first seen in the outpatient setting [4, 5] and the recent granting of Emergency Use Authorization by the US Food and Drug Administration to these two therapies, REGEN-COV2 (a cocktail of casirivimab and imdevimab) and LY-CoV555 (bamlanivimab) [6, 7] . Additionally, publication of a clinical trial of COVID-19 treatment in an outpatient setting [8] suggests the value of characterizing this population for informing design and outcomes of such clinical trials. Therefore, the aims of this study were to characterize US patients initially diagnosed with COVID-19 in the outpatient setting and to estimate the 30-day incidence of and risk factors for subsequent COVID-19-related UMVs using a large, national, electronic health records (EHR) database.",
+            "cite_spans": [
+                {
+                    "start": 205,
+                    "end": 208,
+                    "text": "[2,",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 209,
+                    "end": 211,
+                    "text": "3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 958,
+                    "end": 961,
+                    "text": "[4,",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 962,
+                    "end": 964,
+                    "text": "5]",
+                    "ref_id": null
+                },
+                {
+                    "start": 1165,
+                    "end": 1168,
+                    "text": "[6,",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 1169,
+                    "end": 1171,
+                    "text": "7]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 1267,
+                    "end": 1270,
+                    "text": "[8]",
+                    "ref_id": "BIBREF6"
+                }
+            ],
+            "ref_spans": [],
+            "section": "INTRODUCTION"
+        },
+        {
+            "text": "Data for this retrospective cohort study were from the Optum \u00d2 de-identified COVID-19 EHR dataset, which was created to better understand COVID-19 in the real-world setting. The data are sourced from Optum's longitudinal EHR repository, which encompasses a network of health care provider organizations, mostly integrated delivery networks (IDN), covering [ 101 million lives nationally. Information processed across the continuum of care includes data on patient demographics, medications, laboratory results, vital signs, and other observable measurements as well as outpatient and inpatient diagnoses and procedures. The data are certified as de-identified by an independent statistical expert following HIPAA statistical de-identification rules and managed according to Optum \u00d2 customer data use agreements [9, 10] and currently include approximately 1 million individuals who have either been tested for SARS-CoV-2 or diagnosed with COVID-19 or related conditions since the start of the pandemic; for individual patients, EHR data may extend as far back as January 2007.",
+            "cite_spans": [
+                {
+                    "start": 811,
+                    "end": 814,
+                    "text": "[9,",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 815,
+                    "end": 818,
+                    "text": "10]",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Data Source and Study Population"
+        },
+        {
+            "text": "We included adult patients (aged C 18 years) if they had their first confirmed COVID-19 diagnosis [International Classification of Diseases version 10 (ICD-10) code U07.1] or positive SARS-CoV-2 virus test in the outpatient setting between June 1 and December 9, 2020; the first diagnosis or positive test date was considered the index date. Patients were excluded if they were hospitalized on the index date or had a prior COVID-19/coronavirus diagnosis or a prior positive SARS-CoV-2 virus or antibody test result. Patients diagnosed with COVID-19 before June 1, 2020, were excluded because the early phase of the pandemic may not necessarily reflect current health care, testing, and diagnostic coding practice. Patients were also required to be part of an IDN health system and have C 1 health care encounter within 2 years prior to the index date (baseline period) for assessment of medical history. The authors affirm that this retrospective database analysis did not entail collection, use, or transmittal of identifiable data. Based on 45CFR46.101(b)(4): Existing Data & Specimens-No Identifiers, this study is exempt from the requirement for institutional review board approval. The study is compliant with data security requirements of the Health Insurance Portability and Accountability Act of 1996.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Data Source and Study Population"
+        },
+        {
+            "text": "Location of the initial index COVID-19 outpatient encounter (ER/UC vs. non-ER/UC, including telehealth) and index month were determined. Baseline variables included demographics (age, sex, race/ethnicity, and geographic region) and the following risk factors for severe COVID-19 based on the Centers for Disease Control (CDC) [11] and the medical literature [12] [13] [14] [15] : cancer, chronic kidney disease (CKD) chronic obstructive pulmonary disease (COPD), cardiovascular disease (CVD), autoimmune disease, obesity, diabetes, sickle cell disease, smoking status (current/former), pregnancy, chronic liver disease, asthma, hypertension, depression, and anxiety. Additionally, the occurrence of C 1 ER/UC visit or hospitalization for any reason during the 2-year baseline period was determined. Except for pregnancy, risk factors were identified using diagnostic and procedure codes during the baseline period that included the index date; pregnancy was identified using diagnostic and procedure codes B 6 months pre-index. Body mass index (BMI) and hemoglobin A1c (HbA1c) levels were also identified during the baseline period; if multiple records were present, the one closest to the index date was used. The BMI was categorized as \\ 18.5, 18-24.9, 25-29.9, 30-34.9, 35-39.9, and C 40 kg/m 2 . Diabetes was characterized as ''controlled'' or ''uncontrolled'' based on HbA1c levels of \\ 7% and C 7%, respectively.",
+            "cite_spans": [
+                {
+                    "start": 326,
+                    "end": 330,
+                    "text": "[11]",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 358,
+                    "end": 362,
+                    "text": "[12]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 363,
+                    "end": 367,
+                    "text": "[13]",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 368,
+                    "end": 372,
+                    "text": "[14]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 373,
+                    "end": 377,
+                    "text": "[15]",
+                    "ref_id": "BIBREF13"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Baseline Measures"
+        },
+        {
+            "text": "Outcomes following the initial outpatient COVID-19 diagnosis included (1) the composite endpoint of first COVID-related ER/UC/hospitalization, defined as a confirmed COVID-19 diagnosis anywhere on the visit record and (2) the first COVID-19-related hospitalization, defined as a confirmed COVID-19 diagnosis as the primary or admitting diagnosis. Patients were followed from the index date until the outcome, death, or end of the study period (December 9, 2020).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Outcomes"
+        },
+        {
+            "text": "Patients were described in terms of demographic and clinical characteristics. Frequency and counts of patients with missing data for a given variable and distribution of the values among patients with complete data for that variable are reported. To account for the competing risk of death, the Cumulative Incidence Function approach was used to estimate the cumulative incidence of COVID-19-related UMVs over the study period overall and stratified by risk factors. Competing risk regression models [16] were used to derive unadjusted hazard ratios with their 95% confidence intervals (CI) for the association between individual risk factors and each outcome. Adjusted hazard ratios (aHRs) were derived using models that included demographics (age, sex, race/ethnicity, and geographic region), BMI, comorbidities (diabetes, controlled/uncontrolled diabetes, cancer, CKD, autoimmune disease, COPD, CVD, pregnancy, chronic liver disease, sickle cell disease, hypertension, asthma, depression, and anxiety), smoking status, location of first COVID-19 encounter, baseline period resource use (ER/UC, hospitalization), and index month.",
+            "cite_spans": [
+                {
+                    "start": 500,
+                    "end": 504,
+                    "text": "[16]",
+                    "ref_id": "BIBREF14"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Statistical Analysis"
+        },
+        {
+            "text": "The analytic file was created using Instant Health Data software (Panalgo, Boston, MA, USA). Statistical analyses were conducted, without imputation for missing data, using R version 3.2.1 (R Foundation for Statistical Computing, Vienna, Austria) and SAS, version 9.3 (SAS Institute Inc., Cary, NC, USA).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Statistical Analysis"
+        },
+        {
+            "text": "We identified 246,600 patients who had their first COVID-19 diagnosis or positive SARS-CoV-2 test during the study period; among these, 40,129 patients (16.3%) were hospitalized at diagnosis or positive test and were excluded from the analysis (Online Appendix Table 1 ). Of the remaining 206,741 outpatients who were included, 69.7% had a diagnosis of COVID-19 and tested positive for SARS-CoV-2 on the index date, 25.4% did not have a diagnosis of COVID-19 but tested positive for SARS-CoV-2 on the index date, and 4.9% had a recorded diagnosis of COVID-19 without a record of positive laboratory results for SARS-CoV-2. There were 1550 deaths over a mean follow-up of 71 days.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 261,
+                    "end": 268,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Population Characteristics"
+        },
+        {
+            "text": "Patients were primarily female (58.8%), non-Hispanic Caucasian (77.5%), and \\ 55 years of age (65.2%); the highest geographic representation was from the Midwest (58.7%), and the majority of patients were commercially insured (68.6%; Table 1 ). The majority of patients (86.6%) were first diagnosed with COVID-19 in the non-ER/UC outpatient setting, and 13.4% were diagnosed in the ER or UC. At least one CDC-defined risk factor for severe COVID-19 was present in 54.8% of patients; obesity was the most frequent (43.5%), and others were hypertension (30.2%), asthma (10.6%), CVD (9.8%), COPD (4.3%), CKD (4.8%), and diabetes (13.0%; Table 1 ). Among patients with diabetes and HbA1c values available, 37.0% had uncontrolled diabetes (Table 1) . Almost half (49.1%) of patients with BMI values available were obese and 12.3% were morbidly obese. During the baseline period, 34.0% of patients had at least one ER/UC visit and 27.4% had at least one hospitalization.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 234,
+                    "end": 241,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 634,
+                    "end": 641,
+                    "text": "Table 1",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 734,
+                    "end": 743,
+                    "text": "(Table 1)",
+                    "ref_id": "TABREF1"
+                }
+            ],
+            "section": "Population Characteristics"
+        },
+        {
+            "text": "The 30-day incidence of COVID-19-related ER/ UC/hospitalization was 9.4% (95% CI 9.3-9.6) representing 19,520 patients (Fig. 1a) ; most (90.7%) COVID-19-related ER/UC/hospitalizations occurred within 15 days post-index. Patients first diagnosed with COVID-19 in the ER/UC had a significantly higher rate of subsequent COVID-19-related ER/UC/hospitalization than patients who were diagnosed in non-ER/ UC outpatient settings ( Table 2 ).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 119,
+                    "end": 128,
+                    "text": "(Fig. 1a)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 426,
+                    "end": 433,
+                    "text": "Table 2",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "COVID-19-Related ER/UC/ Hospitalizations"
+        },
+        {
+            "text": "The 30-day incidence of COVID-19-related ER/UC/hospitalization increased with age and with BMI relative to normal weight; underweight patients also had a higher incidence relative to normal weight (Table 2) . Incidence was higher in Hispanic or Black/African American patients; in patients living in the South; and in patients who had either been seen in the ER/ UC setting or hospitalized during the baseline period ( Table 2 ). Patients with more CDC risk factors had an increasingly higher incidence of ER/UC/hospitalizations that ranged from 9.5% in patients with 1 risk factor (95% CI 9.2-9.7) to 27.0% with C 4 risk factors (95% CI 25.8-28.1; Table 2 ). In the adjusted models, the strongest risk factor for ER/UC/hospitalization within 30 days was older age, with aHRs of 2.95 (95% CI 2.76-3.14) and 3.13 (95% CI 2.86-3.39) for those 75-84 years and C 85 years, respectively (Fig. 2) . Race and ethnicity were significant risk factors, compared to Whites, with the highest risk among Hispanics followed by Black and Asians (Fig. 2) (Fig. 2) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 197,
+                    "end": 206,
+                    "text": "(Table 2)",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 419,
+                    "end": 426,
+                    "text": "Table 2",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 649,
+                    "end": 656,
+                    "text": "Table 2",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 882,
+                    "end": 890,
+                    "text": "(Fig. 2)",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 1030,
+                    "end": 1038,
+                    "text": "(Fig. 2)",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 1039,
+                    "end": 1047,
+                    "text": "(Fig. 2)",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "COVID-19-Related ER/UC/ Hospitalizations"
+        },
+        {
+            "text": "The incidence of COVID-19-related hospitalizations within 30 days of an outpatient COVID-19 diagnosis or positive SARS-CoV-2 test was 3.8% (95% CI 3.7-3.9), representing 7808 patients (Fig. 1b) ; most (91.9%) COVID-19-related hospitalizations occurred within 10 days post-index. Patients first diagnosed with COVID-19 in the ER/UC outpatient setting had a significantly higher rate of subsequent COVID-19-related hospitalizations than those diagnosed in non-ER/UC outpatient settings ( Table 2) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 184,
+                    "end": 193,
+                    "text": "(Fig. 1b)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 486,
+                    "end": 494,
+                    "text": "Table 2)",
+                    "ref_id": "TABREF0"
+                }
+            ],
+            "section": "COVID-19-Related Hospitalizations"
+        },
+        {
+            "text": "For all variables except pregnancy, the 30-day incidence of COVID-related hospitalization showed similar trends to those observed for the composite category of ER/UC/hospitalization ( Table 2 ). While pregnancy did not increase the incidence of composite ER/UC/hospitalization in the adjusted model (Fig. 3) , pregnancy significantly increased the likelihood of a COVID-19related hospitalization (aHR 1.47; 95% CI (Fig. 3) , and, although both uncontrolled and controlled diabetes were associated with a higher likelihood of hospitalization, the aHR was higher with uncontrolled diabetes, 1.46 (95% CI 1.34-1.57) and 1.16 (95% CI 1.07-1.26), respectively (Fig. 3) . BMI body mass index, CI confidence interval, COPD chronic obstructive pulmonary disease, CVD cardiovascular disease, ER emergency room, UC urgent care ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 184,
+                    "end": 191,
+                    "text": "Table 2",
+                    "ref_id": "TABREF0"
+                },
+                {
+                    "start": 299,
+                    "end": 307,
+                    "text": "(Fig. 3)",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 414,
+                    "end": 422,
+                    "text": "(Fig. 3)",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 655,
+                    "end": 663,
+                    "text": "(Fig. 3)",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "COVID-19-Related Hospitalizations"
+        },
+        {
+            "text": "This study, which focused on patients with an initial diagnosis of COVID-19 or SARS-CoV-2positive test in the outpatient setting, found that subsequent COVID-19-related UMVs tended to occur within 10-15 days of the index event; overall 30-day risks of COVID-19-related return visits were 9.4% for ER/UC/hospitalizations and 3.8% for hospitalizations. While multiple demographic variables and comorbidities affected the incidence of subsequent COVID-19-related visits, in adjusted models, the strongest risk factors were older age, setting of first encounter, prior hospitalization, increasing BMI, and pregnancy. Individual comorbidities tended to increase the risk only slightly.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "To our knowledge, this is the largest study to evaluate COVID-19 patients diagnosed in the outpatient setting and to estimate the incidence of 30-day UMVs following such a diagnosis. Resource use generally occurred within the first 15 days of the first encounter, which is consistent with the symptomatology and natural history of COVID-19 especially related to the acute phase [17] . Our estimate of 30-day cumulative incidence of 3.8% hospitalization following an outpatient diagnosis or positive SARS-CoV-2 test is considerably lower than the 14.8% reported in a Spanish study of a similar population with regard to sex (58.7% female), age (61.6% \\ 55 years), and comorbidities [18] . The higher rate may be due to analysis at an earlier time point in the pandemic and use of broader criteria to identify COVID-19 hospitalizations than the current analysis, which relied on a more specific definition of a COVID-19related hospitalization that consisted of a COVID-19-specific ICD-10 code as the primary or admitting diagnosis. However, it should be noted that our observation of hospitalizations generally occurring within 10 days of diagnosis was consistent with the Spanish study [18] .",
+            "cite_spans": [
+                {
+                    "start": 378,
+                    "end": 382,
+                    "text": "[17]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 681,
+                    "end": 685,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 1185,
+                    "end": 1189,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "There were clear positive trends between the 30-day incidence with outcomes of increasing age and BMI. After adjustment, both increased age and BMI remained independent predictors of 30-day COVID-19-related UMVs, with the oldest age groups having the highest aHRs of all the risk factors for both outcomes. Age has consistently been identified as a risk factor for greater disease severity that results in hospitalization and poorer outcomes [19, 20] , including among those initially diagnosed with COVID-19 in the outpatient setting [18] . This association is likely a result of greater frailty, including age-related differences in immune response, that may be incompletely captured by comorbidities. Older age may also be a proxy for comorbidities, including dementia, which has recently been shown to be associated with a higher risk of COVID-19 infection and poorer outcomes in the elderly [21] . Similarly, obesity has been reported to convey a higher risk for hospital admission and death [19, [22] [23] [24] and may be a relevant risk factor among a younger demographic, although the mechanism underlying this relationship remains unclear [22, 25] .",
+            "cite_spans": [
+                {
+                    "start": 442,
+                    "end": 446,
+                    "text": "[19,",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 447,
+                    "end": 450,
+                    "text": "20]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 535,
+                    "end": 539,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 896,
+                    "end": 900,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 997,
+                    "end": 1001,
+                    "text": "[19,",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 1002,
+                    "end": 1006,
+                    "text": "[22]",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 1007,
+                    "end": 1011,
+                    "text": "[23]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 1012,
+                    "end": 1016,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 1148,
+                    "end": 1152,
+                    "text": "[22,",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 1153,
+                    "end": 1156,
+                    "text": "25]",
+                    "ref_id": "BIBREF24"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "Location of first COVID-19 diagnosis or SARS-CoV-2-positive test was an independent predictor of subsequent COVID-19-related ER/ UC/hospitalization and COVID-19-related hospitalizations. This observation suggests that patients initially presenting in the ER/UC may have more severe COVID-19 that results in additional health-seeking behavior or medical care than patients whose first encounter is outside of the ER/UC setting. However, it is also possible that at least some of the subsequent resource use may be due to increased vigilance rather than immediate medical need.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "While males were slightly more likely to have COVID-19-related UC/ER/hospitalization or hospitalizations within 30-days of an outpatient diagnosis, pregnancy was one of the strongest risk factors for subsequent COVID-19 related visits, although these subsequent visits may be precautionary rather than of necessity. Pregnancy has been identified as a risk factor for severe COVID-19, as pregnant women with COVID-19 were more likely to be hospitalized, admitted to intensive care, and receive mechanical ventilation support than non-pregnant women [26, 27] . Moreover, pregnant women are also potentially at higher risk for adverse birth outcomes such as preterm delivery and pregnancy loss [26, 28] . A more severe manifestation of COVID-19 among pregnant women and increased risk of adverse birth outcomes may explain the strong association between pregnancy and 30-day UMVs.",
+            "cite_spans": [
+                {
+                    "start": 548,
+                    "end": 552,
+                    "text": "[26,",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 553,
+                    "end": 556,
+                    "text": "27]",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 691,
+                    "end": 695,
+                    "text": "[26,",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 696,
+                    "end": 699,
+                    "text": "28]",
+                    "ref_id": "BIBREF27"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "Race and ethnicity were significant risk factors for both outcomes, albeit the group with the highest risk was different for the composite outcome (Hispanics) than for hospitalizations (Asians). Increased risk and poorer outcomes of COVID-19 have been suggested to disproportionately affect some racial and ethnic minority groups [13, 29, 30] . Such effects may arise from several factors including social and economic determinants as well as a higher prevalence of comorbid conditions in some of these populations and are of special concern because of disparities in health care [31, 32] .",
+            "cite_spans": [
+                {
+                    "start": 330,
+                    "end": 334,
+                    "text": "[13,",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 335,
+                    "end": 338,
+                    "text": "29,",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 339,
+                    "end": 342,
+                    "text": "30]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 580,
+                    "end": 584,
+                    "text": "[31,",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 585,
+                    "end": 588,
+                    "text": "32]",
+                    "ref_id": "BIBREF31"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "While most comorbidities were associated with an increase in 30-day incidence of UMVs, after adjusting for age and other risk factors, the association between most comorbidities and outcomes was weak. Comorbidities that remained independent risk factors for subsequent COVID-19-related UMVs were CKD, autoimmune disease, COPD, CVD, and diabetes. We also found that uncontrolled diabetes conveys a slightly higher risk than controlled diabetes, which is consistent with a study that found that uncontrolled diabetes was associated with poorer outcomes among patients hospitalized for COVID-19 [33] . Interestingly, having a prior baseline hospitalization for any reason was more strongly associated with COVID-19related health care utilization than individual comorbidities, even after adjusting for other risk factors. A previous hospitalization may be a proxy for frailty, which itself may be a strong risk factor for severe disease and worse outcomes.",
+            "cite_spans": [
+                {
+                    "start": 592,
+                    "end": 596,
+                    "text": "[33]",
+                    "ref_id": "BIBREF32"
+                }
+            ],
+            "ref_spans": [],
+            "section": "DISCUSSION"
+        },
+        {
+            "text": "Limitations of this study include that severity of COVID-19 could not be determined and that neither viral load nor symptom data were reliably captured in the database. We could not determine whether the initial outpatient COVID-19 diagnosis or positive SARS-CoV-2 test was driven by the presence or severity of symptoms. The database is also restricted to patients seeking care within IDNs and may under-represent other populations such as those in rural areas, under-served communities, and those lacking insurance. Misclassification of outcomes is possible; visits occurring outside of IDNs will not be captured and subsequent COVID-19-related visits could be underestimated. Moreover, the reason for the encounter may be prone to error, particularly for UC/ER visits, because COVID-19 may not necessarily have been the primary motivation for seeking care. Furthermore, the database is not nationally representative, with under-representation of some geographic regions, reducing generalizability to the overall US population. Last, this analysis reflects a specific time period that may not necessarily be generalizable based on changes in epidemiology, geographic preparedness, adaptation of measures to reduce risk of infection, and rapidly evolving trends in disease management.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Limitations"
+        },
+        {
+            "text": "This study characterized patients diagnosed with COVID-19 in the outpatient setting and their subsequent patterns of COVID-19-related UMVs. The overall risk of 30-day COVID-19-related ER/UC/hospitalization was 9.4% and 3.8% for COVID-19-related hospitalizations but they varied substantially by demographic and clinical factors. The strongest risk factors for subsequent COVID-19-related return visits were older age, obesity (with increasing risk with increasing BMI), first presentation in ER/UC, prior hospitalization, and pregnancy. Closer monitoring of these high-risk patients may help reduce subsequent hospitalizations and can be used to guide resource allocation, including identifying outpatients who may benefit from specific therapies.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "CONCLUSIONS"
+        },
+        {
+            "text": "Medical Writing, Editorial, and Other Assistance. The authors thank Ning Wu, PhD, at Regeneron Inc. (Tarrytown, NY) for analytical support, and Audrey Garman, MHS, at Panalgo (Boston, MA) for assistance with data quality control, which was funded by Regeneron Pharmaceuticals Inc. Medical writing support in the preparation of this publication was provided by E. Jay Bienen, PhD, an independent medical writer, and funded by Regeneron Pharmaceuticals Inc. The authors also thank Prime for formatting and copyediting suggestions for an earlier version of the manuscript.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "CONCLUSIONS"
+        },
+        {
+            "text": "Authorship. All named authors meet the International Committee of Medical Journal Editors (ICMJE) criteria for authorship for this article, take responsibility for the integrity of the work as a whole, and have given their approval for this version to be published.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "CONCLUSIONS"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Existing Data & Specimens-No Identifiers, this study is exempt from the requirement for institutional review board approval. The study is compliant with data security requirements of the Health Insurance Portability and Accountability Act of 1996. REFERENCES 1",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Authors&apos; Contributions",
+                    "suffix": ""
+                },
+                {
+                    "first": ";",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Dr",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wei",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sivapalasingam",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Mellis",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Geba",
+                    "suffix": ""
+                },
+                {
+                    "first": ";",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Jalbert",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wei",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sivapalasingam",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Mellis",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Geba",
+                    "suffix": ""
+                },
+                {
+                    "first": ";",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Jalbert",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Wei",
+                    "suffix": ""
+                },
+                {
+                    "first": ";",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Jalbert",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wei",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sivapalasingam",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Mellis",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Geba",
+                    "suffix": ""
+                },
+                {
+                    "first": ";",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Jalbert",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Wei",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sivapalasingam",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Mellis",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Geba",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Jalbert",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Wei had full access to all the data in the study and takes responsibility for the integrity of the data and the accuracy of the analysis. Concept and design",
+            "volume": "101",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Remdesivir for the treatment of Covid-19: preliminary report",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Beigel",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Tomashek",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Dodd",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "N Engl J Med",
+            "volume": "383",
+            "issn": "",
+            "pages": "1813--1839",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Dexamethasone in hospitalized patients with COVID-19: preliminary report",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Horby",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Lim",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "N Engl J Med",
+            "volume": "383",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "A neutralizing monoclonal antibody for hospitalized patients with COVID-19",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Weinreich",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Sivapalasingam",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Norton",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "ACTIV-TICO LY-CoV555 Study Group, 5. ACTIV-TICO LY-CoV555 Study Group",
+            "volume": "384",
+            "issn": "",
+            "pages": "905--919",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Fact Sheet for Health Care Providers Emergency Use Authorization (EUA) of Bamlanivimab 2020",
+            "authors": [
+                {
+                    "first": "Eli",
+                    "middle": [],
+                    "last": "Lilly",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Company",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Fact Sheet for Health Care Providers Emergency Use Authorization (EUA) of Casirivimab and Imdevimab",
+            "authors": [],
+            "year": 2020,
+            "venue": "Regeneron Pharmaceuticals Inc",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Fluvoxamine vs placebo and clinical deterioration in outpatients with symptomatic COVID-19: a randomized clinical trial",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Lenze",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Mattar",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Zorumski",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "JAMA",
+            "volume": "324",
+            "issn": "22",
+            "pages": "2292--300",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Other requirements relating to uses and disclosures of protected health information",
+            "authors": [],
+            "year": 2021,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Guidance Regarding Methods for De-identification of Protected Health Information in Accordance with the Health Insurance Portability and Accountability Act (HIPAA) Privacy Rule",
+            "authors": [],
+            "year": 2012,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "COVID-19): people with certain medical conditions 2020",
+            "authors": [],
+            "year": 2020,
+            "venue": "Centers for Disease Control and Prevention. Coronavirus disease 2019",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Characteristics associated with hospitalization among patients with COVID-19: metropolitan atlanta, georgia",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Killerby",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Link-Gelles",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Haight",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "MMWR Morb Mortal Wkly Rep",
+            "volume": "69",
+            "issn": "25",
+            "pages": "790--794",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Characteristics and clinical outcomes of adult patients hospitalized with COVID-19: Georgia",
+            "authors": [
+                {
+                    "first": "Jaw",
+                    "middle": [],
+                    "last": "Gold",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Wong",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Szablewski",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "MMWR Morb Mortal Wkly Rep",
+            "volume": "69",
+            "issn": "18",
+            "pages": "545--50",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Hospitalization rates and characteristics of patients hospitalized with laboratory-confirmed Coronavirus disease 2019 -COVID-NET, 14 states",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Garg",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Whitaker",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "MMWR Morb Mortal Wkly Rep",
+            "volume": "69",
+            "issn": "15",
+            "pages": "458--64",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Baseline characteristics and outcomes of 1591 patients infected with SARS-CoV-2 admitted to ICUs of the lombardy region",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Grasselli",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Zangrillo",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Zanella",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Italy JAMA",
+            "volume": "323",
+            "issn": "16",
+            "pages": "1574--81",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "The use and interpretation of competing risks regression models",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Dignam",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kocherginsky",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Clin Cancer Res",
+            "volume": "18",
+            "issn": "8",
+            "pages": "2301--2309",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Centers for Disease Control and Prevention. Symptoms of coronavirus. Coronavirus disease 2019 (COVID-19) 2020. Available from",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Filling the gaps in the characterization of the clinical management of COVID-19: 30-day hospital admission and fatality rates in a cohort of 118 150 cases diagnosed in outpatient settings in Spain",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Prieto-Alhambra",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Ballo",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Coma",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Int J Epidemiol",
+            "volume": "49",
+            "issn": "6",
+            "pages": "1930--1939",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Factors associated with hospital admission and critical illness among 5279 people with coronavirus disease",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Petrilli",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Jones",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "City: prospective cohort study",
+            "volume": "369",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Risk factors for hospitalization, mechanical ventilation, or death among 10131 US veterans with SARS-CoV-2 infection",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Ioannou",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Locke",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Green",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "JAMA Netw Open",
+            "volume": "3",
+            "issn": "9",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Kurniawan A. Dementia and outcomes from coronavirus disease 2019 (COVID-19) pneumonia: a systematic review and meta-analysis",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Hariyanto",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Putri",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Arisa",
+                    "suffix": ""
+                },
+                {
+                    "first": "Rfv",
+                    "middle": [],
+                    "last": "Situmeang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Arch Gerontol Geriatr",
+            "volume": "93",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Obesity and mortality among patients diagnosed with COVID-19: results from an integrated health care organization",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Tartof",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Qian",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Hong",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Ann Intern Med",
+            "volume": "173",
+            "issn": "10",
+            "pages": "773--81",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Impact of obesity on outcomes of patients with coronavirus disease 2019 in the United States: a multicenter electronic health records network study. Gastroenterology",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Singh",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Bilal",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Pakhchanian",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "159",
+            "issn": "",
+            "pages": "2221--2226",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Obesity as a predictor for a poor prognosis of COVID-19: a systematic review",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Tamara",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Tahapary",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Diabetes Metab Syndr",
+            "volume": "14",
+            "issn": "4",
+            "pages": "655--664",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "Obesity in patients younger than 60 years is a risk factor for COVID-19 hospital admission",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Lighter",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Phillips",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Hochman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Clin Infect Dis",
+            "volume": "71",
+            "issn": "15",
+            "pages": "896--903",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Characteristics of women of reproductive age with laboratoryconfirmed SARS-CoV-2 infection by pregnancy status -United States",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ellington",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Strid",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Tong",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "MMWR Morb Mortal Wkly Rep",
+            "volume": "69",
+            "issn": "25",
+            "pages": "769--75",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Update: characteristics of symptomatic women of reproductive age with laboratory-confirmed SARS-CoV-2 infection by pregnancy status -United States",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Zambrano",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ellington",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Strid",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "MMWR Morb Mortal Wkly Rep",
+            "volume": "69",
+            "issn": "44",
+            "pages": "1641--1648",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Characteristics and maternal and birth outcomes of hospitalized pregnant women with laboratoryconfirmed COVID-19 -COVID-NET, 13 States",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Delahoy",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Whitaker",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "O&apos;halloran",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "MMWR Morb Mortal Wkly Rep",
+            "volume": "69",
+            "issn": "38",
+            "pages": "1347--54",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Coronavirus disease 2019 case surveillance -United States",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Stokes",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Zambrano",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Anderson",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "MMWR Morb Mortal Wkly Rep",
+            "volume": "69",
+            "issn": "24",
+            "pages": "759--65",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Racial and ethnic disparities in SARS-CoV-2 pandemic: analysis of a COVID-19 observational registry for a diverse US metropolitan population",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Vahidy",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Nicolas",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Meeks",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "BMJ Open",
+            "volume": "10",
+            "issn": "8",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Health equity considerations and racial and ethnic minority groups 2020",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Factors associated with clinical severity in Emergency Department patients presenting with symptomatic SARS-CoV-2 infection",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Newton",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Zollinger",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Freeman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.12.08.20246017"
+                ]
+            }
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "Glycemic characteristics and clinical outcomes of COVID-19 patients hospitalized in the United States",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Bode",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Garrett",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Messler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Diabetes Sci Technol",
+            "volume": "14",
+            "issn": "4",
+            "pages": "813--834",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Cumulative incidence of COVID-19-related urgent medical visits subsequent to a COVID-19 diagnosis in the outpatient setting. CI confidence interval, CIF Est estimated cumulative incidence function",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Adjusted hazard ratios of risk factors associated with subsequent COVID-19-related ER/UC/hospitalization visit within 30 days following a COVID-19 diagnosis or SARS-CoV-2-positive test in the outpatient setting.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Adjusted hazard ratios of risk factors associated with subsequent COVID-19-related hospitalization within 30 days following a COVID-19 diagnosis or SARS-CoV-2 positive test in the outpatient setting. BMI body mass index, CI confidence interval, COPD chronic obstructive pulmonary disease, CVD cardiovascular disease, ER emergency room, UC urgent care",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "Baseline characteristics of adults diagnosed with COVID-19 or who tested positive for SARS-CoV-2 in the outpatient setting (N = 206,741)",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": ". Other risk factors included COVID-19 diagnosis in the ER/UC setting compared to non-ER/UC outpatient settings (aHR 2.46, 95% CI 2.38-2.54), baseline history of any-cause hospitalization (aHR 2.13; 95% CI 2.06-2.21), pregnancy (aHR 2.07; 95% CI 1.91-2.23), and morbid obesity (aHR 1.71; 95% CI 1.61-1.81). Most individual comorbidities only slightly increased the likelihood of ER/UC/ hospitalization",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "Variable ValueBMI body mass index, CDC Centers for Disease Control, CKD chronic kidney disease, COPD chronic obstructive pulmonary disease, CVD cardiovascular disease, ER emergency room, HbA1c hemoglobin A1c, SD standard deviation, UC",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF4": {
+            "text": "Incidence and unadjusted hazard ratios of COVID-19-related emergency room/urgent care/hospitalizations and COVID-19-related hospitalizations within 30-days of a COVID-19 diagnosis or SARS-CoV-2 positive test in the outpatient setting, stratified by demographic characteristics and risk factorsCOVID-19-Related ER/UC/hospitalizations COVID-19-related hospitalizations",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF5": {
+            "text": "COVID-19-Related ER/UC/hospitalizations COVID-19-related hospitalizations",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF6": {
+            "text": "COVID-19-Related ER/UC/hospitalizations COVID-19-related hospitalizations",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "Funding. This study was funded by Regeneron Pharmaceuticals, Inc. Regeneron also funded the journal's Rapid Service Fee.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "ACKNOWLEDGEMENTS"
+        },
+        {
+            "text": "Data Availability. The datasets generated during and/or analyzed during the current study are available from the corresponding author on reasonable request.Open Access. This article is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License, which permits any non-commercial use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/bync/4.0/.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "annex"
+        }
+    ]
+}

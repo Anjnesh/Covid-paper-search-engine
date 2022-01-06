@@ -1,0 +1,4267 @@
+{
+    "paper_id": "0a055bf268682a2a3b761a8da514507b18a46804",
+    "metadata": {
+        "title": "Modelling conformational state dynamics and its role on infection for SARS-CoV-2 Spike protein variants",
+        "authors": [
+            {
+                "first": "Nat\u00e1",
+                "middle": [],
+                "last": "Lia",
+                "suffix": "",
+                "affiliation": {},
+                "email": ""
+            },
+            {
+                "first": "Teruel",
+                "middle": [],
+                "last": "Id",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Universit\u00e9 de Montr\u00e9 al",
+                    "location": {
+                        "settlement": "Montreal",
+                        "country": "Canada"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Olivier",
+                "middle": [],
+                "last": "Mailhot Id",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Universit\u00e9 de Montr\u00e9 al",
+                    "location": {
+                        "settlement": "Montreal",
+                        "country": "Canada"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Rafael",
+                "middle": [
+                    "J"
+                ],
+                "last": "Najmanovich Id",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Universit\u00e9 de Montr\u00e9 al",
+                    "location": {
+                        "settlement": "Montreal",
+                        "country": "Canada"
+                    }
+                },
+                "email": "*rafael.najmanovich@umontreal.ca"
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "The SARS-CoV-2 Spike protein needs to be in an open-state conformation to interact with ACE2 to initiate viral entry. We utilise coarse-grained normal mode analysis to model the dynamics of Spike and calculate transition probabilities between states for 17081 variants including experimentally observed variants. Our results correctly model an increase in open-state occupancy for the more infectious D614G via an increase in flexibility of the closed-state and decrease of flexibility of the open-state. We predict the same effect for several mutations on glycine residues (404, 416, 504, 252) as well as residues K417, D467 and N501, including the N501Y mutation recently observed within the B.1.1.7, 501.V2 and P1 strains. This is, to our knowledge, the first use of normal mode analysis to model conformational state transitions and the effect of mutations on such transitions. The specific mutations of Spike identified here may guide future studies to increase our understanding of SARS-CoV-2 infection mechanisms and guide public health in their surveillance efforts.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "The present work explores the molecular mechanisms underlying and potentially helping new strains of SARS-CoV-2 to gain an evolutionary advantage during the ongoing COVID-19 pandemics. We show how a computational method called normal mode analysis that treats protein dynamics in a simplified manner is capable to predict the higher propensity of the Spike protein to be in the open state in which it is capable to interact with the human ACE2 receptor and thus facilitate cell entry. Because the simulation of the simplified computational model is relatively less demanding on resources than alternative methods, we were able to simulate over 17000 mutations in the SARS-CoV-2 Spike protein to identify multiple mutations that if they were to appear as the virus continues to evolve, could confer an evolutionary advantage. As a matter of fact, our predictions foresaw the emergence of particular mutations such as N501Y that appeared in several variants of concern. Our results can inform public health regarding new variants and serves as a proof of concept for the application of normal mode analysis to study the effect of ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Author summary"
+        },
+        {
+            "text": "The coronavirus pandemic has emerged as a major and urgent issue affecting individuals, families and society as a whole. Among all outbreaks of aerosol transmissible diseases in the 21st century, the COVID-19 pandemic, caused by the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) virus [1, 2] , has the highest infection and death cumulative numbers-61 million infections and over 1.4 million deaths, according to the World Health Organization (WHO) epidemiological report of December 1, 2020 [3] . Recent WHO reports also show significant weekly increases in the number of infections and deaths as countries start to face upcoming waves of the disease. In 2003 the SARS coronavirus (SARS-CoV) pandemic caused 8,098 infections and 774 deaths before it was brought under control [4, 5] . In 2012, the Middle East respiratory syndrome-related coronavirus (MERS-CoV) outbreak caused 2499 infections and 858 deaths, presenting the highest fatality rate [6] . SARS-CoV-2, SARS-CoV and MERS-CoV, as coronaviruses in general, present considerable mutation rates, which may contribute to future outbreaks. For instance, SARS-CoV-2 is estimated to have a mutation rate close to the ones presented by MERS-CoV [7] and by SARS-CoV [8] , as well as other RNA viruses, showing a median of 1.12 \u00d7 10 \u22123 mutations per site per year [9] . The high mutation rate may in part be responsible for the zoonotic nature of these viruses and points to a clear risk of stillundetected additional members of the coronavirideae family of viruses making the jump from their traditional hosts to humans in the future. The SARS-CoV-2 Spike protein (Uniprot ID P0DTC2) is responsible for anchoring the virus to the host cell. The entry receptor for SARS-CoV-2 and other lineages of human coronaviruses is the human cell-surface protein angiotensin converting enzyme 2 (ACE2) (Uniprot ID Q9BYF1) [10] . Therefore, studying the Spike protein family is essential to understand the evolution of coronaviruses.",
+            "cite_spans": [
+                {
+                    "start": 300,
+                    "end": 303,
+                    "text": "[1,",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 304,
+                    "end": 306,
+                    "text": "2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 507,
+                    "end": 510,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 792,
+                    "end": 795,
+                    "text": "[4,",
+                    "ref_id": null
+                },
+                {
+                    "start": 796,
+                    "end": 798,
+                    "text": "5]",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 963,
+                    "end": 966,
+                    "text": "[6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 1214,
+                    "end": 1217,
+                    "text": "[7]",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 1234,
+                    "end": 1237,
+                    "text": "[8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 1331,
+                    "end": 1334,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 1878,
+                    "end": 1882,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "SARS-CoV-2 Spike is a homo-trimeric glycoprotein, with each chain built by subunits S1 and S2, delimited by a Furin cleavage site at residues 682-685. The S1 subunit comprises the N-terminal domain (NTD), located in the peripheric part of the extramembrane extreme, and the receptor-binding domain (RBD), the most flexible site, located in the central part of this same extreme. The S2 subunit consists of the fusion peptide (FP), heptad repeat 1 (HR1), heptad repeat 2 (HR2), the transmembrane domain (TM), and the cytoplasmic tail (CT) (Fig 1) . The interaction between Spike and ACE2 relies on Spike being in its open conformation, in which the receptor-binding domain (RBD) is extended [11] . The study of the binding properties between Spike and ACE2, although important, cannot explain all the nuances of the infection mechanism. An example of this limitation is the comparison between SARS-CoV and SARS-CoV-2, which have different rates of infection even though they share similar Spike-ACE2 affinities [12] . These facts lead us to consider the contribution of Spike protein dynamics to the infection process.",
+            "cite_spans": [
+                {
+                    "start": 690,
+                    "end": 694,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 1010,
+                    "end": 1014,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 538,
+                    "end": 545,
+                    "text": "(Fig 1)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Introduction"
+        },
+        {
+            "text": "Computational structural biology methods have grown in both accuracy and usability over the years and are increasingly accepted as part of an integrated approach to tackle problems in molecular biology. Such integration speeds up research, decreases needs in infrastructure, reagents, and human resources and allows us to evaluate increasingly larger data sets. Computational approaches are being extensively used in the study of SARS-CoV-2 and its mechanisms of infection [13] [14] [15] . Among these, we highlight the study of dynamic properties of the Spike protein as well as in antibody recognition and the search for therapeutic interventions [16] [17] [18] .",
+            "cite_spans": [
+                {
+                    "start": 473,
+                    "end": 477,
+                    "text": "[13]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 478,
+                    "end": 482,
+                    "text": "[14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 483,
+                    "end": 487,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 649,
+                    "end": 653,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 654,
+                    "end": 658,
+                    "text": "[17]",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 659,
+                    "end": 663,
+                    "text": "[18]",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Several aspects of Spike protein dynamics are currently being studied, with a range of particular goals: to evaluate the docking of small molecules to the RBD domain [19] , to search for alternative target binding-sites for vaccine development [20] , to understand residue-residue interactions and their effects on conformational plasticity [21] and to investigate the flexibility of different domains in particular conformational states [22] .",
+            "cite_spans": [
+                {
+                    "start": 166,
+                    "end": 170,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 244,
+                    "end": 248,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 341,
+                    "end": 345,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 438,
+                    "end": 442,
+                    "text": "[22]",
+                    "ref_id": "BIBREF21"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Various combinations of normal mode analysis (NMA) and molecular dynamics (MD) methods are being employed in the study of different conformational states [23] and of different coronavirus variants [24] . These methods, however, are limited with respect to their ability to study the effects of mutations on dynamics since they are either extremely taxing on computational resources in the case of MD or agnostic to the nature of amino acids in the case of traditional coarse-grained NMA. In the past, our group developed a coarse-grained NMA model called ENCoM (for Elastic Network Contact Model) that considers the chemical nature of amino acids and their interactions and consequently their effect on dynamics [25] . This makes ENCoM perform better than other NMA models on traditional applications but more importantly makes it the only coarse-grained NMA model capable of predicting the effect of mutations on protein stability and function as a result of dynamical properties [26] [27] [28] . As a coarse-grained NMA model, ENCoM is not much costlier to run than other traditional NMA models and this makes it very attractive as a tool to screen the effect of mutations in a high-throughput manner.",
+            "cite_spans": [
+                {
+                    "start": 154,
+                    "end": 158,
+                    "text": "[23]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 197,
+                    "end": 201,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 712,
+                    "end": 716,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 981,
+                    "end": 985,
+                    "text": "[26]",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 986,
+                    "end": 990,
+                    "text": "[27]",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 991,
+                    "end": 995,
+                    "text": "[28]",
+                    "ref_id": "BIBREF27"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "In the present study, we use ENCoM to study the dynamics of the Spike protein, considering different conformational states and several sequence variants observed during the current pandemic, as well as through large-scale analysis of in silico mutations. Experimental analysis of the effect of the SARS-CoV-2 Spike mutation D614G and the comparison between SARS-CoV and SARS-CoV-2 Spike proteins show unique dynamic characteristics that correlate with epidemiological and experimental data on infection. The present work shows that we can replicate such results computationally, suggesting that rigidity or flexibility of different Spike conformational states affects infectivity. We present a high throughput analysis of simulated single amino acid mutations on dynamical properties to seek potential hotspots and individual Spike variants that may be more infectious and therefore may guide public health decisions if such variants were to appear in the population. We also introduce a Markov model of occupancy of molecular states with transition probabilities derived from our analysis of dynamics that recapitulates experimental data on conformational state occupancies. This is the first application of an NMA method that derives transition probabilities from normal modes and employs them in a dynamic system to predict the occupancy of different conformational states. We model the occupancy of several variants and highlight those that may be useful in studying future epidemiological trends that could be responsible for new outbreaks and lastly, we expand and apply the methodology to multiple mutations in cases of variants of concern that that were observed during the COVID-19 pandemic with their full complement of Spike mutations.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "We performed our analyses using the crystallographic models of the SARS-CoV-2 Spike protein in the open (PDB ID 6VYB) and closed (PDB ID 6VXX) states. The open (prefusion) state was designed with an abrogated Furin S1/S2 cleavage site and two consecutive proline mutations that improve expression [29] . Despite the mutations, the engineered structures correctly represent the conformational states of Spike, as confirmed by independently solved structures [30] . The PDB structures used for the SARS-CoV comparison were 5X58 and 5X5B for closed state and one RBD open state, respectively [31] .",
+            "cite_spans": [
+                {
+                    "start": 297,
+                    "end": 301,
+                    "text": "[29]",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 457,
+                    "end": 461,
+                    "text": "[30]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 589,
+                    "end": 593,
+                    "text": "[31]",
+                    "ref_id": "BIBREF30"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Spike protein models"
+        },
+        {
+            "text": "We removed heteroatoms, water molecules, and hydrogen atoms from the PDB structures. Missing residues were reconstructed using template-based loop reconstruction and refinement with Modeller [32] . Single amino acid mutants were generated using FoldX4 [33] . Vibrational Difference Score (VDS, defined below) and occupancy calculations were performed with reconstructed closed and one-RBD-open structures using as template 6VXX and 6VYB. These engineered structures contain the GSAS sequence in the Furin cleavage site as well as two prolines in positions 986 and 987. In order to minimize potential artefacts in the calculations due to modelling errors, we chose to model all mutations and perform subsequent calculations using the above engineered structures and sequences unless otherwise noted. That is to say, when we refer to the wild type SARS-CoV-2 Spike protein in our calculations, it is the Spike protein with the above alterations in the Furin clivage site as well as the pair of prolines. This choice in our methodology is made as stated to decrease the possibility of modelling artefacts as the alternative would have required modelling 6 additional mutations to 'de-engineer' the structures of the open and closed states.",
+            "cite_spans": [
+                {
+                    "start": 191,
+                    "end": 195,
+                    "text": "[32]",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 252,
+                    "end": 256,
+                    "text": "[33]",
+                    "ref_id": "BIBREF32"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Spike protein models"
+        },
+        {
+            "text": "For the parameter fitting used in the calculation of occupancies, we utilized the following experimentally determined structures for which occupancy data exists as follows (acronyms described in results): S-GSAS/WT: 7KDG,7KDH; S-GSAS/D614G: 7KDI,7KDJ [30] ; S-R/x2: 6ZOX; S-R/PP/x1: 6ZOY,6ZOZ; S-R: 6ZP0; S-R/PP: 6ZP1,6ZP2 [34] .",
+            "cite_spans": [
+                {
+                    "start": 251,
+                    "end": 255,
+                    "text": "[30]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 323,
+                    "end": 327,
+                    "text": "[34]",
+                    "ref_id": "BIBREF33"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Spike protein models"
+        },
+        {
+            "text": "We analysed dynamic properties of the Spike protein with ENCoM [25] . ENCoM employs a potential energy function that includes a pairwise atom-type non-bonded interaction term and thus makes it possible to consider the effect of the specific nature of amino-acids on dynamics. Normal mode analysis (NMA) explores protein vibrations around an equilibrium conformation by calculating the eigenvectors and eigenvalues associated with different normal modes [35] [36] [37] . Representing each protein residue as a single point, for a given conformation of a protein with N amino acids, we obtain 3N -6 nontrivial eigenvectors. Each eigenvector represents a linear, harmonic motion of the entire protein in which each amino acid moves along a unique 3-dimensional Euclidean vector. The associated eigenvalues rank the eigenvectors in terms of energetic accessibility, lower values corresponding to global, more easily accessible motions.",
+            "cite_spans": [
+                {
+                    "start": 63,
+                    "end": 67,
+                    "text": "[25]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 453,
+                    "end": 457,
+                    "text": "[35]",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 458,
+                    "end": 462,
+                    "text": "[36]",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 463,
+                    "end": 467,
+                    "text": "[37]",
+                    "ref_id": "BIBREF36"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Dynamic analyses"
+        },
+        {
+            "text": "NMA calculations allow us to computationally estimate b-factors associated with the protein structure, as shown in Eq 1 for the i th residue, which in turn are related to local flexibility. Higher predicted b-factors denote more flexible positions. Individually calculated b-factors are combined in a vector for a protein sequence or part thereof and called Dynamical Signature.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Dynamic analyses"
+        },
+        {
+            "text": "The eigenvectors and associated eigenvalues can also be used to obtain the vibrational contribution of the entropic components of the free energy. Vibrational entropy [38] is calculated as described in Eq 2 in units of J.K -1 , where N is the total number of amino acids in the protein, v i is the vibrational frequency and K B is the Boltzmann constant. Eq 3 shows the association between eigenvalues and vibrational frequency.",
+            "cite_spans": [
+                {
+                    "start": 167,
+                    "end": 171,
+                    "text": "[38]",
+                    "ref_id": "BIBREF37"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Dynamic analyses"
+        },
+        {
+            "text": "bv n e bv n \u00c0 1 \u00c0 ln \u00bd1 \u00c0 e \u00c0 bv n \ufffd \ufffd \ufffd \u00f02\u00de",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Dynamic analyses"
+        },
+        {
+            "text": "Measuring the difference of vibrational entropy (\u0394S vib ) between a mutant and a wild type (WT), one can calculate how much a mutation affects the overall flexibility and stability of the mutant relative to the WT. The \u0394S vib value predicted by ENCoM is negative when the mutation makes the protein more flexible and positive when the mutation makes the protein more rigid. Vibrational entropy calculations are dependent on the thermodynamic \u03b2 factor, that for pseudo-physical models such as ENCoM serves as a scaling factor. This term was optimized to fit experimental Gibbs free energy differences [39] and established as \u03b2 = 1. The Najmanovich Research Group Toolkit for Elastic Networks (NRGTEN) [39] , with the latest implementation of ENCoM, also includes a function to evaluate state occupancies by calculating transition probabilities between different states. A probability P j of moving along each eigenvector j can be obtained using a Boltzmann distribution given its associated eigenvalue \u03bb j and a scaling factor \u03b3.",
+            "cite_spans": [
+                {
+                    "start": 600,
+                    "end": 604,
+                    "text": "[39]",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 700,
+                    "end": 704,
+                    "text": "[39]",
+                    "ref_id": "BIBREF38"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Dynamic analyses"
+        },
+        {
+            "text": "Let us consider two conformations A and B of the same protein and the vector E A!B, which represents the conformational change going from conformation A to conformation B. The overlap between each normal mode M j computed from conformation A and the E A!B vector is a value between 0 and 1 describing how well that normal mode recapitulates the conformational change required to go from one state to the other [40] .",
+            "cite_spans": [
+                {
+                    "start": 410,
+                    "end": 414,
+                    "text": "[40]",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Dynamic analyses"
+        },
+        {
+            "text": "We can then calculate the transition probability of going from conformation A to conformation B as the weighted sum of the Boltzmann probability P j of each normal mode M j times the overlap between that normal mode and the conformational change E A!B .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Dynamic analyses"
+        },
+        {
+            "text": "The reverse probability P B!A can be computed in the same fashion, giving an indication of which conformation is favored between the two.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Dynamic analyses"
+        },
+        {
+            "text": "A simple way of computing the occupancies of these conformations from the transition probabilities is to use a Markov model. Each conformation is represented by a state, and the transition probabilities between states are computed as described above. We add a constant k to all states as the probability of staying in that state. Since all states must have outgoing transition probabilities that sum to 1, we normalize these values after the addition of k. For a twostate Markov chain representing the open and closed states of the Spike protein, we obtain the diagram shown in Fig 2. All transition probabilities are computed using ENCoM and Eq 6. The parameters k and \u03b3 need to be optimized for the system being studied as they are not directly coupled to physical quantities because of the pseudo-physical, coarse-grained nature of the ENCoM model. Once the parameters are set, there is a unique equilibrium solution that gives the occupancies of the two states. This approach could be easily generalized to a Markov model with more than two states, where the transition between any two states is computed exactly as described above if that transition is deemed possible.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 578,
+                    "end": 584,
+                    "text": "Fig 2.",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Dynamic analyses"
+        },
+        {
+            "text": "All raw data is available for download and can be visualized with the help of the dms-view open-access tool [41] . On dms-view, it is possible to see the effects of different mutations for each residue of the Spike protein and visualise these on the 3D structure of Spike. Each analysed site is represented by 20 VDS values, one of them being zero (corresponding to the amino acid found in the wild type). The 'max' option will show the top VDS score for each position. Therefore, it shows which mutation for that specific position represents the candidate with the highest predicted infectivity as defined here in terms of a propensity to higher occupancy of the open state. The 'min' option will show the lowest score for each position and the mutation associated with the candidate predicted as least infectious. The 'median' option returns the median score, presenting a general trend for any given position, and 'var' shows the variance between the results for each position, highlighting sites in which mutations to different residues lead to a broader range of VDS values. Furthermore, for the mutations for which occupancy was calculated, the data can be accessed through the same menu. As new occupancy data is calculated, it will be added to this resource. Readers interested on the occupancy of particular mutations not yet available are invited to contact the authors via email or through the GitHub repository. When selecting each specific point on the first panel, it is possible to access all VDS values on the second panel and see the highlighted position in 3D on the structural representation.",
+            "cite_spans": [
+                {
+                    "start": 108,
+                    "end": 112,
+                    "text": "[41]",
+                    "ref_id": "BIBREF40"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Data visualization"
+        },
+        {
+            "text": "Comparison of the differences in dynamics between G614 and D614. An important event in the progression of the COVID-19 pandemic was the appearance of the D614G variant in mid-February 2020 in Europe. The fast spread of this variant raised the possibility that this mutation conferred advantages relative to other forms of the virus in circulation at the time [42, 43] . Studies revealed that the mutation has indeed greater infectivity, triggering higher viral loads [44, 45] . Several hypotheses have emerged to explain the mechanisms behind this higher infectivity, focusing primarily on possible effects on the Furin cleavage site [30, 46, 47] , but recently also considering possible important dynamic differences [45, 48, 49] .",
+            "cite_spans": [
+                {
+                    "start": 359,
+                    "end": 363,
+                    "text": "[42,",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 364,
+                    "end": 367,
+                    "text": "43]",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 467,
+                    "end": 471,
+                    "text": "[44,",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 472,
+                    "end": 475,
+                    "text": "45]",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 634,
+                    "end": 638,
+                    "text": "[30,",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 639,
+                    "end": 642,
+                    "text": "46,",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 643,
+                    "end": 646,
+                    "text": "47]",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 718,
+                    "end": 722,
+                    "text": "[45,",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 723,
+                    "end": 726,
+                    "text": "48,",
+                    "ref_id": "BIBREF47"
+                },
+                {
+                    "start": 727,
+                    "end": 730,
+                    "text": "49]",
+                    "ref_id": "BIBREF48"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Dynamical Signature of different Spike variants"
+        },
+        {
+            "text": "In order to test if Dynamical Signatures reveal differences between Spike variants, we analysed the 13741 sequences of the protein available on May 8 th , 2020 in the COVID-19 Viral Genome Analysis Pipeline, enabled by data from GISAID [50, 51] . The mutant Spike proteins harboring mutations (S1 Table) Analysis of the effect of mutations on the Dynamical Signature shows that the D614G mutation produces similar dynamical patterns largely independent of the other mutations accumulated, and dynamical patterns that are distinct from that of the wild type and other mutants on both the open and closed states, as highlighted in the sections of the dendrogram marked in red. The dynamical characteristics of D614G are very specific and cannot be obtained with random mutations (S1 Fig and S2 Table) .",
+            "cite_spans": [
+                {
+                    "start": 236,
+                    "end": 240,
+                    "text": "[50,",
+                    "ref_id": "BIBREF49"
+                },
+                {
+                    "start": 241,
+                    "end": 244,
+                    "text": "51]",
+                    "ref_id": "BIBREF50"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 297,
+                    "end": 303,
+                    "text": "Table)",
+                    "ref_id": null
+                },
+                {
+                    "start": 781,
+                    "end": 791,
+                    "text": "Fig and S2",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 792,
+                    "end": 798,
+                    "text": "Table)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Dynamical Signature of different Spike variants"
+        },
+        {
+            "text": "When checking the difference between the Dynamical Signatures of the wild type D614 and the mutant G614 we observe that for the closed conformation, the pattern tends towards negative values, indicating that this mutation makes the closed state more flexible, especially around the position of the mutation. On the other hand, for the open B chain conformation the pattern is positive for the open RBD, the same chain NTD and the adjacent chain NTD, indicating that this mutation makes these areas of the open conformation more rigid (Fig 4) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 534,
+                    "end": 541,
+                    "text": "(Fig 4)",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "Dynamical Signature of different Spike variants"
+        },
+        {
+            "text": "This result led us to hypothesize that a more flexible closed state would favor the opening of Spike and that a more rigid open state would disfavor its closing, thus shifting the conformational equilibrium towards the open state and favouring interaction with ACE2, leading to increased cell entry. Mutating position 614 to every other amino acid, we observe a correlation in the closed state between residue size and flexibility. Namely, smaller amino acids tend to make the closed state more flexible. However, we do not observe the opposite effect on the open state. Mutation of D614 to glutamine, which is similar to aspartate, barely shows any effect. Nevertheless, we can see that other amino acids have a similar effect as glycine, such as proline and threonine (S2 Fig) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 774,
+                    "end": 778,
+                    "text": "Fig)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Dynamical Signature of different Spike variants"
+        },
+        {
+            "text": "Comparison of the Dynamical Signatures of Spike from SARS-CoV and SARS-CoV-2. It has been previously observed that RBD flexibility in SARS-CoV influences binding to ACE2 and facilitates fusion with host cells [52] . Thus, considering the lesser infectivity of SARS-CoV relative to SARS-CoV-2 and our aforementioned results for the D614G mutation, we expected the SARS-CoV Spike to be more rigid in the closed state and more flexible in the open state relative to Spike from SARS-CoV-2. This is indeed the case (Fig 5) . The Dynamical Signature values of SARS-CoV are smaller than those of SARS-CoV-2 in several areas throughout the closed structure, indicating that when in the closed state, the SARS-CoV Spike protein is more rigid. For the open state we can see that SARS-CoV open RBD and adjacent NTD are significantly more flexible than for SARS-CoV-2 Spike.",
+            "cite_spans": [
+                {
+                    "start": 209,
+                    "end": 213,
+                    "text": "[52]",
+                    "ref_id": "BIBREF51"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 510,
+                    "end": 517,
+                    "text": "(Fig 5)",
+                    "ref_id": "FIGREF8"
+                }
+            ],
+            "section": "Dynamical Signature of different Spike variants"
+        },
+        {
+            "text": "It is possible to combine the trend of a Dynamical Signature into a single value to represent the overall flexibility of any given mutation and compare it to the WT. This can be achieved with \u0394S vib , calculated with Eq 2 for each state (see Materials and Methods). For any given state, positive \u0394S vib values represent mutants that relative to the wild type make the protein more rigid, Table) . The clustering measures the distance between each pair of Dynamical Signature. Different colors were used to identify branches within a threshold of similarity (8. whereas negative values of \u0394S vib describe mutations that cause the protein to be more flexible in the given state relative to the wild type. In the case of the mutation D614G, we obtain \u0394S vib (open) = 5.26x10 -2 J.K -1 and \u0394S vib (closed) = -9.27x10 -2 J.K -1 with a VDS (calculated as \u0394S vib (open) \u2212 \u0394S vib (closed) ) of 1.45x10 -1 J.K -1 .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 388,
+                    "end": 394,
+                    "text": "Table)",
+                    "ref_id": null
+                }
+            ],
+            "section": "Vibrational entropy"
+        },
+        {
+            "text": "We generated in silico the 19 possible single mutations in each position from residue 14 to residue 913 and calculated \u0394S vib (open) , \u0394S vib (closed) and VDS. Other positions were ignored due to uncertainties in modelling or the fact that they are not expected to have a pronounced effect on dynamics [23] . It should be noted that Spike cannot accommodate the vast majority of such single mutations, particularly in its core as these would lead to unstable or misfolded conformations. However, those that occur near the surface are more likely to represent single residue variations of the Spike protein that lead to a stable, correctly folded protein. Therefore, the stability of specific mutations highlighted in this work, unless otherwise stated (such as those already observed experimentally or within the RBD domain as stated below), needs to be validated experimentally.",
+            "cite_spans": [
+                {
+                    "start": 302,
+                    "end": 306,
+                    "text": "[23]",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Vibrational entropy"
+        },
+        {
+            "text": "The heatmap in Fig 6A shows values, meaning that the specific mutant is more rigid than the WT, and darker colors represent low \u0394S vib values, meaning that the specific mutant is more flexible than the WT. The second heatmap (Fig 6B) Table) . The mutants with predicted open state occupancy higher than that of the wild type are presented in Table 1 ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 15,
+                    "end": 27,
+                    "text": "Fig 6A shows",
+                    "ref_id": "FIGREF9"
+                },
+                {
+                    "start": 225,
+                    "end": 233,
+                    "text": "(Fig 6B)",
+                    "ref_id": "FIGREF9"
+                },
+                {
+                    "start": 234,
+                    "end": 240,
+                    "text": "Table)",
+                    "ref_id": null
+                },
+                {
+                    "start": 342,
+                    "end": 349,
+                    "text": "Table 1",
+                    "ref_id": null
+                }
+            ],
+            "section": "Vibrational entropy"
+        },
+        {
+            "text": "Role of conformational Dynamics on SARS-CoV-2 infections state, or have the contribution of both. We can also observe that these effects can be different in each chain and can affect more the NTD, the RBD, or both. Finally, these single mutants also show how a point mutation can have widespread impacts on flexibility across the whole protein.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        },
+        {
+            "text": "We calculated forward and reverse transition probabilities between the open and closed states (Eq 4, 5 & 6) from the calculated normal modes and used the Markov model described in Materials and Methods to calculate the equilibrium occupancies for each state in wild type and mutant Spike proteins. It is unclear if any additional conformational states other than those with either all three RBD domains in the closed state or only one RBD open state are biologically relevant. Specifically, Yurkovetskiy et al. [45] observed an occupancy for states with two or three RBD domains in the open conformation, but these were not observed by Gobeil et al. [30] and Xiong et al. [34] or taken into consideration in several other structural studies [20] [21] [22] [23] [24] . As such, we employ the two-state model shown in Fig 2, with one state representing all three RBD domains closed and the second state representing one RBD open. The Markov model calculation of occupancies requires two parameters (see Materials and Methods) that were optimized based on experimental data for six Spike variants. These variants were: S-GSAS/D614, an engineered Spike with the sequence GSAS in the Furin cleavage site and no 614 mutation; S-GSAS/G614, with the same Furin site modifications and the D614G mutation [30] ; S-R, the Spike protein with original Furin site RRAR; S-R/x2, with added S383C, D985C mutations inducing a disulfide bond; S-R/PP, engineered with two prolines in positions 986 and 987; S-R/PP/x1, in which from the double prolines sequence the mutations G413C, V987C were performed to induce a disulfide bond [34] . It is worth stressing that all 6 variants used to calibrate the two parameters affecting the occupancy were modelled Table 1 on the same open and closed state conformations. All differences in observed occupancies and the agreement with experimental occupancy data came about as a direct consequence of the effect of the mutations on the normal modes and derived transition probabilities and not as a result of structural differences between variants. We obtained a good fitting to the experimental results with k and \u03b3 of 0.5 and 0.001, respectively (Pearson correlation = 0.89, p-value = 1.94x10 -2 ). Predicted occupancies of the open and closed states for each of the six variants above, as well as the experimental data, are presented in Table 2 . ",
+            "cite_spans": [
+                {
+                    "start": 511,
+                    "end": 515,
+                    "text": "[45]",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 650,
+                    "end": 654,
+                    "text": "[30]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 672,
+                    "end": 676,
+                    "text": "[34]",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 741,
+                    "end": 745,
+                    "text": "[20]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 746,
+                    "end": 750,
+                    "text": "[21]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 751,
+                    "end": 755,
+                    "text": "[22]",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 756,
+                    "end": 760,
+                    "text": "[23]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 761,
+                    "end": 765,
+                    "text": "[24]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 1295,
+                    "end": 1299,
+                    "text": "[30]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 1611,
+                    "end": 1615,
+                    "text": "[34]",
+                    "ref_id": "BIBREF33"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 816,
+                    "end": 822,
+                    "text": "Fig 2,",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 1735,
+                    "end": 1742,
+                    "text": "Table 1",
+                    "ref_id": null
+                },
+                {
+                    "start": 2361,
+                    "end": 2368,
+                    "text": "Table 2",
+                    "ref_id": "TABREF3"
+                }
+            ],
+            "section": "Conformational state occupancies"
+        },
+        {
+            "text": "We utilized these data to calculate occupancy differences for each variant (Fig 8) . The range of variation of our predicted occupancies is small compared to that of experimental values. We believe that given the limitations of our coarse-grained model as well as additional phenomena that ultimately affect occupancy, our predictions reflect only a fraction of the myriad of factors contributing to the occupancy. Nonetheless, our predictions correctly capture the pattern of relative variations of occupancy observed in the experimental data. To ensure that the calculated correlation is not due to chance, we simulated random sets of occupancies for the 6 sequence variants and calculated simulated correlations for the 110 different combinations of k and \u03b3 to determine if the observed correlations represent an actual signal in the data or could be randomly obtained with different values for the parameters k and \u03b3. We observed a marked shift with higher correlations for the data representing our predicted occupancies when compared to the gaussian noise data (S4 Fig), suggesting that the predicted occupancies are not due to chance.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 75,
+                    "end": 82,
+                    "text": "(Fig 8)",
+                    "ref_id": "FIGREF10"
+                },
+                {
+                    "start": 1067,
+                    "end": 1076,
+                    "text": "(S4 Fig),",
+                    "ref_id": "FIGREF5"
+                }
+            ],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        },
+        {
+            "text": "We set a threshold of VDS>0.3 to select candidates for the calculation of occupancies, corresponding to 64 mutations (Tables 1 and S3, in red) . Using the parameters k and \u03b3 obtained above, we calculated occupancies for these 64 mutants as well as the 20 mutants with lowest VDS values (Tables 1 and S3 Table 1 . We can see that the least infectious candidates (blue) are positioned in the interfaces between NTD and RBD domains, while the most infectious candidates, especially the ones validated by the occupancy prediction (dark red), are more concentrated in the interfaces between different RBD domains.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 117,
+                    "end": 142,
+                    "text": "(Tables 1 and S3, in red)",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 286,
+                    "end": 302,
+                    "text": "(Tables 1 and S3",
+                    "ref_id": null
+                },
+                {
+                    "start": 303,
+                    "end": 310,
+                    "text": "Table 1",
+                    "ref_id": null
+                }
+            ],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        },
+        {
+            "text": "Residue G252 stands out as capable of accommodating a large number of mutations (C, D, E, H, M, P, Q, S, T, W) that shift the occupancy in favour of the open state. The fact that variants in this position do not seem to be prevalent in outbreaks to date, points to the possibility that this position may be under additional functional constraints that prevent the emergence of variants. A number of other glycine residues could also accept mutations that we predict to increase the occupancy of the open state: G72W; G404W; G413M; G416E,W; and G404I. In fact, three of the top four mutations are mutations on glycines. A number of other potential mutations are adjacent to the glycine residues above. Namely, R403S and K417D,E,G,P. Additionally, D467P,W and I468T are also positions that are adjacent to others that can accommodate mutations that may lead to a conformational shift favouring the open state. The mutation that favours the open state the most in our calculations is N501W with \u0394S vib (open) = 6.02x10 -1 J.K -1 and \u0394S vib (closed) = 2.30x10 -1 J.K -1 and a resulting VDS value of 3.72x10 -1 J.K -1 leading to occupancies compared to those of the wild type (in parenthesis) of 62.7% (25.8%) and 37.3% (74.2%) for the open and closed states respectively. It is important to stress, as discussed in Materials and Methods, that the calculations are performed using structures containing a modified Furin recognition site and prolines in positions 986 and 987. Furthermore, the contribution of vibrational entropy changes is one among potentially several effects, the overall importance of which remains to be determined. Therefore, relative changes in occupancy are relevant whereas the specific values are less so.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        },
+        {
+            "text": "The COG-UK consortium (https://www.cogconsortium.uk/about/) monitors the appearance and spread of new strains of SARS-CoV-2. COG-UK recently detected a strain containing the mutation N501Y that has been observed to be spreading rapidly at the time of writing. We believe that shifts in occupancy may be in part responsible for its emergence. According to our calculations, the N501Y mutant shows \u0394S vib (open) = -1.60x10 -2 J.K -1 and \u0394S vib (closed) = 2.37x10 -1 J.K -1 , with VDS = 2.53x10 -1 J.K -1 . The predicted occupancies for the N501Y mutant compared to those of the wild type (in parenthesis) are 54.3% (25.8%) and 45.7% (74.2%) for the open and closed states, respectively. Therefore, the N501Y mutant shows a marked increase of the occupancy of the open state relative to other mutations. Additionally, this mutation was shown to also increase binding affinity to the ACE2 receptor relative to the wild type with a \u0394log 10 (K D,app ) of 0.24 [53] . Therefore, we predict that N501Y has a strong potential to contribute to increased transmission. The calculations above were performed in the context of D614. However, the double mutant representing the N501Y mutation in the context of G614 also shows an increase in the occupancy of the open state to 35.06%. The recently observed A222V mutation on the other hand [54] , does not show in our analysis any propensity of altering the occupancy of states with a negative VDS of -1.64x10 -2 J.K -1 . Predicted occupancies for A222 and V222 are nearly identical either in the context of D614 (WT) or the mutant containing G614.",
+            "cite_spans": [
+                {
+                    "start": 954,
+                    "end": 958,
+                    "text": "[53]",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 1326,
+                    "end": 1330,
+                    "text": "[54]",
+                    "ref_id": "BIBREF53"
+                }
+            ],
+            "ref_spans": [],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        },
+        {
+            "text": "Notice that N501Y has a VDS value of 2.53x10 -1 J.K -1 that is slightly below the 3.00x10 -1 J.K -1 threshold, suggesting that there may be many other mutations with VDS values below our set threshold that turn out to have augmented occupancies for the open state relative to the wild type.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        },
+        {
+            "text": "D614G shows that changes in the occupancy of conformational states can impact infectivity despite no changes or even weaker binding affinities [45] . A recent study [53] on binding and expression of Spike mutations within the RBD domain (positions 331 to 531) shows that several (but not all, see below) of the mutations that we predicted to have increased occupancy of the open state are associated with a decrease of binding affinity with ACE2. Incidentally, the data also shows that the mutations in Table 1 within the RBD produce stable and properly folded Spike proteins. As shown for D614G, infection does not rely on binding affinity alone, and even a strain with higher dissociation rates from ACE2 can bring about fitness advantages.",
+            "cite_spans": [
+                {
+                    "start": 143,
+                    "end": 147,
+                    "text": "[45]",
+                    "ref_id": "BIBREF44"
+                },
+                {
+                    "start": 165,
+                    "end": 169,
+                    "text": "[53]",
+                    "ref_id": "BIBREF52"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 503,
+                    "end": 510,
+                    "text": "Table 1",
+                    "ref_id": null
+                }
+            ],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        },
+        {
+            "text": "The mutation N501W is predicted to have the largest effect in augmenting the occupancy of the open state relative to the wild type. This mutation is associated with stronger binding to ACE2 (\u0394log 10 (K D,app ) = 0.11) [53] relative to the wild type Spike (but lower than N501Y). Furthermore, N501W appears to have increased expression relative to the wild type with a \u0394log (MFI) of 0.1 compared to decrease in relative expression of -0.14 for N501Y [53] . The authors note that changes in expression correlate with folding stability [53] . However, even with a \u0394log (MFI) of -0.14, N501Y is viable and spreading. Therefore, N501W might be even more stable and infective.",
+            "cite_spans": [
+                {
+                    "start": 218,
+                    "end": 222,
+                    "text": "[53]",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 449,
+                    "end": 453,
+                    "text": "[53]",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 533,
+                    "end": 537,
+                    "text": "[53]",
+                    "ref_id": "BIBREF52"
+                }
+            ],
+            "ref_spans": [],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        },
+        {
+            "text": "We consider all mutations with increased predicted occupancy of the open state in Table 1 as good candidates for further experimental validation to better understand the role of binding and dynamics of Spike and their role in SARS-CoV-2 infectivity. Furthermore, we suggest that their appearance in outbreaks should be closely monitored. : B.1.1.7, 501.V2, P.1 ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 82,
+                    "end": 89,
+                    "text": "Table 1",
+                    "ref_id": null
+                },
+                {
+                    "start": 338,
+                    "end": 360,
+                    "text": ": B.1.1.7, 501.V2, P.1",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "PLOS COMPUTATIONAL BIOLOGY"
+        },
+        {
+            "text": "The mutation N501Y above appears in the B.1.1.7 variant first observed in the UK [55] as well as the 501.V2 variant first observed in South Africa [56] and the P.1 variant from Brazil [57] that are rapidly spreading around the globe. These two strains contain additional mutations in Different factors may contribute to the apparent evolutionary advantages of the above strains through the course of the pandemic. The N501Y substitution, as mentioned, is among the candidates we pointed as enabling occupancy shifts towards the open conformation, but was also shown to have higher binding affinity to the receptor ACE2 [53] . The E484K mutation does not increase the occupancy of the open state in our predictions and also does not increase ACE2 binding affinity [53] , but was observed to facilitate immune escape in a study with human serum antibodies from subjects that recovered from COVID-19 [58] . However, mutations like K417N and K417T were not observed to cause favourable changes on expression (a proxy measurement for stability) or binding [53] as well as immune recognition [58] , but in our high throughput evaluation they were, as well as several substitutions in this position, predicted to increase the occupancy of the open state.",
+            "cite_spans": [
+                {
+                    "start": 81,
+                    "end": 85,
+                    "text": "[55]",
+                    "ref_id": "BIBREF54"
+                },
+                {
+                    "start": 147,
+                    "end": 151,
+                    "text": "[56]",
+                    "ref_id": "BIBREF55"
+                },
+                {
+                    "start": 184,
+                    "end": 188,
+                    "text": "[57]",
+                    "ref_id": "BIBREF56"
+                },
+                {
+                    "start": 619,
+                    "end": 623,
+                    "text": "[53]",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 763,
+                    "end": 767,
+                    "text": "[53]",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 897,
+                    "end": 901,
+                    "text": "[58]",
+                    "ref_id": "BIBREF57"
+                },
+                {
+                    "start": 1051,
+                    "end": 1055,
+                    "text": "[53]",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 1086,
+                    "end": 1090,
+                    "text": "[58]",
+                    "ref_id": "BIBREF57"
+                }
+            ],
+            "ref_spans": [],
+            "section": ", Delta and Delta+"
+        },
+        {
+            "text": "All predictive studies on Spike mutations, with both computational and experimental approaches, covered single mutations only. Therefore, it is possible that combinations of substitutions that constitute each new variant bring about advantages due to a number of factors that are hard to decouple or are yet to be determined. For example, the Indian variant B.1.617.2 (also known as Delta) [59] , contains a core number of mutations in Spike (G142D, E154K, L452R, E484Q, D614G, P681R, Q1071H) but also additional sub-strain variations (T95I, H1101D or V382L) [60] . The B.1.617.2 strain and its variations above have predicted open state occupancies comparable or lesser than that of the wild type in our calculations. This suggests that other unknown factors alone or in combination are at play if the preliminary data suggesting increased transmissibility [61] is observed on larger samples. A newer variation of the Delta strain, AY.1 (or Delta+) does however contain the K417N mutation (that we predict to increase open state occupancy) similar to the South African strain 501.V2. A preliminary report [62] places AY.1 as a variant of concern (VOC).",
+            "cite_spans": [
+                {
+                    "start": 390,
+                    "end": 394,
+                    "text": "[59]",
+                    "ref_id": "BIBREF58"
+                },
+                {
+                    "start": 559,
+                    "end": 563,
+                    "text": "[60]",
+                    "ref_id": "BIBREF59"
+                },
+                {
+                    "start": 858,
+                    "end": 862,
+                    "text": "[61]",
+                    "ref_id": "BIBREF60"
+                },
+                {
+                    "start": 1106,
+                    "end": 1110,
+                    "text": "[62]",
+                    "ref_id": "BIBREF61"
+                }
+            ],
+            "ref_spans": [],
+            "section": ", Delta and Delta+"
+        },
+        {
+            "text": "SARS-CoV-2 mutations are still arising and spreading around the world. The A222V mutation, reportedly responsible for many infections, emerged in Spain during the Summer of 2020 and since then has spread to neighbor countries [54] ; In Denmark, new strains related to SARS-CoV-2 transmission in mink farms were confirmed in early October by the WHO and shown to be caused by specific mutations not previously observed with the novelty of back-and-forth transmission between minks and humans [63] . A new strain containing N501Y first appeared in the UK, the recent Delta+ strain (AY.1) containing K417N is now on the rise at the time of writing. Such occurrences point to the possibility that new mutations in SARS-CoV-2 may bring about more infectious strains.",
+            "cite_spans": [
+                {
+                    "start": 226,
+                    "end": 230,
+                    "text": "[54]",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 491,
+                    "end": 495,
+                    "text": "[63]",
+                    "ref_id": "BIBREF62"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "Using the low computational cost methods described in this paper, it is possible to predict potential variants that might have an advantage over the wild type virus insofar as these are the result of changes in occupancy of states. Despite the limitations of the simplified coarsegrained model employed here, our results correctly model the experimentally observed higher open state occupancy of several mutations. In our analyses, flexibility properties and conformational state occupancy probabilities contribute to the infectivity of a SARS-CoV-2. Our results explain the behaviour of the D614G strain, the increased infectivity of SARS-CoV-2 relative to SARS-CoV as well as offer a possible explanation for the rise of new strains such as those harboring the N501Y mutation.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "The results we present on SARS-CoV-2 Spike mutations have several limitations. First and foremost, some of the in silico mutations discussed may not be thermodynamically stable, may affect expression, cleavage, or binding to ACE2, and our approach does not consider that Spike is, in fact, a glycoprotein and the sugar molecules may have an effect on dynamics. However, the agreement between our model and experimental observations as described above shows that the simplified model of Spike and the coarse-grained methods used here allow us to calculate dynamic properties of Spike that are relevant to understand infection and epidemiological behavior. It is important to keep in mind that all of the mutations that we discuss in Table 1 that lay within positions 331 and 531 within the RBD domain were already experimentally validated shown to be viable [53] . However, we highlight the need for experimental validation of our predictions particularly for those candidates that we believe would help elucidate the extent of the effect of the conformational dynamics of Spike on infectivity. Beyond in vitro biophysical studies, experimental alternatives exist such as using pseudo-type viruses or viruslike-particles that would not require studying gain-of-function mutations using intact viruses. Alternatively, loss-of-function mutations can be created with intact viruses and compared to the wild type SARS-CoV-2 virus to validate the role of dynamics on infectivity.",
+            "cite_spans": [
+                {
+                    "start": 857,
+                    "end": 861,
+                    "text": "[53]",
+                    "ref_id": "BIBREF52"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 732,
+                    "end": 739,
+                    "text": "Table 1",
+                    "ref_id": null
+                }
+            ],
+            "section": "Conclusions"
+        },
+        {
+            "text": "After this work first became available as a preprint in December 2020 [64] , extensive molecular dynamics simulations totalling 20 \u03bcs and investigating the effect of the D614G mutation on conformational dynamics have been conducted with the full complement of glycans [65] . The authors found that this mutation increased the occupancy of the up (open) state, in line with the results presented in our work. This makes us confident that our coarse-grained model lacking glycans still captures the essential dynamics of the Spike protein and validates its application for high throughput screening of mutations, which would be too costly computationally to conduct using long all-atom MD simulations.",
+            "cite_spans": [
+                {
+                    "start": 70,
+                    "end": 74,
+                    "text": "[64]",
+                    "ref_id": "BIBREF63"
+                },
+                {
+                    "start": 268,
+                    "end": 272,
+                    "text": "[65]",
+                    "ref_id": "BIBREF64"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "Two studies determined the structures of the D614G mutant [66, 67] in open and closed states via cryo electron microscopy (cryo-EM) in the open and closed states were published and came to our attention after this manuscript was published as a preprint. Both studies come to the same conclusion as ours, namely that the open state is favoured on the D614G mutant. More recently, the structures of the B.1.1.7 (UK), 501.V2 (SA) and P1 (Brazil) variants modelled here become available [68] . The authors show in all cases an increased propensity for the open state. In summary, while this computational work has been under review a number of studies corroborating our conclusions have appeared. Namely, complementary computational molecular dynamics simulations as well as experimental work for the single mutant D614G as well as experimental work on the UK, SA and Brazil variants.",
+            "cite_spans": [
+                {
+                    "start": 58,
+                    "end": 62,
+                    "text": "[66,",
+                    "ref_id": "BIBREF65"
+                },
+                {
+                    "start": 63,
+                    "end": 66,
+                    "text": "67]",
+                    "ref_id": "BIBREF66"
+                },
+                {
+                    "start": 483,
+                    "end": 487,
+                    "text": "[68]",
+                    "ref_id": "BIBREF67"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "This work demonstrates how a simplified coarse-grained model can capture essential aspects of the effect of mutations on the dynamics between conformational states for the SARS-CoV-2 Spike protein. Furthermore, the low computational cost of the calculations allowed us to predict mutations with evolutionary advantages that appeared during the COVID-19 pandemic. Lastly, as the COVID-19 pandemic is still ongoing, our high-throughput data can contribute to the risk assessment of future variants.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusions"
+        },
+        {
+            "text": "To the best of our knowledge, this is the first time that a normal mode analysis method is used to model the effect of mutations on the occupancy of conformational states, opening a new opportunity in computational biophysics to create dynamic models of transitions between conformational states of proteins based on physical properties and sensitive to sequence variations. We hope that our results contribute to inform the research community in understanding SARS-CoV-2 infection mechanisms, open new possibilities in computational biophysics to study protein dynamics and help public health surveillance programs decide on the risk posed by new strains given the appropriateness of our method for large-scale uses. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusions"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "A pneumonia outbreak associated with a new coronavirus of probable bat origin",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "X-L",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X-G",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature",
+            "volume": "579",
+            "issn": "",
+            "pages": "270--273",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41586-020-2012-7"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Genomic characterisation and epidemiology of 2019 novel coronavirus: implications for virus origins and receptor binding",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Lu",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Niu",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Lancet",
+            "volume": "395",
+            "issn": "",
+            "pages": "30251--30259",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/s0140-6736%2820%2930251-8"
+                ]
+            }
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Weekly epidemiological update-5",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Organization",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Review of bats and SARS. Emerging infectious diseases",
+            "authors": [
+                {
+                    "first": "L-F",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Field",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Daszak",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Eaton",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "",
+            "volume": "12",
+            "issn": "",
+            "pages": "1834--1840",
+            "other_ids": {
+                "DOI": [
+                    "10.3201/eid1212.060401"
+                ]
+            }
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Middle East respiratory syndrome",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Memish",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Perlman",
+                    "suffix": ""
+                },
+                {
+                    "first": "Mdv",
+                    "middle": [],
+                    "last": "Kerkhove",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Zumla",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Lancet",
+            "volume": "395",
+            "issn": "",
+            "pages": "1063--1077",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/s0140-6736%2819%2933221-0"
+                ]
+            }
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Middle East respiratory syndrome coronavirus in dromedary camels: an outbreak investigation. The Lancet Infectious diseases",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Haagmans",
+                    "suffix": ""
+                },
+                {
+                    "first": "Shsa",
+                    "middle": [],
+                    "last": "Dhahiry",
+                    "suffix": ""
+                },
+                {
+                    "first": "Cbem",
+                    "middle": [],
+                    "last": "Reusken",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Raj",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Galiano",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Myers",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "",
+            "volume": "14",
+            "issn": "",
+            "pages": "140--145",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/s1473-3099%2813%2970690-x"
+                ]
+            }
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Moderate mutation rate in the SARS coronavirus genome and its implications",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhong",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y-P",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "BMC evolutionary biology",
+            "volume": "4",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1186/1471-2148-4-21"
+                ]
+            }
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Variant analysis of SARS-CoV-2 genomes",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Koyama",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Platt",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Parida",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Bulletin of the World Health Organization",
+            "volume": "98",
+            "issn": "",
+            "pages": "495--504",
+            "other_ids": {
+                "DOI": [
+                    "10.2471/blt.20.253591"
+                ]
+            }
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Functional assessment of cell entry and receptor usage for SARS-CoV-2 and other lineage B betacoronaviruses",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Letko",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Marzi",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Munster",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature Microbiology",
+            "volume": "5",
+            "issn": "",
+            "pages": "562--569",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41564-020-0688-y"
+                ]
+            }
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Structural basis for the recognition of the SARS-CoV-2 by full-length human ACE2",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Yan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Xia",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Guo",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Science",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.abb2762"
+                ]
+            }
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Cell entry mechanisms of SARS-CoV-2",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Shang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wan",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Luo",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Ye",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Geng",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Auerbach",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Proc Natl Acad Sci U S A",
+            "volume": "117",
+            "issn": "",
+            "pages": "11727--11734",
+            "other_ids": {
+                "DOI": [
+                    "10.1073/pnas.2003138117"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Structure-based virtual screening and molecular dynamics simulation of SARS-CoV-2 Guanine-N7 methyltransferase (nsp14) for identifying antiviral inhibitors against COVID-19",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Selvaraj",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Dinesh",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Panwar",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Abhirami",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Boura",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Singh",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Journal of biomolecular structure & dynamics",
+            "volume": "57",
+            "issn": "",
+            "pages": "1--12",
+            "other_ids": {
+                "DOI": [
+                    "10.1080/07391102.2020.1778535"
+                ]
+            }
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Dynamics of the ACE2-SARS-CoV-2/SARS-CoV spike protein interface reveal unique mechanisms",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ali",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Vijayan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Scientific Reports",
+            "volume": "10",
+            "issn": "",
+            "pages": "14214--14226",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41598-020-71188-3"
+                ]
+            }
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "SARS-CoV-2 Main Protease: A Molecular Dynamics Study",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Su\u00e1 Rez",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "D\u00edaz",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Chem Inf Model",
+            "volume": "60",
+            "issn": "",
+            "pages": "5815--5831",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.jcim.0c00575"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Cross-neutralization of SARS-CoV-2 by a human monoclonal SARS-CoV antibody",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Pinto",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y-J",
+                    "middle": [],
+                    "last": "Park",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Beltramello",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Walls",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Tortorici",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bianchi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature",
+            "volume": "583",
+            "issn": "",
+            "pages": "290--295",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41586-020-2349-y"
+                ]
+            }
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Isolation of potent SARS-CoV-2 neutralizing antibodies and protection from disease in a small animal model",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Rogers",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Beutler",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Burns",
+                    "suffix": ""
+                },
+                {
+                    "first": "W-T",
+                    "middle": [],
+                    "last": "He",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Science",
+            "volume": "369",
+            "issn": "",
+            "pages": "956--963",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.abc7520"
+                ]
+            }
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Potent Neutralizing Antibodies against SARS-CoV-2 Identified by High-Throughput Single-Cell Sequencing of Convalescent Patients' B Cells",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Cao",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Su",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Guo",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Sun",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Deng",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Bao",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "182",
+            "issn": "",
+            "pages": "73--84",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2020.05.025"
+                ]
+            }
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Supervised molecular dynamics for exploring the druggability of the SARS-CoV-2 spike protein",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Deganutti",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Prischi",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Reynolds",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Journal of Computer-Aided Molecular Design",
+            "volume": "20",
+            "issn": "",
+            "pages": "1015--1028",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s10822-020-00356-4"
+                ]
+            }
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Fighting COVID-19 Using Molecular Dynamics Simulations",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Arantes",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Saha",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Palermo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "1654--1656",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "A graph-based approach identifies dynamic H-bond communication networks in spike protein S of SARS-CoV-2",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Karathanou",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Lazaratos",
+                    "suffix": ""
+                },
+                {
+                    "first": "\u00c9",
+                    "middle": [],
+                    "last": "Bertalan",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Siemers",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Buzar",
+                    "suffix": ""
+                },
+                {
+                    "first": "Gfx",
+                    "middle": [],
+                    "last": "Schertler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "J Struct Biol",
+            "volume": "212",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.jsb.2020.107617"
+                ]
+            }
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Continuous flexibility analysis of SARS-CoV-2 spike prefusion structures",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Melero",
+                    "suffix": ""
+                },
+                {
+                    "first": "Cos",
+                    "middle": [],
+                    "last": "Sorzano",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Foster",
+                    "suffix": ""
+                },
+                {
+                    "first": "J-L",
+                    "middle": [],
+                    "last": "Vilas",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mart\u00ednez",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Marabini",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "IUCrJ",
+            "volume": "7",
+            "issn": "",
+            "pages": "1059--1069",
+            "other_ids": {
+                "DOI": [
+                    "10.1107/s2052252520012725"
+                ]
+            }
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Molecular Simulations and Network Modeling Reveal an Allosteric Signaling in the SARS-CoV-2 Spike Proteins",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Verkhivker",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Journal of proteome research",
+            "volume": "19",
+            "issn": "",
+            "pages": "4587--4608",
+            "other_ids": {
+                "DOI": [
+                    "10.1021/acs.jproteome.0c00654"
+                ]
+            }
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Exploring the intrinsic dynamics of SARS-CoV-2, SARS-CoV and MERS-CoV spike glycoprotein through normal mode analysis using anisotropic network model",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Majumder",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Chaudhuri",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Datta",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Giri",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Journal of molecular graphics & modelling",
+            "volume": "102",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.jmgm.2020.107778"
+                ]
+            }
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "A coarse-grained elastic network atom contact model and its use in the simulation of protein dynamics and the prediction of the effect of mutations",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Frappier",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Najmanovich",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "PLoS computational biology",
+            "volume": "10",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/journal.pcbi.1003569"
+                ]
+            }
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "ENCoM server: exploring protein conformational space and the effect of mutations on protein function and stability",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Frappier",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Chartier",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Najmanovich",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Nucleic acids research",
+            "volume": "43",
+            "issn": "",
+            "pages": "395--400",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/nar/gkv343"
+                ]
+            }
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Applications of Normal Mode Analysis Methods in Computational Protein Design",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Frappier",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Chartier",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Najmanovich",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Methods in molecular biology",
+            "volume": "1529",
+            "issn": "",
+            "pages": "203--214",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/978-1-4939-6637-0"
+                ]
+            }
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Vibrational entropy differences between mesophile and thermophile proteins and their use in protein engineering",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Frappier",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Najmanovich",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Protein Science",
+            "volume": "24",
+            "issn": "",
+            "pages": "474--483",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/pro.2592"
+                ]
+            }
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Structure, Function, and Antigenicity of the SARS-CoV-2 Spike Glycoprotein",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Walls",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y-J",
+                    "middle": [],
+                    "last": "Park",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Tortorici",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Wall",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Mcguire",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Veesler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "181",
+            "issn": "",
+            "pages": "281--292",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2020.02.058"
+                ]
+            }
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "D614G Mutation Alters SARS-CoV-2 Spike Conformation and Enhances Protease Cleavage at the S1/S2 Junction",
+            "authors": [
+                {
+                    "first": "Sm-C",
+                    "middle": [],
+                    "last": "Gobeil",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Janowska",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mcdowell",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Mansouri",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Parks",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Manne",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Cell Reports",
+            "volume": "34",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.celrep.2020.108630"
+                ]
+            }
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Cryo-EM structures of MERS-CoV and SARS-CoV spike glycoproteins reveal the dynamic receptor binding domains",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Yuan",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Cao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ma",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Qi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Nature communications",
+            "volume": "8",
+            "issn": "",
+            "pages": "15092--15101",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/ncomms15092"
+                ]
+            }
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Comparative protein modelling by satisfaction of spatial restraints",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sali",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Blundell",
+                    "suffix": ""
+                }
+            ],
+            "year": 1993,
+            "venue": "",
+            "volume": "234",
+            "issn": "",
+            "pages": "779--815",
+            "other_ids": {
+                "DOI": [
+                    "10.1006/jmbi.1993.1626"
+                ]
+            }
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "The FoldX web server: an online force field",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Schymkowitz",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Borg",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Stricher",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Nys",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Rousseau",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Serrano",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "Nucleic acids research",
+            "volume": "33",
+            "issn": "",
+            "pages": "382--390",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/nar/gki387"
+                ]
+            }
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "A thermostable, closed SARS-CoV-2 spike protein trimer. Nature structural & molecular biology",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Xiong",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Qu",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Ciazynska",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Hosmillo",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Carter",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ebrahimi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "27",
+            "issn": "",
+            "pages": "934--941",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41594-020-0478-5"
+                ]
+            }
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Normal mode analysis as a method to derive protein dynamics information from the Protein Data Bank",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Wako",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Endo",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Biophysical Reviews",
+            "volume": "9",
+            "issn": "",
+            "pages": "877--893",
+            "other_ids": {
+                "DOI": [
+                    "10.1007/s12551-017-0330-2"
+                ]
+            }
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "Long-range correlation in protein dynamics: Confirmation by structural data and normal mode analysis",
+            "authors": [
+                {
+                    "first": "Q-Y",
+                    "middle": [],
+                    "last": "Tang",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Kaneko",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "PLoS computational biology",
+            "volume": "16",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1371/journal.pcbi.1007670"
+                ]
+            }
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Normal Mode Analysis",
+            "authors": [
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Cui",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Bahar",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "Fast and accurate computation schemes for evaluating vibrational entropy of proteins",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Shen",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "Journal of Computational Chemistry",
+            "volume": "32",
+            "issn": "",
+            "pages": "3188--3193",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/jcc.21900"
+                ]
+            }
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "The NRGTEN Python package: an extensible toolkit for coarse-grained normal mode analysis of proteins, nucleic acids, small molecules and their complexes",
+            "authors": [
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Mailhot",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Najmanovich",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Bioinformatics",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/bioinformatics/btab189"
+                ]
+            }
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Hinge-bending motion in citrate synthase arising from normal mode calculations",
+            "authors": [
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Marques",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Sanejouand",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "PROTEINS: Structure, Function and Genetics",
+            "volume": "23",
+            "issn": "",
+            "pages": "557--560",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/prot.340230410"
+                ]
+            }
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "dms-view: Interactive visualization tool for deep mutational scanning data",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Hilton",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Huddleston",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Black",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "North",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Dingens",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Bedford",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Journal of Open Source Software",
+            "volume": "5",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.21105/joss.02353"
+                ]
+            }
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Evaluating the Effects of SARS-CoV-2 Spike Mutation D614G on Transmissibility and Pathogenicity",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Volz",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Hill",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Mccrone",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Price",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Jorgensen",
+                    "suffix": ""
+                },
+                {
+                    "first": "\u00c1",
+                    "middle": [],
+                    "last": "O&apos;toole",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2020.11.020"
+                ]
+            }
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "The Impact of Mutations in SARS-CoV-2 Spike on Viral Infectivity and Antigenicity",
+            "authors": [
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Nie",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Hao",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "182",
+            "issn": "",
+            "pages": "1284--1294",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2020.07.012"
+                ]
+            }
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "Tracking Changes in SARS-CoV-2 Spike: Evidence that D614G Increases Infectivity of the COVID-19 Virus",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Korber",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Fischer",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Gnanakaran",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Yoon",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Theiler",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Abfalterer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "182",
+            "issn": "",
+            "pages": "812--827",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2020.06.043"
+                ]
+            }
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Structural and Functional Analysis of the D614G SARS-CoV-2 Spike Protein Variant",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Yurkovetskiy",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Pascal",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Tomkins-Tinch",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Nyalile",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "183",
+            "issn": "",
+            "pages": "739--751",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2020.09.032"
+                ]
+            }
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Higher binding affinity of Furin to SARS-CoV-2 spike (S) protein D614G could be associated with higher SARS-CoV-2 infectivity",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Mohammad",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Alshawaf",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Marafie",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Abu-Farha",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Abubaker",
+                    "suffix": ""
+                },
+                {
+                    "first": "Al-Mulla",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "IJID: official publication of the International Society for Infectious Diseases. 2020",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.ijid.2020.10.033"
+                ]
+            }
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "The SARS-CoV-2 Spike Protein D614G Mutation Shows Increasing Dominance and May Confer a Structural Advantage to the Furin Cleavage Domain",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Tang",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Schulkins",
+                    "suffix": ""
+                },
+                {
+                    "first": "C-N",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Deshayes",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Kenney",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.20944/preprints202005.0407.v1"
+                ]
+            }
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "SARS-CoV-2 spike-protein D614G mutation increases virion spike density and infectivity",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Jackson",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Mou",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ojha",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Peng",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Quinlan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nat Commun",
+            "volume": "11",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41467-020-19808-4"
+                ]
+            }
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "The SARS-CoV-2 spike protein: balancing stability and infectivity",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Berger",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Schaffitzel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell research",
+            "volume": "30",
+            "issn": "",
+            "pages": "1059--1060",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41422-020-00430-4"
+                ]
+            }
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "Global initiative on sharing all influenza data-from vision to reality. Euro surveillance: bulletin Europeen sur les maladies transmissibles = European communicable disease bulletin",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Shu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Mccauley",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Gisaid",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "22",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.2807/1560-7917.es.2017.22.13.30494"
+                ]
+            }
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "disease and diplomacy: GISAID's innovative contribution to global health",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Elbe",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Buckland-Merrett",
+                    "suffix": ""
+                },
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Data",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Global challenges",
+            "volume": "1",
+            "issn": "",
+            "pages": "33--46",
+            "other_ids": {
+                "DOI": [
+                    "10.1002/gch2.1018"
+                ]
+            }
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "Stabilized coronavirus spikes are resistant to conformational changes induced by receptor recognition or proteolysis",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Kirchdoerfer",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Pallesen",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Wrapp",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Turner",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Cottrell",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Scientific Reports",
+            "volume": "8",
+            "issn": "",
+            "pages": "15701--15712",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41598-018-34171-7"
+                ]
+            }
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "Deep Mutational Scanning of SARS-CoV-2 Receptor Binding Domain Reveals Constraints on Folding and ACE2 Binding",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Starr",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Greaney",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Hilton",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Ellis",
+                    "suffix": ""
+                },
+                {
+                    "first": "Khd",
+                    "middle": [],
+                    "last": "Crawford",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Dingens",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "182",
+            "issn": "",
+            "pages": "1295--1310",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.cell.2020.08.012"
+                ]
+            }
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "Spread of a SARS-CoV-2 variant through Europe in the summer of 2020",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Hodcroft",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Zuber",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Nadeau",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Vaughan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Khd",
+                    "middle": [],
+                    "last": "Crawford",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Althaus",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Nature",
+            "volume": "",
+            "issn": "",
+            "pages": "1--6",
+            "other_ids": {
+                "DOI": [
+                    "10.1038/s41586-021-03677-y"
+                ]
+            }
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "Case Study: Prolonged Infectious SARS-CoV-2 Shedding from an Asymptomatic Immunocompromised Individual with Cancer",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Rambaut",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Loman",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Pybus",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Barclay",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Barrett",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Carabelli",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "Emergence and rapid spread of a new severe acute respiratory syndrome-related coronavirus 2 (SARS-CoV-2) lineage with multiple spike mutations in South Africa. medRxiv: the preprint server for health sciences",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Tegally",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Wilkinson",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Giovanetti",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Iranzadeh",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Fonseca",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Giandhari",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "34",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.12.21.20248640"
+                ]
+            }
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "Multiple Introductions Followed by Ongoing Community Spread of SARS-CoV-2 at One of the Largest Metropolitan Areas of Northeast Brazil",
+            "authors": [
+                {
+                    "first": "Mhs",
+                    "middle": [],
+                    "last": "Paiva",
+                    "suffix": ""
+                },
+                {
+                    "first": "Drd",
+                    "middle": [],
+                    "last": "Guedes",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Docena",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Bezerra",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "Z"
+                    ],
+                    "last": "Dezordi",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Machado",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Viruses",
+            "volume": "12",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.3390/v12121414"
+                ]
+            }
+        },
+        "BIBREF57": {
+            "ref_id": "b57",
+            "title": "Comprehensive mapping of mutations in the SARS-CoV-2 receptor-binding domain that affect recognition by polyclonal human plasma antibodies",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Greaney",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Loes",
+                    "suffix": ""
+                },
+                {
+                    "first": "Khd",
+                    "middle": [],
+                    "last": "Crawford",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Starr",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Malone",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Chu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Cell Host Microbe",
+            "volume": "29",
+            "issn": "",
+            "pages": "463--476",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/j.chom.2021.02.003"
+                ]
+            }
+        },
+        "BIBREF58": {
+            "ref_id": "b58",
+            "title": "SARS-CoV-2 B.1.617.2 Delta variant emergence and vaccine breakthrough",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Mlcochova",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kemp",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Dhar",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Papa",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Meng",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mishra",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.21203/rs.3.rs-637724/v1"
+                ]
+            }
+        },
+        "BIBREF59": {
+            "ref_id": "b59",
+            "title": "Neutralization of variant under investigation B.1.617 with sera of BBV152 vaccinees",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Yadav",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Sapkal",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Abraham",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Ella",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Deshpande",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Patil",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Biorxiv",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2021.04.23.441101"
+                ]
+            }
+        },
+        "BIBREF60": {
+            "ref_id": "b60",
+            "title": "Increased Household Transmission of COVID-19 Cases-national case study.pdf",
+            "authors": [
+                {
+                    "first": "* H",
+                    "middle": [],
+                    "last": "Allen",
+                    "suffix": ""
+                },
+                {
+                    "first": "* A",
+                    "middle": [],
+                    "last": "Vusirikala",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Flannagan",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Twohig",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Zaidi",
+                    "suffix": ""
+                },
+                {
+                    "first": "C-U",
+                    "middle": [],
+                    "last": "Consortium",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF61": {
+            "ref_id": "b61",
+            "title": "Variants of Concern VOC Technical Briefing 15-2",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Public-Health-England",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF62": {
+            "ref_id": "b62",
+            "title": "Transmission of SARS-CoV-2 on mink farms between humans and mink and back to humans",
+            "authors": [
+                {
+                    "first": "Bbo",
+                    "middle": [],
+                    "last": "Munnink",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Sikkema",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Nieuwenhuijse",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Molenaar",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Munger",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Molenkamp",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Science",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.abe5901"
+                ]
+            }
+        },
+        "BIBREF63": {
+            "ref_id": "b63",
+            "title": "Modelling conformational state dynamics and its role on infection for SARS-CoV-2 Spike protein variants",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Teruel",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Mailhot",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Najmanovich",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Biorxiv",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.12.16.423118"
+                ]
+            }
+        },
+        "BIBREF64": {
+            "ref_id": "b64",
+            "title": "The SARS-CoV-2 Spike variant D614G favors an open conformational state",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Mansbach",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Chakraborty",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Nguyen",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Montefiori",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Korber",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Gnanakaran",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Sci Adv",
+            "volume": "7",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/sciadv.abf3671"
+                ]
+            }
+        },
+        "BIBREF65": {
+            "ref_id": "b65",
+            "title": "Structural impact on SARS-CoV-2 spike protein by D614G substitution",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Cai",
+                    "suffix": ""
+                },
+                {
+                    "first": "Xiao",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Lu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Peng",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Sterling",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Science",
+            "volume": "372",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.abf2303"
+                ]
+            }
+        },
+        "BIBREF66": {
+            "ref_id": "b66",
+            "title": "The effect of the D614G substitution on the structure of the spike glycoprotein of SARS-CoV-2",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Benton",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Wrobel",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Roustan",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Borg",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Xu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Martin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Proc National Acad Sci",
+            "volume": "118",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1073/pnas.2022586118"
+                ]
+            }
+        },
+        "BIBREF67": {
+            "ref_id": "b67",
+            "title": "Effect of natural mutations of SARS-CoV-2 on spike structure, conformation, and antigenicity",
+            "authors": [
+                {
+                    "first": "Sm-C",
+                    "middle": [],
+                    "last": "Gobeil",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Janowska",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mcdowell",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Mansouri",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Parks",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Stalls",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.abi6226"
+                ]
+            }
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "The differences between the \u0394S vib values for closed and open states, which we call Vibrational Difference Score (VDS), were calculated for each mutant (VDS = \u0394S vib (open) \u2212 \u0394S vib (closed) ) as a means to select mutations of interest. A positive VDS suggests that the mutation makes the open state less flexible and/or the closed state more flexible, favouring the open conformation relative to the WT. Conversely, a negative VDS suggests that the mutation favours the closed state more so than the WT. The computational cost of obtaining the VDS (modelling the mutation with FoldX on both states and computing \u0394S vib values for each with ENCoM) is approximately 20 CPU-minutes per mutant, making the total cost of these computations for the 17 081 mutants considered in this work around 0.65 CPU-year. Of the 20 CPU-minutes per mutant, around 2 minutes are spent on running FoldX and the rest on running ENCoM.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Two-state Markov chain of Spike protein conformations. https://doi.org/10.1371/journal.pcbi.1009286.g002",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "were modelled in the open and closed states. Dynamical Signatures were calculated for each mutant in both states and clustered (Fig 3) using the Euclidean distance between Dynamical Signature vectors as measure of dissimilarity. Mutations in positions that had no occupancy in the original templates used for the open and closed states (positions 5, 8, and 1263) were ignored.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Dynamical Signature clustering for the closed (A) and open (B) state structures for WT and 22 mutants from GISAID (S1",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "7 and 3.2 for closed and open state, respectively). The branches that comprehend most strains containing the D614G mutation are highlighted in red. https://doi.org/10.1371/journal.pcbi.1009286.g003",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "Effects of the D614G mutation on the Dynamical Signature of the closed (purple) and open B chain RBD (blue) structures, measured by the difference between the calculated b-factors of D614 and G614. Chains are represented in different colours and the position of the mutation is marked in yellow, using the same colours as for different regions of the structure as represented in the colours of the structures. https://doi.org/10.1371/journal.pcbi.1009286.g004",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "shows VDS values, highlighting positions and specific mutations with great contrast between their effect on the open and closed states. In this representation, blue mutants are more rigid in the closed state and more flexible in the open state, therefore candidates for less infectious mutants, and red mutants are more flexible when closed and more rigid when open, candidates for more infectious mutants. In Fig 7 we map VDS values (Fig 6B) on the structure of Spike, colored according to the median value for each position with the same color scheme as the heatmap. From the 17081 single mutations considered, we show the top 64 mutants with VDS>3.00x10 -1 J.K -1 (Tables 1 and S3) as well as the bottom 20 in terms of VDS values (S3",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": ". The Dynamical Signature comparison for 3 of those most infectious candidates (S3A Fig) and 3 of the least infectious candidates (S3B Fig) shows some of the patterns that could lead to a greater or lesser predicted effect on infectivity. For instance, in Figs 8 and S3A we can see that high scores can come from a large flexibility of the closed state, a very large rigidity of the open",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF8": {
+            "text": "Comparison between SARS-CoV-2 and SARS-CoV. Dynamical Signature difference of the closed (purple) and open B chain RBD (blue) between aligned residues of the Spike protein from SARS-CoV-2 and SARS-CoV, with SARS-CoV chains represented in the top bar and equivalent colors in the structures and SARS-CoV-2 chains represented in the bar just below. https://doi.org/10.1371/journal.pcbi.1009286.g005",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF9": {
+            "text": "Heatmaps representing the values of \u0394S vib for the closed structure (A, left-hand section) and for the open structure (A, right-hand section), and the values of VDS (B) for every possible mutant in Spike from positions 14 to 913. Each column represents one of the 20 amino acids (repeated in the left heatmap). Notice that for each position (represented in a row), one particular column represents the value of the WT amino acid found at that position. Higher values of \u0394S vib are represented in yellow and lower values in dark purple. Higher values of VDS are represented in red and lower values in blue. The domain structure of Spike is represented in (C) for reference purposes. https://doi.org/10.1371/journal.pcbi.1009286.g006 Fig 7. VDS values represented in the structure of Spike from two angles according to the median value for each position and the same color scheme as in the Difference ScoreHeatmap (Fig 6B).https://doi.org/10.1371/journal.pcbi.1009286.g007",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF10": {
+            "text": "Difference in the occupancies for the open and the closed states (open-closed) for six variants of the Spike protein. Experimental values are represented on the Y-axis and the predicted values in the scale on the X-axis. Predicted values for the parameters k = 0.5, \u03b3 = 0.001. Represented linear fit of Experimental = 192.011 \ufffd Predicted + 92.9013. Errors on the experimental measurements are not known. https://doi.org/10.1371/journal.pcbi.1009286.g008",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF11": {
+            "text": ", in blue) for comparison. In Fig 9A we show the difference in occupancy between the open and closed states using a non-linear scale adapted to better show the results around the wild type occupancy. Whereas VDS values for particular mutations may hint at a more flexible closed state and more rigid open state, this is a global measure that may not reflect the necessary pattern of flexibility across the structure that leads to effective transition probabilities between the open and closed states. Yet, for the most part, VDS can predict the shifts in occupancy, showing a clear distinction between the 64 mutants predicted using VDS as shifting occupancy towards the open state and the 20 mutants predicted to shift the equilibrium towards the closed state (p-value = 2.04x10 -6 ). Fig 9B shows the location in the structure of the mutants in",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF12": {
+            "text": "(A) Difference in the occupancies for the open and the closed states for the top 64 mutants with VDS>0.3 (red) and the 20 mutants with lower VDS (blue). Occupancy difference for the WT is represented by the dashed green line. Y-axis based on the transformation of a symmetric logarithmic scale. (B) Two",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF13": {
+            "text": "visualizations of the 6VYB structure highlighting the mutations. The bottom 20 mutant positions are marked in two shades of blue, with the darker shade indicating positions in which at least one mutant had an (open-closed) occupancy value smaller than wild type. The top 64 mutant positions are marked in two shades of red, with the darker shade indicating positions in which at least one mutant had an (open-closed) occupancy value higher than wild type. https://doi.org/10.1371/journal.pcbi.1009286.g009 Spike. Namely, B.1.1.7 contains N501Y, A570D, D614G, P681H, T716I, S982A, D1118H and deletions on positions 69, 70 and 144. As the number of normal modes is related to the number of amino acids, we are unable to model deletions while still making comparisons with the wild type strain given the nature of the quantities calculated (Eqs 2 and 6). Therefore, the deletions of three residues at positions 69,70 and 144 that are present in B.1.1.7 were not modelled here. 501.V2 includes the mutations L18F, D80A, D215G, R246I, K417N, E484K, N501Y, D614G, A701V. P.1 variant includes the mutations L18F, T20N, P26S, D138Y, R190S, K417T, E484K, N501Y, D614G, H655Y, T1027I. The Dynamical Signatures for B.1.1.7, 501.V2 as well as P.1 show a strong rigidification of the open state and added flexibility of the closed state (S5-S7 Figs respectively), leading to VDS values of 5.30x10 -1 J.K -1 , 6.45x10 -1 J.K -1 and 6.88x10 -1 J.K -1 and open state occupancies of 36.2%, 35.8% and 39.8% for B.1.1.7, 501.V2 and P.1 respectively.The three variants show an increase in occupancy of approximately 40% relative to the wild type (25.8%). Despite our preference of modelling the smallest possible number of mutations and therefore using the engineered structure containing the modified Furin clivage site and proline modification, we also modelled B.1.1.7 (except the deletions), 501.V2 and P.1 using the original sequence of Spike with a non-modified Furin clivage site. We obtain 33.0%, 33.6%, and 38.9% occupancy for B.1.1.7, 501.V2 and P.1 respectively.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF14": {
+            "text": "Fig. Dynamical Signature clustering between WT, 22 mutants observed in nature and 30 random mutants designed, both for the full structure (A) and only for the RBD (B). The grey arrow highlights the clusters containing most of the mutants that have the mutation D614G. (TIF) S2 Fig. Effects on the Dynamical Signatures of the mutation from D614 to each one of the other 18 possible residues. (TIF) S3 Fig. Dynamical Signature differences for three mutations among the top VDS (A)-K417E, G252M and G404Y -and bottom VDS values (B)-R355Y, F464L and I231P -for closed (purple) and open (blue) B chain RBD structures. Chains A, B and C are marked on the top in green, cyan and magenta, respectively, and the point mutations are marked in yellow. (TIF) S4 Fig. Simulated Pearson correlations between gaussian noise vectors of length 6 for the 110 iterations associated to each combination of the parameters k = [0.001, 0.005, 0.01, 0.05, 0.1, 0.5, 1, 5, 10, 50, 100] and \u03b3 = [0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000, 100000, 1000000]. (TIF) S5 Fig. Dynamical signature difference for the open (blue) and closed (purple) states relative to the wild type for the B.1.1.7 variant. (TIF) S6 Fig. Dynamical signature difference for the open (blue) and closed (purple) states relative to the wild type for the 501.V2 variant. (TIF) S7 Fig. Dynamical signature difference for the open (blue) and closed (purple) states relative to the wild type for the P.1 variant. (TIF) S1 Table. Amino acid mutations associated to 13741 sequences of the Spike protein available on May 08 in COVID-19 Viral Genome Analysis Pipeline, enabled by data from GISAID. (DOCX) S2 Table. Random mutants accumulating from one to four mutations. (DOCX) S3 Table. Putative mutations and associated VDS (\u0394S vib (open) \u2212 \u0394S vib (close) , in units of J.K -1 ) and predicted occupancies with open occupancies lower than for the wild type for the 64 mutants with FDS>0.3 and the 20 mutants with lowest FDS values. (DOCX)",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "PLOS Computational Biology | https://doi.org/10.1371/journal.pcbi.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "\u0394S vib values associated with mutations on the closed conformational state (left) and open conformational state (right). Lighter colors represent high \u0394S vib",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF3": {
+            "text": "Experimental and predicted occupancies for the open and closed states and their difference for multiple SARS-CoV-2 variants.Experimental values obtained from Gobeil et al.[30] and Xiong et al.[34].",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "RN is a Fonds de Recherche du Qu\u00e9bec-Sant\u00e9 (FRQ-S) Senior Fellow, a member of the R\u00e9seau Qu\u00e9b\u00e9cois de Recherche sur les M\u00e9dicaments (RQRM) and the Quebec Network for Research on Protein Function, Engineering and Applications (PROTEO). The authors would like to dedicate this work to the memory of Mordechai Najmanovich, Z\"L, father of RN, who passed away from complications due to COVID-19 on November 26, 2020. RN would like to thank all healthcare workers, particularly ICU nurses and physicians at the Avista Adventist Hospital in Louisville, Colorado, for their efforts.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Acknowledgments"
+        },
+        {
+            "text": "Conceptualization: Nat\u00e1lia Teruel, Olivier Mailhot, Rafael J. Najmanovich. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Author Contributions"
+        }
+    ]
+}

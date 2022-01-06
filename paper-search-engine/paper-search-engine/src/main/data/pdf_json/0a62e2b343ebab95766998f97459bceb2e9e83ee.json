@@ -1,0 +1,4108 @@
+{
+    "paper_id": "0a62e2b343ebab95766998f97459bceb2e9e83ee",
+    "metadata": {
+        "title": "SARS-CoV-2 spike opening dynamics and energetics reveal the individual roles of glycans and their collective impact",
+        "authors": [
+            {
+                "first": "Yui",
+                "middle": [],
+                "last": "Tik",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Georgia Institute of Technology",
+                    "location": {
+                        "postCode": "30332",
+                        "settlement": "Atlanta",
+                        "region": "GA"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Atanu",
+                "middle": [],
+                "last": "Acharya",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Georgia Institute of Technology",
+                    "location": {
+                        "postCode": "30332",
+                        "settlement": "Atlanta",
+                        "region": "GA"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Diane",
+                "middle": [
+                    "L"
+                ],
+                "last": "Lynch",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Georgia Institute of Technology",
+                    "location": {
+                        "postCode": "30332",
+                        "settlement": "Atlanta",
+                        "region": "GA"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Anna",
+                "middle": [],
+                "last": "Pavlova",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Georgia Institute of Technology",
+                    "location": {
+                        "postCode": "30332",
+                        "settlement": "Atlanta",
+                        "region": "GA"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "James",
+                "middle": [
+                    "C"
+                ],
+                "last": "Gumbart",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Georgia Institute of Technology",
+                    "location": {
+                        "postCode": "30332",
+                        "settlement": "Atlanta",
+                        "region": "GA"
+                    }
+                },
+                "email": "gumbart@physics.gatech.edu"
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "The trimeric spike (S) glycoprotein, which protrudes from the SARS-CoV-2 viral envelope, is responsible for binding to human ACE2 receptors. The binding process is initiated when the receptor binding domain (RBD) of at least one protomer switches from a \"down\" (closed) to an \"up\" (open) state. Here, we used molecular dynamics simulations and two-dimensional replica exchange umbrella sampling calculations to investigate the transition between the two S-protein conformations with and without glycosylation. We show that the glycosylated spike has a higher barrier to opening than the non-glycosylated one with comparable populations of the down and up states.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "In contrast, we observed that the up conformation is favored without glycans. Analysis of the S-protein opening pathway reveals that glycans at N165 and N122 interfere with hydrogen bonds between the RBD and the N-terminal domain in the up state. We also identify roles for glycans at N165 and N343 in stabilizing the down and up states.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Finally we estimate how epitope exposure for several known antibodies changes along the opening path. We find that the epitope of the BD-368-2 antibody remains exposed irrespective of the S-protein conformation, explaining the high efficacy of this antibody.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "The ongoing COVID-19 pandemic caused by the SARS-CoV-2 coronavirus quickly spread worldwide with unprecedented detrimental impact on global health and economies. 1 Although deployment is ongoing and not uniform worldwide, the rapid development of several vaccines 2 as well as monoclonal antibody treatments 3 have produced the first successful phase in mitigating the current viral outbreak. However, the emerging threat of variants 4, 5 and the possibility of future coronavirus outbreaks 6 necessitate a thorough understanding of the viral life cycle, including recognition, binding, and infection. SARS-CoV-2 infection is initiated by the recognition of, and binding to, the host-cell angiotensin-converting enzyme 2 (ACE2) receptor. 7, 8 This process is mediated by the SARS-CoV-2 spike (S) protein, a homotrimeric class I fusion glycoprotein that protrudes from the surface of the SARS-CoV-2 virion. Release of the S-protein sequence in early 2020, combined with earlier structural work on related betacoronaviruses, has led to the rapid determination of structures of solublized, pre-fusion stablized S-protein ectodomain constructs [9] [10] [11] [12] [13] [14] (Fig. 1) .",
+            "cite_spans": [
+                {
+                    "start": 162,
+                    "end": 163,
+                    "text": "1",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 308,
+                    "end": 309,
+                    "text": "3",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 434,
+                    "end": 436,
+                    "text": "4,",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 437,
+                    "end": 438,
+                    "text": "5",
+                    "ref_id": null
+                },
+                {
+                    "start": 738,
+                    "end": 740,
+                    "text": "7,",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 741,
+                    "end": 742,
+                    "text": "8",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 1140,
+                    "end": 1143,
+                    "text": "[9]",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 1144,
+                    "end": 1148,
+                    "text": "[10]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 1149,
+                    "end": 1153,
+                    "text": "[11]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 1154,
+                    "end": 1158,
+                    "text": "[12]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 1159,
+                    "end": 1163,
+                    "text": "[13]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 1164,
+                    "end": 1168,
+                    "text": "[14]",
+                    "ref_id": "BIBREF16"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1169,
+                    "end": 1177,
+                    "text": "(Fig. 1)",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Introduction"
+        },
+        {
+            "text": "Each protomer consists of the S1 and S2 subunits separated by a multibasic furin cleavage site. S1 contains the receptor binding domain (RBD) and mediates host cell recognition while S2 consists of the membrane fusion machinery necessary for viral entry. 7 The S-protein is a major antigenic target with multiple epitopes that are targeted by the human immune system, including the RBD and the N-terminal domain (NTD). 5, [15] [16] [17] Moreover, glycosylation of the S-protein aids in masking and shielding the virus from host immune system response. [18] [19] [20] The S-protein is characterized by down and up conformational states, which transiently interconvert via a hinge-like motion exposing the receptor binding motif (RBM), which is composed of RBD residues S438 to Q506. 21 The RBM is buried in the inter-protomer interface of the down S-protein; therefore, binding to ACE2 relies on the stochastic interconversion between the down and up states.",
+            "cite_spans": [
+                {
+                    "start": 255,
+                    "end": 256,
+                    "text": "7",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 419,
+                    "end": 421,
+                    "text": "5,",
+                    "ref_id": null
+                },
+                {
+                    "start": 422,
+                    "end": 426,
+                    "text": "[15]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 427,
+                    "end": 431,
+                    "text": "[16]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 432,
+                    "end": 436,
+                    "text": "[17]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 552,
+                    "end": 556,
+                    "text": "[18]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 557,
+                    "end": 561,
+                    "text": "[19]",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 562,
+                    "end": 566,
+                    "text": "[20]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 782,
+                    "end": 784,
+                    "text": "21",
+                    "ref_id": "BIBREF23"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Cryo-electron microscopy (cryo-EM) studies have revealed detailed structural information for both the up and down conformational states. 22 However, relatively few studies have up states, as well as for inter-residue interactions and details of binding to ACE2. 19, 20, [24] [25] [26] Opening pathways determined using steered MD and targeted MD have been reported. [26] [27] [28] More recently, extensive simulations using enhanced sampling techniques such as weighted ensemble 29 and fluctuation amplification of specific traits (FAST) adaptive sampling combined with Folding@home 30 have provided details of multiple pathways for the S-protein opening. Moreover, features of the energy landscape of these conformational transitions that are necessary for viral binding and entry are beginning to emerge. 27, 28, 31 A recent study by Amaro and coworkers has highlighted the functional role of glycans at N165 and N234 beyond shielding 24 based on separate equilibrium simulations of the Sprotein down and up states. When the RBD transitions to the up state, the glycan at N234 rotates into the resulting void, stablizing the up conformation. Moreover, MD simulations and mutagenesis have revealed contributions of the glycan at N343 to the dynamics of RBD opening and ACE2 binding. 29 These results suggested a role for the glycan at N343 in the opening conformational transition via \"lifting\" the RBD through sequential interactions with multiple RBD residues, referred to as \"glycan gating\".",
+            "cite_spans": [
+                {
+                    "start": 137,
+                    "end": 139,
+                    "text": "22",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 262,
+                    "end": 265,
+                    "text": "19,",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 266,
+                    "end": 269,
+                    "text": "20,",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 270,
+                    "end": 274,
+                    "text": "[24]",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 275,
+                    "end": 279,
+                    "text": "[25]",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 280,
+                    "end": 284,
+                    "text": "[26]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 366,
+                    "end": 370,
+                    "text": "[26]",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 371,
+                    "end": 375,
+                    "text": "[27]",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 376,
+                    "end": 380,
+                    "text": "[28]",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 479,
+                    "end": 481,
+                    "text": "29",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 807,
+                    "end": 810,
+                    "text": "27,",
+                    "ref_id": "BIBREF30"
+                },
+                {
+                    "start": 811,
+                    "end": 814,
+                    "text": "28,",
+                    "ref_id": "BIBREF31"
+                },
+                {
+                    "start": 815,
+                    "end": 817,
+                    "text": "31",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 1284,
+                    "end": 1286,
+                    "text": "29",
+                    "ref_id": "BIBREF32"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Here, we describe newly determined two-dimensional (2D) free-energy landscapes of the SARS-CoV-2 S-protein opening and closing transitions using replica exchange umbrella sampling (REUS) simulations for glycosylated as well as un-glycosylated S-protein. We highlight the impact of glycans on each state and on the kinetics of spike opening. Furthermore, we analyzed the exposure of prominent epitopes on the S-protein surface and provide a dynamic picture of antibody binding along the spike-opening path. Finally we report the results of equilibrium MD simulations of the glycosylated and un-glycosylated systems for the down as well as up conformational states in order to further characterize the stabilizing role of the glycans.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Using REUS simulations, we studied the free-energy change from the down state of spike to the up state when fully glycoslyated as well as when un-glycosylated. We modeled the wild-type (WT) up state based on the diproline mutant structure from Walls et al. 10 (PDB: 6VYB). The down-state was modeled using a more recent structure from Cai et al. 11 (PDB: 6XR8) without the diproline mutations. The glycan with highest population in the mass spectroscopy data from Crispin and coworkers 18 at each site was added using the GLYCAM Web server developed by the Woods group (http://glycam.org). 32, 33 Additional details of the system are provided in Methods.",
+            "cite_spans": [
+                {
+                    "start": 257,
+                    "end": 259,
+                    "text": "10",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 346,
+                    "end": 348,
+                    "text": "11",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 590,
+                    "end": 593,
+                    "text": "32,",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 594,
+                    "end": 596,
+                    "text": "33",
+                    "ref_id": "BIBREF36"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Glycans modulate the energetics and pathway of spike opening"
+        },
+        {
+            "text": "We first ran metadynamics simulations of the cryo-EM structures in the down and up states, allowing them to explore the conformational space between them. This space is (Fig. 1c,d) . The down and up states from the cryo-EM structures are located in the lower-left and upper-right regions, respectively. The black line shows the MEP for each system. (c) The free energies along the MEPs of both structures were extracted and plotted against the path parameter \u03bb, which goes from 0 (down-state energy minimum) to 1 (up-state energy minimum). For the glycosylated system, the conformations from the two cryo-EM structures emerged as energy minima on the 2D potential of mean force (PMF) as expected (Fig. 2a ). The energy difference between the two minima is small, with the up state possessing a slightly higher energy than the down state by 0.4 kcal/mol (Fig. 2c) . A recent study from Simmerling and coworkers also found the down state to be of a lower energy than the up state using US with a different set of collective variables. 31 It is worth noting that the up-state energy minimum is located at the corner of the conformational space explored, and the true minimum may be beyond the explored region. This suggests that the true energy-minimum up state may be more \"open\" than the cryo-EM structure, as also found by other computational studies. 29, 30 To compensate for the missing fractions of the energy wells, we fitted Gaussian distributions to the population distribution represented by those regions of the PMF ( Fig. S4 ; see the Supporting Information). With this expansion, we determined that the down and up state populations are 54% and 46%, respectively, consistent with the population distribution determined from cryo-EM structure classification. 10, 13 We also computed the minimum energy path (MEP) 34, 35 connecting the down and up states (Fig. 2a,c) . The path is mostly diagonal on the 2D PMF, with the exceptions of a sharp increase of \u03d5 while exiting the down-state energy well and a slight decrease of \u03d5 when entering the up-state energy well. The energy barrier separating the two stable conformations has a height of 7.4 kcal/mol and is located at d = 54.9 \u00c5.",
+            "cite_spans": [
+                {
+                    "start": 1033,
+                    "end": 1035,
+                    "text": "31",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 1352,
+                    "end": 1355,
+                    "text": "29,",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 1356,
+                    "end": 1358,
+                    "text": "30",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 1772,
+                    "end": 1774,
+                    "text": "13",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 1822,
+                    "end": 1825,
+                    "text": "34,",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 1826,
+                    "end": 1828,
+                    "text": "35",
+                    "ref_id": "BIBREF38"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 169,
+                    "end": 180,
+                    "text": "(Fig. 1c,d)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 696,
+                    "end": 704,
+                    "text": "(Fig. 2a",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 853,
+                    "end": 862,
+                    "text": "(Fig. 2c)",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 1526,
+                    "end": 1533,
+                    "text": "Fig. S4",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 1863,
+                    "end": 1874,
+                    "text": "(Fig. 2a,c)",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Glycans modulate the energetics and pathway of spike opening"
+        },
+        {
+            "text": "The PMF for the un-glycosylated system is significantly different from the glycosylated one ( Fig. 2b) . Without the glycans, the up state has a lower free energy than the down state by 2.2 kcal/mol. Notably, the energy minimum of the up state shifts towards the down state when glycans are excluded, with the center of the energy well moving from (d, \u03d5) = (72.5, -0.1) to (68.2, -2.6). The energy barrier between the two states is also shifted to d = 51.9 \u00c5, with its height lowered to 2.5 kcal/mol when measured from the down state.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 94,
+                    "end": 102,
+                    "text": "Fig. 2b)",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Glycans modulate the energetics and pathway of spike opening"
+        },
+        {
+            "text": "With a deeper and wider energy well for the up state, the equilibrium population shifts from a balanced distribution between two states to one that substantially favors the up state.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Glycans modulate the energetics and pathway of spike opening"
+        },
+        {
+            "text": "Comparing the volume of the fitted Gaussian distributions, 95% of the population will be in the up state and only 5% will be in the down state. This is in apparent contrast with other studies in which removing some glycans around the RBD individually (N234, N165, and N343) decreased ACE2 binding, suggesting that the down state becomes more favored. 24, 29 However, this may be altered further when all glycans are removed, as done here.",
+            "cite_spans": [
+                {
+                    "start": 351,
+                    "end": 354,
+                    "text": "24,",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 355,
+                    "end": 357,
+                    "text": "29",
+                    "ref_id": "BIBREF32"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Glycans modulate the energetics and pathway of spike opening"
+        },
+        {
+            "text": "To quantify the kinetics of S-protein opening, we first computed the mean first passage time (MFPT) along the MEP using the Smoluchowski diffusion equation for the glycosylated system. 36, 37 Additional constrained simulations were run to determine the diffusion coefficient along the MEP using the velocity autocorrelation function (VACF). 38, 39 The MFPT from the down state to the up state is 10.1 ms, while the reverse is 2.5 ms. Comparing with experimental observation by single-molecule FRET, 23 it appears that the MFPTs here are underestimated, possibly due to the fact that we did not account for the long timescale for glycans to equilibrate when computing the diffusion coefficient. For example, the glycan at N234 has to escape from the cavity under the RBD in the up-to-down transition. 24 We also approximated the MFPT for the un-glycosylated system. The reduced transition barrier in the PMF (Fig. 2c ) led to a concomitant reduction in the MFPT, which is 5 \u00b5s for the down-to-up transition and 305 \u00b5s for the up-to-down transition.",
+            "cite_spans": [
+                {
+                    "start": 185,
+                    "end": 188,
+                    "text": "36,",
+                    "ref_id": "BIBREF39"
+                },
+                {
+                    "start": 189,
+                    "end": 191,
+                    "text": "37",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 341,
+                    "end": 344,
+                    "text": "38,",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 345,
+                    "end": 347,
+                    "text": "39",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 800,
+                    "end": 802,
+                    "text": "24",
+                    "ref_id": "BIBREF26"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 907,
+                    "end": 915,
+                    "text": "(Fig. 2c",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Kinetics of opening and binding are altered by the removal of glycans"
+        },
+        {
+            "text": "Next, we considered the chemical dynamics according to the following paired reactions:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Kinetics of opening and binding are altered by the removal of glycans"
+        },
+        {
+            "text": "in which D represents the down state of the S-protein, U the up state, and U:ACE2 the bound state (Fig. 3) . The open/close rates (k open /k close ) are determined by the MFPTs and the binding/unbinding rates (k on /k off ) for S-protein to ACE2 are taken from Wrapp et al. 9 After solving the Master equation for these reactions ([ACE2] i = 50 nM), we find that for the glycosylated S-protein at equilibrium, the fraction of bound states is 40%, of up-but-unbound states is 12%, and of down states is 48%. For the un-glycosylated S-protein, the populations shift to 77% bound, 23% up-but-unbound, and 0% down (Fig. 3b-f ). However, removing glycans not only affects the up/down population, it also may affect the binding/unbinding rates k on and k off . Deep mutational scanning of the RBD found any mutation to N343, which eliminates the glycan bound at this position, is detrimental, with an inferred \u2206\u2206G of +0.35 to 2.03 kcal/mol. 40 Using our approximate open/close rates for the un-glycosylated S-protein but modifying the binding/unbinding rates according to the mutation data, we find that the bound-state population decreases to between 10% (\u2206\u2206G = 2.03 kcal/mol) and 65% (\u2206\u2206G = 0.35 kcal/mol). Thus, even though removing all glycans increases the population of the up state significantly in our calculations, an associated reduction in binding affinity could eliminate the otherwise expected gain in the ACE2-bound-state population. ",
+            "cite_spans": [
+                {
+                    "start": 261,
+                    "end": 275,
+                    "text": "Wrapp et al. 9",
+                    "ref_id": null
+                },
+                {
+                    "start": 935,
+                    "end": 937,
+                    "text": "40",
+                    "ref_id": "BIBREF43"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 98,
+                    "end": 106,
+                    "text": "(Fig. 3)",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 610,
+                    "end": 620,
+                    "text": "(Fig. 3b-f",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Kinetics of opening and binding are altered by the removal of glycans"
+        },
+        {
+            "text": "To better characterize the effects of glycans on the energetics of spike opening, we examined how the RBD interacts with the rest of the protein when glycans are present or absent in the REUS simulations. We calculated the number of hydrogen bonds between the opening RBD-A and the rest of the protein. We found that this number decreases generally as RBD-A opens up, with a slight but distinct increase in interactions after crossing the energy barrier ( Fig. 4a,b) , both with and without glycans. The general trend is explained by the fact that RBD-A moves away from the rest of the protein when it is fully open and consequently breaks contact with the rest of the trimeric S-protein, including neighboring RBDs and S2 domains. However, this movement is insufficient on its own to explain the more drastic decrease in the number of hydrogen bonds when glycans are present.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 456,
+                    "end": 466,
+                    "text": "Fig. 4a,b)",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Glycans interfere with hydrogen bonds that stabilize the up-state RBD"
+        },
+        {
+            "text": "We further analyzed the MEP to answer two non-trivial questions, (1) why the number of hydrogen bonds increases after crossing the barrier during opening and (2) that when the spike opens widely, the glycans at N165 and N122 intercalate between RBD-A and NTD-B, disrupting the hydrogen bonds between them (Fig. 4e ). This observation is further supported by contact analysis, which shows that the number of contacts between the glycans at N122 and N165 and the \u03b2-sheets of NTD-B and RBD-A increases steadily as RBD-A approaches the up state (Fig. S5) . Therefore, the up state is more stable, and hence more populated, without glycans as seen in the PMFs.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 305,
+                    "end": 313,
+                    "text": "(Fig. 4e",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 541,
+                    "end": 550,
+                    "text": "(Fig. S5)",
+                    "ref_id": "FIGREF7"
+                }
+            ],
+            "section": "Glycans interfere with hydrogen bonds that stabilize the up-state RBD"
+        },
+        {
+            "text": "We also applied the hydrogen bond analysis to elucidate the difference between the free energy landscapes from the REUS simulations with and without glycans. We plotted the average number of hydrogen bonds between the opening RBD-A and its neighboring NTD-B as a function of the two collective variables, d and \u03d5, which shows that the increase in interactions between RBD-A and NTD-B is not limited to states along the MEP but also includes a large region on the +d-side of the energy barrier (Fig. 4c) . As RBD-A moves away from NTD-B, it also gets closer to neighboring RBD-C, forming hydrogen bonds with it when \u03d5 is large (Fig. 4d) . The shift from RBD-A forming hydrogen bonds with RBD-C to forming them with NTD-B can, at least in part, provide an explanation for the \u223c8 kcal/mol energy barrier as well as the bump in ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 493,
+                    "end": 502,
+                    "text": "(Fig. 4c)",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 626,
+                    "end": 635,
+                    "text": "(Fig. 4d)",
+                    "ref_id": "FIGREF4"
+                }
+            ],
+            "section": "Glycans interfere with hydrogen bonds that stabilize the up-state RBD"
+        },
+        {
+            "text": "In order to assess the long-timescale dynamics of the glycans, we performed two 2-\u00b5s equilibrium simulations of both the glycosylated and un-glycosylated systems. When projected onto the two collective variables used in REUS, all three protomers in the down state for both replicas remained in the down conformation, both with and without glycans (Fig. S3a) .",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 347,
+                    "end": 357,
+                    "text": "(Fig. S3a)",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Distinct glycan contacts with RBD-A stabilize both the up and down states"
+        },
+        {
+            "text": "However, the up protomer in the up state behaves differently with and without glycans.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Distinct glycan contacts with RBD-A stabilize both the up and down states"
+        },
+        {
+            "text": "Specifically, RBD-A in replica #2 in the presence of glycans transitioned from the initial up conformation towards the down conformation, stopping at the +d-side of the barrier (Fig. S3b, yellow points) , reiterating the higher stability of the up state in the abscence of glycans as determined from the REUS simualtions.",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 177,
+                    "end": 202,
+                    "text": "(Fig. S3b, yellow points)",
+                    "ref_id": "FIGREF3"
+                }
+            ],
+            "section": "Distinct glycan contacts with RBD-A stabilize both the up and down states"
+        },
+        {
+            "text": "We also analyzed the interactions of glycans around RBD-A, namely those at N165, N234, and N343 of the neighboring chain B, using the equilibrium simulations as well as the REUS trajectories along the MEP. Recently, Amaro and coworkers conducted all-atom MD simulations and mutation experiments to study the individual roles of the above glycans on Our simulations also reveal roles for the glycans at N165 and N343 in stabilizing both the up and down states. Specifically, when RBD-A is in the down state, glycans at N165 and N343 wrap around the RBM (Fig. 5a) , keeping it in the down state. A similar interaction was observed in another study when a glycan at N370 was artificially introduced; it wrapped around the down-state RBD like a \"shoelace\". 20 Remarkably, the glycan at N165 also stabilizes the up-state RBD by supporting part of the exposed RBM (Fig. 5b) . The inter-glycan contact between glycans at N343 and N165 is significantly higher in the up state compared to the down state (Fig. S10) , suggesting that the glycan at N343 indirectly stabilizes the open state by interacting with the glycan at N165 (Fig. 5b) . The two glycans also prevent the flexible RBM from attaching to the neighboring down-state RBD and becoming inaccessible to ACE2, as observed in one of our equilibrium simulations of the un-glycosylated system (Fig. S2) .",
+            "cite_spans": [
+                {
+                    "start": 753,
+                    "end": 755,
+                    "text": "20",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 552,
+                    "end": 561,
+                    "text": "(Fig. 5a)",
+                    "ref_id": "FIGREF7"
+                },
+                {
+                    "start": 858,
+                    "end": 867,
+                    "text": "(Fig. 5b)",
+                    "ref_id": "FIGREF7"
+                },
+                {
+                    "start": 995,
+                    "end": 1005,
+                    "text": "(Fig. S10)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 1119,
+                    "end": 1128,
+                    "text": "(Fig. 5b)",
+                    "ref_id": "FIGREF7"
+                },
+                {
+                    "start": 1341,
+                    "end": 1350,
+                    "text": "(Fig. S2)",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Distinct glycan contacts with RBD-A stabilize both the up and down states"
+        },
+        {
+            "text": "The above observations are confirmed by the contact analysis on the REUS trajectories along the MEP. The glycans at N165 and N343 both interact with the RBM in the down state as illustrated by the average contact values between RBD-A and glycans at N165 and N343 ( Figure S8, S9) . As the spike opens, the glycan at N165 switches to interact with RBD-A residues below the RBM, while the glycan at N343 barely contacts RBD-A after the system crosses the activation barrier of opening (Fig. 5c) retains the WT K986/V987 sequence, rather than the double proline mutations commonly made in the production of stabilized pre-fusion spike proteins; they report a shifting inwards (and, thus, tighter packing) of the S1 subunits when compared to the earlier solubilized ectodomain structures. 11 In fact, the loss of a putative salt bridge between K986 and an aspartic acid (D427/D428) on an adjacent protomer has been implicated in producing the less tightly packed structures seen in the solubilized mutant constructs. 11 In our equilibrium simulations this salt bridge has an \u223c30% occupancy, averaged over all three protomers in the two independent trajectories. Reduction in the aforementioned salt bridge occupancy originates from competing with intra-protomer salt bridges between K986 and nearby acidic residues E748, E990, and D985, present in the \u223c15-25% range, suggesting transient interaction between K986 and the RBD aspartic acids (D427/D428). These competing interactions are illustrated in Fig. S11 .",
+            "cite_spans": [
+                {
+                    "start": 785,
+                    "end": 787,
+                    "text": "11",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 1013,
+                    "end": 1015,
+                    "text": "11",
+                    "ref_id": "BIBREF13"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 265,
+                    "end": 279,
+                    "text": "Figure S8, S9)",
+                    "ref_id": null
+                },
+                {
+                    "start": 483,
+                    "end": 492,
+                    "text": "(Fig. 5c)",
+                    "ref_id": "FIGREF7"
+                },
+                {
+                    "start": 1497,
+                    "end": 1505,
+                    "text": "Fig. S11",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Distinct glycan contacts with RBD-A stabilize both the up and down states"
+        },
+        {
+            "text": "We repeated the REUS simulation with the diproline mutation for the un-glycosylated system. The resulting PMF has very similar features as compared to the WT one, with the up state having a higher energy than the down state and an energy barrier near the down state (Fig. S12) . Along with the transient nature of the K986/D427 salt bridge, the similarity of this PMF with WT ( Fig. 2) suggest that while the electrostatic interaction between the S2 subdomain and the RBD of the up protomer may have modulatory effects on S-protein dynamics, the major impact of the proline mutations is likely to be their tendency to break and distort \u03b1-helices. The HR1-CH turn region undergoes a large conformational change upon the transition from the pre-to post-fusion states, forming an extended \u03b1-helix. 11 The presence of the prolines, residues known to break/kink \u03b1-helices, inhibits the formation of the long \u03b1-helix characteristic of the post-fusion conformation. 42 In fact, Gobeil et al. 12 report that for the S-protein construct with the furin site removed, the presence of the prolines produces structures, ACE2 binding, thermal stability, and antibody binding that are remarkably similar to the WT K986/V987 pair. Of note, recent simulations by Wang et al. 43 exploring the transition from the pre-to post-fusion states have shown that while the WT sequence at 986/987 has a tendency to become helical, replacement with prolines disrupts the formation of this secondary structure.",
+            "cite_spans": [
+                {
+                    "start": 795,
+                    "end": 797,
+                    "text": "11",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 959,
+                    "end": 961,
+                    "text": "42",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 971,
+                    "end": 987,
+                    "text": "Gobeil et al. 12",
+                    "ref_id": null
+                },
+                {
+                    "start": 1258,
+                    "end": 1260,
+                    "text": "43",
+                    "ref_id": "BIBREF46"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 266,
+                    "end": 276,
+                    "text": "(Fig. S12)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 378,
+                    "end": 385,
+                    "text": "Fig. 2)",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Distinct glycan contacts with RBD-A stabilize both the up and down states"
+        },
+        {
+            "text": "In the last year, more than one thousand neutralising antibodies targeting the SARS-CoV-although some target the NTD and other non-RBD epitopes. 46 According to the continuously updated CoV-AbDab database, 47 a total of 1069 (and growing) neutralizing antibodies target the S-protein, while only 132 target non-RBD epitopes. One advantage of targeting non-RBD epitopes on the S-protein is that they can be recognized even when the RBD is in a down conformation. 19, 48 In contrast, the RBD can only be identified in the up conformation owing to the strong glycan coverage of RBD in the down conformation. 24 Figure 6 : Epitope analysis for selected antibodies. (a) Exposed area on antibody epitopes (AbASA) in the presence of protein and glycans. (b) Surface area of epitopes covered by glycans along the MEP quantified by subtracting the two AbASA values calculated with and without glycans. All accessible surface area calculations were performed using a 7 \u00c5 probe.",
+            "cite_spans": [
+                {
+                    "start": 145,
+                    "end": 147,
+                    "text": "46",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 462,
+                    "end": 465,
+                    "text": "19,",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 466,
+                    "end": 468,
+                    "text": "48",
+                    "ref_id": "BIBREF52"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 608,
+                    "end": 616,
+                    "text": "Figure 6",
+                    "ref_id": null
+                }
+            ],
+            "section": "Glycans differentially impact epitope exposure"
+        },
+        {
+            "text": "To understand the effect of spike-opening dynamics on epitope exposure, we calculated the accessible surface area of a number of epitopes along the MEP identified from REUS. We selected seven different antibodies 16, 17, [49] [50] [51] [52] [53] with epitopes spanning multiple regions on RBD-A (including cryptic epitopes) and the NTD-B of the S-protein. Details of these antibodies are provided in the Supporting Information. We performed separate antibody accessible surface area (AbASA) calculations including and excluding the glycans using the same sampling approach with a 7-\u00c5 probe. A similar probe size 19 as well as a smaller one 30 were used in previous studies. While this moderate (7-\u00c5) probe size may make some crevices appear slightly exposed, 19 it is optimal for cryptic epitopes. 30 In general, the AbASA either remains the same or increases significantly when RBD-A transitions to the up state. The epitope of the STE90-C11 52 antibody has a jump in AbASA during the closed-to-open transition. The CR3022 antibody binds to a cryptic epitope, 50 which is completely covered in the down state and is only slightly exposed in the up state. Remarkably, the AbASA of the 2-4 antibody does not change during the down-to-up transition of the RBD, in spite of the epitope being located in the RBM (Fig.   6a ). Therefore, we conclude that the entire RBM does not become exposed even in the up state. The AbASA for the epitope of the 4A8 antibody does not change significantly during spike opening since its epitope is located in the N-terminus, 17 54 Surprisingly, the epitope of the S309 antibody 51 becomes less exposed in the open state without an increase in coverage by the glycans (Fig. 6b) , indicating that a part of the RBD (Table S2 ) also become less exposed in the up state compared to the down state.",
+            "cite_spans": [
+                {
+                    "start": 213,
+                    "end": 216,
+                    "text": "16,",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 217,
+                    "end": 220,
+                    "text": "17,",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 221,
+                    "end": 225,
+                    "text": "[49]",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 226,
+                    "end": 230,
+                    "text": "[50]",
+                    "ref_id": "BIBREF54"
+                },
+                {
+                    "start": 231,
+                    "end": 235,
+                    "text": "[51]",
+                    "ref_id": "BIBREF55"
+                },
+                {
+                    "start": 236,
+                    "end": 240,
+                    "text": "[52]",
+                    "ref_id": "BIBREF56"
+                },
+                {
+                    "start": 241,
+                    "end": 245,
+                    "text": "[53]",
+                    "ref_id": "BIBREF57"
+                },
+                {
+                    "start": 759,
+                    "end": 761,
+                    "text": "19",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 798,
+                    "end": 800,
+                    "text": "30",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 1556,
+                    "end": 1558,
+                    "text": "17",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 1559,
+                    "end": 1561,
+                    "text": "54",
+                    "ref_id": "BIBREF58"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1308,
+                    "end": 1318,
+                    "text": "(Fig.   6a",
+                    "ref_id": null
+                },
+                {
+                    "start": 1698,
+                    "end": 1707,
+                    "text": "(Fig. 6b)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1744,
+                    "end": 1753,
+                    "text": "(Table S2",
+                    "ref_id": null
+                }
+            ],
+            "section": "Glycans differentially impact epitope exposure"
+        },
+        {
+            "text": "inter-converts between up and down states with only the up state allowing for ACE2 binding.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "SARS-CoV-2 infection is initiated when an ACE2 receptor binds to the S-protein, which"
+        },
+        {
+            "text": "Consequently, the energetics of the inter-conversion control the initiation of infection. To this end, we computed a two-dimensional energy landscape of the SARS-CoV-2 S-protein updown inter-conversion. Using multiple REUS calculations, we elucidate the collective roles of S-protein glycans in its opening dynamics. Our results indicate that the free-energy barrier of spike opening is \u223c2 kcal/mol higher in the presence of glycans compared to the fully unglycosylated spike. While the up and down populations are approximately balanced in the presence of the glycans, the up state of the S-protein becomes almost exclusively populated without glycans. One may assume more up-state S-proteins would present a higher chance of binding ACE2 receptors and hence increase its viral fitness. However, there are a few opposing effects of having more up-state S-proteins as indicated by a prior study 24 and reaffirmed by our analysis. The RBD in the down state is heavily shielded by glycans, 19, 24 while in the up state, it is more exposed to neutralizing antibodies (Fig. 6a) . Furthermore, ACE2 binding strongly depends on the binding affinity between ACE2 and the S-protein, which may involve interactions with glycans as well as protein. Therefore, a high up-state population does not necessarily reflect a high ACE2-bound-state population.",
+            "cite_spans": [
+                {
+                    "start": 988,
+                    "end": 991,
+                    "text": "19,",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 992,
+                    "end": 994,
+                    "text": "24",
+                    "ref_id": "BIBREF26"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1064,
+                    "end": 1073,
+                    "text": "(Fig. 6a)",
+                    "ref_id": null
+                }
+            ],
+            "section": "SARS-CoV-2 infection is initiated when an ACE2 receptor binds to the S-protein, which"
+        },
+        {
+            "text": "The epitopes of antibodies on the spike can be protected either by protein residues or by glycans, and the coverage provided by each changes in an epitope-dependent manner along the spike opening path. The STE90-C11 antibody has the greatest epitope exposure when the RBD is open, while the BD-368-2 antibody has an epitope that is always significantly exposed, irrespective of the RBD's position. Additionally, the exposure of the BD-368-2 epitope is very similar to the epitope of STE90-C11 in the up state. Therefore, these two antibodies show very high efficiency in neutralizing SARS-CoV-2 S-protein, both with subnanomolar IC 50 values. 49, 52 The CR3022 antibody binds to a cryptic epitope; consequently, its AbASA is smaller compared to other epitopes. However, the lack of exposed surface area, even in the up state, is compensated for by strong electrostatic interactions at the epitope-CR3022 interface. 55 We analyzed interactions of individual glycans with different domains of the S-protein using the two MEPs obtained, one with and one without glycans. The glycans at N122 and N165 disrupt the hydrogen bonds between the opening RBD-A and the neighboring NTD-B, destabilizing the up state and hence pushing the equilibrium population towards the down state when compared to the un-glycosylated system. The glycans at N165 and N343 also stabilize the RBD-A down state by wrapping around the RBM. Conversely, the glycan at N343 serves as the so-called \"glycan gate\" propping up the RBM, 29 while the glycan at N165 helps by supporting the up-state RBD-A with the aid of the glycan at N343. Consequently, these two glycans stabilize both down and up states, creating a local minimum for each.",
+            "cite_spans": [
+                {
+                    "start": 643,
+                    "end": 646,
+                    "text": "49,",
+                    "ref_id": "BIBREF53"
+                },
+                {
+                    "start": 647,
+                    "end": 649,
+                    "text": "52",
+                    "ref_id": "BIBREF56"
+                },
+                {
+                    "start": 915,
+                    "end": 917,
+                    "text": "55",
+                    "ref_id": "BIBREF59"
+                },
+                {
+                    "start": 1500,
+                    "end": 1502,
+                    "text": "29",
+                    "ref_id": "BIBREF32"
+                }
+            ],
+            "ref_spans": [],
+            "section": "SARS-CoV-2 infection is initiated when an ACE2 receptor binds to the S-protein, which"
+        },
+        {
+            "text": "The complicated role of the glycan at N165 may explain conflicting experimental results regarding whether the N165A mutation increases or decreases spike binding. 24, 56 In closing, we calculated the energetics along the spike-opening path for SARS-CoV-2 S-protein with atomic-level insight into the roles of glycans in the opening process. Furthermore, we highlighted how changes in energetics impact the kinetics of ACE2 binding and epitope exposure. These findings, especially the conformations along the spike-opening path, will facilitate the design of effective nanobodies and antibodies to fight the ongoing COVID-19 crisis. This latter region is adjacent to a critical lysine (K854) that provides a salt bridge partner for D614. The loss of this salt bridge has been implicated in the increased infectivity of the currently predominant D614G SARS-CoV-2 strains. Furthermore, Cai et al. 11 also resolved two disulfide bonds that were previously missing, one in the N-terminal (C15-C136) and",
+            "cite_spans": [
+                {
+                    "start": 163,
+                    "end": 166,
+                    "text": "24,",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 167,
+                    "end": 169,
+                    "text": "56",
+                    "ref_id": "BIBREF60"
+                },
+                {
+                    "start": 894,
+                    "end": 896,
+                    "text": "11",
+                    "ref_id": "BIBREF13"
+                }
+            ],
+            "ref_spans": [],
+            "section": "SARS-CoV-2 infection is initiated when an ACE2 receptor binds to the S-protein, which"
+        },
+        {
+            "text": "another in the central helix/loop region (C840-C851). In our model, the missing residues in the down-state structures were added with SWISS model 57 using the 6XR8 structure as a template. The model was cleaved at the furin cleavage site between residues R685 and S686. The S1 part, which contains the RBD and NTD, is more closely packed in the 6XR8 structure compared to the 6VXX, and the S2 part, which contains the HR1 and CH, is aligned between them. 11 The S1 and S2 part of our model include residues N14-R685 and S686-S1147, respectively. Ten disulfide linkages are added in the S1 part between residues C15-C136, C131-C166, C291-C301, C336-C361, C379-C432, C391-C525, C480-C488, C538- ",
+            "cite_spans": [
+                {
+                    "start": 455,
+                    "end": 457,
+                    "text": "11",
+                    "ref_id": "BIBREF13"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Model building"
+        },
+        {
+            "text": "All simulations were performed using NAMD 2.14 58,59 with the CHARMM36m protein force field, 60 CHARMM36 glycan force field, 61 and TIP3P water. 62 Each system was equilibrated for 5 ns with the temperature and pressure fixed at 310 K and 1 atm, respectively, using Langevin dynamics and piston, 63 respectively. A 2-fs time step was used, with long-range electrostatics calculated every other time step using the particle-mesh Ewald method. 64 A short-range cutoff for Lennard-Jones interactions was set at 12 \u00c5, with a switching function beginning at 10 \u00c5. Bonds involving hydrogen atoms were constrained to their equilibrium length, employing the SETTLE algorithm for water molecules and the SHAKE algorithm for all others.",
+            "cite_spans": [
+                {
+                    "start": 145,
+                    "end": 147,
+                    "text": "62",
+                    "ref_id": "BIBREF66"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Molecular dynamics (MD) simulations"
+        },
+        {
+            "text": "We also ran metadynamics, simulated annealing and REUS simulations. Additional details are provided in the Supporting Information. Details of modeling steps, glycosylation, collective-variables, definitions of epitopes, additional analysis, and two movies are provided in the SI",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Molecular dynamics (MD) simulations"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Characteristics of SARS-CoV-2 and COVID-19",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Guo",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z.-L",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "SARS-CoV-2 Vaccine Development: An Overview and Perspectives",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Massoud",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Paulmurugan",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "ACS Pharmacol. Transl. Sci",
+            "volume": "2020",
+            "issn": "",
+            "pages": "844--858",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Neutralizing monoclonal antibodies for treatment of COVID-19",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Taylor",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Adams",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Hufford",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "De La Torre",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Winthrop",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Gottlieb",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Nat. Rev. Immunol",
+            "volume": "21",
+            "issn": "",
+            "pages": "382--393",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "The Impact of Mutations in SARS-CoV-2 Spike on Viral Infectivity and Antigenicity",
+            "authors": [
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "182",
+            "issn": "",
+            "pages": "1284--1294",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "SARS-CoV-2 variants, spike mutations and immune escape",
+            "authors": [],
+            "year": 2021,
+            "venue": "Nat. Rev. Microbiol",
+            "volume": "19",
+            "issn": "",
+            "pages": "409--424",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Bats in ecosystems and their Wide spectrum of viral infectious potential threats: SARS-CoV-2 and other emerging viruses",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Garcia",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Delgado-Noguera",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Sierra",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Muoz-Lara",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Zambrano",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Rodriguez-Morales",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Int. J. Infect. Dis",
+            "volume": "102",
+            "issn": "",
+            "pages": "87--96",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "SARS-CoV-2 Cell Entry Depends on ACE2 and TMPRSS2 and Is Blocked by a Clinically Proven Protease Inhibitor",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Hoffmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Kleine-Weber",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Schroeder",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Krger",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Herrler",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Erichsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Schiergens",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Herrler",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Nitsche",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Mller",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Drosten",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Phlmann",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "181",
+            "issn": "",
+            "pages": "271--280",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Structural and Functional Basis of SARS-CoV-2 Entry by Using Human ACE2",
+            "authors": [
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Niu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Lu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Qiao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Hu",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Yuen",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Yan",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Qi",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Cell",
+            "volume": "2020",
+            "issn": "",
+            "pages": "894--904",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Cryo-EM structure of the 2019-nCoV spike in the prefusion conformation",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Wrapp",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Corbett",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Goldsmith",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Hsieh",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Abiona",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Graham",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Mclellan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Science",
+            "volume": "367",
+            "issn": "",
+            "pages": "1260--1263",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Veesler, D. Structure, Function, and Antigenicity of the SARS-CoV-2 Spike Glycoprotein",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Walls",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Park",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Tortorici",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Wall",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Mcguire",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "181",
+            "issn": "",
+            "pages": "281--292",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Distinct conformational states of SARS-CoV-2 spike protein",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Cai",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Xiao",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Peng",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Sterling",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Walsh",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Rawson",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Rits-Volloch",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "369",
+            "issn": "",
+            "pages": "1586--1592",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Acharya, P. D614G mutation alters SARS-CoV-2 spike conformational dynamics and protease cleavage susceptibility at the S1/S2 junction",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Gobeil",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Janowska",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mcdowell",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Mansouri",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Parks",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Manne",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Stalls",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kopp",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Henderson",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Edwards",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Haynes",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.10.11.335299"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Structural and Functional Analysis of the D614G SARS-CoV-2 Spike Protein Variant",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Yurkovetskiy",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "183",
+            "issn": "",
+            "pages": "739--751",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Structures and distributions of SARS-CoV-2 spike proteins on intact virions",
+            "authors": [
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Ke",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature",
+            "volume": "588",
+            "issn": "",
+            "pages": "498--502",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Potent SARS-CoV-2 neutralizing antibodies directed against spike N-terminal domain target a single supersite",
+            "authors": [
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Cerutti",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Cell Host Microbe",
+            "volume": "29",
+            "issn": "",
+            "pages": "819--833",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Potent neutralizing antibodies against multiple epitopes on SARS-CoV-2 spike",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature",
+            "volume": "584",
+            "issn": "",
+            "pages": "450--456",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "A neutralizing human antibody binds to the N-terminal domain of the Spike protein of SARS-CoV-2",
+            "authors": [
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Chi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Science",
+            "volume": "369",
+            "issn": "",
+            "pages": "650--655",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Crispin, M. Vulnerabilities in coronavirus glycan shields despite extensive glycosylation. Nat. Commun",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Watanabe",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Berndsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Raghwani",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Seabright",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Allen",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Pybus",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Mclellan",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Wilson",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Bowden",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Ward",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Analysis of the SARS-CoV-2 spike protein glycan shield reveals implications for immune recognition",
+            "authors": [
+                {
+                    "first": "O",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Grant",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Montgomery",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Ito",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Woods",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Sci. Rep",
+            "volume": "10",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Fine-tuning the Spike: Role of the nature and topology of the glycan shield structure and dynamics of SARS-CoV-2 S. bioRxiv 2021",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Harbison",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Fogarty",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Phung",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Satheesan",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Schulz",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Fadda",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2021.04.01.438036"
+                ]
+            }
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "Structure of the SARS-CoV-2 spike receptor-binding domain bound to the ACE2 receptor",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Lan",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ge",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Yu",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Shan",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Fan",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Nature",
+            "volume": "2020",
+            "issn": "",
+            "pages": "215--220",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "The SARS-CoV-2 spike protein: balancing stability and infectivity",
+            "authors": [
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Berger",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Schaffitzel",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell Res",
+            "volume": "30",
+            "issn": "",
+            "pages": "1059--1060",
+            "other_ids": {}
+        },
+        "BIBREF25": {
+            "ref_id": "b25",
+            "title": "Real-Time Conformational Dynamics of SARS-CoV-2 Spikes on Virus Particles",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Lu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell Host Microbe",
+            "volume": "28",
+            "issn": "",
+            "pages": "880--891",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Beyond Shielding: The Roles of Glycans in the SARS-CoV-2 Spike Protein",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Casalino",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Gaieb",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Goldsmith",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Hjorth",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Dommer",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Harbison",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Fogarty",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Barros",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Taylor",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Mclellan",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Fadda",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Amaro",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "ACS Cent. Sci",
+            "volume": "6",
+            "issn": "",
+            "pages": "1722--1734",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "Dynamics, Receptor Binding, and Antibody Binding of the Fully Glycosylated Full-Length SARS-CoV-2 Spike Protein in a Viral Membrane",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Choi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Cao",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Frank",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Woo",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Park",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Yeom",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Croll",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Seok",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Im",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "Elucidation of interactions regulating conformational stability and dynamics of SARS-CoV-2 Sprotein",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Mori",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Jung",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Kobayashi",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Dokainish",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Re",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Sugita",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Biophys. J",
+            "volume": "120",
+            "issn": "",
+            "pages": "1060--1071",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Conformational transition of SARS-CoV-2 spike glycoprotein between its closed and open states",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Gur",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Taka",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "Z"
+                    ],
+                    "last": "Yilmaz",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Kilinc",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Aktas",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Golcuk",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J. Chem. Phys",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF31": {
+            "ref_id": "b31",
+            "title": "Differential Dynamic Behavior of Prefusion Spike Proteins of SARS Coronaviruses 1 and 2",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Kumar",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Ogden",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Isu",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Polasa",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Losey",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Moradi",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.12.25.424008"
+                ]
+            }
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "A glycan gate controls opening of the SARS-CoV-2 spike protein",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Sztain",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Ahn",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Bogetti",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Casalino",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Goldsmith",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Mccool",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Kearns",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Mccammon",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Mclellan",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Chong",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Amaro",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2021.02.15.431212"
+                ]
+            }
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "SARS-CoV-2 simulations go exascale to predict dramatic spike opening and cryptic pockets across the proteome",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Zimmerman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Nat. Chem",
+            "volume": "13",
+            "issn": "",
+            "pages": "651--659",
+            "other_ids": {}
+        },
+        "BIBREF34": {
+            "ref_id": "b34",
+            "title": "Free Energy Landscapes from SARS-CoV-2 Spike Glycoprotein Simulations Suggest that RBD Opening Can Be Modulated via Interactions in an Allosteric Pocket",
+            "authors": [
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Fallon",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "A A"
+                    ],
+                    "last": "Belfon",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Raguette",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Stepanenko",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Cuomo",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Guerra",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Budhan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Varghese",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Corbo",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Rizzo",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Simmerling",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "J. Am. Chem. Soc",
+            "volume": "143",
+            "issn": "",
+            "pages": "11349--11360",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "3D implementation of the symbol nomenclature for graphical representation of glycans",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Thieker",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Hadden",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Schulten",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Woods",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Glycobiology",
+            "volume": "26",
+            "issn": "",
+            "pages": "786--787",
+            "other_ids": {}
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "Symbol Nomenclature for Graphical Representations of Glycans",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Varki",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Glycobiology",
+            "volume": "25",
+            "issn": "",
+            "pages": "1323--1324",
+            "other_ids": {}
+        },
+        "BIBREF37": {
+            "ref_id": "b37",
+            "title": "A recipe for the computation of the free energy barrier and the lowest free energy path of concerted reactions",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Ensing",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Laio",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Parrinello",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Klein",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "J. Phys. Chem. B",
+            "volume": "109",
+            "issn": "",
+            "pages": "6676--6687",
+            "other_ids": {}
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Conformations and free energy landscapes of polyproline peptides",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Moradi",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Babin",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Roland",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Darden",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Sagui",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "Proc. Natl. Acad. Sci. U. S. A",
+            "volume": "106",
+            "issn": "",
+            "pages": "20746--20751",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "\u00dcber Brownsche Molekularbewegung unter Einwirkung \u00e4u\u00dferer Kr\u00e4fte und deren Zusammenhang mit der verallgemeinerten Diffusionsgleichung",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "V"
+                    ],
+                    "last": "Smoluchowski",
+                    "suffix": ""
+                }
+            ],
+            "year": 1916,
+            "venue": "Ann. Phys",
+            "volume": "353",
+            "issn": "",
+            "pages": "1103--1112",
+            "other_ids": {}
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Effective Riemannian Diffusion Model for Conformational Dynamics of Biomolecular Systems",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Fakharzadeh",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Moradi",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "J Phys Chem Lett",
+            "volume": "7",
+            "issn": "",
+            "pages": "4980--4987",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Molecular dynamics simulation of the gramicidin channel in a phospholipid bilayer",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Woolf",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Roux",
+                    "suffix": ""
+                }
+            ],
+            "year": 1994,
+            "venue": "Proc. Natl. Acad. Sci. U. S. A",
+            "volume": "91",
+            "issn": "",
+            "pages": "11631--11635",
+            "other_ids": {}
+        },
+        "BIBREF42": {
+            "ref_id": "b42",
+            "title": "Generalized Langevin Methods for Calculating Transmembrane Diffusivity",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Gaalswyk",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Awoonor-Williams",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Rowley",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "J. Chem. Theory Comput",
+            "volume": "12",
+            "issn": "",
+            "pages": "5609--5619",
+            "other_ids": {}
+        },
+        "BIBREF43": {
+            "ref_id": "b43",
+            "title": "Deep Mutational Scanning of SARS-CoV-2 Receptor Binding Domain Reveals Constraints on Folding and ACE2 Binding",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Starr",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Greaney",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Hilton",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Ellis",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [
+                        "H D"
+                    ],
+                    "last": "Crawford",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Dingens",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Navarro",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Bowen",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Tortorici",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Walls",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "King",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Veesler",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Bloom",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "182",
+            "issn": "",
+            "pages": "1295--1310",
+            "other_ids": {}
+        },
+        "BIBREF44": {
+            "ref_id": "b44",
+            "title": "Immunogenicity and structures of a rationally designed prefusion MERS-CoV spike antigen",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Pallesen",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Proc. Natl. Acad. Sci. U. S. A",
+            "volume": "114",
+            "issn": "",
+            "pages": "7348--7357",
+            "other_ids": {}
+        },
+        "BIBREF45": {
+            "ref_id": "b45",
+            "title": "Virus vaccines: proteins prefer prolines",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Sanders",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Moore",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Cell Host Microbe",
+            "volume": "29",
+            "issn": "",
+            "pages": "327--333",
+            "other_ids": {}
+        },
+        "BIBREF46": {
+            "ref_id": "b46",
+            "title": "Receptor binding may directly activate the fusion machinery in coronavirus spike glycoproteins",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Fallon",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Raguette",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Budhan",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Belfon",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Stepanenko",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Helbock",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Varghese",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Simmerling",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2021.05.10.443496"
+                ]
+            }
+        },
+        "BIBREF47": {
+            "ref_id": "b47",
+            "title": "Tackling COVID-19 with neutralizing monoclonal antibodies",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Corti",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Purcell",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Snell",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Veesler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Cell",
+            "volume": "184",
+            "issn": "",
+            "pages": "3086--3108",
+            "other_ids": {}
+        },
+        "BIBREF48": {
+            "ref_id": "b48",
+            "title": "Molecular Aspects Concerning the Use of the SARS-CoV-2",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Valdes-Balbin",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF49": {
+            "ref_id": "b49",
+            "title": "Receptor Binding Domain as a Target for Preventive Vaccines",
+            "authors": [],
+            "year": 2021,
+            "venue": "ACS Cent Sci",
+            "volume": "7",
+            "issn": "",
+            "pages": "757--767",
+            "other_ids": {}
+        },
+        "BIBREF50": {
+            "ref_id": "b50",
+            "title": "Prevalent, protective, and convergent IgG recognition of SARS-CoV-2 non-RBD spike epitopes",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "Voss",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Science",
+            "volume": "372",
+            "issn": "",
+            "pages": "1108--1112",
+            "other_ids": {}
+        },
+        "BIBREF51": {
+            "ref_id": "b51",
+            "title": "CoV-AbDab: the coronavirus antibody database",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "I"
+                    ],
+                    "last": "Raybould",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kovaltsuk",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Marks",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Deane",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Bioinformatics",
+            "volume": "37",
+            "issn": "",
+            "pages": "734--735",
+            "other_ids": {}
+        },
+        "BIBREF52": {
+            "ref_id": "b52",
+            "title": "Computational epitope map of SARS-CoV-2 spike protein",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Sikora",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Von B\u00fclow",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Blanc",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Gecht",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Covino",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Hummer",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "PLoS Comp. Biol",
+            "volume": "17",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF53": {
+            "ref_id": "b53",
+            "title": "Structurally Resolved SARS-CoV-2 Antibody Shows High Efficacy in Severely Infected Hamsters and Provides a Potent Cocktail Pairing Strategy",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Du",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Cell",
+            "volume": "183",
+            "issn": "",
+            "pages": "1013--1023",
+            "other_ids": {}
+        },
+        "BIBREF54": {
+            "ref_id": "b54",
+            "title": "A highly conserved cryptic epitope in the receptor binding domains of SARS-CoV-2 and SARS-CoV",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Yuan",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.-C",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "So",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Lv",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "K"
+                    ],
+                    "last": "Mok",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Wilson",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Science",
+            "volume": "2020",
+            "issn": "",
+            "pages": "630--633",
+            "other_ids": {}
+        },
+        "BIBREF55": {
+            "ref_id": "b55",
+            "title": "Cross-neutralization of SARS-CoV-2 by a human monoclonal SARS-CoV antibody",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Pinto",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Nature",
+            "volume": "583",
+            "issn": "",
+            "pages": "290--295",
+            "other_ids": {}
+        },
+        "BIBREF56": {
+            "ref_id": "b56",
+            "title": "SARS-CoV-2 neutralizing human recombinant antibodies selected from pre-pandemic healthy donors binding at RBD-ACE2 interface",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Bertoglio",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Nat. Commun. 2021",
+            "volume": "12",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF57": {
+            "ref_id": "b57",
+            "title": "Ultrapotent human antibodies protect against SARS-CoV-2 challenge via multiple mechanisms",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Tortorici",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "Science",
+            "volume": "370",
+            "issn": "",
+            "pages": "950--957",
+            "other_ids": {}
+        },
+        "BIBREF58": {
+            "ref_id": "b58",
+            "title": "ACE2 glycans preferentially interact with SARS-CoV-2 over SARS-CoV",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Acharya",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Lynch",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Pavlova",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Pang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Gumbart",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "Chem. Commun",
+            "volume": "57",
+            "issn": "",
+            "pages": "5949--5952",
+            "other_ids": {}
+        },
+        "BIBREF59": {
+            "ref_id": "b59",
+            "title": "Electrostatic Interactions Explain the Higher Binding Affinity of the CR3022 Antibody for SARS-CoV-2 than the 4A8 Antibody",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Nguyen",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Lan",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Nissley",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Obrien",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "S"
+                    ],
+                    "last": "Li",
+                    "suffix": ""
+                }
+            ],
+            "year": 2021,
+            "venue": "J. Phys. Chem. B",
+            "volume": "125",
+            "issn": "",
+            "pages": "7368--7379",
+            "other_ids": {}
+        },
+        "BIBREF60": {
+            "ref_id": "b60",
+            "title": "Glycans on the SARS-CoV-2 Spike Control the Receptor Binding Domain Conformation",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Henderson",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Edwards",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Mansouri",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Janowska",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Stalls",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kopp",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Haynes",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Acharya",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {
+                "DOI": [
+                    "10.1101/2020.06.26.173765"
+                ]
+            }
+        },
+        "BIBREF61": {
+            "ref_id": "b61",
+            "title": "SWISS-MODEL: homology modelling of protein structures and complexes",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Waterhouse",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Bertoni",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bienert",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Studer",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Tauriello",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Gumienny",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Heer",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "A P"
+                    ],
+                    "last": "De Beer",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Rempfer",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Bordoli",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Lepore",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Schwede",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Nucleic Acids Res",
+            "volume": "46",
+            "issn": "",
+            "pages": "296--303",
+            "other_ids": {}
+        },
+        "BIBREF62": {
+            "ref_id": "b62",
+            "title": "Scalable molecular dynamics with NAMD",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Phillips",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Braun",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Gumbart",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Tajkhorshid",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Villa",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Chipot",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Skeel",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Kal\u00e9",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Schulten",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "J. Comput. Chem",
+            "volume": "26",
+            "issn": "",
+            "pages": "1781--1802",
+            "other_ids": {}
+        },
+        "BIBREF63": {
+            "ref_id": "b63",
+            "title": "Scalable molecular dynamics on CPU and GPU architectures with NAMD",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Phillips",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "J. Chem. Phys",
+            "volume": "2020",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF64": {
+            "ref_id": "b64",
+            "title": "CHARMM36m: an improved force field for folded and intrinsically disordered proteins",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Rauscher",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Nawrocki",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Ran",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Feig",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "De Groot",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Grubm\u00fcller",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Mackerell",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Nat. Methods",
+            "volume": "14",
+            "issn": "",
+            "pages": "71--73",
+            "other_ids": {}
+        },
+        "BIBREF65": {
+            "ref_id": "b65",
+            "title": "CHARMM Additive All-Atom Force Field for Glycosidic Linkages between Hexopyranoses",
+            "authors": [
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Guvench",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Hatcher",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "M"
+                    ],
+                    "last": "Venable",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Pastor",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Mackerell",
+                    "suffix": ""
+                }
+            ],
+            "year": 2009,
+            "venue": "J. Chem. Theory Comput",
+            "volume": "5",
+            "issn": "",
+            "pages": "2353--2370",
+            "other_ids": {}
+        },
+        "BIBREF66": {
+            "ref_id": "b66",
+            "title": "Comparison of simple potential functions for simulating liquid water",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Jorgensen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Chandrasekhar",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Madura",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Impey",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Klein",
+                    "suffix": ""
+                }
+            ],
+            "year": 1983,
+            "venue": "J. Chem. Phys",
+            "volume": "79",
+            "issn": "",
+            "pages": "926--935",
+            "other_ids": {}
+        },
+        "BIBREF67": {
+            "ref_id": "b67",
+            "title": "Constant pressure molecular dynamics simulation: the Langevin piston method",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "E"
+                    ],
+                    "last": "Feller",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Pastor",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "R"
+                    ],
+                    "last": "Brooks",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "J. Chem. Phys",
+            "volume": "103",
+            "issn": "",
+            "pages": "4613--4621",
+            "other_ids": {}
+        },
+        "BIBREF68": {
+            "ref_id": "b68",
+            "title": "Particle mesh Ewald: An N \u00b7 log(N ) method for Ewald sums in large systems",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Darden",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "York",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Pedersen",
+                    "suffix": ""
+                }
+            ],
+            "year": 1993,
+            "venue": "J. Chem. Phys",
+            "volume": "98",
+            "issn": "",
+            "pages": "10089--10092",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "S-protein of SARS-CoV-2. (a) The trimeric S-protein in the all-down state, colored by protomer. Glycans are shown as red spheres. (b) Top view of the S-protein in the one-up state. Important domains of the spike are highlighted, including the N-terminal domain (NTD, 14-306), the receptor binding domains (RBD, 336-518), the heptad repeat 1 (HR1, 908-986), and the central helix (CH, 987-1035). (c,d) The two collective variables defined to describe the opening of RBD-A include: (c) the center-of-mass distance d between RBD-A (pink) and SD1-B (lime), and (d) the dihedral angle \u03d5 formed by the domains RBD-A (pink), SD1-A (purple), SD2-A (ice blue), and NTD-A (cyan). RBD-A in both the down (solid pink) and up (transparent pink) states are shown. explored the dynamics of these up/down states and interconversion between them. For example, single-molecule FRET has been used to demonstrate the stochastic nature of the S-protein transitions, 23 with reported timescales on the order of milliseconds to seconds. Molecular dynamics (MD) simulations complement these experimental studies by providing the atomic-level descriptions of intermediate states between down and up that are necessary to characterize S-protein opening dynamics. MD simulations have revealed detailed information about the structural stability and the role of glycosylation for both the down and",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "described by two collective variables, which are (1) the center-of-mass distance (d) between the opening RBD-A and a stationary part of the spike acting as a pivot point, namely the neighboring subdomain 2 on chain B (SD2-B), and (2) the dihedral angle (\u03d5) formed by the opening RBD-A and other stationary domains on the same protomer, namely SD2-A, SD1-A and NTD-A(Fig. 1c,d). Snapshots were then extracted from the metadynamics simulations to seed the REUS simulations, which were run along the same two collective variables. For the glycosylated system, we further performed simulated annealing on the glycans to randomize their conformations in each window. The REUS simulations for the glycosylated and un-glycosylated systems were run with 422 and 356 windows for 37 ns and 56 ns, respectively, summing up to more than 35 \u00b5s of simulation time.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "PMFs describing the opening of RBD-A. (a,b) The 2D PMFs of the (a) glycosylated and (b) un-glycosylated systems along two collective variables, d and \u03d5, defined to describe the opening of RBD-A",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Kinetics of S-protein opening and closing. (a) Transitions between RBD-down, up, and bound states are shown with their associated rates. (b-e) Fraction of S proteins in each state (up, down, and ACE2-bound) under different conditions, namely (b) with all glycans, (c) with no glycans, (d) with no glycans and an assumed increase in the free energy of binding of RBD to ACE2 of 0.35 kcal/mol, and (e) with no glycans and an increase in binding free energy of 2.03 kcal/mol. (f) Bound state fraction at equilibrium for the four conditions in (b-e).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "Hydrogen bond analysis reveals the different interaction patterns with and without glycans. (a,b) Along the MEPs, the number of hydrogen bonds formed between the opening RBD-A and the rest of the protein are counted and classified by the domains they are connected to for the (a) glycosylated and the (b) un-glycosylated system. The sections where the paths cross the energy barriers are highlighted in pink. (c,d) The average number of hydrogen bonds formed (d) between RBD-A and NTD-B and (d) between RBD-A and RBD-C for each REUS window are plotted against the two collective variables, d and \u03d5, for the glycosylated system. Contour lines of the PMF of the glycosylated system are plotted on top to show the location of the energy barrier. (e) A snapshot from the REUS simulation showing the glycans at N165 and N122 disrupting hydrogen bond formation between RBD-A and NTD-B, destabilizing the up state compared to the un-glycosylated system.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "why the presence of glycans reduces the number of hydrogen bonds in the up state. We found that the changes in the number of hydrogen bonds along the MEP are driven by the interactions between the opening RBD-A and its neighboring NTD-B. When RBD-A is halfway up, the \u03b2-sheets of RBD-A and NTD-B align with each other, forming multiple backbone and sidechain hydrogen bonds (on average 3.4 and 4.6 hydrogen bonds with and without glycans, respectively, over the duration of the REUS simulations; Fig. S6). In the up state, while RBD-A still forms 3.4 hydrogen bonds on average with NTD-B in the absence of glycans, this number plummets to 1.1 in the presence of glycans. Inspection of the trajectories reveals",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "the glycosylated system MEP when crossing the barrier. There are stabilizing interactions formed with the opening RBD-A on either side of the barrier, namely the hydrogen bonds with RBD-C on the \u2212d side of the barrier and NTD-B on the +d side. There is however a dearth of stabilizing interactions at d = 54.9 \u00c5, resulting in the energy barrier. The effect is mitigated by crossing the barrier at a high \u03d5, with RBD-A maintaining the maximum amount of hydrogen bonds with RBD-B, which leads to a different MEP on the PMF of the glycosylated system than the relatively straight MEP without glycans.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF7": {
+            "text": "Glycan-protein interactions. Representative locations of S-protein glycans at N165, N234, and N343 in S-protein (a) down and (b) up states extracted from the REUS trajectories. (c) Surface representation of RBD residues in (top) down and (bottom) up states that make contact with glycans at N165 (green) and N343 (orange). The cross-hatch pattern indicates contacts with both glycans. The up and down states of the S-protein were selected from the MEP.spike opening.24,29 Consistent with their results, we observed the swing of the glycan at N234 from pointing outward to inward during spike opening, and the glycan gating effect by the glycan at N343.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF8": {
+            "text": ". The contact analysis for the down state also captures the RBM residues (F456, R457, Y489, and F490) involved in glycan gating as previously reported by Sztain et al. 29 . The engineered diproline mutation alters the structure of the Sprotein but not the energetics of opening S-protein cryo-EM structures often include a double proline mutation, K986P/V987P, located in the turn between HR1 and the CH. Earlier studies on SARS-CoV and MERS-CoV, 41 along with other class I fusion proteins, 42 established that the presence of this proline pair in the HR1-CH turn stablizes the pre-fusion spike structure and increases protein expression, both important aspects of vaccine design. 42 The S-protein structure from Cai et al. 11",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF9": {
+            "text": "which did not undergo conformational changes. The AbASA of S2M11's epitope does not change along the spike opening path. Furthermore, part of the S2M11's epitope is on the RBD of the adjacent protomer, which does not open in our simulations. The epitope of the S2M11 antibody 53 slightly overlaps with the RBD of one protomer (residues 440, 441, and 444), while the majority coincides with the binding site of the ACE2 glycan at N322 on the RBD (residues 369, 371 to 374, and 440).",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF10": {
+            "text": "We modeled the up and down states based on the cryo-electron microscopy (cryo-EM) structures by Walls et al. 10 (PDB: 6VYB) and by Cai et al. 11 (PDB: 6XR8). The up state structure reported by Cai et al. is a detergent purified full-length WT S-protein construct at 2.9 \u00c5 resolution. 11 It exhibits several critical differences with earlier reported structures: (i) more resolved NTD with an additional glycosylation site at N17, (ii) the WT sequence at the central helix/loop region, rather than the pre-fusion stablizing 2PP mutation, and (iii) an approximately 25-residues-long segment, residues 828-853, that were previously unresolved.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF11": {
+            "text": "C590, C617-C649, and C662-C671 and five are added to the S2 part C738-C760, C743-C749, C840-C851, C1032-C1043, and C1082-C1126. The missing parts in the up state were modeled using the minimized down-state model. Glcosylation sites are located on N17, N61, N74, N122, N149, N165, N234, N282, T323, N331, N343, N603, N616, N657, N709, N717, N801, N1074, N1098, and N1134. Overall, there are 19 N-linked and 1 O-linked glycans present in each protomer resulting in a total of 60 glycans for one S-protein trimer model. The glycan at each site with the highest population in the mass spectroscopy data by Crispin and coworkers 18 was added to the site using the GLYCAM Web server developed by the Woods group (http://glycam.org). 32,33 The glycan compositions are illustrated in Fig. S1. Missing hydrogen atoms were added to all systems, after which they were solvated in a 195 \u00d7 193 \u00d7 212 \u00c5 3 water box. We added Na + and Cl \u2212 ions to achieve a salt concentration of \u223c0.150 M. The number of atoms in protein, water, glycan, and ions were kept same for REUS calculations. The systems (up or down states) contain a total of 758,531 atoms (63,312 protein and glycan atoms, 661 Na + , 652 Cl \u2212 ) and 633,864 atoms (52,476 protein atoms, 549 Na + , 546 Cl \u2212 ) with and without glycans, respectively.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF12": {
+            "text": "protein conformations along the MEP for each of the three PMFs are available at the NSF MolSSI COVID-19 Molecular Structure and Therapeutics Hub at https://covid.molssi.org Acknowledgement An award of computer time on the Summit supercomputer at Oak Ridge National Laboratory was provided through the COVID-19 High Performance Computing Consortium. Additional computational resources were provided through the Extreme Science and Engineering Discovery Environment (XSEDE; TG-MCB130173), which is supported by the National Science Foundation (NSF; ACI-1548562). This work also used the Hive cluster, which is supported by the NSF under grant number 1828187 and is managed by the Partnership for an Advanced Computing Environment (PACE) at the Georgia Institute of Technology. The authors thank Mahmoud Moradi for his guidance in calculating the mean first passage time. Y.T.P. is supported by a Texas Advanced Computing Center (TACC) Frontera Fellowship. Frontera is supported by NSF grant No. OAC-1818253.",
+            "latex": null,
+            "type": "figure"
+        }
+    },
+    "back_matter": []
+}

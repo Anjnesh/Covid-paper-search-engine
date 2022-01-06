@@ -1,0 +1,2222 @@
+{
+    "paper_id": "00ef46854fc31aad71fd524a1b94e42556df50ef",
+    "metadata": {
+        "title": "Probabilistic and Systematic Coverage of Consecutive Test-Method Pairs for Detecting Order-Dependent Flaky Tests",
+        "authors": [
+            {
+                "first": "Anjiang",
+                "middle": [],
+                "last": "Wei",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Peking University",
+                    "location": {
+                        "settlement": "Beijing",
+                        "country": "China"
+                    }
+                },
+                "email": "weianjiang@pku.edu.cn"
+            },
+            {
+                "first": "Pu",
+                "middle": [],
+                "last": "Yi",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Peking University",
+                    "location": {
+                        "settlement": "Beijing",
+                        "country": "China"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Tao",
+                "middle": [],
+                "last": "Xie",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Peking University",
+                    "location": {
+                        "settlement": "Beijing",
+                        "country": "China"
+                    }
+                },
+                "email": "taoxie@pku.edu.cn"
+            },
+            {
+                "first": "Darko",
+                "middle": [],
+                "last": "Marinov",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University of Illinois at Urbana-Champaign",
+                    "location": {
+                        "settlement": "Urbana",
+                        "region": "IL",
+                        "country": "USA"
+                    }
+                },
+                "email": "marinov@illinois.edu"
+            },
+            {
+                "first": "Wing",
+                "middle": [],
+                "last": "Lam",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "University of Illinois at Urbana-Champaign",
+                    "location": {
+                        "settlement": "Urbana",
+                        "region": "IL",
+                        "country": "USA"
+                    }
+                },
+                "email": "winglam2@illinois.edu"
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "Software developers frequently check their code changes by running a set of tests against their code. Tests that can nondeterministically pass or fail when run on the same code version are called flaky tests. These tests are a major problem because they can mislead developers to debug their recent code changes when the failures are unrelated to these changes. One prominent category of flaky tests is order-dependent (OD) tests, which can deterministically pass or fail depending on the order in which the set of tests are run. By detecting OD tests in advance, developers can fix these tests before they change their code. Due to the high cost required to explore all possible orders (n! permutations for n tests), prior work has developed tools that randomize orders to detect OD tests. Experiments have shown that randomization can detect many OD tests, and that most OD tests depend on just one other test to fail. However, there was no analysis of the probability that randomized orders detect OD tests. In this paper, we present the first such analysis and also present a simple change for sampling random test orders to increase the probability. We finally present a novel algorithm to systematically explore all consecutive pairs of tests, guaranteeing to detect all OD tests that depend on one other test, while running substantially fewer orders and tests than simply running all test pairs.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "The most common way that developers check their software is through frequent regression testing performed while they develop software. Developers run regression tests to check that recent code changes do not break existing functionality. A major problem for regression testing is flaky tests [27] , which can nondeterministically pass or fail when run on the same code version. The failures from Tao Xie is with the Key Laboratory of High Confidence Software Technologies (Peking University), Ministry of Education, China, and is the corresponding author. these tests can mislead developers to debug their recent changes while the failures can be due to a variety of reasons unrelated to the changes. Many software organizations have reported flaky tests as one of their biggest problems in software development, including Apple [18] , Facebook [5, 10] , Google [8, 30, 31, 43, 48] , Huawei [16] , Microsoft [11, 12, 20, 21] , and Mozilla [40] .",
+            "cite_spans": [
+                {
+                    "start": 292,
+                    "end": 296,
+                    "text": "[27]",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 829,
+                    "end": 833,
+                    "text": "[18]",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 845,
+                    "end": 848,
+                    "text": "[5,",
+                    "ref_id": null
+                },
+                {
+                    "start": 849,
+                    "end": 852,
+                    "text": "10]",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 862,
+                    "end": 865,
+                    "text": "[8,",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 866,
+                    "end": 869,
+                    "text": "30,",
+                    "ref_id": "BIBREF26"
+                },
+                {
+                    "start": 870,
+                    "end": 873,
+                    "text": "31,",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 874,
+                    "end": 877,
+                    "text": "43,",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 878,
+                    "end": 881,
+                    "text": "48]",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 891,
+                    "end": 895,
+                    "text": "[16]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 908,
+                    "end": 912,
+                    "text": "[11,",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 913,
+                    "end": 916,
+                    "text": "12,",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 917,
+                    "end": 920,
+                    "text": "20,",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 921,
+                    "end": 924,
+                    "text": "21]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 939,
+                    "end": 943,
+                    "text": "[40]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "These flaky tests are among the tests, called test suite, that developers run during regression testing; a test suite is most often specified as a set, not a sequence, of tests. Having a test suite as a set provides benefits for regression testing techniques such as selection, prioritization, and parallelization [23, 45] . The test execution platform can choose to run these tests in various test orders. For example, for projects using Java, the most popular testing framework is JUnit [17] , and the most popular build system is Maven [28] . Tests in JUnit are organized in a set of test classes, each of which has a set of test methods. By default, Maven runs tests using the Surefire plugin [29] , which does not guarantee any order of test classes or test methods. However, the use of Surefire and JUnit does not interleave the test methods from different test classes in a test order. The same structure is common for many other testing frameworks such as TestNG [41] , Cucumber [4] , and Spock [38] .",
+            "cite_spans": [
+                {
+                    "start": 314,
+                    "end": 318,
+                    "text": "[23,",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 319,
+                    "end": 322,
+                    "text": "45]",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 489,
+                    "end": 493,
+                    "text": "[17]",
+                    "ref_id": null
+                },
+                {
+                    "start": 539,
+                    "end": 543,
+                    "text": "[28]",
+                    "ref_id": null
+                },
+                {
+                    "start": 697,
+                    "end": 701,
+                    "text": "[29]",
+                    "ref_id": null
+                },
+                {
+                    "start": 971,
+                    "end": 975,
+                    "text": "[41]",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 987,
+                    "end": 990,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 1003,
+                    "end": 1007,
+                    "text": "[38]",
+                    "ref_id": "BIBREF33"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "One prominent category of flaky tests is deterministic order-dependent (OD) tests [22, 24, 32, 47] , which can deterministically pass or fail in various test orders, with at least one order in which these tests pass and at least one other order in which they fail. Other flaky tests are non-deterministic (ND) tests, which are flaky due to reasons other than solely the test order [24] ; for at least one test order, these tests can nondeterministically pass or fail even in that same test order. Our iDFlakies work [22] has released the iDFlakies dataset [15] of flaky tests in open-source Java projects. We obtained this dataset by running test suites many times in randomized test orders, collecting test failures, and classifying failed tests as OD or ND flaky tests. In total, 50.5% of the dataset are OD tests, while the remaining 49.5% are ND tests.",
+            "cite_spans": [
+                {
+                    "start": 82,
+                    "end": 86,
+                    "text": "[22,",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 87,
+                    "end": 90,
+                    "text": "24,",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 91,
+                    "end": 94,
+                    "text": "32,",
+                    "ref_id": "BIBREF28"
+                },
+                {
+                    "start": 95,
+                    "end": 98,
+                    "text": "47]",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 381,
+                    "end": 385,
+                    "text": "[24]",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 516,
+                    "end": 520,
+                    "text": "[22]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 556,
+                    "end": 560,
+                    "text": "[15]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Prior research has proposed multiple tools [2, 6, 9, 14, 22, 47] to detect OD tests. Some of the tools [9, 14] search for potential OD tests and may therefore report false alarms, i.e., tests that cannot fail in the current test suite (but may fail in some extended test suite). The other tools [2, 6, 22, 47] detect OD tests that actually fail by running multiple randomized orders of the test suite. Running tests in random orders is also available in many testing platforms, e.g., Surefire for Java has a mode to randomize the order of test classes, pytest [35] for Python has the --random-order option, and rspec [36] for Ruby has the --order random option. While these tools can detect many OD tests, the tools run random orders and hence can miss running test orders in which OD tests would fail. The listed prior work has not studied the flake rates, i.e., the probability that an OD test would fail when run in (uniformly) sampled test orders.",
+            "cite_spans": [
+                {
+                    "start": 43,
+                    "end": 46,
+                    "text": "[2,",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 47,
+                    "end": 49,
+                    "text": "6,",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 50,
+                    "end": 52,
+                    "text": "9,",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 53,
+                    "end": 56,
+                    "text": "14,",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 57,
+                    "end": 60,
+                    "text": "22,",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 61,
+                    "end": 64,
+                    "text": "47]",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 103,
+                    "end": 106,
+                    "text": "[9,",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 107,
+                    "end": 110,
+                    "text": "14]",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 295,
+                    "end": 298,
+                    "text": "[2,",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 299,
+                    "end": 301,
+                    "text": "6,",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 302,
+                    "end": 305,
+                    "text": "22,",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 306,
+                    "end": 309,
+                    "text": "47]",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 560,
+                    "end": 564,
+                    "text": "[35]",
+                    "ref_id": null
+                },
+                {
+                    "start": 617,
+                    "end": 621,
+                    "text": "[36]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Our iFixFlakies work [37] has studied the causes of failures for OD tests. We find that the vast majority of OD tests are related to pairs of tests, i.e., each OD test would pass or fail due to the sharing of some global state with just one other test. Our iFixFlakies work has also defined multiple kinds of tests related to OD tests. Each OD test belongs to one of two kinds: (1) brittle, which is a test that fails when run by itself but passes in a test order where the test is preceded by a state-setter ; and (2) victim, which is a test that passes when run by itself but fails in a test order where the test is preceded by a (state-)polluter unless a (state-)cleaner runs in between the polluter and the victim. Most of the work in this paper focuses on victim tests because most OD tests are victims rather than brittles (e.g., 91% of the truly OD tests in the iDFlakies dataset are victims [15]), and the analysis for brittles often follows as a simple special case of the analysis for victims. This paper makes the following two main contributions. Probability Analysis. We develop a methodology to analytically obtain the flake rates of OD tests and propose a simple change to the random sampling of test orders to increase the probability of detecting OD tests. A flake rate is defined as the ratio of the number of test orders in which an OD test fails divided by the total number of orders. Flake rates can help researchers analytically compare various algorithms (e.g., comparing reversing a passing order to sampling a random order as shown in Section 4.4) and help practitioners prioritize the fixing of flaky tests. Specifically, we study the following problem: determine the flake rate for a given victim test with its set of polluters and a set of cleaners for each polluter. We first derive simple formulas with two main assumptions: (A1) all polluters have the same set of cleaners and (A2) all of the victim, polluters, and cleaners are in the same test class. We then derive formulas that keep A1 but relax A2. Our results on 249 real flaky tests show that our formulas are applicable to 236 tests (i.e., only 13 tests violate A1). To relax both assumptions, we propose an approach to estimate the flake rate without running test orders. Our analysis finds that some OD tests have a rather low flake rate, as low as 1.2%.",
+            "cite_spans": [
+                {
+                    "start": 21,
+                    "end": 25,
+                    "text": "[37]",
+                    "ref_id": "BIBREF32"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Because random sampling of test orders may miss test orders in which OD tests fail, we propose a systematic approach to cover all consecutive test pairs to detect OD tests. We present an algorithm that systematically explores all consecutive test pairs, guaranteeing the detection of all OD tests that depend on one other test, while running substantially fewer tests than a naive exploration that runs every pair by itself. Our algorithm builds on the concept of Tuscan squares [7] , studied in the field of combinatorics. Given a test suite, the algorithm generates a set of test orders, each consisting of at least two distinct tests and at most all of the tests from the test suite, that cover all of the consecutive test pairs, while trying to minimize the cost of running those test orders. The algorithm can cover pairs of tests from the same and different classes, while considering only the test orders that do not interleave tests from different test classes, being a common constraint of testing frameworks such as JUnit [17] . Our analysis shows that the algorithm runs substantially fewer tests than naive exploration. To experiment with the new algorithm based on Tuscan squares, we run some of the test orders generated by the algorithm for some of the test suites in the iDFlakies dataset. Our experiments detect 44 new OD tests, not detected in prior work [22, 24, 25] , and we have added the newly detected tests to the Illinois Dataset of Flaky Tests [19] . ",
+            "cite_spans": [
+                {
+                    "start": 479,
+                    "end": 482,
+                    "text": "[7]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 1032,
+                    "end": 1036,
+                    "text": "[17]",
+                    "ref_id": null
+                },
+                {
+                    "start": 1373,
+                    "end": 1377,
+                    "text": "[22,",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 1378,
+                    "end": 1381,
+                    "text": "24,",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 1382,
+                    "end": 1385,
+                    "text": "25]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 1470,
+                    "end": 1474,
+                    "text": "[19]",
+                    "ref_id": "BIBREF16"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Systematic Test-Pair Exploration."
+        },
+        {
+            "text": "We use an example to introduce some key concepts for OD tests and to illustrate challenges in debugging these tests. We represent a test order as a sequence of tests t 1 , t 2 , . . . , t l . In Java, each test order is executed by a Java Virtual Machine (JVM) that starts from the initial state (e.g., all shared pointer variables initialized to null) and then runs each test, which potentially modifies the shared state. Each test is run at most once in one JVM run. (Thus, covering test orders and test pairs has to be done with a set of test orders and cannot be done with just one very long order, e.g., using superpermutations [13] .) A test v is a victim if it passes in the order v but fails in another order; the other order usually contains a single polluter test p (besides many other tests) such that v fails even in the order p, v . Moreover, the test suite may contain a cleaner test c such that v passes in the order p, c, v . Note that test orders may contain more tests besides polluters and cleaners for a victim v, but these other tests do not modify the relevant state and do not affect whether v passes or not in any order. Precise definitions for these tests are in our previous work [37] . Figure 1 shows a snippet of a victim test, testMRAppMasterSuccessLock (in short testV), from the widely used Hadoop project [1] . The test suite for this test has 392 tests. This test is from the MapReduce (MR) framework and aims to check an MR application. This test is a victim because it passes when run by itself but has two polluter tests. If the victim is run after either one of its polluter tests (and no cleaner runs in between the polluter and the victim), then the victim fails with a NullPointerException. Figure 2 shows a snippet of one of these two polluter tests, testSigTermedFunctionality (in short testP).",
+            "cite_spans": [
+                {
+                    "start": 633,
+                    "end": 637,
+                    "text": "[13]",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 1206,
+                    "end": 1210,
+                    "text": "[37]",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 1337,
+                    "end": 1340,
+                    "text": "[1]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 1213,
+                    "end": 1221,
+                    "text": "Figure 1",
+                    "ref_id": null
+                },
+                {
+                    "start": 1731,
+                    "end": 1739,
+                    "text": "Figure 2",
+                    "ref_id": null
+                }
+            ],
+            "section": "Background and Example"
+        },
+        {
+            "text": "These tests form a polluter-victim pair because they share a global state, namely all \"active\" jobs stored in a static map in the JobHistoryEventHandler class. (In JUnit 4, only the heap state reachable from the class fields declared as static is shared across tests; JUnit does not automatically reset that state, but developers can add setup and teardown methods to reset the state.) To check an MR application, testV first sets up some state (Line 2), then creates an MR application (Line 3), and starts the application (Line 7). The NullPointerException arises when the test tries to stop the MR application (Line 10). Specifically, the appMaster accesses the shared map data structure that tracks all jobs run by any application. When testV is run after testP, then appMaster will attempt to stop a job created by the polluter, although the job has already been stopped.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Background and Example"
+        },
+        {
+            "text": "This static map is empty when the JVM starts running a test order, and it is also explicitly cleared by some tests. In fact, we find 11 cleaner tests that clear the map, and the victim passes when any one of these 11 tests is run between testP and testV. Interestingly, for the other polluter test, testTimelineEventHandling (in short testP'), the victim fails for the same reason, but testP' has 31 cleaners-the same 11 as testP and 20 other cleaners. Our manual inspection finds that the testP' polluter has other cleaners because the job created by testP' is named job 200 0001, while the job created by the testP polluter is a mock object. The 20 other cleaners also create and stop jobs named job 200 0001 and therefore act as cleaners for the testP' polluter but not the testP polluter. This example illustrates not only how victims and polluters work but also the complexity in how these tests interact with cleaners.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Background and Example"
+        },
+        {
+            "text": "In Section 4.2, we explore how to compute the flake rate for a victim test, i.e., the probability that the test fails in a randomly sampled test order of all tests in the test suite. For this example, the 392 tests could, in theory, be run in 392! (\u223c 10 848 ) test orders (permutations), but in practice, JUnit never interleaves test methods from different test classes. These tests are split into 48 classes that actually have \u223c 10 234 test orders that JUnit could run. The relevant 34 tests (1 victim, 2 polluters, and 31 cleaners) belong to 8 test classes: 2 polluters belong to one class (TestJobHistoryEventHandler), 11 cleaners belong to the same class as the polluters, 1 cleaner belongs to the same class as the victim (TestMRAppMaster), and the remaining 19 cleaners belong to six other classes. For this victim, randomly sampling the orders that JUnit could run gives a flake rate of 4.5%. In Section 4.4, we propose a simple change to increase the probability of detecting OD tests by running a reverse of each passing test order. For this victim, the conditional probability that the reverse order fails is 4.9%.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Background and Example"
+        },
+        {
+            "text": "A commonly asked question is whether all detected OD tests should be fixed. While ideally all flaky tests should be fixed, some are not fixed [21, 23] . For the majority of OD tests, fixing them is good to prevent flaky-test failures that can mislead the developers into debugging the wrong parts of the code; also, fixing OD tests enables tests to be run in any order, which then enables the use of beneficial regression-testing techniques [23] . Some OD tests are intentionally run in specific orders (e.g., using the @FixMethodOrder annotation in JUnit) to speed up testing by reusing states. We have submitted fixes for a large number of flaky tests in our prior work [19] .",
+            "cite_spans": [
+                {
+                    "start": 142,
+                    "end": 146,
+                    "text": "[21,",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 147,
+                    "end": 150,
+                    "text": "23]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 441,
+                    "end": 445,
+                    "text": "[23]",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 672,
+                    "end": 676,
+                    "text": "[19]",
+                    "ref_id": "BIBREF16"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Background and Example"
+        },
+        {
+            "text": "We next formalize the concepts that we have introduced informally and define some new concepts. Let T = {t 1 , t 2 , . . . , t n } be a set of n tests partitioned in k classes C = {C 1 , C 2 , . . . , C k }. We use class(t) to denote the class of test t. Each class C i has n i = |{t \u2208 T | class(t) = C i }| tests.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Preliminaries"
+        },
+        {
+            "text": "We use \u03c9(T ) to denote a test order, i.e., a permutation of tests in T \u2286 T , and drop T when clear from the context. We use \u03c9 i to denote the i-th test in the test order \u03c9, and |\u03c9| to denote the length of a test order as measured by the number of tests. We use t \u227a \u03c9 t to denote that test t is before t in the test order \u03c9. We will analyze some cases that allow all n! permutations, potentially interleaving tests from different classes. We use \u03a9 A (T ) to denote the set of all test orders for T . Some testing tools [47] explore all these test orders, potentially generating false alarms because most testing frameworks [4, 17, 38, 41] do not allow all these test orders.",
+            "cite_spans": [
+                {
+                    "start": 518,
+                    "end": 522,
+                    "text": "[47]",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 622,
+                    "end": 625,
+                    "text": "[4,",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 626,
+                    "end": 629,
+                    "text": "17,",
+                    "ref_id": null
+                },
+                {
+                    "start": 630,
+                    "end": 633,
+                    "text": "38,",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 634,
+                    "end": 637,
+                    "text": "41]",
+                    "ref_id": "BIBREF35"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Preliminaries"
+        },
+        {
+            "text": "We are primarily concerned with class-compatible test orders where all tests from each class are consecutive, i.e., if class(\u03c9 i ) = class(\u03c9 i ), then for all j with i < j < i , class(\u03c9 i ) = class(\u03c9 j ). We use \u03a9 C (T ) to denote the set of all class-compatible test orders for T . The number of such class-compatible test orders is k! k i=1 n i !. Section 4.2 presents how to compute the flake rate, i.e., the percentage of test orders in which a given victim test (with its polluters and cleaners) fails.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Preliminaries"
+        },
+        {
+            "text": "Section 5 presents how to systematically generate test orders to ensure that all test pairs are covered. A test pair t, t consists of two distinct tests t = t . We say that a test order \u03c9 covers a test pair t, t , in notation cover(\u03c9, t, t ), iff the two tests are consecutive in \u03c9, i.e., \u03c9 = . . . , t, t , . . . . Considering consecutive tests is important because a victim may not fail if not run right after a polluter, i.e., when a cleaner is run between the polluter and the victim. A set of test orders \u03a9 covers the union of test pairs covered by each test order \u03c9 \u2208 \u03a9. In general, test orders in a set can be of different lengths. Each test order \u03c9 covers |\u03c9| \u2212 1 test pairs.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Preliminaries"
+        },
+        {
+            "text": "We distinguish intra-class test pairs, where class(t) = class(t ), and interclass test pairs, where class(t) = class(t ). Of the total n(n \u2212 1) test pairs, each class C i has n i (n i \u2212 1) intra-class test pairs, and the number of inter-class test pairs is 2 1\u2264i<j\u2264k n i n j . Each class-compatible test order of all T tests covers n i \u2212 1 intra-class test pairs for each class C i and k \u2212 1 inter-class test pairs.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Preliminaries"
+        },
+        {
+            "text": "We aim to generate a set of test orders \u03a9 that cover all test pairs 3 . If we consider \u03a9 A (T ) that allows all test orders, we need at least n test orders to cover all n(n \u2212 1) test pairs. When we have only one class or all classes have only one test, then all test orders are class-compatible. However, consider the more common case when we have more than one class and some class has more than one test. If we consider \u03a9 C (T ) that allows only class-compatible test orders, we need at least max k i=1 n i test orders to cover all intra-class test pairs and at least M = 2 1\u2264i<j\u2264k n i n j /(k \u2212 1) test orders to cover all inter-class test pairs; because M > max k i=1 n i , we need at least M class-compatible test orders to cover all test pairs.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Preliminaries"
+        },
+        {
+            "text": "More precisely, we aim to generate a set of test orders \u03a9 that has the lowest cost for test execution. The cost for each test order \u03c9 can be modeled well as a sum of a fixed cost Cost 0 (e.g., corresponding to the time required to start a JVM and load required classes) and a cost for each test (e.g., the time to execute the test method): Cost(\u03c9) = Cost 0 + t\u2208\u03c9 Cost(t). The cost for a set of test orders is then simply the sum of individual costs Cost(\u03a9) = \u03c9\u2208\u03a9 Cost(\u03c9). For example, a trivial way to cover all test pairs is with a set of test orders where each test order is just a test pair:",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Preliminaries"
+        },
+        {
+            "text": "To simplify, we can assume that each test in T has the same cost, say, Cost 1 , and then Cost(\u03a9 p ) = n(n \u2212 1)Cost 0 + 2n(n \u2212 1)Cost 1 . In the optimal case, each test order would be a permutation of n tests covering n \u2212 1 test pairs, and the number of test orders would be just n(n \u2212 1)/(n \u2212 1) = n. Therefore, the lowest cost is Cost(\u03a9 opt ) = nCost 0 + n 2 Cost 1 , demonstrating that the factor for Cost 0 can be substantially reduced, while the factor for Cost 1 is nearly halved ( n 2(n\u22121) ). However, in most realistic cases, due to the constraints of class-compatible test orders and the big differences in the number of tests across different classes, we cannot reach the optimal case.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Preliminaries"
+        },
+        {
+            "text": "Besides deriving some analytical results, we also run some empirical experiments on flaky tests from Java projects. Our recent work [25] ran the iDFlakies tool on most test suites in the projects from the iDFlakies dataset [15] using the configurations recommended by our iDFlakies work [22] . Specifically, we ran 100 randomly sampled test orders from \u03a9 C (T ) and 1 test order that is the reverse order of what Maven Surefire [29] runs by default. Note that unlike our work in Section 4.4, where we propose running a reverse test order of every test order where all tests passed, the one reverse order that we ran in our recent work [25] may or may not have been from a passing test order, and the reverse order is run only once and not for every passing test order.",
+            "cite_spans": [
+                {
+                    "start": 132,
+                    "end": 136,
+                    "text": "[25]",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 287,
+                    "end": 291,
+                    "text": "[22]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 635,
+                    "end": 639,
+                    "text": "[25]",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Dataset for Evaluation"
+        },
+        {
+            "text": "Each project in the iDFlakies dataset is a Maven-based, Java project organized into one or more modules, which are (sub)directories that organize code under test and test code. Each module contains its own test suite. For the remainder of the paper, we use the 121 modules in which our recent work [25] found at least one flaky test (but not necessarily OD test). To illustrate diversity among these 121 modules, the number of classes ranges from 1 to 2215, with an average of 61, and the total number of tests ranges from 1 to 4781, with an average of 287. The number of tests per class ranges from 1 to 200, with an average of 4.8.",
+            "cite_spans": [
+                {
+                    "start": 298,
+                    "end": 302,
+                    "text": "[25]",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Dataset for Evaluation"
+        },
+        {
+            "text": "When we run some of the test orders generated by our systematic test-pair exploration as described in Section 5.2, we detect a total of 249 OD tests in 44 of the 121 modules. Of the 249 OD tests, 57 are brittles and 192 are victims. Compared to the OD tests detected in our prior work [22, 24, 25] that used the iDFlakies dataset, we find 44 new OD tests that have not been detected before. Of the 44 OD tests, 1 is brittle and 43 are victims. One of the newly detected victim tests (testMRAppMasterSuccessLock) is shown in Section 2.",
+            "cite_spans": [
+                {
+                    "start": 285,
+                    "end": 289,
+                    "text": "[22,",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 290,
+                    "end": 293,
+                    "text": "24,",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 294,
+                    "end": 297,
+                    "text": "25]",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Dataset for Evaluation"
+        },
+        {
+            "text": "We next discuss how to compute the flake rate for each OD test. Let T be a test suite with an OD test. Prior work [22, 24, 25, 47] would run many test orders of T and compute the flake rate for each test as a ratio of the number of test failures and the number of test runs. However, failures of flaky tests are probabilistic, and running even many test orders may not suffice to obtain the true flake rate for each test. Running more test orders is rather costly in machine time; in the limit, we may need to run all |T |! permutations to obtain the true flake rate for OD tests. To reduce machine time needed for computing the flake rate for OD tests, we first propose a new procedure, and then derive formulas based on this procedure. We finally show a simple change for sampling random test orders to increase the probability of detecting OD tests.",
+            "cite_spans": [
+                {
+                    "start": 114,
+                    "end": 118,
+                    "text": "[22,",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 119,
+                    "end": 122,
+                    "text": "24,",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 123,
+                    "end": 126,
+                    "text": "25,",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 127,
+                    "end": 130,
+                    "text": "47]",
+                    "ref_id": "BIBREF40"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Analysis of Flake Rate and Simple Algorithm Change"
+        },
+        {
+            "text": "We use a two-step procedure to determine the test outcome for a given OD test. We assume that some prior runs already detected the OD test, and the goal is to determine the test outcome for some new test orders that were not run.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Determining Test Outcome without Running a Test Order"
+        },
+        {
+            "text": "In",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Determining Test Outcome without Running a Test Order"
+        },
+        {
+            "text": "Step 1, we classify how each test from T relates to each OD test in a simple setting that runs only up to three tests. Specifically, we first determine whether an OD test t is a victim or a brittle by running the test in isolation, i.e., just t , by itself 10 times: if t always passes, it is considered a victim (although it may be an ND test); if t always fails, it is considered a brittle (although it may be an ND test); and if t sometimes passes and sometimes fails, it is definitely an ND, not OD, test. This approach was proposed for iFixFlakies [37] , and using 10 runs is a common industry practice to check whether a test is flaky [31, 40] . We then find (1) for each victim, all its single polluters in T and also all single cleaners for each polluter, and (2) for each brittle, all its single statesetters in T . To find polluters (resp. state-setters) of a victim (resp. brittle) test, iFixFlakies [37] takes as input a test order (of entire T ) where the test failed (resp. passed) and then searches the prefix of the test in that test order using delta debugging [46] (an extended version of binary search). While iFixFlakies can find all polluters (resp. state-setters) in the prefix, it does not necessarily find all polluters in T , and it takes substantial time to find these polluters using delta debugging. The experiments show that in 98% of cases, binary search finds one test to be a polluter, although some rare cases need a polluter group that consists of two tests.",
+            "cite_spans": [
+                {
+                    "start": 553,
+                    "end": 557,
+                    "text": "[37]",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 641,
+                    "end": 645,
+                    "text": "[31,",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 646,
+                    "end": 649,
+                    "text": "40]",
+                    "ref_id": null
+                },
+                {
+                    "start": 911,
+                    "end": 915,
+                    "text": "[37]",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 1078,
+                    "end": 1082,
+                    "text": "[46]",
+                    "ref_id": "BIBREF39"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Determining Test Outcome without Running a Test Order"
+        },
+        {
+            "text": "We propose a simpler and faster approach to find polluters (resp. statesetters) for the most common case: for each victim v (resp. brittle b) and each test t \u2208 T \\ {v} (resp. t \u2208 T \\ {b}), we run a pair of the test and the victim (resp. brittle), i.e., t, v (resp. t, b ). If the victim fails (resp. brittle passes), then the test t is a polluter (resp. state-setter). Further, for each victim v, its polluter p, and a test t \u2208 T \\ {v, p}, we run a triple of p, t, v , and if v passes, then t is a cleaner for the pair of v and p. Note that for the same victim v, different polluters may have different cleaners such as the example presented in Section 2.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Determining Test Outcome without Running a Test Order"
+        },
+        {
+            "text": "In Step 2, we determine whether each OD test passes or fails in a given test order using only the abstraction from Step 1, without actually running the test order. We focus on victims because they are more complex than brittles; brittles can be viewed as special cases with slight changes (requiring a state-setter to run before a brittle to pass, rather than requiring a polluter not to run before a victim to pass). Without loss of generality, we consider one victim at a time. Intuitively, the victim fails in a test order if a polluter is run before the victim without a cleaner between the polluter and the victim. Formally, we define the test outcome as follows.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Determining Test Outcome without Running a Test Order"
+        },
+        {
+            "text": "This definition is an estimate of what one would obtain for all (repeated) runs of |T |! permutations, for three main reasons: (1) tests may behave differently in test orders than in isolation [24] (and an OD test may even be an ND test in some orders [24] ); (2) polluters, cleaners, and state-setters may not be single tests but groups (iFixFlakies [37] reports that groups are rather rare); and (3) a test that fails in some prefix may behave differently for the tests that come after it in a test order than when the test passes (again, iFixFlakies [37] reports this issue to be rare, finding just one such case). Despite these potential sources of error, our evaluation shows that our use of abstraction obtains flake rates similar to iDFlakies for orders that iDFlakies ran. Most importantly, our use of abstraction allows us to evaluate many more orders without actually running them, thus taking much less machine time.",
+            "cite_spans": [
+                {
+                    "start": 193,
+                    "end": 197,
+                    "text": "[24]",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 252,
+                    "end": 256,
+                    "text": "[24]",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 351,
+                    "end": 355,
+                    "text": "[37]",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 553,
+                    "end": 557,
+                    "text": "[37]",
+                    "ref_id": "BIBREF32"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Definition 1 (Test Outcome from Abstraction). Let T be a test suite with one victim v \u2208 T , polluters P \u2282 T , and a family of cleaners C p \u2282 T indexed by each polluter p \u2208 P . The outcome of v in a test order \u03c9 is defined as follows:"
+        },
+        {
+            "text": "We next define flake rate, derive formulas for computing flake rate for two cases, and show why we need to sample test orders for other cases.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Computing Flake Rate"
+        },
+        {
+            "text": "we use the subscript f A and f C when we need to refer specifically to the flake rate for \u03a9 A (T ) and \u03a9 C (T ) (defined in Section 3), respectively.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Definition 2 (Flake Rate). For a test suite T with exactly one victim, given a set of test orders \u03a9(T ), the flake rate is defined as the ratio:"
+        },
+        {
+            "text": "We derive the formula for flake rate based on the number of polluters P and cleaners C for two special cases. In general, computing the flake rate can ignore tests that are not relevant, i.e., not in {v} \u222a P \u222a p\u2208P C p . It is easy to prove that f (T ) = f (T ) if T and T have the same victim, polluters, and cleaners-the reason is that the tests from T \\ T are irrelevant in any order and do not affect the outcome of v; we omit the proof due to space limit. The further analysis thus focuses only on the relevant tests. Special Case 1: Assume that (A1) all polluters have the same set C of cleaners: C = C p , \u2200p \u2208 P ; and (A2) all of the victim, polluters, and cleaners are in the same class: \u2200t, t \u2208 {v}\u222aP \u222aC.class(t) = class(t ); it means that \u03a9 A (T ) = \u03a9 C (T ) and f A = f C . Let \u03c0 = |P | and \u03b3 = |C|. The total number of permutations of the relevant tests is (\u03c0 + \u03b3 + 1)!. While we can obtain |{\u03c9 \u2208 \u03a9(T ) | fail(\u03c9)}| purely by definition, counting test orders where the victim fails, we prefer to take a probabilistic approach that will simplify further proofs. A victim fails if (1) it is not in the first position, with probability (\u03c0 + \u03b3)/(\u03c0 + \u03b3 + 1), and (2) its immediate predecessor is a polluter, with probability \u03c0/(\u03c0 + \u03b3), giving the overall flake rate f (T ) = \u03c0/(\u03c0 + \u03b3 + 1). This formula is simple, but real test suites often violate A1 or A2. Of the 249 tests used in our experiments, 13 violate both A1 and A2, 207 violate only A2, and only 29 do not violate either. Special Case 2: Keeping A1 but relaxing A2, assume that the victim is in class C 1 with \u03c0 1 polluters and \u03b3 1 cleaners, and the other k \u22121 classes have \u03c0 i polluters and \u03b3 i cleaners, 2 \u2264 i \u2264 k, where in general, either \u03c0 i or \u03b3 i , but not both, can be zero for any class except for the victim's own class where both \u03c0 1 and \u03b3 1 can be zero. Per Special Case 1, we have f A (T ) = (",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Definition 2 (Flake Rate). For a test suite T with exactly one victim, given a set of test orders \u03a9(T ), the flake rate is defined as the ratio:"
+        },
+        {
+            "text": "Next, consider class-compatible test orders, which do not interleave tests from different classes. The victim fails if (1) it fails in its own class, with probability \u03c0 1 /(\u03c0 1 + \u03b3 1 + 1), or (2) the following three conditions hold: (2.1) the victim is the first in its own class, with probability 1/(\u03c0 1 + \u03b3 1 + 1), (2.2) the class is not the first among classes, with probability (k \u2212 1)/k, and (2.3) the immediately preceding class ends with a polluter, with probability \u03c0 i /(\u03c0 i + \u03b3 i ) for each class i and thus the probability k i=2 (\u03c0 i /(\u03c0 i + \u03b3 i ))/(k \u2212 1) across all classes. Overall,",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Definition 2 (Flake Rate). For a test suite T with exactly one victim, given a set of test orders \u03a9(T ), the flake rate is defined as the ratio:"
+        },
+        {
+            "text": "The formula is already more complex. It is important to note that we can have ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Definition 2 (Flake Rate). For a test suite T with exactly one victim, given a set of test orders \u03a9(T ), the flake rate is defined as the ratio:"
+        },
+        {
+            "text": "While tools such as iDFlakies [22] incorporate the requirement of not interleaving tests from different classes in a test order, some other tools [47] do not incorporate this requirement, so they allow all test orders. Recall that \u03a9 A (T ) denotes the set of all test orders and \u03a9 C (T ) denotes the set of test orders that satisfy the requirement. The reason to run \u03a9 A (T ) is to try to maximize the detection of all potential OD tests at the risk that some detected failures would be false positives.",
+            "cite_spans": [
+                {
+                    "start": 30,
+                    "end": 34,
+                    "text": "[22]",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 146,
+                    "end": 150,
+                    "text": "[47]",
+                    "ref_id": "BIBREF40"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Comparing Flake Rate for Different Sets of Test Orders"
+        },
+        {
+            "text": "In particular, a test failure observed in some non-class-compatible order may not be reproducible in any class-compatible prefix of that order, e.g., due to the various ways to customize JUnit [17] (with annotations such as @Before, @BeforeClass, @Rule) or similar testing frameworks. The reason to run only \u03a9 C (T ) is to detect OD-test failures that developers can observe from running the tests and are therefore motivated to fix. While both sets of test orders can detect all true positive OD tests, it is not clear which set of test orders are more likely to detect true positive OD tests. Intuitively, running \u03a9 A (T ) test orders can more likely detect failures if cleaners and victims are in the same class, while polluters are in different classes; in such cases, polluters are less likely to come in between cleaners and the victim. For example, for the victim presented in Section 2, the \u03a9 A (T ) flake rate is 10.5%, while the \u03a9 C (T ) flake rate is 4.5%. On the other hand, running \u03a9 C (T ) test orders can more likely detect failures if polluters and victims are in the same class, while cleaners are in different classes. Similar reasoning applies to brittles: if state-setters are more often in the same test class as the brittle, then the brittle is less likely to fail than if state-setters are more often in other classes.",
+            "cite_spans": [
+                {
+                    "start": 193,
+                    "end": 197,
+                    "text": "[17]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Comparing Flake Rate for Different Sets of Test Orders"
+        },
+        {
+            "text": "To compare these sets of test orders on real OD tests, we use the dataset of 192 victim and 57 brittle tests described in Section 3.1. We collect all single test polluters for each victim and all single test cleaners for each polluter-victim pair. We also collect all single test state-setters for the brittles. We then use either the formulas presented in Section 4.2 or a large number of uniformly sampled test orders to obtain the flake rates, f A (T ) and f C (T ), for each test. Specifically, our formulas apply for 236 of the 249 tests. For the remaining 13 tests (all victims), we sample 100,000 test orders from each of \u03a9 A (T ) and \u03a9 C (T ) to estimate their flake rates. Figure 3 summarizes the results. For each set of test orders, the figure shows a boxplot that visualizes the distribution of flake rates for 249 OD tests. The f A (T ) flake rates have a slightly higher mean (38.4%) than the f C (T ) flake rates (38.0%). Statistical tests for paired samples of the flake rates-specifically, dependent Student's t-test obtains a p-value of 0.47 and Wilcoxon signed-rank test obtains a p-value of 0.01-show that the differences could be statistically significant (at \u03b1 = 0.05 level). However, if we omit the 13 tests that required samplings, the means are 38.3% for f A (T ) and 38.6% for f C (T ), and the difference is not statistically significant (dependent Student's t-test obtains a p-value of 0.55, and Wilcoxon signed-rank test obtains a p-value of 0.19).",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 682,
+                    "end": 690,
+                    "text": "Figure 3",
+                    "ref_id": "FIGREF1"
+                }
+            ],
+            "section": "Comparing Flake Rate for Different Sets of Test Orders"
+        },
+        {
+            "text": "Prior work [6, 22, 24, 47] has not performed any explicit comparison between the two sets of test orders. Our results demonstrate that running \u03a9 A (T ) might be more likely to detect true positive OD tests. However, using such test orders may contain false positives. Future work on detecting OD tests should explore how to address false positives if \u03a9 A (T ) test orders are run.",
+            "cite_spans": [
+                {
+                    "start": 11,
+                    "end": 14,
+                    "text": "[6,",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 15,
+                    "end": 18,
+                    "text": "22,",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 19,
+                    "end": 22,
+                    "text": "24,",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 23,
+                    "end": 26,
+                    "text": "47]",
+                    "ref_id": "BIBREF40"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Comparing Flake Rate for Different Sets of Test Orders"
+        },
+        {
+            "text": "Inspired by our probability analysis, we propose a simple change to increase the probability of detecting OD tests. The standard algorithm for sampling S random test orders simply repeats S times the following steps: (1) \u03c9 \u2190 sample a random test order from possible test orders (\u03a9 A (T ) or \u03a9 C (T )); (2) obtain result r \u2190 run(\u03c9); (3) if r is FAIL, then print \u03c9. (A variant [22] may store previously sampled test orders to avoid repetition, but the number of possible test orders is usually so large that sampling the same one is highly unlikely, so one can save space and time by not tracking previously sampled test orders.)",
+            "cite_spans": [
+                {
+                    "start": 375,
+                    "end": 379,
+                    "text": "[22]",
+                    "ref_id": "BIBREF19"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Simple Change to Increase Probability of Detecting OD Tests"
+        },
+        {
+            "text": "Our key change is to select the next test order as a reverse of the prior test order that passed: (4) if r is PASS, then \u03c9 R \u2190 reverse(\u03c9). The intuition for this change is that a passing order may have the polluter after the victim. Therefore, reversing the passing order would have the polluter before the victim, and thus the reverse of the passing order should have a higher probability to fail than a random order that may have the polluter before or after the victim. Note that the reverse of a class-compatible test order is also a class-compatible test order, so this change applies to \u03a9 C (T ). The other changes are to run \u03c9 R , print if it fails, and properly count the test orders to select exactly S samples of test orders.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Simple Change to Increase Probability of Detecting OD Tests"
+        },
+        {
+            "text": "We next compute the probability that the reverse of a passing order fails. Special Case 1: Consider the Special Case 1 scenario from Section 4.2 with \u03c0 polluters and \u03b3 cleaners. For the standard algorithm, f (T ) = f A (T ) = f C (T ) = \u03c0/(\u03c0 + \u03b3 + 1). For our change, the conditional probability that the second test order fails given that the first test order passes is P (fail(\u03c9 R )|pass(\u03c9)) = P (fail(\u03c9 R ) \u2227 pass(\u03c9))/P (pass(\u03c9)). We already have P (pass(\u03c9)) = 1 \u2212 f (T ) = (\u03b3 + 1)/(\u03c0 + \u03b3 + 1).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Simple Change to Increase Probability of Detecting OD Tests"
+        },
+        {
+            "text": "To compute P (fail(\u03c9 R )\u2227pass(\u03c9)), we consider two cases based on the position of the victim in the passing test order \u03c9. (1) If the victim is first, with the probability of 1/(\u03c0 + \u03b3 + 1), then the second test should be a polluter, with the probability of \u03c0/(\u03c0 + \u03b3), so we get \u03c0/((\u03c0 + \u03b3)(\u03c0 + \u03b3 + 1)) for this case. (2) If the victim is not first, it cannot be the last in \u03c9 because otherwise, \u03c9 R would not fail, so the victim is in the middle, with the probability of (\u03c0 + \u03b3 \u2212 1)/(\u03c0 + \u03b3 + 1).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Simple Change to Increase Probability of Detecting OD Tests"
+        },
+        {
+            "text": "We also need a cleaner right before the victim, with probability \u03b3/(\u03c0 + \u03b3), and a polluter right after the victim, with probability \u03c0/(\u03c0 + \u03b3 \u2212 1). Overall, we get the probability \u03c0\u03b3/((\u03c0 + \u03b3)(\u03c0 + \u03b3 + 1)) for this case. We can sum up the two cases to get P (fail(\u03c9 R ) \u2227 pass(\u03c9)) = \u03c0(\u03b3 + 1)/((\u03c0 + \u03b3)(\u03c0 + \u03b3 + 1)).",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Simple Change to Increase Probability of Detecting OD Tests"
+        },
+        {
+            "text": "Finally, the conditional probability that the reverse test order fails given the first test order passes is P (fail(\u03c9 R )|pass(\u03c9)) = ( \u03c0(\u03b3+1) (\u03c0+\u03b3)(\u03c0+\u03b3+1) )/( \u03b3+1 \u03c0+\u03b3+1 ) = \u03c0/(\u03c0 + \u03b3). This probability is strictly larger than f (T ) = \u03c0/(\u03c0 + \u03b3 + 1), because \u03c0 > 0 must be true for the victim to be a victim. Special Case 2: For the Special Case 2 scenario from Section 4.2, the common case is \u03c0 1 + \u03b3 1 > 0 (i.e., the victim's class C 1 has at least one other relevant test). Based on the relative position of the victim in class C 1 , we consider three cases: the victim runs first, in the middle, or last in class C 1 . After calculating the probability for the three cases separately and summing them up, we get the probability that the reverse test order fails and the first test order passes as",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Simple Change to Increase Probability of Detecting OD Tests"
+        },
+        {
+            "text": "\u03b3i \u03c0i+\u03b3i . In Section 4.2, we have computed P (pass(\u03c9)), so dividing P (fail(\u03c9 R ) \u2227 pass(\u03c9)) by P (pass(\u03c9)) gives the conditional probability that the reverse test order fails given the first test order passes. Due to the complexity of the formulas, it is difficult to show a detailed proof that P (fail(\u03c9 R )|pass(\u03c9)) > f (T ), so we sample test orders instead.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Simple Change to Increase Probability of Detecting OD Tests"
+        },
+        {
+            "text": "When we sample both \u03a9 A (T ) and \u03a9 C (T ) for 100,000 random test orders on all 249 OD tests without reverse (i.e., the standard algorithm) and with reverse when a test order passes (i.e., our change), we find that our change does statistically significantly increase the chance to detect OD tests. Specifically, for \u03a9 A (T ), test orders without reverse obtain a mean of 38.6%, while test orders with reverse of passing test orders obtain a mean of 45.3%. Statistical tests for paired samples on the flake rates without and with reverse for \u03a9 A (T ) show a p-value of \u223c 10 \u221238 for dependent Student's t-test and a p-value of \u223c 10 \u221243 for Wilcoxon signed-rank test. Similarly, for \u03a9 C (T ), test orders without reverse obtain a mean of 38.0%, while test orders with reverse of passing test orders obtain a mean of 45.3%. Statistical tests for paired samples on the flake rates without and with reverse for \u03a9 C (T ) show a p-value of \u223c 10 \u221242 for dependent Student's t-test and a p-value of \u223c 10 \u221242 for Wilcoxon signed-rank test.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Simple Change to Increase Probability of Detecting OD Tests"
+        },
+        {
+            "text": "Based on these positive results, we have changed the iDFlakies tool [22] so that, by default, it runs the reverse of the previous order, instead of running a random order, if the previous order found no new flaky test.",
+            "cite_spans": [
+                {
+                    "start": 68,
+                    "end": 72,
+                    "text": "[22]",
+                    "ref_id": "BIBREF19"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Simple Change to Increase Probability of Detecting OD Tests"
+        },
+        {
+            "text": "We next discuss our algorithm to generate test orders that systematically cover all test pairs for a given set T with n tests. The motivation is that even with our change to increase the probability to detect OD tests, the randomization-based sampling remains inherently probabilistic and can fail to detect an OD test.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Generating Test Orders to Cover Test Pairs"
+        },
+        {
+            "text": "We first focus on the special case where we have only one class, or many classes that each have only one test, so all n! permutations are class-compatible. For example, for n = 2 we can cover both pairs with \u03a9 2 = { t 1 , t 2 , t 2 , t 1 }, and for n = 4 we can cover all 12 pairs with 4 test orders \u03a9 4 = { t 1 , t 4 , t 2 , t 3 , t 2 , t 1 , t 3 , t 4 , t 3 , t 2 , t 4 , t 1 , t 4 , t 3 , t 1 , t 2 }. Recall that n is the minimum number of test orders needed to cover all test pairs, so the cases for n = 2 and n = 4 are optimal. The reader is invited to consider for n = 3 whether we can cover all 6 test pairs with just 3 test orders. The answer is upcoming in this section.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Special Case: All Orders are Class-Compatible"
+        },
+        {
+            "text": "To address this problem, we consider Tuscan squares [7] , objects studied in the field of combinatorics. Given a natural number n, a Tuscan square consists of n rows, each of which is a permutation of the numbers {1, 2, . . . , n}, and every pair i, j of distinct numbers occurs consecutively in some row. Tuscan squares are sometimes called \"row-complete Latin squares\" [34] , but note that Tuscan squares need not have each column be a permutation of all numbers.",
+            "cite_spans": [
+                {
+                    "start": 52,
+                    "end": 55,
+                    "text": "[7]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 371,
+                    "end": 375,
+                    "text": "[34]",
+                    "ref_id": "BIBREF30"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Special Case: All Orders are Class-Compatible"
+        },
+        {
+            "text": "A Tuscan square of size n is equivalent to a decomposition of the complete graph on n vertices, K n , into n Hamiltonian paths [42] . The decomposition for even n has been known since the 19 th century and is often attributed to Walecki [26] . The decomposition for odd n \u2265 7 was published in 1980 by Tillson [42] . Tillson presented a beautiful construction for n = 4m + 3 and a rather involved construction for n = 4m + 1 with a recursive step and manually constructed base case for n = 9. In brief, Tuscan squares can be constructed for all values of n except n = 3 or n = 5. We did not find a public implementation for generating Tuscan squares, and considering the complexity of the case n = 4m+1 in Tillson's construction, we have made our implementation public [44] .",
+            "cite_spans": [
+                {
+                    "start": 127,
+                    "end": 131,
+                    "text": "[42]",
+                    "ref_id": null
+                },
+                {
+                    "start": 237,
+                    "end": 241,
+                    "text": "[26]",
+                    "ref_id": "BIBREF23"
+                },
+                {
+                    "start": 309,
+                    "end": 313,
+                    "text": "[42]",
+                    "ref_id": null
+                },
+                {
+                    "start": 768,
+                    "end": 772,
+                    "text": "[44]",
+                    "ref_id": null
+                }
+            ],
+            "ref_spans": [],
+            "section": "Special Case: All Orders are Class-Compatible"
+        },
+        {
+            "text": "We can directly translate permutations from Tuscan squares into n test orders that cover all test pairs in this special case (where all test pairs are either only intra-class test pairs of one class or only inter-class test pairs of n classes). These sets of test orders have the minimal possible cost: Cost(\u03a9 n ) = n(Cost 0 + Cost(T )), substantially lower than Cost(\u03a9 p ) for running all test pairs in isolation. For n = 3 and n = 5, we have to use 4 and 6 test orders, respectively, to cover all test pairs. For example, for n = 3 we can cover all 6 pairs with 4 orders { t 1 , t 2 , t 3 , t 2 , t 1 , t 3 , t 3 , t 1 , t 3 , t 2 }.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Special Case: All Orders are Class-Compatible"
+        },
+        {
+            "text": "Algorithm 1 shows the pseudo-code algorithm to generate test orders that cover all test pairs in the general case where we have more than one class and at least one class has more than one test. The main function calls two functions to generate test orders that cover intra-class and inter-class test pairs.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "General Case"
+        },
+        {
+            "text": "The function cover intra class pairs generates test orders that cover all intra-class test pairs. For each class, the function compute tuscan square is used to generate test orders of tests within the class to cover all intra-class test pairs. These test orders for each class are then appended to form a test order for the entire test suite T . The function pick, invoked on multiple lines, chooses a random element from a set. The outer loop iterates as many times as the maximum number of intra-class test orders for any class. When the loop finishes, \u03a9 contains a set of test orders that cover all intra-class and some interclass test pairs. Each test order that concatenates tests from l classes covers l \u2212 1 inter-class test pairs. (Using just these test orders, we already detected 44 new OD tests in the test suites from the iDFlakies dataset.) Each intra-class test pair is covered by exactly one test order. Modulo the special cases for n = 3 and n = 5, each covered inter-class pair appears in exactly one test order in \u03a9, because Tuscan squares satisfy the invariant that each element appears only once as the first and once as the last in the permutations in a Tuscan square.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "General Case"
+        },
+        {
+            "text": "The function cover inter class pairs generates more test orders to cover the remaining inter-class test pairs. It uses a greedy algorithm to first initialize a test order with a randomly selected not-covered test pair and then extend the test order with a randomly selected not-covered test pair as long as an appropriate test pair exists. Extending the test order as long as possible reduces both the number of test orders and the number of times each test needs to be run.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "General Case"
+        },
+        {
+            "text": "We evaluate our randomized algorithm on 121 modules from the iDFlakies dataset as described in Section 3.1. We use the total cost, which considers the number of test orders and the number of tests in all of those test orders. The number of test orders is related to Cost 0 , while the number of tests is related to Cost 1 as defined in Section 3. We run our algorithm 10 times for various random seeds. The coefficient of variation [3] for each module shows that the algorithm is fairly stable, with the average for all modules being only 1.1% and 0.25% for the number of test orders and the number of tests, respectively.",
+            "cite_spans": [
+                {
+                    "start": 432,
+                    "end": 435,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                }
+            ],
+            "ref_spans": [],
+            "section": "General Case"
+        },
+        {
+            "text": "Compared with \u03a9 p that has all test orders of just test pairs, our randomized algorithm's average number of test orders and the average number of tests are only 3.68% and 51.8%, respectively, that of all the \u03a9 p test orders. The overall cost of the test orders generated by our randomized algorithm is close to the optimal, because the number of test orders is reduced by almost two orders of magnitude, and 51.8% of the number of tests is close to the theoretical minimum of 50% that of \u03a9 p test orders for Cost 1 .",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "General Case"
+        },
+        {
+            "text": "Order-dependent (OD) tests are one prominent category of flaky tests. Prior work [22, 24, 47] has used randomized test orders to detect OD tests. In this paper, we have presented the first analysis of the probability that randomized test orders detect OD tests. We have also proposed a simple change for sampling random test orders to increase the probability of detecting OD tests. We have finally proposed a novel algorithm that systematically explores all consecutive pairs of tests, guaranteeing to find all OD tests that depend on one other test. Our experimental results show that our algorithm runs substantially fewer tests than a naive exploration that runs all pairs of tests. Our runs of some test orders generated by the algorithm detect 44 new OD tests, not detected in prior work [22, 24, 25] on the same evaluation dataset.",
+            "cite_spans": [
+                {
+                    "start": 81,
+                    "end": 85,
+                    "text": "[22,",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 86,
+                    "end": 89,
+                    "text": "24,",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 90,
+                    "end": 93,
+                    "text": "47]",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 794,
+                    "end": 798,
+                    "text": "[22,",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 799,
+                    "end": 802,
+                    "text": "24,",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 803,
+                    "end": 806,
+                    "text": "25]",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Conclusion"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Efficient dependency detection for safe Java test acceleration",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bell",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Kaiser",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Melski",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Dattatreya",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "ESEC/FSE",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Coefficient of variation",
+            "authors": [],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "Facebook testing and verification request for proposals",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Cucumber",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "Practical test dependency detection",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Gambi",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bell",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Zeller",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Tuscan squares -A new family of combinatorial designs",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Golomb",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Taylor",
+                    "suffix": ""
+                }
+            ],
+            "year": 1985,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Google: Avoiding flakey tests",
+            "authors": [],
+            "year": 2008,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Reliable testing: Detecting statepolluting tests to prevent test dependency",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Gyori",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Hariri",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Marinov",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "From start-ups to scale-ups: Opportunities and open problems for static and dynamic program analysis",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Harman",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "O&apos;hearn",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "The art of testing less without sacrificing quality",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Herzig",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Greiler",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Czerwonka",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Murphy",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Empirically detecting false test alarms using association rules",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Herzig",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Nagappan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "Tackling the minimal superpermutation problem",
+            "authors": [
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Houston",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Improving oracle quality by detecting brittle assertions and unused inputs in tests",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Huo",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Clause",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "FSE (2014) 15. iDFlakies: Flaky test dataset",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "What causes my test alarm? Automatic cause analysis for test alarms in system and integration testing",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Jiang",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xuan",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Modeling and ranking flaky tests at Apple. In: ICSE SEIP",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Kowalczyk",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Nair",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Silberstein",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Long",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Memon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Illinois Dataset of Flaky Tests (IDoFT) (2020)",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Lam",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "Root causing flaky tests in a large-scale industrial setting",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Lam",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Godefroid",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Nath",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Santhiar",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Thummalapenta",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "A study on the lifecycle of flaky tests",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Lam",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Mu\u015flu",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Sajnani",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Thummalapenta",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "iDFlakies: A framework for detecting and partially classifying flaky tests",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Lam",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Oei",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Marinov",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Xie",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Dependent-test-aware regression testing techniques",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Lam",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Oei",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Ernst",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Xie",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "Understanding reproducibility and characteristics of flaky tests through test reruns in Java projects",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Lam",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Winter",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Astorga",
+                    "suffix": ""
+                },
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Stodden",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Marinov",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "A large-scale longitudinal study of flaky tests",
+            "authors": [
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Lam",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Winter",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Wei",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Xie",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Marinov",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bell",
+                    "suffix": ""
+                }
+            ],
+            "year": 2020,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF23": {
+            "ref_id": "b23",
+            "title": "R\u00e9cr\u00e9ations math\u00e9matiques",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Lucas",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF24": {
+            "ref_id": "b24",
+            "title": "An empirical analysis of flaky tests",
+            "authors": [
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Luo",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Hariri",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Eloussi",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Marinov",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF26": {
+            "ref_id": "b26",
+            "title": "Taming Google-scale continuous testing. In: ICSE SEIP",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Memon",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Nguyen",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Dhanda",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Nickell",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Siemborski",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Micco",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF27": {
+            "ref_id": "b27",
+            "title": "The state of continuous integration testing at Google",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Micco",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF28": {
+            "ref_id": "b28",
+            "title": "Finding bugs by isolating unit tests",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Mu\u015flu",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Soran",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wuttke",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "ES-EC/FSE",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF29": {
+            "ref_id": "b29",
+            "title": "A survey of combinatorial testing",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Nie",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Leung",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "ACM Comput. Surv",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF30": {
+            "ref_id": "b30",
+            "title": "Sequenceable groups and related topics",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Ollis",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Electronic Journal of Combinatorics",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF32": {
+            "ref_id": "b32",
+            "title": "iFixFlakies: A framework for automatically fixing order-dependent flaky tests",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Shi",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Lam",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Oei",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Xie",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Marinov",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "ESEC/FSE",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF33": {
+            "ref_id": "b33",
+            "title": "StackExchange -Covering pairs with permutations",
+            "authors": [
+                {
+                    "first": "",
+                    "middle": [],
+                    "last": "Spock",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF35": {
+            "ref_id": "b35",
+            "title": "A Hamiltonian decomposition of K * 2m , 2m \u2265 8",
+            "authors": [
+                {
+                    "first": "T",
+                    "middle": [
+                        "W"
+                    ],
+                    "last": "Testng ; Tillson",
+                    "suffix": ""
+                }
+            ],
+            "year": 1980,
+            "venue": "Journal of Combinatorial Theory, Series B",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF36": {
+            "ref_id": "b36",
+            "title": "TotT: Avoiding flakey tests",
+            "authors": [],
+            "year": 2019,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF38": {
+            "ref_id": "b38",
+            "title": "Regression testing minimization, selection and prioritization: A survey",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Yoo",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Harman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Software Testing, Verification & Reliability",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF39": {
+            "ref_id": "b39",
+            "title": "Simplifying and isolating failure-inducing input",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Zeller",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Hildebrandt",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF40": {
+            "ref_id": "b40",
+            "title": "Empirically revisiting the test independence assumption",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Jalali",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Wuttke",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Mu\u015flu",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Lam",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Ernst",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Notkin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2014,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF41": {
+            "ref_id": "b41",
+            "title": "Who broke the build?: Automatically identifying changes that induce test failures in continuous integration at Google scale",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Ziftci",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Reardon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "based on the ratio of polluters and cleaners in the victim's own class vs. the ratio of polluters and victims in other classes, i.e., neither set of test orders ensures a higher flake rate. We show in Section 4.3 that both cases arise in practice. General Case: In the most general case, relaxing A1 to allow different polluters to have a different set of cleaners, while also having all these relevant tests in different classes, it appears challenging to derive a closed-form expression for f A (T ), let alone for f C (T ). We thus resort to estimating flake rates by sampling orders from \u03a9 A (T ) or \u03a9 C (T ), and counting what ratio of them fail based on Definition 1 in Section 4.3.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Distribution of flake rate for two sets of test orders.",
+            "latex": null,
+            "type": "figure"
+        },
+        "TABREF0": {
+            "text": "Fig. 1. Victim OD test from Hadoop's TestMRAppMaster class.Fig. 2. Polluter test from Hadoop's TestJobHistoryEventHandler class.",
+            "latex": null,
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "Algorithm 1: Generate test orders that cover all intra-test-class and inter-test-class test-method pairs 1 Input: T # test suite, a set of test methods partitioned into test classes 2 Output: \u03a9 # output is a set of test orders 3 Function cover all pairs(): Function cover intra class pairs(): map = {} # map each class to all its intra-class orders for C \u2208 classes(T ) do map = map \u222a { C, \u03c9C | \u03c9C \u2208 compute tuscan square(C)} Cs = {C | \u2203\u03c9C . C, \u03c9C \u2208 map} 14 for C \u2208 Cs do \u03c9C = pick({\u03c9C | C, \u03c9C \u2208 map}) map = map \\ { C, \u03c9C } 17 \u03c9 = \u03c9 \u2295 \u03c9C # append order 18 \u03a9 = \u03a9 \u222a {\u03c9} 19 Function cover inter class pairs(): pairs = { t, t | t, t \u2208 T \u2227 class(t) = class(t )}\\ # from all inter-class pairs.. { t, t | \u2203\u03c9 \u2208 \u03a9. cover(\u03c9, t, t )} # ..remove covered by intra-class orders while pairs = {} do 23 \u03c9 = pick(pairs) # start with a randomly chosen not-covered pair pairs = pairs \\ {\u03c9} while true do tp = \u03c9 |\u03c9|\u22121 # previously last test ts = {t | tp, t \u2208 pairs \u2227 class(t) / \u2208 classes(\u03c9)} if ts = {} then pairs = pairs\\{ tp, tn } 32 \u03c9 = \u03c9 \u2295 tn 33 \u03a9 = \u03a9 \u222a {\u03c9}",
+            "latex": null,
+            "type": "table"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "We are grateful to Peter Taylor for a StackExchange post [39] that led us to the concept of Tuscan squares. We thank Dragan Stevanovi\u0107, Wenyu Wang, and Zhengkai Wu for discussions about Tuscan squares and Reed Oei for comments on the paper draft. This work was partially supported by NSF grants CNS-1564274, CNS-1646305, CCF-1763788, and CCF-1816615. We also acknowledge support for research on flaky tests from Facebook and Google.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Acknowledgments"
+        }
+    ]
+}
